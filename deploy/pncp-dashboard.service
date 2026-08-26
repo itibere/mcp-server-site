@@ -1,0 +1,16 @@
+[Unit]
+Description=Coleta contratações de TIC no PNCP e publica no itibere.tec.br
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# Ajuste o usuário e o caminho do repositório antes de instalar.
+User=SEU_USUARIO
+WorkingDirectory=/home/SEU_USUARIO/itibere-tec-br
+ExecStart=/home/SEU_USUARIO/itibere-tec-br/scripts/publicar.sh --dias 90 --uf DF
+# git push precisa de credencial não interativa: use uma chave SSH sem
+# passphrase dedicada a este repositório, ou o gh CLI já autenticado.
+Environment=GIT_SSH_COMMAND=ssh -i /home/SEU_USUARIO/.ssh/id_pncp -o IdentitiesOnly=yes
+TimeoutStartSec=1800
+Nice=10

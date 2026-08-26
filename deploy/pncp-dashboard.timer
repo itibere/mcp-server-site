@@ -1,0 +1,12 @@
+[Unit]
+Description=Atualização semanal dos dados do monitor de TIC
+
+[Timer]
+# Segunda-feira às 07:00, horário local da máquina.
+OnCalendar=Mon *-*-* 07:00:00
+# Se a máquina estava desligada na hora marcada, roda assim que ligar.
+Persistent=true
+RandomizedDelaySec=900
+
+[Install]
+WantedBy=timers.target
