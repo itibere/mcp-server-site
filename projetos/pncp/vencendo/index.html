@@ -4,34 +4,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contratos de TIC Vencendo (PNCP) — itibere.tec.br</title>
-  <meta name="description" content="Contratos de TIC da esfera federal, no Distrito Federal, com vigência terminando nos próximos meses — levantado no Portal Nacional de Contratações Públicas.">
+  <meta name="description" content="Contratos de TIC da esfera federal, no Distrito Federal, com vigência terminando entre 6 e 12 meses — janela estratégica pra preparação, filtrados por um agente julgador. Portal Nacional de Contratações Públicas.">
 
-  <!-- Tailwind CSS Standalone -->
+  <!-- Tailwind CSS Standalone (so para o header compartilhado abaixo) -->
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Fira Code/Plus Jakarta para o header do site; IBM Plex para o conteudo desta pagina -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../../../assets/style.css">
   <link rel="stylesheet" href="../../../assets/dashboard.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2305070c'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%23f59e0b' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='%23f59e0b' text-anchor='middle'>⏳</text></svg>">
+  <link rel="stylesheet" href="../../../assets/vencendo.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23f4f5f7'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2312495c' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='%2312495c' text-anchor='middle'>⏳</text></svg>">
 
   <!-- Security Meta Tags -->
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
 </head>
-<body class="bg-[#05070c] text-slate-100 font-sans antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+<body class="bg-[#05070c] font-sans antialiased">
 
-  <!-- Background Pattern -->
-  <div class="fixed inset-0 bg-grid-cyber pointer-events-none z-0 opacity-40"></div>
-
-  <!-- TOPBAR -->
+  <!-- TOPBAR compartilhado do site (mesmo do resto — navegação consistente) -->
   <header class="sticky top-0 z-50 border-b border-emerald-500/20 bg-[#05070c]/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-      <a href="../../../" class="flex items-center gap-2 text-sm font-mono-code group hover:no-underline">
+      <a href="../../../" class="flex items-center gap-2 text-sm font-mono-code group hover:no-underline text-slate-100">
         <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#06b6d4]"></span>
         <span class="text-emerald-400 font-semibold">itibere</span><span class="text-slate-500">@</span><span class="text-cyan-400">bsb-infra</span><span class="text-slate-500">:~#</span>
         <span class="text-slate-300 group-hover:text-cyan-300 transition">pncp-monitor</span>
@@ -54,162 +52,93 @@
     </div>
   </header>
 
-  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8">
+  <!-- Conteudo desta pagina: visual proprio (claro, institucional), ver assets/vencendo.css -->
+  <div class="pagina-vencendo">
+  <div class="v-wrap">
 
-    <!-- Breadcrumb & Page Head -->
-    <div class="space-y-3">
-      <div class="flex items-center gap-2 text-xs font-mono-code text-slate-400">
-        <a href="../../../" class="text-cyan-400 hover:underline">itibere.tec.br</a>
-        <span>/</span>
-        <a href="../" class="text-slate-300 hover:text-cyan-300">pncp-monitor</a>
-        <span>/</span>
-        <span class="text-amber-400">vencendo</span>
-      </div>
-
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6">
-        <div>
-          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-mono-code mb-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> VIGÊNCIA · LEI 14.133/2021
-          </div>
-          <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Contratos de TIC Vencendo
-          </h1>
-          <p class="text-slate-300 text-sm sm:text-base max-w-3xl mt-2 leading-relaxed">
-            Contratos já assinados (não editais) cuja vigência termina em breve — candidatos
-            naturais a renovação ou nova licitação. Diferente do
-            <a href="../" class="text-cyan-400 hover:underline">Monitor de Contratações</a>,
-            que olha a data de publicação, esta página olha a data de vigência final de cada
-            contrato já firmado.
-          </p>
-        </div>
-        <div class="flex items-center gap-2 shrink-0 font-mono-code text-xs">
-          <span class="px-3 py-1.5 rounded-lg bg-[#090e17] border border-amber-500/30 text-amber-300 flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-400"></span> Janela de Alerta: 6 meses
-          </span>
-        </div>
-      </div>
+    <div class="v-eyebrow">
+      <a href="../../../">itibere.tec.br</a><span class="v-sep">/</span>
+      <a href="../">pncp-monitor</a><span class="v-sep">/</span>
+      <span>vencendo</span>
     </div>
 
-    <!-- Loading State -->
-    <div id="carregando" class="p-12 text-center rounded-2xl bg-[#090e17] border border-slate-800">
-      <p class="text-slate-400 font-mono-code text-sm animate-pulse flex items-center justify-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-amber-400"></span> Carregando dados da API PNCP…
-      </p>
-    </div>
+    <h1>Contratos de TIC com vencimento estratégico</h1>
+    <p class="v-lede">
+      Contratos federais de TIC no Distrito Federal com vigência terminando entre
+      <strong id="lede-janela">6 e 12 meses</strong> a partir de hoje — não os que vencem amanhã,
+      tarde demais pra preparar nada, mas os que dão tempo de montar documentação e se posicionar
+      antes da próxima licitação de cada órgão. Coletados via <code>/api/search/</code> do PNCP e
+      conferidos um a um por um agente julgador — detalhes no quadro ao final.
+    </p>
 
-    <!-- Main Dynamic Content Container -->
-    <div id="conteudo" style="display:none" class="space-y-8">
+    <div id="carregando" style="padding:48px 10px;text-align:center;color:var(--v-muted)">Carregando dados…</div>
 
-      <!-- Metadata Telemetry Box -->
-      <dl class="proc">
-        <div><dt>UF</dt><dd id="p-uf">—</dd></div>
-        <div><dt>Esfera</dt><dd id="p-esfera">—</dd></div>
-        <div><dt>Critério de TIC</dt><dd id="p-criterio">—</dd></div>
-        <div><dt>Janela de Vencimento</dt><dd id="p-janela">—</dd></div>
-        <div><dt>Data da Leitura</dt><dd id="p-leitura">—</dd></div>
-      </dl>
+    <div id="conteudo" style="display:none">
 
-      <!-- KPI Metrics Tiles -->
-      <div class="tiles">
-        <div class="tile">
-          <p class="rot">Contratos</p>
-          <p class="num text-amber-400" id="t-total">—</p>
-          <p class="sub">vencendo no recorte</p>
+      <dl class="v-meta-row" id="proc"></dl>
+
+      <div class="v-stat-row" id="tiles"></div>
+
+      <div class="v-toolbar">
+        <div class="v-toolbar-left">
+          <button class="v-chip" type="button" id="chip-servico" aria-pressed="false">Só serviços</button>
+          <span class="v-toolbar-count"><span id="conta-lista">—</span> contratos</span>
         </div>
-        <div class="tile">
-          <p class="rot">Valor Global</p>
-          <p class="num text-emerald-400" id="t-valor">—</p>
-          <p class="sub">somado dos contratos listados</p>
-        </div>
-        <div class="tile">
-          <p class="rot">De Serviços</p>
-          <p class="num text-cyan-400" id="t-servicos">—</p>
-          <p class="sub">triagem por texto, não classificação oficial</p>
-        </div>
-        <div class="tile">
-          <p class="rot">Órgãos</p>
-          <p class="num text-purple-400" id="t-orgaos">—</p>
-          <p class="sub">com ao menos um contrato no recorte</p>
-        </div>
+        <input class="v-busca" id="busca" type="search" placeholder="Buscar por objeto ou órgão…">
       </div>
 
-      <!-- Filters Toolbar -->
-      <div class="filtros">
-        <div class="filtro-grupo">
-          <span class="filtro-rot text-amber-400">Filtro:</span>
-          <button class="chip" type="button" id="chip-servico" aria-pressed="false">Só serviços</button>
-        </div>
-      </div>
-
-      <!-- Table of Expiring Contracts -->
-      <div class="grafico largo space-y-4">
-        <div class="lista-head">
-          <div>
-            <h2 class="text-white text-lg font-bold">Contratos Vencendo</h2>
-            <p class="dica" style="margin:4px 0 0">
-              <span id="conta-lista" class="text-amber-400 font-mono-code font-semibold">—</span>
-              no recorte atual, do que vence mais cedo para o mais tarde. A etiqueta indica
-              classificação por palavra-chave no objeto (triagem, não conclusão oficial).
-            </p>
-          </div>
-          <input class="busca" id="busca" type="search" placeholder="Filtrar por objeto ou órgão…" aria-label="Buscar por objeto ou órgão">
-        </div>
-
-        <div class="tabela-scroll rounded-xl border border-slate-800/80 overflow-hidden">
-          <table class="lista">
+      <div class="v-table-card">
+        <div class="v-tabela-scroll">
+          <table>
             <thead>
-              <tr class="bg-[#050912]">
-                <th class="num">Vence em</th>
+              <tr>
                 <th>Órgão</th>
-                <th>Objeto</th>
-                <th>Modalidade</th>
+                <th class="num">Vencimento</th>
                 <th class="num">Valor</th>
+                <th>Objeto</th>
+                <th>Link PNCP</th>
               </tr>
             </thead>
-            <tbody id="corpo-lista"></tbody>
+            <tbody id="corpo"></tbody>
           </table>
         </div>
-
-        <button class="mais" id="btn-mais" type="button" style="display:none">Mostrar mais registros</button>
+        <button class="v-mais" id="btn-mais" type="button" style="display:none">Mostrar mais</button>
       </div>
 
-      <!-- Technical Architecture Notes -->
-      <div class="grafico largo space-y-3">
-        <h2 class="text-white text-base font-bold flex items-center gap-2">
-          <span>🛠️</span> Arquitetura & Procedência dos Dados
-        </h2>
-        <p class="dica" style="margin-top:8px; line-height: 1.6;">
-          A API pública de consulta do PNCP (<code class="font-mono-code text-cyan-300">/v1/contratos</code>)
-          não filtra por UF, esfera nem vigência — só por órgão. A busca por trás do próprio site
-          do PNCP (<code class="font-mono-code text-cyan-300">/api/search/</code>) filtra as três
-          coisas de verdade e devolve a data de vigência final direto no registro, então é essa
-          que este levantamento usa: candidatos de TIC via busca textual (frases entre aspas, para
-          não virar palavra solta), esfera federal, UF Distrito Federal, filtrados pela vigência
-          final caindo na janela de alerta.
-        </p>
-        <p class="dica" style="margin-top:8px; line-height: 1.6;">
-          <strong class="text-amber-400">Limite honesto:</strong> a classificação de TIC e de
-          "serviço" é heurística de palavra-chave no objeto — serve para priorizar leitura, não
-          como conclusão jurídica ou contábil. O objeto completo e o link para a página oficial
-          do contrato no PNCP estão sempre disponíveis para conferência.
-        </p>
+      <div class="v-jul-card" id="quadro-julgador">
+        <div class="v-jul-head">
+          <h2>Agente julgador</h2>
+          <p class="v-sub">Busca por palavra-chave prende falso positivo — cada candidato foi lido e julgado individualmente antes de virar linha na tabela acima.</p>
+        </div>
+
+        <div class="v-jul-stats">
+          <div class="v-jul-stat">
+            <p class="v-jul-stat-num" id="jul-antes">—</p>
+            <p class="v-jul-stat-rot">candidatos (palavra-chave)</p>
+          </div>
+          <div class="v-jul-stat">
+            <p class="v-jul-stat-num" style="color:var(--v-ok)" id="jul-aprovados">—</p>
+            <p class="v-jul-stat-rot">aprovados como TIC de verdade</p>
+          </div>
+          <div class="v-jul-stat">
+            <p class="v-jul-stat-num" style="color:var(--v-warn)" id="jul-reprovados">—</p>
+            <p class="v-jul-stat-rot">descartados (<span id="jul-taxa">—</span> do total)</p>
+          </div>
+        </div>
+
+        <p class="v-jul-exemplos-titulo">O que ele pegou</p>
+        <ul class="v-jul-exemplos" id="jul-exemplos"></ul>
       </div>
 
     </div>
-  </main>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-emerald-500/20 bg-[#04060a] py-10 mt-20 font-mono-code text-xs text-slate-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div>
-        Fonte Oficial: <span class="text-slate-200">Portal Nacional de Contratações Públicas (PNCP) — Dados Abertos</span>
-      </div>
-      <div class="flex items-center gap-6">
-        <a href="../../../" class="text-cyan-400 hover:underline">← Voltar ao Hub de MCPs</a>
-        <a href="mailto:itibere.paquier@gmail.com" class="hover:text-white transition">Contato</a>
-      </div>
+    <div class="v-foot">
+      Fonte: Portal Nacional de Contratações Públicas — dados abertos · gerado em <span id="foot-data"></span>
+      · <a href="mailto:itibere.paquier@gmail.com">Contato</a>
     </div>
-  </footer>
+
+  </div>
+  </div>
 
   <!-- Scripts -->
   <script src="../../../assets/vencendo.js"></script>
