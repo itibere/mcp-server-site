@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contratos de TIC vencendo — itibere.tec.br</title>
+<meta name="description" content="Contratos de TIC da esfera federal, no Distrito Federal, com vigência terminando nos próximos meses — levantado no Portal Nacional de Contratações Públicas.">
+<link rel="stylesheet" href="../../../assets/style.css">
+<link rel="stylesheet" href="../../../assets/dashboard.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232a78d6'/><text x='16' y='23' font-family='system-ui,sans-serif' font-size='19' font-weight='700' fill='white' text-anchor='middle'>i</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap-wide topbar-inner">
+    <a class="brand" href="../../../">itibere<span class="dim">.tec.br</span></a>
+    <nav class="topnav">
+      <a href="../../../#trabalhos">Trabalhos</a>
+      <a href="../">Monitor TIC</a>
+      <a href="./" aria-current="page">Vencendo</a>
+      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Alternar tema claro e escuro" title="Alternar tema">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap-wide">
+
+  <p class="crumb"><a href="../../../">Início</a> › <a href="../">Monitor TIC</a> › Vencendo</p>
+
+  <div class="page-head">
+    <h1>Contratos de TIC vencendo</h1>
+    <p class="lede">
+      Contratos assinados (não editais) cuja vigência termina em breve — os
+      candidatos naturais a renovação ou nova licitação. Diferente do
+      <a href="../">Monitor de contratações</a>, que olha a data de publicação,
+      esta página olha a data de vigência final de cada contrato já firmado.
+    </p>
+  </div>
+
+  <div id="carregando"><p class="vazio">Carregando dados…</p></div>
+
+  <div id="conteudo" style="display:none">
+
+    <dl class="proc">
+      <div><dt>UF</dt><dd id="p-uf">—</dd></div>
+      <div><dt>Esfera</dt><dd id="p-esfera">—</dd></div>
+      <div><dt>Critério de TIC</dt><dd id="p-criterio">—</dd></div>
+      <div><dt>Janela de vencimento</dt><dd id="p-janela">—</dd></div>
+      <div><dt>Data da leitura</dt><dd id="p-leitura">—</dd></div>
+    </dl>
+
+    <div class="tiles">
+      <div class="tile">
+        <p class="rot">Contratos</p>
+        <p class="num" id="t-total">—</p>
+        <p class="sub">vencendo no recorte</p>
+      </div>
+      <div class="tile">
+        <p class="rot">Valor global</p>
+        <p class="num" id="t-valor">—</p>
+        <p class="sub">somado dos contratos listados</p>
+      </div>
+      <div class="tile">
+        <p class="rot">De serviços</p>
+        <p class="num" id="t-servicos">—</p>
+        <p class="sub">triagem por texto, não classificação oficial</p>
+      </div>
+      <div class="tile">
+        <p class="rot">Órgãos</p>
+        <p class="num" id="t-orgaos">—</p>
+        <p class="sub">com ao menos um contrato no recorte</p>
+      </div>
+    </div>
+
+    <div class="filtros">
+      <div class="filtro-grupo">
+        <span class="filtro-rot">Filtro</span>
+        <button class="chip" type="button" id="chip-servico" aria-pressed="false">Só serviços</button>
+      </div>
+    </div>
+
+    <div class="grafico largo">
+      <div class="lista-head">
+        <div>
+          <h2>Contratos vencendo</h2>
+          <p class="dica" style="margin:4px 0 0">
+            <span id="conta-lista">—</span> no recorte atual, ordenados do que vence
+            mais cedo para o mais tarde. A etiqueta indica classificação por
+            palavra-chave no objeto (triagem, não conclusão oficial).
+          </p>
+        </div>
+        <input class="busca" id="busca" type="search" placeholder="Buscar por objeto ou órgão…" aria-label="Buscar por objeto ou órgão">
+      </div>
+      <div class="tabela-scroll">
+        <table class="lista">
+          <thead>
+            <tr>
+              <th class="num">Vence em</th>
+              <th>Órgão</th>
+              <th>Objeto</th>
+              <th>Modalidade</th>
+              <th class="num">Valor</th>
+            </tr>
+          </thead>
+          <tbody id="corpo-lista"></tbody>
+        </table>
+      </div>
+      <button class="mais" id="btn-mais" type="button" style="display:none">Mostrar mais</button>
+    </div>
+
+    <div class="grafico largo" style="margin-top:18px">
+      <h2>Como isto é montado</h2>
+      <p class="dica" style="margin-top:8px">
+        A API pública de consulta do PNCP (<code>/v1/contratos</code>) não filtra por
+        UF, esfera nem vigência — só por órgão. A busca por trás do próprio
+        site do PNCP (<code>/api/search/</code>) filtra as três coisas de
+        verdade e devolve a data de vigência final direto no registro, então
+        é essa que este levantamento usa: candidatos de TIC via busca textual
+        (com frases entre aspas, para não virar palavra solta), esfera
+        federal, UF Distrito Federal, filtrados pela vigência final caindo na
+        janela de alerta.
+      </p>
+      <p class="dica" style="margin-top:10px">
+        <strong style="color:var(--ink-2)">Limite honesto:</strong> a
+        classificação de TIC e de "serviço" é heurística de palavra-chave no
+        objeto — serve para priorizar leitura, não como conclusão jurídica ou
+        contábil. O objeto completo e o link para a página oficial do
+        contrato no PNCP estão sempre disponíveis para conferência.
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<footer class="wrap-wide foot">
+  <span>Fonte: Portal Nacional de Contratações Públicas — dados abertos</span>
+  <span class="links">
+    <a href="../../../">Início</a>
+    <a href="mailto:itibere.paquier@gmail.com">Contato</a>
+  </span>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement, KEY = 'itb-theme';
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  } catch (e) {}
+  var btn = document.getElementById('theme-toggle');
+  if (btn) btn.addEventListener('click', function () {
+    var atual = root.getAttribute('data-theme');
+    if (!atual) atual = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    var prox = atual === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', prox);
+    try { localStorage.setItem(KEY, prox); } catch (e) {}
+  });
+})();
+</script>
+<script src="../../../assets/vencendo.js"></script>
+
+</body>
+</html>
