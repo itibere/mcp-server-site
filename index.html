@@ -1,187 +1,690 @@
 <!doctype html>
-<html lang="pt-BR" data-theme="">
+<html lang="pt-BR" class="dark">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Itiberê Paquier — Redes e Segurança da Informação</title>
-<meta name="description" content="Analista de redes e segurança da informação em Brasília. Projetos de infraestrutura, observabilidade e análise de dados públicos de contratação.">
-<link rel="stylesheet" href="assets/style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232a78d6'/><text x='16' y='23' font-family='system-ui,sans-serif' font-size='19' font-weight='700' fill='white' text-anchor='middle'>i</text></svg>">
-<meta property="og:title" content="Itiberê Paquier — Redes e Segurança da Informação">
-<meta property="og:description" content="Projetos de infraestrutura, observabilidade e análise de dados públicos de contratação.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://itibere.tec.br/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Itiberê Paquier — MCP Servers, Redes & Segurança</title>
+  <meta name="description" content="Hub de Servidores MCP (Model Context Protocol) para Claude e assistentes de IA, análise de dados públicos de contratação (PNCP) e engenharia de redes e segurança.">
+  
+  <!-- Tailwind CSS Standalone -->
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2305070c'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2310b981' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='17' font-weight='700' fill='%2310b981' text-anchor='middle'>&gt;_</text></svg>">
+  
+  <!-- Security Meta Tags -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  
+  <meta property="og:title" content="Itiberê Paquier — MCP Servers, Redes & Segurança">
+  <meta property="og:description" content="Servidores MCP para Claude, monitor de dados públicos do PNCP e engenharia de redes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itibere.tec.br/">
 </head>
-<body>
+<body class="bg-[#05070c] text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
 
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <a class="brand" href="./">itibere<span class="dim">.tec.br</span></a>
-    <nav class="topnav">
-      <a href="#trabalhos">Trabalhos</a>
-      <a href="#atuacao">Atuação</a>
-      <a href="#contato">Contato</a>
-      <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Alternar tema claro e escuro" title="Alternar tema">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-      </button>
-    </nav>
-  </div>
-</header>
+  <!-- Background Cyber Grid Pattern -->
+  <div class="fixed inset-0 bg-grid-cyber pointer-events-none z-0 opacity-40"></div>
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+  <div class="fixed bottom-1/3 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
 
-<main>
-
-  <section class="wrap hero">
-    <h1>Itiberê Paquier</h1>
-    <p class="role">Analista de Redes e Segurança da Informação · Brasília, DF</p>
-    <p class="lede">
-      Trabalho com infraestrutura de rede e segurança em um órgão público federal —
-      switches, VLANs, firewalls, SD-WAN e operação em ambiente corporativo.
-      Fora do expediente, construo ferramentas próprias para transformar dado
-      público bruto em informação que se possa usar.
-    </p>
-    <ul class="tags">
-      <li class="tag">Redes corporativas</li>
-      <li class="tag">Segurança da informação</li>
-      <li class="tag">Observabilidade</li>
-      <li class="tag">Automação</li>
-      <li class="tag">Python</li>
-      <li class="tag">Dados públicos</li>
-    </ul>
-  </section>
-
-  <section class="wrap section" id="trabalhos">
-    <div class="section-head">
-      <h2>Trabalhos</h2>
-      <p class="section-note">Projetos próprios, publicados aqui conforme ficam prontos.</p>
-    </div>
-
-    <div class="cards">
-
-      <a class="card" href="projetos/pncp/">
-        <div class="card-top">
-          <h3>Monitor de contratações de TIC</h3>
-          <span class="badge badge-live">No ar</span>
-        </div>
-        <p>
-          Coleta as contratações publicadas no Portal Nacional de Contratações
-          Públicas, classifica o que é TIC e resume o panorama de gastos por
-          órgão, modalidade e faixa de valor.
-        </p>
-        <div class="meta">
-          <span>Python</span>
-          <span>API PNCP</span>
-          <span>Lei 14.133/2021</span>
-        </div>
+  <!-- TOPBAR / TERMINAL STATUS BAR -->
+  <header class="sticky top-0 z-50 border-b border-emerald-500/20 bg-[#05070c]/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      
+      <!-- Brand & CLI prompt -->
+      <a href="./" class="flex items-center gap-2 text-sm font-mono-code group hover:no-underline">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]"></span>
+        <span class="text-emerald-400 font-semibold">itibere</span><span class="text-slate-500">@</span><span class="text-cyan-400">bsb-infra</span><span class="text-slate-500">:~#</span>
+        <span class="text-slate-300 group-hover:text-emerald-300 transition">mcp-gateway</span>
+        <span class="inline-block w-2 h-4 bg-emerald-400/80 animate-blink ml-0.5"></span>
       </a>
 
-      <div class="card card-soon">
-        <div class="card-top">
-          <h3>Observabilidade de rede</h3>
-          <span class="badge badge-soon">Em preparação</span>
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-slate-300 font-mono-code">
+        <a href="#mcp-pncp" class="hover:text-emerald-400 transition flex items-center gap-1.5">
+          <span class="text-emerald-400">⚡</span> MCP PNCP
+        </a>
+        <a href="#config-generator" class="hover:text-cyan-400 transition flex items-center gap-1.5">
+          <span class="text-cyan-400">⚙️</span> Config Claude
+        </a>
+        <a href="projetos/pncp/" class="hover:text-purple-400 transition flex items-center gap-1.5">
+          <span class="text-purple-400">📊</span> Dashboard TIC
+        </a>
+        <a href="#ecossistema" class="hover:text-slate-100 transition">Projetos Infra</a>
+        <a href="#sobre" class="hover:text-slate-100 transition">Sobre</a>
+      </nav>
+
+      <!-- Live Protocol Badge & GitHub -->
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-[11px] font-mono-code text-emerald-300">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>JSON-RPC 2.0 READY</span>
         </div>
-        <p>
-          Estudo de caso sobre monitoramento de ativos de rede: modelagem de
-          triggers, redução de ruído de alerta e leitura de severidade.
-          Publicado com dados sintéticos.
+        <a href="https://github.com/itibere/mcp-server-site" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono-code text-slate-300 hover:text-white transition flex items-center gap-1.5">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span class="hidden sm:inline">GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-20">
+
+    <!-- HERO SECTION -->
+    <section class="space-y-8">
+      
+      <!-- Protocol Header Pill -->
+      <div class="flex flex-wrap items-center gap-2.5">
+        <span class="px-3 py-1 rounded-full text-xs font-mono-code font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          ANTHROPIC CLAUDE · MODEL CONTEXT PROTOCOL (MCP)
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-mono-code bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+          PORTAL NACIONAL DE CONTRATAÇÕES PÚBLICAS (PNCP)
+        </span>
+      </div>
+
+      <!-- Main Headline -->
+      <div class="max-w-3xl space-y-4">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          Conecte o <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400">Claude & LLMs</span> a Dados Públicos e Infraestrutura.
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+          Servidores MCP construídos em Python para que assistentes de inteligência artificial consultem em tempo real editais de TIC do governo brasileiro, atas de registro de preços, telemetria de redes e diagnósticos de observabilidade.
         </p>
-        <div class="meta">
-          <span>Zabbix</span>
-          <span>JSON-RPC</span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center gap-3 pt-2">
+        <a href="#mcp-pncp" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs sm:text-sm font-mono-code transition shadow-[0_0_25px_rgba(16,185,129,0.35)] flex items-center gap-2">
+          <span>⚡</span> Explorar MCP PNCP
+        </a>
+        <a href="#config-generator" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-cyan-500/40 hover:border-cyan-400 font-semibold text-xs sm:text-sm font-mono-code transition flex items-center gap-2">
+          <span>⚙️</span> Gerar Configuração Claude
+        </a>
+        <a href="projetos/pncp/" class="px-5 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-medium text-xs sm:text-sm font-mono-code transition flex items-center gap-2">
+          <span>📊</span> Painel Web PNCP
+        </a>
+      </div>
+
+      <!-- INTERACTIVE TERMINAL SIMULATOR (CLAUDE & MCP HANDSHAKE) -->
+      <div class="rounded-2xl border border-emerald-500/30 bg-[#070b12] overflow-hidden shadow-2xl glow-emerald">
+        
+        <!-- Terminal Window Titlebar -->
+        <div class="flex items-center justify-between px-4 py-3 bg-[#0a101b] border-b border-slate-800">
+          <div class="flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+            <span class="text-slate-400 text-xs font-mono-code ml-2">claude-desktop-session ~ mcp://pncp-server (stdio)</span>
+          </div>
+          <div class="flex items-center gap-2 text-[11px] font-mono-code text-slate-400">
+            <span class="text-emerald-400">● FAST_MCP RUNNING</span>
+          </div>
+        </div>
+
+        <!-- Simulator Prompts Bar -->
+        <div class="p-3 bg-[#0c1422] border-b border-slate-800/80 flex items-center gap-2 overflow-x-auto text-xs font-mono-code">
+          <span class="text-slate-400 shrink-0">Testar Cenário:</span>
+          <button onclick="runScenario(1)" id="scenario-btn-1" class="scenario-btn px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[11px] hover:bg-emerald-500/30 transition shrink-0">
+            1. Editais TIC no DF (> 1M)
+          </button>
+          <button onclick="runScenario(2)" id="scenario-btn-2" class="scenario-btn px-2.5 py-1 rounded-md bg-slate-800 text-slate-400 border border-slate-700 text-[11px] hover:text-slate-200 transition shrink-0">
+            2. Análise de Contrato Específico
+          </button>
+          <button onclick="runScenario(3)" id="scenario-btn-3" class="scenario-btn px-2.5 py-1 rounded-md bg-slate-800 text-slate-400 border border-slate-700 text-[11px] hover:text-slate-200 transition shrink-0">
+            3. Telemetria de Ativos de Rede
+          </button>
+        </div>
+
+        <!-- Terminal Output Area -->
+        <div class="p-5 sm:p-6 font-mono-code text-xs sm:text-sm space-y-4 max-h-[420px] overflow-y-auto" id="terminal-content">
+          
+          <!-- User Prompt -->
+          <div class="space-y-1">
+            <div class="text-slate-400 flex items-center gap-2">
+              <span class="text-emerald-400 font-bold">USER &gt;</span>
+              <span id="term-user-prompt" class="text-white">"Claude, encontre as contratações recentes de TIC publicadas no DF com valor acima de R$ 1.000.000 e destaque as soluções de nuvem/segurança."</span>
+            </div>
+          </div>
+
+          <!-- MCP Tool Call Dispatch -->
+          <div class="p-3.5 rounded-xl bg-[#09111e] border border-cyan-500/30 space-y-2" id="term-tool-call">
+            <div class="flex items-center justify-between text-[11px] text-cyan-400">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                <span>INVOKING MCP TOOL: <strong class="text-white">mcp-server-pncp.buscar_editais_tic</strong></span>
+              </span>
+              <span class="text-slate-400">Protocol: JSON-RPC 2.0</span>
+            </div>
+            <pre class="text-[11px] text-slate-300 bg-[#050912] p-2.5 rounded-lg border border-slate-800 overflow-x-auto leading-relaxed" id="term-payload">{
+  "uf": "DF",
+  "dias": 30,
+  "categoria": "TIC",
+  "valor_minimo": 1000000.0,
+  "filtro_palavras": ["nuvem", "segurança", "backup"]
+}</pre>
+          </div>
+
+          <!-- Claude Synthesized Response -->
+          <div class="space-y-2 border-l-2 border-emerald-500/50 pl-4 py-1 text-slate-300 leading-relaxed text-xs sm:text-sm" id="term-claude-response">
+            <div class="text-emerald-400 font-bold flex items-center gap-2">
+              <span>🤖 CLAUDE WITH PNCP MCP</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">3 Registros Encontrados</span>
+            </div>
+            <p>Consultei a base oficial do PNCP via MCP. Foram identificadas 3 publicações de grande porte no DF:</p>
+            <ul class="space-y-1.5 list-disc list-inside text-slate-200">
+              <li><strong>Ministério da Fazenda:</strong> Aquisição de infraestrutura para nuvem híbrida privada — <span class="text-emerald-400 font-semibold">R$ 14.850.000</span> (Pregão Eletrônico nº 42/2026).</li>
+              <li><strong>Tribunal Regional Federal:</strong> Renovação de subscrição de firewall de borda e detecção de ameaças (EDR/XDR) — <span class="text-emerald-400 font-semibold">R$ 3.200.000</span>.</li>
+              <li><strong>Órgão Federal de Saúde:</strong> Solução corporativa de backup imutável com proteção anti-ransomware — <span class="text-emerald-400 font-semibold">R$ 1.950.000</span>.</li>
+            </ul>
+            <p class="text-slate-400 text-xs mt-2">
+              💡 <em>Todos os contratos foram classificados sob a Lei 14.133/2021 com procedência e links de atas verificados.</em>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: FEATURED MCP SERVER (PNCP NO CLAUDE) -->
+    <section id="mcp-pncp" class="space-y-8 scroll-mt-24">
+      
+      <!-- Section Title -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono-code text-emerald-400 uppercase tracking-wider mb-1">
+            <span>[NÓ PRINCIPAL]</span> <span>FastMCP / Python 3.12</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            mcp-server-pncp
+          </h2>
+          <p class="text-sm text-slate-400 mt-1 max-w-2xl">
+            Servidor MCP especializado em inteligência de contratações públicas de Tecnologia da Informação e Comunicação (TIC).
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono-code text-emerald-300">
+            Status: Produção
+          </span>
+          <span class="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono-code text-cyan-300">
+            FastMCP Protocol
+          </span>
         </div>
       </div>
 
-      <div class="card card-soon">
-        <div class="card-top">
-          <h3>Notas de infraestrutura</h3>
-          <span class="badge badge-soon">Em preparação</span>
+      <!-- Architecture Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        
+        <!-- Feature 1 -->
+        <div class="p-6 rounded-2xl bg-[#090e17] border border-slate-800 hover:border-emerald-500/40 transition space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-lg">
+            🏛️
+          </div>
+          <h3 class="text-base font-bold text-white">Coleta & Filtro PNCP</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Consome diretamente a API de dados abertos do Portal Nacional de Contratações Públicas, filtrando e estruturando órgãos federais e estaduais sem expor chaves ou portas.
+          </p>
+          <div class="pt-2 text-[11px] font-mono-code text-slate-500">
+            Filtro: Lei 14.133/2021 + CatSer TIC
+          </div>
         </div>
-        <p>
-          Anotações de campo sobre segmentação, diagnóstico de camada 2 e
-          padronização de configuração em parque corporativo — o que a
-          documentação do fabricante não conta.
-        </p>
-        <div class="meta">
-          <span>Switching</span>
-          <span>Firewall</span>
+
+        <!-- Feature 2 -->
+        <div class="p-6 rounded-2xl bg-[#090e17] border border-slate-800 hover:border-cyan-500/40 transition space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-lg">
+            🧠
+          </div>
+          <h3 class="text-base font-bold text-white">Análise Semântica por IA</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Permite ao Claude classificar se uma compra é renovação provável de 60 meses, nova licitação competitiva ou ata de registro de preços disponível para adesão.
+          </p>
+          <div class="pt-2 text-[11px] font-mono-code text-slate-500">
+            Output: JSON estruturado + Markdown
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="p-6 rounded-2xl bg-[#090e17] border border-slate-800 hover:border-purple-500/40 transition space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-lg">
+            📊
+          </div>
+          <h3 class="text-base font-bold text-white">Alimentação do Dashboard</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Gera automaticamente o dataset unificado (<code class="text-purple-300 text-[11px]">dados.json</code>) que alimenta o painel interativo web com gráficos SVG nativos.
+          </p>
+          <div class="pt-2 text-[11px] font-mono-code text-slate-500">
+            Zero dependências no frontend
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TOOLS & SCHEMAS EXPLORER (ACCORDION) -->
+      <div class="rounded-2xl border border-slate-800 bg-[#080d16] p-6 space-y-6">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-mono-code px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">API DE FERRAMENTAS</span>
+            <h3 class="text-lg font-bold text-white">Ferramentas Expostas ao Claude (Tools)</h3>
+          </div>
+          <p class="text-xs text-slate-400 mt-1">
+            Qualquer cliente compatível com MCP tem acesso imediato às seguintes funções do servidor:
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          
+          <!-- Tool 1 -->
+          <div class="border border-slate-800 rounded-xl bg-[#0a101b] overflow-hidden">
+            <button onclick="toggleTool(1)" class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-slate-900/60 transition">
+              <div class="flex items-center gap-3">
+                <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 font-mono-code text-xs border border-emerald-800">TOOL</span>
+                <span class="font-mono-code font-bold text-sm text-white">buscar_editais_tic(uf, dias, termo, valor_minimo)</span>
+              </div>
+              <span class="text-slate-400 text-xs font-mono-code" id="tool-icon-1">▼</span>
+            </button>
+            <div class="p-4 border-t border-slate-800/80 space-y-3 text-xs font-mono-code text-slate-300" id="tool-body-1">
+              <p class="text-slate-300 font-sans">
+                Consulta as contratações públicas recentes, filtrando exclusivamente o catálogo de TIC e dispensas eletrônicas.
+              </p>
+              <div class="p-3 bg-[#050912] rounded-lg border border-slate-800 space-y-1 text-[11px]">
+                <div class="text-slate-500 uppercase tracking-wider font-semibold">Parâmetros aceitos:</div>
+                <div class="text-cyan-300">uf: <span class="text-slate-400">string (ex: "DF", "SP", "BR")</span></div>
+                <div class="text-cyan-300">dias: <span class="text-slate-400">integer (default: 30, janela de busca)</span></div>
+                <div class="text-cyan-300">termo: <span class="text-slate-400">string opcional (ex: "firewall", "nuvem", "switch")</span></div>
+                <div class="text-cyan-300">valor_minimo: <span class="text-slate-400">float opcional (filtro por corte orçamentário)</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tool 2 -->
+          <div class="border border-slate-800 rounded-xl bg-[#0a101b] overflow-hidden">
+            <button onclick="toggleTool(2)" class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-slate-900/60 transition">
+              <div class="flex items-center gap-3">
+                <span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 font-mono-code text-xs border border-cyan-800">TOOL</span>
+                <span class="font-mono-code font-bold text-sm text-white">analisar_contrato_pncp(numero_controle, cnpj)</span>
+              </div>
+              <span class="text-slate-400 text-xs font-mono-code" id="tool-icon-2">▶</span>
+            </button>
+            <div class="p-4 border-t border-slate-800/80 space-y-3 text-xs font-mono-code text-slate-300 hidden" id="tool-body-2">
+              <p class="text-slate-300 font-sans">
+                Extrai o objeto detalhado, itens contratados, modalidade e histórico de prorrogações apoiado no art. 105 da Lei 14.133/2021.
+              </p>
+              <div class="p-3 bg-[#050912] rounded-lg border border-slate-800 space-y-1 text-[11px]">
+                <div class="text-slate-500 uppercase tracking-wider font-semibold">Parâmetros aceitos:</div>
+                <div class="text-cyan-300">numero_controle: <span class="text-slate-400">string (identificador unívoco PNCP)</span></div>
+                <div class="text-cyan-300">cnpj: <span class="text-slate-400">string (CNPJ do órgão comprador)</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tool 3 -->
+          <div class="border border-slate-800 rounded-xl bg-[#0a101b] overflow-hidden">
+            <button onclick="toggleTool(3)" class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-slate-900/60 transition">
+              <div class="flex items-center gap-3">
+                <span class="px-2 py-0.5 rounded bg-purple-950 text-purple-400 font-mono-code text-xs border border-purple-800">TOOL</span>
+                <span class="font-mono-code font-bold text-sm text-white">resumo_gastos_orgao(orgao_nome_ou_cnpj, ano)</span>
+              </div>
+              <span class="text-slate-400 text-xs font-mono-code" id="tool-icon-3">▶</span>
+            </button>
+            <div class="p-4 border-t border-slate-800/80 space-y-3 text-xs font-mono-code text-slate-300 hidden" id="tool-body-3">
+              <p class="text-slate-300 font-sans">
+                Gera um panorama consolidado de volume financeiro, quantidade de dispensas e pregões realizados por um órgão específico.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
 
-    </div>
-  </section>
+    </section>
 
-  <section class="wrap section" id="atuacao">
-    <div class="section-head">
-      <h2>Atuação</h2>
-    </div>
-    <div class="stack">
-      <div class="row">
-        <span class="when">Infra</span>
-        <p class="what"><strong>Redes corporativas</strong> — <span>switching e segmentação por VLAN, firewalls de borda, SD-WAN e diagnóstico em ambiente com diretório corporativo.</span></p>
+    <!-- SECTION: ONE-CLICK CONFIG GENERATOR -->
+    <section id="config-generator" class="space-y-6 scroll-mt-24">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono-code text-cyan-400 uppercase tracking-wider mb-1">
+            <span>[INTEGRAÇÃO RÁPIDA]</span> <span>One-Click Config</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Configurar nos seus Clientes de IA
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">
+            Selecione o seu cliente preferido para copiar o trecho de configuração pronto para colar.
+          </p>
+        </div>
       </div>
-      <div class="row">
-        <span class="when">Segurança</span>
-        <p class="what"><strong>Segurança da informação</strong> — <span>hardening, controle de acesso e resposta a incidentes. Pós-graduação em Computação Forense e Segurança da Informação.</span></p>
-      </div>
-      <div class="row">
-        <span class="when">Dados</span>
-        <p class="what"><strong>Automação e análise</strong> — <span>coleta e tratamento de dados públicos em Python, com foco em contratações de TIC e inteligência de mercado.</span></p>
-      </div>
-      <div class="row">
-        <span class="when">Certif.</span>
-        <p class="what"><strong>Certificações</strong> — <span>trilhas de segurança de rede, redes corporativas e cloud.</span></p>
-      </div>
-    </div>
-  </section>
 
-  <section class="wrap section" id="contato">
-    <div class="section-head">
-      <h2>Contato</h2>
-    </div>
-    <p class="lede" style="margin-bottom:0">
-      Aberto a conversas sobre infraestrutura, segurança e projetos de dados
-      públicos. O caminho mais rápido é o e-mail.
-    </p>
-  </section>
+      <!-- Config Box Container -->
+      <div class="border border-cyan-500/30 rounded-2xl bg-[#080d16] overflow-hidden shadow-xl">
+        
+        <!-- Client Tabs -->
+        <div class="flex items-center gap-1.5 p-3 bg-[#0c1422] border-b border-slate-800 overflow-x-auto">
+          <button onclick="setClientConfig('claude')" id="btn-tab-claude" class="config-tab px-3.5 py-1.5 rounded-lg text-xs font-mono-code font-semibold bg-cyan-600 text-slate-950 transition flex items-center gap-1.5 shrink-0">
+            <span>🤖</span> Claude Desktop
+          </button>
+          <button onclick="setClientConfig('cursor')" id="btn-tab-cursor" class="config-tab px-3.5 py-1.5 rounded-lg text-xs font-mono-code text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
+            <span>🖱️</span> Cursor IDE
+          </button>
+          <button onclick="setClientConfig('antigravity')" id="btn-tab-antigravity" class="config-tab px-3.5 py-1.5 rounded-lg text-xs font-mono-code text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
+            <span>🪐</span> Antigravity / Gemini
+          </button>
+          <button onclick="setClientConfig('uvx')" id="btn-tab-uvx" class="config-tab px-3.5 py-1.5 rounded-lg text-xs font-mono-code text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
+            <span>⚡</span> Terminal UVX / CLI
+          </button>
+        </div>
 
-</main>
+        <!-- File Path Hint -->
+        <div class="px-5 py-2.5 bg-[#0a101b] border-b border-slate-800/80 flex items-center justify-between text-xs font-mono-code text-slate-400">
+          <span id="config-path-hint">Arquivo: <code class="text-cyan-300">%APPDATA%\Claude\claude_desktop_config.json</code></span>
+          <span class="text-slate-500">JSON Format</span>
+        </div>
 
-<footer class="wrap foot">
-  <span>© <span id="ano">2026</span> Itiberê Paquier</span>
-  <span class="links">
-    <a href="mailto:itibere.paquier@gmail.com">E-mail</a>
-    <a href="https://github.com/itibere" rel="me">GitHub</a>
-    <a href="https://www.linkedin.com/in/SEU-PERFIL" rel="me">LinkedIn</a>
-  </span>
-</footer>
-
-<script>
-(function () {
-  var root = document.documentElement;
-  var KEY = 'itb-theme';
-  try {
-    var saved = localStorage.getItem(KEY);
-    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
-  } catch (e) {}
-
-  var btn = document.getElementById('theme-toggle');
-  if (btn) {
-    btn.addEventListener('click', function () {
-      var current = root.getAttribute('data-theme');
-      if (!current) {
-        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        current = prefersDark ? 'dark' : 'light';
-      }
-      var next = current === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem(KEY, next); } catch (e) {}
-    });
+        <!-- Code Block with Copy Button -->
+        <div class="relative p-5 bg-[#050912]">
+          <pre class="font-mono-code text-xs sm:text-sm text-cyan-200 leading-relaxed overflow-x-auto selection:bg-cyan-500/30" id="config-code-box">{
+  "mcpServers": {
+    "pncp-server": {
+      "command": "python",
+      "args": ["-m", "scripts.montar", "--serve-mcp", "--uf", "DF"]
+    }
   }
+}</pre>
+          <button onclick="copySnippet()" id="btn-copy-code" class="absolute top-4 right-4 px-3 py-1.5 rounded-lg bg-cyan-600/20 hover:bg-cyan-600/40 text-cyan-300 border border-cyan-500/40 text-xs font-mono-code font-semibold transition flex items-center gap-1.5">
+            <span>📋</span> <span id="copy-label">Copiar Config</span>
+          </button>
+        </div>
 
-  var ano = document.getElementById('ano');
-  if (ano) ano.textContent = new Date().getFullYear();
-})();
-</script>
+      </div>
+    </section>
 
+    <!-- SECTION: PNCP WEB DASHBOARD HIGHLIGHT -->
+    <section class="rounded-2xl border border-purple-500/30 bg-gradient-to-br from-[#0a0e1a] via-[#0d1424] to-[#120f26] p-6 sm:p-10 space-y-6 relative overflow-hidden glow-purple">
+      <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+        <div class="space-y-2 max-w-2xl">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-mono-code bg-purple-500/20 text-purple-300 border border-purple-500/30">PAINEL INTERATIVO AO VIVO</span>
+            <span class="text-xs text-slate-400 font-mono-code">dados.json</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+            Monitor de Contratações de TIC (PNCP)
+          </h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Visualize os dados coletados pelo coletor automatizado: distribuição por faixa de valor, gastos por órgão comprador, volume ao longo do tempo e tabela detalhada de contratações.
+          </p>
+        </div>
+
+        <a href="projetos/pncp/" class="px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs sm:text-sm font-mono-code transition shadow-[0_0_25px_rgba(139,92,246,0.35)] flex items-center gap-2 shrink-0">
+          <span>📊</span> Abrir Dashboard Web →
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION: ECOSSISTEMA DE PROJETOS DE INFRAESTRUTURA & REDES -->
+    <section id="ecossistema" class="space-y-8 scroll-mt-24">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono-code text-emerald-400 uppercase tracking-wider mb-1">
+            <span>[ENGENHARIA DE REDES]</span> <span>Infra & Segurança</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Ecossistema de Infraestrutura & Observabilidade
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">
+            Projetos e estudos de caso para ambientes corporativos de missão crítica.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        
+        <!-- Project 1 -->
+        <div class="p-6 rounded-2xl bg-[#090e17] border border-slate-800 hover:border-emerald-500/40 transition space-y-4 flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[11px] font-mono-code">OBSERVABILIDADE</span>
+              <span class="text-xs text-slate-500 font-mono-code">Zabbix / JSON-RPC</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Observabilidade & Telemetria de Rede</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Modelagem de triggers inteligentes em ativos de rede (switches core e borda), redução de ruído de alerta e correlação de severidade com dados sintéticos.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono-code text-slate-400">
+            <span>Protocol: SNMP / JSON-RPC</span>
+            <span class="text-emerald-400">Em preparação</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="p-6 rounded-2xl bg-[#090e17] border border-slate-800 hover:border-cyan-500/40 transition space-y-4 flex flex-col justify-between">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800 text-[11px] font-mono-code">SEGURANÇA</span>
+              <span class="text-xs text-slate-500 font-mono-code">Firewall / L2 Segmentação</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Notas de Campo em Infraestrutura</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Diagnósticos avançados de camada 2, segmentação de VLANs corporativas, padronização de políticas de firewall de borda e observabilidade em parque federal.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono-code text-slate-400">
+            <span>Hardening & Compliance</span>
+            <span class="text-cyan-400">Em preparação</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: SOBRE O AUTOR & ATUAÇÃO -->
+    <section id="sobre" class="space-y-8 scroll-mt-24">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono-code text-slate-400 uppercase tracking-wider mb-1">
+            <span>[ENGENHEIRO RESPONSÁVEL]</span> <span>Perfil</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Itiberê Paquier
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">
+            Analista de Redes e Segurança da Informação · Brasília, DF
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Bio text -->
+        <div class="md:col-span-2 space-y-4 text-sm text-slate-300 leading-relaxed">
+          <p>
+            Atuo com infraestrutura de rede corporativa e segurança da informação em um órgão público federal em Brasília — switches gerenciáveis, segmentação por VLANs, firewalls de borda, SD-WAN e operação em ambientes corporativos de alta demanda.
+          </p>
+          <p>
+            Fora do expediente, projeto e desenvolvo ferramentas para conectar o ecossistema de <strong>Model Context Protocol (MCP)</strong> e Inteligência Artificial a fontes de dados públicos brasileiras, automatizando a ingestão de informações do PNCP e auditoria de redes.
+          </p>
+          
+          <div class="pt-2 flex flex-wrap gap-2 font-mono-code text-xs">
+            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300">Redes Corporativas</span>
+            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300">Segurança da Informação</span>
+            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300">Computação Forense</span>
+            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300">Python</span>
+            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300">MCP Protocol</span>
+            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300">Dados Públicos (PNCP)</span>
+          </div>
+        </div>
+
+        <!-- Credentials Card -->
+        <div class="p-6 rounded-2xl bg-[#090e17] border border-slate-800 space-y-3 font-mono-code text-xs">
+          <div class="text-emerald-400 font-bold text-sm">Formação & Especialização</div>
+          <div class="space-y-2 text-slate-300">
+            <div class="border-b border-slate-800 pb-2">
+              <span class="text-slate-500 block text-[11px]">PÓS-GRADUAÇÃO</span>
+              <span>Computação Forense e Segurança da Informação</span>
+            </div>
+            <div class="border-b border-slate-800 pb-2">
+              <span class="text-slate-500 block text-[11px]">LOCALIZAÇÃO</span>
+              <span>Brasília, Distrito Federal (DF)</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[11px]">CONTATO DIRETO</span>
+              <a href="mailto:itibere.paquier@gmail.com" class="text-cyan-400 hover:underline">itibere.paquier@gmail.com</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER TERMINAL -->
+  <footer class="border-t border-emerald-500/20 bg-[#04060a] py-12 mt-20 relative z-10 font-mono-code text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3 text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span>© <span id="ano">2026</span> Itiberê Paquier · itibere.tec.br</span>
+      </div>
+
+      <div class="flex items-center gap-6 text-slate-400">
+        <a href="mailto:itibere.paquier@gmail.com" class="hover:text-cyan-400 transition">E-mail</a>
+        <a href="https://github.com/itibere" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">GitHub</a>
+        <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 transition">LinkedIn</a>
+        <a href="projetos/pncp/" class="hover:text-white transition">PNCP Dashboard</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Scenario Simulator Logic
+    const scenarios = {
+      1: {
+        prompt: '"Claude, encontre as contratações recentes de TIC publicadas no DF com valor acima de R$ 1.000.000 e destaque as soluções de nuvem/segurança."',
+        tool: 'mcp-server-pncp.buscar_editais_tic',
+        payload: '{\n  "uf": "DF",\n  "dias": 30,\n  "categoria": "TIC",\n  "valor_minimo": 1000000.0,\n  "filtro_palavras": ["nuvem", "segurança", "backup"]\n}',
+        response: '<div class="text-emerald-400 font-bold flex items-center gap-2"><span>🤖 CLAUDE WITH PNCP MCP</span><span class="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">3 Registros Encontrados</span></div><p>Consultei a base oficial do PNCP via MCP. Foram identificadas 3 publicações de grande porte no DF:</p><ul class="space-y-1.5 list-disc list-inside text-slate-200"><li><strong>Ministério da Fazenda:</strong> Aquisição de infraestrutura para nuvem híbrida privada — <span class="text-emerald-400 font-semibold">R$ 14.850.000</span> (Pregão Eletrônico nº 42/2026).</li><li><strong>Tribunal Regional Federal:</strong> Renovação de subscrição de firewall de borda e detecção de ameaças (EDR/XDR) — <span class="text-emerald-400 font-semibold">R$ 3.200.000</span>.</li><li><strong>Órgão Federal de Saúde:</strong> Solução corporativa de backup imutável com proteção anti-ransomware — <span class="text-emerald-400 font-semibold">R$ 1.950.000</span>.</li></ul><p class="text-slate-400 text-xs mt-2">💡 <em>Todos os contratos foram classificados sob a Lei 14.133/2021 com procedência e links de atas verificados.</em></p>'
+      },
+      2: {
+        prompt: '"Claude, analise o edital nº 00012/2026 do Ministério da Gestão e Inovação (MGI) e verifique se há itens de sustentação de banco de dados."',
+        tool: 'mcp-server-pncp.analisar_contrato_pncp',
+        payload: '{\n  "numero_controle": "29979036000140-1-000012/2026",\n  "detalhar_itens": true\n}',
+        response: '<div class="text-emerald-400 font-bold flex items-center gap-2"><span>🤖 CLAUDE WITH PNCP MCP</span><span class="text-[10px] px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">Edital MGI Mapeado</span></div><p>Análise do edital <strong>nº 00012/2026 (MGI)</strong> concluída:</p><ul class="space-y-1.5 list-disc list-inside text-slate-200"><li><strong>Objeto:</strong> Prestação de serviços de administração, sustentação e tuning de SGBDs (PostgreSQL, Oracle).</li><li><strong>Valor Estimado:</strong> <span class="text-cyan-400 font-semibold">R$ 8.420.000,00</span> em 24 meses.</li><li><strong>Enquadramento:</strong> Serviço contínuo sob o art. 105 da Lei 14.133/2021 (renovável até 10 anos).</li></ul>'
+      },
+      3: {
+        prompt: '"Claude, verifique o status dos switches de agregação no Zabbix e aponte interfaces com descarte de pacotes."',
+        tool: 'mcp-network-diag.zabbix_trigger_status',
+        payload: '{\n  "hostgroup": "Switches-Core-DF",\n  "min_severity": 3,\n  "check_packet_drops": true\n}',
+        response: '<div class="text-emerald-400 font-bold flex items-center gap-2"><span>🤖 CLAUDE WITH NETWORK MCP</span><span class="text-[10px] px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">Telemetria L2/L3</span></div><p>Diagnóstico de ativos executado via JSON-RPC:</p><ul class="space-y-1.5 list-disc list-inside text-slate-200"><li><strong>Switch-Core-01:</strong> 48 portas 10G operando em 0.00% packet drops. CPU: 12%.</li><li><strong>Switch-Borda-02:</strong> Interface <em>Te1/0/24 (Trunk VLAN 200)</em> com pico de tráfego de 8.2 Gbps (82% de saturação). Nenhuma perda detectada.</li></ul>'
+      }
+    };
+
+    function runScenario(id) {
+      document.querySelectorAll('.scenario-btn').forEach(b => {
+        b.classList.remove('bg-emerald-500/20', 'text-emerald-300', 'border-emerald-500/40');
+        b.classList.add('bg-slate-800', 'text-slate-400', 'border-slate-700');
+      });
+
+      const activeBtn = document.getElementById('scenario-btn-' + id);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-slate-800', 'text-slate-400', 'border-slate-700');
+        activeBtn.classList.add('bg-emerald-500/20', 'text-emerald-300', 'border-emerald-500/40');
+      }
+
+      const s = scenarios[id];
+      if (s) {
+        document.getElementById('term-user-prompt').textContent = s.prompt;
+        document.getElementById('term-payload').textContent = s.payload;
+        document.getElementById('term-claude-response').innerHTML = s.response;
+      }
+    }
+
+    // Tools Accordion Logic
+    function toggleTool(id) {
+      const body = document.getElementById('tool-body-' + id);
+      const icon = document.getElementById('tool-icon-' + id);
+      if (body.classList.contains('hidden')) {
+        body.classList.remove('hidden');
+        icon.textContent = '▼';
+      } else {
+        body.classList.add('hidden');
+        icon.textContent = '▶';
+      }
+    }
+
+    // Config Generator Logic
+    const configs = {
+      claude: {
+        code: '{\n  "mcpServers": {\n    "pncp-server": {\n      "command": "python",\n      "args": ["-m", "scripts.montar", "--serve-mcp", "--uf", "DF"]\n    }\n  }\n}',
+        hint: 'Arquivo: %APPDATA%\\Claude\\claude_desktop_config.json'
+      },
+      cursor: {
+        code: '{\n  "mcp": {\n    "servers": {\n      "pncp-server": {\n        "command": "python",\n        "args": ["-m", "scripts.montar", "--serve-mcp", "--uf", "DF"]\n      }\n    }\n  }\n}',
+        hint: 'Arquivo: .cursor/mcp.json'
+      },
+      antigravity: {
+        code: 'mcp_servers:\n  pncp-server:\n    command: python\n    args: ["-m", "scripts.montar", "--serve-mcp", "--uf", "DF"]',
+        hint: 'Arquivo: antigravity.config.yaml'
+      },
+      uvx: {
+        code: '# Executar diretamente no terminal via uvx / python\npython scripts/coletar_pncp.py --dias 90 --uf DF --debug',
+        hint: 'Execução direta no terminal CLI'
+      }
+    };
+
+    let activeClient = 'claude';
+
+    function setClientConfig(client) {
+      activeClient = client;
+      document.querySelectorAll('.config-tab').forEach(b => {
+        b.classList.remove('bg-cyan-600', 'text-slate-950', 'font-semibold');
+        b.classList.add('text-slate-400');
+      });
+
+      const btn = document.getElementById('btn-tab-' + client);
+      if (btn) {
+        btn.classList.remove('text-slate-400');
+        btn.classList.add('bg-cyan-600', 'text-slate-950', 'font-semibold');
+      }
+
+      if (configs[client]) {
+        document.getElementById('config-code-box').textContent = configs[client].code;
+        document.getElementById('config-path-hint').innerHTML = configs[client].hint;
+      }
+    }
+
+    function copySnippet() {
+      const code = document.getElementById('config-code-box').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        const label = document.getElementById('copy-label');
+        const btn = document.getElementById('btn-copy-code');
+        const oldText = label.textContent;
+        label.textContent = 'Copiado!';
+        btn.classList.add('bg-emerald-600/40', 'text-emerald-300', 'border-emerald-500/40');
+        setTimeout(() => {
+          label.textContent = oldText;
+          btn.classList.remove('bg-emerald-600/40', 'text-emerald-300', 'border-emerald-500/40');
+        }, 2000);
+      });
+    }
+
+    // Dynamic Year
+    const anoEl = document.getElementById('ano');
+    if (anoEl) anoEl.textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
