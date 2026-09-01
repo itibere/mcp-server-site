@@ -1,494 +1,632 @@
 {
- "geradoEm": "2026-08-28T15:21:51",
+ "geradoEm": "2026-09-01T11:54:21",
  "cobertura": {
   "uf": "DF",
   "esfera": "Federal",
   "criterioTIC": "palavra-chave no objeto (busca full-text OR)",
-  "janelaVencimento": "2027-02-24 a 2027-08-23",
+  "janelaVencimento": "2027-02-28 a 2027-08-27",
   "mesesJanelaInicio": 6,
   "mesesJanelaFim": 12,
   "fonte": "https://pncp.gov.br/api/search/"
  },
  "totais": {
-  "candidatosTIC": 4817,
-  "vencendoJanela": 348,
-  "servicos": 179
+  "candidatosTIC": 6283,
+  "vencendoJanela": 411,
+  "servicos": 217
  },
  "julgamentoAgente": {
-  "total_antes": 411,
-  "aprovados": 348,
-  "reprovados": 63,
+  "total_antes": 507,
+  "aprovados": 411,
+  "reprovados": 96,
   "exemplosReprovados": [
    {
-    "orgao": "COMANDO DA MARINHA",
-    "objeto": "A PRESENTE ATA TEM POR OBJETO O REGISTRO DE PREÇOS PARA A EVENTUAL AQUISIÇÃO DE MATERIAL DE EXPEDIENTE",
-    "motivo": "Registro de preços para material de expediente, sem relação com TI.",
-    "numero_controle_pncp": "00394502000144-2-000148/2026"
+    "orgao": "BANCO CENTRAL DO BRASIL",
+    "objeto": "INSCRIÇÃO DE SERVIDORES NO CURSO FORMAÇÃO EXECUTIVA EM INTELIGÊNCIA ARTIFICIAL PARA GESTORES",
+    "motivo": "Inscrição de servidores em curso, não é aquisição de solução de TI.",
+    "numero_controle_pncp": "00038166000105-2-000025/2026"
    },
    {
-    "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
-    "objeto": "Prestação de serviço técnico especializado em treinamento e aperfeiçoamento de pessoal, de natureza predominantemente intelectual, consistente na realização da ação interna de educação \"Trilhas de Tecnologia da Informação\".",
-    "motivo": "Treinamento/capacitação sobre temas de TI, não é contratação de solução de TI em si.",
-    "numero_controle_pncp": "00488478000102-2-000026/2026"
+    "orgao": "CONSELHO FEDERAL DE FISIOTERAPIA E TERAPIA OCUPACIONAL",
+    "objeto": "Contratação de assinatura do Portal Jusbrasil Pesquisa Jurídica Básica + Processos, com acesso para 15 (quinze) usuários.",
+    "motivo": "Assinatura de portal de pesquisa jurídica (Jusbrasil) é acesso a conteúdo, não solução de TI.",
+    "numero_controle_pncp": "00487140000136-2-000011/2025"
    },
    {
-    "orgao": "CONSELHO FEDERAL DE ENFERMAGEM COFEN",
-    "objeto": "Contratação de solução completa (turnkey), incluindo a locação de keypads de votação, com seus respectivos hardwares (bases receptoras e laptops de controle), o software de gerenciamento e apuração, e os serviços de instalação, configuração, operação técnica presencial durante o evento, consolidação dos resultados das salas e respectiva desinstalação para a II Conferência Nacional de Ética em Enfermagem (CONEENF), com previsão de realização no período de 17 a 19 de março de 2026, na sede do Conselho Federal de Enfermagem.",
-    "motivo": "Locação de keypads de votação e operação técnica para evento (conferência), serviço de apoio a evento, não infraestrutura de TI institucional.",
-    "numero_controle_pncp": "47217146000157-2-000004/2026"
+    "orgao": "MINISTERIO DA DEFESA",
+    "objeto": "AQUISIÇÃO DE EQUIPAMENTOS ELETRÔNICOS A SEREM UTILIZADOS NO CENTRO DE COORDENAÇÃO-GERAL DO CENTRO GESTOR E OPERACIONAL DO SISTEMA DE PROTEÇÃO DA AMAZÔNIA - CENSIPAM, EM ATENDIMENTO ÀS DEMANDAS DA COORDENAÇÃO DE SERVIÇOS GERAIS - COSEG, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+    "motivo": "Objeto genérico \"equipamentos eletrônicos\" sem especificar solução de TI.",
+    "numero_controle_pncp": "03277610000125-2-000356/2026"
    },
    {
     "orgao": "MINISTERIO PUBLICO DA UNIAO",
     "objeto": "Contratação de 31 (trinta e uma) licenças de uso da Plataforma Alura, para 25 (vinte e cinco) servidores da Secretaria de Tecnologia da Informação e Comunicação na\ncapacitação e 6 (seis) servidores da Secretaria Jurídica e de Documentação, conforme condições e exigências estabelecidas neste instrumento",
-    "motivo": "Licenças de plataforma de cursos (Alura) para capacitação de servidores, é serviço de treinamento.",
+    "motivo": "Licenças de curso/capacitação (plataforma Alura), é treinamento não aquisição de solução.",
     "numero_controle_pncp": "26989715000102-2-000220/2026"
+   },
+   {
+    "orgao": "SENADO FEDERAL",
+    "objeto": "Prestação de serviços de tradução, intermediação e interpretação remota entre Libras (Língua Brasileira de Sinais) e Português, por meio de Central de Interpretação de Libras em Plataforma Digital, durante 12 (doze) meses consecutivos.",
+    "motivo": "Serviço de tradução/interpretação em Libras; plataforma é meio, não fim de TI.",
+    "numero_controle_pncp": "00530279000115-2-000032/2025"
    },
    {
     "orgao": "CONSELHO FEDERAL DE ADMINISTRACAO",
     "objeto": "Aquisição de caixa de som bluetooth com microfone sem fio, a fim de aprimorar a estrutura de apoio técnico e operacional utilizada na realização de eventos institucionais, reuniões, palestras, treinamentos e demais atividades promovidas pelo Conselho.",
-    "motivo": "Caixa de som bluetooth para apoio a eventos institucionais, não é solução de TI.",
+    "motivo": "Caixa de som bluetooth com microfone é equipamento de escritório genérico, não TI.",
     "numero_controle_pncp": "34061135000189-2-000015/2026"
    },
    {
     "orgao": "TRIBUNAL DE CONTAS DA UNIAO",
     "objeto": "Contratação, por inexigibilidade de licitação, com fulcro no inciso I do art. 74 da Lei nº 14.133/2021, de acesso ao banco de dados denominado “FGVDados”, proporcionando consulta a índices de preços gerais, setoriais, específicos e ou regionais.",
-    "motivo": "Assinatura de banco de dados de índices de preços (serviço de informação econômica, não solução de TI).",
+    "motivo": "Acesso a base de dados de índices de preços é conteúdo/informação, não solução de TI.",
     "numero_controle_pncp": "00414607000118-2-000053/2026"
    },
    {
-    "orgao": "TRIBUNAL DE CONTAS DA UNIAO",
-    "objeto": "Contratação, por inexigibilidade de licitação, com fulcro no inciso I do art. 74 da Lei nº 14.133/2021, de acesso ao banco de dados denominado “FGVDados”, proporcionando consulta a índices de preços gerais, setoriais, específicos e ou regionais.",
-    "motivo": "Assinatura de banco de dados de índices de preços (serviço de informação econômica, não solução de TI).",
-    "numero_controle_pncp": "00414607000118-2-000053/2026"
+    "orgao": "CONSELHO REGIONAL REPRESENTANTES COMERCIAIS DO D.F",
+    "objeto": "Aquisição de 03 (três) mesas de escritório, modelo estação de trabalho curva em “L”,  incluindo serviço de montagem, com a finalidade de otimizar \no espaço físico, bem como aprimorar o conforto e a ergonomia dos colaboradores do CORE-DF.",
+    "motivo": "Mesas de escritório são mobiliário, não solução de TI apesar do termo \"estação de trabalho\".",
+    "numero_controle_pncp": "00331165000146-2-000007/2026"
+   },
+   {
+    "orgao": "FUNDACAO UNIVERSIDADE DE BRASILIA",
+    "objeto": "CONTRATAÇÃO DA FINATEC PARA APOIAR A EXECUÇÃO E O DESENVOLVIMENTO DO PROJETO DE ENSINO E DE PESQUISA INTITULADO “SOLUÇÕES LOGÍSTICAS PARA A COMPANHIA NACIONAL DE ABASTECIMENTO BASEADAS EM OTIMIZAÇÃO, CIÊNCIA DE DADOS E INTELIGÊNCIA ARTIFICIAL”, ORIUNDO DO TERMO DE EXECUÇÃO DESCENTRALIZADA Nº 89/2026, CELEBRADO ENTRE A COMPANHIA NACIONAL DE ABASTECIMENTO (CONAB) E A UNIVERSIDADE DE BRASÍLIA (UNB), EM 25/03/2026.",
+    "motivo": "Apoio a projeto de pesquisa acadêmica, não é aquisição de solução de TI.",
+    "numero_controle_pncp": "00038174000143-2-000106/2026"
    },
    {
     "orgao": "COMANDO DO EXERCITO",
     "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS COMUNS DE EMPRESA ESPECIALIZADA PARA O FORNECIMENTO DE SOFTWARE COMPATÍVEL AO RELÓGIO DE PONTO, PRESTAÇÃO DE SERVIÇOS DE MANUTENÇÃO PREVENTIVA COM LAUDO E A PRESTAÇÃO DE SERVIÇOS DE MANUTENÇÃO CORRETIVA (SOB DEMANDA) COM A SUBSTITUIÇÃO DE PEÇAS (QUANDO FOR O CASO), A FIM DE ATENDER O DEC E DIRETORIAS SUBORDINADAS",
-    "motivo": "Manutenção de relógio de ponto (equipamento físico de controle de frequência), não solução de TI.",
+    "motivo": "Manutenção de relógio de ponto é equipamento de controle de RH, não solução de TI.",
     "numero_controle_pncp": "00394452000103-2-001240/2024"
    },
    {
     "orgao": "FUNDACAO UNIVERSIDADE DE BRASILIA",
     "objeto": "CONSTITUI OBJETO DESTE INSTRUMENTO A CONTRATAÇÃO DA FINATEC PARA APOIAR A EXECUÇÃO E O DESENVOLVIMENTO DO PROJETO DE PESQUISA INTITULADO \"ECOSSISTEMA DE SOFTWARE LIVRE PARA GESTÃO ORIENTADA A DADOS E INTEGRAÇÃO DE BASES DO OBSERVATÓRIO DE CONTRATAÇÕES PÚBLICAS”, DESENVOLVIDO POR MEIO DE TERMO DE EXECUÇÃO DESCENTRALIZADA Nº07/2026, FIRMADO ENTRE O MINISTÉRIO DA GESTÃO E DA INOVAÇÃO EM SERVIÇOS PÚBLICOS (MGI) E A UNIVERSIDADE DE BRASÍLIA.",
-    "motivo": "Contratação de fundação de apoio para execução de projeto de pesquisa acadêmica, não contratação direta de TI.",
+    "motivo": "Apoio a projeto de pesquisa acadêmica, não é aquisição de solução de TI.",
     "numero_controle_pncp": "00038174000143-2-000082/2026"
    },
    {
     "orgao": "FUNDACAO UNIVERSIDADE DE BRASILIA",
     "objeto": "CONTRATAÇÃO DA FINATEC PARA APOIAR A EXECUÇÃO E O DESENVOLVIMENTO DO PROJETO DE PESQUISA INTITULADO \"ECOSSISTEMA DE SOFTWARE LIVRE E DATA LAKE HOUSE PARA GESTÃO ORIENTADA A DADOS E TRANSPARÊNCIA DO SISTEMA NACIONAL DE CULTURA”, ORIUNDO POR MEIO DE TERMO DE EXECUÇÃO DESCENTRALIZADA Nº 01/2026, FIRMADO ENTRE O MINISTÉRIO DA CULTURA E A UNIVERSIDADE DE BRASÍLIA, EM 25/03/2026.",
-    "motivo": "Contratação de fundação de apoio para execução de projeto de pesquisa acadêmica, não contratação direta de TI.",
+    "motivo": "Apoio a projeto de pesquisa acadêmica, não é aquisição de solução de TI.",
     "numero_controle_pncp": "00038174000143-2-000117/2026"
    },
    {
     "orgao": "CAMARA DOS DEPUTADOS",
     "objeto": "Aquisição de equipamentos e serviços para produção de vídeo profissional, incluindo: câmeras robóticas PTZ SONY BRC-X1000, teleprompter, controlador SONY RM-\nIP500, switch ethernet, gerenciável com instalação e configuração.",
-    "motivo": "Equipamentos de produção de vídeo profissional (audiovisual/broadcast), não infraestrutura de TI.",
+    "motivo": "Equipamentos de produção de vídeo profissional, não solução de TI corporativa.",
     "numero_controle_pncp": "00530352000159-2-000243/2025"
    },
    {
-    "orgao": "TRIBUNAL DE CONTAS DA UNIAO",
-    "objeto": "Contratação de serviços técnicos especializados de consultoria ou assessoria técnica, de natureza predominantemente intelectual, com o objetivo de fornecer conhecimento e suporte técnico para a estruturação de uma governança de inovação, sob a responsabilidade do Comitê de Inovação do TCU (CITCU), instituído pela Portaria-TCU 89/2025.",
-    "motivo": "Consultoria/assessoria técnica para governança de inovação institucional, não contratação de TI.",
-    "numero_controle_pncp": "00414607000118-2-000177/2026"
+    "orgao": "COMANDO DA AERONAUTICA",
+    "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE CAPACITAÇÃO PELA REDE NACIONAL DE ENSINO E PESQUISA (RNP) PARA O CENTRO DE COMPUTAÇÃO DA AERONÁUTICA (CCABR)",
+    "motivo": "Serviço de capacitação/treinamento, não aquisição de solução de TI.",
+    "numero_controle_pncp": "00394429000100-2-000264/2026"
+   },
+   {
+    "orgao": "MINISTERIO PUBLICO DA UNIAO",
+    "objeto": "contração de serviços comuns de gestão de frota de veículos, que\nutilize sistema informatizado e integrado, via internet e tecnologia de pagamento por meio eletrônico, para aquisição de combustíveis, aquisição de peças e de serviços de manutenção preventiva e corretiva, socorro mecânico e guincho, mediante rede de estabelecimentos próprios ou credenciados, de natureza continuada, para atender às necessidades da Procuradoria Regional da República da 1ª Região, localizada no Setor de Autarquias Sul, Quadra 5, Bloco E, Lote 8, Brasília-DF, conforme condições e exigências estabelecidas no Termo de Referência.",
+    "motivo": "Gestão de frota de veículos com aquisição de combustível/peças; sistema informatizado é incidental.",
+    "numero_controle_pncp": "26989715000102-2-000475/2026"
+   },
+   {
+    "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
+    "objeto": "CONTRATAÇÃO DE ATÉ 20 VAGAS PARA CURSO ON-LINE E ATÉ 5 (CINCO) VAGAS PARA A MENTORIA NO CURSO DE CONTRATAÇÕES DE TIC COM APOIO EM IA.",
+    "motivo": "Vagas em curso online/mentoria, é treinamento não aquisição de solução.",
+    "numero_controle_pncp": "00509018000113-2-000741/2026"
+   },
+   {
+    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+    "objeto": "AQUISIÇÃO DE 1 (UM) ESCANER PARA INSPEÇÃO DE SEGURANÇA, COM TECNOLOGIA DE VARREDURA DE OBJETOS POR TRANSMISSÃO DE RAIOS X, COM PERSPECITVA DE VISUALIZAÇÃO TRIDIMENSIONAL (3D), EM VISTA ÚNICA (SINGLE VIEW) A AINDA, RECURSO DE INTELIGÊNCIA ARTIFICIAL, COM TÚNEL DE INSPEÇÃO COM ÁREA APROXIMADA DE 60 CM (SESSENTA CENTÍMETROS) X 40 CM (QUARENTA CENTÍMETROS), DAQUI EM DIANTE CHAMADO DE ESCÂNERES POR RAIOS X 6040 3D IA, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA",
+    "motivo": "Scanner de inspeção de segurança física (raio-X), não é solução de TI corporativa.",
+    "numero_controle_pncp": "00394494000136-2-000409/2026"
    },
    {
     "orgao": "INSTITUTO NACIONAL DE TECNOLOGIA DA INFORMACAO",
     "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS COMUNS DE AGENCIAMENTO DE VIAGENS PARA AQUISIÇÃO DE PASSAGENS AÉREAS NACIONAIS E INTERNACIONAIS, COMPREENDENDO OS SERVIÇOS DE EMISSÃO, ALTERAÇÃO E CANCELAMENTO DE PASSAGEM, BEM COMO DE SERVIÇOS CORRELATOS PARA ATENDER ÀS NECESSIDADES DO INSTITUTO NACIONAL DE TECNOLOGIA DA INFORMAÇÃO - ITI, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-    "motivo": "Agenciamento de viagens e emissão de passagens aéreas, não é contratação de TI (apesar do órgão ser instituto de TI).",
+    "motivo": "Agenciamento de viagens e passagens aéreas, não é TI.",
     "numero_controle_pncp": "04039532000193-2-000002/2025"
    },
    {
     "orgao": "COMANDO DA MARINHA",
     "objeto": "PRESTAÇÃO DE SERVIÇO DE GERENCIAMENTO DE FROTAS, INCLUINDO A MANUTENÇÃO PREVENTIVA E CORRETIVA, E O FORNECIMENTO DE PEÇAS, EM REDE DE ESTABELECIMENTOS CREDENCIADOS, UTILIZANDO-SE DE TECNOLOGIA DA INFORMAÇÃO, NA ADMINISTRAÇÃO E CONTROLE DAS EMBARCAÇÕES, EM FAVOR DESTA SECRETARIA-GERAL",
-    "motivo": "Gerenciamento de frota e manutenção veicular; usa TI apenas como ferramenta de apoio, objeto não é de TI.",
+    "motivo": "Serviço de gerenciamento de frotas; TI é apenas ferramenta de suporte ao serviço principal.",
     "numero_controle_pncp": "00394502000144-2-000311/2026"
    },
    {
     "orgao": "BANCO CENTRAL DO BRASIL",
     "objeto": "INSCRIÇÃO DE SERVIDOR DO DEINF NO EVENTO AGILE TRENDS GOV 2026, EM BRASÍLIA",
-    "motivo": "Inscrição de servidor em evento/curso, não é contratação de TI.",
+    "motivo": "Inscrição de servidor em evento, não é aquisição de solução de TI.",
     "numero_controle_pncp": "00038166000105-2-000041/2026"
+   },
+   {
+    "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
+    "objeto": "ASSINATURA ANUAL DE COLEÇÃO DE NORMAS TÉCNICAS DA ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS, VIA INTERNET E INTRANET, ESCOLHIDAS DE ACORDO COM O INTERESSE DO TSE, PELO PERÍODO DE 24 (VINTE E QUATRO) MESES, PRORROGÁVEIS NOS TERMOS DA LEI.",
+    "motivo": "Assinatura de coleção de normas técnicas via internet, é assinatura de conteúdo.",
+    "numero_controle_pncp": "00509018000113-2-000770/2025"
+   },
+   {
+    "orgao": "DEFENSORIA PUBLICA DA UNIAO",
+    "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DA ASSINATURA BIANUAL DA PLATAFORMA DIGITAL “FLICKR PRO”",
+    "motivo": "Assinatura de plataforma de fotos (Flickr Pro) é conteúdo, não solução de TI.",
+    "numero_controle_pncp": "00375114000116-2-000140/2025"
+   },
+   {
+    "orgao": "DEFENSORIA PUBLICA DA UNIAO",
+    "objeto": "O objeto do presente instrumento é a contratação da assinatura bianual da plataforma digital “Flickr\nPro”, em favor da Defensoria Pública da União em Brasília–DF.",
+    "motivo": "Assinatura de plataforma de fotos (Flickr Pro) é conteúdo, não solução de TI.",
+    "numero_controle_pncp": "00375114000116-2-000164/2025"
    },
    {
     "orgao": "CONSELHO FEDERAL DE FONOAUDIOLOGIA",
     "objeto": "Serviço especializado de e-mail marketing.",
-    "motivo": "Serviço de e-mail marketing, é comunicação/marketing, não infraestrutura de TI.",
+    "motivo": "Serviço de e-mail marketing, não é solução de TI central.",
     "numero_controle_pncp": "00697722000147-2-000006/2026"
    },
    {
     "orgao": "CAMARA DOS DEPUTADOS",
     "objeto": "Aquisição ripés com cabeça hidráulica para câmera de vídeo",
-    "motivo": "Acessório de câmera de vídeo (ripé com cabeça hidráulica), equipamento audiovisual, não é TI.",
+    "motivo": "Acessório de câmera de vídeo (ripé), equipamento de produção audiovisual, não TI.",
     "numero_controle_pncp": "00530352000159-2-000292/2025"
+   },
+   {
+    "orgao": "FUNDACAO UNIVERSIDADE DE BRASILIA",
+    "objeto": "CONTRATAÇÃO DA FINATEC PARA APOIAR A EXECUÇÃO E O DESENVOLVIMENTO DO PROJETO DE PESQUISA INTITULADO “PROJETO VETERA: INTELIGÊNCIA ARTIFICIAL NA EDUCAÇÃO 60+”, DORAVANTE DENOMINADO PROJETO.",
+    "motivo": "Apoio a projeto de pesquisa acadêmica, não é aquisição de solução de TI.",
+    "numero_controle_pncp": "00038174000143-2-000428/2025"
    },
    {
     "orgao": "MINISTERIO PUBLICO DA UNIAO",
     "objeto": "Assinatura digital à plataforma Tirant Latam, composta por banco de dados com acesso online a conteúdos de e-books, periódicos, vídeos, normas básicas de mais de 140 países, modelos e informativos que reúnem ampla doutrina, legislação e jurisprudência da América Latina, Espanha e Portugal nas áreas do Direito, Ciências Sociais e Humanidades. Compreende faixa de 1 (um) a 100 (cem) acessos simultâneos ao conteúdo digital de forma online pela Internet, por meio de autenticação segura por números de Internet Protocol (IP) do MPF",
-    "motivo": "Assinatura de plataforma de conteúdo jurídico (acervo bibliográfico digital), não é contratação de infraestrutura ou software de TI.",
+    "motivo": "Assinatura de conteúdo jurídico digital, é base de conteúdo não solução de TI.",
     "numero_controle_pncp": "26989715000102-2-000791/2025"
+   },
+   {
+    "orgao": "TRIBUNAL DE CONTAS DA UNIAO",
+    "objeto": "Contratação de serviços contínuos de gerenciamento de resíduos sólidos urbanos gerados no TCU e no ISC, incluindo coleta, transporte, tratamento e destinação final ambientalmente adequada, bem como a elaboração/atualização e cadastro do Plano de Gerenciamento de Resíduos Sólidos (PGRS) na respectiva plataforma digital oficial do Governo do Distrito Federal (PGRS Digital), para o TCU.",
+    "motivo": "Gerenciamento de resíduos sólidos urbanos, não é solução de TI.",
+    "numero_controle_pncp": "00414607000118-2-000134/2026"
    },
    {
     "orgao": "INST. NAC. COLON. REFORMA AGRARIA - INCRA",
     "objeto": "AQUISIÇÃO DE ROTULADORES ELETRÔNICOS DE MESA E CARTUCHOS (FITA ADESIVA MATERIAL: PLÁSTICO , TIPO: ROTULADORA, LARGURA: 18 MM, COMPRIMENTO: 8 M, COR: PRATA , APLICAÇÃO: ROTULADOR, COMPATÍVEL PARA INTEGRAÇÃO COM O SISTEMA SIADS, PARA ATENDER AS NECESSIDADES DO INCRA-SEDE E SUPERINTENDÊNCIAS REGIONAIS DO INCRA.",
-    "motivo": "Aquisição de rotuladores eletrônicos de mesa e fitas, material de escritório, não é TI.",
+    "motivo": "Rotuladores eletrônicos e fitas adesivas, material de escritório.",
     "numero_controle_pncp": "03204421000122-2-000116/2026"
-   },
-   {
-    "orgao": "MINISTERIO DA FAZENDA",
-    "objeto": "1.1.\tCONTRATAÇÃO DE SERVIÇOS CONTÍNUOS DE VIGILÂNCIA ELETRÔNICA, COM ALARME, CIRCUITO FECHADO DE TELEVISÃO (CFTV), CERCA ELÉTRICA E CONCERTINA, INCLUINDO O FORNECIMENTO E A INSTALAÇÃO DOS EQUIPAMENTOS, EM REGIME DE COMODATO (SERVIÇO ACESSÓRIO), ASSIM COMO TODO CABEAMENTO ESTRUTURADO, GERENCIAMENTO, INSTALAÇÃO, OPERAÇÃO, MONITORAMENTO ELETRÔNICO E MANUTENÇÃO PREVENTIVA E CORRETIVA DE TODO O SISTEMA, PARA ATENDER ÀS NECESSIDADES DA DRF/CUIABÁ/MT E DE SUAS UNIDADES JURISDICIONADAS, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-    "motivo": "Vigilância eletrônica/CFTV/alarme, segurança patrimonial, não é TIC.",
-    "numero_controle_pncp": "00394460000141-2-001184/2025"
-   },
-   {
-    "orgao": "MINISTERIO DA FAZENDA",
-    "objeto": "CONTRATAÇÃO DE SERVIÇOS CONTÍNUOS DE VIGILÂNCIA ELETRÔNICA, COM ALARME, CIRCUITO FECHADO DE TELEVISÃO (CFTV), CERCA ELÉTRICA E CONCERTINA, INCLUINDO O FORNECIMENTO E A INSTALAÇÃO DOS EQUIPAMENTOS, EM REGIME DE COMODATO (SERVIÇO ACESSÓRIO), ASSIM COMO TODO CABEAMENTO ESTRUTURADO, GERENCIAMENTO, INSTALAÇÃO, OPERAÇÃO, MONITORAMENTO ELETRÔNICO E MANUTENÇÃO PREVENTIVA E CORRETIVA DE TODO O SISTEMA, PARA ATENDER ÀS NECESSIDADES DA DRF/CUIABÁ/MT E DE SUAS UNIDADES JURISDICIONADAS, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-    "motivo": "Vigilância eletrônica/CFTV/alarme, segurança patrimonial, não é TIC.",
-    "numero_controle_pncp": "00394460000141-2-001182/2025"
-   },
-   {
-    "orgao": "MINISTERIO DA FAZENDA",
-    "objeto": "1.1.\tCONTRATAÇÃO DE SERVIÇOS CONTÍNUOS DE VIGILÂNCIA ELETRÔNICA, COM ALARME, CIRCUITO FECHADO DE TELEVISÃO (CFTV), CERCA ELÉTRICA E CONCERTINA, INCLUINDO O FORNECIMENTO E A INSTALAÇÃO DOS EQUIPAMENTOS, EM REGIME DE COMODATO (SERVIÇO ACESSÓRIO), ASSIM COMO TODO CABEAMENTO ESTRUTURADO, GERENCIAMENTO, INSTALAÇÃO, OPERAÇÃO, MONITORAMENTO ELETRÔNICO E MANUTENÇÃO PREVENTIVA E CORRETIVA DE TODO O SISTEMA, PARA ATENDER ÀS NECESSIDADES DA DRF/CUIABÁ/MT E DE SUAS UNIDADES JURISDICIONADAS, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-    "motivo": "Vigilância eletrônica/CFTV/alarme, segurança patrimonial, não é TIC.",
-    "numero_controle_pncp": "00394460000141-2-001183/2025"
    },
    {
     "orgao": "MINISTERIO DO TRABALHO",
     "objeto": "CONTRATAÇÃO DE SERVIÇOS CONTINUADOS DE APOIO TÉCNICO NAS ÁREAS DE ENGENHARIA E ARQUITETURA; MANUTENÇÃO PREVENTIVA, CORRETIVA E PREDITIVA; DE CONSERVAÇÃO E ADAPTAÇÃO DA INFRAESTRUTURA PREDIAL, INCLUINDO AS INSTALAÇÕES CIVIS, ELÉTRICAS, HIDRÁULICAS, DE COMBATE A INCÊNDIO, DO CABEAMENTO ESTRUTURADO, DO SISTEMAS DE CLIMATIZAÇÃO, VENTILAÇÃO E EXAUSTÃO, DOS EQUIPAMENTOS DE TRANSPORTE VERTICAL; DE SERVIÇOS DO SISTEMA DE DIVISÓRIAS; MONTAGEM, DESMONTAGEM E REFORMA DE MOBILIÁRIO; DE SINALIZAÇÃO VISUAL; DE VIDRAÇARIA, A SEREM EXECUTADOS COM REGIME DE DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA, E SOB DEMANDA; COM AGRUPAMENTO E DE FORMA INTEGRADA NO MODELO DE FACILITIES PARA ATENDER O MINISTÉRIO DO TRABALHO E EMPREGO.",
-    "motivo": "Contrato de facilities/manutenção predial (elétrica, hidráulica, mobiliário); cabeamento estruturado é só um item entre muitos serviços prediais.",
+    "motivo": "Serviços de manutenção predial/facilities; cabeamento estruturado é item acessório dentro de escopo amplo de engenharia.",
     "numero_controle_pncp": "23612685000122-2-000028/2024"
+   },
+   {
+    "orgao": "MINISTERIO PUBLICO DA UNIAO",
+    "objeto": "Serviço de acesso à Plataforma Fórum de Conhecimento Jurídico, que contempla a Biblioteca DigitalFórum de Livros, compreendendo o fornecimento de acesso ilimitado, simultâneo e permanente ao conteúdo digital de forma on-line pela Internet, por meio de autenticação segura por números de Internet Protocol (IP)",
+    "motivo": "Acesso a plataforma de biblioteca digital (livros), é conteúdo não solução de TI.",
+    "numero_controle_pncp": "26989715000102-2-000828/2025"
+   },
+   {
+    "orgao": "MINISTERIO DA SAUDE",
+    "objeto": "CONTRATAÇÃO DE BIÔMETRO DE COERÊNCIA ÓPTICA.",
+    "motivo": "Biômetro de coerência óptica é equipamento médico/científico, não TI.",
+    "numero_controle_pncp": "00394544000185-2-004250/2026"
+   },
+   {
+    "orgao": "BANCO CENTRAL DO BRASIL",
+    "objeto": "ASSINATURA DIGITAL ANUAL DE UMA EDITORA PARA ACESSO ONLINE A LIVROS TÉCNICOS.",
+    "motivo": "Assinatura digital de editora para acesso a livros técnicos, é conteúdo editorial.",
+    "numero_controle_pncp": "00038166000105-2-000273/2025"
    },
    {
     "orgao": "CONSELHO DE ARQUITETURA E URBANISMO DO BRASIL",
     "objeto": "Contratação de 37 (trinta e sete) licenças anuais de uso individual à plataforma de cursos online Alura, pelo período de 12 (doze) meses, em ambiente virtual de aprendizagem que contemple trilhas de conhecimento, recursos de mapeamento de competências, monitoramento de desempenho e criação de planos de estudos, assistente de inteligência artificial, emissão de certificados de conclusão, suporte técnico e atendimento, bem como suporte de consultor especializado.",
-    "motivo": "Licenças de plataforma de cursos online (Alura) é serviço de capacitação/treinamento, não solução de TI.",
+    "motivo": "Licenças de plataforma de cursos online (Alura), é treinamento não aquisição de solução.",
     "numero_controle_pncp": "14702767000177-2-000050/2026"
    },
    {
-    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
-    "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO (TIC) PARA O FORNECIMENTO DE ACESSO, VIA SUBSCRIÇÃO (ASSINATURA) ANUAL COM FATURAMENTO EM PARCELA ÚNICA, A PLATAFORMAS DE BANCOS DE ATIVOS DIGITAIS CRIATIVOS, CONTEMPLANDO ACERVOS DE IMAGENS DE ALTA RESOLUÇÃO, VETORES, ILUSTRAÇÕES, VÍDEOS (FOOTAGE), TEMPLATES EDITÁVEIS E FONTES, PARA ATENDER ÀS NECESSIDADES DA COORDENAÇÃO-GERAL DE COMUNICAÇÃO INSTITUCIONAL DA POLÍCIA RODOVIÁRIA FEDERAL (PRF), TENDO COMO REFERÊNCIA DE PADRÃO DE QUALIDADE E FUNCIONALIDADES AS PLATAFORMAS FREEPIK E ENVATO ELEMENTS, OU EQUIVALENTE , NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-    "motivo": "Assinatura de banco de imagens/vídeos/templates criativos (tipo Freepik/Envato) é conteúdo/mídia para comunicação, não solução de TI.",
-    "numero_controle_pncp": "00394494010441-2-000512/2026"
-   },
-   {
-    "orgao": "SENADO FEDERAL",
-    "objeto": "Contratação de licença de uso do sistema Videofarma Banco de Dados com Exportação de a contratação de treinamento in company ministrado pela Supreme Treinamentos LTDA, intitulado “Prático de Legislação Previdenciária do Setor Público”, voltado à capacitação de até 22 (vinte e dois) servidores do SENADO (AUDIT, DGER e SEGP), a ser realizado presencialmente nas dependências do Instituto Legislativo Brasileiro (ILB) do Senado Federal, em Brasília, Distrito Federal, com carga horária de 16 (dezesseis) horas,",
-    "motivo": "Texto mistura licença de sistema com contratação de curso presencial de legislação previdenciária; o conteúdo predominante é treinamento de servidores.",
-    "numero_controle_pncp": "00530279000115-2-000077/2026"
+    "orgao": "CONSELHO FEDERAL DE ADMINISTRACAO",
+    "objeto": "Contratação de empresa para fornecimento de ferramenta/ solução web para disparo de e-mail marketing para campanhas do CFA e para a plataforma CFA-Talentos, por meio de sistema web, por acesso com login/senha, pelo período de 12 (doze) meses, com a possibilidade de prorrogação, conforme especificações definidas neste instrumento.",
+    "motivo": "Ferramenta para disparo de e-mail marketing, não é solução de TI central.",
+    "numero_controle_pncp": "34061135000189-2-000013/2024"
    },
    {
     "orgao": "MINISTERIO PUBLICO DA UNIAO",
     "objeto": "Contratação de empresa de engenharia para realização de serviços de manutenção preventiva e corretiva dos sistemas de automação predial, compreendendo dispositivos, software supervisórios, incluindo redes de automação e interligação entre os sistemas, bem como expansão de pontos de controle, nos edifícios do Ministério Público do Distrito Federal e Territórios - MPDFT, sem dedicação exclusiva de mão de obra, conforme condições e exigências estabelecidas no Termo de Referência.",
-    "motivo": "Manutenção de sistemas de automação predial (elevadores/HVAC etc.) é serviço de engenharia predial, não TI.",
+    "motivo": "Manutenção de sistemas de automação predial, é serviço de engenharia/facilities com software incidental.",
     "numero_controle_pncp": "26989715000102-2-000724/2026"
    },
    {
     "orgao": "MINISTERIO PUBLICO DA UNIAO",
     "objeto": "ATENDER A DESPESA COM A CONTRATAÇÃO DE EMPRESA PARA MINISTRAR TREINAMENTOS OFICIAIS DE SEGURANÇA CIBERNÉTICA EC-COUNCIL, INCLUINDO MATERIAL DIDÁTICO OFICIAL, LABORATÓRIOS PRÁTICOS E VOUCHERS PARA PROVAS DE CERTIFICAÇÃO INTERNACIONAL, PARA MEMBROS DA EQUIPE\nDE PREVENÇÃO, TRATAMENTO E RESPOSTA A INCIDENTES CIBERNÉTICOS DO MPT (ETIR/MPT). Processo 20.02.0001.0010165/2025-49 INEXIGIBILIDADE 26/2026",
-    "motivo": "Contratação de treinamentos e certificações (EC-Council) é serviço de capacitação, não uma solução de TI em si.",
+    "motivo": "Treinamento oficial de segurança cibernética com voucher de certificação, é curso não aquisição de solução.",
     "numero_controle_pncp": "26989715000102-2-000762/2026"
    },
    {
     "orgao": "CONSELHO FEDERAL DE ODONTOLOGIA",
     "objeto": "Contratação de escritório de advocacia com notória especialização em Direito Odontológico e Direito Sanitário para execução integrada de serviços técnicos especializados de natureza predominantemente intelectual, voltados ao diagnóstico, à padronização, à implementação, ao monitoramento e à governança do sistema fiscalizatório nacional no âmbito do Sistema CFO/CROs, bem como ao suporte técnico-jurídico especializado em direito odontológico e sanitário, nas \ncondições estabelecidas no Termo de Referência.",
-    "motivo": "Contratação de escritório de advocacia para serviços jurídicos, apesar de citar 'sistema fiscalizatório' regulatório.",
+    "motivo": "Contratação de escritório de advocacia especializado, é serviço jurídico não TI.",
     "numero_controle_pncp": "61919643000209-2-000016/2026"
    },
    {
     "orgao": "MINISTERIO PUBLICO DA UNIAO",
     "objeto": "Contratação de empresa especializada na prestação de serviços de rastreamento e monitoramento veicular, via satélite por GPS/GSM/GPRS, compreendendo a instalação de módulos rastreadores e de identificação de condutores em comodato, disponibilização de licença de software de gerenciamento com acesso via web e os respectivos serviços de colocação da ferramenta de rastreamento, configuração, capacitação, suporte técnico e garantia de funcionamento durante toda a vigência contratual, para a gestão de frota do Ministério Público do Distrito Federal e Territórios, nas condições estabelecidas no Termo de Referência, anexo ao Edital.",
-    "motivo": "Serviço de rastreamento/monitoramento veicular via satélite para gestão de frota; o objeto central é logística, não TI, apesar de incluir software de gerenciamento.",
+    "motivo": "Serviço de rastreamento/gestão de frota veicular; sistema é ferramenta acessória do serviço principal.",
     "numero_controle_pncp": "26989715000102-2-000783/2026"
    },
    {
     "orgao": "INSTITUTO DE PESQUISA ECONOMICA APLICADA",
     "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A AQUISIÇÃO DE BENS, ELETRODOMÉSTICOS E MOVÉIS PARA UNIDADE DO IPEA BRASÍLIA, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA: (1) SOFÁ 2 LUGARES, MATERIAL ESTRUTURA: MADEIRA, MATERIAL ESTOFAMENTO: ESPUMA; (2) SOFÁ 3 LUGARES, MATERIAL ESTRUTURA: MADEIRA, MATERIAL ESTOFAMENTO: ESPUMA.",
-    "motivo": "Aquisição de móveis e eletrodomésticos (sofás), nada relacionado a TI.",
+    "motivo": "Aquisição de sofás e eletrodomésticos, mobiliário não TI.",
     "numero_controle_pncp": "33892175000100-2-000023/2026"
    },
    {
     "orgao": "CONSELHO FEDERAL DE QUIMICA",
     "objeto": "Fornecimento de baterias estacionárias e instalação/substituição das baterias, realização de testes de funcionamento e validação do sistema, bem como a retirada e destinação final ambientalmente adequada das baterias inservíveis.",
-    "motivo": "Fornecimento e manutenção de baterias estacionárias, sem indicação de vínculo com equipamento de TI (energia predial genérica).",
+    "motivo": "Fornecimento e instalação de baterias estacionárias, infraestrutura elétrica não TI.",
     "numero_controle_pncp": "33839275000172-2-000022/2026"
+   },
+   {
+    "orgao": "TRIBUNAL DE JUSTICA DO DISTRITO FEDERAL E DOS TERRITORIOS",
+    "objeto": "A PRESTAÇÃO DO SERVIÇO DE INFORMAÇÃO NA ÁREA DE LICITAÇÕES E CONTRATOS ADMINISTRATIVOS DENOMINADO \"ZÊNITE FÁCIL\", COM ATÉ 10 (DEZ) ACESSOS SIMULTÂNEOS, VIA INTERNET. DO FUNDAMENTO LEGAL ARTIGO 74, INCISO I, §1° DA LEI N. 14.133/2021.",
+    "motivo": "Serviço de informação/conteúdo jurídico (Zênite Fácil) via internet, não é solução de TI.",
+    "numero_controle_pncp": "00531954000120-2-000079/2022"
+   },
+   {
+    "orgao": "TRIBUNAL DE JUSTICA DO DISTRITO FEDERAL E DOS TERRITORIOS",
+    "objeto": "Prestação do serviço de informação na área de licitações e contratos administrativos denominado \"Zênite Fácil\", com até 10 (dez) acessos simultâneos, via internet, ininterruptamente, por periodicidade cíclica de 12 (doze) meses, durante o intervalo de 05 (cinco) anos.",
+    "motivo": "Serviço de informação/conteúdo jurídico (Zênite Fácil) via internet, não é solução de TI.",
+    "numero_controle_pncp": "00531954000120-2-000085/2022"
    },
    {
     "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
     "objeto": "PRESTAÇÃO DE SERVIÇOS CONTINUADOS DE AUXILIAR DE BIBLIOTECA, EM REGIME DE DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA, PARA O SUPERIOR TRIBUNAL DE JUSTIÇA (STJ) E A ESCOLA NACIONAL DE FORMAÇÃO E APERFEIÇOAMENTO DE MAGISTRADOS (ENFAM).",
-    "motivo": "Prestação de serviços de auxiliar de biblioteca, mão de obra não relacionada a TI.",
+    "motivo": "Mão de obra de auxiliar de biblioteca, não é TI.",
     "numero_controle_pncp": "00488478000102-2-000067/2025"
    },
    {
-    "orgao": "INSTITUTO DO PATRIMONIO HISTORICO E ARTISTICO NACIONAL",
-    "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇO ESPECIALIZADO, COM O FORNECIMENTO DOS MATERIAIS INDISPENSÁVEIS, DESTINADOS AO REMANEJAMENTO DE 02 (DOIS) EQUIPAMENTOS DE AR CONDICIONADO DE ALTA PRECISÃO, PARA POSICIONAMENTO ADEQUADO ENTRE OS RACKS, CONFORME BOAS PRÁTICAS DE CLIMATIZAÇÃO DE AMBIENTES CRÍTICOS, E À ADEQUAÇÃO DO SISTEMA DE DRENAGEM POR GRAVIDADE DE 04 (QUATRO) EQUIPAMENTOS DE AR CONDICIONADO DE ALTA PRECISÃO DA MARCA VERTIV MODELO LIEBERT CR025, CONSIDERANDO AS ADEQUAÇÕES TÉCNICAS REQUERIDAS PARA A CORRETA INSTALAÇÃO, O PLENO FUNCIONAMENTO E A SEGURANÇA OPERACIONAL DOS SISTEMAS DE CLIMATIZAÇÃO DA SALA DO DATACENTER DO INSTITUTO DO PATRIMÔNIO HISTÓRICO E ARTÍSTICO",
-    "motivo": "Serviço de instalação/remanejamento de ar condicionado, manutenção predial mesmo estando na sala do datacenter.",
-    "numero_controle_pncp": "26474056000171-2-000093/2026"
+    "orgao": "MINISTERIO DO TURISMO",
+    "objeto": "CONTRATAÇÃO DE SERVIÇOS DE ASSINATURA DE BASE DE DADOS DE INFORMAÇÕES ECONÔMICAS REFERENTES A INVESTIMENTO DIRETO ESTRANGEIRO (IDE) COM FOCO NO SETOR DE TURISMO, DISPONIBILIZADA EM PLATAFORMA ACESSÍVEL VIA INTERNET, PARA ATENDIMENTO ÀS NECESSIDADES DA COORDENAÇÃO-GERAL DE ATRAÇÃO DE INVESTIMENTOS (CGINV) DA SECRETARIA NACIONAL DE INFRAESTRUTURA, CRÉDITO E INVESTIMENTOS NO TURISMO (SNINFRA), CONFORME CONDIÇÕES, QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+    "motivo": "Assinatura de base de dados de investimento estrangeiro, é conteúdo/dados econômicos.",
+    "numero_controle_pncp": "05457283000119-2-000012/2024"
    },
    {
     "orgao": "COMANDO DA MARINHA",
     "objeto": "CONTRATAÇÃO DE INSTITUIÇÃO DE ENSINO PARA CAPACITAÇÃO DE PESSOAL EM CURSO NA MODALIDADE EAD DE TECNOLOGIA DA INFORMAÇÃO",
-    "motivo": "Curso de capacitação de pessoal (EAD), curso de servidor mesmo com tema de TI.",
+    "motivo": "Curso EAD de capacitação em TI, é treinamento não aquisição de solução.",
     "numero_controle_pncp": "00394502000144-2-000511/2025"
+   },
+   {
+    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+    "objeto": "AQUISIÇÃO DE EQUIPAMENTOS DE AUTOMAÇÃO PARA PROCESSAMENTO DE AMOSTRAS DE MATERIAL BIOLÓGICO DOS LABORATÓRIOS GENÉTICA FORENSE DAS UNIDADES DA FEDERAÇÃO DA REDE INTEGRADA DE BANCOS DE PERFIS GENÉTICOS (RIBPG), NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA (SEI N29941434)º",
+    "motivo": "Equipamentos de automação para processamento de amostras biológicas em laboratório forense, não é TI.",
+    "numero_controle_pncp": "00394494000136-2-001040/2026"
    },
    {
     "orgao": "COMANDO DA MARINHA",
     "objeto": "AQUISIÇÃO DE MATERIAL ELÉTRICO E ELETRÔNICO PARA ATENDER AS DEMANDAS DAS ORGANIZAÇÕES MILITARES DA ÁREA DO COMANDO DO SÉTIMO DISTRITO NAVAL.",
-    "motivo": "Aquisição de material elétrico e eletrônico genérico, sem especificação de equipamento de TI.",
+    "motivo": "Material elétrico e eletrônico genérico, não especifica solução de TI.",
     "numero_controle_pncp": "00394502000144-2-000865/2026"
    },
    {
-    "orgao": "INSTITUTO DE PESQUISA ECONOMICA APLICADA",
-    "objeto": "PRESTAÇÃO DE SERVIÇOS CONTÍNUOS DE MANUTENÇÃO PREDITIVA, PREVENTIVA E CORRETIVA DO SISTEMA DE NOBREAK COM FORNECIMENOT DE PEÇAS SOB DEMANDA, NAS DEPENDÊNCIAS DO INSTITUTO DE PESQUISA ECONÔMICA E APLICADA - IPEA",
-    "motivo": "Manutenção de sistema de nobreak é infraestrutura elétrica predial, não contratação de TI.",
-    "numero_controle_pncp": "33892175000100-2-000028/2026"
+    "orgao": "CAMARA DOS DEPUTADOS",
+    "objeto": "Prestação de serviços continuados nas áreas de digitalização de documentos, de\npreservação digital, de conservação e restauração de bens culturais e de montagem\nde exposições e eventos e movimentação de acervo museológico",
+    "motivo": "Serviços de conservação, restauração de acervo e montagem de exposições, não é TI.",
+    "numero_controle_pncp": "00530352000159-2-000094/2026"
    },
    {
-    "orgao": "MINISTERIO DA DEFESA",
-    "objeto": "AQUISIÇÃO DE CONJUNTO DE CONTROLADORA DE ACESSO FÍSICO DE PESSOAS, INCLUINDO TREINAMENTO, SOFTWARE, INSTALAÇÃO E DESINSTALAÇÃO DE TODO O SISTEMA ATUAL, PARA ATENDER ÀS NECESSIDADES DO CENTRO DE COORDENAÇÃO GERAL - CCG, DO CENTRO GESTOR E OPERACIONAL DO SISTEMA DE PROTEÇÃO DA AMAZÔNIA - CENSIPAM, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-    "motivo": "Sistema de controle de acesso físico de pessoas é segurança patrimonial, não TIC.",
-    "numero_controle_pncp": "03277610000125-2-000845/2026"
+    "orgao": "MINISTERIO DA EDUCACAO",
+    "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA PRESTAÇÃO DE SERVIÇOS DE ACESSO A TV POR ASSINATURA DIGITAL, COM DISPONIBILIZAÇÃO DE SINAL EM ALTA DEFINIÇÃO (HD), COM INSTALAÇÃO, ASSISTÊNCIA TÉCNICA E FORNECIMENTO DE TODOS OS EQUIPAMENTOS (EM REGIME DE COMODATO), NECESSÁRIOS PARA UMA QUANTIDADE ESTIMADA DE 25 (VINTE E CINCO) PONTOS DE ACESSO, NO EDIFÍCIO-SEDE E ANEXOS DO MINISTÉRIO DA EDUCAÇÃO, NO CENTRO DE FORMAÇÃO E DESENVOLVIMENTO DOS TRABALHADORES EM EDUCAÇÃO DO MEC E NO CONSELHO NACIONAL DE EDUCAÇÃO",
+    "motivo": "Serviço de TV por assinatura digital, não é TI.",
+    "numero_controle_pncp": "00394445000101-2-000122/2026"
    },
    {
-    "orgao": "CONSELHO ADMINISTRATIVO DE DEFESA ECONOMICA-CADE",
-    "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE SERVIÇOS DE CLIPPING DIGITAL DE NOTÍCIAS (MONITORAMENTO, COLETA, ORGANIZAÇÃO E ANÁLISE DE INFORMAÇÕES) EM ÂMBITO NACIONAL E INTERNACIONAL, EM MÍDIAS ON-LINE, RÁDIO, TELEVISÃO E CANAIS DO YOUTUBE, PARA A ASSESSORIA DE COMUNICAÇÃO SOCIAL (ASCOM) DO CADE, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-    "motivo": "Serviço de clipping digital de notícias é monitoramento de mídia/comunicação social, não TI.",
-    "numero_controle_pncp": "00418993000116-2-000021/2026"
+    "orgao": "FUNDACAO NACIONAL DE SAUDE",
+    "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS COMUNS DE ADMINISTRAÇÃO, GERENCIAMENTO E CONTROLE DA MANUTENÇÃO PREVENTIVA E CORRETIVA DE VEÍCULOS, COM FORNECIMENTO DE PEÇAS, ACESSÓRIOS, SERVIÇOS, TROCA DE ÓLEO E FILTROS, EQUIPAMENTOS, COMPONENTES, FUNILARIA, LANTERNAGEM, PINTURA, ENVELOPAMENTO, COM MATERIAIS ORIGINAIS RECOMENDADOS PELO FABRICANTE DE ACORDO COM AS CARACTERÍSTICAS DE CADA VEÍCULO, ALÉM DE TRANSPORTE POR GUINCHO PARA TRASLADOS DOS VEÍCULOS, COM IMPLANTAÇÃO E OPERAÇÃO DE SISTEMA INFORMATIZADO E INTEGRADO PARA GESTÃO DE FROTA, POR MEIO DE INTERNET, ATRAVÉS DE REDE DE ESTABELECIMENTO CREDENCIADOS E MEDIANTE UTILIZAÇÃO DE SISTEMA INFORMATIZADO E DE RECURSOS TECNOLÓGICOS, PARA ATENDER AS NECESSIDADES DA SUPERINTENDÊNCIA ESTADUAL DA FUNASA EM SÃO PAULO, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO E NO TERMO DE REFERÊNCIA.",
+    "motivo": "Gestão e manutenção de frota de veículos; sistema informatizado é incidental ao serviço principal.",
+    "numero_controle_pncp": "26989350000116-2-000038/2026"
+   },
+   {
+    "orgao": "CONSELHO FEDERAL DE FARMACIA",
+    "objeto": "Aquisição de material de informática item 9 (carregadores de smartphone)",
+    "motivo": "Carregadores de smartphone, acessório genérico não solução de TI.",
+    "numero_controle_pncp": "60984473000100-2-000096/2026"
+   },
+   {
+    "orgao": "TRIBUNAL SUPERIOR DO TRABALHO",
+    "objeto": "A AQUISIÇÃO DE ACESSO À PLATAFORMA “ZÊNITE FÁCIL” E À ZIÁ-INTELIGÊNCIA ARTIFICIAL DA ZÊNITE OBJETIVA DISPONIBILIZAR INFORMAÇÕES\nESPECIALIZADAS NA ÁREA DE LICITAÇÕES E CONTRATAÇÃO PÚBLICA, QUE PERMITEM SUBSIDIAR AS ATIVIDADES DE DIVERSAS UNIDADES DO\nTST E RESPALDAR A TOMADA DE DECISÃO.",
+    "motivo": "Acesso a plataforma de conteúdo/consultoria em licitações, mesmo com módulo de IA, é assinatura de informação.",
+    "numero_controle_pncp": "00509968000148-2-000931/2026"
+   },
+   {
+    "orgao": "FUNDACAO UNIVERSIDADE DE BRASILIA",
+    "objeto": "APOIAR A EXECUÇÃO E O DESENVOLVIMENTO DO PROJETO DE PESQUISA INTITULADO “SISTEMAS DE INTELIGÊNCIA ARTIFICIAL PARA TOMADA DE DECISÕES NO IBAMA: IMPLEMENTAÇÃO E ANÁLISES A PARTIR DO BEM COMUM”, ORIUNDO DO TERMO DE EXECUÇÃO DESCENTRALIZADA Nº 8/2025, CELEBRADO ENTRE O INSTITUTO BRASILEIRO DO MEIO AMBIENTE E DOS RECURSOS NATURAIS RENOVÁVEIS (IBAMA) E A UNIVERSIDADE DE BRASÍLIA, EM 29 DE DEZEMBRO DE 2025.",
+    "motivo": "Apoio a projeto de pesquisa acadêmica sobre IA, não é aquisição de solução de TI.",
+    "numero_controle_pncp": "00038174000143-2-001102/2025"
    },
    {
     "orgao": "COMANDO DA MARINHA",
     "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA EM REVISÃO TEXTUAL.",
-    "motivo": "Serviço de revisão textual, sem relação com TI.",
+    "motivo": "Serviço de revisão textual, não é TI.",
     "numero_controle_pncp": "00394502000144-2-000980/2026"
+   },
+   {
+    "orgao": "CAMARA DOS DEPUTADOS",
+    "objeto": "Prestação de serviços continuados na área de operação de equipamentos de áudio,\nvídeo e geração de imagens para transmissão ao vivo por rádio, televisão e internet,\nem caráter emergencial",
+    "motivo": "Operação de equipamentos de áudio/vídeo para transmissão, produção audiovisual não TI.",
+    "numero_controle_pncp": "00530352000159-2-000132/2026"
    },
    {
     "orgao": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
     "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS COMUNS DE SERVIÇOS DE OUTSOURCING PARA OPERAÇÃO DE ALMOXARIFADO VIRTUAL, SOB DEMANDA, VISANDO AO SUPRIMENTO DE MATERIAIS DE CONSUMO, VIA SISTEMA WEB DISPONIBILIZADO PELO CONTRATADO, ÀS UNIDADES DA ADMINISTRAÇÃO PÚBLICA FEDERAL - APF, LOCALIZADAS MAS REGIÕES SUL, CENTRO-OESTE E NORDESTE, NOS TERMOS DA TABELA ABAIXO, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA",
-    "motivo": "Serviço de outsourcing de almoxarifado; o sistema web é apenas ferramenta de apoio, não contratação de TI.",
+    "motivo": "Serviço de outsourcing de almoxarifado com sistema web, foco é logística não TI.",
     "numero_controle_pncp": "00489828000155-2-000401/2026"
    },
    {
     "orgao": "MINISTERIO DA SAUDE",
     "objeto": "A AQUISIÇÃO, SOB DEMANDA, DE FITAS ADESIVAS PARA ROTULADORAS ELETRÔNICAS PARA ATENDER AS NECESSIDADES DO MINISTÉRIO DA SAÚDE – MS",
-    "motivo": "Aquisição de fitas adesivas para rotuladoras é material de consumo de escritório, sem relação com TI.",
+    "motivo": "Fitas adesivas para rotuladoras, material de escritório.",
     "numero_controle_pncp": "00394544000185-2-003455/2026"
    },
    {
     "orgao": "MINISTERIO DA AGRICULTURA, PECUARIA E ABASTECIMENTO",
     "objeto": "CONTRATAÇÃO SERVIÇOS, ATRAVÉS DE EMPRESA ESPECIALIZADA NO FORNECIMENTO DE MÃO DE OBRA NA CATEGORIA DE TRABALHADORES DA AGROPECUÁRIA - SERVIÇOS AUXILIARES, COM OBJETIVO DE ATENDER A ESTAÇÃO DE PESQUISA DO MAPA/SDR/CEPLAC/COPAM NO ESTADO DO PARÁ, UNIDADE DE MARITUBA- PARÁ. SERVIÇOS COM REGIME DE DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA, CONFORME CONDIÇÕES E EXIGÊNCIAS QUE FORAM  ESTABELECIDAS NO CONTRATO N .° 08/2026, NOTA INFORMATIVA 14 E OFÍCIO DE CONCORDÂNCIA, REFERENTE AO GRUPO 1, VALOR TOTAL DO CONTRATO R$  852.199,68.",
-    "motivo": "Contratação de mão de obra para trabalhadores da agropecuária, sem relação com TI.",
+    "motivo": "Mão de obra de trabalhadores da agropecuária, não é TI.",
     "numero_controle_pncp": "00396895000125-2-000408/2026"
    },
    {
     "orgao": "MINISTERIO DA FAZENDA",
     "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS COMUNS DE ASSINATURAS ANUAIS PARA ACESSO À\nPLATAFORMA FÓRUM DE CONHECIMENTO JURÍDICO, CONTEMPLANDO O ACESSO AO COMBO COMPOSTO PELO MÓDULO \n\"FÓRUM ASSINATURA®\" (ACESSO A LIVROS, REVISTAS E INFORMATIVOS DIGITAIS) E PELA FERRAMENTA DE INTELIGÊNCIA ARTIFICIAL\n\"FÓRUM IAH®\", NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA",
-    "motivo": "Assinatura de plataforma de conteúdo jurídico (livros, revistas e informativos digitais) com ferramenta de IA agregada; é serviço de informação jurídica, não solução de TI.",
+    "motivo": "Acesso a plataforma de conteúdo jurídico, mesmo com ferramenta de IA, é assinatura de conteúdo.",
     "numero_controle_pncp": "00394460000141-2-000456/2026"
    },
    {
     "orgao": "COMANDO DO EXERCITO",
     "objeto": "AQUISIÇÃO DE MATERIAIS PERMANENTES DE COZINHA: FREEZER HORIZONTAL. (220 VOLTS) CARACTERÍSTICAS - 4 PÉS COM RODÍZIOS",
-    "motivo": "Aquisição de freezer horizontal para cozinha, material permanente predial, sem relação com TI.",
+    "motivo": "Freezer horizontal para cozinha, não é TI.",
     "numero_controle_pncp": "00394452000103-2-005100/2026"
    },
    {
     "orgao": "FUNDACAO UNIVERSIDADE DE BRASILIA",
     "objeto": "CONTRATAÇÃO DA FINATEC PARA APOIAR A EXECUÇÃO E O DESENVOLVIMENTO DO PROJETO DE PESQUISA INTITULADO “DESIGN DE SERVIÇOS NO APOIO À CENTRALIZAÇÃO DE SERVIÇOS COMPARTILHADOS PARA ÓRGÃOS DO COLABORAGOV”, ORIUNDO DO TERMO DE EXECUÇÃO DESCENTRALIZADA, CELEBRADO ENTRE O MINISTÉRIO DA GESTÃO E INOVAÇÃO - MGI, POR MEIO DA DIRETORIA DE TECNOLOGIA DA INFORMAÇÃO, DA SECRETARIA DE SERVIÇOS COMPARTILHADOS, E A UNIVERSIDADE DE BRASÍLIA, EM 08/10/2024.",
-    "motivo": "Apoio a projeto de pesquisa sobre design de serviços/centralização de serviços compartilhados; é consultoria/pesquisa, não contratação de solução de TI.",
+    "motivo": "Apoio a projeto de pesquisa acadêmica, não é aquisição de solução de TI.",
     "numero_controle_pncp": "00038174000143-2-000084/2024"
    },
    {
     "orgao": "SENADO FEDERAL",
     "objeto": "Fornecimento de equipamentos para interpretação simultânea de idiomas (Itens 1 e 2).",
-    "motivo": "Fornecimento de equipamentos de interpretação simultânea de idiomas, sem relação com TI.",
+    "motivo": "Equipamentos de interpretação simultânea de idiomas, hardware específico não TI corporativa.",
     "numero_controle_pncp": "00530279000115-2-000133/2026"
+   },
+   {
+    "orgao": "MINISTERIO PUBLICO DA UNIAO",
+    "objeto": "Contratação do serviço de acesso à plataforma de livros digitais da Biblioteca Digital Proview, compreendendo o fornecimento de 50 (cinquenta) acessos simultâneos ao conteúdo digital de forma on-line, via WEB, por meio de autenticação segura por números de Internet Protocol (IP), conforme condições, quantidades e especificações estabelecidas no Termo de Referência, anexo a este instrumento.",
+    "motivo": "Acesso a plataforma de livros digitais (Proview), é conteúdo não solução de TI.",
+    "numero_controle_pncp": "26989715000102-2-001286/2026"
+   },
+   {
+    "orgao": "MINISTERIO PUBLICO DA UNIAO",
+    "objeto": "Contrataçao da assinatura de acesso a plataforma online Jusbrasil, no plano Pesquisa JurÌdica Basica e no pacote Corporativo com 30 (trinta) acessos simultaneos individuais, por meio de autenticaçÁ„o via login e senha.",
+    "motivo": "Assinatura de portal de pesquisa jurídica (Jusbrasil), é conteúdo.",
+    "numero_controle_pncp": "26989715000102-2-001301/2026"
    },
    {
     "orgao": "MINISTERIO DA SAUDE",
     "objeto": "AQUISIÇÃO, SOB DEMANDA, DE FITAS ADESIVAS PARA ROTULADORAS ELETRÔNICAS PARA ATENDER AS NECESSIDADES DO MINISTÉRIO DA SAÚDE – MS, EM BRASÍLIA /DF",
-    "motivo": "Aquisição de fitas adesivas para rotuladoras é material de consumo de escritório, sem relação com TI.",
+    "motivo": "Fitas adesivas para rotuladoras, material de escritório.",
     "numero_controle_pncp": "00394544000185-2-007286/2026"
    },
    {
     "orgao": "COMANDO DO EXERCITO",
     "objeto": "CONTRATAÇÃO DE SERVIÇOS PARA ASSESSORIA MERCADOLÓGICA NA ÁREA DA SAÚDE, ATRAVÉS DA SESSÃO DE USO DO BANCO DE DADOS RELACIONAL",
-    "motivo": "Assessoria mercadológica na área da saúde via uso de banco de dados relacional; é serviço de consultoria de mercado, não solução de TI.",
+    "motivo": "Serviço de assessoria mercadológica usando banco de dados como ferramenta, não é aquisição de solução de TI.",
     "numero_controle_pncp": "00394452000103-2-005254/2026"
    },
    {
     "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
     "objeto": "2025NECT XXXXXXXX-2025000000047440 - CONTRATAÇÃO DE 3 ACESSOS INDIVIDUAIS AO CURSO - LGPD, GOVERNANÇA DE DADOS E GESTÃO DE METADADOS 4.0 - E AOS DEMAIS CONTEÚDOS DISPONÍVEIS NA PLATAFORMA, NOS TERMOS DA INF. SEDUC 138/2025 (3292408), TERMO DE REFÊNCIA SEDUC (3286400), P. DE PREÇOS (3292339) E AUT. DE DESP. GAB-DG (3296536). SEI 2025.00.000004744-0",
-    "motivo": "Contratação de vagas em curso sobre LGPD/governança de dados; é curso/capacitação de servidor, não solução de TI.",
+    "motivo": "Acesso a curso de LGPD/governança de dados, é treinamento.",
     "numero_controle_pncp": "00509018000113-2-002016/2025"
+   },
+   {
+    "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
+    "objeto": "ASSINATURA DE COLEÇÃO DE NORMAS TÉCNICAS DA INTERNATIONAL ORGANIZATION FOR STANDARDIZATION - ISO, POR MEIO DA PLATAFORMA ABNTCOLEÇÃO, DA ASSOCIAÇÃO BRASILEIRA DE NORMAS TÉCNICAS, VIA INTERNET E INTRANET, ESCOLHIDAS DE ACORDO COM O INTERESSE DO CONTRATANTE",
+    "motivo": "Assinatura de normas técnicas ISO, é conteúdo/normas.",
+    "numero_controle_pncp": "00509018000113-2-002005/2025"
    },
    {
     "orgao": "CONSELHO NACIONAL DO MINISTÉRIO PÚBLICO",
     "objeto": "Contratação de 3 (três) vagas para participação dos servidores Bruno Garcia Silva, Gustavo de Carvalho Dantas e Paulo Célio Soares da Silva Júnior no evento “IA Conference Brasil”, a ser realizado no dia 24 de setembro de 2026, em São Paulo/SP.",
-    "motivo": "Participação de servidores em evento (conferência), não é contratação de solução de TI.",
+    "motivo": "Vagas para participação de servidores em evento, não é aquisição de solução.",
     "numero_controle_pncp": "11439520000111-2-000036/2026"
+   },
+   {
+    "orgao": "MINISTERIO PUBLICO DA UNIAO",
+    "objeto": "Compra de vaga para participacao de um servidor no Curso Pratico de 997,00\nInteligencia Artificial (IA) para Licitacoes, na modalidade online, com\naulas gravadas, encontros ao vivo e plantoes para esclarecimento de\nduvidas, com carga horaria de 16 horas, a ser realizado na plataforma da\ncontratante, e acesso ao conteudo por 12 meses, promovido pela\nempresa Vianna de Carvalho Cursos e Aulas Ltda.",
+    "motivo": "Vaga em curso de IA para licitações, é treinamento.",
+    "numero_controle_pncp": "26989715000102-2-001414/2026"
+   },
+   {
+    "orgao": "SUPERIOR TRIBUNAL MILITAR",
+    "objeto": "Prestação dos serviços de fornecimento da solução integrada composta por acesso à plataforma Zênite Fácil IA, prestação de serviços de consultoria por meio de orientação por escrito em licitações e contratos e utilização de ferramenta de inteligência artificial (Zia).",
+    "motivo": "Acesso a plataforma de conteúdo/consultoria em licitações com IA, é assinatura de informação.",
+    "numero_controle_pncp": "00497560000101-2-000181/2026"
    },
    {
     "orgao": "CONSELHO FEDERAL DE MEDICINA VETERINARIA",
     "objeto": "Contratação de empresa especializada para o fornecimento e instalação de sistema de geração de energia solar fotovoltaico do tipo on-grid, incluindo a elaboração de projeto executivo, fornecimento de materiais e equipamentos, execução dos serviços de montagem, testes, comissionamento, homologação junto à concessionária de energia elétrica, bem como treinamento da equipe técnica do CFMV, suporte técnico e garantia.",
-    "motivo": "Sistema de geração de energia solar fotovoltaica é obra/instalação elétrica, não TIC.",
+    "motivo": "Sistema de geração de energia solar fotovoltaica, obra de engenharia elétrica não TI.",
     "numero_controle_pncp": "00119784000171-2-000030/2026"
+   },
+   {
+    "orgao": "PRESIDENCIA DA REPUBLICA",
+    "objeto": "PRESTAÇÃO DE SERVIÇOS CONTÍNUOS PARA FORNECIMENTO DE ACESSO ANUAL À PLATAFORMA ONLINE DE BUSCAS DE JULGADOS COMENTADOS E SOLUÇÃO DE INTELIGÊNCIA ARTIFICIAL JURÍDICA (BUSCADOR DIZER O DIREITO E IADOD).",
+    "motivo": "Acesso a plataforma de busca jurídica, mesmo com IA, é assinatura de conteúdo.",
+    "numero_controle_pncp": "00394411000109-2-000281/2026"
    },
    {
     "orgao": "MINISTERIO PUBLICO DA UNIAO",
     "objeto": "Compra de 20 (vinte) licenças de acesso, com carga horaria mínima de 30 horas de capacitação, pelo período de 12 meses, a plataforma Alura\npara Empresas (Plano Corp), de ensino a distancia, especializada em Tecnologia da Informação.",
-    "motivo": "Licenças de acesso a plataforma de cursos/capacitação (Alura), serviço educacional e não solução de TI.",
+    "motivo": "Licenças de plataforma de cursos (Alura), é treinamento.",
     "numero_controle_pncp": "26989715000102-2-001473/2026"
    },
    {
     "orgao": "MINISTERIO PUBLICO DA UNIAO",
     "objeto": "Compra de 06 (seis) licenças de acesso, com carga horária mínima de 30 horas de capacitação, pelo período de 12 meses, à plataforma Alura para Empresas (Plano Corp), de ensino a distância, especializada em Tecnologia da Informação",
-    "motivo": "Licenças de acesso a plataforma de cursos/capacitação (Alura), serviço educacional e não solução de TI.",
+    "motivo": "Licenças de plataforma de cursos (Alura), é treinamento.",
     "numero_controle_pncp": "26989715000102-2-001452/2026"
+   },
+   {
+    "orgao": "CONSELHO FEDERAL DE MEDICINA",
+    "objeto": "Contratação de empresa especializada para prestação de serviços técnicos de estudo sobre as políticas de integração de dados na área da saúde e a aplicação de inteligência artificial (IA) no âmbito do Conselho Federal de Medicina (CFM), conforme especificações e condições estabelecidas no Termo de Referência e seus anexos.",
+    "motivo": "Estudo/consultoria sobre políticas de dados na saúde, não é aquisição de solução de TI.",
+    "numero_controle_pncp": "33583550000130-2-000080/2025"
    },
    {
     "orgao": "BANCO CENTRAL DO BRASIL",
     "objeto": "INSCRIÇÃO DE SERVIDOR DO DEREG NA LICENÇA DE USO FSI CONNECT",
-    "motivo": "Inscrição individual de servidor em plataforma de capacitação (FSI Connect), serviço de treinamento e não solução de TI.",
+    "motivo": "Inscrição de servidor em base formativa (FSI Connect), é conteúdo/treinamento.",
     "numero_controle_pncp": "00038166000105-2-000139/2026"
+   },
+   {
+    "orgao": "CONSELHO REGIONAL DE NUTRICIONISTAS 1 REGIAO",
+    "objeto": "O presente instrumento tem por objeto a prestação, pelo BANCO ao CONTRATANTE, dos serviços de pagamentos, recebimentos e gestão financeira para a utilização de soluções de mobilidade urbana por meio de plataforma inteligente de seleção de viagens, com solução complementar para cotação e seleção das melhores condições de deslocamento (corridas de carro privado e táxi) entre os parceiros integrados, por meio do APLICATIVO.",
+    "motivo": "Serviço de pagamentos/mobilidade urbana via plataforma, foco é serviço financeiro não TI.",
+    "numero_controle_pncp": "00581009000133-2-000005/2026"
    },
    {
     "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
     "objeto": "PRESTAÇÃO DE SERVIÇO TÉCNICO ESPECIALIZADO EM TREINAMENTO E APERFEIÇOAMENTO DE PESSOAL, DE NATUREZA PREDOMINANTEMENTE INTELECTUAL, CONSISTENTE NA REALIZAÇÃO DA AÇÃO INTERNA DE EDUCAÇÃO MESTRADO ACADÊMICO EM INFORMÁTICA.",
-    "motivo": "É treinamento/educação (mestrado acadêmico em informática), não aquisição de bem ou serviço de TI.",
+    "motivo": "Mestrado acadêmico em informática, é educação/treinamento não aquisição de TI.",
     "numero_controle_pncp": "00488478000102-2-000021/2025"
    },
    {
     "orgao": "SENADO FEDERAL",
+    "objeto": "Assinatura de banco de imagens, livres de royalty (royalty free), a serem disponibilizadas por meio digital (internet), pelo período de 12 (doze) meses consecutivos.",
+    "motivo": "Assinatura de banco de imagens royalty free, é conteúdo.",
+    "numero_controle_pncp": "00530279000115-2-000034/2023"
+   },
+   {
+    "orgao": "PRESIDENCIA DA REPUBLICA",
+    "objeto": "PRESTAÇÃO DE SERVIÇOS CONTÍNUOS PARA FORNECIMENTO DE ACESSO À PLATAFORMA FÓRUM DE CONHECIMENTO JURÍDICO, COMPREENDENDO O ACESSO AOS SEUS MÓDULOS: FÓRUM LIVROS, FÓRUM REVISTAS, FÓRUM INFORMATIVO E A FERRAMENTA DE INTELIGÊNCIA ARTIFICIAL FÓRUM IAH®.",
+    "motivo": "Acesso a plataforma de conteúdo jurídico com IA, é assinatura de conteúdo.",
+    "numero_controle_pncp": "00394411000109-2-000311/2026"
+   },
+   {
+    "orgao": "BANCO CENTRAL DO BRASIL",
+    "objeto": "INSCRIÇÃO DE SERVIDORES DO DESIG NO EVENTO BLOCKCHAIN RIO",
+    "motivo": "Inscrição de servidores em evento (Blockchain Rio), não é aquisição de solução.",
+    "numero_controle_pncp": "00038166000105-2-000137/2026"
+   },
+   {
+    "orgao": "MINISTERIO DOS TRANSPORTES",
+    "objeto": "O PRESENTE INSTRUMENTO TEM POR OBJETO A CONTRATAÇÃO DE SERVIÇOS CONTÍNUOS DE ACESSO A TV POR ASSINATURA DIGITAL, COM INSTALAÇÃO, ASSISTÊNCIA TÉCNICA E FORNECIMENTO DE TODOS OS EQUIPAMENTOS (EM REGIME DE COMODATO), NECESSÁRIOS PARA UMA QUANTIDADE ESTIMADA DE 31 (TRINTA E UM) PONTOS DE ACESSO, A SEREM EXECUTADOS NAS DEPENDÊNCIAS DO EDIFÍCIO SEDE E ANEXO DO MINISTÉRIO DOS TRANSPORTES, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+    "motivo": "Serviço de TV por assinatura digital, não é TI.",
+    "numero_controle_pncp": "37115342000167-2-000046/2026"
+   },
+   {
+    "orgao": "COMANDO DO EXERCITO",
+    "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE INTERNET E TELEVISÃO POR ASSINATURAS, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+    "motivo": "Pacote de internet e televisão por assinatura, predominantemente serviço de TV.",
+    "numero_controle_pncp": "00394452000103-2-003946/2024"
+   },
+   {
+    "orgao": "AGENCIA NACIONAL DE MINERACAO",
+    "objeto": "ASSINATURA ANUAL DA BASE DE DADOS WEBDEWEY DA ONLINE COMPUTER LIBRARY CENTER (OCLC)",
+    "motivo": "Assinatura de base de dados de catalogação bibliotecária (WebDewey), é conteúdo.",
+    "numero_controle_pncp": "29406625000130-2-000055/2024"
+   },
+   {
+    "orgao": "SENADO FEDERAL",
     "objeto": "Aquisição de equipamentos, ferramentas, componentes, suprimentos e peças de reposição, para a Secretaria de Comunicação Social do Senado Federal (Item 20).",
-    "motivo": "Aquisição genérica de equipamentos/ferramentas para comunicação social, sem especificação de TI.",
+    "motivo": "Equipamentos e peças para comunicação social/eventos, genérico não TI.",
     "numero_controle_pncp": "00530279000115-2-000182/2026"
    },
    {
     "orgao": "COMANDO DO EXERCITO",
     "objeto": "SERVIÇOS DE MANUTENÇÃO PREVENTIVA E CORRETIVA DAS INSTALAÇÕES E EQUIPAMENTOS DOS SEGUINTES SISTEMAS: HIDROSSANITÁRIOS, DE ÁGUAS PLUVIAIS, ELÉTRICOS DE FORÇA, LUZ E GERAÇÃO DE EMERGÊNCIA, DE REFRIGERAÇÃO (AR CONDICIONADO CENTRAL E DEMAIS TIPOS DE EQUIPAMENTOS), DE PROTEÇÃO CONTRA DESCARGAS ATMOSFÉRICAS, DE PREVENÇÃO E COMBATE A INCÊNDIOS, DE CABEAMENTO ESTRUTURADO (REDE DE DADOS) BEM COMO DE SERVIÇOS EVENTUAIS POR DEMANDA, COM FORNECIMENTO DE PESSOAL, MATERIAIS E EQUIPAMENTOS NECESSÁRIOS À EXECUÇÃO DOS SERVIÇOS, A SEREM REALIZADOS NA ASA SUL, ASA NORTE, CRUZEIRO, SETOR MILITAR URBANO-SMU, VILA RESIDENCIAL DO RCG, QUADRA RESIDENCIAL DOS GENERAIS, SEDE DA PREFEITURA MILITAR DE BRASÍLIA, LAGO SUL E GARAGEM DA PREFEITURA MILITAR DE BRASÍLIA, NOS IMÓVEIS E ÁREAS SOB A ADMINISTRAÇÃO DA PMB.",
-    "motivo": "Manutenção predial de sistemas prediais (hidrossanitário, elétrico, ar-condicionado); cabeamento de rede é item secundário do contrato.",
+    "motivo": "Manutenção predial ampla (elétrica, hidrossanitária); cabeamento estruturado é item acessório.",
     "numero_controle_pncp": "00394452000103-2-017123/2023"
+   },
+   {
+    "orgao": "PRESIDENCIA DA REPUBLICA",
+    "objeto": "PRESTAÇÃO DE SERVIÇOS DE CAPACITAÇÃO DE MESTRADO PROFISSIONAL EM ADMINISTRAÇÃO PÚBLICA – CIÊNCIA DE DADOS E INTELIGÊNCIA ARTIFICIAL NO SETOR PÚBLICO.",
+    "motivo": "Mestrado profissional em ciência de dados e IA, é educação/treinamento.",
+    "numero_controle_pncp": "00394411000109-2-000324/2025"
    },
    {
     "orgao": "MINISTERIO PUBLICO DA UNIAO",
     "objeto": "Contratação de empresa especializada na prestação de serviços comuns de treinamentos Fortinet para membros da Equipe de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos do MPT, visando o desenvolvimento de competências técnicas essenciais em administração, análise e gestão de soluções Fortinet para segurança da informação institucional.",
-    "motivo": "É serviço de treinamento (curso Fortinet) para servidores, não aquisição de solução de TI.",
+    "motivo": "Treinamento Fortinet para equipe, é curso não aquisição de solução.",
     "numero_controle_pncp": "26989715000102-2-001598/2026"
    },
    {
     "orgao": "MINISTERIO PUBLICO DA UNIAO",
     "objeto": "Serviços de tratamento de acervo documental e gestão da informação dos documentos das áreas administrativa e finalística das unidades do Ministério Público Federal – MPF.",
-    "motivo": "Tratamento de acervo documental e gestão da informação administrativa, sem indicação de solução de TI.",
+    "motivo": "Tratamento de acervo documental físico, é serviço de arquivologia não TI.",
     "numero_controle_pncp": "26989715000102-2-001584/2026"
    },
    {
     "orgao": "CONSELHO FEDERAL DE FISIOTERAPIA E TERAPIA OCUPACIONAL",
     "objeto": "ontratação de empresa especializada para disponibilização de 08 (oito) assinaturas Premium da plataforma corporativa de capacitação em Tecnologia da Informação da 4Linux, pelo período de 12 (doze) meses, destinadas aos empregados do Setor de Tecnologia da Informação – SETIN do Conselho Federal de Fisioterapia e Terapia Ocupacional – COFFITO, com acesso a conteúdos, trilhas de aprendizagem, atividades práticas, laboratórios, recursos tecnológicos e demais funcionalidades integrantes da solução, abrangendo áreas relacionadas à administração de sistemas, computação em nuvem, DevOps, contêineres, segurança da informação, banco de dados, programação, monitoramento, observabilidade e demais temas pertinentes à atuação da equipe de Tecnologia da Informação",
-    "motivo": "Assinaturas de plataforma de capacitação/cursos; ainda que sobre temas de TI, o objeto contratado é serviço de treinamento.",
+    "motivo": "Assinaturas de plataforma de capacitação em TI, é treinamento não aquisição de solução.",
     "numero_controle_pncp": "00487140000136-2-000075/2026"
    },
    {
     "orgao": "CONSELHO FEDERAL DE FARMACIA",
     "objeto": "DF Consultoria Engenharia e Treinamento Ltda., Empenho para atender ao pagamento referente à renovação do Contrato nº 17/2023, que possui uma vigência contratual de 22/08/2025 a 21/08/2026. Processo SEI nº 24.0.000010475-9, relativo ao 3º Termo Aditivo ao contrato - período de 22/08/2026 a 21/08/2027.",
-    "motivo": "Aditivo de contrato de consultoria e treinamento em engenharia, sem qualquer relação com TI.",
+    "motivo": "Renovação de contrato de consultoria de engenharia/treinamento, sem indicação de solução de TI.",
     "numero_controle_pncp": "60984473000100-2-000117/2026"
+   },
+   {
+    "orgao": "BANCO CENTRAL DO BRASIL",
+    "objeto": "CONTRATAÇÃO DE SERVIÇOS DE CONSCIENTIZAÇÃO E TREINAMENTO EM SEGURANÇA DA INFORMAÇÃO E LGPD BRASILEIRA JUNTO AOS USUÁRIOS INTERNOS DO BANCO CENTRAL DO BRASIL",
+    "motivo": "Treinamento de conscientização em segurança da informação/LGPD, é curso não aquisição de solução.",
+    "numero_controle_pncp": "00038166000105-2-000143/2025"
    },
    {
     "orgao": "COMANDO DA MARINHA",
     "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS COMUNS DE ENGENHARIA DE MANUTENÇÃO PREVENTIVA, CORRETIVA, COM FORNECIMENTO DE PEÇAS, MÃO DE OBRA E PREDITIVA COM SISTEMA DE MONITORAMENTO REMOTO, NECESSÁRIOS À OPERAÇÃO DE 13 (TREZE) ELEVADORES, LOCALIZADOS\r\nNAS INSTALAÇÕES DO COMANDO DO 7O DISTRITO NAVAL EM BRASÍLIA-DF, ESPLANADA DOS MINISTÉRIOS, BLOCO “N” E EDIFÍCIO ANEXO, SENDO 07 (SETE) UNIDADES NO EDIFÍCIO SEDE E 06 (SEIS) UNIDADES NO EDIFÍCIO ANEXO, TODOS GERENCIADOS PELO SOFTWARE TKVISON®, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE\r\nREFERÊNCIA.",
-    "motivo": "Manutenção predial de elevadores; software citado é apenas o sistema de gerenciamento dos elevadores, não é objeto de TI.",
+    "motivo": "Manutenção de elevadores com software de gestão predial, foco é facilities não TI.",
     "numero_controle_pncp": "00394502000144-2-000946/2024"
+   },
+   {
+    "orgao": "MINISTERIO DO DESENVOLVIMENTO REGIONAL",
+    "objeto": "CONTRATAÇÃO DE AQUISIÇÃO DE BATERIAS, RETIFICADORES E MÓDULOS SUPERVISORES NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.\nITEM 3 - ESPECIFICAÇÃO: BATERIA ESTACIONÁRIA DE ALTA CAPACIDADE - SISTEMA ELETROQUÍMICO - OBRIGATÓRIO:- CHUMBO-ÁCIDO SELADO - TENSÃO NOMINAL: 2 V - CAPACIDADE NOMINAL - OBRIGATÓRIO: 200 AH.",
+    "motivo": "Baterias e retificadores, infraestrutura elétrica sem especificar aplicação a TI.",
+    "numero_controle_pncp": "03353358000196-2-000192/2026"
    }
   ]
  },
  "contratos": [
   {
-   "orgao": "INSTITUTO DO PATRIMONIO HISTORICO E ARTISTICO NACIONAL",
-   "orgaoCnpj": "26474056000171",
-   "venceEm": "2027-02-24",
-   "valor": 497200.0,
-   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É LICITAÇÃO PARA REGISTRO DE PREÇOS PARA EVENTUAL AQUISIÇÃO DE SOLUÇÃO DE SERVIDORES DE REDE PARA BACKUP, SUPORTE TÉCNICO E SERVIÇO DE INSTALAÇÃO NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA",
+   "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
+   "orgaoCnpj": "00509018000113",
+   "venceEm": "2027-02-28",
+   "valor": 111815.51,
+   "objeto": "CONTRATAÇÃO DE SERVIÇOS TÉCNICOS PROFISSIONAIS DE ENGENHARIA PARA A INSTALAÇÃO, CONFIGURAÇÃO E DISPONIBILIZAÇÃO TEMPORÁRIA DE SOLUÇÃO DE CFTV-IP VISANDO A FILMAGEM, O MONITORAMENTO, A TRANSMISSÃO E A GRAVAÇÃO DO TESTE DE INTEGRIDADE DAS URNAS ELETRÔNICAS DAS ELEIÇÕES DO DISTRITO FEDERAL DO ANO DE 2026, EM PRIMEIRO E SEGUNDO TURNO, SE HOUVER, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NO PROJETO BÁSICO.",
    "servico": true,
-   "numeroControlePncp": "26474056000171-2-000033/2026",
-   "link": "https://pncp.gov.br/app/contratos/26474056000171/2026/33"
+   "numeroControlePncp": "00509018000113-2-003282/2026",
+   "link": "https://pncp.gov.br/app/contratos/00509018000113/2026/3282"
   },
   {
-   "orgao": "FUND COORD DE APERFEICOAMENTO DE PESSOAL DE NIVEL SUP",
-   "orgaoCnpj": "00889834000108",
-   "venceEm": "2027-02-24",
-   "valor": 55255.0,
-   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE SISTEMA PARA ESCRITURAÇÃO FISCAL INTEGRADO AOS DADOS DO SIAPE, SIAFI E TESOURO GERENCIAL, VISANDO À TRANSMISSÃO DE DECLARAÇÕES DAS RETENÇÕES E RECOLHIMENTOS DE PAGAMENTOS REALIZADOS PELA CAPES, JUNTO À RECEITA FEDERAL. O VALOR TOTAL DA CONTRATAÇÃO É DE R$ 55.255,00 (CINQUENTA E CINCO MIL DUZENTOS E CINQUENTA E CINCO REAIS).",
-   "servico": false,
-   "numeroControlePncp": "00889834000108-2-000005/2026",
-   "link": "https://pncp.gov.br/app/contratos/00889834000108/2026/5"
-  },
-  {
-   "orgao": "FUND COORD DE APERFEICOAMENTO DE PESSOAL DE NIVEL SUP",
-   "orgaoCnpj": "00889834000108",
-   "venceEm": "2027-02-25",
-   "valor": 633570.0,
-   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO RELACIONADA A CONTRATAÇÃO DE PLATAFORMA DEVOPS NA MODALIDADE SAAS PARA SUPORTE AOS PROCESSOS DE MANUTENÇÃO E DESENVOLVIMENTO DE SISTEMAS DA CAPES",
-   "servico": false,
-   "numeroControlePncp": "00889834000108-2-000006/2025",
-   "link": "https://pncp.gov.br/app/contratos/00889834000108/2025/6"
-  },
-  {
-   "orgao": "MINISTERIO DA FAZENDA",
-   "orgaoCnpj": "00394460000141",
-   "venceEm": "2027-02-25",
-   "valor": 855071.7,
-   "objeto": "CONTRATAÇÃO DE SERVIÇOS DE SUBSCRIÇÕES DE LICENÇAS DE SOFTWARE LINUX CORPORATIVO RED HAT COM SEU RESPECTIVO SUPORTE NAS MODALIDADES 24X7 E 8X5, O TREINAMENTO OFICIAL E ACESSO ÀS BASES DE CONHECIMENTO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "orgao": "JUSTICA FEDERAL DE PRIMEIRA INSTANCIA",
+   "orgaoCnpj": "00508903000188",
+   "venceEm": "2027-03-01",
+   "valor": 24012.0,
+   "objeto": "CONTRATAÇÃO DE LINK DE INTERNET DEDICADO COM SERVIÇO DE PROTEÇÃO CONTRA ATAQUES DISTRIBUÍDOS DE NEGAÇÃO DE SERVIÇO (ANTI-DDOS), SOB DEMANDA, PARA O CJF. GRUPO 1: SERVIÇO DE ACESSO IP PARA INTERNET COM LARGURA DE BANDA MÍNIMA DE 2.000 MBPS (ITEM 1); E SERVIÇO ANTI-DDOS DO ITEM 1 (ITEM 2)",
    "servico": true,
-   "numeroControlePncp": "00394460000141-2-000066/2026",
-   "link": "https://pncp.gov.br/app/contratos/00394460000141/2026/66"
+   "numeroControlePncp": "00508903000188-2-000170/2026",
+   "link": "https://pncp.gov.br/app/contratos/00508903000188/2026/170"
   },
   {
-   "orgao": "CONSELHO FEDERAL DE CONTABILIDADE",
-   "orgaoCnpj": "33618570000107",
-   "venceEm": "2027-02-26",
-   "valor": 1044721.92,
-   "objeto": "Fornecimento de subscrição de licenças de uso de software Microsoft, aplicativos e sistemas operacionais, destinados aos usuários, equipamentos e servidores de rede do Conselho Federal de Contabilidade (CFC), com suporte e garantia de atualização oficiais do referido fabricante e serviços técnicos especializados, pelo período de 12 (doze) meses",
+   "orgao": "JUSTICA FEDERAL DE PRIMEIRA INSTANCIA",
+   "orgaoCnpj": "00508903000188",
+   "venceEm": "2027-03-01",
+   "valor": 22560.0,
+   "objeto": "CONTRATAÇÃO DE LINK DE INTERNET DEDICADO COM SERVIÇO DE PROTEÇÃO CONTRA ATAQUES DISTRIBUÍDOS DE NEGAÇÃO DE SERVIÇO (ANTI-DDOS), SOB DEMANDA, PARA O CJF. GRUPO 2: SERVIÇO DE ACESSO IP PARA INTERNET COM LARGURA DE BANDA MÍNIMA DE 2.000 MBPS (ITEM 3); E SERVIÇO ANTI-DDOS DO ITEM 3 (ITEM 4),",
    "servico": true,
-   "numeroControlePncp": "33618570000107-2-000134/2025",
-   "link": "https://pncp.gov.br/app/contratos/33618570000107/2025/134"
-  },
-  {
-   "orgao": "CONSELHO FEDERAL DE CONTABILIDADE",
-   "orgaoCnpj": "33618570000107",
-   "venceEm": "2027-02-26",
-   "valor": 1024600.0,
-   "objeto": "contratação de empresa especializada para o fornecimento de subscrição de licenças de uso de software Microsoft, aplicativos e sistemas operacionais, destinados aos usuários, equipamentos e servidores de rede do Conselho Federal de Contabilidade (CFC), com suporte e garantia de atualização oficiais do referido fabricante e serviços técnicos especializados, pelo período de 12 (doze) meses",
-   "servico": true,
-   "numeroControlePncp": "33618570000107-2-000131/2025",
-   "link": "https://pncp.gov.br/app/contratos/33618570000107/2025/131"
-  },
-  {
-   "orgao": "MINISTERIO DA AGRICULTURA, PECUARIA E ABASTECIMENTO",
-   "orgaoCnpj": "00396895000125",
-   "venceEm": "2027-02-26",
-   "valor": 14119.0,
-   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE SERVIÇOS DA STARLINK, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-   "servico": true,
-   "numeroControlePncp": "00396895000125-2-000055/2026",
-   "link": "https://pncp.gov.br/app/contratos/00396895000125/2026/55"
-  },
-  {
-   "orgao": "CONSELHO FEDERAL DE MEDICINA",
-   "orgaoCnpj": "33583550000130",
-   "venceEm": "2027-02-26",
-   "valor": 39956.0,
-   "objeto": "Contratação de empresa especializada no fornecimento de 01 (uma) licença de software de videoconferência zoom one profissional e 01 (uma) licença zoom webinars com capacidade para 1.000 participantes simultâneos por evento, pelo período de 24 (vinte e quatro) meses.",
-   "servico": false,
-   "numeroControlePncp": "33583550000130-2-000013/2025",
-   "link": "https://pncp.gov.br/app/contratos/33583550000130/2025/13"
-  },
-  {
-   "orgao": "COMANDO DO EXERCITO",
-   "orgaoCnpj": "00394452000103",
-   "venceEm": "2027-02-27",
-   "valor": 518333.0,
-   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE FIREWALL.",
-   "servico": false,
-   "numeroControlePncp": "00394452000103-2-008046/2024",
-   "link": "https://pncp.gov.br/app/contratos/00394452000103/2024/8046"
+   "numeroControlePncp": "00508903000188-2-000171/2026",
+   "link": "https://pncp.gov.br/app/contratos/00508903000188/2026/171"
   },
   {
    "orgao": "MINISTERIO DA CULTURA",
@@ -511,6 +649,16 @@
    "link": "https://pncp.gov.br/app/contratos/01264142000129/2026/5"
   },
   {
+   "orgao": "JUSTICA FEDERAL DE PRIMEIRA INSTANCIA",
+   "orgaoCnpj": "00508903000188",
+   "venceEm": "2027-03-02",
+   "valor": 44906.4,
+   "objeto": "CONTRATAÇÃO DE LINK DE INTERNET DEDICADO COM SERVIÇO DE PROTEÇÃO CONTRA ATAQUES DISTRIBUÍDOS DE NEGAÇÃO DE SERVIÇO (ANTI-DDOS), SOB DEMANDA, PARA O CJF E PARA SAÍDA PELO STJ, PELO PRAZO DE 12 (DOZE) MESES.",
+   "servico": true,
+   "numeroControlePncp": "00508903000188-2-000178/2026",
+   "link": "https://pncp.gov.br/app/contratos/00508903000188/2026/178"
+  },
+  {
    "orgao": "CONSELHO FEDERAL DE FONOAUDIOLOGIA",
    "orgaoCnpj": "00697722000147",
    "venceEm": "2027-03-03",
@@ -519,16 +667,6 @@
    "servico": true,
    "numeroControlePncp": "00697722000147-2-000004/2026",
    "link": "https://pncp.gov.br/app/contratos/00697722000147/2026/4"
-  },
-  {
-   "orgao": "TRIBUNAL DE CONTAS DA UNIAO",
-   "orgaoCnpj": "00414607000118",
-   "venceEm": "2027-03-03",
-   "valor": 8499.0,
-   "objeto": "Aquisição de certificados digitais para pessoa física do tipo A3 com dispositivo para armazenamento de certificados digitais do tipo token USB e visitas locais para emissão de certificados nas instalações do Tribunal.",
-   "servico": false,
-   "numeroControlePncp": "00414607000118-2-000012/2024",
-   "link": "https://pncp.gov.br/app/contratos/00414607000118/2024/12"
   },
   {
    "orgao": "TRIBUNAL DE CONTAS DA UNIAO",
@@ -591,6 +729,16 @@
    "link": "https://pncp.gov.br/app/contratos/03112386000111/2026/4"
   },
   {
+   "orgao": "INSTITUTO DE PESQUISA ECONOMICA APLICADA",
+   "orgaoCnpj": "33892175000100",
+   "venceEm": "2027-03-09",
+   "valor": 1412.0,
+   "objeto": "FORNECIMENTO DE 2 (DOIS) UNIDADES DO CERTIFICADO DIGITAL NO FORMATO A3 VALIDADE DE 3 ANOS - 02 (DOIS) UNIDADES CERTIFICADO DIGITAL NO FORMATO A3 VALIDADE DE 1 ANO - 02 (DOIS) UNIDADES CERTIFICADO DIGITAL NO FORMATO A3 VALIDADE DE 3 ANOS,EM NUVEM SEM DISPOSITIVO FISICO COM VALIDADE ANOS, RENOVÁVEL A CADA ANO.",
+   "servico": false,
+   "numeroControlePncp": "33892175000100-2-000011/2026",
+   "link": "https://pncp.gov.br/app/contratos/33892175000100/2026/11"
+  },
+  {
    "orgao": "CONSELHO FEDERAL DE ODONTOLOGIA",
    "orgaoCnpj": "61919643000209",
    "venceEm": "2027-03-09",
@@ -601,14 +749,14 @@
    "link": "https://pncp.gov.br/app/contratos/61919643000209/2026/5"
   },
   {
-   "orgao": "INSTITUTO DE PESQUISA ECONOMICA APLICADA",
-   "orgaoCnpj": "33892175000100",
+   "orgao": "FUNDO CONSTITUCIONAL DO DISTRITO FEDERAL - FCDF",
+   "orgaoCnpj": "05448380000145",
    "venceEm": "2027-03-09",
-   "valor": 1412.0,
-   "objeto": "FORNECIMENTO DE 2 (DOIS) UNIDADES DO CERTIFICADO DIGITAL NO FORMATO A3 VALIDADE DE 3 ANOS - 02 (DOIS) UNIDADES CERTIFICADO DIGITAL NO FORMATO A3 VALIDADE DE 1 ANO - 02 (DOIS) UNIDADES CERTIFICADO DIGITAL NO FORMATO A3 VALIDADE DE 3 ANOS,EM NUVEM SEM DISPOSITIVO FISICO COM VALIDADE ANOS, RENOVÁVEL A CADA ANO.",
+   "valor": 1314880.0,
+   "objeto": "Aquisição de Computadores Desktop",
    "servico": false,
-   "numeroControlePncp": "33892175000100-2-000011/2026",
-   "link": "https://pncp.gov.br/app/contratos/33892175000100/2026/11"
+   "numeroControlePncp": "05448380000145-2-000060/2026",
+   "link": "https://pncp.gov.br/app/contratos/05448380000145/2026/60"
   },
   {
    "orgao": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
@@ -641,16 +789,6 @@
    "link": "https://pncp.gov.br/app/contratos/61919643000209/2026/4"
   },
   {
-   "orgao": "CONSELHO FEDERAL DE FISIOTERAPIA E TERAPIA OCUPACIONAL",
-   "orgaoCnpj": "00487140000136",
-   "venceEm": "2027-03-11",
-   "valor": 3390000.0,
-   "objeto": "contratação de solução de tecnologia da informação e comunicação de multimídia, compreendendo o fornecimento de equipamentos e prestação de serviços de elaboração e implementação de projeto executivo com a finalidade de implementar os sistemas de áudio e vídeo do COFFITO",
-   "servico": true,
-   "numeroControlePncp": "00487140000136-2-000010/2026",
-   "link": "https://pncp.gov.br/app/contratos/00487140000136/2026/10"
-  },
-  {
    "orgao": "INSTITUTO BRASILEIRO DO MEIO AMBIENTE E DOS RECURSOS NATURAIS RENOVAVEIS-IBAMA",
    "orgaoCnpj": "03659166000102",
    "venceEm": "2027-03-11",
@@ -659,6 +797,16 @@
    "servico": true,
    "numeroControlePncp": "03659166000102-2-000037/2026",
    "link": "https://pncp.gov.br/app/contratos/03659166000102/2026/37"
+  },
+  {
+   "orgao": "CONSELHO FEDERAL DE FISIOTERAPIA E TERAPIA OCUPACIONAL",
+   "orgaoCnpj": "00487140000136",
+   "venceEm": "2027-03-11",
+   "valor": 3390000.0,
+   "objeto": "contratação de solução de tecnologia da informação e comunicação de multimídia, compreendendo o fornecimento de equipamentos e prestação de serviços de elaboração e implementação de projeto executivo com a finalidade de implementar os sistemas de áudio e vídeo do COFFITO",
+   "servico": true,
+   "numeroControlePncp": "00487140000136-2-000010/2026",
+   "link": "https://pncp.gov.br/app/contratos/00487140000136/2026/10"
   },
   {
    "orgao": "CONSELHO FEDERAL DE CONTABILIDADE",
@@ -691,16 +839,6 @@
    "link": "https://pncp.gov.br/app/contratos/03353358000196/2024/2"
   },
   {
-   "orgao": "JUSTICA FEDERAL DE PRIMEIRA INSTANCIA",
-   "orgaoCnpj": "00508903000188",
-   "venceEm": "2027-03-12",
-   "valor": 12798933.44,
-   "objeto": "PRESTAÇÃO DE SERVIÇOS TÉCNICOS AVANÇADOS NA ÁREA DE TECNOLOGIA DA INFORMAÇÃO - TI PARA SUSTENTAÇÃO DA INFRAESTRUTURA DE TI DO CONTRATANTE E DE SUAS SEÇÕES E SUBSEÇÕES JUDICIÁRIAS, COM PAGAMENTO FIXO MENSAL, VINCULADO AOS NÍVEIS MÍNIMOS DE SERVIÇOS.",
-   "servico": true,
-   "numeroControlePncp": "00508903000188-2-001283/2024",
-   "link": "https://pncp.gov.br/app/contratos/00508903000188/2024/1283"
-  },
-  {
    "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
    "orgaoCnpj": "00488478000102",
    "venceEm": "2027-03-12",
@@ -711,6 +849,16 @@
    "link": "https://pncp.gov.br/app/contratos/00488478000102/2025/31"
   },
   {
+   "orgao": "JUSTICA FEDERAL DE PRIMEIRA INSTANCIA",
+   "orgaoCnpj": "00508903000188",
+   "venceEm": "2027-03-12",
+   "valor": 12798933.44,
+   "objeto": "PRESTAÇÃO DE SERVIÇOS TÉCNICOS AVANÇADOS NA ÁREA DE TECNOLOGIA DA INFORMAÇÃO - TI PARA SUSTENTAÇÃO DA INFRAESTRUTURA DE TI DO CONTRATANTE E DE SUAS SEÇÕES E SUBSEÇÕES JUDICIÁRIAS, COM PAGAMENTO FIXO MENSAL, VINCULADO AOS NÍVEIS MÍNIMOS DE SERVIÇOS.",
+   "servico": true,
+   "numeroControlePncp": "00508903000188-2-001283/2024",
+   "link": "https://pncp.gov.br/app/contratos/00508903000188/2024/1283"
+  },
+  {
    "orgao": "MINISTERIO DO DESENVOLVIMENTO REGIONAL",
    "orgaoCnpj": "03353358000196",
    "venceEm": "2027-03-13",
@@ -719,6 +867,16 @@
    "servico": true,
    "numeroControlePncp": "03353358000196-2-000028/2026",
    "link": "https://pncp.gov.br/app/contratos/03353358000196/2026/28"
+  },
+  {
+   "orgao": "CONSELHO DE ARQUITETURA E URBANISMO DO BRASIL",
+   "orgaoCnpj": "14702767000177",
+   "venceEm": "2027-03-13",
+   "valor": 660.0,
+   "objeto": "Contratação do serviço de emissão de certificado digital SSL/TLS wildcard, com vigência de 1 (um) ano, necessário para assegurar comunicação segura (HTTPS) nos diversos sistemas, portais e aplicações hospedados sob o domínio *.caubr.gov.br, protegendo dados trafegados entre usuários e servidores institucionais.",
+   "servico": true,
+   "numeroControlePncp": "14702767000177-2-000015/2026",
+   "link": "https://pncp.gov.br/app/contratos/14702767000177/2026/15"
   },
   {
    "orgao": "TRIBUNAL DE JUSTICA DO DISTRITO FEDERAL E DOS TERRITORIOS",
@@ -751,14 +909,24 @@
    "link": "https://pncp.gov.br/app/contratos/37115375000107/2026/8"
   },
   {
-   "orgao": "JUSTICA FEDERAL DE PRIMEIRA INSTANCIA",
-   "orgaoCnpj": "00508903000188",
+   "orgao": "CONSELHO FEDERAL DE ENFERMAGEM COFEN",
+   "orgaoCnpj": "47217146000157",
+   "venceEm": "2027-03-16",
+   "valor": 38452.28,
+   "objeto": "Contratação de solução completa (turnkey), incluindo a locação de keypads de votação, com seus respectivos hardwares (bases receptoras e laptops de controle), o software de gerenciamento e apuração, e os serviços de instalação, configuração, operação técnica presencial durante o evento, consolidação dos resultados das salas e respectiva desinstalação para a II Conferência Nacional de Ética em Enfermagem (CONEENF), com previsão de realização no período de 17 a 19 de março de 2026, na sede do Conselho Federal de Enfermagem.",
+   "servico": true,
+   "numeroControlePncp": "47217146000157-2-000004/2026",
+   "link": "https://pncp.gov.br/app/contratos/47217146000157/2026/4"
+  },
+  {
+   "orgao": "FUNDACAO HABITACIONAL DO EXERCITO - FHE",
+   "orgaoCnpj": "00643742000135",
    "venceEm": "2027-03-17",
-   "valor": 1036.8,
-   "objeto": "SUBSCRIÇÃO DE LICENÇAS DA SOLUÇÃO DICIONÁRIO HOUAISS CORPORATIVO, COM ASSINATURA ANUAL, PARA 6 (SEIS) USUÁRIOS, INCLUINDO SUPORTE TÉCNICO REMOTO PARA ATENDER ÀS NECESSIDADES DE REVISÃO GRAMATICAL E ORTOGRÁFICA DO CONSELHO DA JUSTIÇA FEDERAL (CJF).",
+   "valor": 189457.59,
+   "objeto": "CONTRATAÇÃO DA CESSÃO DO DIREITO DE USO DO LICENCIAMENTO DO SISTEMA E-CONSIG - SISTEMA ELETRÔNICO VIA INTERNET, DE RESERVA DE MARGEM E CONTROLE DE CONSIGNAÇÕES COM DESCONTO EM FOLHA DE PAGAMENTO NO PORTAL DO COMANDO DA AERONÁUTICA.",
    "servico": false,
-   "numeroControlePncp": "00508903000188-2-000288/2026",
-   "link": "https://pncp.gov.br/app/contratos/00508903000188/2026/288"
+   "numeroControlePncp": "00643742000135-2-000028/2023",
+   "link": "https://pncp.gov.br/app/contratos/00643742000135/2023/28"
   },
   {
    "orgao": "CONSELHO FEDERAL DE CONTABILIDADE",
@@ -779,6 +947,16 @@
    "servico": false,
    "numeroControlePncp": "10791831000182-2-000089/2026",
    "link": "https://pncp.gov.br/app/contratos/10791831000182/2026/89"
+  },
+  {
+   "orgao": "FUNDO CONSTITUCIONAL DO DISTRITO FEDERAL - FCDF",
+   "orgaoCnpj": "05448380000145",
+   "venceEm": "2027-03-18",
+   "valor": 70440.0,
+   "objeto": "aquisição de 12 (doze) computadores Desktop Dell Pro Micro QCM1250 para a DISAU",
+   "servico": false,
+   "numeroControlePncp": "05448380000145-2-000110/2026",
+   "link": "https://pncp.gov.br/app/contratos/05448380000145/2026/110"
   },
   {
    "orgao": "MINISTERIO DA CIDADANIA",
@@ -874,6 +1052,16 @@
    "orgao": "TRIBUNAL SUPERIOR DO TRABALHO",
    "orgaoCnpj": "00509968000148",
    "venceEm": "2027-03-23",
+   "valor": 243956.0,
+   "objeto": "PRESTAÇÃO DE SERVIÇOS DE SUPORTE DE SOLUÇÃO DE CONECTIVIDADE DE REDE SEM FIO, COM GARANTIA ON-SITE",
+   "servico": true,
+   "numeroControlePncp": "00509968000148-2-000691/2025",
+   "link": "https://pncp.gov.br/app/contratos/00509968000148/2025/691"
+  },
+  {
+   "orgao": "TRIBUNAL SUPERIOR DO TRABALHO",
+   "orgaoCnpj": "00509968000148",
+   "venceEm": "2027-03-23",
    "valor": 521357.64,
    "objeto": "prestação de serviços de suporte técnico e atualização de versão para solução integrada de gerenciamento de mídia digital implantada no TST,",
    "servico": true,
@@ -881,14 +1069,14 @@
    "link": "https://pncp.gov.br/app/contratos/00509968000148/2026/535"
   },
   {
-   "orgao": "TRIBUNAL SUPERIOR DO TRABALHO",
-   "orgaoCnpj": "00509968000148",
+   "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
+   "orgaoCnpj": "00488478000102",
    "venceEm": "2027-03-23",
-   "valor": 243956.0,
-   "objeto": "PRESTAÇÃO DE SERVIÇOS DE SUPORTE DE SOLUÇÃO DE CONECTIVIDADE DE REDE SEM FIO, COM GARANTIA ON-SITE",
+   "valor": 29551.32,
+   "objeto": "FORNECIMENTO DE SOLUÇÃO PARA ACESSO MÓVEL À INTERNET EM VEÍCULOS TERRESTRES (CONSTITUÍDA POR ANTENA E SERVIÇO DE ACESSO À INTERNET), COM A PRESTAÇÃO DE SERVIÇO CONTÍNUO DE CONECTIVIDADE VIA SATÉLITE.",
    "servico": true,
-   "numeroControlePncp": "00509968000148-2-000691/2025",
-   "link": "https://pncp.gov.br/app/contratos/00509968000148/2025/691"
+   "numeroControlePncp": "00488478000102-2-000055/2026",
+   "link": "https://pncp.gov.br/app/contratos/00488478000102/2026/55"
   },
   {
    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
@@ -1021,16 +1209,6 @@
    "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/353"
   },
   {
-   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
-   "orgaoCnpj": "00394494000136",
-   "venceEm": "2027-03-31",
-   "valor": 3980295.0,
-   "objeto": "AQUISIÇÃO DE EQUIPAMENTOS DE INFORMÁTICA: NOTEBOOK PADRÃO DA MARCA POSITIVO.",
-   "servico": false,
-   "numeroControlePncp": "00394494000136-2-000379/2026",
-   "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/379"
-  },
-  {
    "orgao": "BANCO CENTRAL DO BRASIL",
    "orgaoCnpj": "00038166000105",
    "venceEm": "2027-03-31",
@@ -1039,6 +1217,16 @@
    "servico": true,
    "numeroControlePncp": "00038166000105-2-000041/2025",
    "link": "https://pncp.gov.br/app/contratos/00038166000105/2025/41"
+  },
+  {
+   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+   "orgaoCnpj": "00394494000136",
+   "venceEm": "2027-03-31",
+   "valor": 3980295.0,
+   "objeto": "AQUISIÇÃO DE EQUIPAMENTOS DE INFORMÁTICA: NOTEBOOK PADRÃO DA MARCA POSITIVO.",
+   "servico": false,
+   "numeroControlePncp": "00394494000136-2-000379/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/379"
   },
   {
    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
@@ -1064,21 +1252,21 @@
    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
    "orgaoCnpj": "00394494000136",
    "venceEm": "2027-04-01",
+   "valor": 19200.0,
+   "objeto": "CONTRATAÇÃO DE INSTALAÇÃO E SERVIÇO DE ACESSO À INTERNET POR FIBRA ÓTICA, SIMÉTRICO E IP DINÂMICOS PARA SEDE DA SUPERINTENDÊNCIA REGIONAL DA POLÍCIA FEDERAL, NO DISTRITO FEDERAL – SR/PF/DF, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": true,
+   "numeroControlePncp": "00394494000136-2-000326/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/326"
+  },
+  {
+   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+   "orgaoCnpj": "00394494000136",
+   "venceEm": "2027-04-01",
    "valor": 59598.0,
    "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É AQUISIÇÃO DE EQUIPAMENTOS DE INFORMÁTICA NA CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
    "servico": false,
    "numeroControlePncp": "00394494000136-2-000402/2026",
    "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/402"
-  },
-  {
-   "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
-   "orgaoCnpj": "00488478000102",
-   "venceEm": "2027-04-02",
-   "valor": 7197998.64,
-   "objeto": "PRESTAÇÃO DE SERVIÇOS CONTINUADOS DE OPERAÇÃO DE SOLUÇÕES DE SEGURANÇA DA INFORMAÇÃO E DEFESA CIBERNÉTICA DO STJ, EM REGIME DE DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA.",
-   "servico": true,
-   "numeroControlePncp": "00488478000102-2-000039/2025",
-   "link": "https://pncp.gov.br/app/contratos/00488478000102/2025/39"
   },
   {
    "orgao": "CONSELHO FEDERAL DE QUIMICA",
@@ -1091,6 +1279,16 @@
    "link": "https://pncp.gov.br/app/contratos/33839275000172/2026/13"
   },
   {
+   "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
+   "orgaoCnpj": "00488478000102",
+   "venceEm": "2027-04-02",
+   "valor": 7197998.64,
+   "objeto": "PRESTAÇÃO DE SERVIÇOS CONTINUADOS DE OPERAÇÃO DE SOLUÇÕES DE SEGURANÇA DA INFORMAÇÃO E DEFESA CIBERNÉTICA DO STJ, EM REGIME DE DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA.",
+   "servico": true,
+   "numeroControlePncp": "00488478000102-2-000039/2025",
+   "link": "https://pncp.gov.br/app/contratos/00488478000102/2025/39"
+  },
+  {
    "orgao": "AGENCIA NACIONAL DE AGUAS E SANEAMENTO BASICO (ANA)",
    "orgaoCnpj": "04204444000108",
    "venceEm": "2027-04-03",
@@ -1099,6 +1297,36 @@
    "servico": true,
    "numeroControlePncp": "04204444000108-2-000007/2025",
    "link": "https://pncp.gov.br/app/contratos/04204444000108/2025/7"
+  },
+  {
+   "orgao": "CONSELHO FEDERAL DE CONTABILIDADE",
+   "orgaoCnpj": "33618570000107",
+   "venceEm": "2027-04-04",
+   "valor": 5060040.16,
+   "objeto": "contratação de empresa especializada de terceirização de Apoio Técnico Especializado TIC, também conhecido no mercado por (BPO), sendo dimensionados por postos de trabalho e com pagamento vinculado a resultados produzidos",
+   "servico": false,
+   "numeroControlePncp": "33618570000107-2-000167/2024",
+   "link": "https://pncp.gov.br/app/contratos/33618570000107/2024/167"
+  },
+  {
+   "orgao": "COMANDO DA MARINHA",
+   "orgaoCnpj": "00394502000144",
+   "venceEm": "2027-04-05",
+   "valor": 5844.0,
+   "objeto": "CONTRATAÇÃO DE SERVIÇO DE INSTALAÇÃO DE LINK DEDICADO DE INTERNET VIA FIBRA ÓPTICA, DE USO LIMITADO, DE ALTA QUALIDADE E PERFORMANCE, COM TAXA DE DE TRANSMISSÃO EFETIVA IGUAL OU SUPERIOR A 50 MBPS, SEM FORNECIMENTO DE EQUIPAMENTO WI-FI.",
+   "servico": true,
+   "numeroControlePncp": "00394502000144-2-000270/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394502000144/2026/270"
+  },
+  {
+   "orgao": "COMANDO DA MARINHA",
+   "orgaoCnpj": "00394502000144",
+   "venceEm": "2027-04-05",
+   "valor": 5844.0,
+   "objeto": "Contratação de serviço de instalação de Link dedicado de Internet via Fibra Óptica, de uso limitado, de alta qualidade e performance, com taxa de de transmissão efetiva igual ou superior a 50 Mbps, sem fornecimento de equipamento WI-FI.",
+   "servico": true,
+   "numeroControlePncp": "00394502000144-2-000269/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394502000144/2026/269"
   },
   {
    "orgao": "FUND COORD DE APERFEICOAMENTO DE PESSOAL DE NIVEL SUP",
@@ -1151,14 +1379,14 @@
    "link": "https://pncp.gov.br/app/contratos/26994558000123/2024/52"
   },
   {
-   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
-   "orgaoCnpj": "00394494010441",
-   "venceEm": "2027-04-08",
-   "valor": 18136.5,
-   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS DE FORNECIMENTO DO SOFTWARE CANVA ENTERPRISE E CANVA EQUIPES, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO",
+   "orgao": "CONSELHO FEDERAL DE FARMACIA",
+   "orgaoCnpj": "60984473000100",
+   "venceEm": "2027-04-09",
+   "valor": 27225.56,
+   "objeto": "Securitylabs Serviços de Desenvolvimento e Licenciamento de Programas Ltda - ME, valor empenhado para pagamento referente à prestação de serviços de auditoria de código fonte de aplicação; validação e teste do algoritmo criptográfico e função de hash (sequência única de identificação de informação) utilizada na alteração da senha pelos usuários finais; de garantia ao eleitor de que o voto é secreto; de garantia ao eleitor de que seu voto realmente foi computado para o candidato escolhido; de testes de performance e stress de sistema, validação e testes do ambiente de produção e testes de intrusão na aplicação Web Voto. Quarto Termo Aditivo ao Contrato nº 03/2023. Processo Administrativo nº 00825/2023. Período de vigência: 10/04/2026 a 09/04/2027. Processo SEI nº 26.0.000003026-0.",
    "servico": true,
-   "numeroControlePncp": "00394494010441-2-000422/2026",
-   "link": "https://pncp.gov.br/app/contratos/00394494010441/2026/422"
+   "numeroControlePncp": "60984473000100-2-000059/2026",
+   "link": "https://pncp.gov.br/app/contratos/60984473000100/2026/59"
   },
   {
    "orgao": "INSTITUTO CHICO MENDES DE CONSERVACAO DA BIODIVERSIDADE",
@@ -1251,16 +1479,6 @@
    "link": "https://pncp.gov.br/app/contratos/33665647000191/2026/3"
   },
   {
-   "orgao": "CONSELHO FEDERAL DE ADMINISTRACAO",
-   "orgaoCnpj": "34061135000189",
-   "venceEm": "2027-04-15",
-   "valor": 85131.0,
-   "objeto": "O objeto do presente instrumento é a contratação de solução de tecnologia da informação e comunicação de licenças de softwares de Design Gráfico, com direito de atualização e suporte. ADOBE CREATIVE CLOUD VIP TEAMS GOVERNAMENTAL ALL APPS",
-   "servico": false,
-   "numeroControlePncp": "34061135000189-2-000022/2026",
-   "link": "https://pncp.gov.br/app/contratos/34061135000189/2026/22"
-  },
-  {
    "orgao": "AGENCIA NACIONAL DE TRANSPORTES TERRESTRES - ANTT",
    "orgaoCnpj": "04898488000177",
    "venceEm": "2027-04-15",
@@ -1269,6 +1487,16 @@
    "servico": true,
    "numeroControlePncp": "04898488000177-2-000013/2026",
    "link": "https://pncp.gov.br/app/contratos/04898488000177/2026/13"
+  },
+  {
+   "orgao": "CONSELHO FEDERAL DE ADMINISTRACAO",
+   "orgaoCnpj": "34061135000189",
+   "venceEm": "2027-04-15",
+   "valor": 85131.0,
+   "objeto": "O objeto do presente instrumento é a contratação de solução de tecnologia da informação e comunicação de licenças de softwares de Design Gráfico, com direito de atualização e suporte. ADOBE CREATIVE CLOUD VIP TEAMS GOVERNAMENTAL ALL APPS",
+   "servico": false,
+   "numeroControlePncp": "34061135000189-2-000022/2026",
+   "link": "https://pncp.gov.br/app/contratos/34061135000189/2026/22"
   },
   {
    "orgao": "MINISTERIO DA CIDADANIA",
@@ -1311,16 +1539,6 @@
    "link": "https://pncp.gov.br/app/contratos/01612452000197/2026/10"
   },
   {
-   "orgao": "MINISTERIO DA CULTURA",
-   "orgaoCnpj": "01264142000129",
-   "venceEm": "2027-04-17",
-   "valor": 5466000.0,
-   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO ATRAVÉS DE REGISTRO DE PREÇOS PARA CONTRATAÇÃO DE SOLUÇÃO DE PREVENÇÃO CONTRA VAZAMENTO DE INFORMAÇÕES EM MEIO DIGITAL (DATA LOSS PREVENTION - DLP) COM FORNECIMENTO DE LICENÇAS E FERRAMENTA DE DESCOBERTA E CLASSIFICAÇÃO DE DADOS, CONTROLE DE ACESSO, MONITORAMENTO DE ATIVIDADE, AUDITORIA E PROTEÇÃO ATRAVÉS DE BLOQUEIO, CRIPTOGRAFIA E QUARENTENA, PARA APLICAÇÕES E AMBIENTES DE ARMAZENAMENTO EM NUVEM, CLOUD ACCESS SECURITY BROKER (CASB), INCLUINDO IMPLANTAÇÃO DA SOLUÇÃO, TREINAMENTO E SUPORTE TÉCNICO PELO PERÍODO DE 36 (TRINTA E SEIS) MESES, CONFORME DETALHAMENTO TÉCNICO E CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA E SEUS ANEXOS.",
-   "servico": false,
-   "numeroControlePncp": "01264142000129-2-000313/2024",
-   "link": "https://pncp.gov.br/app/contratos/01264142000129/2024/313"
-  },
-  {
    "orgao": "MINISTERIO DE MINAS E ENERGIA",
    "orgaoCnpj": "37115383000153",
    "venceEm": "2027-04-17",
@@ -1329,6 +1547,16 @@
    "servico": false,
    "numeroControlePncp": "37115383000153-2-000015/2026",
    "link": "https://pncp.gov.br/app/contratos/37115383000153/2026/15"
+  },
+  {
+   "orgao": "MINISTERIO DA CULTURA",
+   "orgaoCnpj": "01264142000129",
+   "venceEm": "2027-04-17",
+   "valor": 5466000.0,
+   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO ATRAVÉS DE REGISTRO DE PREÇOS PARA CONTRATAÇÃO DE SOLUÇÃO DE PREVENÇÃO CONTRA VAZAMENTO DE INFORMAÇÕES EM MEIO DIGITAL (DATA LOSS PREVENTION - DLP) COM FORNECIMENTO DE LICENÇAS E FERRAMENTA DE DESCOBERTA E CLASSIFICAÇÃO DE DADOS, CONTROLE DE ACESSO, MONITORAMENTO DE ATIVIDADE, AUDITORIA E PROTEÇÃO ATRAVÉS DE BLOQUEIO, CRIPTOGRAFIA E QUARENTENA, PARA APLICAÇÕES E AMBIENTES DE ARMAZENAMENTO EM NUVEM, CLOUD ACCESS SECURITY BROKER (CASB), INCLUINDO IMPLANTAÇÃO DA SOLUÇÃO, TREINAMENTO E SUPORTE TÉCNICO PELO PERÍODO DE 36 (TRINTA E SEIS) MESES, CONFORME DETALHAMENTO TÉCNICO E CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA E SEUS ANEXOS.",
+   "servico": false,
+   "numeroControlePncp": "01264142000129-2-000313/2024",
+   "link": "https://pncp.gov.br/app/contratos/01264142000129/2024/313"
   },
   {
    "orgao": "CONSELHO FEDERAL DE ADMINISTRACAO",
@@ -1371,6 +1599,16 @@
    "link": "https://pncp.gov.br/app/contratos/00394445000101/2024/66"
   },
   {
+   "orgao": "CONSELHO ADMINISTRATIVO DE DEFESA ECONOMICA-CADE",
+   "orgaoCnpj": "00418993000116",
+   "venceEm": "2027-04-20",
+   "valor": 16828.37,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO LICENÇAS DE SOLUÇÃO DE VIDEOCONFERÊNCIA E DE WEBINAR, PARA ATENDER ÀS DEMANDAS DO CONSELHO ADMINISTRATIVO DE DEFESA ECONÔMICA - CADE, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": false,
+   "numeroControlePncp": "00418993000116-2-000009/2026",
+   "link": "https://pncp.gov.br/app/contratos/00418993000116/2026/9"
+  },
+  {
    "orgao": "CONSELHO FEDERAL DE NUTRICIONISTAS",
    "orgaoCnpj": "00579987000140",
    "venceEm": "2027-04-21",
@@ -1411,24 +1649,24 @@
    "link": "https://pncp.gov.br/app/contratos/00394460000141/2025/139"
   },
   {
-   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
-   "orgaoCnpj": "00394494000136",
+   "orgao": "SENADO FEDERAL",
+   "orgaoCnpj": "00530279000115",
    "venceEm": "2027-04-22",
-   "valor": 170000.0,
-   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SOFTWARE PARA LOCALIZAÇÃO, RASTREAMENTO E ANÁLISE DE TRANSAÇÕES COM CRIPTOATIVOS, BASEADAS EM BLOCKCHAIN, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA (31846449).",
-   "servico": false,
-   "numeroControlePncp": "00394494000136-2-000557/2026",
-   "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/557"
+   "valor": 120860.0,
+   "objeto": "Contratação de 1 (um) canal de comunicação (enlace) entre a rede do Senado Federal e o backbone da Internet brasileira e internacional, para a prestação de serviço de conectividade para a rede WI-FI, protegido por mecanismo integrado de Anti-DDoS, incluindo, instalação, suporte e manutenção, durante 12 (doze) meses consecutivos.",
+   "servico": true,
+   "numeroControlePncp": "00530279000115-2-000034/2026",
+   "link": "https://pncp.gov.br/app/contratos/00530279000115/2026/34"
   },
   {
-   "orgao": "TRIBUNAL DE CONTAS DA UNIAO",
-   "orgaoCnpj": "00414607000118",
-   "venceEm": "2027-04-23",
-   "valor": 60000.0,
-   "objeto": "Aquisição de licenças de software de pesquisa de preços, especializado em acesso simultâneo às bases de dados de domínio público e privado para o Tribunal de Contas da União.",
-   "servico": false,
-   "numeroControlePncp": "00414607000118-2-000143/2026",
-   "link": "https://pncp.gov.br/app/contratos/00414607000118/2026/143"
+   "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
+   "orgaoCnpj": "00488478000102",
+   "venceEm": "2027-04-24",
+   "valor": 64670.0,
+   "objeto": "PRESTAÇÃO DE SERVIÇO CONTÍNUO DE GARANTIA ESTENDIDA DOS SERVIDORES MARCA DELL PARA AS APLICAÇÕES NAS E AD.",
+   "servico": true,
+   "numeroControlePncp": "00488478000102-2-000127/2025",
+   "link": "https://pncp.gov.br/app/contratos/00488478000102/2025/127"
   },
   {
    "orgao": "DEFENSORIA PUBLICA DA UNIAO",
@@ -1461,6 +1699,16 @@
    "link": "https://pncp.gov.br/app/contratos/01264142000129/2026/14"
   },
   {
+   "orgao": "CONSELHO NACIONAL DE JUSTICA",
+   "orgaoCnpj": "07421906000129",
+   "venceEm": "2027-04-28",
+   "valor": 24179.0,
+   "objeto": "O OBJETO DO PRESENTE CONTRATO É SERVIÇO CONTINUADO DE EMISSÃO DE CERTIFICADOS DIGITAIS NO PADRÃO ICP-BRASIL, SOB DEMANDA, PARA PESSOAS FÍSICAS E JURÍDICAS, COM FORNECIMENTO DE TOKEN CRIPTOGRÁFICO E PARA EQUIPAMENTOS DE REDES COM PREVISÃO DE VISITA TÉCNICA.",
+   "servico": true,
+   "numeroControlePncp": "07421906000129-2-000031/2024",
+   "link": "https://pncp.gov.br/app/contratos/07421906000129/2024/31"
+  },
+  {
    "orgao": "CONSELHO FEDERAL DOS TECNICOS INDUSTRIAIS",
    "orgaoCnpj": "30871497000184",
    "venceEm": "2027-04-29",
@@ -1469,6 +1717,16 @@
    "servico": true,
    "numeroControlePncp": "30871497000184-2-000002/2026",
    "link": "https://pncp.gov.br/app/contratos/30871497000184/2026/2"
+  },
+  {
+   "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
+   "orgaoCnpj": "00488478000102",
+   "venceEm": "2027-04-29",
+   "valor": 5768000.0,
+   "objeto": "FORNECIMENTO DE SOLUÇÃO DE DETECÇÃO DE AMEAÇAS DE REDE, COMPOSTA DE NDR E NPB, PARA PERMITIR A DETECÇÃO DE ATIVIDADES MALICIOSAS NA REDE DE DADOS, POR MEIO DE APRENDIZADO DE MÁQUINA, ANÁLISE COMPORTAMENTAL, ENTRE OUTROS MECANISMOS, SERVIÇOS DE INSTALAÇÃO E CONFIGURAÇÃO, COM PRESTAÇÃO CONTÍNUA DE SUPORTE TÉCNICO E MANUTENÇÃO CORRETIVA E EVOLUTIVA.",
+   "servico": true,
+   "numeroControlePncp": "00488478000102-2-000064/2025",
+   "link": "https://pncp.gov.br/app/contratos/00488478000102/2025/64"
   },
   {
    "orgao": "AUTORIDADE NACIONAL DE PROTEÇÃO DE DADOS",
@@ -1489,16 +1747,6 @@
    "servico": true,
    "numeroControlePncp": "00414607000118-2-000104/2025",
    "link": "https://pncp.gov.br/app/contratos/00414607000118/2025/104"
-  },
-  {
-   "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
-   "orgaoCnpj": "00488478000102",
-   "venceEm": "2027-04-29",
-   "valor": 5768000.0,
-   "objeto": "FORNECIMENTO DE SOLUÇÃO DE DETECÇÃO DE AMEAÇAS DE REDE, COMPOSTA DE NDR E NPB, PARA PERMITIR A DETECÇÃO DE ATIVIDADES MALICIOSAS NA REDE DE DADOS, POR MEIO DE APRENDIZADO DE MÁQUINA, ANÁLISE COMPORTAMENTAL, ENTRE OUTROS MECANISMOS, SERVIÇOS DE INSTALAÇÃO E CONFIGURAÇÃO, COM PRESTAÇÃO CONTÍNUA DE SUPORTE TÉCNICO E MANUTENÇÃO CORRETIVA E EVOLUTIVA.",
-   "servico": true,
-   "numeroControlePncp": "00488478000102-2-000064/2025",
-   "link": "https://pncp.gov.br/app/contratos/00488478000102/2025/64"
   },
   {
    "orgao": "MINISTERIO DA CIDADANIA",
@@ -1529,6 +1777,36 @@
    "servico": true,
    "numeroControlePncp": "00414607000118-2-000289/2024",
    "link": "https://pncp.gov.br/app/contratos/00414607000118/2024/289"
+  },
+  {
+   "orgao": "MINISTERIO DA FAZENDA",
+   "orgaoCnpj": "00394460000141",
+   "venceEm": "2027-05-01",
+   "valor": 97900.0,
+   "objeto": "1.1. CONTRATAÇÃO DE SERVIÇOS CONTÍNUOS DE VIGILÂNCIA ELETRÔNICA, COM ALARME, CIRCUITO FECHADO DE TELEVISÃO (CFTV), CERCA ELÉTRICA E CONCERTINA, INCLUINDO O FORNECIMENTO E A INSTALAÇÃO DOS EQUIPAMENTOS, EM REGIME DE COMODATO (SERVIÇO ACESSÓRIO), ASSIM COMO TODO CABEAMENTO ESTRUTURADO, GERENCIAMENTO, INSTALAÇÃO, OPERAÇÃO, MONITORAMENTO ELETRÔNICO E MANUTENÇÃO PREVENTIVA E CORRETIVA DE TODO O SISTEMA, PARA ATENDER ÀS NECESSIDADES DA DRF/CUIABÁ/MT E DE SUAS UNIDADES JURISDICIONADAS, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": true,
+   "numeroControlePncp": "00394460000141-2-001184/2025",
+   "link": "https://pncp.gov.br/app/contratos/00394460000141/2025/1184"
+  },
+  {
+   "orgao": "MINISTERIO DA FAZENDA",
+   "orgaoCnpj": "00394460000141",
+   "venceEm": "2027-05-01",
+   "valor": 114400.0,
+   "objeto": "CONTRATAÇÃO DE SERVIÇOS CONTÍNUOS DE VIGILÂNCIA ELETRÔNICA, COM ALARME, CIRCUITO FECHADO DE TELEVISÃO (CFTV), CERCA ELÉTRICA E CONCERTINA, INCLUINDO O FORNECIMENTO E A INSTALAÇÃO DOS EQUIPAMENTOS, EM REGIME DE COMODATO (SERVIÇO ACESSÓRIO), ASSIM COMO TODO CABEAMENTO ESTRUTURADO, GERENCIAMENTO, INSTALAÇÃO, OPERAÇÃO, MONITORAMENTO ELETRÔNICO E MANUTENÇÃO PREVENTIVA E CORRETIVA DE TODO O SISTEMA, PARA ATENDER ÀS NECESSIDADES DA DRF/CUIABÁ/MT E DE SUAS UNIDADES JURISDICIONADAS, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": true,
+   "numeroControlePncp": "00394460000141-2-001182/2025",
+   "link": "https://pncp.gov.br/app/contratos/00394460000141/2025/1182"
+  },
+  {
+   "orgao": "MINISTERIO DA FAZENDA",
+   "orgaoCnpj": "00394460000141",
+   "venceEm": "2027-05-01",
+   "valor": 52200.0,
+   "objeto": "1.1. CONTRATAÇÃO DE SERVIÇOS CONTÍNUOS DE VIGILÂNCIA ELETRÔNICA, COM ALARME, CIRCUITO FECHADO DE TELEVISÃO (CFTV), CERCA ELÉTRICA E CONCERTINA, INCLUINDO O FORNECIMENTO E A INSTALAÇÃO DOS EQUIPAMENTOS, EM REGIME DE COMODATO (SERVIÇO ACESSÓRIO), ASSIM COMO TODO CABEAMENTO ESTRUTURADO, GERENCIAMENTO, INSTALAÇÃO, OPERAÇÃO, MONITORAMENTO ELETRÔNICO E MANUTENÇÃO PREVENTIVA E CORRETIVA DE TODO O SISTEMA, PARA ATENDER ÀS NECESSIDADES DA DRF/CUIABÁ/MT E DE SUAS UNIDADES JURISDICIONADAS, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": true,
+   "numeroControlePncp": "00394460000141-2-001183/2025",
+   "link": "https://pncp.gov.br/app/contratos/00394460000141/2025/1183"
   },
   {
    "orgao": "SUPREMO TRIBUNAL FEDERAL",
@@ -1591,6 +1869,16 @@
    "link": "https://pncp.gov.br/app/contratos/26989715000102/2025/844"
   },
   {
+   "orgao": "ADVOCACIA GERAL DA UNIAO",
+   "orgaoCnpj": "26994558000123",
+   "venceEm": "2027-05-07",
+   "valor": 1153360.0,
+   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE EMPRESA ESPECIALIZADA NO FORNECIMENTO DE SOLUÇÃO DE OBSERVABILIDADE NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": false,
+   "numeroControlePncp": "26994558000123-2-000080/2026",
+   "link": "https://pncp.gov.br/app/contratos/26994558000123/2026/80"
+  },
+  {
    "orgao": "MINISTERIO DO MEIO AMBIENTE",
    "orgaoCnpj": "37115375000107",
    "venceEm": "2027-05-07",
@@ -1599,6 +1887,16 @@
    "servico": true,
    "numeroControlePncp": "37115375000107-2-000011/2026",
    "link": "https://pncp.gov.br/app/contratos/37115375000107/2026/11"
+  },
+  {
+   "orgao": "CONSELHO FEDERAL DE FISIOTERAPIA E TERAPIA OCUPACIONAL",
+   "orgaoCnpj": "00487140000136",
+   "venceEm": "2027-05-07",
+   "valor": 11956.0,
+   "objeto": "Contratação de plataforma corporativa de videoconferência, mediante fornecimento de 01 (uma) licença, com capacidade para 1.000 (mil) participantes simultâneos, destinada à realização de reuniões on-line, sessões plenárias, treinamentos, eventos institucionais e demais atos oficiais do COFFITO",
+   "servico": false,
+   "numeroControlePncp": "00487140000136-2-000029/2026",
+   "link": "https://pncp.gov.br/app/contratos/00487140000136/2026/29"
   },
   {
    "orgao": "AGENCIA NACIONAL DE MINERACAO",
@@ -1641,16 +1939,6 @@
    "link": "https://pncp.gov.br/app/contratos/00530279000115/2026/75"
   },
   {
-   "orgao": "CONSELHO FEDERAL DE ADMINISTRACAO",
-   "orgaoCnpj": "34061135000189",
-   "venceEm": "2027-05-11",
-   "valor": 8863.84,
-   "objeto": "Contratação de empresa para fornecimento de ferramenta/ solução web para disparo de e-mail marketing para campanhas do CFA e para a plataforma CFA-Talentos, por meio de sistema web, por acesso com login/senha, pelo período de 12 (doze) meses, com a possibilidade de prorrogação, conforme especificações definidas neste instrumento.",
-   "servico": false,
-   "numeroControlePncp": "34061135000189-2-000013/2024",
-   "link": "https://pncp.gov.br/app/contratos/34061135000189/2024/13"
-  },
-  {
    "orgao": "INSTITUTO FEDERAL DE EDUCACAO, CIENCIA E TECNOLOGIA DE BRASILIA",
    "orgaoCnpj": "10791831000182",
    "venceEm": "2027-05-12",
@@ -1671,6 +1959,26 @@
    "link": "https://pncp.gov.br/app/contratos/37753638000103/2025/23"
   },
   {
+   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+   "orgaoCnpj": "00394494010441",
+   "venceEm": "2027-05-12",
+   "valor": 3422.0,
+   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO (TIC) PARA O FORNECIMENTO DE ACESSO, VIA SUBSCRIÇÃO (ASSINATURA) ANUAL COM FATURAMENTO EM PARCELA ÚNICA, A PLATAFORMAS DE BANCOS DE ATIVOS DIGITAIS CRIATIVOS, CONTEMPLANDO ACERVOS DE IMAGENS DE ALTA RESOLUÇÃO, VETORES, ILUSTRAÇÕES, VÍDEOS (FOOTAGE), TEMPLATES EDITÁVEIS E FONTES, PARA ATENDER ÀS NECESSIDADES DA COORDENAÇÃO-GERAL DE COMUNICAÇÃO INSTITUCIONAL DA POLÍCIA RODOVIÁRIA FEDERAL (PRF), TENDO COMO REFERÊNCIA DE PADRÃO DE QUALIDADE E FUNCIONALIDADES AS PLATAFORMAS FREEPIK E ENVATO ELEMENTS, OU EQUIVALENTE , NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": false,
+   "numeroControlePncp": "00394494010441-2-000512/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394494010441/2026/512"
+  },
+  {
+   "orgao": "SECRETARIA DE POLITICAS PARA AS MULHERES",
+   "orgaoCnpj": "05510958000146",
+   "venceEm": "2027-05-12",
+   "valor": 216000.0,
+   "objeto": "O objeto do presente instrumento é a aquisição de solução de videoconferência para modernização das salas de reunião do Ministério das Mulheres, conforme indicado no Termo de Referência.",
+   "servico": false,
+   "numeroControlePncp": "05510958000146-2-000001/2026",
+   "link": "https://pncp.gov.br/app/contratos/05510958000146/2026/1"
+  },
+  {
    "orgao": "COMANDO DA MARINHA",
    "orgaoCnpj": "00394502000144",
    "venceEm": "2027-05-13",
@@ -1679,6 +1987,26 @@
    "servico": false,
    "numeroControlePncp": "00394502000144-2-000538/2026",
    "link": "https://pncp.gov.br/app/contratos/00394502000144/2026/538"
+  },
+  {
+   "orgao": "SENADO FEDERAL",
+   "orgaoCnpj": "00530279000115",
+   "venceEm": "2027-05-13",
+   "valor": 38170.0,
+   "objeto": "Contratação de licença de uso do sistema Videofarma Banco de Dados com Exportação de a contratação de treinamento in company ministrado pela Supreme Treinamentos LTDA, intitulado “Prático de Legislação Previdenciária do Setor Público”, voltado à capacitação de até 22 (vinte e dois) servidores do SENADO (AUDIT, DGER e SEGP), a ser realizado presencialmente nas dependências do Instituto Legislativo Brasileiro (ILB) do Senado Federal, em Brasília, Distrito Federal, com carga horária de 16 (dezesseis) horas,",
+   "servico": false,
+   "numeroControlePncp": "00530279000115-2-000077/2026",
+   "link": "https://pncp.gov.br/app/contratos/00530279000115/2026/77"
+  },
+  {
+   "orgao": "CONSELHO FEDERAL DE FARMACIA",
+   "orgaoCnpj": "60984473000100",
+   "venceEm": "2027-05-13",
+   "valor": 5122.55,
+   "objeto": "AR RP Certificação Digital Eireli, empenho visando ao pagamento referente à aquisição com fornecimento parcelado de certificados digitais do tipo e-CPF, e e-CNPJ\", especificados no Termo de Referência, da Dispensa Eletrônica SRP Nº 90008/2025 – que é parte integrante da ata, firmado em 12 de maio de 2025 - Processo Administrativo SEI Nº 25.0.000003583-4, em conformidade com os termos previstos e com amparo no Inciso IV do Art.71 da Lei Federal 14.133/2021. Ata de Registro de Preços nº 01/2025. Vigência: 13/05/2026 a 13/05/2027. Processo SEI nº 26.0.000004489-9.",
+   "servico": false,
+   "numeroControlePncp": "60984473000100-2-000138/2025",
+   "link": "https://pncp.gov.br/app/contratos/60984473000100/2025/138"
   },
   {
    "orgao": "CAMARA DOS DEPUTADOS",
@@ -1709,6 +2037,16 @@
    "servico": true,
    "numeroControlePncp": "00394411000109-2-000132/2026",
    "link": "https://pncp.gov.br/app/contratos/00394411000109/2026/132"
+  },
+  {
+   "orgao": "COMANDO DO EXERCITO",
+   "orgaoCnpj": "00394452000103",
+   "venceEm": "2027-05-14",
+   "valor": 1181.3,
+   "objeto": "EMISSÃO DE CERTIFICADO DIGITAL",
+   "servico": false,
+   "numeroControlePncp": "00394452000103-2-004281/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394452000103/2026/4281"
   },
   {
    "orgao": "COMANDO DO EXERCITO",
@@ -1749,6 +2087,16 @@
    "servico": false,
    "numeroControlePncp": "00059311000126-2-000356/2026",
    "link": "https://pncp.gov.br/app/contratos/00059311000126/2026/356"
+  },
+  {
+   "orgao": "MINISTERIO DA DEFESA",
+   "orgaoCnpj": "03277610000125",
+   "venceEm": "2027-05-15",
+   "valor": 105700.0,
+   "objeto": "CONTRATAÇÃO DE EMPRESA PARA FORNECIMENTO DE TELAS INTERATIVAS E CÂMERAS DE VIDEOCONFERÊNCIA, NOS TERMOS ABAIXO, E NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": false,
+   "numeroControlePncp": "03277610000125-2-000717/2026",
+   "link": "https://pncp.gov.br/app/contratos/03277610000125/2026/717"
   },
   {
    "orgao": "CONSELHO FEDERAL DE CONTABILIDADE",
@@ -1861,16 +2209,6 @@
    "link": "https://pncp.gov.br/app/contratos/07947821000189/2026/44"
   },
   {
-   "orgao": "AGENCIA NACIONAL DE AVIACAO CIVIL - ANAC",
-   "orgaoCnpj": "07947821000189",
-   "venceEm": "2027-05-21",
-   "valor": 54800.0,
-   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE LICENÇA DE SOFTWARE PARA SUPORTE À GESTÃO DE CRISES",
-   "servico": false,
-   "numeroControlePncp": "07947821000189-2-000045/2026",
-   "link": "https://pncp.gov.br/app/contratos/07947821000189/2026/45"
-  },
-  {
    "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
    "orgaoCnpj": "00509018000113",
    "venceEm": "2027-05-21",
@@ -1881,6 +2219,16 @@
    "link": "https://pncp.gov.br/app/contratos/00509018000113/2025/2464"
   },
   {
+   "orgao": "AGENCIA NACIONAL DE AVIACAO CIVIL - ANAC",
+   "orgaoCnpj": "07947821000189",
+   "venceEm": "2027-05-21",
+   "valor": 54800.0,
+   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE LICENÇA DE SOFTWARE PARA SUPORTE À GESTÃO DE CRISES",
+   "servico": false,
+   "numeroControlePncp": "07947821000189-2-000045/2026",
+   "link": "https://pncp.gov.br/app/contratos/07947821000189/2026/45"
+  },
+  {
    "orgao": "INSTITUTO NACIONAL DE TECNOLOGIA DA INFORMACAO",
    "orgaoCnpj": "04039532000193",
    "venceEm": "2027-05-22",
@@ -1889,6 +2237,26 @@
    "servico": true,
    "numeroControlePncp": "04039532000193-2-000011/2026",
    "link": "https://pncp.gov.br/app/contratos/04039532000193/2026/11"
+  },
+  {
+   "orgao": "MINISTERIO DAS RELACOES EXTERIORES",
+   "orgaoCnpj": "00394536000139",
+   "venceEm": "2027-05-22",
+   "valor": 3478.8,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS COMUNS CONTÍNUOS DE INTERNET BANDA LARGA POR FIBRA ÓPTICA COM REPETIDORES DE SINAL, NOS TERMOS DA TABELA ABAIXO E NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": true,
+   "numeroControlePncp": "00394536000139-2-000170/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394536000139/2026/170"
+  },
+  {
+   "orgao": "COMANDO DA MARINHA",
+   "orgaoCnpj": "00394502000144",
+   "venceEm": "2027-05-22",
+   "valor": 22390.0,
+   "objeto": "PRESTAÇÃO DOS SERVIÇOS CONTÍNUOS DE TELECOMUNICAÇÕES POR MEIO DE LINK DE ACESSO À INTERNET, VIA CONSTELAÇÃO DE SATÉLITES EM ÓRBITA BAIXA – LOW EARTH ORBIT (LEO), COM FORNECIMENTO DE EQUIPAMENTOS E INSTALAÇÃO, PARA USO EM CARROS E LANCHAS",
+   "servico": true,
+   "numeroControlePncp": "00394502000144-2-002488/2025",
+   "link": "https://pncp.gov.br/app/contratos/00394502000144/2025/2488"
   },
   {
    "orgao": "MINISTERIO PUBLICO DA UNIAO",
@@ -1991,16 +2359,6 @@
    "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/744"
   },
   {
-   "orgao": "MINISTERIO PUBLICO DA UNIAO",
-   "orgaoCnpj": "26989715000102",
-   "venceEm": "2027-05-28",
-   "valor": 69750.0,
-   "objeto": "Subscrição de licenças de uso (Premium) do software Atlassian Trello, com suporte técnico e atualizações, por 12 meses, para atender às necessidades da Secretaria de Comunicação do Ministério Público Federal,",
-   "servico": false,
-   "numeroControlePncp": "26989715000102-2-001027/2026",
-   "link": "https://pncp.gov.br/app/contratos/26989715000102/2026/1027"
-  },
-  {
    "orgao": "CONSELHO FEDERAL DE CONTABILIDADE",
    "orgaoCnpj": "33618570000107",
    "venceEm": "2027-05-28",
@@ -2009,6 +2367,16 @@
    "servico": false,
    "numeroControlePncp": "33618570000107-2-000037/2025",
    "link": "https://pncp.gov.br/app/contratos/33618570000107/2025/37"
+  },
+  {
+   "orgao": "MINISTERIO PUBLICO DA UNIAO",
+   "orgaoCnpj": "26989715000102",
+   "venceEm": "2027-05-28",
+   "valor": 69750.0,
+   "objeto": "Subscrição de licenças de uso (Premium) do software Atlassian Trello, com suporte técnico e atualizações, por 12 meses, para atender às necessidades da Secretaria de Comunicação do Ministério Público Federal,",
+   "servico": false,
+   "numeroControlePncp": "26989715000102-2-001027/2026",
+   "link": "https://pncp.gov.br/app/contratos/26989715000102/2026/1027"
   },
   {
    "orgao": "FUNDACAO UNIVERSIDADE DE BRASILIA",
@@ -2131,14 +2499,14 @@
    "link": "https://pncp.gov.br/app/contratos/08829974000194/2025/58"
   },
   {
-   "orgao": "CONTROLADORIA-GERAL DA UNIAO",
-   "orgaoCnpj": "26664015000148",
-   "venceEm": "2027-06-06",
-   "valor": 7766517.84,
-   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS DE TI PARA OPERAÇÃO E GESTÃO DE CENTRAL DE SERVIÇOS (SERVICE DESK), CONTEMPLANDO ATENDIMENTOS DE 1º NÍVEL, TELEFÔNICO, E DE 2º NÍVEL, PRESENCIAL E REMOTO, EM BRASÍLIA E DEMAIS 26 (VINTE E SEIS) UNIDADES DA FEDERAÇÃO, POR UM PERÍODO DE 24 (VINTE E QUATRO) MESES, PRORROGÁVEL ATÉ O LIMITE DE 120 (CENTO E VINTE) MESES, PARA A CONTROLADORIA GERAL DA UNIÃO – CGU, CONFORME CONDIÇÕES, QUANTIDADES, EXIGÊNCIAS E ESTIMATIVAS, ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "orgao": "INSTITUTO DO PATRIMONIO HISTORICO E ARTISTICO NACIONAL",
+   "orgaoCnpj": "26474056000171",
+   "venceEm": "2027-06-03",
+   "valor": 68000.0,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇO ESPECIALIZADO, COM O FORNECIMENTO DOS MATERIAIS INDISPENSÁVEIS, DESTINADOS AO REMANEJAMENTO DE 02 (DOIS) EQUIPAMENTOS DE AR CONDICIONADO DE ALTA PRECISÃO, PARA POSICIONAMENTO ADEQUADO ENTRE OS RACKS, CONFORME BOAS PRÁTICAS DE CLIMATIZAÇÃO DE AMBIENTES CRÍTICOS, E À ADEQUAÇÃO DO SISTEMA DE DRENAGEM POR GRAVIDADE DE 04 (QUATRO) EQUIPAMENTOS DE AR CONDICIONADO DE ALTA PRECISÃO DA MARCA VERTIV MODELO LIEBERT CR025, CONSIDERANDO AS ADEQUAÇÕES TÉCNICAS REQUERIDAS PARA A CORRETA INSTALAÇÃO, O PLENO FUNCIONAMENTO E A SEGURANÇA OPERACIONAL DOS SISTEMAS DE CLIMATIZAÇÃO DA SALA DO DATACENTER DO INSTITUTO DO PATRIMÔNIO HISTÓRICO E ARTÍSTICO",
    "servico": true,
-   "numeroControlePncp": "26664015000148-2-000014/2025",
-   "link": "https://pncp.gov.br/app/contratos/26664015000148/2025/14"
+   "numeroControlePncp": "26474056000171-2-000093/2026",
+   "link": "https://pncp.gov.br/app/contratos/26474056000171/2026/93"
   },
   {
    "orgao": "MINISTERIO DA AGRICULTURA, PECUARIA E ABASTECIMENTO",
@@ -2149,6 +2517,16 @@
    "servico": true,
    "numeroControlePncp": "00396895000125-2-000347/2025",
    "link": "https://pncp.gov.br/app/contratos/00396895000125/2025/347"
+  },
+  {
+   "orgao": "CONTROLADORIA-GERAL DA UNIAO",
+   "orgaoCnpj": "26664015000148",
+   "venceEm": "2027-06-06",
+   "valor": 7766517.84,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS DE TI PARA OPERAÇÃO E GESTÃO DE CENTRAL DE SERVIÇOS (SERVICE DESK), CONTEMPLANDO ATENDIMENTOS DE 1º NÍVEL, TELEFÔNICO, E DE 2º NÍVEL, PRESENCIAL E REMOTO, EM BRASÍLIA E DEMAIS 26 (VINTE E SEIS) UNIDADES DA FEDERAÇÃO, POR UM PERÍODO DE 24 (VINTE E QUATRO) MESES, PRORROGÁVEL ATÉ O LIMITE DE 120 (CENTO E VINTE) MESES, PARA A CONTROLADORIA GERAL DA UNIÃO – CGU, CONFORME CONDIÇÕES, QUANTIDADES, EXIGÊNCIAS E ESTIMATIVAS, ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": true,
+   "numeroControlePncp": "26664015000148-2-000014/2025",
+   "link": "https://pncp.gov.br/app/contratos/26664015000148/2025/14"
   },
   {
    "orgao": "DNIT-DEPARTAMENTO NACIONAL DE INFRAEST DE TRANSPORTES",
@@ -2174,6 +2552,16 @@
    "orgao": "MINISTERIO DA MULHER, DA FAMILIA E DOS DIREITOS HUMANOS",
    "orgaoCnpj": "27136980000100",
    "venceEm": "2027-06-08",
+   "valor": 76511.88,
+   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO, COM AQUISIÇÃO DE 18 (DEZOITO) COMPUTADORES, PARA ATENDIMENTO DA SECRETARIA NACIONAL DOS DIREITOS DA PESSOA COM DEFICIÊNCIA - SNDPD.",
+   "servico": false,
+   "numeroControlePncp": "27136980000100-2-000017/2026",
+   "link": "https://pncp.gov.br/app/contratos/27136980000100/2026/17"
+  },
+  {
+   "orgao": "MINISTERIO DA MULHER, DA FAMILIA E DOS DIREITOS HUMANOS",
+   "orgaoCnpj": "27136980000100",
+   "venceEm": "2027-06-08",
    "valor": 25503.96,
    "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO, COM AQUISIÇÃO DE 6 (SEIS) COMPUTADORES, PARA ATENDIMENTO DA SECRETARIA NACIONAL DE PROMOÇÃO E DEFESA DOS DIREITOS HUMANOS - SNDH",
    "servico": false,
@@ -2191,6 +2579,16 @@
    "link": "https://pncp.gov.br/app/contratos/27136980000100/2026/15"
   },
   {
+   "orgao": "MINISTERIO DA MULHER, DA FAMILIA E DOS DIREITOS HUMANOS",
+   "orgaoCnpj": "27136980000100",
+   "venceEm": "2027-06-08",
+   "valor": 110517.16,
+   "objeto": "AQUISIÇÃO DE 26 (VINTE E SEIS) COMPUTADORES, PARA ATENDIMENTO DA SECRETARIA NACIONAL DOS DIREITOS DA CRIANÇA E DO ADOLESCENTE - SNDCA, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": false,
+   "numeroControlePncp": "27136980000100-2-000013/2026",
+   "link": "https://pncp.gov.br/app/contratos/27136980000100/2026/13"
+  },
+  {
    "orgao": "MINISTERIO DA DEFESA",
    "orgaoCnpj": "03277610000125",
    "venceEm": "2027-06-08",
@@ -2201,16 +2599,6 @@
    "link": "https://pncp.gov.br/app/contratos/03277610000125/2026/834"
   },
   {
-   "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
-   "orgaoCnpj": "00488478000102",
-   "venceEm": "2027-06-09",
-   "valor": 754316.07,
-   "objeto": "RENOVAÇÃO DA GARANTIA DE FABRICANTE DO LICENCIAMENTO DO SOFTWARE FOXIT PDF COMPRESSOR COM DIREITO À SUPORTE TÉCNICO DO FABRICANTE E A ATUALIZAÇÕES DO SOFTWARE PARA A VERSÃO MAIS RECENTE.",
-   "servico": false,
-   "numeroControlePncp": "00488478000102-2-000198/2024",
-   "link": "https://pncp.gov.br/app/contratos/00488478000102/2024/198"
-  },
-  {
    "orgao": "CONSELHO REGIONAL DE MEDICINA VETERINARIA DO DF",
    "orgaoCnpj": "06165937000101",
    "venceEm": "2027-06-09",
@@ -2219,6 +2607,16 @@
    "servico": true,
    "numeroControlePncp": "06165937000101-2-000002/2026",
    "link": "https://pncp.gov.br/app/contratos/06165937000101/2026/2"
+  },
+  {
+   "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
+   "orgaoCnpj": "00488478000102",
+   "venceEm": "2027-06-09",
+   "valor": 754316.07,
+   "objeto": "RENOVAÇÃO DA GARANTIA DE FABRICANTE DO LICENCIAMENTO DO SOFTWARE FOXIT PDF COMPRESSOR COM DIREITO À SUPORTE TÉCNICO DO FABRICANTE E A ATUALIZAÇÕES DO SOFTWARE PARA A VERSÃO MAIS RECENTE.",
+   "servico": false,
+   "numeroControlePncp": "00488478000102-2-000198/2024",
+   "link": "https://pncp.gov.br/app/contratos/00488478000102/2024/198"
   },
   {
    "orgao": "TRIBUNAL SUPERIOR DO TRABALHO",
@@ -2281,6 +2679,16 @@
    "link": "https://pncp.gov.br/app/contratos/00331165000146/2026/15"
   },
   {
+   "orgao": "CONTROLADORIA-GERAL DA UNIAO",
+   "orgaoCnpj": "26664015000148",
+   "venceEm": "2027-06-13",
+   "valor": 5159993.76,
+   "objeto": "CONTRATAÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS DE NATUREZA CONTÍNUA COM DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA, NA ÁREA DE COMPUTAÇÃO EM NUVENS PÚBLICAS, NA MODALIDADE HÍBRIDA DE REMUNERAÇÃO POR POSTOS DE TRABALHO AJUSTADA POR RESULTADOS (NÍVEIS MÍNIMOS DE SERVIÇO), PELO PERÍODO DE 24 (VINTE E QUATRO) MESES, PRORROGÁVEL, CONFORME A LEI 14.133/2021, ATÉ O LIMITE DE 120 (CENTO E VINTE) MESES DE PRESTAÇÃO DOS SERVIÇOS",
+   "servico": true,
+   "numeroControlePncp": "26664015000148-2-000017/2025",
+   "link": "https://pncp.gov.br/app/contratos/26664015000148/2025/17"
+  },
+  {
    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
    "orgaoCnpj": "00394494010441",
    "venceEm": "2027-06-15",
@@ -2289,6 +2697,16 @@
    "servico": false,
    "numeroControlePncp": "00394494010441-2-000653/2026",
    "link": "https://pncp.gov.br/app/contratos/00394494010441/2026/653"
+  },
+  {
+   "orgao": "INSTITUTO DE PESQUISA ECONOMICA APLICADA",
+   "orgaoCnpj": "33892175000100",
+   "venceEm": "2027-06-15",
+   "valor": 206400.0,
+   "objeto": "PRESTAÇÃO DE SERVIÇOS CONTÍNUOS DE MANUTENÇÃO PREDITIVA, PREVENTIVA E CORRETIVA DO SISTEMA DE NOBREAK COM FORNECIMENOT DE PEÇAS SOB DEMANDA, NAS DEPENDÊNCIAS DO INSTITUTO DE PESQUISA ECONÔMICA E APLICADA - IPEA",
+   "servico": true,
+   "numeroControlePncp": "33892175000100-2-000028/2026",
+   "link": "https://pncp.gov.br/app/contratos/33892175000100/2026/28"
   },
   {
    "orgao": "AGENCIA NACIONAL DE TELECOMUNICACOES",
@@ -2441,16 +2859,6 @@
    "link": "https://pncp.gov.br/app/contratos/60984473000100/2026/95"
   },
   {
-   "orgao": "CONSELHO FEDERAL DE FARMACIA",
-   "orgaoCnpj": "60984473000100",
-   "venceEm": "2027-06-18",
-   "valor": 414.5,
-   "objeto": "Aquisição de material de informática item 9 (carregadores de smartphone)",
-   "servico": false,
-   "numeroControlePncp": "60984473000100-2-000096/2026",
-   "link": "https://pncp.gov.br/app/contratos/60984473000100/2026/96"
-  },
-  {
    "orgao": "MINISTERIO DA FAZENDA",
    "orgaoCnpj": "00394460000141",
    "venceEm": "2027-06-19",
@@ -2489,6 +2897,26 @@
    "servico": false,
    "numeroControlePncp": "00394494000136-2-000983/2026",
    "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/983"
+  },
+  {
+   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+   "orgaoCnpj": "00394494000136",
+   "venceEm": "2027-06-22",
+   "valor": 453600.0,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A AQUISIÇÃO DE EQUIPAMENTOS DE INFORMÁTICA (MONITOR DE VÍDEO DE 23\") NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": false,
+   "numeroControlePncp": "00394494000136-2-000983/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/983"
+  },
+  {
+   "orgao": "MINISTERIO DA DEFESA",
+   "orgaoCnpj": "03277610000125",
+   "venceEm": "2027-06-22",
+   "valor": 260752.0,
+   "objeto": "AQUISIÇÃO DE CONJUNTO DE CONTROLADORA DE ACESSO FÍSICO DE PESSOAS, INCLUINDO TREINAMENTO, SOFTWARE, INSTALAÇÃO E DESINSTALAÇÃO DE TODO O SISTEMA ATUAL, PARA ATENDER ÀS NECESSIDADES DO CENTRO DE COORDENAÇÃO GERAL - CCG, DO CENTRO GESTOR E OPERACIONAL DO SISTEMA DE PROTEÇÃO DA AMAZÔNIA - CENSIPAM, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": false,
+   "numeroControlePncp": "03277610000125-2-000845/2026",
+   "link": "https://pncp.gov.br/app/contratos/03277610000125/2026/845"
   },
   {
    "orgao": "TRIBUNAL DE JUSTICA DO DISTRITO FEDERAL E DOS TERRITORIOS",
@@ -2531,6 +2959,16 @@
    "link": "https://pncp.gov.br/app/contratos/00394452000103/2026/5005"
   },
   {
+   "orgao": "CONSELHO ADMINISTRATIVO DE DEFESA ECONOMICA-CADE",
+   "orgaoCnpj": "00418993000116",
+   "venceEm": "2027-06-24",
+   "valor": 34800.0,
+   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE SERVIÇOS DE CLIPPING DIGITAL DE NOTÍCIAS (MONITORAMENTO, COLETA, ORGANIZAÇÃO E ANÁLISE DE INFORMAÇÕES) EM ÂMBITO NACIONAL E INTERNACIONAL, EM MÍDIAS ON-LINE, RÁDIO, TELEVISÃO E CANAIS DO YOUTUBE, PARA A ASSESSORIA DE COMUNICAÇÃO SOCIAL (ASCOM) DO CADE, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": true,
+   "numeroControlePncp": "00418993000116-2-000021/2026",
+   "link": "https://pncp.gov.br/app/contratos/00418993000116/2026/21"
+  },
+  {
    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
    "orgaoCnpj": "00394494000136",
    "venceEm": "2027-06-24",
@@ -2549,6 +2987,26 @@
    "servico": false,
    "numeroControlePncp": "00508903000188-2-000377/2024",
    "link": "https://pncp.gov.br/app/contratos/00508903000188/2024/377"
+  },
+  {
+   "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
+   "orgaoCnpj": "00509018000113",
+   "venceEm": "2027-06-25",
+   "valor": 21373571.0,
+   "objeto": "PRESTAÇÃO DE SERVIÇOS ESPECIALIZADOS DE SUSTENTAÇÃO, MONITORAMENTO E EVOLUÇÃO DA SOLUÇÃO INTEGRADA DE REGISTROS BIOMÉTRICOS DA JUSTIÇA ELEITORAL PELO PERÍODO DE 24 (VINTE E QUATRO) MESES, PRORROGÁVEIS NOS TERMOS DA LEI, CONSOANTE ESPECIFICAÇÕES, EXIGÊNCIAS E DEMAIS PRAZOS CONSTANTES DO TERMO DE REFERÊNCIA - ANEXO I DO EDITAL DE LICITAÇÃO TSE Nº 90009/2025. ASSINAM: MIGUEL RICARDO DE OLIVEIRA PIAZZI, DIRETOR-GERAL DA SECRETARIA, PELO TSE; E BERNARDO DE LINS E LINCOLN, REPRESENTANTE LEGAL, PELA CONTRATADA.",
+   "servico": true,
+   "numeroControlePncp": "00509018000113-2-001653/2025",
+   "link": "https://pncp.gov.br/app/contratos/00509018000113/2025/1653"
+  },
+  {
+   "orgao": "COMANDO DA MARINHA",
+   "orgaoCnpj": "00394502000144",
+   "venceEm": "2027-06-26",
+   "valor": 18000.0,
+   "objeto": "AQUISIÇÃO DE CÂMERA DE VIDEOCONFERÊNCIA PARA A SALA DO GABINETE DO COMANDANTE DA MARINHA",
+   "servico": false,
+   "numeroControlePncp": "00394502000144-2-000943/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394502000144/2026/943"
   },
   {
    "orgao": "CONSELHO NACIONAL DE TECNICOS EM RADIOLOGIA",
@@ -2579,6 +3037,16 @@
    "servico": true,
    "numeroControlePncp": "04903587000108-2-000026/2026",
    "link": "https://pncp.gov.br/app/contratos/04903587000108/2026/26"
+  },
+  {
+   "orgao": "COMANDO DO EXERCITO",
+   "orgaoCnpj": "00394452000103",
+   "venceEm": "2027-06-29",
+   "valor": 139400.0,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A AQUISIÇÃO DE EQUIPAMENTO DE VIDEOCONFERÊNCIA, COMPOSTO POR UM SISTEMA MODULAR E CÂMERAS, PARA A PREPARAÇÃO DE SALAS ESPECÍFICAS PARA REUNIÕES, CONFORME AS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA 19/2024.",
+   "servico": false,
+   "numeroControlePncp": "00394452000103-2-004928/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394452000103/2026/4928"
   },
   {
    "orgao": "FUNDACAO NACIONAL DO INDIO",
@@ -2641,6 +3109,16 @@
    "link": "https://pncp.gov.br/app/contratos/00697722000147/2025/26"
   },
   {
+   "orgao": "MINISTERIO DA DEFESA",
+   "orgaoCnpj": "03277610000125",
+   "venceEm": "2027-07-01",
+   "valor": 43700.0,
+   "objeto": "FORNECIMENTO DE TELAS INTERATIVAS E CÂMERAS DE VIDEOCONFERÊNCIA.",
+   "servico": false,
+   "numeroControlePncp": "03277610000125-2-001134/2026",
+   "link": "https://pncp.gov.br/app/contratos/03277610000125/2026/1134"
+  },
+  {
    "orgao": "SUPREMO TRIBUNAL FEDERAL",
    "orgaoCnpj": "00531640000128",
    "venceEm": "2027-07-01",
@@ -2659,6 +3137,16 @@
    "servico": false,
    "numeroControlePncp": "00394494000136-2-001174/2026",
    "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/1174"
+  },
+  {
+   "orgao": "MINISTERIO DA SAUDE",
+   "orgaoCnpj": "00394544000185",
+   "venceEm": "2027-07-02",
+   "valor": 17995699.78,
+   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS DE OPERAÇÃO DE INFRAESTRUTURA DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO (TIC) E SERVIÇOS TÉCNICOS ESPECIALIZADOS DE ATENDIMENTO AO USUÁRIO DE TIC",
+   "servico": true,
+   "numeroControlePncp": "00394544000185-2-006792/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394544000185/2026/6792"
   },
   {
    "orgao": "COMANDO DO EXERCITO",
@@ -2681,16 +3169,6 @@
    "link": "https://pncp.gov.br/app/contratos/00394460000141/2024/1601"
   },
   {
-   "orgao": "MINISTERIO DA SAUDE",
-   "orgaoCnpj": "00394544000185",
-   "venceEm": "2027-07-02",
-   "valor": 17995699.78,
-   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS DE OPERAÇÃO DE INFRAESTRUTURA DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO (TIC) E SERVIÇOS TÉCNICOS ESPECIALIZADOS DE ATENDIMENTO AO USUÁRIO DE TIC",
-   "servico": true,
-   "numeroControlePncp": "00394544000185-2-006792/2026",
-   "link": "https://pncp.gov.br/app/contratos/00394544000185/2026/6792"
-  },
-  {
    "orgao": "SUPREMO TRIBUNAL FEDERAL",
    "orgaoCnpj": "00531640000128",
    "venceEm": "2027-07-02",
@@ -2699,26 +3177,6 @@
    "servico": true,
    "numeroControlePncp": "00531640000128-2-000029/2026",
    "link": "https://pncp.gov.br/app/contratos/00531640000128/2026/29"
-  },
-  {
-   "orgao": "CONSELHO FEDERAL DE MEDICINA",
-   "orgaoCnpj": "33583550000130",
-   "venceEm": "2027-07-03",
-   "valor": 10800.0,
-   "objeto": "Contratação de empresa especializada para a prestação de serviços de Suporte e manutenção de Servidor de Rede, por 24 meses.",
-   "servico": true,
-   "numeroControlePncp": "33583550000130-2-000057/2025",
-   "link": "https://pncp.gov.br/app/contratos/33583550000130/2025/57"
-  },
-  {
-   "orgao": "BANCO CENTRAL DO BRASIL",
-   "orgaoCnpj": "00038166000105",
-   "venceEm": "2027-07-03",
-   "valor": 41094.99,
-   "objeto": "CONTRATAÇÃO DIRETA, POR INEXIGIBILIDADE DE LICITAÇÃO, COM BASE NO ARTIGO 74, INCISO I, DA LEI Nº 14.133, DE 1º DE ABRIL DE 2021, PARA AQUISIÇÃO DE 3 (TRÊS) LICENÇAS DE USO TEMPORÁRIO (PERÍODO DE 12 MESES) DO SOFTWARE PARA DESENVOLVIMENTO DE CONTEÚDO PARA AÇÕES EDUCACIONAIS ONLINE: ARTICULATE 360 AI TEAMS.",
-   "servico": false,
-   "numeroControlePncp": "00038166000105-2-000124/2026",
-   "link": "https://pncp.gov.br/app/contratos/00038166000105/2026/124"
   },
   {
    "orgao": "CONSELHO DE ARQUITETURA E URBANISMO DO BRASIL",
@@ -2741,6 +3199,26 @@
    "link": "https://pncp.gov.br/app/contratos/14702767000177/2025/22"
   },
   {
+   "orgao": "CONSELHO FEDERAL DE MEDICINA",
+   "orgaoCnpj": "33583550000130",
+   "venceEm": "2027-07-03",
+   "valor": 10800.0,
+   "objeto": "Contratação de empresa especializada para a prestação de serviços de Suporte e manutenção de Servidor de Rede, por 24 meses.",
+   "servico": true,
+   "numeroControlePncp": "33583550000130-2-000057/2025",
+   "link": "https://pncp.gov.br/app/contratos/33583550000130/2025/57"
+  },
+  {
+   "orgao": "BANCO CENTRAL DO BRASIL",
+   "orgaoCnpj": "00038166000105",
+   "venceEm": "2027-07-03",
+   "valor": 41094.99,
+   "objeto": "CONTRATAÇÃO DIRETA, POR INEXIGIBILIDADE DE LICITAÇÃO, COM BASE NO ARTIGO 74, INCISO I, DA LEI Nº 14.133, DE 1º DE ABRIL DE 2021, PARA AQUISIÇÃO DE 3 (TRÊS) LICENÇAS DE USO TEMPORÁRIO (PERÍODO DE 12 MESES) DO SOFTWARE PARA DESENVOLVIMENTO DE CONTEÚDO PARA AÇÕES EDUCACIONAIS ONLINE: ARTICULATE 360 AI TEAMS.",
+   "servico": false,
+   "numeroControlePncp": "00038166000105-2-000124/2026",
+   "link": "https://pncp.gov.br/app/contratos/00038166000105/2026/124"
+  },
+  {
    "orgao": "EMPRESA BRASIL DE COMUNICAÇÃO",
    "orgaoCnpj": "09168704000142",
    "venceEm": "2027-07-03",
@@ -2749,6 +3227,26 @@
    "servico": true,
    "numeroControlePncp": "09168704000142-2-000012/2026",
    "link": "https://pncp.gov.br/app/contratos/09168704000142/2026/12"
+  },
+  {
+   "orgao": "CONSELHO FEDERAL DE CONTABILIDADE",
+   "orgaoCnpj": "33618570000107",
+   "venceEm": "2027-07-03",
+   "valor": 31889.04,
+   "objeto": "Primeiro Termo Aditivo ao Contrato nº 22/2023 - contratação de empresa especializada em telecomunicações, que possuam outorga da ANATEL – Agência Nacional de Telecomunicações – para prestação de serviços de telefonia móvel (SMP - Serviço Móvel Pessoal) com comunicação de voz ilimitada para fixos e móveis de todas operadoras, com roaming nacional automático e o roaming internacional sob demanda até o limite de R$ 3.000,00 (três mil reais) por ano, pelo sistema digital pós-pago, para 30 (trinta) assinaturas (SIM cards chips), bem como, pacote de dados de 50 (cinquenta) GB para acesso à internet através da tecnologia 5G (onde houver disponibilidade) ou 4G, para atender as demandas do Conselho Federal de Contabilidade (CFC).",
+   "servico": true,
+   "numeroControlePncp": "33618570000107-2-000081/2023",
+   "link": "https://pncp.gov.br/app/contratos/33618570000107/2023/81"
+  },
+  {
+   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+   "orgaoCnpj": "00394494010441",
+   "venceEm": "2027-07-04",
+   "valor": 3456648.0,
+   "objeto": "CONTRATAÇÃO DE SERVIÇO TÉCNICO ESPECIALIZADO DE OPERAÇÃO DA INFRAESTRUTURA DE SERVIÇOS DE TIC, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA",
+   "servico": true,
+   "numeroControlePncp": "00394494010441-2-000510/2025",
+   "link": "https://pncp.gov.br/app/contratos/00394494010441/2025/510"
   },
   {
    "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
@@ -2764,11 +3262,31 @@
    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
    "orgaoCnpj": "00394494010441",
    "venceEm": "2027-07-04",
-   "valor": 3456648.0,
+   "valor": 1804800.0,
    "objeto": "CONTRATAÇÃO DE SERVIÇO TÉCNICO ESPECIALIZADO DE OPERAÇÃO DA INFRAESTRUTURA DE SERVIÇOS DE TIC, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA",
    "servico": true,
-   "numeroControlePncp": "00394494010441-2-000510/2025",
-   "link": "https://pncp.gov.br/app/contratos/00394494010441/2025/510"
+   "numeroControlePncp": "00394494010441-2-000511/2025",
+   "link": "https://pncp.gov.br/app/contratos/00394494010441/2025/511"
+  },
+  {
+   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+   "orgaoCnpj": "00394494010441",
+   "venceEm": "2027-07-04",
+   "valor": 10786440.96,
+   "objeto": "CONTRATAÇÃO DE SERVIÇO TÉCNICO ESPECIALIZADO DE OPERAÇÃO DA INFRAESTRUTURA DE SERVIÇOS DE TIC, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA",
+   "servico": true,
+   "numeroControlePncp": "00394494010441-2-000512/2025",
+   "link": "https://pncp.gov.br/app/contratos/00394494010441/2025/512"
+  },
+  {
+   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+   "orgaoCnpj": "00394494010441",
+   "venceEm": "2027-07-04",
+   "valor": 2399760.0,
+   "objeto": "CONTRATAÇÃO DE SERVIÇO TÉCNICO ESPECIALIZADO DE OPERAÇÃO DA INFRAESTRUTURA DE SERVIÇOS DE TIC, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA",
+   "servico": true,
+   "numeroControlePncp": "00394494010441-2-000513/2025",
+   "link": "https://pncp.gov.br/app/contratos/00394494010441/2025/513"
   },
   {
    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
@@ -2841,6 +3359,16 @@
    "link": "https://pncp.gov.br/app/contratos/00038166000105/2026/130"
   },
   {
+   "orgao": "TRIBUNAL DE CONTAS DA UNIAO",
+   "orgaoCnpj": "00414607000118",
+   "venceEm": "2027-07-08",
+   "valor": 7960.0,
+   "objeto": "Aquisição de 04 (quatro) scanners portáteis de mesa, destinados à digitalização de documentos, para uso na Central de Atendimento de Serviços - CASA - Administrativos do Tribunal de Contas da União.\"",
+   "servico": true,
+   "numeroControlePncp": "00414607000118-2-000226/2026",
+   "link": "https://pncp.gov.br/app/contratos/00414607000118/2026/226"
+  },
+  {
    "orgao": "CONSELHO NACIONAL DE DESENVOLVIMENTO CIENTIFICO E TECNOLOGICO-CNPQ",
    "orgaoCnpj": "33654831000136",
    "venceEm": "2027-07-09",
@@ -2901,6 +3429,16 @@
    "link": "https://pncp.gov.br/app/contratos/03204421000122/2026/193"
   },
   {
+   "orgao": "SUPREMO TRIBUNAL FEDERAL",
+   "orgaoCnpj": "00531640000128",
+   "venceEm": "2027-07-10",
+   "valor": 165780.03,
+   "objeto": "O objeto do presente Contrato é a prestação de serviços de intermediação e agenciamento de transporte terrestre dos servidores, empregados e colaboradores a serviço do STF, por demanda, no âmbito da Região Integrada de Desenvolvimento do Distrito Federal e Entorno - RIDE, com a disponibilização de solução tecnológica tipo aplicativo de celular compatível no mínimo, com os sistemas operacionais Android e iOS e que possibilite a operação e a gestão dos atendimentos via sítio web, observados o Edital, o Termo de Referência (Anexo I deste Contrato) e a proposta da CONTRATADA (Anexo II deste Contrato), os quais, independentemente de transcrição, são partes integrantes deste instrumento, naquilo que não o contrariem.",
+   "servico": true,
+   "numeroControlePncp": "00531640000128-2-000047/2024",
+   "link": "https://pncp.gov.br/app/contratos/00531640000128/2024/47"
+  },
+  {
    "orgao": "CONSELHO SUPERIOR DA JUST DO TRABALHO",
    "orgaoCnpj": "17270702000198",
    "venceEm": "2027-07-12",
@@ -2919,6 +3457,16 @@
    "servico": true,
    "numeroControlePncp": "32901688000177-2-000036/2026",
    "link": "https://pncp.gov.br/app/contratos/32901688000177/2026/36"
+  },
+  {
+   "orgao": "COMANDO DA MARINHA",
+   "orgaoCnpj": "00394502002864",
+   "venceEm": "2027-07-13",
+   "valor": 80832.0,
+   "objeto": "SERVIÇO DE LINK DE ACESSO A INTERNET VIA RÁDIO.",
+   "servico": true,
+   "numeroControlePncp": "00394502002864-2-000284/2025",
+   "link": "https://pncp.gov.br/app/contratos/00394502002864/2025/284"
   },
   {
    "orgao": "SUPERIOR TRIBUNAL MILITAR",
@@ -2971,6 +3519,26 @@
    "link": "https://pncp.gov.br/app/contratos/00414607000118/2026/212"
   },
   {
+   "orgao": "PRESIDENCIA DA REPUBLICA",
+   "orgaoCnpj": "00394411000109",
+   "venceEm": "2027-07-16",
+   "valor": 11990.0,
+   "objeto": "CONTRATAÇÃO DE EMPRESA PARA O FORNECIMENTO DE FECHADURAS ELETRÔNICAS DE RECONHECIMENTO FACIAL PARA CONTROLE DE ACESSO DE PESSOAS, COMPOSTA DE 03 (TRÊS) FECHADURAS, INCLUINDO SERVIÇOS DE INSTALAÇÃO E GARANTIA TÉCNICA PELO PRAZO DE 36 (TRINTA E SEIS) MESES.",
+   "servico": true,
+   "numeroControlePncp": "00394411000109-2-000114/2024",
+   "link": "https://pncp.gov.br/app/contratos/00394411000109/2024/114"
+  },
+  {
+   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+   "orgaoCnpj": "00394494000136",
+   "venceEm": "2027-07-16",
+   "valor": 69000.0,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A AQUISIÇÃO DE SCANNERS, NOVOS E PARA PRIMEIRO USO, COM VISTAS A ATENDER ÀS DEMANDAS DE DIGITALIZAÇÃO DAS UNIDADES DA COORDENAÇÃO DE DOCUMENTAÇÃO E INFORMAÇÃO E DO DEPARTAMENTO DE RECUPERAÇÃO DE ATIVOS E COOPERAÇÃO JURÍDICA INTERNACIONAL (DRCI) DO MINISTÉRIO DA JUSTIÇA E SEGURANÇA PÚBLICA, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DA REFERÊNCIA: SCANNER PROFISSIONAL COM MESA DIGITALIZADORA PARA DOCUMENTOS EM PAPEL A3",
+   "servico": false,
+   "numeroControlePncp": "00394494000136-2-001298/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/1298"
+  },
+  {
    "orgao": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
    "orgaoCnpj": "00489828000155",
    "venceEm": "2027-07-17",
@@ -2989,6 +3557,16 @@
    "servico": true,
    "numeroControlePncp": "00489828000155-2-000535/2026",
    "link": "https://pncp.gov.br/app/contratos/00489828000155/2026/535"
+  },
+  {
+   "orgao": "EMPRESA BRASILEIRA DE SERVIÇOS HOSPITALARES",
+   "orgaoCnpj": "15126437000143",
+   "venceEm": "2027-07-17",
+   "valor": 566246.06,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É O FORNECIMENTO DE MICROCOMPUTADORES, NOTEBOOKS E MONITORES, CONFORME CONDIÇÕES, QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO, PELO SISTEMA DE REGISTRO DE PREÇOS - SRP, PARA ABASTECER TODOS OS HOSPITAIS UNIVERSITÁRIOS FEDERAIS (HUF) DAS REGIÕES NORTE, NORDESTE, CENTRO-OESTE, SUDESTE E SUL DO BRASIL, SOB GESTÃO DA EMPRESA BRASILEIRA DE SERVIÇOS HOSPITALARES – HU BRASIL., NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": true,
+   "numeroControlePncp": "15126437000143-2-000655/2026",
+   "link": "https://pncp.gov.br/app/contratos/15126437000143/2026/655"
   },
   {
    "orgao": "SENADO FEDERAL",
@@ -3071,6 +3649,16 @@
    "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/1376"
   },
   {
+   "orgao": "CONTROLADORIA-GERAL DA UNIAO",
+   "orgaoCnpj": "26664015000148",
+   "venceEm": "2027-07-20",
+   "valor": 13226196.6,
+   "objeto": "CONTRATAÇÃO DE LINKS DE INTERNET, PARA A CONTROLADORIA-GERAL DA UNIÃO - CGU, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA",
+   "servico": false,
+   "numeroControlePncp": "26664015000148-2-000006/2024",
+   "link": "https://pncp.gov.br/app/contratos/26664015000148/2024/6"
+  },
+  {
    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
    "orgaoCnpj": "00394494000136",
    "venceEm": "2027-07-20",
@@ -3079,6 +3667,16 @@
    "servico": false,
    "numeroControlePncp": "00394494000136-2-001404/2026",
    "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/1404"
+  },
+  {
+   "orgao": "MINISTERIO DA SAUDE",
+   "orgaoCnpj": "00394544000185",
+   "venceEm": "2027-07-21",
+   "valor": 6152072.0,
+   "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE SOLUÇÃO DE INFRAESTRUTURA DE REDE SEM FIO (WI-FI 6), CONTEMPLANDO O FORNECIMENTO, INSTALAÇÃO E CONFIGURAÇÃO DE PONTOS DE ACESSO DOS TIPOS INDOOR E OUTDOOR, BEM COMO A DISPONIBILIZAÇÃO DE EQUIPAMENTOS, SOFTWARES E SERVIÇOS CORRELATOS NECESSÁRIOS AO PLENO FUNCIONAMENTO DA SOLUÇÃO, POR MEIO DO SISTEMA DE REGISTRO DE PREÇOS",
+   "servico": true,
+   "numeroControlePncp": "00394544000185-2-007678/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394544000185/2026/7678"
   },
   {
    "orgao": "AGENCIA NACIONAL DE TELECOMUNICACOES",
@@ -3101,14 +3699,14 @@
    "link": "https://pncp.gov.br/app/contratos/00038166000105/2026/144"
   },
   {
-   "orgao": "MINISTERIO DA SAUDE",
-   "orgaoCnpj": "00394544000185",
-   "venceEm": "2027-07-21",
-   "valor": 6152072.0,
-   "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE SOLUÇÃO DE INFRAESTRUTURA DE REDE SEM FIO (WI-FI 6), CONTEMPLANDO O FORNECIMENTO, INSTALAÇÃO E CONFIGURAÇÃO DE PONTOS DE ACESSO DOS TIPOS INDOOR E OUTDOOR, BEM COMO A DISPONIBILIZAÇÃO DE EQUIPAMENTOS, SOFTWARES E SERVIÇOS CORRELATOS NECESSÁRIOS AO PLENO FUNCIONAMENTO DA SOLUÇÃO, POR MEIO DO SISTEMA DE REGISTRO DE PREÇOS",
+   "orgao": "FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO",
+   "orgaoCnpj": "00378257000181",
+   "venceEm": "2027-07-22",
+   "valor": 58400.0,
+   "objeto": "CONTRATAÇÃO DE SERVIÇO ESPECIALIZADO, NA FORMA DE LICENÇA DE USO, DE SOFTWARE NA MODALIDADE SAAS (SOFTWARE COMO SERVIÇO) DE SISTEMA DE ACOMPANHAMENTO LEGISLATIVO, INCLUINDO TREINAMENTO E SUPORTE TÉCNICO, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
    "servico": true,
-   "numeroControlePncp": "00394544000185-2-007678/2026",
-   "link": "https://pncp.gov.br/app/contratos/00394544000185/2026/7678"
+   "numeroControlePncp": "00378257000181-2-000050/2026",
+   "link": "https://pncp.gov.br/app/contratos/00378257000181/2026/50"
   },
   {
    "orgao": "INSTITUTO DE PESQUISA ECONOMICA APLICADA",
@@ -3121,16 +3719,6 @@
    "link": "https://pncp.gov.br/app/contratos/33892175000100/2024/50"
   },
   {
-   "orgao": "FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO",
-   "orgaoCnpj": "00378257000181",
-   "venceEm": "2027-07-22",
-   "valor": 58400.0,
-   "objeto": "CONTRATAÇÃO DE SERVIÇO ESPECIALIZADO, NA FORMA DE LICENÇA DE USO, DE SOFTWARE NA MODALIDADE SAAS (SOFTWARE COMO SERVIÇO) DE SISTEMA DE ACOMPANHAMENTO LEGISLATIVO, INCLUINDO TREINAMENTO E SUPORTE TÉCNICO, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-   "servico": true,
-   "numeroControlePncp": "00378257000181-2-000050/2026",
-   "link": "https://pncp.gov.br/app/contratos/00378257000181/2026/50"
-  },
-  {
    "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
    "orgaoCnpj": "00394494000136",
    "venceEm": "2027-07-22",
@@ -3141,16 +3729,6 @@
    "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/1419"
   },
   {
-   "orgao": "MINISTERIO DA SAUDE",
-   "orgaoCnpj": "00394544000185",
-   "venceEm": "2027-07-23",
-   "valor": 45600.0,
-   "objeto": "CONTRATAÇÃO DE SERVIÇO COMUM DE LOCAÇÃO (OUTSOURCING) DE IMPRESSORA PLOTTER COM CAPACIDADE DE IMPRESSÃO EM FORMATO A0, INCLUINDO INSTALAÇÃO, CONFIGURAÇÃO, MANUTENÇÃO PREVENTIVA E CORRETIVA, SUPORTE TÉCNICO E FORNECIMENTO DE SUPRIMENTOS DE IMPRESSÃO (CARTUCHO DE TINTA/TINTA/TONER), SEM FORNECIMENTO DE PAPEL, PARA ATENDIMENTO ÀS DEMANDAS DA COORDENAÇÃO-GERAL DE INFRAESTRUTURA PREDIAL",
-   "servico": true,
-   "numeroControlePncp": "00394544000185-2-007838/2026",
-   "link": "https://pncp.gov.br/app/contratos/00394544000185/2026/7838"
-  },
-  {
    "orgao": "COMANDO DO EXERCITO",
    "orgaoCnpj": "00394452000103",
    "venceEm": "2027-07-23",
@@ -3159,6 +3737,16 @@
    "servico": false,
    "numeroControlePncp": "00394452000103-2-006122/2025",
    "link": "https://pncp.gov.br/app/contratos/00394452000103/2025/6122"
+  },
+  {
+   "orgao": "MINISTERIO DA SAUDE",
+   "orgaoCnpj": "00394544000185",
+   "venceEm": "2027-07-23",
+   "valor": 45600.0,
+   "objeto": "CONTRATAÇÃO DE SERVIÇO COMUM DE LOCAÇÃO (OUTSOURCING) DE IMPRESSORA PLOTTER COM CAPACIDADE DE IMPRESSÃO EM FORMATO A0, INCLUINDO INSTALAÇÃO, CONFIGURAÇÃO, MANUTENÇÃO PREVENTIVA E CORRETIVA, SUPORTE TÉCNICO E FORNECIMENTO DE SUPRIMENTOS DE IMPRESSÃO (CARTUCHO DE TINTA/TINTA/TONER), SEM FORNECIMENTO DE PAPEL, PARA ATENDIMENTO ÀS DEMANDAS DA COORDENAÇÃO-GERAL DE INFRAESTRUTURA PREDIAL",
+   "servico": true,
+   "numeroControlePncp": "00394544000185-2-007838/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394544000185/2026/7838"
   },
   {
    "orgao": "INSTITUTO CHICO MENDES DE CONSERVACAO DA BIODIVERSIDADE",
@@ -3189,6 +3777,16 @@
    "servico": true,
    "numeroControlePncp": "01263896000164-2-000480/2026",
    "link": "https://pncp.gov.br/app/contratos/01263896000164/2026/480"
+  },
+  {
+   "orgao": "CONSELHO FEDERAL DE MEDICINA",
+   "orgaoCnpj": "33583550000130",
+   "venceEm": "2027-07-24",
+   "valor": 51170.0,
+   "objeto": "RENOVAÇÃO DE 1.000 (MIL) LICENÇAS DA SUITE DE APLICATIVOS E DE PRODUTIVIDADE DO GOOGLE DO TIPO WORKSPACE ENTERPRISE STANDARD (BRL).",
+   "servico": false,
+   "numeroControlePncp": "33583550000130-2-000068/2025",
+   "link": "https://pncp.gov.br/app/contratos/33583550000130/2025/68"
   },
   {
    "orgao": "COMANDO DA MARINHA",
@@ -3281,14 +3879,24 @@
    "link": "https://pncp.gov.br/app/contratos/00418993000116/2026/25"
   },
   {
-   "orgao": "MINISTERIO DA FAZENDA",
-   "orgaoCnpj": "00394460000141",
-   "venceEm": "2027-07-31",
-   "valor": 3515854.0,
-   "objeto": "CONTRATAÇÃO DE AQUISIÇÃO DE SOLUÇÃO DE SERVIDORES DE REDE E DE LICENÇAS PARA SOLUÇÃO DE VIRTUALIZAÇÃO DE SERVIDORES DE REDE, COMTEMPLANDO GARANTIA DO FABRICANTE, SUPORTE TÉCNICO, TREINAMENTO E SERVIÇOS TÉCNICOS ESPECIALIZADOS SOB DEMANDA, CONFORME DISPOSTO NO ETP DIGITAL 99/2023 E ESPECIFICADA NO TERMO DE REFERÊNCIA.",
+   "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
+   "orgaoCnpj": "00488478000102",
+   "venceEm": "2027-07-30",
+   "valor": 95520.0,
+   "objeto": "PRESTAÇÃO DE SERVIÇO CONTÍNUO DE LINKS PARA COMUNICAÇÃO DE DADOS PARA CONEXÃO DA REDE DO CONTRATANTE À INTERNET.",
    "servico": true,
-   "numeroControlePncp": "00394460000141-2-000652/2024",
-   "link": "https://pncp.gov.br/app/contratos/00394460000141/2024/652"
+   "numeroControlePncp": "00488478000102-2-000222/2024",
+   "link": "https://pncp.gov.br/app/contratos/00488478000102/2024/222"
+  },
+  {
+   "orgao": "AGENCIA ESPACIAL BRASILEIRA - AEB",
+   "orgaoCnpj": "86900545000170",
+   "venceEm": "2027-07-31",
+   "valor": 64920.0,
+   "objeto": "CONTRATAÇÃO DE LICENÇA ANUAL DE USO DE SOFTWARE INTELIGOV (SAAS), INCLUINDO TREINAMENTO E SUPORTE TÉCNICO.",
+   "servico": false,
+   "numeroControlePncp": "86900545000170-2-000021/2026",
+   "link": "https://pncp.gov.br/app/contratos/86900545000170/2026/21"
   },
   {
    "orgao": "SUPREMO TRIBUNAL FEDERAL",
@@ -3301,14 +3909,14 @@
    "link": "https://pncp.gov.br/app/contratos/00531640000128/2023/85"
   },
   {
-   "orgao": "AGENCIA ESPACIAL BRASILEIRA - AEB",
-   "orgaoCnpj": "86900545000170",
+   "orgao": "MINISTERIO DA FAZENDA",
+   "orgaoCnpj": "00394460000141",
    "venceEm": "2027-07-31",
-   "valor": 64920.0,
-   "objeto": "CONTRATAÇÃO DE LICENÇA ANUAL DE USO DE SOFTWARE INTELIGOV (SAAS), INCLUINDO TREINAMENTO E SUPORTE TÉCNICO.",
-   "servico": false,
-   "numeroControlePncp": "86900545000170-2-000021/2026",
-   "link": "https://pncp.gov.br/app/contratos/86900545000170/2026/21"
+   "valor": 3515854.0,
+   "objeto": "CONTRATAÇÃO DE AQUISIÇÃO DE SOLUÇÃO DE SERVIDORES DE REDE E DE LICENÇAS PARA SOLUÇÃO DE VIRTUALIZAÇÃO DE SERVIDORES DE REDE, COMTEMPLANDO GARANTIA DO FABRICANTE, SUPORTE TÉCNICO, TREINAMENTO E SERVIÇOS TÉCNICOS ESPECIALIZADOS SOB DEMANDA, CONFORME DISPOSTO NO ETP DIGITAL 99/2023 E ESPECIFICADA NO TERMO DE REFERÊNCIA.",
+   "servico": true,
+   "numeroControlePncp": "00394460000141-2-000652/2024",
+   "link": "https://pncp.gov.br/app/contratos/00394460000141/2024/652"
   },
   {
    "orgao": "AGENCIA NACIONAL DE VIGILANCIA SANITARIA",
@@ -3339,6 +3947,16 @@
    "servico": false,
    "numeroControlePncp": "03112386000111-2-000034/2026",
    "link": "https://pncp.gov.br/app/contratos/03112386000111/2026/34"
+  },
+  {
+   "orgao": "TRIBUNAL DE CONTAS DA UNIAO",
+   "orgaoCnpj": "00414607000118",
+   "venceEm": "2027-08-03",
+   "valor": 1450540.08,
+   "objeto": "Contratação de serviços técnicos especializados de natureza contínua com dedicação exclusiva de mão de obra, na área de computação em nuvens públicas, na modalidade híbrida de remuneração por postos de trabalho ajustada por resultados (níveis mínimos de serviço), pelo período de 24 (vinte e quatro) meses, prorrogável, conforme a Lei 14.133/2021, até o limite de 120 (cento e vinte) meses de prestação dos serviços.",
+   "servico": true,
+   "numeroControlePncp": "00414607000118-2-000229/2025",
+   "link": "https://pncp.gov.br/app/contratos/00414607000118/2025/229"
   },
   {
    "orgao": "MINISTERIO DA CIDADANIA",
@@ -3411,16 +4029,6 @@
    "link": "https://pncp.gov.br/app/contratos/00488478000102/2025/129"
   },
   {
-   "orgao": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
-   "orgaoCnpj": "00489828000155",
-   "venceEm": "2027-08-06",
-   "valor": 53694.0,
-   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO PARA FORNECIMENTO, POR SUBSCRIÇÃO, DE 12 (DOZE) LICENÇAS ANUAIS DE ACESSO À PLATAFORMA FIGMA, NO PLANO ORGANIZATION, PERFIL DE ACESSO FULL, DESTINADAS A ATIVIDADES DE CRIAÇÃO, EDIÇÃO, PROTOTIPAÇÃO E GERENCIAMENTO DE ARTEFATOS VISUAIS, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-   "servico": false,
-   "numeroControlePncp": "00489828000155-2-000516/2026",
-   "link": "https://pncp.gov.br/app/contratos/00489828000155/2026/516"
-  },
-  {
    "orgao": "AGENCIA NACIONAL DE AGUAS E SANEAMENTO BASICO (ANA)",
    "orgaoCnpj": "04204444000108",
    "venceEm": "2027-08-06",
@@ -3429,6 +4037,16 @@
    "servico": true,
    "numeroControlePncp": "04204444000108-2-000010/2024",
    "link": "https://pncp.gov.br/app/contratos/04204444000108/2024/10"
+  },
+  {
+   "orgao": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+   "orgaoCnpj": "00489828000155",
+   "venceEm": "2027-08-06",
+   "valor": 53694.0,
+   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO PARA FORNECIMENTO, POR SUBSCRIÇÃO, DE 12 (DOZE) LICENÇAS ANUAIS DE ACESSO À PLATAFORMA FIGMA, NO PLANO ORGANIZATION, PERFIL DE ACESSO FULL, DESTINADAS A ATIVIDADES DE CRIAÇÃO, EDIÇÃO, PROTOTIPAÇÃO E GERENCIAMENTO DE ARTEFATOS VISUAIS, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": false,
+   "numeroControlePncp": "00489828000155-2-000516/2026",
+   "link": "https://pncp.gov.br/app/contratos/00489828000155/2026/516"
   },
   {
    "orgao": "MINISTERIO DO TRABALHO",
@@ -3541,14 +4159,14 @@
    "link": "https://pncp.gov.br/app/contratos/03495116000137/2026/7"
   },
   {
-   "orgao": "PRESIDENCIA DA REPUBLICA",
-   "orgaoCnpj": "00394411000109",
-   "venceEm": "2027-08-10",
-   "valor": 50328.0,
-   "objeto": "PRESTAÇÃO DE SERVIÇOS CONTÍNUOS PARA FORNECIMENTO DE ACESSO À PLATAFORMA FÓRUM DE CONHECIMENTO JURÍDICO, COMPREENDENDO O ACESSO AOS SEUS MÓDULOS: FÓRUM LIVROS, FÓRUM REVISTAS, FÓRUM INFORMATIVO E A FERRAMENTA DE INTELIGÊNCIA ARTIFICIAL FÓRUM IAH®.",
-   "servico": true,
-   "numeroControlePncp": "00394411000109-2-000311/2026",
-   "link": "https://pncp.gov.br/app/contratos/00394411000109/2026/311"
+   "orgao": "COMANDO DA AERONAUTICA",
+   "orgaoCnpj": "00394429000100",
+   "venceEm": "2027-08-11",
+   "valor": 1181.3,
+   "objeto": "AQUISIÇÃO DE CERTIFICADO DIGITAL",
+   "servico": false,
+   "numeroControlePncp": "00394429000100-2-000742/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394429000100/2026/742"
   },
   {
    "orgao": "INSTITUTO DO PATRIMONIO HISTORICO E ARTISTICO NACIONAL",
@@ -3579,6 +4197,16 @@
    "servico": false,
    "numeroControlePncp": "29406625000130-2-000071/2026",
    "link": "https://pncp.gov.br/app/contratos/29406625000130/2026/71"
+  },
+  {
+   "orgao": "AGENCIA ESPACIAL BRASILEIRA - AEB",
+   "orgaoCnpj": "86900545000170",
+   "venceEm": "2027-08-12",
+   "valor": 1354.86,
+   "objeto": "O SERVIÇO VISA FACILITAR A EMISSÃO DE CERTIFICADO DIGITAL PARA AS PESSOAS FÍSICAS REGISTRADAS NO CONTRATANTE, COM A POSSIBILIDADE DE REALIZAR A EMISSÃO DE CERTIFICADOS DIGITAIS DE FORMA SIMPLIFICADA, SENDO DISPENSADA A VALIDAÇÃO PRESENCIAL DO TITULAR.",
+   "servico": true,
+   "numeroControlePncp": "86900545000170-2-000017/2024",
+   "link": "https://pncp.gov.br/app/contratos/86900545000170/2024/17"
   },
   {
    "orgao": "CONSELHO FEDERAL DE CORRETORES DE IMOVEIS",
@@ -3621,16 +4249,6 @@
    "link": "https://pncp.gov.br/app/contratos/03353358000196/2026/163"
   },
   {
-   "orgao": "TRIBUNAL SUPERIOR DO TRABALHO",
-   "orgaoCnpj": "00509968000148",
-   "venceEm": "2027-08-13",
-   "valor": 8388.0,
-   "objeto": "CONTRATAÇÃO DE ASSINATURAS DE SOFTWARE DE ORÇAMENTO E GESTÃO DE OBRAS E SERVIÇOS DE ENGENHARIA, INCLUINDO ATUALIZAÇÕES E SUPORTE TÉCNICO POR 12 MESES - CONTRATO PE-047/2026",
-   "servico": true,
-   "numeroControlePncp": "00509968000148-2-002504/2026",
-   "link": "https://pncp.gov.br/app/contratos/00509968000148/2026/2504"
-  },
-  {
    "orgao": "FUNDACAO ESCOLA NACIONAL DE ADMINISTRACAO PUBLICA",
    "orgaoCnpj": "00627612000109",
    "venceEm": "2027-08-13",
@@ -3639,6 +4257,16 @@
    "servico": true,
    "numeroControlePncp": "00627612000109-2-000146/2026",
    "link": "https://pncp.gov.br/app/contratos/00627612000109/2026/146"
+  },
+  {
+   "orgao": "TRIBUNAL SUPERIOR DO TRABALHO",
+   "orgaoCnpj": "00509968000148",
+   "venceEm": "2027-08-13",
+   "valor": 8388.0,
+   "objeto": "CONTRATAÇÃO DE ASSINATURAS DE SOFTWARE DE ORÇAMENTO E GESTÃO DE OBRAS E SERVIÇOS DE ENGENHARIA, INCLUINDO ATUALIZAÇÕES E SUPORTE TÉCNICO POR 12 MESES - CONTRATO PE-047/2026",
+   "servico": true,
+   "numeroControlePncp": "00509968000148-2-002504/2026",
+   "link": "https://pncp.gov.br/app/contratos/00509968000148/2026/2504"
   },
   {
    "orgao": "FUNDACAO UNIVERSIDADE DE BRASILIA",
@@ -3661,6 +4289,16 @@
    "link": "https://pncp.gov.br/app/contratos/00119784000171/2026/32"
   },
   {
+   "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
+   "orgaoCnpj": "00488478000102",
+   "venceEm": "2027-08-14",
+   "valor": 1550397.79,
+   "objeto": "PRESTAÇÃO DE SERVIÇO DE GARANTIA ESTENDIDA DOS SERVIDORES MARCA DELL PARA A APLICAÇÃO HIPER CONVERGÊNCIA.",
+   "servico": true,
+   "numeroControlePncp": "00488478000102-2-000136/2025",
+   "link": "https://pncp.gov.br/app/contratos/00488478000102/2025/136"
+  },
+  {
    "orgao": "MINISTERIO DA EDUCACAO",
    "orgaoCnpj": "00394445000101",
    "venceEm": "2027-08-15",
@@ -3671,16 +4309,6 @@
    "link": "https://pncp.gov.br/app/contratos/00394445000101/2023/50"
   },
   {
-   "orgao": "SUPREMO TRIBUNAL FEDERAL",
-   "orgaoCnpj": "00531640000128",
-   "venceEm": "2027-08-16",
-   "valor": 15799428.15,
-   "objeto": "Contratação de empresa especializada para a prestação de serviços técnicos nas áreas de operação de central de atendimento a usuários de TI, atendimento de manifestações relativas aos serviços e a prestação de informações processuais da Ouvidoria do Supremo Tribunal Federal – STF, manutenção de hardware e microinformática, logística, suporte ao sistema de telefonia do STF, incluindo atendimentos remotos e presenciais, rotinas periódicas, orientação e esclarecimento de dúvidas, recebimento, registro, análise, diagnóstico e atendimento de solicitações de usuários, e serviços proativos, preventivos, corretivos e reativos.",
-   "servico": true,
-   "numeroControlePncp": "00531640000128-2-000002/2025",
-   "link": "https://pncp.gov.br/app/contratos/00531640000128/2025/2"
-  },
-  {
    "orgao": "INSTITUTO FEDERAL DE EDUCACAO, CIENCIA E TECNOLOGIA DE BRASILIA",
    "orgaoCnpj": "10791831000182",
    "venceEm": "2027-08-16",
@@ -3689,6 +4317,16 @@
    "servico": true,
    "numeroControlePncp": "10791831000182-2-000018/2024",
    "link": "https://pncp.gov.br/app/contratos/10791831000182/2024/18"
+  },
+  {
+   "orgao": "SUPREMO TRIBUNAL FEDERAL",
+   "orgaoCnpj": "00531640000128",
+   "venceEm": "2027-08-16",
+   "valor": 15799428.15,
+   "objeto": "Contratação de empresa especializada para a prestação de serviços técnicos nas áreas de operação de central de atendimento a usuários de TI, atendimento de manifestações relativas aos serviços e a prestação de informações processuais da Ouvidoria do Supremo Tribunal Federal – STF, manutenção de hardware e microinformática, logística, suporte ao sistema de telefonia do STF, incluindo atendimentos remotos e presenciais, rotinas periódicas, orientação e esclarecimento de dúvidas, recebimento, registro, análise, diagnóstico e atendimento de solicitações de usuários, e serviços proativos, preventivos, corretivos e reativos.",
+   "servico": true,
+   "numeroControlePncp": "00531640000128-2-000002/2025",
+   "link": "https://pncp.gov.br/app/contratos/00531640000128/2025/2"
   },
   {
    "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
@@ -3711,6 +4349,16 @@
    "link": "https://pncp.gov.br/app/contratos/00394411000109/2026/332"
   },
   {
+   "orgao": "EMPRESA BRASILEIRA DE SERVIÇOS HOSPITALARES",
+   "orgaoCnpj": "15126437000143",
+   "venceEm": "2027-08-17",
+   "valor": 1629218.8,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É O FORNECIMENTO DE MICROCOMPUTADORES, NOTEBOOKS E MONITORES, CONFORME CONDIÇÕES, QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO, PELO SISTEMA DE REGISTRO DE PREÇOS - SRP, PARA ABASTECER TODOS OS HOSPITAIS UNIVERSITÁRIOS FEDERAIS (HUF) DAS REGIÕES NORTE, NORDESTE, CENTRO-OESTE, SUDESTE E SUL DO BRASIL, SOB GESTÃO DA EMPRESA BRASILEIRA DE SERVIÇOS HOSPITALARES – HU BRASIL, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": true,
+   "numeroControlePncp": "15126437000143-2-000692/2026",
+   "link": "https://pncp.gov.br/app/contratos/15126437000143/2026/692"
+  },
+  {
    "orgao": "AGENCIA NACIONAL DE TELECOMUNICACOES",
    "orgaoCnpj": "02030715000112",
    "venceEm": "2027-08-18",
@@ -3721,24 +4369,14 @@
    "link": "https://pncp.gov.br/app/contratos/02030715000112/2026/122"
   },
   {
-   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
-   "orgaoCnpj": "00394494000136",
-   "venceEm": "2027-08-19",
-   "valor": 33619470.66,
-   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DA RENOVAÇÃO DE LICENÇA - SOLUÇÃO PARA DESBLOQUEIO, EXTRAÇÃO AVANÇADA COM CAPACIDADE DE ENRIQUECIMENTO DE DADOS DE NUVEM, GERAÇÃO E COMPARTILHAMENTO DE RELATÓRIOS - COM SUPORTE TÉCNICO E ATUALIZAÇÃO TECNOLÓGICA POR 12 (DOZE) MESES, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA (30133256).",
+   "orgao": "MINISTERIO DA FAZENDA",
+   "orgaoCnpj": "00394460000141",
+   "venceEm": "2027-08-18",
+   "valor": 436080.0,
+   "objeto": "AQUISIÇÃO DE EQUIPAMENTOS DE DIGITALIZAÇÃO DE DOCUMENTOS (SCANNERS) PARA ÁREA DE ATENDIMENTO AO CONTRIBUINTE, PROVENIENTE DA ATA DE REGISTRO DE PREÇOS Nº 1/2025, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
    "servico": false,
-   "numeroControlePncp": "00394494000136-2-000784/2026",
-   "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/784"
-  },
-  {
-   "orgao": "MINISTERIO PUBLICO DA UNIAO",
-   "orgaoCnpj": "26989715000102",
-   "venceEm": "2027-08-19",
-   "valor": 8673.98,
-   "objeto": "contratação de certificados digitais do tipo A3 pessoa física (e-CPF) em nuvem, para colaboradores da Escola Superior do Ministério Público da União - ESMPU; do tipo A3 pessoa jurídica (e-CNPJ) em nuvem, para transações institucionais; do tipo A1 pessoa jurídica (e-CNPJ), com armazenamento local, para transações institucionais; do tipo A1 pessoa física (e-CPF), com armazenamento local, para transações institucionais; e certificado digital wildcard ssl para servidor, com armazenamento local, para transações institucionais.",
-   "servico": false,
-   "numeroControlePncp": "26989715000102-2-001458/2024",
-   "link": "https://pncp.gov.br/app/contratos/26989715000102/2024/1458"
+   "numeroControlePncp": "00394460000141-2-000602/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394460000141/2026/602"
   },
   {
    "orgao": "CAMARA DOS DEPUTADOS",
@@ -3754,6 +4392,36 @@
    "orgao": "MINISTERIO PUBLICO DA UNIAO",
    "orgaoCnpj": "26989715000102",
    "venceEm": "2027-08-19",
+   "valor": 8673.98,
+   "objeto": "contratação de certificados digitais do tipo A3 pessoa física (e-CPF) em nuvem, para colaboradores da Escola Superior do Ministério Público da União - ESMPU; do tipo A3 pessoa jurídica (e-CNPJ) em nuvem, para transações institucionais; do tipo A1 pessoa jurídica (e-CNPJ), com armazenamento local, para transações institucionais; do tipo A1 pessoa física (e-CPF), com armazenamento local, para transações institucionais; e certificado digital wildcard ssl para servidor, com armazenamento local, para transações institucionais.",
+   "servico": false,
+   "numeroControlePncp": "26989715000102-2-001458/2024",
+   "link": "https://pncp.gov.br/app/contratos/26989715000102/2024/1458"
+  },
+  {
+   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+   "orgaoCnpj": "00394494000136",
+   "venceEm": "2027-08-19",
+   "valor": 33619470.66,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DA RENOVAÇÃO DE LICENÇA - SOLUÇÃO PARA DESBLOQUEIO, EXTRAÇÃO AVANÇADA COM CAPACIDADE DE ENRIQUECIMENTO DE DADOS DE NUVEM, GERAÇÃO E COMPARTILHAMENTO DE RELATÓRIOS - COM SUPORTE TÉCNICO E ATUALIZAÇÃO TECNOLÓGICA POR 12 (DOZE) MESES, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA (30133256).",
+   "servico": false,
+   "numeroControlePncp": "00394494000136-2-000784/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/784"
+  },
+  {
+   "orgao": "MINISTERIO DO DESENVOLVIMENTO REGIONAL",
+   "orgaoCnpj": "03353358000196",
+   "venceEm": "2027-08-19",
+   "valor": 534796.0,
+   "objeto": "AQUISIÇÃO DE MICROCOMPUTADORES",
+   "servico": false,
+   "numeroControlePncp": "03353358000196-2-000171/2026",
+   "link": "https://pncp.gov.br/app/contratos/03353358000196/2026/171"
+  },
+  {
+   "orgao": "MINISTERIO PUBLICO DA UNIAO",
+   "orgaoCnpj": "26989715000102",
+   "venceEm": "2027-08-19",
    "valor": 3683720.0,
    "objeto": "Contratação de empresa especializada para a prestação de serviço tecnicamente qualificado de Sustentação, Evolução e Treinamento do software MentoRH",
    "servico": true,
@@ -3761,14 +4429,14 @@
    "link": "https://pncp.gov.br/app/contratos/26989715000102/2025/293"
   },
   {
-   "orgao": "MINISTERIO DAS RELACOES EXTERIORES",
-   "orgaoCnpj": "00394536000139",
+   "orgao": "AGENCIA ESPACIAL BRASILEIRA - AEB",
+   "orgaoCnpj": "86900545000170",
    "venceEm": "2027-08-20",
-   "valor": 1138128.03,
-   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE FORNECIMENTO DE RENOVAÇÃO DE LICENÇAS DE USO DA SUÍTE ATLASSIAN JIRA, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-   "servico": false,
-   "numeroControlePncp": "00394536000139-2-000220/2026",
-   "link": "https://pncp.gov.br/app/contratos/00394536000139/2026/220"
+   "valor": 6250.0,
+   "objeto": "CONTRATAÇÃO DE SERVIÇO CONTINUADO DE ACESSO À INTERNET BANDA LARGA POR MEIO DE FIBRA ÓPTICA, INCLUINDO A INSTALAÇÃO DA INFRAESTRUTURA NECESSÁRIA, DISPONIBILIZAÇÃO DE REDE WI-FI, FORNECIMENTO DOS EQUIPAMENTOS NECESSÁRIOS EM REGIME DE COMODATO, SUPORTE TÉCNICO E MANUTENÇÃO DURANTE TODA A VIGÊNCIA CONTRATUAL, PARA ATENDIMENTO DA CASA DE APOIO DA AGÊNCIA ESPACIAL BRASILEIRA (AEB), LOCALIZADA EM ALCÂNTARA/MA.",
+   "servico": true,
+   "numeroControlePncp": "86900545000170-2-000023/2026",
+   "link": "https://pncp.gov.br/app/contratos/86900545000170/2026/23"
   },
   {
    "orgao": "MINISTERIO DA FAZENDA",
@@ -3781,6 +4449,16 @@
    "link": "https://pncp.gov.br/app/contratos/00394460000141/2025/1113"
   },
   {
+   "orgao": "MINISTERIO DAS RELACOES EXTERIORES",
+   "orgaoCnpj": "00394536000139",
+   "venceEm": "2027-08-20",
+   "valor": 1138128.03,
+   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE FORNECIMENTO DE RENOVAÇÃO DE LICENÇAS DE USO DA SUÍTE ATLASSIAN JIRA, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": false,
+   "numeroControlePncp": "00394536000139-2-000220/2026",
+   "link": "https://pncp.gov.br/app/contratos/00394536000139/2026/220"
+  },
+  {
    "orgao": "MINISTERIO DA AGRICULTURA, PECUARIA E ABASTECIMENTO",
    "orgaoCnpj": "00396895000125",
    "venceEm": "2027-08-20",
@@ -3789,16 +4467,6 @@
    "servico": false,
    "numeroControlePncp": "00396895000125-2-000625/2026",
    "link": "https://pncp.gov.br/app/contratos/00396895000125/2026/625"
-  },
-  {
-   "orgao": "AGENCIA ESPACIAL BRASILEIRA - AEB",
-   "orgaoCnpj": "86900545000170",
-   "venceEm": "2027-08-20",
-   "valor": 6250.0,
-   "objeto": "CONTRATAÇÃO DE SERVIÇO CONTINUADO DE ACESSO À INTERNET BANDA LARGA POR MEIO DE FIBRA ÓPTICA, INCLUINDO A INSTALAÇÃO DA INFRAESTRUTURA NECESSÁRIA, DISPONIBILIZAÇÃO DE REDE WI-FI, FORNECIMENTO DOS EQUIPAMENTOS NECESSÁRIOS EM REGIME DE COMODATO, SUPORTE TÉCNICO E MANUTENÇÃO DURANTE TODA A VIGÊNCIA CONTRATUAL, PARA ATENDIMENTO DA CASA DE APOIO DA AGÊNCIA ESPACIAL BRASILEIRA (AEB), LOCALIZADA EM ALCÂNTARA/MA.",
-   "servico": true,
-   "numeroControlePncp": "86900545000170-2-000023/2026",
-   "link": "https://pncp.gov.br/app/contratos/86900545000170/2026/23"
   },
   {
    "orgao": "FUNDACAO NACIONAL DO INDIO",
@@ -3851,16 +4519,6 @@
    "link": "https://pncp.gov.br/app/contratos/26664015000148/2026/20"
   },
   {
-   "orgao": "BANCO CENTRAL DO BRASIL",
-   "orgaoCnpj": "00038166000105",
-   "venceEm": "2027-08-22",
-   "valor": 161700.0,
-   "objeto": "CONTRATAÇÃO DE SERVIÇOS DE CONSCIENTIZAÇÃO E TREINAMENTO EM SEGURANÇA DA INFORMAÇÃO E LGPD BRASILEIRA JUNTO AOS USUÁRIOS INTERNOS DO BANCO CENTRAL DO BRASIL",
-   "servico": true,
-   "numeroControlePncp": "00038166000105-2-000143/2025",
-   "link": "https://pncp.gov.br/app/contratos/00038166000105/2025/143"
-  },
-  {
    "orgao": "TRIBUNAL DE JUSTICA DO DISTRITO FEDERAL E DOS TERRITORIOS",
    "orgaoCnpj": "00531954000120",
    "venceEm": "2027-08-22",
@@ -3879,6 +4537,176 @@
    "servico": true,
    "numeroControlePncp": "60984473000100-2-000112/2026",
    "link": "https://pncp.gov.br/app/contratos/60984473000100/2026/112"
+  },
+  {
+   "orgao": "AGENCIA ESPACIAL BRASILEIRA - AEB",
+   "orgaoCnpj": "86900545000170",
+   "venceEm": "2027-08-24",
+   "valor": 41662.0,
+   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO PARA ATENDIMENTO DAS NECESSIDADES DA COORDENAÇÃO DE SATÉLITES E APLICAÇÕES (CSA) DA AGÊNCIA ESPACIAL BRASILEIRA (AEB), COMPREENDENDO IMPRESSORA 3D BASEADA NA TECNOLOGIA DE MODELAGEM POR DEPOSIÇÃO FUNDIDA (FDM), SISTEMA AUTOMATIZADO MULTIFILAMENTOS, ACESSÓRIOS E EQUIPAMENTOS AUXILIARES.",
+   "servico": false,
+   "numeroControlePncp": "86900545000170-2-000025/2026",
+   "link": "https://pncp.gov.br/app/contratos/86900545000170/2026/25"
+  },
+  {
+   "orgao": "CONSELHO FEDERAL DE ENGENHARIA E AGRONOMIA",
+   "orgaoCnpj": "33665647000191",
+   "venceEm": "2027-08-24",
+   "valor": 42906333.32,
+   "objeto": "O objeto é a contratação de solução de tecnologia da informação e comunicação de MODERNIZAÇÃO DOS PROCESSOS DE GESTÃO DOCUMENTAL, ABRANGENDO A GUARDA, ORGANIZAÇÃO E TRATAMENTO DE DOCUMENTOS FÍSICOS E DIGITAIS, BEM COMO A CONVERSÃO DE DOCUMENTOS FÍSICOS EM FORMATO DIGITAL, EM CONFORMIDADE COM A LEGISLAÇÃO E NORMATIZAÇÃO VIGENTE, com o suporte de infraestrutura física e tecnológica, além da disponibilização de insumos, equipamentos e mão de obra especializada, nas condições estabelecidas no Termo de Referência.",
+   "servico": false,
+   "numeroControlePncp": "33665647000191-2-000009/2026",
+   "link": "https://pncp.gov.br/app/contratos/33665647000191/2026/9"
+  },
+  {
+   "orgao": "MINISTERIO DA CIDADANIA",
+   "orgaoCnpj": "05526783000165",
+   "venceEm": "2027-08-24",
+   "valor": 52125.0,
+   "objeto": "CONTRATAÇÃO DE SOFTWARE PARA PESQUISA DE PREÇOS DE CONTRATAÇÕES PÚBLICAS",
+   "servico": false,
+   "numeroControlePncp": "05526783000165-2-000284/2026",
+   "link": "https://pncp.gov.br/app/contratos/05526783000165/2026/284"
+  },
+  {
+   "orgao": "PRESIDENCIA DA REPUBLICA",
+   "orgaoCnpj": "00394411000109",
+   "venceEm": "2027-08-25",
+   "valor": 5221000.0,
+   "objeto": "ATUALIZAÇÃO DAS LICENÇAS DO SISTEMA DE GERENCIAMENTO DOS ATIVOS DE REDE, FORNECIMENTO DE MÓDULO DE ANÁLISE DE DADOS E PRESTAÇÃO DE SERVIÇO DE SUPORTE TÉCNICO ESPECIALIZADO NOS ATIVOS DE REDE DA PRESIDÊNCIA DA REPÚBLICA",
+   "servico": true,
+   "numeroControlePncp": "00394411000109-2-000360/2025",
+   "link": "https://pncp.gov.br/app/contratos/00394411000109/2025/360"
+  },
+  {
+   "orgao": "CONSELHO ADMINISTRATIVO DE DEFESA ECONOMICA-CADE",
+   "orgaoCnpj": "00418993000116",
+   "venceEm": "2027-08-25",
+   "valor": 210000.0,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS NÃO CONTÍNUOS DE FORNECIMENTO DE UMA FERRAMENTA DE INTELIGÊNCIA DE MERCADO BASEADA EM INTELIGÊNCIA ARTIFICIAL E CIÊNCIA DE DADOS, PROJETADA PARA MONITORAR PREÇOS, SORTIMENTO E ATRIBUTOS DE PRODUTOS NO E-COMMERCE, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": true,
+   "numeroControlePncp": "00418993000116-2-000029/2026",
+   "link": "https://pncp.gov.br/app/contratos/00418993000116/2026/29"
+  },
+  {
+   "orgao": "EMPRESA BRASILEIRA DE SERVIÇOS HOSPITALARES",
+   "orgaoCnpj": "15126437000143",
+   "venceEm": "2027-08-25",
+   "valor": 70341.3,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É O FORNECIMENTO DE MICROCOMPUTADORES, NOTEBOOKS E MONITORES, CONFORME CONDIÇÕES, QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO, PELO SISTEMA DE REGISTRO DE PREÇOS - SRP, PARA ABASTECER TODOS OS HOSPITAIS UNIVERSITÁRIOS FEDERAIS (HUF) DAS REGIÕES NORTE, NORDESTE, CENTRO-OESTE, SUDESTE E SUL DO BRASIL, SOB GESTÃO DA EMPRESA BRASILEIRA DE SERVIÇOS HOSPITALARES – HU BRASIL, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": true,
+   "numeroControlePncp": "15126437000143-2-000719/2026",
+   "link": "https://pncp.gov.br/app/contratos/15126437000143/2026/719"
+  },
+  {
+   "orgao": "AGENCIA NACIONAL DE TRANSPORTES TERRESTRES - ANTT",
+   "orgaoCnpj": "04898488000177",
+   "venceEm": "2027-08-25",
+   "valor": 2723295.0,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SOLUÇÃO DE COMUNICAÇÃO DE REDE DE DADOS E LINK DE INTERNET, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": false,
+   "numeroControlePncp": "04898488000177-2-000044/2026",
+   "link": "https://pncp.gov.br/app/contratos/04898488000177/2026/44"
+  },
+  {
+   "orgao": "EMPRESA BRASILEIRA DE PESQUISA AGROPECUARIA",
+   "orgaoCnpj": "00348003000110",
+   "venceEm": "2027-08-25",
+   "valor": 4517387.76,
+   "objeto": "PRESTAÇÃO DE SERVIÇOS DE SUPORTE, MANUTENÇÃO E SUSTENTAÇÃO DA SOLUÇÃO ERP, SAP S/4HANA PARA A EMPRESA BRASILEIRA DE PESQUISA AGROPECUÁRIA - EMBRAPA (LOTE 2).",
+   "servico": true,
+   "numeroControlePncp": "00348003000110-2-000004/2025",
+   "link": "https://pncp.gov.br/app/contratos/00348003000110/2025/4"
+  },
+  {
+   "orgao": "FUND COORD DE APERFEICOAMENTO DE PESSOAL DE NIVEL SUP",
+   "orgaoCnpj": "00889834000108",
+   "venceEm": "2027-08-26",
+   "valor": 1223.95,
+   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE EMISSÃO DE CERTIFICADOS DIGITAIS (CERTIFICADO DIGITAL A1 - SERVIDOR), PARA CONEXÃO COM O SIAFI E SERPRO, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA",
+   "servico": false,
+   "numeroControlePncp": "00889834000108-2-000017/2023",
+   "link": "https://pncp.gov.br/app/contratos/00889834000108/2023/17"
+  },
+  {
+   "orgao": "MINISTERIO PUBLICO DA UNIAO",
+   "orgaoCnpj": "26989715000102",
+   "venceEm": "2027-08-26",
+   "valor": 1800.0,
+   "objeto": "O objeto do presente instrumento é contratação de empresa especializada para fornecimento de assinaturas do aplicativo CapCut Pro, pelo período de 12 (doze) meses, a fim de atender às necessidades de edição de vídeos por celular (mobile video editing) e de produção de imagens, vídeos e áudio com o uso de recursos de Inteligência Artificial (IA), conforme condições, quantidades e exigências estabelecidas neste instrumento.",
+   "servico": false,
+   "numeroControlePncp": "26989715000102-2-001690/2026",
+   "link": "https://pncp.gov.br/app/contratos/26989715000102/2026/1690"
+  },
+  {
+   "orgao": "MINISTERIO DA AGRICULTURA, PECUARIA E ABASTECIMENTO",
+   "orgaoCnpj": "00396895000125",
+   "venceEm": "2027-08-26",
+   "valor": 18500.0,
+   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE LICENÇAS PARA USO DE FERRAMENTA AUTORAL DE CRIAÇÃO DE E-LEARNING (APRENDIZAGEM ELETRÔNICA), PELO PERÍODO DE 12 (DOZE) MESES, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+   "servico": false,
+   "numeroControlePncp": "00396895000125-2-000647/2026",
+   "link": "https://pncp.gov.br/app/contratos/00396895000125/2026/647"
+  },
+  {
+   "orgao": "CONSELHO NACIONAL DE TECNICOS EM RADIOLOGIA",
+   "orgaoCnpj": "03635323000140",
+   "venceEm": "2027-08-26",
+   "valor": 39396.0,
+   "objeto": "serviço de link dedicado de Internet com velocidade mínima garantida de 1 Gbps e conexão L2L (LAN-to-LAN)",
+   "servico": true,
+   "numeroControlePncp": "03635323000140-2-000008/2026",
+   "link": "https://pncp.gov.br/app/contratos/03635323000140/2026/8"
+  },
+  {
+   "orgao": "MINISTERIO DOS TRANSPORTES",
+   "orgaoCnpj": "37115342000167",
+   "venceEm": "2027-08-27",
+   "valor": 9680898.66,
+   "objeto": "ONTRATAÇÃO DE EMPRESA ESPECIALIZADA POR MEIO DO SISTEMA DE REGISTRO DE PREÇOS (SRP), PARA O FORNECIMENTO DE SUBSCRIÇÃO DE LICENÇAS DE SOFTWARE, APLICATIVOS, SISTEMAS OPERACIONAIS E SERVIÇOS ASSOCIADOS DO FABRICANTE MICROSOFT, DESTINADOS AO ATENDIMENTO DAS NECESSIDADES DO MINISTÉRIO DOS TRANSPORTES",
+   "servico": true,
+   "numeroControlePncp": "37115342000167-2-000056/2026",
+   "link": "https://pncp.gov.br/app/contratos/37115342000167/2026/56"
+  },
+  {
+   "orgao": "AGENCIA NACIONAL DE AVIACAO CIVIL - ANAC",
+   "orgaoCnpj": "07947821000189",
+   "venceEm": "2027-08-27",
+   "valor": 146192.01,
+   "objeto": "AQUISIÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE VIDEOCONFERÊNCIA CORPORATIVA, INCLUINDO EQUIPAMENTOS ENDPOINT, INSTALAÇÃO E GARANTIA.",
+   "servico": false,
+   "numeroControlePncp": "07947821000189-2-000091/2026",
+   "link": "https://pncp.gov.br/app/contratos/07947821000189/2026/91"
+  },
+  {
+   "orgao": "MINISTERIO PUBLICO DA UNIAO",
+   "orgaoCnpj": "26989715000102",
+   "venceEm": "2027-08-27",
+   "valor": 1163000.0,
+   "objeto": "Contratação de empresa especializada no fornecimento de bibliotecas de fitas (tape libraries) para a solução de backup corporativo do Ministério Público do Trabalho, com prestação de serviços associados de garantia e suporte técnico, de acordo com as especificações, condições e quantidades estabelecidas no Termo de Referência e nos documentos constantes no processo PGEA 20.02.0001.0006352/2026-80",
+   "servico": true,
+   "numeroControlePncp": "26989715000102-2-001711/2026",
+   "link": "https://pncp.gov.br/app/contratos/26989715000102/2026/1711"
+  },
+  {
+   "orgao": "MINISTERIO PUBLICO DA UNIAO",
+   "orgaoCnpj": "26989715000102",
+   "venceEm": "2027-08-27",
+   "valor": 251900.0,
+   "objeto": "Contratação de licenciamento por subscrição do software MySQL Enterprise Edition (1-4 socket) com direitos de atualização e suporte técnico do fabricante do produto, nas condições estabelecidas neste instrumento e no edital e seus anexos, em especial no Termo de Referência",
+   "servico": false,
+   "numeroControlePncp": "26989715000102-2-002222/2025",
+   "link": "https://pncp.gov.br/app/contratos/26989715000102/2025/2222"
+  },
+  {
+   "orgao": "MINISTERIO DE PORTOS E AEROPORTOS",
+   "orgaoCnpj": "49582441000138",
+   "venceEm": "2027-08-27",
+   "valor": 3597863.27,
+   "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA POR MEIO DO SISTEMA DE REGISTRO DE PREÇOS (SRP), PARA O FORNECIMENTO DE SUBSCRIÇÃO DE LICENÇAS DE SOFTWARE, APLICATIVOS, SISTEMAS OPERACIONAIS E SERVIÇOS ASSOCIADOS DO FABRICANTE MICROSOFT, DESTINADOS AO ATENDIMENTO DAS NECESSIDADES DO MINISTÉRIO DE PORTOS E AEROPORTOS",
+   "servico": true,
+   "numeroControlePncp": "49582441000138-2-000046/2026",
+   "link": "https://pncp.gov.br/app/contratos/49582441000138/2026/46"
   }
  ]
 }
