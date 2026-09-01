@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAG Licitações — Itiberê Paquier</title>
+  <meta name="description" content="Busca semântica sobre normativos de contratação pública — Lei 14.133/2021, Lei 13.303/2016, Portaria SGD/MGI 1.070/2023.">
+
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/rag-licitacoes.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2305070c'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2310b981' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='17' font-weight='700' fill='%2310b981' text-anchor='middle'>&gt;_</text></svg>">
+
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+</head>
+<body class="bg-[#05070c] text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <div class="fixed inset-0 bg-grid-cyber pointer-events-none z-0 opacity-40"></div>
+
+  <header class="sticky top-0 z-50 border-b border-emerald-500/20 bg-[#05070c]/90 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="../../" class="flex items-center gap-2 text-sm font-mono-code group hover:no-underline">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]"></span>
+        <span class="text-emerald-400 font-semibold">itibere</span><span class="text-slate-500">@</span><span class="text-cyan-400">bsb-infra</span><span class="text-slate-500">:~#</span>
+        <span class="text-slate-300 group-hover:text-emerald-300 transition">rag-licitacoes</span>
+        <span class="inline-block w-2 h-4 bg-emerald-400/80 animate-blink ml-0.5"></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-6">
+
+    <div class="crumb font-mono-code">
+      <a href="../../">itibere.tec.br</a> / <a href="../">projetos-ia</a> / rag-licitacoes
+    </div>
+
+    <div class="page-head">
+      <h1>RAG Licitações</h1>
+      <p class="lede">
+        Busca semântica sobre normativos de contratação pública indexados: Lei 14.133/2021 (Licitações e Contratos Administrativos), Lei 13.303/2016 (Estatuto das Estatais) e Portaria SGD/MGI nº 1.070/2023 (modelo de contratação de TIC/SISP). Pergunte em linguagem natural.
+      </p>
+    </div>
+
+    <div class="chat-shell border-cyber">
+      <div class="chat-log" id="chat-log">
+        <div class="chat-empty" id="chat-empty">
+          Faça uma pergunta sobre licitação, contratação de serviços de TI, ou qual lei se aplica a um órgão específico. Ex: "quais casos permitem dispensa de licitação?"
+        </div>
+      </div>
+      <form class="chat-form" id="chat-form">
+        <textarea
+          id="chat-input"
+          class="chat-input"
+          rows="1"
+          placeholder="Pergunte sobre normativos de licitação..."
+          autocomplete="off"
+        ></textarea>
+        <button type="submit" class="chat-send" id="chat-send">Enviar</button>
+      </form>
+    </div>
+
+    <p class="text-xs text-slate-500 font-mono-code text-center">
+      Respostas geradas a partir dos normativos indexados — sempre confira a fonte oficial antes de decisão formal.
+    </p>
+
+  </main>
+
+  <script src="../../assets/rag-licitacoes.js"></script>
+</body>
+</html>
