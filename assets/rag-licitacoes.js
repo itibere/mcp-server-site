@@ -1,11 +1,6 @@
 // RAG-LICITAÇÕES — chat frontend. Sem framework, sem estado de conversa
 // multi-turno (cada pergunta é independente, ver plano/README do worker).
-//
-// TODO: preencher com a URL real depois de `wrangler deploy`
-// (ex: "https://rag-licitacoes.SEU-SUBDOMINIO.workers.dev/query").
-// Enquanto ficar null, o chat mostra aviso de "backend não configurado"
-// em vez de tentar uma requisição que vai falhar sem explicação.
-const WORKER_URL = null;
+const WORKER_URL = 'https://rag-licitacoes.itibere-paquier.workers.dev';
 
 const log = document.getElementById('chat-log');
 const empty = document.getElementById('chat-empty');
