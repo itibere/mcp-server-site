@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pncp-monitor": {
+      "command": "python",
+      "args": ["/caminho/absoluto/para/pncp-tic/mcp_server.py"]
+    }
+  }
+}

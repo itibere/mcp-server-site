@@ -1,0 +1,4293 @@
+{
+  "geradoEm": "2026-08-26T17:08:59",
+  "janela": "20250830 a 20260825",
+  "ufs": [
+    "DF"
+  ],
+  "modalidades": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "parcialMesclada": true,
+  "origem": "merge do checkpoint das modalidades 1-9 no catalogo de 11:28",
+  "totalOrgaos": 231,
+  "orgaos": [
+    {
+      "cnpj": "00360305000104",
+      "razaoSocial": "CAIXA ECONOMICA FEDERAL",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "GECOT"
+      ],
+      "contratacoes": 1136
+    },
+    {
+      "cnpj": "00394452000103",
+      "razaoSocial": "COMANDO DO EXERCITO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COMISSAO REG DE OBRAS DA 11ª REGIÃO_MILITAR",
+        "DEPARTAMENTO DE ENGENHARIA E CONSTRUÇÃO",
+        "CENTRO DE OBTENÇÕES DO EXÉRCITO",
+        "BASE DE ADMINISTRAÇÃO E APOIO DO CMP",
+        "16 BATALHAO LOGISTICO- MEX/DF",
+        "BGP-BATALHAO DE GUARDA PRESIDENCIAL/MEX/DF",
+        "BASE DE ADMINISTRAÇÃO E APOIO CCOMGEX",
+        "11. DEPOSITO DE SUPRIMENTOS-MEX/DF",
+        "COMANDO DE OPERACOES TERRESTRES - UG",
+        "SECRETARIA DE ECONOMIA E FINANCAS-MEX/DF",
+        "2º CENTRO DE GEOINFORMAÇÃO",
+        "GABINETE DO MINISTRO DO EXERCITO",
+        "32 GRUPO DE ARTILHARIA DE CAMPANHA-MEX/DF",
+        "CENTRO DE INTELIGENCIA DO EXERCITO",
+        "1 REGIMENTO DE CAVALARIA DE GUARDA-MEX/DF"
+      ],
+      "contratacoes": 324
+    },
+    {
+      "cnpj": "00394502000144",
+      "razaoSocial": "COMANDO DA MARINHA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "MM/COMANDO DO 7 DISTRITO NAVAL/DF",
+        "GABINETE DO MINISTRO DA MARINHA-09",
+        "CENTRO DE INTENDÊNCIA DA MARINHA EM BRASÍLIA",
+        "MM-GPTFNB-GRUPAM.DE DE FUZIL.NAVAIS DE BSB/DF",
+        "GABINETE DO COMANDANTE DA MARINHA",
+        "HOSPITAL NAVAL DE BRASILIA",
+        "CENTRO DE COMUNICAÇÃO ESTRATÉGICA DA MARINHA",
+        "CENTRO DE INST. E ADESTRAMENTO DE BRASILIA",
+        "ESTADO-MAIOR DA ARMADA",
+        "SECRETARIA-GERAL DA MARINHA",
+        "CAPITANIA FLUVIAL DE BRASILIA",
+        "DIR GERAL DE DESENV NUCLEAR E TEC. DA MARINHA",
+        "ESTACAO RADIO DA MARINHA EM BRASILIA",
+        "SECRETARIA DA COMISSAO INTERMINIST.P/REC.MAR",
+        "DIRETORIA DO PESSOAL DA MARINHA - BRASÍLIA"
+      ],
+      "contratacoes": 283
+    },
+    {
+      "cnpj": "00394700000108",
+      "razaoSocial": "DISTRITO FEDERAL SECRETARIA DE SAUDE",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SECRETARIA DE ESTADO DE SAÚDE - DF"
+      ],
+      "contratacoes": 260
+    },
+    {
+      "cnpj": "00394429000100",
+      "razaoSocial": "COMANDO DA AERONAUTICA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "GRUPAMENTO DE APOIO DO DF",
+        "MAER-GAPBR-GRUPAMENTO DE APOIO DE BRASILIA/DF",
+        "GABINETE DO COMANDANTE DA AERONAUTICA"
+      ],
+      "contratacoes": 158
+    },
+    {
+      "cnpj": "03277610000125",
+      "razaoSocial": "MINISTERIO DA DEFESA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CENTRO GESTOR OP. SISTEMA PROTECAO AMAZONIA",
+        "HOSPITAL DAS FORCAS ARMADAS",
+        "DEPARTAMENTO DE ADMINISTRAÇÃO INTERNA",
+        "ESCOLA SUPERIOR DE DEFESA"
+      ],
+      "contratacoes": 152
+    },
+    {
+      "cnpj": "15126437000305",
+      "razaoSocial": "EMPRESA BRASILEIRA DE SERVICOS HOSPITALARES - EBSERH",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EMPRESA BRASILEIRA DE SERVIÇOS HOSPITALARES",
+        "HOSPITAL UNIVERSITÁRIO DE BRASÍLIA"
+      ],
+      "contratacoes": 149
+    },
+    {
+      "cnpj": "26989715000102",
+      "razaoSocial": "MINISTERIO PUBLICO DA UNIAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "PROCURADORIA REGIONAL DA REPUBLICA-1A. REGIAO",
+        "SECRETARIA DE ADMINISTRACAO MIN. PUBLICO FED.",
+        "PROCURADORIA REG.DO TRABALHO 10A. REGIAO - DF",
+        "MINISTERIO PUBLICO MILITAR - DF",
+        "PROCURADORIA GERAL DO TRABALHO DF",
+        "MINISTERIO PUBLICO DO DF E TERRITORIOS",
+        "ESCOLA SUPERIOR DO MINIST. PUBLICO DA UNIAO",
+        "PROCURADORIA DA REPUBLICA - DF"
+      ],
+      "contratacoes": 144
+    },
+    {
+      "cnpj": "00394494000136",
+      "razaoSocial": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "ACADEMIA NACIONAL DE POLICIA - DF",
+        "DEPEN - DIRETORIA EXECUTIVA",
+        "SECRETARIA NACIONAL DE SEGURANCA PUBLICA",
+        "COORDENACAO DE ADMINISTRACAO-COAD",
+        "PENITENCIÁRIA FEDERAL EM BRASILIA",
+        "SUPERINTENDENCIA REG.DEP.POLICIA FEDERAL - DF",
+        "MJ-CGS-COORDENACAO GERAL DE LOGISTICA/DF",
+        "COORDENAÇÃO PF SAÚDE",
+        "DIRETORIA TECNICO-CIENTIFICA/DPF",
+        "DIRETORIA DE TECN.DA INFORMAÇÃO E INOVAÇÃO"
+      ],
+      "contratacoes": 139
+    },
+    {
+      "cnpj": "00394544000185",
+      "razaoSocial": "MINISTERIO DA SAUDE",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SUBSECRETARIA DE ASSUNTOS ADMINISTRATIVOS",
+        "DEPARTAMENTO DE LOGÍSTICA EM SAUDE"
+      ],
+      "contratacoes": 127
+    },
+    {
+      "cnpj": "00530352000159",
+      "razaoSocial": "CAMARA DOS DEPUTADOS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "L",
+      "poder": "Legislativo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CAMARA DOS DEPUTADOS"
+      ],
+      "contratacoes": 117
+    },
+    {
+      "cnpj": "00399857000126",
+      "razaoSocial": "COMPANHIA DE DESENV. DO VALE DO SAO FRANCISCO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CIA DE DESENV. DO VALE DO SAO FRANCISCO-DF"
+      ],
+      "contratacoes": 101
+    },
+    {
+      "cnpj": "00509968000148",
+      "razaoSocial": "TRIBUNAL SUPERIOR DO TRABALHO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "J",
+      "poder": "Judiciario",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "TRIBUNAL REGIONAL DO TRABALHO DA 10A.REGIAO",
+        "TRIBUNAL SUPERIOR DO TRABALHO"
+      ],
+      "contratacoes": 100
+    },
+    {
+      "cnpj": "00530279000115",
+      "razaoSocial": "SENADO FEDERAL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "L",
+      "poder": "Legislativo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SENADO FEDERAL"
+      ],
+      "contratacoes": 84
+    },
+    {
+      "cnpj": "00394684000153",
+      "razaoSocial": "SECRETARIA DE ESTADO DE ECONOMIA DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SECRETARIA DE ESTADO DE ECONOMIA DO DF",
+        "FUNDACAO DE AMPARO AO TRABALHADOR PRESO DO DF",
+        "Secretaria de Estado de Planejamento, Orçamento e Administração do Distrito Federal"
+      ],
+      "contratacoes": 84
+    },
+    {
+      "cnpj": "00082024000137",
+      "razaoSocial": "COMPANHIA DE SANEAMENTO AMBIENTAL DO DISTRITO FEDERAL",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COMPANHIA DE SANEAMENTO AMBIENTAL DO DF CAESB"
+      ],
+      "contratacoes": 78
+    },
+    {
+      "cnpj": "00394411000109",
+      "razaoSocial": "PRESIDENCIA DA REPUBLICA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "DEPARTAMENTO DE ADMINISTRACAO DA ABIN/GSI/PR",
+        "SECRETARIA DE ADMINISTRAÇÃO",
+        "GABINETE DE SEGURANÇA INSTITUCIONAL",
+        "FUNDO DE IMPRENSA NACIONAL/EXEC.ORC.FINANC.",
+        "SECRETARIA EXTRAORDINÁIA PARA A COP30"
+      ],
+      "contratacoes": 76
+    },
+    {
+      "cnpj": "00488478000102",
+      "razaoSocial": "SUPERIOR TRIBUNAL DE JUSTICA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "J",
+      "poder": "Judiciario",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "STJ _ SUPERIOR TRIBUNAL DE JUSTICA/DF"
+      ],
+      "contratacoes": 74
+    },
+    {
+      "cnpj": "04892707000100",
+      "razaoSocial": "DNIT-DEPARTAMENTO NACIONAL DE INFRAEST DE TRANSPORTES",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "DEPARTAMENTO NACIONAL INFRAEST.DE TRANSPORTES"
+      ],
+      "contratacoes": 73
+    },
+    {
+      "cnpj": "00038174000143",
+      "razaoSocial": "FUNDACAO UNIVERSIDADE DE BRASILIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "FUNDAÇÃO UNIVERSIDADE DE BRASÍLIA - FUB",
+        "EDITORA UNIVERSIDADE DE BRASILIA/FUB",
+        "FUNDACAO EMPREEND. CIENTIFICOS E TéCNOLÓGICOS",
+        "CDT-CENTRO DE DESENVOLVIMENTO TECNOLOGICO"
+      ],
+      "contratacoes": 72
+    },
+    {
+      "cnpj": "00508903000188",
+      "razaoSocial": "JUSTICA FEDERAL DE PRIMEIRA INSTANCIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "J",
+      "poder": "Judiciario",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "TRIBUNAL REGIONAL FEDERAL-SEC.1A.REG./DF",
+        "JUSTICA FEDERAL DE PRIMEIRO GRAU - DF",
+        "SECRETARIA DO CONSELHO DA JUSTICA FEDERAL-DF"
+      ],
+      "contratacoes": 64
+    },
+    {
+      "cnpj": "00509018000113",
+      "razaoSocial": "TRIBUNAL SUPERIOR ELEITORAL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "J",
+      "poder": "Judiciario",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "TSE _ TRIBUNAL SUPERIOR ELEITORAL/SEC.ADM/DF",
+        "TRIBUNAL REGIONAL ELEITORAL DO D. FEDERAL"
+      ],
+      "contratacoes": 54
+    },
+    {
+      "cnpj": "08942610000116",
+      "razaoSocial": "POLICIA MILITAR DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "POLíCIA MILITAR DO DISTRITO FEDERAL",
+        "DEPTO. SAÚDE E ASSIST AO PESSOAL POL MIL - DF"
+      ],
+      "contratacoes": 51
+    },
+    {
+      "cnpj": "03288908000483",
+      "razaoSocial": "SESC-SERVICO SOCIAL DO COMERCIO-ADMINISTRACAO REGIONAL DO DF",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SERVIÇO SOCIAL DO COMÉRCIO - SESC AR/DF"
+      ],
+      "contratacoes": 51
+    },
+    {
+      "cnpj": "33583550000130",
+      "razaoSocial": "CONSELHO FEDERAL DE MEDICINA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE MEDICINA"
+      ],
+      "contratacoes": 47
+    },
+    {
+      "cnpj": "00348003002245",
+      "razaoSocial": "EMPRESA BRASILEIRA DE PESQUISA AGROPECUARIA",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EMBRAPA CAFÉ/BRASILIA/DF",
+        "EMBRAPA/GERENCIA-ADJ. DE CONTRATACOES/DF",
+        "EMBRAPA CERRADOS/BRASILIA/DF",
+        "EMBRAPA RECURSOS GENETICOS/BRASILIA/DF",
+        "EMBRAPA HORTALICAS/BRASILIA/DF"
+      ],
+      "contratacoes": 46
+    },
+    {
+      "cnpj": "00000000000191",
+      "razaoSocial": "BANCO DO BRASIL SA",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CESUP COMPRAS CONTR",
+        "DISEC-SUP INFR PATR"
+      ],
+      "contratacoes": 45
+    },
+    {
+      "cnpj": "05448380000145",
+      "razaoSocial": "FUNDO CONSTITUCIONAL DO DISTRITO FEDERAL - FCDF",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CORPO DE BOMBEIROS MILITAR DO DF"
+      ],
+      "contratacoes": 45
+    },
+    {
+      "cnpj": "00414607000118",
+      "razaoSocial": "TRIBUNAL DE CONTAS DA UNIAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "L",
+      "poder": "Legislativo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "TCU-TRIBUNAL DE CONTAS DA UNIAO/DF"
+      ],
+      "contratacoes": 43
+    },
+    {
+      "cnpj": "33683111000107",
+      "razaoSocial": "SERVICO FEDERAL DE PROCESSAMENTO DE DADOS (SERPRO)",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SERPRO - SEDE BRASILIA"
+      ],
+      "contratacoes": 41
+    },
+    {
+      "cnpj": "00038166000105",
+      "razaoSocial": "BANCO CENTRAL DO BRASIL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "BANCO CENTRAL DO BRASIL - BRASÍLIA"
+      ],
+      "contratacoes": 41
+    },
+    {
+      "cnpj": "00375114000116",
+      "razaoSocial": "DEFENSORIA PUBLICA DA UNIAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "DEFENSORIA PUBLICA DA UNIAO"
+      ],
+      "contratacoes": 40
+    },
+    {
+      "cnpj": "00394460000141",
+      "razaoSocial": "MINISTERIO DA FAZENDA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SUP.REGIONAL RECEITA FEDERAL 1A.RF/DF",
+        "SUBSECRETARIA DE ORçAMENTO E ADMINISTRAçãO",
+        "SUBSEC. DE ADM. TRANSFOR. DIGITAL E INOVAÇÃO",
+        "AGÊN.BRAS.GEST.DE FUNDOS GARANTID.GARANT.S.A.",
+        "CONSELHO ADMINISTRATIVO DE RECURSOS FISCAIS",
+        "MF-SRF-SECRETARIA DA RECEITA FEDERAL/DF",
+        "MF-PROCURADORIA GERAL DA FAZENDA NACIONAL/DF"
+      ],
+      "contratacoes": 39
+    },
+    {
+      "cnpj": "00070532000103",
+      "razaoSocial": "DEPARTAMENTO DE ESTRADAS DE RODAGEM DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF - DEPARTAMENTO DE ESTRADAS DE RODAGEM"
+      ],
+      "contratacoes": 39
+    },
+    {
+      "cnpj": "00394494010441",
+      "razaoSocial": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SUPERINTENDENCIA REG. POL. RODV. FEDERAL-DF",
+        "MJ-DPRF-DEPART.DE POL.RODOVIARIA FEDERAL/DF"
+      ],
+      "contratacoes": 39
+    },
+    {
+      "cnpj": "26963645000113",
+      "razaoSocial": "CAMARA LEGISLATIVA DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "L",
+      "poder": "Legislativo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CAMARA LEGISLATIVA DO DISTRITO FEDERAL"
+      ],
+      "contratacoes": 35
+    },
+    {
+      "cnpj": "00531954000120",
+      "razaoSocial": "TRIBUNAL DE JUSTICA DO DISTRITO FEDERAL E DOS TERRITORIOS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "J",
+      "poder": "Judiciario",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "TRIBUNAL DE JUSTICA DO DISTRITO FEDERAL"
+      ],
+      "contratacoes": 33
+    },
+    {
+      "cnpj": "00394643000167",
+      "razaoSocial": "PROCURADORIA GERAL DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "PROCURADORIA GERAL DO DISTRITO FEDERAL",
+        "Procuradoria-Geral do Distrito Federal"
+      ],
+      "contratacoes": 32
+    },
+    {
+      "cnpj": "00497560000101",
+      "razaoSocial": "SUPERIOR TRIBUNAL MILITAR",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "J",
+      "poder": "Judiciario",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "STM _ SUPERIOR TRIBUNAL MILITAR/DF"
+      ],
+      "contratacoes": 31
+    },
+    {
+      "cnpj": "26994558000123",
+      "razaoSocial": "ADVOCACIA GERAL DA UNIAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SUPER. DE ADMINISTRACAO NO DISTRITO FEDERAL",
+        "ESCOLA DA ADVOCACIA-GERAL DA UNIÃO",
+        "DIRETORIA DE LOGISTICA E GESTÃO DOCUMENTAL"
+      ],
+      "contratacoes": 30
+    },
+    {
+      "cnpj": "26989350000116",
+      "razaoSocial": "FUNDACAO NACIONAL DE SAUDE",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "FUNDACAO NACIONAL DE SAUDE/DF"
+      ],
+      "contratacoes": 29
+    },
+    {
+      "cnpj": "00348003000110",
+      "razaoSocial": "EMPRESA BRASILEIRA DE PESQUISA AGROPECUARIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EMBRAPA RECURSOS GENETICOS/BRASILIA/DF",
+        "EMBRAPA/GERENCIA-ADJ. DE CONTRATACOES/DF",
+        "EMBRAPA CERRADOS/BRASILIA/DF",
+        "EMBRAPA CAFÉ/BRASILIA/DF"
+      ],
+      "contratacoes": 27
+    },
+    {
+      "cnpj": "00489828000155",
+      "razaoSocial": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CENTRO DE SERVIÇOS COMPARTILHADOS",
+        "CENTRAL DE COMPRAS"
+      ],
+      "contratacoes": 27
+    },
+    {
+      "cnpj": "10791831000182",
+      "razaoSocial": "INSTITUTO FEDERAL DE EDUCACAO, CIENCIA E TECNOLOGIA DE BRASILIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "INST.FED.DE EDUC.,CIENC.E TEC.DE BRASILIA"
+      ],
+      "contratacoes": 27
+    },
+    {
+      "cnpj": "00394536000139",
+      "razaoSocial": "MINISTERIO DAS RELACOES EXTERIORES",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "DEPARTAMENTO CULTURAL",
+        "DEPARTAMENTO DO SERVICO EXTERIOR - MRE",
+        "DEPARTAMENTO DE COMUNICACAO E DOCUMENTACAO",
+        "COORDENAÇÃO-GERAL DE RECURSOS LOGISTICOS"
+      ],
+      "contratacoes": 27
+    },
+    {
+      "cnpj": "34346776000180",
+      "razaoSocial": "SECRETARIA DE ESTADO DE TRABALHO DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF - SECRETARIA DE ESTADO DE TRABALHO DO DF"
+      ],
+      "contratacoes": 27
+    },
+    {
+      "cnpj": "03296968000790",
+      "razaoSocial": "SENAC - SERVICO NACIONAL DE APRENDIZAGEM COMERCIAL - ADMINIS",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SERVIÇO NACIONAL DE APRENDIZAGEM COMERCIAL-DF"
+      ],
+      "contratacoes": 27
+    },
+    {
+      "cnpj": "01263896000164",
+      "razaoSocial": "MINISTERIO DA CIENCIA, TECNOLOGIA E INOVACOES",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "MCT-COORD. GERAL DE RECURSOS LOGÍSTICOS/DF",
+        "INST. BRAS. INFORM. EM CIÊNCIA E TECNOLOGIA"
+      ],
+      "contratacoes": 26
+    },
+    {
+      "cnpj": "00531640000128",
+      "razaoSocial": "SUPREMO TRIBUNAL FEDERAL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "J",
+      "poder": "Judiciario",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "STF/SUPREMO TRIBUNAL FEDERAL/DF",
+        "FUNDAÇÃO DE PREV. COMPLEMENTAR - FUNPRESP"
+      ],
+      "contratacoes": 26
+    },
+    {
+      "cnpj": "37115482000135",
+      "razaoSocial": "POLICIA CIVIL DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Polícia Civil do Distrito Federal",
+        "POLÍCIA CIVIL DO DISTRITO FEDERAL"
+      ],
+      "contratacoes": 26
+    },
+    {
+      "cnpj": "04898488000177",
+      "razaoSocial": "AGENCIA NACIONAL DE TRANSPORTES TERRESTRES - ANTT",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "AGENCIA NACIONAL DE TRANSPORTES TERRESTRES"
+      ],
+      "contratacoes": 26
+    },
+    {
+      "cnpj": "42467787000146",
+      "razaoSocial": "Confederação Brasileira do Desporto Universitário",
+      "esferaId": "M",
+      "esfera": "Municipal",
+      "poderId": "L",
+      "poder": "Legislativo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CBDU"
+      ],
+      "contratacoes": 26
+    },
+    {
+      "cnpj": "00394452051948",
+      "razaoSocial": "COMANDO DO EXERCITO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Comissão do Exército Brasileiro em Washington"
+      ],
+      "contratacoes": 26
+    },
+    {
+      "cnpj": "42318949001318",
+      "razaoSocial": "BB TECNOLOGIA E SERVICOS S.A.",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        " BB TECNOLOGIA E SERVICOS S.A."
+      ],
+      "contratacoes": 25
+    },
+    {
+      "cnpj": "37753638000103",
+      "razaoSocial": "MINISTERIO DAS COMUNICACOES",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "ASSESSORIA ESPECIAL DE COMUNICACAO SOCIAL",
+        "TELECOMUNICAÇÕES BRASILEIRAS S.A.",
+        "COORDENACAO GERAL DE RECURSOS LOGISTICOS",
+        "SUBSECRETARIA DE PLA. E TECNOL. DA INFORMACAO",
+        "COORDENAÇÃO-GERAL DE GESTÃO DE PESSOAS",
+        "SECRETARIA DE TELECOMUNICAÇÕES"
+      ],
+      "contratacoes": 25
+    },
+    {
+      "cnpj": "05526783000165",
+      "razaoSocial": "MINISTERIO DA CIDADANIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SUBSECRETARIA DE ASSUNTOS ADMINISTRATIVOS",
+        "SECRETARIA NAC. DE CUIDADOS E PREV. AS DROGAS"
+      ],
+      "contratacoes": 24
+    },
+    {
+      "cnpj": "00396895000125",
+      "razaoSocial": "MINISTERIO DA AGRICULTURA, PECUARIA E ABASTECIMENTO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COORD.-GERAL DE EXECUCAO ORç.E FIN./DA/MAPA",
+        "SEC.DE PRODUÇÃO E AGROENERGIA-MAPA/FUNCAFÉ",
+        "SECRETARIA DE DEFESA AGROPECUARIA",
+        "COMISSAO EXEC.DA LAVOURA CACAUEIRA",
+        "INSTITUTO NAC. DE METEOROLOGIA"
+      ],
+      "contratacoes": 23
+    },
+    {
+      "cnpj": "29979036000140",
+      "razaoSocial": "INSTITUTO NACIONAL DO SEGURO SOCIAL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SUPERINTENDêNCIA REGIONAL NORTE/CENTRO-OESTE",
+        "COORDENACAO GERAL DE LICITACOES E CONTRATOS"
+      ],
+      "contratacoes": 23
+    },
+    {
+      "cnpj": "00489828000902",
+      "razaoSocial": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SPU-DF/SPU/MGI/PR/PE/UNIAO"
+      ],
+      "contratacoes": 22
+    },
+    {
+      "cnpj": "00534560000126",
+      "razaoSocial": "TRIBUNAL DE CONTAS DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "L",
+      "poder": "Legislativo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "TRIBUNAL DE CONTAS DO DISTRITO FEDERAL"
+      ],
+      "contratacoes": 22
+    },
+    {
+      "cnpj": "00394676000107",
+      "razaoSocial": "SECRETARIA DE ESTADO DE EDUCACAO DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-SECRETARIA DE ESTADO DE EDUCACAO DO DF"
+      ],
+      "contratacoes": 21
+    },
+    {
+      "cnpj": "47217146000157",
+      "razaoSocial": "CONSELHO FEDERAL DE ENFERMAGEM COFEN",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE ENFERMAGEM-COFEN"
+      ],
+      "contratacoes": 21
+    },
+    {
+      "cnpj": "29406625000130",
+      "razaoSocial": "AGENCIA NACIONAL DE MINERACAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "AGENCIA NACIONAL DE MINERAÇÃO - DF"
+      ],
+      "contratacoes": 21
+    },
+    {
+      "cnpj": "02030715000112",
+      "razaoSocial": "AGENCIA NACIONAL DE TELECOMUNICACOES",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "AGENCIA NACIONAL DE TELECOMUNICACOES"
+      ],
+      "contratacoes": 21
+    },
+    {
+      "cnpj": "03318233000125",
+      "razaoSocial": "SECRETARIA DE ESTADO DA AGRICULTURA, ABASTECIMENTO E DESENVOLVIMENTO RURAL DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SEC DE EST DA AGR, ABASTECIMENTO E DESN RURAL"
+      ],
+      "contratacoes": 21
+    },
+    {
+      "cnpj": "38070074000177",
+      "razaoSocial": "METRO DF",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF - COMPANHIA DO METROPOLITANO DO DF"
+      ],
+      "contratacoes": 21
+    },
+    {
+      "cnpj": "07947821000189",
+      "razaoSocial": "AGENCIA NACIONAL DE AVIACAO CIVIL - ANAC",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "AGENCIA NACIONAL DE AVIACAO CIVIL - ANAC"
+      ],
+      "contratacoes": 20
+    },
+    {
+      "cnpj": "00509612000104",
+      "razaoSocial": "Empresa de Assistência Técnica e Extensão Rural do Distrito Federal",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EMPRESA DE ASSITENCIA TECNICA E EXT. RURAL"
+      ],
+      "contratacoes": 20
+    },
+    {
+      "cnpj": "16673858000157",
+      "razaoSocial": "ADMINISTRACAO REGIONAL DO CRUZEIRO",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-ADMINISTRAÇAO REGIONAL DO CRUZEIRO"
+      ],
+      "contratacoes": 20
+    },
+    {
+      "cnpj": "00394445000101",
+      "razaoSocial": "MINISTERIO DA EDUCACAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SUBSECRETARIA DE GESTAO ADMINISTRATIVA",
+        "MEC-COORDENACAO GERAL DE INFORMATICA - DF"
+      ],
+      "contratacoes": 19
+    },
+    {
+      "cnpj": "07421906000129",
+      "razaoSocial": "CONSELHO NACIONAL DE JUSTICA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "J",
+      "poder": "Judiciario",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO NACIONAL DE JUSTICA"
+      ],
+      "contratacoes": 19
+    },
+    {
+      "cnpj": "00394718000100",
+      "razaoSocial": "SECRETARIA DE ESTADO DE SEGURANCA PUBLICA DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SECRETARIA DE ESTADO DE SEGURANCA PUBLICA"
+      ],
+      "contratacoes": 18
+    },
+    {
+      "cnpj": "00037457000170",
+      "razaoSocial": "CIA URBANIZADORA DA NOVA CAPITAL DO BRASIL - NOVACAP",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "NOVACAP - DF",
+        "COMPANHIA URBANIZ. DA NOVA CAPITAL DO BRASIL"
+      ],
+      "contratacoes": 17
+    },
+    {
+      "cnpj": "86743457000101",
+      "razaoSocial": "FUNDACAO HEMOCENTRO DE BRASILIA",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "FUNDAÇÃO HEMOCENTRO DE BRASILIA - DF"
+      ],
+      "contratacoes": 17
+    },
+    {
+      "cnpj": "00509026000160",
+      "razaoSocial": "MUTUA DE ASSISTENCIA DOS PROFISSIO DA ENG ARQ AGRONOMIA",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-MUTUA ASSISTENCIA DOS PROF. ENG.ARQ.AGR."
+      ],
+      "contratacoes": 16
+    },
+    {
+      "cnpj": "34046367000168",
+      "razaoSocial": "CONSELHO FEDERAL DOS REPRESENTANTES COMERCIAIS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDER. DOS REPRESENTANTES COMERCIAIS"
+      ],
+      "contratacoes": 16
+    },
+    {
+      "cnpj": "08829974000194",
+      "razaoSocial": "INSTITUTO CHICO MENDES DE CONSERVACAO DA BIODIVERSIDADE",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COORDENAçAO GERAL DE FINANçAS/DF"
+      ],
+      "contratacoes": 16
+    },
+    {
+      "cnpj": "37318510000111",
+      "razaoSocial": "ADAPS",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-AGENCIA BRASILEIRA APOIO A GESTÃO DO SUS"
+      ],
+      "contratacoes": 16
+    },
+    {
+      "cnpj": "00475855000179",
+      "razaoSocial": "DEPARTAMENTO DE TRANSITO DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "DEPARTAMENTO DE TRÂNSITO DO DISTRITO FEDERAL"
+      ],
+      "contratacoes": 16
+    },
+    {
+      "cnpj": "00119784000171",
+      "razaoSocial": "CONSELHO FEDERAL DE MEDICINA VETERINARIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE MEDICINA VETERINARIA"
+      ],
+      "contratacoes": 15
+    },
+    {
+      "cnpj": "00444232000139",
+      "razaoSocial": "INDUSTRIA DE MATERIAL BELICO DO BRASIL IMBEL",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "IMBEL-INDUSTRIA DE MATERIAL BELICO DO BRASIL"
+      ],
+      "contratacoes": 15
+    },
+    {
+      "cnpj": "34061135000189",
+      "razaoSocial": "CONSELHO FEDERAL DE ADMINISTRACAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE ADMINISTRACAO-CFA/DF"
+      ],
+      "contratacoes": 15
+    },
+    {
+      "cnpj": "00487140000136",
+      "razaoSocial": "CONSELHO FEDERAL DE FISIOTERAPIA E TERAPIA OCUPACIONAL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE FIS.E TERAPIA OCUPACIONAL"
+      ],
+      "contratacoes": 15
+    },
+    {
+      "cnpj": "33618570000107",
+      "razaoSocial": "CONSELHO FEDERAL DE CONTABILIDADE",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE CONTABILIDADE"
+      ],
+      "contratacoes": 15
+    },
+    {
+      "cnpj": "03112386000111",
+      "razaoSocial": "AGENCIA NACIONAL DE VIGILANCIA SANITARIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "AGENCIA NACIONAL DE VIGILANCIA SANITARIA - DF"
+      ],
+      "contratacoes": 15
+    },
+    {
+      "cnpj": "37115375000107",
+      "razaoSocial": "MINISTERIO DO MEIO AMBIENTE",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SERVICO FLORESTAL BRASILEIRO",
+        "SUBSECRET. DE PLANEJ., ORÇ. E ADMINISTRAÇÃO"
+      ],
+      "contratacoes": 14
+    },
+    {
+      "cnpj": "01264142000129",
+      "razaoSocial": "MINISTERIO DA CULTURA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COORD. GERAL DE EXEC. ORCAMENT, FINANC E CONT"
+      ],
+      "contratacoes": 14
+    },
+    {
+      "cnpj": "00393272000107",
+      "razaoSocial": "CONSELHO FEDERAL DE PSICOLOGIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE PSICOLOGIA"
+      ],
+      "contratacoes": 14
+    },
+    {
+      "cnpj": "00378257000181",
+      "razaoSocial": "FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "FNDE-MEC-FUNDO NAC.DE DESENV.DA EDUACACAO/DF"
+      ],
+      "contratacoes": 14
+    },
+    {
+      "cnpj": "03353358000196",
+      "razaoSocial": "MINISTERIO DO DESENVOLVIMENTO REGIONAL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SECRETARIA DE INFRA-ESTRUTURA HIDRICA - SIH",
+        "DIRETORIA DE ADMINISTRAÇÃO"
+      ],
+      "contratacoes": 13
+    },
+    {
+      "cnpj": "01567525000176",
+      "razaoSocial": "SERVICO DE LIMPEZA URBANA",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF - SERVICO DE LIMPEZA URBANA DO DF"
+      ],
+      "contratacoes": 13
+    },
+    {
+      "cnpj": "02270669000129",
+      "razaoSocial": "AGENCIA NACIONAL DE ENERGIA ELETRICA - ANEEL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "AGENCIA NACIONAL DE ENERGIA ELETRICA - DF"
+      ],
+      "contratacoes": 13
+    },
+    {
+      "cnpj": "26461699000180",
+      "razaoSocial": "COMPANHIA NACIONAL DE ABASTECIMENTO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COMPANHIA NACIONAL DE ABASTECIMENTO CONAB",
+        "CONAB SUPERINTENDENCIA REGIONAL NO DF E ENTOR"
+      ],
+      "contratacoes": 13
+    },
+    {
+      "cnpj": "33874330000165",
+      "razaoSocial": "CONSELHO FEDERAL DE SERVICO SOCIAL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE SERVIçO SOCIAL CFESS"
+      ],
+      "contratacoes": 13
+    },
+    {
+      "cnpj": "37115383000153",
+      "razaoSocial": "MINISTERIO DE MINAS E ENERGIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "MME-CGC-COORD.GERAL DE RECURSOS LOGISTICOS/DF",
+        "SEC. DE PETROLEO,GAS NATURAL E COMBUS. RENOV."
+      ],
+      "contratacoes": 12
+    },
+    {
+      "cnpj": "14702767000177",
+      "razaoSocial": "CONSELHO DE ARQUITETURA E URBANISMO DO BRASIL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO DE ARQUIT.E URBANISMO DO BRASIL"
+      ],
+      "contratacoes": 12
+    },
+    {
+      "cnpj": "05507500000138",
+      "razaoSocial": "AGENCIA DE PROMOCAO DE EXPORTACOES DO BRASIL - APEX-BRASIL",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "APEX SEDE"
+      ],
+      "contratacoes": 12
+    },
+    {
+      "cnpj": "00394742000149",
+      "razaoSocial": "SECRETARIA DE ESTADO DE OBRAS E INFRAESTRUTURA DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-SECRETARIA DE ESTADO OBRAS INFRAESTRUTURA"
+      ],
+      "contratacoes": 11
+    },
+    {
+      "cnpj": "33665647000191",
+      "razaoSocial": "CONSELHO FEDERAL DE ENGENHARIA E AGRONOMIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FED.DE ENGENHARIA E AGRONOMIA/DF"
+      ],
+      "contratacoes": 11
+    },
+    {
+      "cnpj": "07007955000110",
+      "razaoSocial": "AGENCIA REGULADORA DE AGUAS, ENERGIA E SANEAMENTO BASICO DO DISTRITO FEDERAL - ADASA",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "AGÊNCIA REGULAD.DE ÁGUAS, ENERGIA E SANEAM.DF"
+      ],
+      "contratacoes": 11
+    },
+    {
+      "cnpj": "26474056000171",
+      "razaoSocial": "INSTITUTO DO PATRIMONIO HISTORICO E ARTISTICO NACIONAL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "INSTITUTO DO PATRIMONIO HISTORICO E ARTISTICO"
+      ],
+      "contratacoes": 11
+    },
+    {
+      "cnpj": "01678363000143",
+      "razaoSocial": "INSTITUTO NACIONAL DE ESTUDOS E PESQUISAS EDUCACIONAIS ANISIO TEIXEIRA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "MEC/INEP/INST.NAC.DE EST.E PESQ.EDUCAC./DF"
+      ],
+      "contratacoes": 11
+    },
+    {
+      "cnpj": "03659166001931",
+      "razaoSocial": "INSTITUTO BRASILEIRO DO MEIO AMBIENTE E DOS RECURSOS NATURAIS RENOVAVEIS-IBAMA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "MMA-IBAMA - DEFIN/DF"
+      ],
+      "contratacoes": 11
+    },
+    {
+      "cnpj": "60984473000100",
+      "razaoSocial": "CONSELHO FEDERAL DE FARMACIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE FARMACIA"
+      ],
+      "contratacoes": 10
+    },
+    {
+      "cnpj": "86900545000170",
+      "razaoSocial": "AGENCIA ESPACIAL BRASILEIRA - AEB",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "AGENCIA ESPACIAL BRASILEIRA"
+      ],
+      "contratacoes": 10
+    },
+    {
+      "cnpj": "08302402000152",
+      "razaoSocial": "INSTITUTO DE ASSISTENCIA A SAUDE DOS SERVIDORES DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "INSTITUTO DE ASSISTENCIA A SAUDE DOS SER.DF"
+      ],
+      "contratacoes": 10
+    },
+    {
+      "cnpj": "04527335000113",
+      "razaoSocial": "EMPRESA GESTORA DE ATIVOS S.A. - EMGEA",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EMPRESA GESTORA DE ATIVOS - EMGEA - DF"
+      ],
+      "contratacoes": 10
+    },
+    {
+      "cnpj": "00000208000100",
+      "razaoSocial": "BRB BANCO DE BRASILIA SA",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Diretoria Executiva de Operações"
+      ],
+      "contratacoes": 10
+    },
+    {
+      "cnpj": "11439520000111",
+      "razaoSocial": "CONSELHO NACIONAL DO MINISTÉRIO PÚBLICO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO NACIONAL DO MINISTERIO PUBLICO"
+      ],
+      "contratacoes": 10
+    },
+    {
+      "cnpj": "00418993000116",
+      "razaoSocial": "CONSELHO ADMINISTRATIVO DE DEFESA ECONOMICA-CADE",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO ADMINISTRATIVO DE DEFESA ECONOMICA"
+      ],
+      "contratacoes": 10
+    },
+    {
+      "cnpj": "33839275000172",
+      "razaoSocial": "CONSELHO FEDERAL DE QUIMICA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE QUIMICA"
+      ],
+      "contratacoes": 10
+    },
+    {
+      "cnpj": "02977827000185",
+      "razaoSocial": "SECRETARIA DE ESTADO DO ESPORTE E LAZER DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF - SECRETARIA DE ESTADO DE ESPORTE DO DF"
+      ],
+      "contratacoes": 9
+    },
+    {
+      "cnpj": "37115342000167",
+      "razaoSocial": "MINISTERIO DOS TRANSPORTES",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COORDENAÇÃO-GERAL DE RECURSOS LOGÍSTICOS"
+      ],
+      "contratacoes": 9
+    },
+    {
+      "cnpj": "23612685000122",
+      "razaoSocial": "MINISTERIO DO TRABALHO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COORDENAÇÃO GERAL DE REC. LOGISTICOS - MTPS"
+      ],
+      "contratacoes": 9
+    },
+    {
+      "cnpj": "26664015000148",
+      "razaoSocial": "CONTROLADORIA-GERAL DA UNIAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COORD. GERAL, DE LIC. CONT. E DOC/DGI/SE/CGU"
+      ],
+      "contratacoes": 9
+    },
+    {
+      "cnpj": "03204421000122",
+      "razaoSocial": "INST. NAC. COLON. REFORMA AGRARIA - INCRA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SUPERINT. REG. DO DISTRITO FED. E ENTORNO DF",
+        "INCRA-SEDE/DF"
+      ],
+      "contratacoes": 9
+    },
+    {
+      "cnpj": "27136980000100",
+      "razaoSocial": "MINISTERIO DA MULHER, DA FAMILIA E DOS DIREITOS HUMANOS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COORDENAÇÃO-GERAL DE LOGÍSTICA DO MDH"
+      ],
+      "contratacoes": 9
+    },
+    {
+      "cnpj": "61919643000209",
+      "razaoSocial": "CONSELHO FEDERAL DE ODONTOLOGIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE ODONTOLOGIA"
+      ],
+      "contratacoes": 9
+    },
+    {
+      "cnpj": "00438200000120",
+      "razaoSocial": "SERVICO DE APOIO AS MICRO E PEQUENAS EMPRESAS DO DF",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SERVIÇO APOIO A MICROS E PEQUENAS EMPRESAS-DF"
+      ],
+      "contratacoes": 9
+    },
+    {
+      "cnpj": "00394460005887",
+      "razaoSocial": "MINISTERIO DA ECONOMIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Superintendência Regional da Receita Federal do Brasil da 1ª Região Fiscal"
+      ],
+      "contratacoes": 8
+    },
+    {
+      "cnpj": "23791169000102",
+      "razaoSocial": "CONSORCIO INTERESTADUAL DE DESENVOLVIMENTO DO BRASIL CENTRAL",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSORCIO INTER DESEN BRASIL CENTRAL"
+      ],
+      "contratacoes": 8
+    },
+    {
+      "cnpj": "33758053000125",
+      "razaoSocial": "CONSELHO FEDERAL DE ECONOMIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE ECONOMIA/DF"
+      ],
+      "contratacoes": 8
+    },
+    {
+      "cnpj": "42357483000126",
+      "razaoSocial": "COMPANHIA BRASILEIRA DE TRENS URBANOS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COMPANHIA BRASILEIRA DE TRENS URBANOS"
+      ],
+      "contratacoes": 8
+    },
+    {
+      "cnpj": "12219624000183",
+      "razaoSocial": "DEFENSORIA PUBLICA DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "DEFENSORIA PÚBLICA DO DISTRITO FEDERAL"
+      ],
+      "contratacoes": 8
+    },
+    {
+      "cnpj": "09168704000142",
+      "razaoSocial": "EMPRESA BRASIL DE COMUNICAÇÃO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EMPRESA BRASIL DE COMUNICAÇÃO"
+      ],
+      "contratacoes": 8
+    },
+    {
+      "cnpj": "37309919000171",
+      "razaoSocial": "SECRETARIA DE ESTADO DE ADMINISTRACAO PENITENCIARIA DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SECRETARIA DE EST.DE ADMINIST.PENITENCIÁRIA"
+      ],
+      "contratacoes": 8
+    },
+    {
+      "cnpj": "00720532000101",
+      "razaoSocial": "CONSELHO FEDERAL DE BIOLOGIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE BIOLOGIA"
+      ],
+      "contratacoes": 7
+    },
+    {
+      "cnpj": "00497552002796",
+      "razaoSocial": "AUDITORIAS DA JUSTICA MILITAR",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "J",
+      "poder": "Judiciario",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "DIRETORIA DO FORO DA 11ª CJM"
+      ],
+      "contratacoes": 7
+    },
+    {
+      "cnpj": "37115532000184",
+      "razaoSocial": "CONSELHO REGIONAL DE PSICOLOGIA DO DISTRITO FEDERAL - CRP 01",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REGIONAL DE PSICOLOGIA/1ª REGIAO/DF"
+      ],
+      "contratacoes": 7
+    },
+    {
+      "cnpj": "32901688000177",
+      "razaoSocial": "FUNDACAO CULTURAL PALMARES",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "MINC-FCP-FUNDACAO CULTURAL PALMARES/DF"
+      ],
+      "contratacoes": 7
+    },
+    {
+      "cnpj": "00314310000180",
+      "razaoSocial": "CENTRAIS DE ABASTECIMENTO DO DISTRITO FEDERAL S A",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CENTRAIS DE ABASTECIMENTO DO DISTRITO FEDERAL"
+      ],
+      "contratacoes": 7
+    },
+    {
+      "cnpj": "09335575000130",
+      "razaoSocial": "Companhia de Desenvolvimento Habitacional do Distrito Federal",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Companhia de Desenvolvimento Habitacional do Distrito Federal",
+        "EDF - COMPANHIA HABITACIONAL DO DF"
+      ],
+      "contratacoes": 7
+    },
+    {
+      "cnpj": "04903587000108",
+      "razaoSocial": "AGENCIA NACIONAL DE TRANSPORTES AQUAVIARIOS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "AGÊNCIA NACIONAL DE TRANSPORTES AQUAVIÁRIOS"
+      ],
+      "contratacoes": 7
+    },
+    {
+      "cnpj": "04204444000108",
+      "razaoSocial": "AGENCIA NACIONAL DE AGUAS E SANEAMENTO BASICO (ANA)",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "AGENCIA NACIONAL DE AGUAS - ANA"
+      ],
+      "contratacoes": 7
+    },
+    {
+      "cnpj": "43913162000123",
+      "razaoSocial": "EMPRESA BRASILEIRA DE PARTICIPACOES EM ENERGIA NUCLEAR E BINACIONAL S.A. - ENBPAR",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-EMPRESA BRAS. DE PART. EM ENER. NUCLEAR"
+      ],
+      "contratacoes": 7
+    },
+    {
+      "cnpj": "00105650000100",
+      "razaoSocial": "CONSELHO REGIONAL DE CORRETORES DE IMOVEIS DA 8 REGIAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REGIONAL DE CORRETORES DE IMOVEIS 8ª"
+      ],
+      "contratacoes": 7
+    },
+    {
+      "cnpj": "08944148000196",
+      "razaoSocial": "CONTROLADORIA GERAL DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-CONTROLADORIA GERAL DO DISTRITO FEDERAL"
+      ],
+      "contratacoes": 6
+    },
+    {
+      "cnpj": "03657392000154",
+      "razaoSocial": "CONSELHO REGIONAL DE TECNICOS EM RADIOLOGIA 1 REGIAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REG. DE TÉCNICOS EM RADIOLOGIA 1°R"
+      ],
+      "contratacoes": 6
+    },
+    {
+      "cnpj": "01264266000104",
+      "razaoSocial": "CONSELHO REGIONAL DE ADMINISTRACAO DO DF",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REGIONAL DE ADMINISTRACAO DO DF"
+      ],
+      "contratacoes": 6
+    },
+    {
+      "cnpj": "03495116000137",
+      "razaoSocial": "CONSELHO REGIONAL DE MEDICINA DO DISTRITO FEDERAL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REGIONAL DE MEDICINA DO D.FEDERAL"
+      ],
+      "contratacoes": 6
+    },
+    {
+      "cnpj": "00697722000147",
+      "razaoSocial": "CONSELHO FEDERAL DE FONOAUDIOLOGIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE FONOAUDIOLOGIA"
+      ],
+      "contratacoes": 6
+    },
+    {
+      "cnpj": "03875295000138",
+      "razaoSocial": "CONSELHO REGIONAL ENFERMAGEM DO DF",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONS. REGIONAL DE ENFERMAGEM DO DF"
+      ],
+      "contratacoes": 6
+    },
+    {
+      "cnpj": "05457283000119",
+      "razaoSocial": "MINISTERIO DO TURISMO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COORDENAÇÃO-GERAL DE RECURSOS LOGÍSTICOS",
+        "SECRET. POLIT. DE TURISMO - SPT/MTUR"
+      ],
+      "contratacoes": 6
+    },
+    {
+      "cnpj": "00304725000173",
+      "razaoSocial": "CONSELHO REGIONAL DE ENGENHARIA E AGRONOMIA DO DISTRITO FEDERAL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REG DE ENGENHARIA E AGRONOMIA DO DF"
+      ],
+      "contratacoes": 6
+    },
+    {
+      "cnpj": "05465986000199",
+      "razaoSocial": "MINISTERIO DAS CIDADES",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COORDENAçãO GERAL DE RECURSOS LOGISTICOS MCID"
+      ],
+      "contratacoes": 6
+    },
+    {
+      "cnpj": "04039532000193",
+      "razaoSocial": "INSTITUTO NACIONAL DE TECNOLOGIA DA INFORMACAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "INSTITUTO NAC. DE TECNOLOGIA DA INFORMAçãO"
+      ],
+      "contratacoes": 6
+    },
+    {
+      "cnpj": "33892175000100",
+      "razaoSocial": "INSTITUTO DE PESQUISA ECONOMICA APLICADA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "IPEA-INSTIT.DE PESQUISA ECONOMICA APLICADA/DF"
+      ],
+      "contratacoes": 6
+    },
+    {
+      "cnpj": "67535043000142",
+      "razaoSocial": "SCG",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Secretaria de Planejamento, Orçamento e Administração do Distrito Federal"
+      ],
+      "contratacoes": 5
+    },
+    {
+      "cnpj": "00662197000124",
+      "razaoSocial": "FUNDACAO ALEXANDRE DE GUSMAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "FUNAG-FUNDACAO ALEXANDRE GUSMAO/DF"
+      ],
+      "contratacoes": 5
+    },
+    {
+      "cnpj": "07290290000102",
+      "razaoSocial": "SUPERINTENDENCIA NACIONAL DE PREVIDENCIA COMPLEMENTAR",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COORDENAçãO GERAL DE PATRIMONIO E LOGISTICA"
+      ],
+      "contratacoes": 5
+    },
+    {
+      "cnpj": "04251080000109",
+      "razaoSocial": "SECRETARIA DE ESTADO DE DESENVOLVIMENTO SOCIAL DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SECRETARIA DE ESTADO DE DESEN. SOCIAL DO DF"
+      ],
+      "contratacoes": 5
+    },
+    {
+      "cnpj": "13802028000194",
+      "razaoSocial": "SUPERINTENDENCIA DO DESENVOLVIMENTO DO CENTRO-OESTE",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SUPERINTEND. DO DESENVOL. DO CENTRO-OESTE"
+      ],
+      "contratacoes": 5
+    },
+    {
+      "cnpj": "00037127000185",
+      "razaoSocial": "SOCIEDADE DE TRANSPORTES COLETIVOS DE BRASILIA LTDA",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-SOCIEDDADE TRANSP. COLETIVO DE BRASILIA"
+      ],
+      "contratacoes": 5
+    },
+    {
+      "cnpj": "62658737000153",
+      "razaoSocial": "CONSELHO FEDERAL DE CORRETORES DE IMOVEIS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE CORRETORES DE IMOVEIS/DF"
+      ],
+      "contratacoes": 5
+    },
+    {
+      "cnpj": "02342553000158",
+      "razaoSocial": "SECRETARIA DE ESTADO DE DESENVOLVIMENTO URBANO E HABITACAO DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Secretaria de Estado de Desenvolvimento Urbano e Habitação do Distrito Federal",
+        "SECRETARIA DE EST DE DESEN URBANO E HABITAÇÃO"
+      ],
+      "contratacoes": 5
+    },
+    {
+      "cnpj": "01612452000197",
+      "razaoSocial": "MINISTERIO DO DESENVOLVIMENTO AGRARIO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "MIN. DESENV. AGRARIO-ADMINISTRACAO DIRETA"
+      ],
+      "contratacoes": 5
+    },
+    {
+      "cnpj": "09639459000104",
+      "razaoSocial": "CASA CIVIL DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF - CASA CIVIL DO DISTRITO FEDERAL"
+      ],
+      "contratacoes": 4
+    },
+    {
+      "cnpj": "10203387000137",
+      "razaoSocial": "INSTITUTO DE PREVIDENCIA DOS SERVIDORES DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF - INSTITUTO DE PREVIDÊNCIA DOS SERVIDORES"
+      ],
+      "contratacoes": 4
+    },
+    {
+      "cnpj": "33654831000136",
+      "razaoSocial": "CONSELHO NACIONAL DE DESENVOLVIMENTO CIENTIFICO E TECNOLOGICO-CNPQ",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CNPQ - ADMINISTRACAO CENTRAL"
+      ],
+      "contratacoes": 4
+    },
+    {
+      "cnpj": "00394726000156",
+      "razaoSocial": "SECRETARIA DE ESTADO DE TRANSPORTE E MOBILIDADE DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-SECRETARIA EST.DE TRANSPORTE E MOBILIDADE"
+      ],
+      "contratacoes": 4
+    },
+    {
+      "cnpj": "26444059000162",
+      "razaoSocial": "SECRETARIA DE ESTADO DO MEIO AMBIENTE",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SECRETARIA EST.MEIO AMBIENTE PROTEÇÃO ANIMAL"
+      ],
+      "contratacoes": 4
+    },
+    {
+      "cnpj": "02537782000128",
+      "razaoSocial": "FUNDACAO JARDIM ZOOLOGICO DE BRASILIA",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "FUNDAÇÃO JARDIM ZOOLÓGICO DE BRASILIA - DF"
+      ],
+      "contratacoes": 4
+    },
+    {
+      "cnpj": "03635323000140",
+      "razaoSocial": "CONSELHO NACIONAL DE TECNICOS EM RADIOLOGIA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO NACIONAL DE TEC.EM RADIOLOGIA/DF"
+      ],
+      "contratacoes": 4
+    },
+    {
+      "cnpj": "00889834000108",
+      "razaoSocial": "FUND COORD DE APERFEICOAMENTO DE PESSOAL DE NIVEL SUP",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "MEC-FUCAPES-FUND.COORD.DE AP.NIV.SUPERIOR/DF"
+      ],
+      "contratacoes": 4
+    },
+    {
+      "cnpj": "33781055000135",
+      "razaoSocial": "FUNDACAO OSWALDO CRUZ",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "FUNDAÇÃO OSWALDO CRUZ"
+      ],
+      "contratacoes": 4
+    },
+    {
+      "cnpj": "35438630000127",
+      "razaoSocial": "CFTA CONSELHO FEDERAL DOS TECNICOS AGRICOLAS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DOS TÉCNICOS AGRÍCOLAS"
+      ],
+      "contratacoes": 4
+    },
+    {
+      "cnpj": "35842428000166",
+      "razaoSocial": "EMBRATUR - AGENCIA BRASILEIRA DE PROMOCAO INTERNACIONAL DO TURISMO",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF - AGÊNCIA BRAS.DE PROM.INTERNAC.TURISMO"
+      ],
+      "contratacoes": 4
+    },
+    {
+      "cnpj": "42150664000187",
+      "razaoSocial": "VALEC-ENGENHARIA, CONSTRUCOES E FERROVIAS S/A",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "VALEC-ENGENHARIA,CONSTRUCOES E FERROVIAS S/A"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "27507884000121",
+      "razaoSocial": "SECRETARIA DE ESTADO DE COMUNICACAO DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SECRETARIA DE ESTADO DE COMUNICAÇÃO - DF"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "05589348000180",
+      "razaoSocial": "SECRETARIA DE ESTADO DE TURISMO DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SECRETARIA DE ESTADO DE TURISMO DO DF"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "00094821000134",
+      "razaoSocial": "CONSELHO REGIONAL DE FARMACIA DO DISTRITO FEDERAL CRF DF",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REG. DE FARMÁCIA DO DISTRITO FEDERAL"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "18299670000116",
+      "razaoSocial": "SECRETARIA DA MICRO E PEQUENA EMPRESA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CENTRO DE SERVIÇOS COMPARTILHADOS - MEMP"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "05482692000175",
+      "razaoSocial": "MINISTERIO DA PESCA E AQUICULTURA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "GABINETE DO MINISTRO"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "00059311000126",
+      "razaoSocial": "FUNDACAO NACIONAL DO INDIO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "DIRETORIA DE ADMINISTRAÇÃO E GESTÃO - FUNAI"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "17312597000102",
+      "razaoSocial": "FUND.DE PREVID.COMPL.SERV.PUB.FED.PODER EXEC.",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "FUND.DE PREVID.COMPL.SERV.PUB.FED.PODER EXEC."
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "03677113000114",
+      "razaoSocial": "CONSELHO REGIONAL DE EDUCACAO FISICA - CREF 7",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REGIONAL DE EDUCAÇÃO FÍSICA"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "15931682000123",
+      "razaoSocial": "ADMINISTRACAO REGIONAL DE SOBRADINHO",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-ADMINISTRAÇÃO REGIONAL DE SOBRADINHO"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "30871497000184",
+      "razaoSocial": "CONSELHO FEDERAL DOS TECNICOS INDUSTRIAIS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DOS TÉCNICOS INDUSTRIAIS"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "00627612000109",
+      "razaoSocial": "FUNDACAO ESCOLA NACIONAL DE ADMINISTRACAO PUBLICA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "ENAP-ESCOLA NACIONAL DE ADM.PUBLICA/DF"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "24203514000102",
+      "razaoSocial": "AGENCIA NACIONAL DE ASSISTENCIA TECN E EXTENSAO RU",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "ANATER"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "00113035000218",
+      "razaoSocial": "CONSELHO REGIONAL DE CONTABILIDADE DO DISTRITO FEDERAL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REGIONAL DE CONTABILIDADE-DF"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "07187000000191",
+      "razaoSocial": "GABINETE DO VICE-GOVERNADOR",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF - GABINETE DO VICE-GOVERNADOR DO DF"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "11080085000181",
+      "razaoSocial": "ADMINISTRACAO REGIONAL DE VICENTE PIRES - RA XXX",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF - ADMINISTRAÇAO REGIONAL DE VICENTE PIRES"
+      ],
+      "contratacoes": 3
+    },
+    {
+      "cnpj": "08584392000195",
+      "razaoSocial": "GABINETE DO GOVERNADOR DO ESTADO DA BAHIA",
+      "esferaId": "E",
+      "esfera": "Estadual",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "ESCRITÓRIO DE REPRESENTAÇÃO DO GOVERNO EM BRASÍLIA"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "16753091000176",
+      "razaoSocial": "ADMINSTRACAO REGIONAL DO RECANTO DAS EMAS",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-ADMINISTRAÇÃO REGION. DO RECANTO DAS EMAS"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "06304274000150",
+      "razaoSocial": "ADMINISTRACAO REGIONAL DE SOBRADINHO II - RA XXVI",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-ADMINISTRAÇÃO REGIONAL DE SOBRADINHO II"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "00489828002794",
+      "razaoSocial": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Contrata+Brasil"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "06165937000101",
+      "razaoSocial": "CONSELHO REGIONAL DE MEDICINA VETERINARIA DO DF",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REGIONAL DE MEDICINA VETERINARIA DF"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "16730568000106",
+      "razaoSocial": "ADMINISTRACAO REGIONAL DE CANDANGOLANDIA",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-ADMINISTRAÇÃO REGIONAL DA CANDANGOLÂNDIA"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "00331165000146",
+      "razaoSocial": "CONSELHO REGIONAL REPRESENTANTES COMERCIAIS DO D.F",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REG. DOS REPRES. COMERCIAIS DO DF"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "00579987000140",
+      "razaoSocial": "CONSELHO FEDERAL DE NUTRICIONISTAS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO FEDERAL DE NUTRICIONISTAS"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "33787094000140",
+      "razaoSocial": "FUNDACAO INSTIT BRAS DE GEOGRAFIA E ESTATISTICA IBGE",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "UNIDADE ESTADUAL DO IBGE NO DISTRITO FEDERAL"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "33733453000186",
+      "razaoSocial": "CONSORCIO INTERESTADUAL DE DESENVOLVIMENTO SUSTENTAVEL DA AMAZONIA LEGAL",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSÓRCIO INTER.DO DESENV.DA AMAZÔNIA LEGAL"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "00084749000164",
+      "razaoSocial": "CONSELHO REGIONAL DE ODONTOLOGIA DO DISTRITO FEDERAL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REGIONAL DE ODONTOLOGIA DO DF"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "03589068000146",
+      "razaoSocial": "AGENCIA NACIONAL DE SAUDE SUPLEMENTAR",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "ANS - ESCRITORIO DE REPRESENTAÇÃO BRASILIA DF"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "28878224000110",
+      "razaoSocial": "ASSOCIACAO DOS AMIGOS E PAIS DA MOVEON",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "APEMOV"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "04312401000138",
+      "razaoSocial": "SECRETARIA DE ESTADO DE JUSTICA, DIREITOS HUMANOS E CIDADANIA",
+      "esferaId": "E",
+      "esfera": "Estadual",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SECRETARIA DE ESTADO DE JUSTICA E CIDADANIA"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "01409580000138",
+      "razaoSocial": "ESTADO DE GOIAS",
+      "esferaId": "E",
+      "esfera": "Estadual",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SECRETARIA DE ESTADO DO ENTORNO DO DISTRITO FEDERAL"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "32489209000157",
+      "razaoSocial": "CONSELHO REGIONAL DOS TECNICOS INDUSTRIAIS DA PRIMEIRA REGIAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REGIONAL DOS TÉCNICOS INDUSTRIAIS 1A"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "52391703000191",
+      "razaoSocial": "CONSELHO FEDERAL DE BIOMEDICINA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Unidade Única"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "08915353000123",
+      "razaoSocial": "INSTITUTO DO MEIO AMBIENTE E DOS RECURSOS HIDRICOS DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Instituto do Meio Ambiente e dos Recursos Hídricos do Distrito Federal - Brasília Ambiental",
+        "INSTITUTO DO MEIO AMBIENTE E DOS R H D - DF"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "03507415003917",
+      "razaoSocial": "ESTADO DE MATO GROSSO",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "ESCRITÓRIO DE REPRESENTAÇÃO DO ESTADO DE MATO GROSSO EM BRASÍLIA/DF"
+      ],
+      "contratacoes": 2
+    },
+    {
+      "cnpj": "10898596000142",
+      "razaoSocial": "INSTITUTO BRASILEIRO DE MUSEUS - IBRAM",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "INSTITUTO BRASILEIRO DE MUSEUS/DF"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "49582441000138",
+      "razaoSocial": "MINISTERIO DE PORTOS E AEROPORTOS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SECRETARIA EXECUTIVA"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "04287092000193",
+      "razaoSocial": "FUNDACAO DE ENSINO E PESQUISA EM CIENCIAS DA SAUDE",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF - FUNDAÇÃO DE ENS. PES. CIENCIAS DA SAÚDE"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "02973091000177",
+      "razaoSocial": "DEPARTAMENTO DE GESTAO INTERNA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "AUTORIDADE BRASILEIRA DE CONTROLE DE DOPAGEM"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "19462211000174",
+      "razaoSocial": "SECRETARIA DE ESTADO DE RELACOES FEDERATIVAS E INTERNACIONAIS",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SECRETARIA DE ESTADO DE RELAÃ‡Ã•ES FEDERATIVAS E INTERNACIONAIS"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "32795877000102",
+      "razaoSocial": "SECRETARIA DE ESTADO DE ATENDIMENTO A COMUNIDADE DO DISTRITO FEDERAL",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SERETARIA DE EST.DE ATEND.A COMUN.DO DIST.FED"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "05750487000143",
+      "razaoSocial": "ADMINISTRACAO REGIONAL DE AGUAS CLARAS",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-ADMINISTRAÇÃO REGIONAL DE ÁGUAS CLARAS"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "43061297000108",
+      "razaoSocial": "Universidade do Distrito Federal Professor Jorge Amauri Maya Nunes",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Universidade do Distrito Federal Professor Jorge Amauri Maya Nunes"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "74133323000190",
+      "razaoSocial": "FUNDACAO DE APOIO A PESQUISA DO DISTRITO FEDERAL FAPDF",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-FUNDAÇÃO A. PESQUISA DO DISTRITO FEDERAL"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "14981648000109",
+      "razaoSocial": "CONSELHO DE ARQUITETURA E URBANISMO DO DISTRITO FEDERAL",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO DE ARQUITETURA E URBANISMO DO DF"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "00394577000206",
+      "razaoSocial": "ESTADO DO AMAPA",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EAP-SECRETARIA E. DE REPRE. G. AP EM BRASILIA"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "07200966000111",
+      "razaoSocial": "ABDI",
+      "esferaId": "M",
+      "esfera": "Municipal",
+      "poderId": "L",
+      "poder": "Legislativo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "ABDI"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "08685528000153",
+      "razaoSocial": "SECRETARIA DE ESTADO DE JUSTICA E CIDADANIA",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Secretaria de Estado de Justiça e Cidadania do Distrito Federal"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "22168896000155",
+      "razaoSocial": " BVEC-BRASILIA VOLEI ESPORTE CLUBE/DF",
+      "esferaId": "M",
+      "esfera": "Municipal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        " BVEC-BRASILIA VOLEI ESPORTE CLUBE/DF"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "49203278000155",
+      "razaoSocial": "MINISTERIO DO PLANEJAMENTO E ORCAMENTO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "MINISTERIO DO PLANEJAMENTO E ORÇAMENTO"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "00018978000180",
+      "razaoSocial": "IATE CLUBE DE BRASILIA",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Iate Clube de Brasília"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "00040840000188",
+      "razaoSocial": "CLUBE SOCIAL DA UNIDADE DE VIZINHANCA N 1",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Clube Social da Unidade de Vizinhança N°1"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "44365866000171",
+      "razaoSocial": "AUTORIDADE NACIONAL DE PROTEÇÃO DE DADOS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "AUTORIDADE NACIONAL DE PROTEÇÃO DE DADOS"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "49381076000101",
+      "razaoSocial": "MINISTERIO DA PESCA E AQUICULTURA",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "SUBSECRETARIA DE GESTÃO E ADMINISTRAÇÃO"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "11063538000161",
+      "razaoSocial": "ASSOCIAÇÃO ESPORTIVA E RECREATIVA CERRADO/DF",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "ASSOCIAÇÃO ESPORTIVA E RECREATIVA CERRADO/DF"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "00581009000133",
+      "razaoSocial": "CONSELHO REGIONAL DE NUTRICIONISTAS 1 REGIAO",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "CONSELHO REGIONAL DE NUTRICIONISTAS/1A REGIAO"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "05510958000146",
+      "razaoSocial": "SECRETARIA DE POLITICAS PARA AS MULHERES",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "MINISTÉRIO DAS MULHERES"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "03087543000186",
+      "razaoSocial": "SERVICO NACIONAL DE APREDIZAGEM DO COOPERATIVISMO",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Sescoop/DF - Serviço Nacional de Aprendizagem do Cooperativismo - DISTRITO FEDERAL"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "52029355000107",
+      "razaoSocial": "ADMINISTRACAO REGIONAL DE AGUA QUENTE",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-ADMINISTRAÇÃO REGIONAL DE AGUA QUENTE"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "01718980000125",
+      "razaoSocial": "ADMINISTRACAO REGIONAL DE SAMAMBAIA",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-ADMINISTRAÇAO REGIONAL DE SAMAMBAIA"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "00091652000189",
+      "razaoSocial": "COMPANHIA DE PESQUISA DE RECURSOS MINERAIS",
+      "esferaId": "F",
+      "esfera": "Federal",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "COMPANHIA DE PESQUISA DE RECURSOS MINERAIS"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "32169883000154",
+      "razaoSocial": "FUNDACAO DE PREVIDENCIA COMPLEMENTAR DOS SERVIDORES DO DISTRITO FEDERAL - DF-PREVICOM",
+      "esferaId": "N",
+      "esfera": "N",
+      "poderId": "N",
+      "poder": "N",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-FUNDAÇÃO PREV.COMPLEMENTAR DOS SERVIDORES"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "05727381000129",
+      "razaoSocial": "ADMINISTRACAO REGIONAL DO SUDOESTE/OCTOGONAL - RA XXII",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "Administração Regional do Sudoeste/Octogonal"
+      ],
+      "contratacoes": 1
+    },
+    {
+      "cnpj": "07344402000152",
+      "razaoSocial": "ADMINISTRACAO REGIONAL DO ITAPOA - RA XXVIII",
+      "esferaId": "D",
+      "esfera": "Distrital",
+      "poderId": "E",
+      "poder": "Executivo",
+      "ufs": [
+        "DF"
+      ],
+      "municipios": [
+        "Brasília"
+      ],
+      "unidades": [
+        "EDF-ADMINISTRAÇAO REGIONAL DO ITAPOÃ"
+      ],
+      "contratacoes": 1
+    }
+  ]
+}
