@@ -48,11 +48,8 @@
 
       <!-- Navigation -->
       <nav class="hidden md:flex items-center gap-6 text-xs font-medium text-slate-300 font-mono-code">
-        <a href="#mcp-pncp" class="hover:text-emerald-400 transition flex items-center gap-1.5">
-          <span class="text-emerald-400">⚡</span> MCP PNCP
-        </a>
-        <a href="#config-generator" class="hover:text-cyan-400 transition flex items-center gap-1.5">
-          <span class="text-cyan-400">⚙️</span> Config Claude
+        <a href="#mcp-pncp" class="hover:text-cyan-400 transition flex items-center gap-1.5">
+          <span class="text-cyan-400">⚙️</span> MCP-Config
         </a>
         <a href="../projetos/pncp/vencendo/" class="hover:text-purple-400 transition flex items-center gap-1.5">
           <span class="text-purple-400">📊</span> Dashboard TIC
@@ -106,330 +103,82 @@
 
       <!-- Action Buttons -->
       <div class="flex flex-wrap items-center gap-3 pt-2">
-        <a href="#mcp-pncp" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold text-xs sm:text-sm font-mono-code transition shadow-[0_0_25px_rgba(16,185,129,0.35)] flex items-center gap-2">
-          <span>⚡</span> Explorar MCP PNCP
+        <a href="#mcp-pncp" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-xs sm:text-sm font-mono-code transition shadow-[0_0_25px_rgba(6,182,212,0.35)] flex items-center gap-2">
+          <span>⚙️</span> Configurar MCP
         </a>
-        <a href="#config-generator" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-cyan-500/40 hover:border-cyan-400 font-semibold text-xs sm:text-sm font-mono-code transition flex items-center gap-2">
-          <span>⚙️</span> Gerar Configuração Claude
+        <a href="../projetos/pncp/vencendo/" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs sm:text-sm font-mono-code transition shadow-[0_0_25px_rgba(139,92,246,0.35)] flex items-center gap-2">
+          <span>📊</span> Abrir Dashboard
         </a>
-        <a href="../projetos/pncp/vencendo/" class="px-5 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-medium text-xs sm:text-sm font-mono-code transition flex items-center gap-2">
-          <span>📊</span> Painel Web PNCP
-        </a>
-      </div>
-
-      <!-- INTERACTIVE TERMINAL SIMULATOR (CLAUDE & MCP HANDSHAKE) -->
-      <div class="rounded-2xl border border-emerald-500/30 bg-[#070b12] overflow-hidden shadow-2xl glow-emerald">
-        
-        <!-- Terminal Window Titlebar -->
-        <div class="flex items-center justify-between px-4 py-3 bg-[#0a101b] border-b border-slate-800">
-          <div class="flex items-center gap-2">
-            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-            <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-            <span class="text-slate-400 text-xs font-mono-code ml-2">claude-desktop-session ~ mcp://pncp-server (stdio)</span>
-          </div>
-          <div class="flex items-center gap-2 text-[11px] font-mono-code text-slate-400">
-            <span class="text-emerald-400">● FAST_MCP RUNNING</span>
-          </div>
-        </div>
-
-        <!-- Simulator Prompts Bar -->
-        <div class="p-3 bg-[#0c1422] border-b border-slate-800/80 flex items-center gap-2 overflow-x-auto text-xs font-mono-code">
-          <span class="text-slate-400 shrink-0">Testar Cenário:</span>
-          <button onclick="runScenario(1)" id="scenario-btn-1" class="scenario-btn px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[11px] hover:bg-emerald-500/30 transition shrink-0">
-            1. Editais TIC no DF (> 1M)
-          </button>
-          <button onclick="runScenario(2)" id="scenario-btn-2" class="scenario-btn px-2.5 py-1 rounded-md bg-slate-800 text-slate-400 border border-slate-700 text-[11px] hover:text-slate-200 transition shrink-0">
-            2. Análise de Contrato Específico
-          </button>
-          <button onclick="runScenario(3)" id="scenario-btn-3" class="scenario-btn px-2.5 py-1 rounded-md bg-slate-800 text-slate-400 border border-slate-700 text-[11px] hover:text-slate-200 transition shrink-0">
-            3. Telemetria de Ativos de Rede
-          </button>
-        </div>
-
-        <!-- Terminal Output Area -->
-        <div class="p-5 sm:p-6 font-mono-code text-xs sm:text-sm space-y-4 max-h-[420px] overflow-y-auto" id="terminal-content">
-          
-          <!-- User Prompt -->
-          <div class="space-y-1">
-            <div class="text-slate-400 flex items-center gap-2">
-              <span class="text-emerald-400 font-bold">USER &gt;</span>
-              <span id="term-user-prompt" class="text-white">"Claude, encontre as contratações recentes de TIC publicadas no DF com valor acima de R$ 1.000.000 e destaque as soluções de nuvem/segurança."</span>
-            </div>
-          </div>
-
-          <!-- MCP Tool Call Dispatch -->
-          <div class="p-3.5 rounded-xl bg-[#09111e] border border-cyan-500/30 space-y-2" id="term-tool-call">
-            <div class="flex items-center justify-between text-[11px] text-cyan-400">
-              <span class="flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                <span>INVOKING MCP TOOL: <strong class="text-white">mcp-server-pncp.buscar_editais_tic</strong></span>
-              </span>
-              <span class="text-slate-400">Protocol: JSON-RPC 2.0</span>
-            </div>
-            <pre class="text-[11px] text-slate-300 bg-[#050912] p-2.5 rounded-lg border border-slate-800 overflow-x-auto leading-relaxed" id="term-payload">{
-  "uf": "DF",
-  "dias": 30,
-  "categoria": "TIC",
-  "valor_minimo": 1000000.0,
-  "filtro_palavras": ["nuvem", "segurança", "backup"]
-}</pre>
-          </div>
-
-          <!-- Claude Synthesized Response -->
-          <div class="space-y-2 border-l-2 border-emerald-500/50 pl-4 py-1 text-slate-300 leading-relaxed text-xs sm:text-sm" id="term-claude-response">
-            <div class="text-emerald-400 font-bold flex items-center gap-2">
-              <span>🤖 CLAUDE WITH PNCP MCP</span>
-              <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">3 Registros Encontrados</span>
-            </div>
-            <p>Consultei a base oficial do PNCP via MCP. Foram identificadas 3 publicações de grande porte no DF:</p>
-            <ul class="space-y-1.5 list-disc list-inside text-slate-200">
-              <li><strong>Ministério da Fazenda:</strong> Aquisição de infraestrutura para nuvem híbrida privada — <span class="text-emerald-400 font-semibold">R$ 14.850.000</span> (Pregão Eletrônico nº 42/2026).</li>
-              <li><strong>Tribunal Regional Federal:</strong> Renovação de subscrição de firewall de borda e detecção de ameaças (EDR/XDR) — <span class="text-emerald-400 font-semibold">R$ 3.200.000</span>.</li>
-              <li><strong>Órgão Federal de Saúde:</strong> Solução corporativa de backup imutável com proteção anti-ransomware — <span class="text-emerald-400 font-semibold">R$ 1.950.000</span>.</li>
-            </ul>
-            <p class="text-slate-400 text-xs mt-2">
-              💡 <em>Todos os contratos foram classificados sob a Lei 14.133/2021 com procedência e links de atas verificados.</em>
-            </p>
-          </div>
-
-        </div>
       </div>
     </section>
 
-    <!-- SECTION: FEATURED MCP SERVER (PNCP NO CLAUDE) -->
+    <!-- SECTION: MCP-CONFIG + DASHBOARD -->
     <section id="mcp-pncp" class="space-y-8 scroll-mt-24">
-      
-      <!-- Section Title -->
+
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-4">
         <div>
           <div class="flex items-center gap-2 text-xs font-mono-code text-emerald-400 uppercase tracking-wider mb-1">
-            <span>[NÓ PRINCIPAL]</span> <span>FastMCP / Python 3.12</span>
+            <span>[NÓ PRINCIPAL]</span> <span>mcp-server-pncp</span>
           </div>
           <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            mcp-server-pncp
+            MCP PNCP
           </h2>
           <p class="text-sm text-slate-400 mt-1 max-w-2xl">
-            Servidor MCP especializado em inteligência de contratações públicas de Tecnologia da Informação e Comunicação (TIC).
+            Servidor MCP que dá ao Claude acesso direto a contratos de TIC com vencimento próximo no PNCP.
           </p>
         </div>
-        <div class="flex items-center gap-2">
-          <span class="px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono-code text-emerald-300">
-            Status: Produção
-          </span>
-          <span class="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono-code text-cyan-300">
-            FastMCP Protocol
-          </span>
-        </div>
+        <span class="px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono-code text-emerald-300 shrink-0">
+          Status: Produção
+        </span>
       </div>
 
-      <!-- Architecture Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        
-        <!-- Feature 1 -->
-        <div class="p-6 rounded-2xl bg-[#090e17] border border-slate-800 hover:border-emerald-500/40 transition space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-lg">
-            🏛️
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Rectangle 1: MCP-CONFIG -->
+        <div class="p-6 sm:p-8 rounded-2xl border border-cyan-500/30 bg-[#080d16] space-y-5">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-lg">⚙️</span>
+            <h3 class="text-lg font-bold text-white font-mono-code">MCP-CONFIG</h3>
           </div>
-          <h3 class="text-base font-bold text-white">Coleta & Filtro PNCP</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Consome diretamente a API de dados abertos do Portal Nacional de Contratações Públicas, filtrando e estruturando órgãos federais e estaduais sem expor chaves ou portas.
+          <p class="text-xs text-slate-400">Passo a passo até colocar em produção no seu cliente de IA.</p>
+          <ol class="space-y-3 text-xs text-slate-300">
+            <li class="flex gap-2">
+              <span class="text-cyan-400 font-mono-code font-bold shrink-0">1.</span>
+              <code class="text-cyan-300 font-mono-code break-all">git clone https://github.com/itibere/mcp-server-site.git</code>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-cyan-400 font-mono-code font-bold shrink-0">2.</span>
+              <code class="text-cyan-300 font-mono-code break-all">pip install mcp requests</code>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-cyan-400 font-mono-code font-bold shrink-0">3.</span>
+              <span>copie <code class="text-cyan-300 font-mono-code">pncp-tic/claude_desktop_config.example.json</code> pro config do seu cliente, ajustando o caminho absoluto pro <code class="text-cyan-300 font-mono-code">mcp_server.py</code></span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-cyan-400 font-mono-code font-bold shrink-0">4.</span>
+              <span>reinicie o cliente — pergunte sobre contratos de TIC vencendo</span>
+            </li>
+          </ol>
+          <a href="https://github.com/itibere/mcp-server-site/tree/main/pncp-tic" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-600/20 hover:bg-cyan-600/40 text-cyan-300 border border-cyan-500/40 text-xs font-mono-code font-semibold transition">
+            Ver instruções completas →
+          </a>
+        </div>
+
+        <!-- Rectangle 2: Dashboard -->
+        <div class="p-6 sm:p-8 rounded-2xl border border-purple-500/30 bg-gradient-to-br from-[#0a0e1a] via-[#0d1424] to-[#120f26] space-y-5 relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 w-56 h-56 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="flex items-center gap-3 relative z-10">
+            <span class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-lg">📊</span>
+            <h3 class="text-lg font-bold text-white font-mono-code">Dashboard</h3>
+          </div>
+          <p class="text-xs text-slate-300 relative z-10">
+            Resultados alcançados pelo MCP-PNCP: contratos de TIC com vencimento em 6-12 meses, coletados e classificados automaticamente pelo pipeline.
           </p>
-          <div class="pt-2 text-[11px] font-mono-code text-slate-500">
-            Filtro: Lei 14.133/2021 + CatSer TIC
-          </div>
+          <a href="../projetos/pncp/vencendo/" class="relative z-10 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs font-mono-code transition shadow-[0_0_20px_rgba(139,92,246,0.35)]">
+            Abrir Dashboard →
+          </a>
         </div>
 
-        <!-- Feature 2 -->
-        <div class="p-6 rounded-2xl bg-[#090e17] border border-slate-800 hover:border-cyan-500/40 transition space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-lg">
-            🧠
-          </div>
-          <h3 class="text-base font-bold text-white">Análise Semântica por IA</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Permite ao Claude classificar se uma compra é renovação provável de 60 meses, nova licitação competitiva ou ata de registro de preços disponível para adesão.
-          </p>
-          <div class="pt-2 text-[11px] font-mono-code text-slate-500">
-            Output: JSON estruturado + Markdown
-          </div>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="p-6 rounded-2xl bg-[#090e17] border border-slate-800 hover:border-purple-500/40 transition space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-lg">
-            📊
-          </div>
-          <h3 class="text-base font-bold text-white">Alimentação do Dashboard</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Gera automaticamente o dataset unificado (<code class="text-purple-300 text-[11px]">dados.json</code>) que alimenta o painel interativo web com gráficos SVG nativos.
-          </p>
-          <div class="pt-2 text-[11px] font-mono-code text-slate-500">
-            Zero dependências no frontend
-          </div>
-        </div>
-
-      </div>
-
-      <!-- TOOLS & SCHEMAS EXPLORER (ACCORDION) -->
-      <div class="rounded-2xl border border-slate-800 bg-[#080d16] p-6 space-y-6">
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-mono-code px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">API DE FERRAMENTAS</span>
-            <h3 class="text-lg font-bold text-white">Ferramentas Expostas ao Claude (Tools)</h3>
-          </div>
-          <p class="text-xs text-slate-400 mt-1">
-            Qualquer cliente compatível com MCP tem acesso imediato às seguintes funções do servidor:
-          </p>
-        </div>
-
-        <div class="space-y-3">
-          
-          <!-- Tool 1 -->
-          <div class="border border-slate-800 rounded-xl bg-[#0a101b] overflow-hidden">
-            <button onclick="toggleTool(1)" class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-slate-900/60 transition">
-              <div class="flex items-center gap-3">
-                <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 font-mono-code text-xs border border-emerald-800">TOOL</span>
-                <span class="font-mono-code font-bold text-sm text-white">buscar_editais_tic(uf, dias, termo, valor_minimo)</span>
-              </div>
-              <span class="text-slate-400 text-xs font-mono-code" id="tool-icon-1">▼</span>
-            </button>
-            <div class="p-4 border-t border-slate-800/80 space-y-3 text-xs font-mono-code text-slate-300" id="tool-body-1">
-              <p class="text-slate-300 font-sans">
-                Consulta as contratações públicas recentes, filtrando exclusivamente o catálogo de TIC e dispensas eletrônicas.
-              </p>
-              <div class="p-3 bg-[#050912] rounded-lg border border-slate-800 space-y-1 text-[11px]">
-                <div class="text-slate-500 uppercase tracking-wider font-semibold">Parâmetros aceitos:</div>
-                <div class="text-cyan-300">uf: <span class="text-slate-400">string (ex: "DF", "SP", "BR")</span></div>
-                <div class="text-cyan-300">dias: <span class="text-slate-400">integer (default: 30, janela de busca)</span></div>
-                <div class="text-cyan-300">termo: <span class="text-slate-400">string opcional (ex: "firewall", "nuvem", "switch")</span></div>
-                <div class="text-cyan-300">valor_minimo: <span class="text-slate-400">float opcional (filtro por corte orçamentário)</span></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tool 2 -->
-          <div class="border border-slate-800 rounded-xl bg-[#0a101b] overflow-hidden">
-            <button onclick="toggleTool(2)" class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-slate-900/60 transition">
-              <div class="flex items-center gap-3">
-                <span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 font-mono-code text-xs border border-cyan-800">TOOL</span>
-                <span class="font-mono-code font-bold text-sm text-white">analisar_contrato_pncp(numero_controle, cnpj)</span>
-              </div>
-              <span class="text-slate-400 text-xs font-mono-code" id="tool-icon-2">▶</span>
-            </button>
-            <div class="p-4 border-t border-slate-800/80 space-y-3 text-xs font-mono-code text-slate-300 hidden" id="tool-body-2">
-              <p class="text-slate-300 font-sans">
-                Extrai o objeto detalhado, itens contratados, modalidade e histórico de prorrogações apoiado no art. 105 da Lei 14.133/2021.
-              </p>
-              <div class="p-3 bg-[#050912] rounded-lg border border-slate-800 space-y-1 text-[11px]">
-                <div class="text-slate-500 uppercase tracking-wider font-semibold">Parâmetros aceitos:</div>
-                <div class="text-cyan-300">numero_controle: <span class="text-slate-400">string (identificador unívoco PNCP)</span></div>
-                <div class="text-cyan-300">cnpj: <span class="text-slate-400">string (CNPJ do órgão comprador)</span></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tool 3 -->
-          <div class="border border-slate-800 rounded-xl bg-[#0a101b] overflow-hidden">
-            <button onclick="toggleTool(3)" class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-slate-900/60 transition">
-              <div class="flex items-center gap-3">
-                <span class="px-2 py-0.5 rounded bg-purple-950 text-purple-400 font-mono-code text-xs border border-purple-800">TOOL</span>
-                <span class="font-mono-code font-bold text-sm text-white">resumo_gastos_orgao(orgao_nome_ou_cnpj, ano)</span>
-              </div>
-              <span class="text-slate-400 text-xs font-mono-code" id="tool-icon-3">▶</span>
-            </button>
-            <div class="p-4 border-t border-slate-800/80 space-y-3 text-xs font-mono-code text-slate-300 hidden" id="tool-body-3">
-              <p class="text-slate-300 font-sans">
-                Gera um panorama consolidado de volume financeiro, quantidade de dispensas e pregões realizados por um órgão específico.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </section>
-
-    <!-- SECTION: ONE-CLICK CONFIG GENERATOR -->
-    <section id="config-generator" class="space-y-6 scroll-mt-24">
-      
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-4">
-        <div>
-          <div class="flex items-center gap-2 text-xs font-mono-code text-cyan-400 uppercase tracking-wider mb-1">
-            <span>[INTEGRAÇÃO RÁPIDA]</span> <span>One-Click Config</span>
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            Configurar nos seus Clientes de IA
-          </h2>
-          <p class="text-sm text-slate-400 mt-1">
-            Selecione o seu cliente preferido para copiar o trecho de configuração pronto para colar.
-          </p>
-        </div>
-      </div>
-
-      <!-- Config Box Container -->
-      <div class="border border-cyan-500/30 rounded-2xl bg-[#080d16] overflow-hidden shadow-xl">
-        
-        <!-- Client Tabs -->
-        <div class="flex items-center gap-1.5 p-3 bg-[#0c1422] border-b border-slate-800 overflow-x-auto">
-          <button onclick="setClientConfig('claude')" id="btn-tab-claude" class="config-tab px-3.5 py-1.5 rounded-lg text-xs font-mono-code font-semibold bg-cyan-600 text-slate-950 transition flex items-center gap-1.5 shrink-0">
-            <span>🤖</span> Claude Desktop
-          </button>
-          <button onclick="setClientConfig('cursor')" id="btn-tab-cursor" class="config-tab px-3.5 py-1.5 rounded-lg text-xs font-mono-code text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
-            <span>🖱️</span> Cursor IDE
-          </button>
-          <button onclick="setClientConfig('antigravity')" id="btn-tab-antigravity" class="config-tab px-3.5 py-1.5 rounded-lg text-xs font-mono-code text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
-            <span>🪐</span> Antigravity / Gemini
-          </button>
-          <button onclick="setClientConfig('uvx')" id="btn-tab-uvx" class="config-tab px-3.5 py-1.5 rounded-lg text-xs font-mono-code text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
-            <span>⚡</span> Terminal UVX / CLI
-          </button>
-        </div>
-
-        <!-- File Path Hint -->
-        <div class="px-5 py-2.5 bg-[#0a101b] border-b border-slate-800/80 flex items-center justify-between text-xs font-mono-code text-slate-400">
-          <span id="config-path-hint">Arquivo: <code class="text-cyan-300">%APPDATA%\Claude\claude_desktop_config.json</code></span>
-          <span class="text-slate-500">JSON Format</span>
-        </div>
-
-        <!-- Code Block with Copy Button -->
-        <div class="relative p-5 bg-[#050912]">
-          <pre class="font-mono-code text-xs sm:text-sm text-cyan-200 leading-relaxed overflow-x-auto selection:bg-cyan-500/30" id="config-code-box">{
-  "mcpServers": {
-    "pncp-server": {
-      "command": "python",
-      "args": ["-m", "scripts.montar", "--serve-mcp", "--uf", "DF"]
-    }
-  }
-}</pre>
-          <button onclick="copySnippet()" id="btn-copy-code" class="absolute top-4 right-4 px-3 py-1.5 rounded-lg bg-cyan-600/20 hover:bg-cyan-600/40 text-cyan-300 border border-cyan-500/40 text-xs font-mono-code font-semibold transition flex items-center gap-1.5">
-            <span>📋</span> <span id="copy-label">Copiar Config</span>
-          </button>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION: PNCP WEB DASHBOARD HIGHLIGHT -->
-    <section class="rounded-2xl border border-purple-500/30 bg-gradient-to-br from-[#0a0e1a] via-[#0d1424] to-[#120f26] p-6 sm:p-10 space-y-6 relative overflow-hidden glow-purple">
-      <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
-        <div class="space-y-2 max-w-2xl">
-          <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-mono-code bg-purple-500/20 text-purple-300 border border-purple-500/30">PAINEL INTERATIVO AO VIVO</span>
-            <span class="text-xs text-slate-400 font-mono-code">dados.json</span>
-          </div>
-          <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
-            Monitor de Contratações de TIC (PNCP)
-          </h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Visualize os dados coletados pelo coletor automatizado: distribuição por faixa de valor, gastos por órgão comprador, volume ao longo do tempo e tabela detalhada de contratações.
-          </p>
-        </div>
-
-        <a href="../projetos/pncp/vencendo/" class="px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs sm:text-sm font-mono-code transition shadow-[0_0_25px_rgba(139,92,246,0.35)] flex items-center gap-2 shrink-0">
-          <span>📊</span> Abrir Dashboard Web →
-        </a>
       </div>
     </section>
 
@@ -575,117 +324,6 @@
 
   <!-- Interactive Scripts -->
   <script>
-    // Scenario Simulator Logic
-    const scenarios = {
-      1: {
-        prompt: '"Claude, encontre as contratações recentes de TIC publicadas no DF com valor acima de R$ 1.000.000 e destaque as soluções de nuvem/segurança."',
-        tool: 'mcp-server-pncp.buscar_editais_tic',
-        payload: '{\n  "uf": "DF",\n  "dias": 30,\n  "categoria": "TIC",\n  "valor_minimo": 1000000.0,\n  "filtro_palavras": ["nuvem", "segurança", "backup"]\n}',
-        response: '<div class="text-emerald-400 font-bold flex items-center gap-2"><span>🤖 CLAUDE WITH PNCP MCP</span><span class="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">3 Registros Encontrados</span></div><p>Consultei a base oficial do PNCP via MCP. Foram identificadas 3 publicações de grande porte no DF:</p><ul class="space-y-1.5 list-disc list-inside text-slate-200"><li><strong>Ministério da Fazenda:</strong> Aquisição de infraestrutura para nuvem híbrida privada — <span class="text-emerald-400 font-semibold">R$ 14.850.000</span> (Pregão Eletrônico nº 42/2026).</li><li><strong>Tribunal Regional Federal:</strong> Renovação de subscrição de firewall de borda e detecção de ameaças (EDR/XDR) — <span class="text-emerald-400 font-semibold">R$ 3.200.000</span>.</li><li><strong>Órgão Federal de Saúde:</strong> Solução corporativa de backup imutável com proteção anti-ransomware — <span class="text-emerald-400 font-semibold">R$ 1.950.000</span>.</li></ul><p class="text-slate-400 text-xs mt-2">💡 <em>Todos os contratos foram classificados sob a Lei 14.133/2021 com procedência e links de atas verificados.</em></p>'
-      },
-      2: {
-        prompt: '"Claude, analise o edital nº 00012/2026 do Ministério da Gestão e Inovação (MGI) e verifique se há itens de sustentação de banco de dados."',
-        tool: 'mcp-server-pncp.analisar_contrato_pncp',
-        payload: '{\n  "numero_controle": "29979036000140-1-000012/2026",\n  "detalhar_itens": true\n}',
-        response: '<div class="text-emerald-400 font-bold flex items-center gap-2"><span>🤖 CLAUDE WITH PNCP MCP</span><span class="text-[10px] px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">Edital MGI Mapeado</span></div><p>Análise do edital <strong>nº 00012/2026 (MGI)</strong> concluída:</p><ul class="space-y-1.5 list-disc list-inside text-slate-200"><li><strong>Objeto:</strong> Prestação de serviços de administração, sustentação e tuning de SGBDs (PostgreSQL, Oracle).</li><li><strong>Valor Estimado:</strong> <span class="text-cyan-400 font-semibold">R$ 8.420.000,00</span> em 24 meses.</li><li><strong>Enquadramento:</strong> Serviço contínuo sob o art. 105 da Lei 14.133/2021 (renovável até 10 anos).</li></ul>'
-      },
-      3: {
-        prompt: '"Claude, verifique o status dos switches de agregação no Zabbix e aponte interfaces com descarte de pacotes."',
-        tool: 'mcp-network-diag.zabbix_trigger_status',
-        payload: '{\n  "hostgroup": "Switches-Core-DF",\n  "min_severity": 3,\n  "check_packet_drops": true\n}',
-        response: '<div class="text-emerald-400 font-bold flex items-center gap-2"><span>🤖 CLAUDE WITH NETWORK MCP</span><span class="text-[10px] px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">Telemetria L2/L3</span></div><p>Diagnóstico de ativos executado via JSON-RPC:</p><ul class="space-y-1.5 list-disc list-inside text-slate-200"><li><strong>Switch-Core-01:</strong> 48 portas 10G operando em 0.00% packet drops. CPU: 12%.</li><li><strong>Switch-Borda-02:</strong> Interface <em>Te1/0/24 (Trunk VLAN 200)</em> com pico de tráfego de 8.2 Gbps (82% de saturação). Nenhuma perda detectada.</li></ul>'
-      }
-    };
-
-    function runScenario(id) {
-      document.querySelectorAll('.scenario-btn').forEach(b => {
-        b.classList.remove('bg-emerald-500/20', 'text-emerald-300', 'border-emerald-500/40');
-        b.classList.add('bg-slate-800', 'text-slate-400', 'border-slate-700');
-      });
-
-      const activeBtn = document.getElementById('scenario-btn-' + id);
-      if (activeBtn) {
-        activeBtn.classList.remove('bg-slate-800', 'text-slate-400', 'border-slate-700');
-        activeBtn.classList.add('bg-emerald-500/20', 'text-emerald-300', 'border-emerald-500/40');
-      }
-
-      const s = scenarios[id];
-      if (s) {
-        document.getElementById('term-user-prompt').textContent = s.prompt;
-        document.getElementById('term-payload').textContent = s.payload;
-        document.getElementById('term-claude-response').innerHTML = s.response;
-      }
-    }
-
-    // Tools Accordion Logic
-    function toggleTool(id) {
-      const body = document.getElementById('tool-body-' + id);
-      const icon = document.getElementById('tool-icon-' + id);
-      if (body.classList.contains('hidden')) {
-        body.classList.remove('hidden');
-        icon.textContent = '▼';
-      } else {
-        body.classList.add('hidden');
-        icon.textContent = '▶';
-      }
-    }
-
-    // Config Generator Logic
-    const configs = {
-      claude: {
-        code: '{\n  "mcpServers": {\n    "pncp-monitor": {\n      "command": "python",\n      "args": ["/caminho/absoluto/para/pncp-tic/mcp_server.py"]\n    }\n  }\n}',
-        hint: 'Arquivo: %APPDATA%\\Claude\\claude_desktop_config.json'
-      },
-      cursor: {
-        code: '{\n  "mcp": {\n    "servers": {\n      "pncp-monitor": {\n        "command": "python",\n        "args": ["/caminho/absoluto/para/pncp-tic/mcp_server.py"]\n      }\n    }\n  }\n}',
-        hint: 'Arquivo: .cursor/mcp.json'
-      },
-      antigravity: {
-        code: 'mcp_servers:\n  pncp-monitor:\n    command: python\n    args: ["/caminho/absoluto/para/pncp-tic/mcp_server.py"]',
-        hint: 'Arquivo: antigravity.config.yaml'
-      },
-      uvx: {
-        code: '# Executar diretamente no terminal\npython pncp-tic/mcp_server.py',
-        hint: 'Execução direta no terminal CLI'
-      }
-    };
-
-    let activeClient = 'claude';
-
-    function setClientConfig(client) {
-      activeClient = client;
-      document.querySelectorAll('.config-tab').forEach(b => {
-        b.classList.remove('bg-cyan-600', 'text-slate-950', 'font-semibold');
-        b.classList.add('text-slate-400');
-      });
-
-      const btn = document.getElementById('btn-tab-' + client);
-      if (btn) {
-        btn.classList.remove('text-slate-400');
-        btn.classList.add('bg-cyan-600', 'text-slate-950', 'font-semibold');
-      }
-
-      if (configs[client]) {
-        document.getElementById('config-code-box').textContent = configs[client].code;
-        document.getElementById('config-path-hint').innerHTML = configs[client].hint;
-      }
-    }
-
-    function copySnippet() {
-      const code = document.getElementById('config-code-box').textContent;
-      navigator.clipboard.writeText(code).then(() => {
-        const label = document.getElementById('copy-label');
-        const btn = document.getElementById('btn-copy-code');
-        const oldText = label.textContent;
-        label.textContent = 'Copiado!';
-        btn.classList.add('bg-emerald-600/40', 'text-emerald-300', 'border-emerald-500/40');
-        setTimeout(() => {
-          label.textContent = oldText;
-          btn.classList.remove('bg-emerald-600/40', 'text-emerald-300', 'border-emerald-500/40');
-        }, 2000);
-      });
-    }
-
     // Dynamic Year
     const anoEl = document.getElementById('ano');
     if (anoEl) anoEl.textContent = new Date().getFullYear();
