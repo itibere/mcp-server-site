@@ -633,19 +633,19 @@
     // Config Generator Logic
     const configs = {
       claude: {
-        code: '{\n  "mcpServers": {\n    "pncp-server": {\n      "command": "python",\n      "args": ["-m", "scripts.montar", "--serve-mcp", "--uf", "DF"]\n    }\n  }\n}',
+        code: '{\n  "mcpServers": {\n    "pncp-monitor": {\n      "command": "python",\n      "args": ["/caminho/absoluto/para/pncp-tic/mcp_server.py"]\n    }\n  }\n}',
         hint: 'Arquivo: %APPDATA%\\Claude\\claude_desktop_config.json'
       },
       cursor: {
-        code: '{\n  "mcp": {\n    "servers": {\n      "pncp-server": {\n        "command": "python",\n        "args": ["-m", "scripts.montar", "--serve-mcp", "--uf", "DF"]\n      }\n    }\n  }\n}',
+        code: '{\n  "mcp": {\n    "servers": {\n      "pncp-monitor": {\n        "command": "python",\n        "args": ["/caminho/absoluto/para/pncp-tic/mcp_server.py"]\n      }\n    }\n  }\n}',
         hint: 'Arquivo: .cursor/mcp.json'
       },
       antigravity: {
-        code: 'mcp_servers:\n  pncp-server:\n    command: python\n    args: ["-m", "scripts.montar", "--serve-mcp", "--uf", "DF"]',
+        code: 'mcp_servers:\n  pncp-monitor:\n    command: python\n    args: ["/caminho/absoluto/para/pncp-tic/mcp_server.py"]',
         hint: 'Arquivo: antigravity.config.yaml'
       },
       uvx: {
-        code: '# Executar diretamente no terminal via uvx / python\npython scripts/coletar_pncp.py --dias 90 --uf DF --debug',
+        code: '# Executar diretamente no terminal\npython pncp-tic/mcp_server.py',
         hint: 'Execução direta no terminal CLI'
       }
     };

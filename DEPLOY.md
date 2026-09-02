@@ -101,22 +101,9 @@ espere — não é erro.
 
 Qualquer mudança é `git push`. O Pages republica em cerca de um minuto.
 
-Para atualizar os dados do painel:
-
-```bash
-./scripts/publicar.sh --dias 90 --uf DF     # coleta real
-./scripts/publicar.sh --exemplo             # volta aos dados sintéticos
-```
-
-Para deixar a coleta agendada na máquina de casa:
-
-```bash
-# ajuste usuário e caminhos dentro do arquivo .service antes
-sudo cp deploy/pncp-dashboard.* /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable --now pncp-dashboard.timer
-systemctl list-timers pncp-dashboard.timer
-```
+Para atualizar os dados do painel, rode o pipeline em `pncp-tic/` (ver
+`pncp-tic/README.md`) e finalize com `scripts/montar_vencendo.py`, depois
+`git push` de `projetos/pncp/vencendo/dados.json`.
 
 ---
 
@@ -128,7 +115,6 @@ Três pontos ficaram com marcador para você trocar:
    no LinkedIn).
 2. `index.html` — a linha de certificações, hoje genérica. Vale nomear as que
    você tem, é o tipo de coisa que recrutador procura.
-3. `deploy/pncp-dashboard.service` — usuário, caminho do repositório e chave SSH.
 
 ---
 
@@ -141,7 +127,7 @@ registros A estão em um nome diferente do apex. Confira com `dig +short`.
 que o DNS resolve. Espere o check passar e marque Enforce HTTPS.
 
 **A página do painel abre vazia.** Ela busca `dados.json` na mesma pasta; confira
-que `projetos/pncp/dados.json` foi versionado e existe no repositório.
+que `projetos/pncp/vencendo/dados.json` foi versionado e existe no repositório.
 
 **O CSS não carrega ao abrir o arquivo com dois cliques.** Os caminhos são
 relativos e funcionam tanto na raiz do domínio quanto em subpasta

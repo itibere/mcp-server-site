@@ -6,47 +6,33 @@ publicado no GitHub Pages sob domínio próprio registrado no registro.br.
 ## Estrutura
 
 ```
-index.html                  home — hub que separa os trabalhos
-assets/style.css            tokens e componentes compartilhados
-assets/dashboard.css        componentes do painel
-assets/dashboard.js         gráficos em SVG puro, sem bibliotecas
-projetos/pncp/index.html    monitor de contratações de TIC
-projetos/pncp/dados.json    dados que o painel lê (gerado, versionado)
-scripts/montar.py           contrato de dados do painel
-scripts/coletar_pncp.py     coletor da API pública do PNCP
-scripts/gerar_exemplo.py    dados sintéticos para o site nascer completo
-scripts/publicar.sh         coleta + commit + push
-deploy/                     unidades systemd para a coleta agendada
-CNAME                       domínio do GitHub Pages
+index.html                       home — hub que separa os trabalhos
+assets/style.css                 tokens e componentes compartilhados
+assets/dashboard.css             componentes do painel
+projetos/pncp/vencendo/          monitor de contratos de TIC vencendo (6-12 meses)
+projetos/pncp/vencendo/dados.json dados que o painel lê (gerado, versionado)
+pncp-tic/                        coletor + validador do pipeline atual (ver pncp-tic/README.md)
+scripts/montar_vencendo.py       transforma o resultado julgado no contrato de dados do painel
+CNAME                             domínio do GitHub Pages
 ```
 
 ## Como o painel se atualiza
 
-O site não roda nada em servidor. Uma máquina doméstica executa o coletor,
-que consulta a API pública do PNCP e escreve `projetos/pncp/dados.json`;
+O site não roda nada em servidor. O pipeline em `pncp-tic/` (coletor via
+`/api/search/` do PNCP + julgamento de classificação TIC) roda localmente e
+`scripts/montar_vencendo.py` escreve `projetos/pncp/vencendo/dados.json`;
 o `git push` desse arquivo é o deploy. A página lê o JSON no navegador e
 calcula os agregados ali mesmo, para que os filtros e os gráficos nunca
-discordem entre si.
-
-```
-máquina de casa  →  dados.json  →  git push  →  GitHub Pages  →  itibere.tec.br
-```
+discordem entre si. Detalhes do pipeline em `pncp-tic/README.md`.
 
 Consequência prática: nenhuma porta aberta, nenhum serviço exposto, nenhum
-token em produção. Se a máquina de casa estiver desligada, o site continua no
-ar com o último dado coletado — e a data da leitura fica visível na página.
+token em produção. O site continua no ar com o último dado coletado — e a
+data da leitura fica visível na página.
 
 ## Rodando localmente
 
 ```bash
-python3 scripts/gerar_exemplo.py     # dados sintéticos
 python3 -m http.server 8000          # http://localhost:8000
-```
-
-Para coletar dados reais:
-
-```bash
-python3 scripts/coletar_pncp.py --dias 90 --uf DF --debug
 ```
 
 ## Decisões que valem registro
