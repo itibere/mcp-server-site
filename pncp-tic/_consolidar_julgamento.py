@@ -1,9 +1,10 @@
 import json
 from pathlib import Path
 
-PASTA_LOTES = Path(r"C:\Users\itibere.paquier\Desktop\Consulta  PNCP\julgamento_lotes")
-ORIGEM = Path(r"C:\Users\itibere.paquier\Desktop\Consulta  PNCP\resultado_tic_df_federal.json")
-SAIDA = Path(r"C:\Users\itibere.paquier\Desktop\Consulta  PNCP\resultado_tic_df_federal_julgado.json")
+RAIZ = Path(__file__).resolve().parent
+PASTA_LOTES = RAIZ / "julgamento_lotes"
+ORIGEM = RAIZ / "resultado_tic_df_federal.json"
+SAIDA = RAIZ / "resultado_tic_df_federal_julgado.json"
 
 dados = json.loads(ORIGEM.read_text(encoding="utf-8"))
 contratos = dados["contratos"]

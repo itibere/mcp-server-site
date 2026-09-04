@@ -2,8 +2,9 @@ import json
 import math
 from pathlib import Path
 
-ORIGEM = Path(r"C:\Users\itibere.paquier\Desktop\Consulta  PNCP\resultado_tic_df_federal.json")
-PASTA_LOTES = Path(r"C:\Users\itibere.paquier\Desktop\Consulta  PNCP\julgamento_lotes")
+RAIZ = Path(__file__).resolve().parent
+ORIGEM = RAIZ / "resultado_tic_df_federal.json"
+PASTA_LOTES = RAIZ / "julgamento_lotes"
 PASTA_LOTES.mkdir(exist_ok=True)
 
 TAMANHO_LOTE = 45
