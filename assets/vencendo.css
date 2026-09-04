@@ -109,6 +109,34 @@ body.pagina-vencendo {
 .v-busca:focus { outline: none; border-color: var(--v-accent); }
 .v-busca::placeholder { color: var(--v-muted); }
 
+.v-filtros {
+  display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 16px; padding: 14px 16px; border: 1px solid var(--v-line); border-radius: 10px;
+  background: var(--v-surface);
+}
+.v-filtro-campo { display: flex; flex-direction: column; gap: 4px; }
+.v-filtro-campo label {
+  font-family: var(--v-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--v-muted); font-weight: 600;
+}
+.v-select {
+  appearance: none; font-family: var(--v-sans); font-size: 13px; padding: 6px 30px 6px 10px;
+  border-radius: 7px; border: 1px solid var(--v-line-strong); background: var(--v-surface-2); color: var(--v-ink);
+  min-width: 170px; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2364748b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 10px center;
+}
+.v-select:focus { outline: none; border-color: var(--v-accent); }
+.v-select.v-select-ativo { border-color: var(--v-accent); background-color: var(--v-accent-soft); color: var(--v-accent-ink); }
+
+.v-limpar-filtros {
+  appearance: none; font-family: var(--v-sans); font-size: 12.5px; font-weight: 500;
+  border: none; background: none; color: var(--v-accent-ink); cursor: pointer; padding: 6px 4px;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+.v-limpar-filtros:hover { color: var(--v-accent); }
+.v-limpar-filtros:disabled { color: var(--v-muted); cursor: default; text-decoration: none; }
+
 .v-table-card { border: 1px solid var(--v-line); border-radius: 10px; background: var(--v-surface); overflow: hidden; }
 .v-tabela-scroll { overflow-x: auto; }
 .v-tabela-scroll table { border-collapse: collapse; width: 100%; font-size: 13.5px; min-width: 920px; }

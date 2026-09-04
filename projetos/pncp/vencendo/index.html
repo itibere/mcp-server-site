@@ -88,6 +88,36 @@
         <input class="v-busca" id="busca" type="search" placeholder="Buscar por objeto ou órgão…">
       </div>
 
+      <div class="v-filtros">
+        <div class="v-filtro-campo">
+          <label for="filtro-orgao">Órgão</label>
+          <select class="v-select" id="filtro-orgao">
+            <option value="">Todos os órgãos</option>
+          </select>
+        </div>
+        <div class="v-filtro-campo">
+          <label for="filtro-vencimento">Vencimento</label>
+          <select class="v-select" id="filtro-vencimento">
+            <option value="">Toda a janela</option>
+            <option value="6-8">6 a 8 meses</option>
+            <option value="8-10">8 a 10 meses</option>
+            <option value="10-12">10 a 12 meses</option>
+          </select>
+        </div>
+        <div class="v-filtro-campo">
+          <label for="filtro-valor">Valor</label>
+          <select class="v-select" id="filtro-valor">
+            <option value="">Todos os valores</option>
+            <option value="0-100000">Até R$ 100 mil</option>
+            <option value="100000-500000">R$ 100 mil a R$ 500 mil</option>
+            <option value="500000-1000000">R$ 500 mil a R$ 1 mi</option>
+            <option value="1000000-10000000">R$ 1 mi a R$ 10 mi</option>
+            <option value="10000000-">Acima de R$ 10 mi</option>
+          </select>
+        </div>
+        <button class="v-limpar-filtros" id="btn-limpar-filtros" type="button">Limpar filtros</button>
+      </div>
+
       <div class="v-table-card">
         <div class="v-tabela-scroll">
           <table>
