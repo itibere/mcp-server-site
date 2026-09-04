@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diagnóstico de Reputação de Domínio — Itiberê Paquier</title>
+  <meta name="description" content="Metodologia pra diagnosticar e corrigir bloqueio de firewall corporativo por classificação automática de domínio recém-registrado — aplicável a qualquer site, com um caso real de ponta a ponta.">
+
+  <!-- Tailwind CSS Standalone -->
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2305070c'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2310b981' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='17' font-weight='700' fill='%2310b981' text-anchor='middle'>&gt;_</text></svg>">
+
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <meta property="og:title" content="Diagnóstico de Reputação de Domínio — Itiberê Paquier">
+  <meta property="og:description" content="Metodologia pra diagnosticar e corrigir bloqueio de firewall corporativo por classificação automática de domínio recém-registrado.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itibere.tec.br/seguranca/url-reputation/">
+</head>
+<body class="bg-[#05070c] text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <div class="fixed inset-0 bg-grid-cyber pointer-events-none z-0 opacity-40"></div>
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+  <div class="fixed bottom-1/3 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+  <header class="sticky top-0 z-50 border-b border-emerald-500/20 bg-[#05070c]/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="../../" class="flex items-center gap-2 text-sm font-mono-code group hover:no-underline">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]"></span>
+        <span class="text-emerald-400 font-semibold">itibere</span><span class="text-slate-500">@</span><span class="text-cyan-400">bsb-infra</span><span class="text-slate-500">:~#</span>
+        <span class="text-slate-300 group-hover:text-emerald-300 transition">home</span>
+        <span class="inline-block w-2 h-4 bg-emerald-400/80 animate-blink ml-0.5"></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-14">
+
+    <!-- HERO -->
+    <section class="rounded-2xl border border-amber-500/30 bg-gradient-to-br from-[#0a0e1a] via-[#14100a] to-[#1a140d] p-8 sm:p-12 relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 w-72 h-72 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 space-y-4">
+        <span class="px-3 py-1 rounded-full text-xs font-mono-code font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 inline-flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          SEGURANÇA / METODOLOGIA
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Diagnóstico de Reputação de Domínio
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+          Passo a passo pra diagnosticar e corrigir rejeição de firewall corporativo causada por classificação automática de "domínio recém-registrado" — aplicável a qualquer site novo. Testado de ponta a ponta num caso real.
+        </p>
+        <div class="flex flex-wrap gap-x-8 gap-y-2 pt-2 text-xs font-mono-code text-slate-400">
+          <span><span class="text-slate-500">cobertura</span> 4 vendors</span>
+          <span><span class="text-slate-500">caso aplicado</span> itibere.tec.br</span>
+          <span><span class="text-slate-500">resultado</span> <span class="text-emerald-400">confirmado</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 QUANDO ACONTECE -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">01</span>
+        <h2 class="text-xl font-bold text-white">Quando isso acontece</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Sites recém-registrados costumam ser rejeitados por secure web gateways corporativos — cada grande vendor mantém uma categoria automática de bloqueio baseada em idade de WHOIS, independente do conteúdo real do site. Antes de assumir isso, vale descartar a hipótese mais simples primeiro: um certificado TLS quebrado dá o mesmo sintoma (acesso recusado), mas a correção é completamente diferente. Não corrija o que ainda não foi diagnosticado.
+      </p>
+    </section>
+
+    <!-- 02 COMO DIAGNOSTICAR -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">02</span>
+        <h2 class="text-xl font-bold text-white">Como diagnosticar sem assumir</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Meça de um ponto de vista externo independente antes de confiar num teste feito de dentro da própria rede corporativa — inspeção SSL local ou um proxy no caminho dão falso positivo de "certificado quebrado" que não tem nada a ver com o site. Um scanner dedicado (SSL Labs, por exemplo) resolve isso: testa de fora, sem intermediário.
+      </p>
+      <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Exemplo aplicado — SSL Labs, 4 endpoints</div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm font-mono-code">
+            <tbody class="divide-y divide-slate-800/80">
+              <tr><td class="px-4 py-2 text-slate-400">185.199.108.153</td><td class="px-4 py-2"><span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">A</span></td><td class="px-4 py-2 text-slate-500">sem warnings</td></tr>
+              <tr><td class="px-4 py-2 text-slate-400">185.199.109.153</td><td class="px-4 py-2"><span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">A</span></td><td class="px-4 py-2 text-slate-500">sem warnings</td></tr>
+              <tr><td class="px-4 py-2 text-slate-400">185.199.110.153</td><td class="px-4 py-2"><span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">A</span></td><td class="px-4 py-2 text-slate-500">sem warnings</td></tr>
+              <tr><td class="px-4 py-2 text-slate-400">185.199.111.153</td><td class="px-4 py-2"><span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">A</span></td><td class="px-4 py-2 text-slate-500">sem warnings</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        TLS e DNS corretos de fora — o que sobrava era classificação, não configuração.
+      </p>
+    </section>
+
+    <!-- 03 CAUSA RAIZ -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">03</span>
+        <h2 class="text-xl font-bold text-white">Causa raiz típica</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Cada vendor de filtragem web mantém sua própria categoria de "domínio novo" — nome muda, lógica é a mesma: idade abaixo de um limiar (dias a semanas) entra automaticamente num grupo de risco elevado, sem avaliar o conteúdo. A idade do domínio não dá pra mudar; a alavanca é dar sinal suficiente pra recategorização manual ou automática não depender só disso.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Vale também checar a categoria de <em>conteúdo</em>, não só a de idade — ferramentas de categorização às vezes erram o assunto do site inteiro, o que é um problema separado e pode exigir uma correção diferente pra cada um.
+      </p>
+      <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 overflow-hidden p-4 text-sm text-slate-400">
+        <span class="text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider block mb-2">Exemplo aplicado</span>
+        Além da categoria de idade, dois vendors erraram também a categoria de conteúdo — um confundiu o tipo de dado exibido por uma das aplicações do site, outro aplicou uma categoria genérica de ferramenta de contorno de filtro sem relação com a função real do site. Nenhum dos dois tinha a ver com a hipótese de idade — motivo a mais pra checar a categoria completa, não só a mais óbvia.
+      </div>
+    </section>
+
+    <!-- 04 SINAIS DE CONFIANÇA -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">04</span>
+        <h2 class="text-xl font-bold text-white">Reforçar sinais de confiança</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Antes de disputar categoria, dê a crawlers de categorização e a revisores humanos de vendor algo real pra ler: <code class="font-mono-code text-amber-300">security.txt</code> (RFC 9116), página de identificação (quem mantém, o que é o site), política de privacidade, e <code class="font-mono-code text-amber-300">robots.txt</code> + <code class="font-mono-code text-amber-300">sitemap.xml</code> — um domínio sem nenhum desses indexa como conteúdo vazio, a mesma assinatura de um domínio parqueado.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Exemplo aplicado: <a href="../../sobre.html" class="text-amber-300 hover:text-amber-200 underline">página Sobre</a> e <a href="../../privacidade.html" class="text-amber-300 hover:text-amber-200 underline">Política de Privacidade</a> deste site.
+      </p>
+    </section>
+
+    <!-- 05 SUBMISSÃO -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">05</span>
+        <h2 class="text-xl font-bold text-white">Submeter correção por vendor</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Cada vendor expõe uma ferramenta pública de consulta e um formulário de disputa — a rotina é a mesma nos quatro: consultar a categoria atual, escolher a categoria correta, submeter com uma justificativa curta e factual.
+      </p>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="text-slate-500 text-xs font-mono-code uppercase">
+                <th class="text-left px-4 py-2.5 font-medium">Vendor</th>
+                <th class="text-left px-4 py-2.5 font-medium">Ferramenta pública</th>
+                <th class="text-left px-4 py-2.5 font-medium">Exigência</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/80 font-mono-code text-xs text-slate-400">
+              <tr><td class="px-4 py-3 text-slate-200">Fortinet</td><td class="px-4 py-3">FortiGuard Web Filter Lookup</td><td class="px-4 py-3">captcha</td></tr>
+              <tr><td class="px-4 py-3 text-slate-200">Palo Alto Networks</td><td class="px-4 py-3">Test A Site (URL Filtering)</td><td class="px-4 py-3">captcha + login p/ disputar</td></tr>
+              <tr><td class="px-4 py-3 text-slate-200">Zscaler</td><td class="px-4 py-3">Zulu URL Risk Analyzer</td><td class="px-4 py-3">nenhuma</td></tr>
+              <tr><td class="px-4 py-3 text-slate-200">Cisco Talos</td><td class="px-4 py-3">Talos Reputation Center</td><td class="px-4 py-3">verificação de bot + login p/ disputar</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 overflow-hidden p-4">
+        <span class="text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider block mb-3">Resultado no caso aplicado</span>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-mono-code">Fortinet — aprovado</span>
+          <span class="px-2.5 py-1 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 text-xs font-mono-code">Palo Alto — enviado</span>
+          <span class="px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-mono-code">Zscaler — já ok, sem ação</span>
+          <span class="px-2.5 py-1 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 text-xs font-mono-code">Cisco Talos — enviado</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 RESULTADO -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-emerald-500/60">
+        <span class="text-xs font-mono-code text-slate-500">06</span>
+        <h2 class="text-xl font-bold text-white">Confirmar o resultado</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Depois de submeter, confirme em dois lugares: se o vendor expõe histórico de classificação, ele mostra quando e pra qual categoria mudou; e teste o acesso real numa rede que antes bloqueava — a prova final é o site carregando, não a categoria mudada isoladamente.
+      </p>
+      <div class="rounded-xl border border-emerald-800/60 bg-emerald-950/20 p-5 space-y-3">
+        <span class="text-[11px] font-mono-code text-emerald-400/80 uppercase tracking-wider block">Exemplo aplicado — confirmado</span>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Um dos quatro vendors expõe histórico de classificação publicamente: categoria mudou de idade-de-domínio pra uma categoria neutra no mesmo dia da submissão, aprovação automática. Acesso reproduzido com sucesso na mesma rede que antes rejeitava a conexão.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-emerald-500/20 bg-[#04060a] py-12 mt-20 relative z-10 font-mono-code text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3 text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span>© <span id="ano">2026</span> Itiberê Paquier · itibere.tec.br</span>
+      </div>
+      <div class="flex items-center gap-6 text-slate-400">
+        <a href="../../" class="hover:text-amber-400 transition">Projetos</a>
+        <a href="../../sobre.html" class="hover:text-white transition">Sobre</a>
+        <a href="../../privacidade.html" class="hover:text-white transition">Privacidade</a>
+        <a href="mailto:itibere.paquier@gmail.com" class="hover:text-cyan-400 transition">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
