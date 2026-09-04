@@ -62,6 +62,16 @@
       return '<div><dt>' + esc(p[0]) + '</dt><dd>' + esc(p[1] || '—') + '</dd></div>';
     }).join('');
     document.getElementById('foot-data').textContent = dados.geradoEm ? dataBR(dados.geradoEm.slice(0, 10)) : '—';
+
+    var badge = document.getElementById('badge-atualizacao');
+    if (badge && dados.geradoEm) {
+      var dias = Math.floor((Date.now() - new Date(dados.geradoEm)) / 86400000);
+      var texto = dias <= 0 ? 'atualizado hoje' : dias === 1 ? 'atualizado há 1 dia' : 'atualizado há ' + dias + ' dias';
+      // varredura roda a cada 15 dias; folga de alguns dias antes de marcar como atrasado
+      var estado = dias <= 18 ? 'v-fresh' : 'v-stale';
+      badge.textContent = texto;
+      badge.className = 'v-badge-atualizacao v-visivel ' + estado;
+    }
   }
 
   function renderTiles(lista) {

@@ -54,6 +54,15 @@ body.pagina-vencendo {
   font-size: clamp(24px, 3.4vw, 32px); font-weight: 650; letter-spacing: -.015em;
   margin: 0 0 8px; color: var(--v-ink);
 }
+.v-badge-atualizacao {
+  display: none; align-items: center; gap: 6px;
+  font-family: var(--v-mono); font-size: 12px; font-weight: 600;
+  padding: 4px 10px; border-radius: 100px; margin-bottom: 14px;
+}
+.v-badge-atualizacao.v-visivel { display: inline-flex; }
+.v-badge-atualizacao.v-fresh { background: var(--v-ok-soft); color: var(--v-ok); }
+.v-badge-atualizacao.v-stale { background: var(--v-warn-soft); color: var(--v-warn); }
+
 .v-lede { color: var(--v-ink-2); max-width: 74ch; margin: 0 0 28px; font-size: 15px; }
 .v-lede code { font-family: var(--v-mono); background: var(--v-surface-2); padding: 1px 5px; border-radius: 4px; font-size: .9em; }
 .v-lede a { color: var(--v-accent-ink); }
