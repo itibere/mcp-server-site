@@ -6,7 +6,7 @@
   'use strict';
 
   var dados = null;
-  var estado = { soServico: false, busca: '', limite: 40 };
+  var estado = { soServico: false, busca: '', limite: 40, orgao: '', vencimento: '', valor: '' };
 
   var nfInt = new Intl.NumberFormat('pt-BR');
   var nfMoeda = new Intl.NumberFormat('pt-BR', {
@@ -36,9 +36,26 @@
     return Math.round((alvo - hoje) / 86400000);
   }
 
+  function bandaVencimento(dias, banda) {
+    if (banda === '6-8') return dias >= 180 && dias < 240;
+    if (banda === '8-10') return dias >= 240 && dias < 300;
+    if (banda === '10-12') return dias >= 300;
+    return true;
+  }
+  function bandaValor(valor, banda) {
+    if (!banda) return true;
+    var partes = banda.split('-');
+    var min = Number(partes[0]);
+    var max = partes[1] ? Number(partes[1]) : Infinity;
+    return valor >= min && valor < max;
+  }
+
   function listaFiltrada() {
     var lista = dados.contratos;
     if (estado.soServico) lista = lista.filter(function (r) { return r.servico; });
+    if (estado.orgao) lista = lista.filter(function (r) { return r.orgao === estado.orgao; });
+    if (estado.vencimento) lista = lista.filter(function (r) { return bandaVencimento(diasAte(r.venceEm), estado.vencimento); });
+    if (estado.valor) lista = lista.filter(function (r) { return bandaValor(r.valor || 0, estado.valor); });
     var termo = estado.busca.trim().toLowerCase();
     if (termo) {
       lista = lista.filter(function (r) {
@@ -46,6 +63,18 @@
       });
     }
     return lista;
+  }
+
+  function popularFiltroOrgao() {
+    var orgaos = Array.from(new Set(dados.contratos.map(function (r) { return r.orgao; })))
+      .sort(function (a, b) { return a.localeCompare(b, 'pt-BR'); });
+    var sel = document.getElementById('filtro-orgao');
+    orgaos.forEach(function (o) {
+      var opt = document.createElement('option');
+      opt.value = o;
+      opt.textContent = o;
+      sel.appendChild(opt);
+    });
   }
 
   function renderCabecalho() {
@@ -162,6 +191,33 @@
       estado.limite += 40;
       renderLista();
     });
+
+    var selOrgao = document.getElementById('filtro-orgao');
+    var selVencimento = document.getElementById('filtro-vencimento');
+    var selValor = document.getElementById('filtro-valor');
+
+    function ligarSelectFiltro(sel, chave) {
+      sel.addEventListener('change', function () {
+        estado[chave] = sel.value;
+        estado.limite = 40;
+        sel.classList.toggle('v-select-ativo', !!sel.value);
+        renderLista();
+      });
+    }
+    ligarSelectFiltro(selOrgao, 'orgao');
+    ligarSelectFiltro(selVencimento, 'vencimento');
+    ligarSelectFiltro(selValor, 'valor');
+
+    document.getElementById('btn-limpar-filtros').addEventListener('click', function () {
+      estado = { soServico: false, busca: '', limite: 40, orgao: '', vencimento: '', valor: '' };
+      chipServico.setAttribute('aria-pressed', 'false');
+      busca.value = '';
+      [selOrgao, selVencimento, selValor].forEach(function (sel) {
+        sel.value = '';
+        sel.classList.remove('v-select-ativo');
+      });
+      renderLista();
+    });
   }
 
   function iniciar() {
@@ -176,6 +232,7 @@
         document.getElementById('conteudo').style.display = '';
         document.getElementById('carregando').style.display = 'none';
         renderCabecalho();
+        popularFiltroOrgao();
         ligarControles();
         renderLista();
         renderJulgador();
