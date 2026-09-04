@@ -90,6 +90,20 @@
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
         Teste você mesmo, de fora do site, sem passar pelo frontend: bata direto no endpoint com <code class="font-mono-code text-amber-300">curl</code>. Se responder normalmente sem exigir nenhum token, chave ou desafio, o endpoint está aberto pra qualquer um que descubra a URL — inclusive por inspeção trivial do JavaScript da página, que precisa conter a URL pra funcionar.
       </p>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Comandos</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-slate-600"># SEU_ENDPOINT_IA = URL do Worker/função que atende o chat -- normalmente</span>
+<span class="text-slate-600"># dá pra achar aberto no JS do frontend (ex: fetch(WORKER_URL, ...))</span>
+<span class="text-emerald-400">$</span> SEU_ENDPOINT_IA="https://seu-worker.workers.dev"
+
+<span class="text-slate-600"># chamada direta, sem passar pelo site -- sem token, sem header especial</span>
+<span class="text-emerald-400">$</span> curl -X POST "$SEU_ENDPOINT_IA" \
+    -H "Content-Type: application/json" \
+    -d '{"pergunta": "teste"}'
+
+<span class="text-slate-600"># se voltar 200 com resposta normal, o endpoint está aberto pra qualquer</span>
+<span class="text-slate-600"># um que descubra a URL -- CORS no servidor não impede isso</span></pre>
+      </div>
       <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 overflow-hidden p-4 text-sm text-slate-400">
         <span class="text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider block mb-2">Exemplo aplicado</span>
         Endpoint de RAG que serve um dos chats do site respondia normalmente a chamada direta, sem nenhuma exigência de autenticação — mesmo com CORS restringindo a origem no cabeçalho. Confirmado com o mesmo comando <code class="font-mono-code text-amber-300">curl</code> usado nos testes internos de deploy.
@@ -121,6 +135,93 @@
             <span class="text-slate-500 font-mono-code text-xs">tentativa 3 — instância única e autoritativa por chave (Durable Object):</span> toda chamada pra uma mesma chave (IP) conversa com a mesma instância, sem cache espalhado nem corrida. Rajada de dezenas de chamadas simultâneas: as primeiras passaram normalmente, o restante voltou HTTP 429 exatamente no ponto esperado pelo limite configurado — contagem batendo, sem sobra nem falta.
           </div>
         </div>
+      </div>
+
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Comandos — tentativa 1, binding nativo (não bloqueou)</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-slate-600"># wrangler.toml</span>
+<span class="text-cyan-300">[[ratelimits]]</span>
+name = <span class="text-amber-300">"RATE_LIMITER"</span>
+namespace_id = <span class="text-amber-300">"1001"</span>
+
+<span class="text-cyan-300">[ratelimits.simple]</span>
+limit = 20
+period = 60
+
+<span class="text-emerald-400">$</span> npx wrangler deploy
+
+<span class="text-slate-600"># teste: rajada paralela, conta quantos 200 vs 429 voltaram</span>
+<span class="text-emerald-400">$</span> for i in $(seq 1 25); do
+    (curl -s -o /dev/null -w "%{http_code}\n" -X POST "$SEU_ENDPOINT_IA" \
+      -H "Content-Type: application/json" -d '{"pergunta": "teste"}') &
+  done
+  wait
+<span class="text-slate-600"># resultado real: 25/25 em 200 -- o limite não pegou nenhuma</span></pre>
+      </div>
+
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Comandos — tentativa 2, contador em KV (também não bloqueou)</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-emerald-400">$</span> npx wrangler kv namespace create RATE_LIMIT_KV
+
+<span class="text-slate-600"># wrangler.toml</span>
+<span class="text-cyan-300">[[kv_namespaces]]</span>
+binding = <span class="text-amber-300">"RATE_LIMIT_KV"</span>
+id = <span class="text-amber-300">"&lt;id retornado pelo comando acima&gt;"</span>
+
+<span class="text-slate-600">// dentro do handler fetch, antes de chamar a API paga</span>
+<span class="text-purple-300">const</span> janela = Math.floor(Date.now() / 60_000)
+<span class="text-purple-300">const</span> chave = `rl:${ip}:${janela}`
+<span class="text-purple-300">const</span> atual = parseInt((<span class="text-purple-300">await</span> RATE_LIMIT_KV.get(chave)) || <span class="text-amber-300">"0"</span>, 10)
+<span class="text-purple-300">if</span> (atual >= 20) <span class="text-purple-300">return</span> <span class="text-purple-300">new</span> Response(..., { status: 429 })
+<span class="text-purple-300">await</span> RATE_LIMIT_KV.put(chave, String(atual + 1), { expirationTtl: 120 })
+
+<span class="text-emerald-400">$</span> npx wrangler deploy
+<span class="text-slate-600"># mesmo teste de rajada da tentativa 1 -- resultado real: 25/25 em 200 de novo</span>
+
+<span class="text-slate-600"># limpeza depois de descartar a tentativa</span>
+<span class="text-emerald-400">$</span> npx wrangler kv namespace delete --namespace-id "&lt;id&gt;"</pre>
+      </div>
+
+      <div class="rounded-xl border border-emerald-800/60 bg-emerald-950/20 overflow-hidden">
+        <div class="px-4 py-2 border-b border-emerald-800/40 text-[11px] font-mono-code text-emerald-400/80 uppercase tracking-wider">Comandos — tentativa 3, Durable Object (funcionou)</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-slate-600"># wrangler.toml -- SQLite storage backend, elegível no plano free</span>
+<span class="text-cyan-300">[[durable_objects.bindings]]</span>
+name = <span class="text-amber-300">"RATE_LIMITER_DO"</span>
+class_name = <span class="text-amber-300">"RateLimiterDO"</span>
+
+<span class="text-cyan-300">[[migrations]]</span>
+tag = <span class="text-amber-300">"v1"</span>
+new_sqlite_classes = [<span class="text-amber-300">"RateLimiterDO"</span>]
+
+<span class="text-slate-600">// src/index.js -- classe do Durable Object</span>
+<span class="text-purple-300">class</span> RateLimiterDO {
+  <span class="text-purple-300">async</span> fetch() {
+    <span class="text-purple-300">const</span> janela = Math.floor(Date.now() / 60_000)
+    <span class="text-purple-300">const</span> registro = (<span class="text-purple-300">await</span> this.state.storage.get(<span class="text-amber-300">"contador"</span>)) || { janela: -1, contagem: 0 }
+    <span class="text-purple-300">const</span> atual = registro.janela === janela ? registro.contagem : 0
+    <span class="text-purple-300">if</span> (atual >= 20) <span class="text-purple-300">return</span> <span class="text-purple-300">new</span> Response(JSON.stringify({ success: false }))
+    <span class="text-purple-300">await</span> this.state.storage.put(<span class="text-amber-300">"contador"</span>, { janela, contagem: atual + 1 })
+    <span class="text-purple-300">return</span> <span class="text-purple-300">new</span> Response(JSON.stringify({ success: true }))
+  }
+}
+
+<span class="text-slate-600">// dentro do handler fetch principal, antes de chamar a API paga</span>
+<span class="text-purple-300">const</span> id = env.RATE_LIMITER_DO.idFromName(ip)
+<span class="text-purple-300">const</span> stub = env.RATE_LIMITER_DO.get(id)
+<span class="text-purple-300">const</span> { success } = <span class="text-purple-300">await</span> (<span class="text-purple-300">await</span> stub.fetch(<span class="text-amber-300">"https://rate-limiter/check"</span>)).json()
+<span class="text-purple-300">if</span> (!success) <span class="text-purple-300">return</span> <span class="text-purple-300">new</span> Response(..., { status: 429 })
+
+<span class="text-emerald-400">$</span> npx wrangler deploy
+
+<span class="text-slate-600"># mesmo teste de rajada -- resultado real: primeiras ~N em 200, resto em</span>
+<span class="text-slate-600"># 429, contagem batendo exata com o limite configurado</span>
+<span class="text-emerald-400">$</span> for i in $(seq 1 25); do
+    (curl -s -o /dev/null -w "%{http_code}\n" -X POST "$SEU_ENDPOINT_IA" \
+      -H "Content-Type: application/json" -d '{"pergunta": "teste"}') &
+  done
+  wait
+<span class="text-emerald-400">$</span> # conferir a contagem por status
+<span class="text-emerald-400">$</span> awk '{print $2}' resultados.txt | sort | uniq -c</pre>
       </div>
     </section>
 
