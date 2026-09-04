@@ -1,5 +1,5 @@
 [
-{"numero_controle_pncp": "00509018000113-2-003282/2026", "veredito": "tic", "motivo": "Solução CFTV-IP para monitoramento/gravação é infraestrutura de rede e vigilância eletrônica de TI."},
+{"numero_controle_pncp": "00509018000113-2-003282/2026", "veredito": "nao_tic", "motivo": "CFTV/circuito fechado de TV e vigilancia eletronica de seguranca patrimonial, nao TIC pela classificacao oficial -- mesmo rodando sobre IP/rede."},
 {"numero_controle_pncp": "00508903000188-2-000170/2026", "veredito": "tic", "motivo": "Link de internet dedicado com anti-DDoS é infraestrutura de telecom/rede."},
 {"numero_controle_pncp": "00508903000188-2-000171/2026", "veredito": "tic", "motivo": "Link de internet dedicado com anti-DDoS é infraestrutura de telecom/rede."},
 {"numero_controle_pncp": "01264142000129-2-000004/2026", "veredito": "tic", "motivo": "Aquisição de monitores é hardware de TI."},

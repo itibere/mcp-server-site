@@ -33,6 +33,15 @@ git commit && git push
    aqui como referência. Numa sessão de Claude Code, é só pedir: "julga os
    lotes em julgamento_lotes/ seguindo o padrão dos julgamento_NN.json
    existentes".
+
+   **Correção de calibração (2026-09-04):** CFTV / circuito fechado de TV,
+   mesmo com componente IP/rede (ex: "solução CFTV-IP", "câmeras em rede"),
+   **NÃO é TIC** pela classificação oficial de categoria do PNCP — é
+   segurança patrimonial/vigilância eletrônica, categoria própria, mesmo
+   rodando sobre infraestrutura de rede. Um exemplo antigo commitado
+   classificava CFTV-IP como TIC por engano; se encontrar esse padrão de
+   novo em qualquer `julgamento_NN.json` existente, ele está errado — não
+   siga esse exemplo específico, julgue CFTV como `nao_tic`.
 4. **`_consolidar_julgamento.py`** — junta os `julgamento_*.json` aos
    candidatos originais, separa aprovados/reprovados, escreve
    `resultado_tic_df_federal_julgado.json`.
