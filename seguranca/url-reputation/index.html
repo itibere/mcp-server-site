@@ -87,6 +87,21 @@
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
         Meça de um ponto de vista externo independente antes de confiar num teste feito de dentro da própria rede corporativa — inspeção SSL local ou um proxy no caminho dão falso positivo de "certificado quebrado" que não tem nada a ver com o site. Um scanner dedicado (SSL Labs, por exemplo) resolve isso: testa de fora, sem intermediário.
       </p>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Comandos</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-slate-600"># SEU_DOMINIO = o domínio que está sendo bloqueado</span>
+<span class="text-emerald-400">$</span> SEU_DOMINIO="seudominio.com.br"
+
+<span class="text-slate-600"># dispara o scan (assíncrono, roda em segundo plano no lado do SSL Labs)</span>
+<span class="text-emerald-400">$</span> curl -s "https://api.ssllabs.com/api/v3/analyze?host=$SEU_DOMINIO&startNew=on&all=done"
+
+<span class="text-slate-600"># repete sem "startNew" a cada ~15s até status virar READY</span>
+<span class="text-emerald-400">$</span> curl -s "https://api.ssllabs.com/api/v3/analyze?host=$SEU_DOMINIO" | grep -o '"grade":"[A-Z]*"'
+
+<span class="text-slate-600"># confirma resolução DNS por um resolver público -- não o da própria rede,</span>
+<span class="text-slate-600"># que pode estar filtrando/reescrevendo sem avisar</span>
+<span class="text-emerald-400">$</span> nslookup $SEU_DOMINIO 8.8.8.8</pre>
+      </div>
       <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 overflow-hidden">
         <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Exemplo aplicado — SSL Labs, 4 endpoints</div>
         <div class="overflow-x-auto">
@@ -117,6 +132,23 @@
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
         Vale também checar a categoria de <em>conteúdo</em>, não só a de idade — ferramentas de categorização às vezes erram o assunto do site inteiro, o que é um problema separado e pode exigir uma correção diferente pra cada um.
       </p>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Comandos — consultar categoria atual por vendor</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-slate-600"># cada ferramenta abaixo exige captcha e/ou login -- abra no navegador,</span>
+<span class="text-slate-600"># não dá pra automatizar por curl puro</span>
+
+<span class="text-slate-600"># Fortinet -- busque SEU_DOMINIO no campo de busca</span>
+<span class="text-emerald-400">$</span> open "https://www.fortiguard.com/webfilter"
+
+<span class="text-slate-600"># Palo Alto -- URL já vem com o domínio preenchido</span>
+<span class="text-emerald-400">$</span> open "https://urlfiltering.paloaltonetworks.com/query/?search=$SEU_DOMINIO"
+
+<span class="text-slate-600"># Zscaler -- cole SEU_DOMINIO no campo "Type a URL", sem captcha</span>
+<span class="text-emerald-400">$</span> open "https://zulu.zscaler.com/"
+
+<span class="text-slate-600"># Cisco Talos -- URL já vem com o domínio preenchido</span>
+<span class="text-emerald-400">$</span> open "https://talosintelligence.com/reputation_center/lookup?search=$SEU_DOMINIO"</pre>
+      </div>
       <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 overflow-hidden p-4 text-sm text-slate-400">
         <span class="text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider block mb-2">Exemplo aplicado</span>
         Além da categoria de idade, dois vendors erraram também a categoria de conteúdo — um confundiu o tipo de dado exibido por uma das aplicações do site, outro aplicou uma categoria genérica de ferramenta de contorno de filtro sem relação com a função real do site. Nenhum dos dois tinha a ver com a hipótese de idade — motivo a mais pra checar a categoria completa, não só a mais óbvia.
@@ -132,6 +164,25 @@
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
         Antes de disputar categoria, dê a crawlers de categorização e a revisores humanos de vendor algo real pra ler: <code class="font-mono-code text-amber-300">security.txt</code> (RFC 9116), página de identificação (quem mantém, o que é o site), política de privacidade, e <code class="font-mono-code text-amber-300">robots.txt</code> + <code class="font-mono-code text-amber-300">sitemap.xml</code> — um domínio sem nenhum desses indexa como conteúdo vazio, a mesma assinatura de um domínio parqueado.
       </p>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Comandos</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-slate-600"># cria o security.txt no caminho canônico (RFC 9116)</span>
+<span class="text-emerald-400">$</span> mkdir -p .well-known
+<span class="text-emerald-400">$</span> cat &gt; .well-known/security.txt &lt;&lt;'EOF'
+Contact: mailto:seu-email@seudominio.com.br
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: pt-BR, en
+Canonical: https://seudominio.com.br/.well-known/security.txt
+EOF
+
+<span class="text-slate-600"># robots.txt + sitemap.xml mínimos</span>
+<span class="text-emerald-400">$</span> printf 'User-agent: *\nAllow: /\nSitemap: https://seudominio.com.br/sitemap.xml\n' > robots.txt
+
+<span class="text-slate-600"># depois do deploy, confirma que os 4 arquivos respondem 200</span>
+<span class="text-emerald-400">$</span> for f in .well-known/security.txt robots.txt sitemap.xml sobre.html; do
+    curl -s -o /dev/null -w "$f: %{http_code}\n" "https://$SEU_DOMINIO/$f"
+  done</pre>
+      </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
         Exemplo aplicado: <a href="../../sobre.html" class="text-amber-300 hover:text-amber-200 underline">página Sobre</a> e <a href="../../privacidade.html" class="text-amber-300 hover:text-amber-200 underline">Política de Privacidade</a> deste site.
       </p>
@@ -165,14 +216,32 @@
           </table>
         </div>
       </div>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Ações — mesma rotina nos 4 vendors</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-emerald-400">1.</span> abrir a ferramenta pública de lookup do vendor (URLs da seção 03)
+<span class="text-emerald-400">2.</span> buscar SEU_DOMINIO, anotar a(s) categoria(s) atual(is)
+<span class="text-emerald-400">3.</span> localizar o link/botão de disputa -- nomes variam:
+   "Request a Review" (Fortinet) / "Request URL Category Change" (Palo Alto) /
+   "Submit Content Categorization Ticket" (Talos)
+<span class="text-emerald-400">4.</span> se pedir login: entrar com sua própria conta -- nunca compartilhar
+   credencial com automação de terceiros nesse passo
+<span class="text-emerald-400">5.</span> selecionar a categoria de <em>conteúdo</em> correta (não mexer na
+   categoria de idade -- essa não é disputável, expira sozinha)
+<span class="text-emerald-400">6.</span> justificar em 2-3 frases factuais, linkando páginas reais do site
+   com conteúdo (ajuda revisor humano e crawler automático)
+<span class="text-emerald-400">7.</span> enviar e anotar data/hora -- vai precisar pra reconferir depois</pre>
+      </div>
       <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 overflow-hidden p-4">
         <span class="text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider block mb-3">Resultado no caso aplicado</span>
         <div class="flex flex-wrap gap-2">
           <span class="px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-mono-code">Fortinet — aprovado</span>
-          <span class="px-2.5 py-1 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 text-xs font-mono-code">Palo Alto — enviado</span>
+          <span class="px-2.5 py-1 rounded-full bg-amber-950 text-amber-400 border border-amber-800 text-xs font-mono-code">Palo Alto — 1ª tentativa não colou, resubmetido</span>
           <span class="px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-mono-code">Zscaler — já ok, sem ação</span>
           <span class="px-2.5 py-1 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 text-xs font-mono-code">Cisco Talos — enviado</span>
         </div>
+        <p class="text-sm text-slate-300 leading-relaxed mt-3">
+          Nem toda submissão é aprovada como pedido de primeira. Um dos vendors trocou a categoria de idade por outra categoria de conteúdo também incorreta — não pelo que foi solicitado. Segunda submissão feita com evidência mais específica (páginas reais linkadas, explicação de que o conteúdo é HTML estático, não gerado por JavaScript). Vale sempre reconferir o resultado, não só a confirmação de envio.
+        </p>
       </div>
     </section>
 
@@ -185,6 +254,20 @@
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
         Depois de submeter, confirme em dois lugares: se o vendor expõe histórico de classificação, ele mostra quando e pra qual categoria mudou; e teste o acesso real numa rede que antes bloqueava — a prova final é o site carregando, não a categoria mudada isoladamente.
       </p>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Comandos</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-slate-600"># na rede que antes bloqueava -- 200 = liberado, 403/timeout = ainda bloqueado</span>
+<span class="text-emerald-400">$</span> curl -sk -o /dev/null -w "%{http_code}\n" "https://$SEU_DOMINIO/"
+
+<span class="text-slate-600"># se o curl local ainda estiver sob a mesma inspeção/proxy que causou o</span>
+<span class="text-slate-600"># bloqueio, teste também de fora da rede (dados móveis, outra rede) antes</span>
+<span class="text-slate-600"># de concluir qualquer coisa -- ruído de rede local não é o mesmo bloqueio</span>
+<span class="text-emerald-400">$</span> curl -s -o /dev/null -w "%{http_code}\n" "https://$SEU_DOMINIO/" # repita de outra rede
+
+<span class="text-slate-600"># reconsulte a mesma URL de lookup da seção 03 -- Fortinet, por exemplo,</span>
+<span class="text-slate-600"># expõe histórico de classificação (data + categoria antiga/nova)</span>
+<span class="text-emerald-400">$</span> open "https://www.fortiguard.com/webfilter"</pre>
+      </div>
       <div class="rounded-xl border border-emerald-800/60 bg-emerald-950/20 p-5 space-y-3">
         <span class="text-[11px] font-mono-code text-emerald-400/80 uppercase tracking-wider block">Exemplo aplicado — confirmado</span>
         <p class="text-sm text-slate-300 leading-relaxed">
