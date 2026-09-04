@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proteção de Endpoint de IA — Itiberê Paquier</title>
+  <meta name="description" content="Metodologia pra proteger endpoints de IA (RAG, chat, embeddings) expostos publicamente contra abuso de custo/cota — rate limiting na borda, aplicável a qualquer backend de IA.">
+
+  <!-- Tailwind CSS Standalone -->
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2305070c'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2310b981' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='17' font-weight='700' fill='%2310b981' text-anchor='middle'>&gt;_</text></svg>">
+
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <meta property="og:title" content="Proteção de Endpoint de IA — Itiberê Paquier">
+  <meta property="og:description" content="Rate limiting na borda pra proteger endpoints de IA expostos publicamente contra abuso de custo/cota.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itibere.tec.br/seguranca/protecao-rag/">
+</head>
+<body class="bg-[#05070c] text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <div class="fixed inset-0 bg-grid-cyber pointer-events-none z-0 opacity-40"></div>
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+  <div class="fixed bottom-1/3 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+  <header class="sticky top-0 z-50 border-b border-emerald-500/20 bg-[#05070c]/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="../../" class="flex items-center gap-2 text-sm font-mono-code group hover:no-underline">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]"></span>
+        <span class="text-emerald-400 font-semibold">itibere</span><span class="text-slate-500">@</span><span class="text-cyan-400">bsb-infra</span><span class="text-slate-500">:~#</span>
+        <span class="text-slate-300 group-hover:text-emerald-300 transition">home</span>
+        <span class="inline-block w-2 h-4 bg-emerald-400/80 animate-blink ml-0.5"></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-14">
+
+    <!-- HERO -->
+    <section class="rounded-2xl border border-amber-500/30 bg-gradient-to-br from-[#0a0e1a] via-[#14100a] to-[#1a140d] p-8 sm:p-12 relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 w-72 h-72 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 space-y-4">
+        <span class="px-3 py-1 rounded-full text-xs font-mono-code font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 inline-flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          SEGURANÇA / METODOLOGIA
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Proteção de Endpoint de IA
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+          Endpoints de IA (RAG, chat, embeddings) expostos publicamente costumam não ter nenhuma barreira contra chamada direta, fora do navegador — cada requisição custa dinheiro real. Como diagnosticar e mitigar, aplicável a qualquer backend de IA.
+        </p>
+        <div class="flex flex-wrap gap-x-8 gap-y-2 pt-2 text-xs font-mono-code text-slate-400">
+          <span><span class="text-slate-500">cobertura</span> endpoint público de RAG</span>
+          <span><span class="text-slate-500">mitigação</span> rate limiting na borda</span>
+          <span><span class="text-slate-500">status</span> <span class="text-emerald-400">confirmado em produção</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 O RISCO -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">01</span>
+        <h2 class="text-xl font-bold text-white">O risco</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Um endpoint de IA público — chat com RAG, busca semântica, síntese via LLM — normalmente é chamado a partir de uma página web via <code class="font-mono-code text-amber-300">fetch</code>. É comum restringir isso por CORS (<code class="font-mono-code text-amber-300">Access-Control-Allow-Origin</code>) achando que isso "tranca" o acesso. Não tranca: CORS é aplicado pelo navegador de quem chama, não pelo servidor. Uma chamada direta via <code class="font-mono-code text-amber-300">curl</code> ou script ignora CORS completamente e chega normal no backend.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Sem outra barreira, cada requisição dispara chamadas reais — embedding numa API paga, inferência num modelo, consulta a um banco vetorial — cada uma com custo ou cota associada. Isso é uma superfície de abuso financeiro/exaustão de cota, não de roubo de credencial: ninguém precisa de chave nenhuma sua, só precisa saber a URL.
+      </p>
+    </section>
+
+    <!-- 02 DIAGNÓSTICO -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">02</span>
+        <h2 class="text-xl font-bold text-white">Como diagnosticar</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Teste você mesmo, de fora do site, sem passar pelo frontend: bata direto no endpoint com <code class="font-mono-code text-amber-300">curl</code>. Se responder normalmente sem exigir nenhum token, chave ou desafio, o endpoint está aberto pra qualquer um que descubra a URL — inclusive por inspeção trivial do JavaScript da página, que precisa conter a URL pra funcionar.
+      </p>
+      <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 overflow-hidden p-4 text-sm text-slate-400">
+        <span class="text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider block mb-2">Exemplo aplicado</span>
+        Endpoint de RAG que serve um dos chats do site respondia normalmente a chamada direta, sem nenhuma exigência de autenticação — mesmo com CORS restringindo a origem no cabeçalho. Confirmado com o mesmo comando <code class="font-mono-code text-amber-300">curl</code> usado nos testes internos de deploy.
+      </div>
+    </section>
+
+    <!-- 03 MITIGAÇÃO -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">03</span>
+        <h2 class="text-xl font-bold text-white">Mitigação: rate limit na borda</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Autenticação completa (login, API key por usuário) costuma ser exagero pra um chat público de site pessoal — muda a experiência de uso pra algo que não é o objetivo. O meio-termo prático é limitar por IP na borda, antes de qualquer chamada paga acontecer: um contador de requisições por janela de tempo, que barra com HTTP 429 quando estoura o limite, sem exigir nada do usuário legítimo.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        A parte não óbvia: nem toda ferramenta de contagem "por borda" conta certo. Plataformas de edge/serverless otimizam pra escala global, o que frequentemente significa trocar consistência forte por velocidade — um contador pode existir e ainda assim deixar passar mais do que deveria, sem erro nenhum, sem avisar. Só se descobre isso testando de verdade, não lendo a documentação.
+      </p>
+      <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 overflow-hidden p-4">
+        <span class="text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider block mb-3">Exemplo aplicado — três tentativas, testadas de verdade</span>
+        <div class="space-y-3 text-sm text-slate-300 leading-relaxed">
+          <div>
+            <span class="text-slate-500 font-mono-code text-xs">tentativa 1 — binding nativo de rate limit da plataforma:</span> configuração aceita, mostrada como ativa no deploy. Em mais de 90 chamadas de teste (rajada e espaçadas ao longo de mais de um minuto), nenhuma foi bloqueada. Causa: esse tipo de contador fica em cache por nó de borda; em tráfego baixo cada chamada tende a cair num nó diferente, o estado quase nunca acumula.
+          </div>
+          <div>
+            <span class="text-slate-500 font-mono-code text-xs">tentativa 2 — contador próprio num key-value store:</span> mesmo resultado, causa diferente — o store não garante que uma leitura veja uma escrita feita segundos antes por outra chamada, se caírem em nós de borda diferentes. 25 chamadas simultâneas leram todas o mesmo valor "zerado".
+          </div>
+          <div>
+            <span class="text-slate-500 font-mono-code text-xs">tentativa 3 — instância única e autoritativa por chave (Durable Object):</span> toda chamada pra uma mesma chave (IP) conversa com a mesma instância, sem cache espalhado nem corrida. Rajada de dezenas de chamadas simultâneas: as primeiras passaram normalmente, o restante voltou HTTP 429 exatamente no ponto esperado pelo limite configurado — contagem batendo, sem sobra nem falta.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 LIMITAÇÕES -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">04</span>
+        <h2 class="text-xl font-bold text-white">O que isso não resolve</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Rate limit por IP não segura um ataque distribuído (muitos IPs, botnet) — só corta abuso casual e de fonte única, que é o cenário mais provável pra um projeto pessoal. Pra algo mais crítico, os próximos passos seriam desafio tipo Turnstile antes da primeira chamada, ou autenticação leve por sessão. Vale dimensionar a proteção pro risco real, não pro pior caso teórico — proteção demais também tem custo, em fricção de uso.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        E a lição maior: "configurei um rate limiter" não é o mesmo que "o rate limiter funciona". As duas primeiras tentativas pareciam corretas — sintaxe certa, binding ativo, sem erro nenhum — e não protegiam nada. Só rajada de chamada real contra o endpoint em produção revelou isso.
+      </p>
+    </section>
+
+    <!-- 05 RESULTADO -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-emerald-500/60">
+        <span class="text-xs font-mono-code text-slate-500">05</span>
+        <h2 class="text-xl font-bold text-white">Status</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Mitigação implementada e <strong class="text-white">confirmada em produção</strong> contra o endpoint identificado — não só configurada: testada com chamada real em rajada, com o corte batendo exatamente no limite configurado (excedente volta HTTP 429).
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-emerald-500/20 bg-[#04060a] py-12 mt-20 relative z-10 font-mono-code text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3 text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span>© <span id="ano">2026</span> Itiberê Paquier · itibere.tec.br</span>
+      </div>
+      <div class="flex items-center gap-6 text-slate-400">
+        <a href="../../" class="hover:text-amber-400 transition">Projetos</a>
+        <a href="../../sobre.html" class="hover:text-white transition">Sobre</a>
+        <a href="../../privacidade.html" class="hover:text-white transition">Privacidade</a>
+        <a href="mailto:itibere.paquier@gmail.com" class="hover:text-cyan-400 transition">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
