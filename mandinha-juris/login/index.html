@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MandinhaJuris — Login</title>
+  <meta name="description" content="Acesso ao roteiro de estudos MandinhaJuris — ENAM e ENAP.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2305070c'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2310b981' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='17' font-weight='700' fill='%2310b981' text-anchor='middle'>&gt;_</text></svg>">
+
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+</head>
+<body class="bg-[#05070c] text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200 min-h-screen flex flex-col">
+
+  <div class="fixed inset-0 bg-grid-cyber pointer-events-none z-0 opacity-40"></div>
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+  <header class="sticky top-0 z-50 border-b border-emerald-500/20 bg-[#05070c]/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center">
+      <a href="../../" class="flex items-center gap-2 text-sm font-mono-code group hover:no-underline">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]"></span>
+        <span class="text-emerald-400 font-semibold">itibere</span><span class="text-slate-500">@</span><span class="text-cyan-400">bsb-infra</span><span class="text-slate-500">:~#</span>
+        <span class="text-slate-300 group-hover:text-emerald-300 transition">home</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="relative z-10 flex-1 flex items-center justify-center px-4 py-16">
+    <div class="w-full max-w-sm rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-[#0a0e1a] via-[#0d1424] to-[#0d1a1a] p-8 glow-emerald space-y-6">
+      <div class="space-y-2 text-center">
+        <span class="px-3 py-1 rounded-full text-xs font-mono-code font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 inline-flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          MANDINHAJURIS
+        </span>
+        <h1 class="text-2xl font-extrabold text-white">Roteiro de Estudos</h1>
+        <p class="text-sm text-slate-400">ENAM &amp; ENAP — acesso restrito</p>
+      </div>
+
+      <form id="login-form" class="space-y-4" autocomplete="off">
+        <div class="space-y-1.5">
+          <label for="usuario" class="text-xs font-mono-code text-slate-400">usuário</label>
+          <input id="usuario" name="usuario" type="text" required autocomplete="username"
+            class="w-full rounded-lg bg-[#05070c] border border-slate-800 focus:border-emerald-500/50 outline-none px-3 py-2.5 text-sm text-slate-100 placeholder:text-slate-600"
+            placeholder="usuário">
+        </div>
+        <div class="space-y-1.5">
+          <label for="senha" class="text-xs font-mono-code text-slate-400">senha</label>
+          <input id="senha" name="senha" type="password" required autocomplete="current-password"
+            class="w-full rounded-lg bg-[#05070c] border border-slate-800 focus:border-emerald-500/50 outline-none px-3 py-2.5 text-sm text-slate-100 placeholder:text-slate-600"
+            placeholder="senha">
+        </div>
+
+        <p id="login-error" class="hidden text-xs text-red-400 font-mono-code">Usuário ou senha incorretos.</p>
+
+        <button type="submit"
+          class="w-full rounded-lg bg-emerald-500/10 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/20 transition font-mono-code text-sm py-2.5">
+          entrar →
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="border-t border-emerald-500/20 bg-[#04060a] py-6 relative z-10 font-mono-code text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center text-slate-500">
+      © <span id="ano">2026</span> Itiberê Paquier · itibere.tec.br
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    // Autenticação apenas de teste — site é estático (GitHub Pages), sem backend.
+    // Credenciais visíveis no código-fonte; não usar para dados sensíveis reais.
+    const VALID_USER = 'Ricco';
+    const VALID_PASS = '123deoliveira4';
+
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const usuario = document.getElementById('usuario').value.trim();
+      const senha = document.getElementById('senha').value;
+      const errorEl = document.getElementById('login-error');
+
+      if (usuario === VALID_USER && senha === VALID_PASS) {
+        sessionStorage.setItem('mandinhajuris_auth', '1');
+        window.location.href = '../';
+      } else {
+        errorEl.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
