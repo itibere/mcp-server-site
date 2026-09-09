@@ -34,14 +34,47 @@ git commit && git push
    lotes em julgamento_lotes/ seguindo o padrão dos julgamento_NN.json
    existentes".
 
-   **Correção de calibração (2026-09-04):** CFTV / circuito fechado de TV,
-   mesmo com componente IP/rede (ex: "solução CFTV-IP", "câmeras em rede"),
-   **NÃO é TIC** pela classificação oficial de categoria do PNCP — é
-   segurança patrimonial/vigilância eletrônica, categoria própria, mesmo
-   rodando sobre infraestrutura de rede. Um exemplo antigo commitado
-   classificava CFTV-IP como TIC por engano; se encontrar esse padrão de
-   novo em qualquer `julgamento_NN.json` existente, ele está errado — não
-   siga esse exemplo específico, julgue CFTV como `nao_tic`.
+   **Critério (revisado 2026-09-09 — bem mais restrito que "TIC" genérico).**
+   `veredito: "tic"` **somente** se o objeto se enquadrar numa destas duas
+   categorias:
+
+   - **A) Serviços de Sustentação de Infraestrutura de TIC** — manutenção,
+     suporte técnico, garantia, operação de servidores, storage/armazenamento,
+     backup, datacenter (climatização de precisão, UPS, sala-cofre). Inclui
+     "atendimento a usuários"/helpdesk/service desk quando empacotado
+     *junto* com operação de infraestrutura no mesmo contrato (modelo
+     oficial SISP, Portaria SGD/MGI 1.070/2023, trata os dois como um
+     pacote único). **Não inclui**: aquisição *nova* de servidor/storage/
+     equipamento de rede como bem (aquisição não é "sustentação" de algo
+     já existente); conectividade/rede como serviço (link de internet,
+     fibra, Wi-Fi corporativo); nuvem/cloud/IaaS/hospedagem/SaaS de
+     qualquer tipo; firewall/NGFW/segurança de rede, workstation ou
+     e-mail; certificados digitais (A3, SSL/TLS). Todos esses ficam fora
+     do escopo mesmo sendo "infra" em sentido técnico amplo — o usuário
+     restringiu deliberadamente a só o núcleo de sustentação de
+     servidor/storage/backup/datacenter.
+   - **B) Fornecimento de Hardware (Computadores/Monitores)** — *somente*
+     aquisição de desktop, notebook, estação de trabalho, monitor.
+     **Não inclui** switch, roteador, equipamento de rede, servidor novo,
+     storage novo, equipamento multimídia (som/câmera/projetor),
+     keypads/urnas eletrônicas.
+
+   Tudo mais é `nao_tic`, incluindo desenvolvimento/evolução/sustentação
+   de **sistemas de informação** (é desenvolvimento de software aplicativo,
+   categoria diferente de sustentação de *infraestrutura*) e licenças de
+   software/SaaS isoladas (Adobe, OpenAI, Microsoft 365, antivírus, ITSM/
+   DCIM como produto isolado).
+
+   Os `julgamento_NN.json` commitados neste repo já refletem esse critério
+   (rejulgados em 2026-09-09). Se algum exemplo mais antigo aparecer
+   classificando conectividade/nuvem/firewall/certificado/dev-de-sistema
+   como `tic`, ele está desatualizado — não siga, aplique o critério acima.
+
+   **Correção de calibração (2026-09-04, ainda válida):** CFTV / circuito
+   fechado de TV, mesmo com componente IP/rede (ex: "solução CFTV-IP",
+   "câmeras em rede"), **NÃO é TIC** pela classificação oficial de categoria
+   do PNCP — é segurança patrimonial/vigilância eletrônica, categoria
+   própria, mesmo rodando sobre infraestrutura de rede.
 4. **`_consolidar_julgamento.py`** — junta os `julgamento_*.json` aos
    candidatos originais, separa aprovados/reprovados, escreve
    `resultado_tic_df_federal_julgado.json`.
