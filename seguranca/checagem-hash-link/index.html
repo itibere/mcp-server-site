@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verificação de Hash e Links — Itiberê Paquier</title>
+  <meta name="description" content="Ferramenta de verificação de hash de arquivo (MD5/SHA-1/SHA-256/SHA-512) e reputação de URL, usando a base pública do VirusTotal.">
+
+  <!-- Tailwind CSS Standalone -->
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2305070c'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2310b981' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='17' font-weight='700' fill='%2310b981' text-anchor='middle'>&gt;_</text></svg>">
+
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <meta property="og:title" content="Verificação de Hash e Links — Itiberê Paquier">
+  <meta property="og:description" content="Ferramenta de verificação de hash de arquivo e reputação de URL, usando a base pública do VirusTotal.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itibere.tec.br/seguranca/checagem-hash-link/">
+</head>
+<body class="bg-[#05070c] text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <div class="fixed inset-0 bg-grid-cyber pointer-events-none z-0 opacity-40"></div>
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+  <div class="fixed bottom-1/3 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+  <header class="sticky top-0 z-50 border-b border-emerald-500/20 bg-[#05070c]/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="../../" class="flex items-center gap-2 text-sm font-mono-code group hover:no-underline">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]"></span>
+        <span class="text-emerald-400 font-semibold">itibere</span><span class="text-slate-500">@</span><span class="text-cyan-400">bsb-infra</span><span class="text-slate-500">:~#</span>
+        <span class="text-slate-300 group-hover:text-emerald-300 transition">home</span>
+        <span class="inline-block w-2 h-4 bg-emerald-400/80 animate-blink ml-0.5"></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-10">
+
+    <!-- HERO -->
+    <section class="rounded-2xl border border-amber-500/30 bg-gradient-to-br from-[#0a0e1a] via-[#14100a] to-[#1a140d] p-8 sm:p-12 relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 w-72 h-72 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 space-y-4">
+        <span class="px-3 py-1 rounded-full text-xs font-mono-code font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 inline-flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          SEGURANÇA / FERRAMENTA
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Validação de Links e Hashes Maliciosos
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+          Cole o hash de um arquivo (ou anexe o arquivo — o hash é calculado no seu navegador, o arquivo nunca é enviado) ou uma URL. A consulta é feita na base pública do VirusTotal e o resultado é traduzido num veredito único.
+        </p>
+      </div>
+    </section>
+
+    <!-- FORM VIEW -->
+    <section id="view-form" class="grid md:grid-cols-2 gap-6">
+
+      <!-- HASH -->
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] p-6 space-y-4">
+        <h2 class="text-lg font-bold text-white font-mono-code">Verificação de Hash</h2>
+        <p class="text-xs text-slate-500">Digite o hash do arquivo (MD5, SHA-1, SHA-256 ou SHA-512) ou anexe o arquivo.</p>
+        <textarea id="hash-input" rows="3" placeholder="ex: 44d88612fea8a8f36de82e1278abb02f" class="w-full rounded-lg bg-slate-900/60 border border-slate-700 px-3 py-2 text-sm font-mono-code text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-amber-500/60 resize-none"></textarea>
+        <p id="hash-error" class="text-xs text-red-400 hidden"></p>
+        <div class="flex flex-wrap items-center gap-3">
+          <button type="button" id="attach-btn" class="px-3 py-2 rounded-lg border border-slate-700 text-xs font-mono-code text-slate-300 hover:border-amber-500/60 hover:text-amber-300 transition">Anexar arquivo</button>
+          <span id="attach-name" class="text-xs text-slate-500 font-mono-code truncate max-w-[12rem]"></span>
+          <button type="button" id="hash-reset-btn" class="text-xs text-cyan-400 hover:text-cyan-300 underline hidden">colar hash manualmente</button>
+          <input type="file" id="file-input" class="hidden">
+        </div>
+        <button type="button" id="hash-submit" disabled class="w-full py-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-semibold font-mono-code disabled:opacity-40 disabled:cursor-not-allowed enabled:hover:bg-amber-500/20 transition">Verificar hash</button>
+      </div>
+
+      <!-- URL -->
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] p-6 space-y-4">
+        <h2 class="text-lg font-bold text-white font-mono-code">Checagem de Links</h2>
+        <p class="text-xs text-slate-500">Cole a URL que você quer verificar.</p>
+        <input id="url-input" type="text" placeholder="https://exemplo.com" class="w-full rounded-lg bg-slate-900/60 border border-slate-700 px-3 py-2 text-sm font-mono-code text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-cyan-500/60">
+        <p id="url-error" class="text-xs text-red-400 hidden"></p>
+        <button type="button" id="url-submit" disabled class="w-full py-2.5 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-semibold font-mono-code disabled:opacity-40 disabled:cursor-not-allowed enabled:hover:bg-cyan-500/20 transition">Verificar link</button>
+        <p class="text-[11px] text-slate-500 leading-relaxed">
+          Ao enviar dados acima, você concorda com nossos <a href="../../termos.html" class="underline hover:text-slate-300">Termos de Uso</a> e <a href="../../privacidade.html" class="underline hover:text-slate-300">Aviso de Privacidade</a>, e com o compartilhamento da URL enviada com a comunidade de segurança (via VirusTotal). Não envie informações pessoais — não nos responsabilizamos pelo conteúdo enviado. <a href="../../termos.html" class="underline hover:text-slate-300">Saiba mais</a>.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- LOADING VIEW -->
+    <section id="view-loading" class="hidden rounded-2xl border border-slate-800 bg-[#090e17] p-16 flex flex-col items-center justify-center gap-6 text-center">
+      <svg class="animate-spin h-12 w-12 text-amber-400" viewBox="0 0 24 24" fill="none">
+        <circle class="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle>
+        <path class="opacity-90" fill="currentColor" d="M4 12a8 8 0 018-8v3a5 5 0 00-5 5H4z"></path>
+      </svg>
+      <p class="text-sm font-mono-code text-amber-400 font-semibold tracking-[0.3em] animate-pulse">ANALISANDO</p>
+      <p id="loading-detail" class="text-xs text-slate-500">Consultando VirusTotal...</p>
+    </section>
+
+    <!-- RESULT VIEW -->
+    <section id="view-result" class="hidden rounded-2xl border p-8 space-y-4">
+      <div class="flex items-center gap-3">
+        <span id="result-badge" class="px-3 py-1 rounded-full text-xs font-mono-code font-semibold border"></span>
+      </div>
+      <p id="result-message" class="text-sm sm:text-base text-slate-200 leading-relaxed"></p>
+      <ul id="result-motivos" class="hidden text-xs text-slate-400 font-mono-code list-disc list-inside space-y-1"></ul>
+      <button type="button" id="result-reset" class="mt-2 px-4 py-2 rounded-lg border border-slate-700 text-xs font-mono-code text-slate-300 hover:border-emerald-500/60 hover:text-emerald-300 transition">Verificar outro</button>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-emerald-500/20 bg-[#04060a] py-12 mt-20 relative z-10 font-mono-code text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3 text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span>© <span id="ano">2026</span> Itiberê Paquier · itibere.tec.br</span>
+      </div>
+      <div class="flex items-center gap-6 text-slate-400">
+        <a href="../../" class="hover:text-amber-400 transition">Projetos</a>
+        <a href="../../sobre.html" class="hover:text-white transition">Sobre</a>
+        <a href="../../termos.html" class="hover:text-white transition">Termos</a>
+        <a href="../../privacidade.html" class="hover:text-white transition">Privacidade</a>
+        <a href="mailto:itibere.paquier@gmail.com" class="hover:text-cyan-400 transition">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+
+    const API_BASE = "https://vt-proxy.itibere-paquier.workers.dev";
+
+    const HASH_RE = /^[a-fA-F0-9]{32}$|^[a-fA-F0-9]{40}$|^[a-fA-F0-9]{64}$|^[a-fA-F0-9]{128}$/;
+
+    const viewForm = document.getElementById('view-form');
+    const viewLoading = document.getElementById('view-loading');
+    const viewResult = document.getElementById('view-result');
+    const loadingDetail = document.getElementById('loading-detail');
+
+    const hashInput = document.getElementById('hash-input');
+    const hashError = document.getElementById('hash-error');
+    const hashSubmit = document.getElementById('hash-submit');
+    const attachBtn = document.getElementById('attach-btn');
+    const attachName = document.getElementById('attach-name');
+    const fileInput = document.getElementById('file-input');
+    const hashResetBtn = document.getElementById('hash-reset-btn');
+
+    const urlInput = document.getElementById('url-input');
+    const urlError = document.getElementById('url-error');
+    const urlSubmit = document.getElementById('url-submit');
+
+    function showForm() {
+      viewResult.classList.add('hidden');
+      viewLoading.classList.add('hidden');
+      viewForm.classList.remove('hidden');
+    }
+
+    function showLoading(detail) {
+      viewForm.classList.add('hidden');
+      viewResult.classList.add('hidden');
+      loadingDetail.textContent = detail || 'Consultando VirusTotal...';
+      viewLoading.classList.remove('hidden');
+    }
+
+    const BADGE_STYLES = {
+      limpo: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
+      alerta: 'bg-amber-500/10 text-amber-400 border-amber-500/30',
+      malicioso: 'bg-red-500/10 text-red-400 border-red-500/30',
+      erro: 'bg-slate-500/10 text-slate-400 border-slate-500/30',
+    };
+    const BADGE_LABELS = {
+      limpo: 'LIMPO',
+      alerta: 'ALERTA',
+      malicioso: 'MALICIOSO',
+      erro: 'ERRO',
+    };
+    const RESULT_BORDER = {
+      limpo: 'border-emerald-800/60 bg-emerald-950/20',
+      alerta: 'border-amber-800/60 bg-amber-950/20',
+      malicioso: 'border-red-800/60 bg-red-950/20',
+      erro: 'border-slate-700/60 bg-slate-900/30',
+    };
+
+    function showResult(status, message, motivos) {
+      viewLoading.classList.add('hidden');
+      viewForm.classList.add('hidden');
+
+      const section = viewResult;
+      section.className = 'rounded-2xl border p-8 space-y-4 ' + (RESULT_BORDER[status] || RESULT_BORDER.erro);
+
+      const badge = document.getElementById('result-badge');
+      badge.className = 'px-3 py-1 rounded-full text-xs font-mono-code font-semibold border ' + (BADGE_STYLES[status] || BADGE_STYLES.erro);
+      badge.textContent = BADGE_LABELS[status] || BADGE_LABELS.erro;
+
+      document.getElementById('result-message').textContent = message;
+
+      const motivosEl = document.getElementById('result-motivos');
+      motivosEl.innerHTML = '';
+      if (motivos && motivos.length) {
+        motivos.forEach((m) => {
+          const li = document.createElement('li');
+          li.textContent = m;
+          motivosEl.appendChild(li);
+        });
+        motivosEl.classList.remove('hidden');
+      } else {
+        motivosEl.classList.add('hidden');
+      }
+
+      section.classList.remove('hidden');
+    }
+
+    document.getElementById('result-reset').addEventListener('click', () => {
+      hashInput.value = '';
+      hashInput.readOnly = false;
+      attachName.textContent = '';
+      hashResetBtn.classList.add('hidden');
+      fileInput.value = '';
+      urlInput.value = '';
+      validateHash();
+      validateUrl();
+      showForm();
+    });
+
+    // --- Hash ---
+
+    function validateHash() {
+      const value = hashInput.value.trim();
+      if (!value) {
+        hashError.classList.add('hidden');
+        hashInput.classList.remove('border-red-500', 'border-emerald-500');
+        hashSubmit.disabled = true;
+        return false;
+      }
+      const ok = HASH_RE.test(value);
+      hashInput.classList.toggle('border-red-500', !ok);
+      hashInput.classList.toggle('border-emerald-500', ok);
+      hashError.classList.toggle('hidden', ok);
+      if (!ok) hashError.textContent = 'Isso não parece um hash MD5, SHA-1, SHA-256 ou SHA-512 válido (só caracteres hexadecimais).';
+      hashSubmit.disabled = !ok;
+      return ok;
+    }
+    hashInput.addEventListener('input', validateHash);
+
+    attachBtn.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', async () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+      attachName.textContent = file.name;
+      const buf = await file.arrayBuffer();
+      const digest = await crypto.subtle.digest('SHA-256', buf);
+      const hex = Array.from(new Uint8Array(digest)).map((b) => b.toString(16).padStart(2, '0')).join('');
+      hashInput.value = hex;
+      hashInput.readOnly = true;
+      hashResetBtn.classList.remove('hidden');
+      validateHash();
+    });
+
+    hashResetBtn.addEventListener('click', () => {
+      hashInput.value = '';
+      hashInput.readOnly = false;
+      attachName.textContent = '';
+      fileInput.value = '';
+      hashResetBtn.classList.add('hidden');
+      validateHash();
+      hashInput.focus();
+    });
+
+    hashSubmit.addEventListener('click', async () => {
+      if (!validateHash()) return;
+      const hash = hashInput.value.trim();
+      showLoading('Consultando hash no VirusTotal...');
+      try {
+        const res = await fetch(API_BASE + '/hash', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ hash }),
+        });
+        const data = await res.json();
+        if (data.error === 'quota_excedida') {
+          showResult('erro', 'Limite diário de consultas ao VirusTotal atingido. Tente novamente mais tarde.');
+        } else if (data.error) {
+          showResult('erro', 'Não foi possível completar a consulta agora. Tente novamente mais tarde.');
+        } else if (data.found === false) {
+          showResult('erro', 'Hash não encontrado na base do VirusTotal — arquivo desconhecido, não foi possível confirmar se é seguro.');
+        } else {
+          showResult(data.status, data.message);
+        }
+      } catch {
+        showResult('erro', 'Falha de conexão com o serviço de verificação. Tente novamente mais tarde.');
+      }
+    });
+
+    // --- URL ---
+
+    function validateUrl() {
+      const value = urlInput.value.trim();
+      if (!value) {
+        urlError.classList.add('hidden');
+        urlInput.classList.remove('border-red-500', 'border-emerald-500');
+        urlSubmit.disabled = true;
+        return false;
+      }
+      let ok = true;
+      try {
+        const withProtocol = /^https?:\/\//i.test(value) ? value : 'https://' + value;
+        new URL(withProtocol);
+      } catch {
+        ok = false;
+      }
+      urlInput.classList.toggle('border-red-500', !ok);
+      urlInput.classList.toggle('border-emerald-500', ok);
+      urlError.classList.toggle('hidden', ok);
+      if (!ok) urlError.textContent = 'Isso não parece uma URL válida.';
+      urlSubmit.disabled = !ok;
+      return ok;
+    }
+    urlInput.addEventListener('input', validateUrl);
+
+    async function pollUrlAnalysis(analysisId, attempt) {
+      attempt = attempt || 0;
+      if (attempt > 40) {
+        showResult('erro', 'A análise demorou mais que o esperado. Tente novamente mais tarde.');
+        return;
+      }
+      try {
+        const res = await fetch(API_BASE + '/url/' + encodeURIComponent(analysisId));
+        const data = await res.json();
+        if (data.error) {
+          showResult('erro', 'Não foi possível completar a consulta agora. Tente novamente mais tarde.');
+          return;
+        }
+        if (data.done) {
+          const motivos = data.message && data.message.includes('Motivos:')
+            ? data.message.split('Motivos:')[1].split(';').map((s) => s.trim()).filter(Boolean)
+            : null;
+          const baseMessage = data.message.split(' Motivos:')[0];
+          showResult(data.status, baseMessage, motivos);
+        } else {
+          setTimeout(() => pollUrlAnalysis(analysisId, attempt + 1), 3000);
+        }
+      } catch {
+        showResult('erro', 'Falha de conexão com o serviço de verificação. Tente novamente mais tarde.');
+      }
+    }
+
+    urlSubmit.addEventListener('click', async () => {
+      if (!validateUrl()) return;
+      const raw = urlInput.value.trim();
+      const url = /^https?:\/\//i.test(raw) ? raw : 'https://' + raw;
+      showLoading('Consultando URL no VirusTotal...');
+      try {
+        const res = await fetch(API_BASE + '/url', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url }),
+        });
+        const data = await res.json();
+        if (data.error === 'quota_excedida') {
+          showResult('erro', 'Limite diário de consultas ao VirusTotal atingido. Tente novamente mais tarde.');
+        } else if (data.error) {
+          showResult('erro', 'Não foi possível completar a consulta agora. Tente novamente mais tarde.');
+        } else if (data.queued) {
+          loadingDetail.textContent = 'Análise em andamento, isso pode levar até 2 minutos...';
+          pollUrlAnalysis(data.analysis_id);
+        } else if (data.done) {
+          const motivos = data.message && data.message.includes('Motivos:')
+            ? data.message.split('Motivos:')[1].split(';').map((s) => s.trim()).filter(Boolean)
+            : null;
+          const baseMessage = data.message.split(' Motivos:')[0];
+          showResult(data.status, baseMessage, motivos);
+        }
+      } catch {
+        showResult('erro', 'Falha de conexão com o serviço de verificação. Tente novamente mais tarde.');
+      }
+    });
+  </script>
+</body>
+</html>
