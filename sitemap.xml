@@ -19,6 +19,9 @@
     <loc>https://itibere.tec.br/privacidade.html</loc>
   </url>
   <url>
+    <loc>https://itibere.tec.br/termos.html</loc>
+  </url>
+  <url>
     <loc>https://itibere.tec.br/seguranca/url-reputation/</loc>
   </url>
   <url>
@@ -26,5 +29,8 @@
   </url>
   <url>
     <loc>https://itibere.tec.br/seguranca/prompt-injection/</loc>
+  </url>
+  <url>
+    <loc>https://itibere.tec.br/seguranca/checagem-hash-link/</loc>
   </url>
 </urlset>

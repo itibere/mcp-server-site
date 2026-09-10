@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacidade — Itiberê Paquier</title>
-  <meta name="description" content="Política de privacidade de itibere.tec.br: nenhuma coleta de dados, sem cookies, sem analytics.">
+  <title>Termos de Uso — Itiberê Paquier</title>
+  <meta name="description" content="Termos de uso de itibere.tec.br, incluindo a ferramenta de verificação de hash e links.">
 
   <!-- Tailwind CSS Standalone -->
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
@@ -21,10 +21,10 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
-  <meta property="og:title" content="Privacidade — Itiberê Paquier">
-  <meta property="og:description" content="Política de privacidade de itibere.tec.br: nenhuma coleta de dados, sem cookies, sem analytics.">
+  <meta property="og:title" content="Termos de Uso — Itiberê Paquier">
+  <meta property="og:description" content="Termos de uso de itibere.tec.br, incluindo a ferramenta de verificação de hash e links.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://itibere.tec.br/privacidade.html">
+  <meta property="og:url" content="https://itibere.tec.br/termos.html">
 </head>
 <body class="bg-[#05070c] text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
 
@@ -50,57 +50,60 @@
       <div class="relative z-10 space-y-3">
         <span class="px-3 py-1 rounded-full text-xs font-mono-code font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 inline-flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          ITIBERE.TEC.BR / PRIVACIDADE
+          ITIBERE.TEC.BR / TERMOS DE USO
         </span>
-        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">Política de Privacidade</h1>
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">Termos de Uso</h1>
         <p class="text-xs text-slate-500 font-mono-code">Última atualização: 2026-09-10</p>
       </div>
     </section>
 
     <section class="space-y-4">
-      <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Coleta de dados</h2>
+      <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Natureza do site</h2>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        Este site <strong class="text-white">não coleta dados pessoais</strong> de quem visita. Não há cookies, não há scripts de analytics, não há rastreadores de terceiros e não há formulários que capturem informação do visitante. É um site estático: HTML, CSS e JavaScript servidos diretamente, sem backend próprio processando requisições.
+        itibere.tec.br é um site pessoal/portfólio. O conteúdo é fornecido "como está",
+        sem garantia de disponibilidade, precisão ou adequação a qualquer finalidade
+        específica.
       </p>
     </section>
 
     <section class="space-y-4">
-      <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Hospedagem</h2>
+      <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Ferramenta de verificação de hash e links</h2>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        O site é hospedado no <strong class="text-white">GitHub Pages</strong> (GitHub, Inc.). A infraestrutura de hospedagem pode registrar logs técnicos padrão de acesso (IP, user-agent) por conta própria — isso é regido pela <a href="https://docs.github.com/pages/getting-started-with-github-pages/about-github-pages#data-collection" target="_blank" rel="noopener noreferrer" class="underline">política de coleta de dados do GitHub Pages</a>, fora do controle deste site.
+        A ferramenta de <a href="seguranca/checagem-hash-link/" class="underline">verificação de hash e links</a>
+        consulta a base pública do <a href="https://www.virustotal.com" target="_blank" rel="noopener noreferrer" class="underline">VirusTotal</a>
+        através de um proxy próprio. O hash (calculado no seu navegador, sem envio do
+        arquivo) ou a URL informada é repassado ao VirusTotal para análise — este site
+        não armazena esses dados em nenhum banco ou log próprio, apenas repassa a
+        consulta e devolve o resultado.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        O resultado é uma interpretação automática e simplificada do relatório do
+        VirusTotal, sem revisão humana. <strong class="text-white">Não é consultoria de
+        segurança</strong> e não substitui uma solução de antivírus/EDR atualizada. Uso
+        por conta e risco — não nos responsabilizamos por decisões tomadas com base no
+        resultado exibido.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        Não envie hash ou URL que contenha informação pessoal sua ou de terceiros — a
+        consulta é compartilhada com a comunidade de segurança através da base pública
+        do VirusTotal.
       </p>
     </section>
 
     <section class="space-y-4">
-      <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Exceção: ferramenta de verificação de hash e links</h2>
+      <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Limite de uso</h2>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        A <a href="seguranca/checagem-hash-link/" class="underline">ferramenta de verificação de hash e links</a>
-        é a única parte deste site com backend próprio (um proxy em Cloudflare Workers).
-        O hash (calculado no seu navegador — o arquivo em si nunca é enviado) ou a URL
-        que você informar é repassado ao <a href="https://www.virustotal.com" target="_blank" rel="noopener noreferrer" class="underline">VirusTotal</a>
-        pra consulta. Esse proxy não grava log nem guarda essas consultas em banco
-        próprio — só repassa e devolve o resultado. Veja também os <a href="termos.html" class="underline">Termos de Uso</a>.
-      </p>
-    </section>
-
-    <section class="space-y-4">
-      <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Dados públicos exibidos</h2>
-      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        Os dashboards deste site (MCP-PNCP) exibem dados de contratações públicas obtidos da API oficial do PNCP (Portal Nacional de Contratações Públicas), públicos por força da Lei de Acesso à Informação. Não são dados pessoais de quem visita o site — são dados de contratos e órgãos públicos.
-      </p>
-    </section>
-
-    <section class="space-y-4">
-      <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Contato voluntário</h2>
-      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        A única forma de contato é o link de e-mail no rodapé (<code class="font-mono-code text-cyan-400">mailto:</code>) — se você enviar um e-mail, isso acontece diretamente no seu cliente de e-mail e este site não intermedia nem armazena essa troca.
+        A ferramenta usa uma chave gratuita da API do VirusTotal, com cota diária
+        limitada. Em caso de cota esgotada, a ferramenta informa o ocorrido e pede pra
+        tentar novamente mais tarde.
       </p>
     </section>
 
     <section class="space-y-4">
       <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Dúvidas</h2>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        <a href="mailto:itibere.paquier@gmail.com" class="underline">itibere.paquier@gmail.com</a>
+        Veja também a <a href="privacidade.html" class="underline">Política de Privacidade</a>.
+        Contato: <a href="mailto:itibere.paquier@gmail.com" class="underline">itibere.paquier@gmail.com</a>
       </p>
     </section>
 
@@ -113,8 +116,6 @@
         <span>© <span id="ano">2026</span> Itiberê Paquier · itibere.tec.br</span>
       </div>
       <div class="flex items-center gap-6 text-slate-400">
-        <a href="pncp-monitor/" class="hover:text-purple-400 transition">MCP-PNCP</a>
-        <a href="rag-licitacoes/" class="hover:text-emerald-400 transition">RAG-Licitações</a>
         <a href="sobre.html" class="hover:text-white transition">Sobre</a>
         <a href="privacidade.html" class="hover:text-white transition">Privacidade</a>
         <a href="mailto:itibere.paquier@gmail.com" class="hover:text-cyan-400 transition">E-mail</a>
