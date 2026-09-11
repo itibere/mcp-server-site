@@ -106,6 +106,9 @@
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
         Não importa se quem colocou aquilo ali fazia isso de propósito (um ataque direcionado) ou se era conteúdo automaticamente gerado por outra ferramenta que também usa IA e vazou instrução por engano — o efeito pretendido é o mesmo, e a defesa precisa ser a mesma nos dois casos.
       </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Essa classe de ataque tem nome e categoria própria na referência de segurança específica pra aplicações com LLM: <strong class="text-white">LLM01:2025 Prompt Injection</strong>, no <a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP Top 10 for LLM Applications</a> — a categoria nº1 da lista, justamente por ser o vetor mais comum contra sistemas baseados em modelo de linguagem. No catálogo de técnicas do <a href="https://atlas.mitre.org/techniques/AML.T0051.001" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">MITRE ATLAS</a>, o caso específico se classifica como <strong class="text-white">AML.T0051.001 — LLM Prompt Injection: Indirect</strong>: a instrução maliciosa não veio de quem opera o agente, veio embutida num canal de dado externo (página web lida pela ferramenta de busca) — a variante indireta, distinta de alguém digitando o ataque direto no prompt.
+      </p>
     </section>
 
     <!-- 03 POR QUE NÃO FUNCIONOU -->
@@ -216,6 +219,19 @@ for (const f of process.argv.slice(1)) {
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
         Tentativa <strong class="text-white">bloqueada em tempo real</strong> pela fronteira instrução-vs-dado, e <strong class="text-white">confirmada sem impacto</strong> por auditoria automatizada pós-fato sobre todo o lote de conteúdo do período, além de revisão humana antes da publicação. Caso documentado aqui como referência de metodologia — a mesma defesa em camadas (regra estrutural + corroboração cruzada + auditoria pós-fato + revisão humana) se aplica a qualquer pipeline que combine agente de IA com leitura de conteúdo externo.
       </p>
+    </section>
+
+    <!-- 07 FONTES -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">07</span>
+        <h2 class="text-xl font-bold text-white">Fontes</h2>
+      </div>
+      <ul class="text-sm text-slate-400 leading-relaxed space-y-2 max-w-2xl">
+        <li><a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP Top 10 for LLM Applications (2025) — LLM01:2025 Prompt Injection</a>, categoria nº1 da lista.</li>
+        <li><a href="https://atlas.mitre.org/techniques/AML.T0051.001" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">MITRE ATLAS — AML.T0051.001, LLM Prompt Injection: Indirect</a>.</li>
+        <li><a href="https://simonwillison.net/series/prompt-injection/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">Simon Willison — série sobre prompt injection</a>, incluindo o post original que cunhou o termo em 2022.</li>
+      </ul>
     </section>
 
   </main>

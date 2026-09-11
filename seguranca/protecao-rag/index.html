@@ -79,6 +79,9 @@
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
         Sem outra barreira, cada requisição dispara chamadas reais — embedding numa API paga, inferência num modelo, consulta a um banco vetorial — cada uma com custo ou cota associada. Isso é uma superfície de abuso financeiro/exaustão de cota, não de roubo de credencial: ninguém precisa de chave nenhuma sua, só precisa saber a URL.
       </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Essa classe de risco tem categoria nomeada em duas referências públicas: <strong class="text-white">API4:2023 Unrestricted Resource Consumption</strong>, no <a href="https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP API Security Top 10</a>; e, na taxonomia geral de fraquezas, <a href="https://cwe.mitre.org/data/definitions/770.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">CWE-770 — Allocation of Resources Without Limits or Throttling</a>.
+      </p>
     </section>
 
     <!-- 02 DIAGNÓSTICO -->
@@ -248,6 +251,22 @@ new_sqlite_classes = [<span class="text-amber-300">"RateLimiterDO"</span>]
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
         Mitigação implementada e <strong class="text-white">confirmada em produção</strong> contra o endpoint identificado — não só configurada: testada com chamada real em rajada, com o corte batendo exatamente no limite configurado (excedente volta HTTP 429).
       </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Mesmo padrão (Durable Object, instância única e autoritativa por chave) reaplicado depois num segundo endpoint deste site — ver <a href="../http-hardening/" class="underline hover:text-amber-300">HTTP Hardening</a>.
+      </p>
+    </section>
+
+    <!-- 06 FONTES -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">06</span>
+        <h2 class="text-xl font-bold text-white">Fontes</h2>
+      </div>
+      <ul class="text-sm text-slate-400 leading-relaxed space-y-2 max-w-2xl">
+        <li><a href="https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP API Security Top 10 (2023) — API4: Unrestricted Resource Consumption</a>.</li>
+        <li><a href="https://cwe.mitre.org/data/definitions/770.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">CWE-770 — Allocation of Resources Without Limits or Throttling</a>.</li>
+        <li><a href="https://developers.cloudflare.com/durable-objects/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">Cloudflare Durable Objects — documentação oficial</a>.</li>
+      </ul>
     </section>
 
   </main>
