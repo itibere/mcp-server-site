@@ -1,0 +1,446 @@
+{
+ "geradoEm": "2026-09-11T16:58:20",
+ "cobertura": {
+  "uf": "BA",
+  "esfera": "Estadual",
+  "criterioTIC": "palavra-chave no objeto (busca full-text OR)",
+  "janelaVencimento": "2027-03-10 a 2027-09-06",
+  "mesesJanelaInicio": 6,
+  "mesesJanelaFim": 12,
+  "fonte": "https://pncp.gov.br/api/search/"
+ },
+ "totais": {
+  "candidatosTIC": 5464,
+  "vencendoJanela": 6,
+  "servicos": 2
+ },
+ "julgamentoAgente": {
+  "total_antes": 66,
+  "aprovados": 6,
+  "reprovados": 60,
+  "exemplosReprovados": [
+   {
+    "orgao": "CASA CIVIL",
+    "objeto": "Administração, Operação, Desenv. de Sistemas de Informática e Software",
+    "motivo": "Administracao/Operacao/Desenvolvimento de Sistemas de Informatica e Software - rotulo generico de categoria PNCP, e desenvolvimento/sustentacao de sistemas (software aplicativo), categoria diferente de sustentacao de infraestrutura.",
+    "numero_controle_pncp": "03661160000170-2-000021/2026"
+   },
+   {
+    "orgao": "FUNDACAO CULTURAL DO ESTADO DA BAHIA",
+    "objeto": "Equipamentos e Componentes de Informática",
+    "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor (hardware categoria B) nem sustentacao de infraestrutura.",
+    "numero_controle_pncp": "13266325000162-2-000024/2026"
+   },
+   {
+    "orgao": "INSTITUTO DO MEIO AMBIENTE E RECURSOS HIDRICOS",
+    "objeto": "Administração, Operação, Desenv. de Sistemas de Informática e Software",
+    "motivo": "Administracao/Operacao/Desenvolvimento de Sistemas de Informatica e Software - rotulo generico de categoria PNCP, desenvolvimento de sistemas, fora do escopo.",
+    "numero_controle_pncp": "13700575000169-2-000183/2026"
+   },
+   {
+    "orgao": "BAHIA SECRETARIA DA ADMINISTRACAO",
+    "objeto": "Administração, Operação, Desenv. de Sistemas de Informática e Software",
+    "motivo": "Administracao/Operacao/Desenvolvimento de Sistemas de Informatica e Software - rotulo generico de categoria PNCP, desenvolvimento de sistemas, fora do escopo.",
+    "numero_controle_pncp": "13323274000163-2-000241/2026"
+   },
+   {
+    "orgao": "INSTITUTO DO MEIO AMBIENTE E RECURSOS HIDRICOS",
+    "objeto": "Administração, Operação, Desenv. de Sistemas de Informática e Software",
+    "motivo": "Administracao/Operacao/Desenvolvimento de Sistemas de Informatica e Software - rotulo generico de categoria PNCP, desenvolvimento de sistemas, fora do escopo.",
+    "numero_controle_pncp": "13700575000169-2-000185/2026"
+   },
+   {
+    "orgao": "BAHIA SECRETARIA DA FAZENDA",
+    "objeto": "Administração, Operação, Desenv. de Sistemas de Informática e Software",
+    "motivo": "Administracao/Operacao/Desenvolvimento de Sistemas de Informatica e Software - rotulo generico de categoria PNCP, desenvolvimento de sistemas, fora do escopo.",
+    "numero_controle_pncp": "13937073000156-2-000055/2026"
+   },
+   {
+    "orgao": "SECRETARIA DO MEIO AMBIENTE",
+    "objeto": "Equipamentos e Componentes de Informática",
+    "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor.",
+    "numero_controle_pncp": "05467476000150-2-000022/2026"
+   },
+   {
+    "orgao": "BAHIA SECRETARIA DA ADMINISTRACAO",
+    "objeto": "Equipamentos e Componentes de Informática",
+    "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor.",
+    "numero_controle_pncp": "13323274000163-2-000169/2026"
+   },
+   {
+    "orgao": "BAHIA TRIBUNAL DE JUSTICA",
+    "objeto": "Smart TV 55 polegadas, Display com tecnologia LED.",
+    "motivo": "Smart TV / display multimidia, nao e monitor de computador (categoria B) nem sustentacao de infraestrutura.",
+    "numero_controle_pncp": "13100722000160-2-000053/2026"
+   },
+   {
+    "orgao": "BAHIA ASSEMBLEIA LEGISLATIVA",
+    "objeto": "PRESTAÇÃO DE SERVIÇO ESPECIALIZADO PARA FORNECIMENTO, DISPONIBILIZAÇÃO E SUPORTE DE INFRAESTRUTURA DE SERVIDOR DEDICADO COM GPU (BARE METAL), HOSPEDADO EM DATA CENTER EM TERRITÓRIO NACIONAL, DESTINADO AO PROCESSAMENTO E EXECUÇÃO DE CARGAS DE TRABALHO DE INTELIGÊNCIA ARTIFICIAL (IA), INCLUINDO CONECTIVIDADE, SEGURANÇA, SUPORTE TÉCNICO E NÍVEIS MÍNIMOS DE SERVIÇO.",
+    "motivo": "Servidor dedicado GPU (bare metal) hospedado em datacenter de terceiro - e hospedagem/IaaS, fora do escopo mesmo sendo infra em sentido amplo (nao e sustentacao de infraestrutura propria).",
+    "numero_controle_pncp": "14674337000199-2-000008/2026"
+   },
+   {
+    "orgao": "BAHIA SECRETARIA DA FAZENDA",
+    "objeto": "Administração, Operação, Desenv. de Sistemas de Informática e Software",
+    "motivo": "Administracao/Operacao/Desenvolvimento de Sistemas de Informatica e Software - rotulo generico de categoria PNCP, desenvolvimento de sistemas, fora do escopo.",
+    "numero_controle_pncp": "13937073000156-2-000075/2026"
+   },
+   {
+    "orgao": "SECRETARIA DE COMUNICACAO SOCIAL-SECOM",
+    "objeto": "Serviços de Telefonia Fixa e Móvel",
+    "motivo": "Servicos de Telefonia Fixa e Movel, fora do escopo (nao e sustentacao de infraestrutura nem hardware).",
+    "numero_controle_pncp": "13722180000167-2-000024/2026"
+   },
+   {
+    "orgao": "DEFENSORIA PUBLICA DO ESTADO DA BAHIA",
+    "objeto": "Aquisição de 27 (vinte e sete) switches gerenciáveis, destinados à modernização da infraestrutura de rede das unidades da Defensoria Pública do Estado da Bahia localizadas no interior do Estado",
+    "motivo": "Aquisicao de 27 switches gerenciaveis - equipamento de rede novo, fora do escopo (aquisicao nao e sustentacao, e switch nao e computador/monitor).",
+    "numero_controle_pncp": "07778585000114-2-000100/2026"
+   },
+   {
+    "orgao": "INSTITUTO DO PATRIMONIO ARTISTICO E CULTURAL DA BAHIA",
+    "objeto": "Equipamentos e Componentes de Informática",
+    "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor.",
+    "numero_controle_pncp": "15205677000133-2-000026/2026"
+   },
+   {
+    "orgao": "TRIBUNAL DE CONTAS DOS MUNICIPIOS",
+    "objeto": "Tem por finalidade dispor sobre as condições de utilização pelo TRIBUNAL DE CONTAS DOS MUNICIPIOS DO ESTADO DA BAHIA  de sistema eletrônico de licitações, disponibilizado pelo BANCO, doravante denominado Licitações-e, que possibilita realizar, por intermédio da internet, processos licitatórios eletrônicos para aquisição de bens e serviços comuns.",
+    "motivo": "Sistema eletronico de licitacoes (Licitacoes-e) via internet - licenciamento/acesso a sistema, fora do escopo.",
+    "numero_controle_pncp": "32634420000116-2-000013/2026"
+   },
+   {
+    "orgao": "FUNDACAO PEDRO CALMON - CENTRO DE MEMORIA E ARQUIVO PUBLICO DA BAHIA",
+    "objeto": "Equipamentos e Componentes de Informática",
+    "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor.",
+    "numero_controle_pncp": "13341961000101-2-000191/2024"
+   },
+   {
+    "orgao": "DEFENSORIA PUBLICA DO ESTADO DA BAHIA",
+    "objeto": "Contratação de empresa especializada na prestação do serviço de emissão de Certificado Digital A1, no padrão ICP-Brasil, a ser fornecido pelo Serviço Federal de Processamento de Dados – SERPRO, destinado à autenticação e acesso à plataforma b-Cadastros da Receita Federal do Brasil",
+    "motivo": "Certificado Digital A1, fora do escopo.",
+    "numero_controle_pncp": "07778585000114-2-000177/2026"
+   },
+   {
+    "orgao": "MINISTERIO PUBLICO DO ESTADO DA BAHIA",
+    "objeto": "Prestação de Serviços de 01 (uma) licença do software SketchUp - Plano Studio por um período de 12 meses.",
+    "motivo": "Licenca de software SketchUp, licenciamento de software isolado, fora do escopo.",
+    "numero_controle_pncp": "04142491000166-2-000091/2026"
+   },
+   {
+    "orgao": "MINISTERIO PUBLICO DO ESTADO DA BAHIA",
+    "objeto": "Prestação de serviços técnicos especializados na plataforma DSpace, incluindo instalação, configuração, customização, migração de dados, treinamento, suporte técnico e manutenção, com vistas à implantação e manutenção do Repositório Institucional digital do Ministério Público do Estado da Bahia.",
+    "motivo": "Servicos tecnicos na plataforma DSpace (instalacao/customizacao/suporte de repositorio institucional) - sustentacao de sistema/aplicacao, categoria diferente de sustentacao de infraestrutura.",
+    "numero_controle_pncp": "04142491000166-2-000452/2025"
+   },
+   {
+    "orgao": "TRIBUNAL DE CONTAS DO ESTADO DA BAHIA",
+    "objeto": "Aquisição de licença do Software Pix4D, contemplando a realização de treinamento no uso de todos os recursos funcionais do Software.",
+    "motivo": "Licenca do Software Pix4D, licenciamento de software isolado, fora do escopo.",
+    "numero_controle_pncp": "14674303000102-2-000007/2026"
+   },
+   {
+    "orgao": "DEFENSORIA PUBLICA DO ESTADO DA BAHIA",
+    "objeto": "Constitui objeto do presente contrato a aquisição de 1 (uma) subscrição anual do software TeamViewer Corporate, com licenciamento corporativo, suporte técnico e atualizações, permitindo acesso remoto seguro, múltiplas conexões simultâneas e gerenciamento de dispositivos e 3 (três) subscrições anuais do Addon Channel, pelo período de 12 (doze) meses, a ser ativado por meio eletrônico, conforme especificações, características e descrições constantes do Termo de Referência do instrumento convocatório e da proposta apresentada pela CONTRATADA.",
+    "motivo": "Subscricao anual do software TeamViewer Corporate, licenciamento SaaS, fora do escopo.",
+    "numero_controle_pncp": "07778585000114-2-000183/2026"
+   },
+   {
+    "orgao": "BAHIA ASSEMBLEIA LEGISLATIVA",
+    "objeto": "AQUISIÇÃO DE LICENÇA DO SOFTWARE ADOBE ACROBAT PRO DC",
+    "motivo": "Licenca do software Adobe Acrobat Pro DC, licenciamento de software isolado, fora do escopo.",
+    "numero_controle_pncp": "14674337000199-2-000021/2025"
+   },
+   {
+    "orgao": "BAHIA ASSEMBLEIA LEGISLATIVA",
+    "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA LOC AÇÃO DE LOUSAS DIGITAIS INTERATIVAS C OM SUPORTE MÓVEL, INCLUINDO OS SERVIÇOS DE INSTALAÇÃO, CONFIGURAÇÃO, TREINÃMENTO E MANUTENÇÃO PREVENTIVA E CORRETIVA\r\nDURANTE TODO O PERÍODO CONTRATUAL, SENDO 02 (DUAS) TELAS DE 75” COM 02 (DOIS) SUPORTES MÓVEIS E 03 (TRÊS) TELAS DE 86” COM 03 (TRÊS) SUPORTES MÓVEIS",
+    "motivo": "Locacao de lousas digitais interativas com suporte movel, equipamento multimidia, nao e computador/monitor nem sustentacao de infraestrutura.",
+    "numero_controle_pncp": "14674337000199-2-000012/2026"
+   },
+   {
+    "orgao": "TRIBUNAL DE CONTAS DOS MUNICIPIOS",
+    "objeto": "O objeto do presente instrumento é a Contratação de empresa especializada em serviços de clipping digital da mídia impressa, televisiva, radiofônica e on-line, de matérias veiculadas na internet, emissoras de televisão e rádio, jornais e revistas, de matérias de interesse do Tribunal de Contas dos Municípios da Bahia (TCM/BA) compreendendo a captação, a seleção, a compilação em banco de dados, a \r\norganização, a avaliação e a remessa das matérias ao Tribunal.",
+    "motivo": "Servico de clipping digital de midia (imprensa/TV/radio/internet), nao e solucao de TI.",
+    "numero_controle_pncp": "32634420000116-2-000020/2026"
+   },
+   {
+    "orgao": "TRIBUNAL DE CONTAS DOS MUNICIPIOS",
+    "objeto": "O objeto do presente instrumento é a Contratação de empresa para o fornecimento diário de publicações em Diários Oficiais da União e dos Estados, dos Poderes Judiciário e Legislativo, via correio eletrônico (e-mails) e websites, em formato de boletins de publicação, de interesse do Tribunal de Contas dos Municípios do Estado da Bahia, composto por: leitura e envio de publicações, via internet, de recortes do Diário Oficial da União (TCU), Diário da Justiça da Bahia (TJ, TRT, TRE e JF/TRF 1) e Tribunais Superiores (STF, STJ, TST e TSE).",
+    "motivo": "Fornecimento diario de publicacoes de Diarios Oficiais via e-mail/site, nao e solucao de TI.",
+    "numero_controle_pncp": "32634420000116-2-000018/2026"
+   },
+   {
+    "orgao": "DEFENSORIA PUBLICA DO ESTADO DA BAHIA",
+    "objeto": "Contratação de empresa para aquisição de 3 (três) licenças da plataforma de videoconferência Zoom Workplace Corporativo, por meio de subscrição de licenças SaaS,  com disponibilização de acesso remoto à plataforma, incluindo suporte técnico e atualizações, conforme proposta comercial apresentada, pelo período de 12 (doze) meses, na modalidade de Dispensa de Licitação.",
+    "motivo": "3 licencas da plataforma de videoconferencia Zoom Workplace, subscricao SaaS, fora do escopo.",
+    "numero_controle_pncp": "07778585000114-2-000182/2026"
+   },
+   {
+    "orgao": "TRIBUNAL DE CONTAS DOS MUNICIPIOS",
+    "objeto": "Aquisição de software de gestão de contratos administrativos, denominada ContratosGov, para utilização de 15 (quinze) usuários simultâneos, incluindo manutenção e suporte técnico.",
+    "motivo": "Software de gestao de contratos administrativos (ContratosGov) com manutencao/suporte - licenciamento de software aplicativo, fora do escopo.",
+    "numero_controle_pncp": "32634420000116-2-000015/2025"
+   },
+   {
+    "orgao": "MINISTERIO PUBLICO DO ESTADO DA BAHIA",
+    "objeto": "Prestação de serviços de vigilância, por meio de sistema eletrônico de monitoramento para a Promotoria de Justiça de Conceição do Coité, 24 (vinte e quatro horas), 07 (sete) dias por semana, mediante o comodato de equipamentos de vigilância.",
+    "motivo": "Servico de vigilancia por sistema eletronico de monitoramento, comodato de equipamentos de vigilancia - seguranca patrimonial/vigilancia eletronica, categoria propria, nao TIC.",
+    "numero_controle_pncp": "04142491000166-2-000118/2026"
+   },
+   {
+    "orgao": "BAHIA TRIBUNAL DE JUSTICA",
+    "objeto": "Aquisição de assinatura da Biblioteca Jusbrasil com acesso ilimitado, simultâneo e permanente para 500 usuários, através do site www.jusbrasil.com.br, 24 horas por dia, 7 dias por semana.",
+    "motivo": "Assinatura da Biblioteca Jusbrasil, portal de pesquisa juridica, nao solucao de TI.",
+    "numero_controle_pncp": "13100722000160-2-000059/2026"
+   },
+   {
+    "orgao": "MINISTERIO PUBLICO DO ESTADO DA BAHIA",
+    "objeto": "Contratação de empresa especializada para disponibilização de ferramenta tecnológica, sob a forma de assinatura, denominada Gerador de Documentos Licitatórios Plus + (GDL +).",
+    "motivo": "Ferramenta tecnologica por assinatura (Gerador de Documentos Licitatorios Plus+), SaaS, fora do escopo.",
+    "numero_controle_pncp": "04142491000166-2-000124/2026"
+   },
+   {
+    "orgao": "MINISTERIO PUBLICO DO ESTADO DA BAHIA",
+    "objeto": "Prestação de serviços de assinatura anual do pacote corporativo de pesquisa jurídica, contemplando acesso institucional e nominal, com disponibilização de recursos de Inteligência Artificial, para atendimento dos membros e servidores do Ministério Público do Estado da Bahia, pelo período de 12 (doze) meses",
+    "motivo": "Assinatura de pacote corporativo de pesquisa juridica com recursos de IA, assinatura/conteudo, nao solucao de TI.",
+    "numero_controle_pncp": "04142491000166-2-000133/2026"
+   },
+   {
+    "orgao": "CASA CIVIL",
+    "objeto": "SERVIÇO DE TELEFONIA FIXA, COMUTADA (STFC) LOCAL, 24 HORAS, ACESSO EM TODAS AS LOCALIDADES DO ESTADO DA BAHIA E BRASÍLIA - DF",
+    "motivo": "Servico de Telefonia Fixa Comutada (STFC), fora do escopo.",
+    "numero_controle_pncp": "03661160000170-2-000058/2026"
+   },
+   {
+    "orgao": "TRIBUNAL DE CONTAS DO ESTADO DA BAHIA",
+    "objeto": "Contratação de empresa especializada na área de tecnologia da informação para prestação de serviços técnicos continuados de sustentação e desenvolvimento de software adotando as metodologias indicadas pelo Tribunal de Contas do Estado da Bahia (TCE/BA) e as melhores práticas de mercado para atendimento às  diversas soluções de software como sistemas, portais WEB, aplicativos mobile Android....",
+    "motivo": "Sustentacao e desenvolvimento de software (sistemas/portais web/apps mobile) - desenvolvimento de software aplicativo, categoria diferente de sustentacao de infraestrutura.",
+    "numero_controle_pncp": "14674303000102-2-000006/2026"
+   },
+   {
+    "orgao": "GABINETE DO GOVERNADOR DO ESTADO DA BAHIA",
+    "objeto": "SERVIÇO DE TELEFONIA FIXA COMUTADA (STFC) LOCAL, 24 HORAS, ACESSO EM TODAS AS LOCALIDADES DO ESTADO DA BAHIA E BRASILIA - DF",
+    "motivo": "Servico de Telefonia Fixa Comutada (STFC), fora do escopo.",
+    "numero_controle_pncp": "08584392000195-2-000046/2026"
+   },
+   {
+    "orgao": "BAHIA TRIBUNAL DE JUSTICA",
+    "objeto": "Prestação de serviço com disponibilização de solução do software Rybená para promover acessibilidade no Portal do PJBA.",
+    "motivo": "Software Rybena para acessibilidade de portal, solucao de software aplicativo, fora do escopo.",
+    "numero_controle_pncp": "13100722000160-2-000003/2022"
+   },
+   {
+    "orgao": "BAHIA TRIBUNAL DE JUSTICA",
+    "objeto": "a prestação de serviço continuado de suporte a usuários de sistemas de informação, no modelo de Service Desk Nível 3 (N3), sem mão de obra alocada, para o Tribunal de Justiça do Estado da Bahia, tudo em perfeita observância às condições e especificações constantes do EDITAL, seus ANEXOS, especialmente o Termo de Referência e PROPOSTA VENCEDORA, os quais passam a integrar o presente instrumento de modo indissociável.",
+    "motivo": "Suporte a usuarios de sistemas de informacao (Service Desk N3) sem mencao de operacao de infraestrutura empacotada junto no mesmo contrato - nao atende ao criterio de helpdesk empacotado com infra (modelo SISP), fora do escopo.",
+    "numero_controle_pncp": "13100722000160-2-000057/2026"
+   },
+   {
+    "orgao": "BAHIA ASSEMBLEIA LEGISLATIVA",
+    "objeto": "AQUISIÇÃO DE 05 (CINCO) LICENÇAS DE SOFTWARE DO ADOBE CREATIVE CLOUD, 01 (UMA) DO COREL DRAW, 01 (UMA) DO ADOBE INDESIGN, 05 (CINCO) DO ADOBE PHOTOSHOP, 02 (DUAS) DO ADOBE PREMIÈRE PRO, 03 (TRÊS) DO ADOBE LIGHTROOM E 01 (UMA) DO ADOBE AFTER EFFECTS.",
+    "motivo": "Licencas de software Adobe Creative Cloud/CorelDraw/InDesign/Photoshop/Premiere/Lightroom/After Effects, licenciamento de software isolado, fora do escopo.",
+    "numero_controle_pncp": "14674337000199-2-000020/2025"
+   },
+   {
+    "orgao": "BAHIA TRIBUNAL DE JUSTICA",
+    "objeto": "Fornecimento de 01 (uma) Tela interativa 86\" e 01 (um) Suporte Móvel Motorizado para tela de 86”, incluindo os serviços de treinamento e garantia onsite por 12 (doze) meses, tudo em perfeita observância às condições e especificações constantes do EDITAL, seus ANEXOS, especialmente o Termo de Referência, e PROPOSTA VENCEDORA, os quais passam a integrar o presente instrumento de modo indissociável.",
+    "motivo": "Tela interativa 86\" com suporte movel, equipamento multimidia, nao e computador/monitor.",
+    "numero_controle_pncp": "13100722000160-2-000067/2026"
+   },
+   {
+    "orgao": "BAHIA TRIBUNAL DE JUSTICA",
+    "objeto": "O fornecimento de 01 (uma) Tela interativa 75\" e 01 (um) Suporte Móvel Motorizado para tela de 75”, incluindo os serviços de treinamento e garantia onsite por 12 (doze) meses, tudo em perfeita observância às condições e especificações constantes do EDITAL, seus ANEXOS, especialmente o Termo de Referência.",
+    "motivo": "Tela interativa 75\" com suporte movel, equipamento multimidia, nao e computador/monitor.",
+    "numero_controle_pncp": "13100722000160-2-000070/2026"
+   },
+   {
+    "orgao": "MINISTERIO PUBLICO DO ESTADO DA BAHIA",
+    "objeto": "Cessão de direito de uso do software GCA - Gestão de Competências AncoraRh, modalidade In House, englobando os serviços de atualização e suporte técnico, para utilização do software por até 2.900 (dois mil e novecentos) usuários",
+    "motivo": "Cessao de uso do software GCA de gestao de competencias (In House) com atualizacao/suporte - licenciamento de software aplicativo de RH, fora do escopo.",
+    "numero_controle_pncp": "04142491000166-2-000148/2026"
+   },
+   {
+    "orgao": "ESTADO DA BAHIA",
+    "objeto": "AQUISIÇÃO DE ESCÂNERES PARA INSPEÇÃO DE SEGURANÇA, COM TECNOLOGIA DE\nVARREDURA DE OBJETOS POR TRANSMISSÃO DE RAIOS X, COM PERSPECTIVA DE VISUALIZAÇÃO TRIDIMENSIONAL (3D),\nEM VISTA ÚNICA (SINGLE VIEW) E AINDA, RECURSO DE INTELIGÊNCIA ARTIFICIAL, COM TÚNEL DE INSPEÇÃO COM ÁREA\nAPROXIMADA DE 60 CM (SESSENTA CENTÍMETROS) X 40 CM (QUARENTA CENTÍMETROS), DAQUI EM DIANTE CHAMADO\nDE ESCÂNERES POR RAIOS X 6040 3D IA, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+    "motivo": "Escaneres de inspecao de seguranca por raios X - equipamento de seguranca/vigilancia, nao e computador/monitor nem sustentacao de infraestrutura de TIC.",
+    "numero_controle_pncp": "13937032000160-2-000068/2026"
+   },
+   {
+    "orgao": "GABINETE DO VICE-GOVERNADOR DO ESTADO DA BAHIA",
+    "objeto": "Serviços de Telefonia Fixa e Móvel",
+    "motivo": "Servicos de Telefonia Fixa e Movel, fora do escopo.",
+    "numero_controle_pncp": "03682380000180-2-000018/2026"
+   },
+   {
+    "orgao": "UNIVERSIDADE ESTADUAL DE FEIRA DE SANTANA",
+    "objeto": "Prestação do serviço de telefonia fixa comutada - Lote II",
+    "motivo": "Servico de telefonia fixa comutada, fora do escopo.",
+    "numero_controle_pncp": "14045546000173-2-000180/2026"
+   },
+   {
+    "orgao": "BAHIA TRIBUNAL DE JUSTICA",
+    "objeto": "Contratação de subscrições Microsoft e renovação de licenças (Software Assurance), além de prestação de Serviço Gerenciado e Suporte Continuado na plataforma Microsoft Office 365.",
+    "motivo": "Subscricoes Microsoft/Software Assurance e Servico Gerenciado na plataforma Microsoft Office 365 - licenciamento de software/SaaS isolado, fora do escopo.",
+    "numero_controle_pncp": "13100722000160-2-000153/2024"
+   },
+   {
+    "orgao": "BAHIA TRIBUNAL DE JUSTICA",
+    "objeto": "Contratação de subscrições Microsoft e renovação de licenças (Sof-tware Assuran-ce), além de prestação de Serviço Geren-ciado e Suporte Continuado na plataforma Microsoft Offi-ce 365.",
+    "motivo": "Subscricoes Microsoft/Software Assurance e Servico Gerenciado na plataforma Microsoft Office 365 - licenciamento de software/SaaS isolado, fora do escopo.",
+    "numero_controle_pncp": "13100722000160-2-000026/2024"
+   },
+   {
+    "orgao": "TRIBUNAL DE CONTAS DOS MUNICIPIOS",
+    "objeto": "O objeto do presente instrumento é a prestação do serviço emergencial de telefonia fixa comutada, nas condições estabelecidas no Termo de Referência e Habilitação (TR/Habilitação).",
+    "motivo": "Servico emergencial de telefonia fixa comutada, fora do escopo.",
+    "numero_controle_pncp": "32634420000116-2-000026/2026"
+   },
+   {
+    "orgao": "FUNDO ESTADUAL DE SAUDE DO ESTADO DA BAHIA",
+    "objeto": "Administração, Operação, Desenv. de Sistemas de Informática e Software",
+    "motivo": "Administracao/Operacao/Desenvolvimento de Sistemas de Informatica e Software - rotulo generico de categoria PNCP, desenvolvimento de sistemas, fora do escopo.",
+    "numero_controle_pncp": "05816630000152-2-005353/2024"
+   },
+   {
+    "orgao": "CASA MILITAR DO GOVERNADOR",
+    "objeto": "Equipamentos e Componentes de Informática",
+    "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor.",
+    "numero_controle_pncp": "03702512000198-2-000085/2024"
+   },
+   {
+    "orgao": "BAHIA SECRETARIA DA SEGURANCA PUBLICA",
+    "objeto": "Equipamentos e Componentes de Informática",
+    "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor.",
+    "numero_controle_pncp": "13937149000143-2-000305/2026"
+   },
+   {
+    "orgao": "TRIBUNAL DE CONTAS DO ESTADO DA BAHIA",
+    "objeto": "Prestação de serviços de licenciamento de uso Software Projuris ADV na modalidade SaaS (Software as a Service.",
+    "motivo": "Licenciamento de uso do Software Projuris ADV na modalidade SaaS, fora do escopo.",
+    "numero_controle_pncp": "14674303000102-2-000010/2026"
+   },
+   {
+    "orgao": "BAHIA SECRETARIA DA FAZENDA",
+    "objeto": "Equipamentos e Componentes de Informática",
+    "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor.",
+    "numero_controle_pncp": "13937073000156-2-000106/2025"
+   },
+   {
+    "orgao": "CASA MILITAR DO GOVERNADOR",
+    "objeto": "Equipamentos e Componentes de Informática",
+    "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor.",
+    "numero_controle_pncp": "03702512000198-2-000090/2024"
+   },
+   {
+    "orgao": "ESTADO DA BAHIA",
+    "objeto": "contratação da renovação de licenciamento e serviço de garantia e suporte\ntécnico para a solução de proteção de rede com características de Next Generation Firewall (NGFW) para segurança de\ninformação, da fabricante Fortinet, baseada no modelo de equipamento Fortigate 401-E, conforme condições,\nquantidades e exigências estabelecidas no Termo de Referência e seus anexos",
+    "motivo": "Renovacao de licenciamento/garantia/suporte para solucao de firewall Next Generation Firewall (NGFW) Fortinet - firewall/seguranca de rede, explicitamente fora do escopo.",
+    "numero_controle_pncp": "13937032000160-2-000490/2024"
+   },
+   {
+    "orgao": "TRIBUNAL DE CONTAS DOS MUNICIPIOS",
+    "objeto": "Prestação de serviço de acesso a TV por assinatura digital, com a instalação, assistência técnica e fornecimento, em regime de comodato, de todos os equipamentos necessários (decodificadores, controles remotos e demais materiais), para uma quantidade estimada de 10 (dez) pontos com transmissão de TV, compatível com tecnologia HD ou 4K.",
+    "motivo": "Servico de TV por assinatura digital com decodificadores em comodato, equipamento multimidia/TV, nao e solucao de TI.",
+    "numero_controle_pncp": "32634420000116-2-000028/2026"
+   },
+   {
+    "orgao": "POLICIA CIVIL DA BAHIA",
+    "objeto": "Equipamentos e Componentes de Informática",
+    "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor.",
+    "numero_controle_pncp": "33390921000167-2-000371/2024"
+   },
+   {
+    "orgao": "TRIBUNAL DE CONTAS DO ESTADO DA BAHIA",
+    "objeto": "Contratação de suporte técnico (incluído hospedagem na nuvem do fornecedor), manutenção e atualização de versões do software denominado\nPergamum, para gerenciamento do acervo da Biblioteca Conselheiro Adhemar Martins Bento Gomes, integrante da Gerência de Biblioteca e Documentação\n(GEBID) do Tribunal de Contas do estado da Bahia (TCE/BA).",
+    "motivo": "Suporte tecnico com hospedagem na nuvem do fornecedor, manutencao/atualizacao do software Pergamum (gestao de biblioteca) - hospedagem em nuvem e sustentacao de sistema aplicativo, ambos fora do escopo.",
+    "numero_controle_pncp": "14674303000102-2-000011/2026"
+   },
+   {
+    "orgao": "SUPERINTENDENCIA DE ESTUDOS ECONOMICOS E SOCIAIS DA BA",
+    "objeto": "Administração, Operação, Desenv. de Sistemas de Informática e Software",
+    "motivo": "Administracao/Operacao/Desenvolvimento de Sistemas de Informatica e Software - rotulo generico de categoria PNCP, desenvolvimento de sistemas, fora do escopo.",
+    "numero_controle_pncp": "00575607000108-2-000032/2026"
+   },
+   {
+    "orgao": "BAHIA TRIBUNAL DE JUSTICA",
+    "objeto": "A CONTRATADA, sob o regime de empreitada por preço unitário, o fornecimento de 01 (uma) Tela interativa 75\" e 01 (um) Suporte Móvel Motorizado para tela de 75”, incluindo os serviços de treinamento e\r\ngarantia onsite por 12 (doze) meses, tudo em perfeita observância às condições e especificações constantes do EDITAL, seus ANEXOS, especialmente o Termo de Referência, e PROPOSTA VENCEDORA, os quais passam a integrar o presente instrumento de modo indissociável.",
+    "motivo": "Tela interativa 75\" com suporte movel, equipamento multimidia, nao e computador/monitor.",
+    "numero_controle_pncp": "13100722000160-2-000075/2026"
+   },
+   {
+    "orgao": "UNIVERSIDADE ESTADUAL DE FEIRA DE SANTANA",
+    "objeto": "Manutenção e suporte do software Pergamum de gerenciamento de rede de bibliotecas",
+    "motivo": "Manutencao e suporte do software Pergamum de gerenciamento de rede de bibliotecas - sustentacao de sistema aplicativo, categoria diferente de sustentacao de infraestrutura.",
+    "numero_controle_pncp": "14045546000173-2-000489/2025"
+   },
+   {
+    "orgao": "FUNDACAO BAIANA DE PESQUISA CIENTIFICA E DESENVOLVIMENTO TECNOLOGICO, FORNECIMENTO E DISTRIBUICAO DE MEDICAMENTOS - BAHIAFARMA",
+    "objeto": "Implantação do software GO!FIVE®",
+    "motivo": "Implantacao do software GO!FIVE - implantacao de sistema/software aplicativo, fora do escopo.",
+    "numero_controle_pncp": "13078518000190-2-000012/2025"
+   }
+  ]
+ },
+ "contratos": [
+  {
+   "orgao": "MINISTERIO PUBLICO DO ESTADO DA BAHIA",
+   "orgaoCnpj": "04142491000166",
+   "venceEm": "2027-03-18",
+   "valor": 8055000.0,
+   "objeto": "Aquisição de notebooks por meio do saque da Ata de Registo de Preços nº 001/2026.",
+   "servico": false,
+   "numeroControlePncp": "04142491000166-2-000046/2026",
+   "link": "https://pncp.gov.br/app/contratos/04142491000166/2026/46"
+  },
+  {
+   "orgao": "MINISTERIO PUBLICO DO ESTADO DA BAHIA",
+   "orgaoCnpj": "04142491000166",
+   "venceEm": "2027-03-29",
+   "valor": 4339323.09,
+   "objeto": "Aquisição de solução de backup on-premises, composto de hardware de armazenamento de dados e software de backup.",
+   "servico": false,
+   "numeroControlePncp": "04142491000166-2-000051/2026",
+   "link": "https://pncp.gov.br/app/contratos/04142491000166/2026/51"
+  },
+  {
+   "orgao": "MINISTERIO PUBLICO DO ESTADO DA BAHIA",
+   "orgaoCnpj": "04142491000166",
+   "venceEm": "2027-04-27",
+   "valor": 32242.0,
+   "objeto": "Fornecimento de monitores, incluindo assistência técnica da garantia.",
+   "servico": false,
+   "numeroControlePncp": "04142491000166-2-000081/2026",
+   "link": "https://pncp.gov.br/app/contratos/04142491000166/2026/81"
+  },
+  {
+   "orgao": "DEFENSORIA PUBLICA DO ESTADO DA BAHIA",
+   "orgaoCnpj": "07778585000114",
+   "venceEm": "2027-06-29",
+   "valor": 32199.6,
+   "objeto": "Contratação de empresa especializada em serviços de manutenção preventiva e corretiva, com fornecimento de peças para equipamentos do Datacenter da Defensoria Pública o Estado da Bahia – DPE/BA.",
+   "servico": true,
+   "numeroControlePncp": "07778585000114-2-000239/2026",
+   "link": "https://pncp.gov.br/app/contratos/07778585000114/2026/239"
+  },
+  {
+   "orgao": "MINISTERIO PUBLICO DO ESTADO DA BAHIA",
+   "orgaoCnpj": "04142491000166",
+   "venceEm": "2027-07-08",
+   "valor": 85920.0,
+   "objeto": "Aquisição de notebooks",
+   "servico": false,
+   "numeroControlePncp": "04142491000166-2-000146/2026",
+   "link": "https://pncp.gov.br/app/contratos/04142491000166/2026/146"
+  },
+  {
+   "orgao": "BAHIA TRIBUNAL DE JUSTICA",
+   "orgaoCnpj": "13100722000160",
+   "venceEm": "2027-08-20",
+   "valor": 881893.92,
+   "objeto": "O objeto do presente instrumento é a contratação de solução de tecnologia da informação e comunicação de serviços continuados de suporte técnico para um Appliance de Backup Oracle Zero Data Loss Recovery X7, de propriedade do Tribunal de Justiça do Estado da Bahia, pelo período de 24 (vinte e quatro) meses, a fim de atender as demandas existentes nos órgãos integrantes deste Tribunal de Justiça do Estado da Bahia, nas condições estabelecidas no Termo de Referência.",
+   "servico": true,
+   "numeroControlePncp": "13100722000160-2-000012/2023",
+   "link": "https://pncp.gov.br/app/contratos/13100722000160/2023/12"
+  }
+ ]
+}

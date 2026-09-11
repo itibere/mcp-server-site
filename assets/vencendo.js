@@ -1,9 +1,25 @@
 /* Painel de contratos de TIC vencendo — visual proprio (assets/vencendo.css),
    deliberadamente distinto do Cyber Console do resto do site. O eixo aqui e
    a data de VIGENCIA FINAL, nao a de publicacao, e os dados ja vieram
-   filtrados pelo agente julgador (ver julgamentoAgente no dados.json). */
+   filtrados pelo agente julgador (ver julgamentoAgente no dados.json).
+
+   Multi-escopo: a pagina descobre os escopos disponiveis (esfera + UF) via
+   escopos.json e monta abas por esfera (Federal/Estadual/Municipal) e,
+   dentro da esfera ativa, sub-abas por UF. Trocar de aba/UF refaz o fetch
+   do dados_<esfera>_<uf>.json daquele escopo e re-renderiza tudo — a logica
+   de filtro/busca/paginacao abaixo e a mesma pra qualquer escopo. */
 (function () {
   'use strict';
+
+  var ESFERAS_ORDEM = [
+    { code: 'F', nome: 'Federal' },
+    { code: 'E', nome: 'Estadual' },
+    { code: 'M', nome: 'Municipal' }
+  ];
+
+  var manifesto = null;
+  var esferaAtiva = null;
+  var escopoAtual = null;
 
   var dados = null;
   var estado = { tipo: '', busca: '', limite: 40, orgao: '', vencimento: '', valor: '' };
@@ -70,6 +86,7 @@
     var orgaos = Array.from(new Set(dados.contratos.map(function (r) { return r.orgao; })))
       .sort(function (a, b) { return a.localeCompare(b, 'pt-BR'); });
     var sel = document.getElementById('filtro-orgao');
+    sel.innerHTML = '<option value="">Todos os órgãos</option>';
     orgaos.forEach(function (o) {
       var opt = document.createElement('option');
       opt.value = o;
@@ -83,6 +100,12 @@
     var janelaMeses = (c.mesesJanelaInicio != null && c.mesesJanelaFim != null)
       ? c.mesesJanelaInicio + ' a ' + c.mesesJanelaFim + ' meses' : '—';
     document.getElementById('lede-janela').textContent = janelaMeses;
+
+    var lede = document.getElementById('lede-escopo');
+    if (lede) {
+      var esferaTxt = c.esfera ? c.esfera.toLowerCase() : '';
+      lede.textContent = esferaTxt ? (esferaTxt + ', em ' + (c.uf || '—') + ',') : '';
+    }
 
     document.getElementById('proc').innerHTML = [
       ['UF', c.uf], ['Esfera', c.esfera], ['Critério TIC', c.criterioTIC],
@@ -98,9 +121,9 @@
       var dias = Math.floor((Date.now() - new Date(dados.geradoEm)) / 86400000);
       var texto = dias <= 0 ? 'atualizado hoje' : dias === 1 ? 'atualizado há 1 dia' : 'atualizado há ' + dias + ' dias';
       // varredura roda a cada 15 dias; folga de alguns dias antes de marcar como atrasado
-      var estado = dias <= 18 ? 'v-fresh' : 'v-stale';
+      var estadoBadge = dias <= 18 ? 'v-fresh' : 'v-stale';
       badge.textContent = texto;
-      badge.className = 'v-badge-atualizacao v-visivel ' + estado;
+      badge.className = 'v-badge-atualizacao v-visivel ' + estadoBadge;
     }
   }
 
@@ -158,6 +181,7 @@
     var j = dados.julgamentoAgente;
     var alvo = document.getElementById('quadro-julgador');
     if (!j) { alvo.style.display = 'none'; return; }
+    alvo.style.display = '';
 
     var taxa = Math.round(j.reprovados / j.total_antes * 100);
     document.getElementById('jul-antes').textContent = inteiro(j.total_antes);
@@ -170,6 +194,21 @@
       return '<li><span class="v-jul-orgao">' + esc(e.orgao) + '</span>' +
         '<span class="v-jul-motivo">' + esc(e.motivo) + '</span></li>';
     }).join('');
+  }
+
+  function resetEstadoEControles() {
+    estado = { tipo: '', busca: '', limite: 40, orgao: '', vencimento: '', valor: '' };
+    var chipServico = document.getElementById('chip-servico');
+    var chipHardware = document.getElementById('chip-hardware');
+    var busca = document.getElementById('busca');
+    chipServico.setAttribute('aria-pressed', 'false');
+    chipHardware.setAttribute('aria-pressed', 'false');
+    busca.value = '';
+    ['filtro-orgao', 'filtro-vencimento', 'filtro-valor'].forEach(function (id) {
+      var sel = document.getElementById(id);
+      sel.value = '';
+      sel.classList.remove('v-select-ativo');
+    });
   }
 
   function ligarControles() {
@@ -215,34 +254,111 @@
     ligarSelectFiltro(selValor, 'valor');
 
     document.getElementById('btn-limpar-filtros').addEventListener('click', function () {
-      estado = { tipo: '', busca: '', limite: 40, orgao: '', vencimento: '', valor: '' };
-      chipServico.setAttribute('aria-pressed', 'false');
-      chipHardware.setAttribute('aria-pressed', 'false');
-      busca.value = '';
-      [selOrgao, selVencimento, selValor].forEach(function (sel) {
-        sel.value = '';
-        sel.classList.remove('v-select-ativo');
-      });
+      resetEstadoEControles();
       renderLista();
     });
   }
 
-  function iniciar() {
-    fetch('dados.json', { cache: 'no-cache' })
+  // ---- multi-escopo: abas de esfera + sub-abas de UF ----
+
+  function escoposDaEsfera(code) {
+    return (manifesto.escopos || []).filter(function (e) { return e.esferaCode === code; });
+  }
+
+  function renderAbasEsfera() {
+    var alvo = document.getElementById('escopo-tabs');
+    alvo.innerHTML = ESFERAS_ORDEM.map(function (esf) {
+      var disponivel = escoposDaEsfera(esf.code).length > 0;
+      var ativo = esf.code === esferaAtiva;
+      var classes = 'v-esfera-tab' + (ativo ? ' v-esfera-tab-ativa' : '') + (!disponivel ? ' v-esfera-tab-em-breve' : '');
+      return '<button type="button" class="' + classes + '" data-esfera="' + esf.code + '"' +
+        (disponivel ? '' : ' disabled title="Em breve"') +
+        ' role="tab" aria-selected="' + ativo + '">' + esc(esf.nome) +
+        (disponivel ? '' : ' <span class="v-esfera-tab-badge">em breve</span>') +
+        '</button>';
+    }).join('');
+
+    Array.from(alvo.querySelectorAll('button[data-esfera]:not([disabled])')).forEach(function (btn) {
+      btn.addEventListener('click', function () { selecionarEsfera(btn.getAttribute('data-esfera')); });
+    });
+  }
+
+  function renderSubabasUf() {
+    var alvo = document.getElementById('escopo-subtabs');
+    var escopos = escoposDaEsfera(esferaAtiva);
+    alvo.innerHTML = escopos.map(function (e) {
+      var ativo = escopoAtual && escopoAtual.uf === e.uf && escopoAtual.esferaCode === e.esferaCode;
+      return '<button type="button" class="v-uf-tab' + (ativo ? ' v-uf-tab-ativa' : '') + '" data-uf="' + esc(e.uf) + '" role="tab" aria-selected="' + ativo + '">' +
+        esc(e.ufNome || e.uf) + '</button>';
+    }).join('');
+    alvo.style.display = escopos.length ? '' : 'none';
+
+    Array.from(alvo.querySelectorAll('button[data-uf]')).forEach(function (btn) {
+      btn.addEventListener('click', function () { selecionarUf(btn.getAttribute('data-uf')); });
+    });
+  }
+
+  function selecionarEsfera(code) {
+    if (esferaAtiva === code) return;
+    esferaAtiva = code;
+    var escopos = escoposDaEsfera(code);
+    renderAbasEsfera();
+    renderSubabasUf();
+    if (escopos.length) carregarEscopo(escopos[0]);
+  }
+
+  function selecionarUf(uf) {
+    var escopo = escoposDaEsfera(esferaAtiva).filter(function (e) { return e.uf === uf; })[0];
+    if (!escopo || escopo === escopoAtual) return;
+    renderSubabasUf();
+    carregarEscopo(escopo);
+  }
+
+  function carregarEscopo(escopo) {
+    document.getElementById('carregando').style.display = '';
+    document.getElementById('conteudo').style.display = 'none';
+    fetch(escopo.arquivo, { cache: 'no-cache' })
       .then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       })
       .then(function (json) {
+        escopoAtual = escopo;
         dados = json;
-        if (!dados.contratos || !dados.contratos.length) throw new Error('sem registros');
+        resetEstadoEControles();
         document.getElementById('conteudo').style.display = '';
         document.getElementById('carregando').style.display = 'none';
+        renderAbasEsfera();
+        renderSubabasUf();
         renderCabecalho();
         popularFiltroOrgao();
-        ligarControles();
         renderLista();
         renderJulgador();
+      })
+      .catch(function (e) {
+        document.getElementById('carregando').innerHTML =
+          '<p class="v-vazio">Não foi possível carregar os dados (' + esc(e.message) + ').</p>';
+      });
+  }
+
+  function iniciar() {
+    fetch('escopos.json', { cache: 'no-cache' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function (json) {
+        manifesto = json;
+        if (!manifesto.escopos || !manifesto.escopos.length) throw new Error('nenhum escopo publicado');
+
+        ligarControles();
+
+        var primeiraEsfera = ESFERAS_ORDEM.filter(function (esf) { return escoposDaEsfera(esf.code).length; })[0];
+        if (!primeiraEsfera) throw new Error('nenhum escopo publicado');
+        esferaAtiva = primeiraEsfera.code;
+        renderAbasEsfera();
+        renderSubabasUf();
+        carregarEscopo(escoposDaEsfera(esferaAtiva)[0]);
       })
       .catch(function (e) {
         document.getElementById('carregando').innerHTML =

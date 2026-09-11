@@ -63,7 +63,28 @@ body.pagina-vencendo {
 .v-badge-atualizacao.v-fresh { background: var(--v-ok-soft); color: var(--v-ok); }
 .v-badge-atualizacao.v-stale { background: var(--v-warn-soft); color: var(--v-warn); }
 
-.v-lede { color: var(--v-ink-2); max-width: 74ch; margin: 0 0 28px; font-size: 15px; }
+.v-lede { color: var(--v-ink-2); max-width: 74ch; margin: 0 0 20px; font-size: 15px; }
+
+.v-esfera-tabs, .v-uf-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.v-esfera-tabs { margin-bottom: 10px; }
+.v-uf-tabs { margin-bottom: 24px; }
+.v-esfera-tab, .v-uf-tab {
+  appearance: none; font-family: var(--v-sans); cursor: pointer; transition: all .12s ease;
+  border: 1px solid var(--v-line-strong); background: var(--v-surface); color: var(--v-ink-2);
+  border-radius: 8px;
+}
+.v-esfera-tab { font-size: 13.5px; font-weight: 600; padding: 8px 16px; }
+.v-uf-tab { font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 999px; }
+.v-esfera-tab:hover:not(:disabled), .v-uf-tab:hover { border-color: var(--v-accent); color: var(--v-ink); }
+.v-esfera-tab-ativa, .v-uf-tab-ativa {
+  background: var(--v-accent-soft); border-color: var(--v-accent); color: var(--v-accent-ink);
+}
+.v-esfera-tab-em-breve { color: var(--v-muted); cursor: not-allowed; opacity: .65; }
+.v-esfera-tab-em-breve:hover { border-color: var(--v-line-strong); color: var(--v-muted); }
+.v-esfera-tab-badge {
+  font-family: var(--v-mono); font-size: 9.5px; text-transform: uppercase; letter-spacing: .04em;
+  color: var(--v-muted); margin-left: 2px;
+}
 .v-lede code { font-family: var(--v-mono); background: var(--v-surface-2); padding: 1px 5px; border-radius: 4px; font-size: .9em; }
 .v-lede a { color: var(--v-accent-ink); }
 
