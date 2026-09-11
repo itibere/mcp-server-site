@@ -6,7 +6,7 @@
   'use strict';
 
   var dados = null;
-  var estado = { soServico: false, busca: '', limite: 40, orgao: '', vencimento: '', valor: '' };
+  var estado = { tipo: '', busca: '', limite: 40, orgao: '', vencimento: '', valor: '' };
 
   var nfInt = new Intl.NumberFormat('pt-BR');
   var nfMoeda = new Intl.NumberFormat('pt-BR', {
@@ -52,7 +52,8 @@
 
   function listaFiltrada() {
     var lista = dados.contratos;
-    if (estado.soServico) lista = lista.filter(function (r) { return r.servico; });
+    if (estado.tipo === 'servico') lista = lista.filter(function (r) { return r.servico; });
+    if (estado.tipo === 'hardware') lista = lista.filter(function (r) { return !r.servico; });
     if (estado.orgao) lista = lista.filter(function (r) { return r.orgao === estado.orgao; });
     if (estado.vencimento) lista = lista.filter(function (r) { return bandaVencimento(diasAte(r.venceEm), estado.vencimento); });
     if (estado.valor) lista = lista.filter(function (r) { return bandaValor(r.valor || 0, estado.valor); });
@@ -173,12 +174,17 @@
 
   function ligarControles() {
     var chipServico = document.getElementById('chip-servico');
-    chipServico.addEventListener('click', function () {
-      estado.soServico = !estado.soServico;
+    var chipHardware = document.getElementById('chip-hardware');
+
+    function selecionarTipo(tipo) {
+      estado.tipo = estado.tipo === tipo ? '' : tipo;
       estado.limite = 40;
-      chipServico.setAttribute('aria-pressed', String(estado.soServico));
+      chipServico.setAttribute('aria-pressed', String(estado.tipo === 'servico'));
+      chipHardware.setAttribute('aria-pressed', String(estado.tipo === 'hardware'));
       renderLista();
-    });
+    }
+    chipServico.addEventListener('click', function () { selecionarTipo('servico'); });
+    chipHardware.addEventListener('click', function () { selecionarTipo('hardware'); });
 
     var busca = document.getElementById('busca');
     busca.addEventListener('input', function () {
@@ -209,8 +215,9 @@
     ligarSelectFiltro(selValor, 'valor');
 
     document.getElementById('btn-limpar-filtros').addEventListener('click', function () {
-      estado = { soServico: false, busca: '', limite: 40, orgao: '', vencimento: '', valor: '' };
+      estado = { tipo: '', busca: '', limite: 40, orgao: '', vencimento: '', valor: '' };
       chipServico.setAttribute('aria-pressed', 'false');
+      chipHardware.setAttribute('aria-pressed', 'false');
       busca.value = '';
       [selOrgao, selVencimento, selValor].forEach(function (sel) {
         sel.value = '';
