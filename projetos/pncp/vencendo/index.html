@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contratos de TIC Vencendo (PNCP) — itibere.tec.br</title>
-  <meta name="description" content="Contratos de TIC da esfera federal, no Distrito Federal, com vigência terminando entre 6 e 12 meses — janela estratégica pra preparação, filtrados por um agente julgador. Portal Nacional de Contratações Públicas.">
+  <meta name="description" content="Contratos de TIC do PNCP, por esfera (Federal/Estadual/Municipal) e Estado, com vigência terminando entre 6 e 12 meses — janela estratégica pra preparação, filtrados por um agente julgador. Portal Nacional de Contratações Públicas.">
 
   <!-- Tailwind CSS Standalone (so para o header compartilhado abaixo) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -65,12 +65,15 @@
     <h1>Contratos de TIC com vencimento estratégico</h1>
     <span class="v-badge-atualizacao" id="badge-atualizacao"></span>
     <p class="v-lede">
-      Contratos federais de TIC no Distrito Federal com vigência terminando entre
+      Contratos <span id="lede-escopo">de TIC</span> com vigência terminando entre
       <strong id="lede-janela">6 e 12 meses</strong> a partir de hoje — não os que vencem amanhã,
       tarde demais pra preparar nada, mas os que dão tempo de montar documentação e se posicionar
       antes da próxima licitação de cada órgão. Coletados via <code>/api/search/</code> do PNCP e
       conferidos um a um por um agente julgador — detalhes no quadro ao final.
     </p>
+
+    <div class="v-esfera-tabs" id="escopo-tabs" role="tablist" aria-label="Esfera"></div>
+    <div class="v-uf-tabs" id="escopo-subtabs" role="tablist" aria-label="Estado"></div>
 
     <div id="carregando" style="padding:48px 10px;text-align:center;color:var(--v-muted)">Carregando dados…</div>
 

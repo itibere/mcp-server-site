@@ -9,6 +9,7 @@ mais rapido e confiavel que /v1/contratos:
 Escopo: contratos de TIC (palavra-chave no objeto), esfera federal, UF DF,
 vencendo nos proximos N meses, com componente de servico no objeto (texto).
 """
+import argparse
 import json
 import sys
 import time
@@ -16,6 +17,8 @@ from datetime import date, timedelta
 from pathlib import Path
 
 import requests
+
+ESFERAS = {"F": "Federal", "E": "Estadual", "M": "Municipal", "D": "Distrital"}
 
 BASE = "https://pncp.gov.br/api/search/"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -64,7 +67,6 @@ ESFERA = "F"
 MESES_JANELA_INICIO = 6
 MESES_JANELA_FIM = 12
 TAM_PAGINA = 1000
-OUT_JSON = Path(__file__).parent / "resultado_tic_df_federal.json"
 
 
 def buscar_pagina(q, pagina, session, tentativas=4):
@@ -95,6 +97,17 @@ def eh_servico(objeto: str) -> bool:
 
 
 def main():
+    global UF, ESFERA
+
+    parser = argparse.ArgumentParser(description="Coleta candidatos TIC via /api/search/ do PNCP.")
+    parser.add_argument("--uf", default="DF", help="sigla da UF (default: DF)")
+    parser.add_argument("--esfera", default="F", choices=sorted(ESFERAS), help="F/E/M/D (default: F, Federal)")
+    args = parser.parse_args()
+    UF = args.uf.upper()
+    ESFERA = args.esfera.upper()
+    esfera_nome = ESFERAS[ESFERA]
+    out_json = Path(__file__).parent / f"resultado_tic_{UF.lower()}_{esfera_nome.lower()}.json"
+
     # Cada termo entre aspas: sem isso, uma frase de varias palavras (ex.:
     # "desenvolvimento de sistemas") vira palavras soltas ORadas entre si no
     # parser da busca - "sistema" sozinho bate em QUALQUER contrato que
@@ -114,7 +127,7 @@ def main():
         payload = buscar_pagina(q, pagina, session)
         if total is None:
             total = payload.get("total", 0)
-            print(f"total de candidatos TIC (DF, federal): {total}")
+            print(f"total de candidatos TIC ({UF}, {esfera_nome.lower()}): {total}")
         itens = payload.get("items", [])
         if not itens:
             break
@@ -163,7 +176,7 @@ def main():
     resultado = {
         "geradoEm": time.strftime("%Y-%m-%dT%H:%M:%S"),
         "escopo": {
-            "uf": UF, "esfera": "Federal", "criterioTIC": "palavra-chave no objeto (busca full-text OR)",
+            "uf": UF, "esfera": esfera_nome, "criterioTIC": "palavra-chave no objeto (busca full-text OR)",
             "mesesJanelaInicio": MESES_JANELA_INICIO, "mesesJanelaFim": MESES_JANELA_FIM,
             "janelaVencimento": f"{janela_inicio.isoformat()} a {janela_fim.isoformat()}",
             "fonte": "https://pncp.gov.br/api/search/",
@@ -173,8 +186,8 @@ def main():
         "totalServicos": len(servicos),
         "contratos": [linha(it) for it in sorted(vencendo, key=lambda x: x.get("data_fim_vigencia") or "")],
     }
-    OUT_JSON.write_text(json.dumps(resultado, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"\ngravado em {OUT_JSON}")
+    out_json.write_text(json.dumps(resultado, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"\ngravado em {out_json}")
 
 
 if __name__ == "__main__":
