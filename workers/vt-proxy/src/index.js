@@ -2,6 +2,49 @@ const ALLOWED_ORIGINS = ["https://itibere.tec.br", "https://itibere.github.io"];
 const VT_BASE = "https://www.virustotal.com/api/v3";
 const HASH_RE = /^[a-fA-F0-9]{32}$|^[a-fA-F0-9]{40}$|^[a-fA-F0-9]{64}$|^[a-fA-F0-9]{128}$/;
 
+const RATE_LIMIT = 10; // requisicoes
+const RATE_WINDOW_MS = 60_000; // por janela fixa de 60s
+
+// Rate limit via Durable Object, por IP (mesmo padrao do worker rag-licitacoes,
+// ver rag-portarias/portarias/worker/src/index.js): instancia unica autoritativa
+// por chave (idFromName), sem condicao de corrida entre leitura e escrita.
+// CORS so protege chamadas de navegador -- uma chamada direta (curl/script) contra
+// a URL do worker ignora CORS e bateria sem limite na cota global da VT_API_KEY.
+class RateLimiterDO {
+  constructor(state) {
+    this.state = state;
+  }
+
+  async fetch() {
+    const agora = Date.now();
+    const janela = Math.floor(agora / RATE_WINDOW_MS);
+    const registro = (await this.state.storage.get("contador")) || { janela: -1, contagem: 0 };
+    const contagemAtual = registro.janela === janela ? registro.contagem : 0;
+
+    if (contagemAtual >= RATE_LIMIT) {
+      return new Response(JSON.stringify({ success: false }), {
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    await this.state.storage.put("contador", { janela, contagem: contagemAtual + 1 });
+    return new Response(JSON.stringify({ success: true }), {
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}
+
+export { RateLimiterDO };
+
+async function checarLimite(env, ip) {
+  if (!env.RATE_LIMITER_DO) return true; // fail-open se o binding faltar
+  const id = env.RATE_LIMITER_DO.idFromName(ip);
+  const stub = env.RATE_LIMITER_DO.get(id);
+  const resp = await stub.fetch("https://rate-limiter/check");
+  const { success } = await resp.json();
+  return success;
+}
+
 function corsHeaders(request) {
   const origin = request.headers.get("Origin");
   const headers = {
@@ -164,6 +207,12 @@ export default {
   async fetch(request, env) {
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: corsHeaders(request) });
+    }
+
+    const ip = request.headers.get("CF-Connecting-IP") || "sem-ip";
+    const dentroDoLimite = await checarLimite(env, ip);
+    if (!dentroDoLimite) {
+      return json(request, { error: "rate_limit_excedido" }, 429);
     }
 
     const url = new URL(request.url);
