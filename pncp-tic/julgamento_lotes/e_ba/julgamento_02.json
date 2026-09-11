@@ -1,0 +1,23 @@
+[
+{"numero_controle_pncp": "13937032000160-2-000068/2026", "veredito": "nao_tic", "motivo": "Escaneres de inspecao de seguranca por raios X - equipamento de seguranca/vigilancia, nao e computador/monitor nem sustentacao de infraestrutura de TIC."},
+{"numero_controle_pncp": "03682380000180-2-000018/2026", "veredito": "nao_tic", "motivo": "Servicos de Telefonia Fixa e Movel, fora do escopo."},
+{"numero_controle_pncp": "14045546000173-2-000180/2026", "veredito": "nao_tic", "motivo": "Servico de telefonia fixa comutada, fora do escopo."},
+{"numero_controle_pncp": "13100722000160-2-000153/2024", "veredito": "nao_tic", "motivo": "Subscricoes Microsoft/Software Assurance e Servico Gerenciado na plataforma Microsoft Office 365 - licenciamento de software/SaaS isolado, fora do escopo."},
+{"numero_controle_pncp": "13100722000160-2-000026/2024", "veredito": "nao_tic", "motivo": "Subscricoes Microsoft/Software Assurance e Servico Gerenciado na plataforma Microsoft Office 365 - licenciamento de software/SaaS isolado, fora do escopo."},
+{"numero_controle_pncp": "32634420000116-2-000026/2026", "veredito": "nao_tic", "motivo": "Servico emergencial de telefonia fixa comutada, fora do escopo."},
+{"numero_controle_pncp": "05816630000152-2-005353/2024", "veredito": "nao_tic", "motivo": "Administracao/Operacao/Desenvolvimento de Sistemas de Informatica e Software - rotulo generico de categoria PNCP, desenvolvimento de sistemas, fora do escopo."},
+{"numero_controle_pncp": "03702512000198-2-000085/2024", "veredito": "nao_tic", "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor."},
+{"numero_controle_pncp": "13937149000143-2-000305/2026", "veredito": "nao_tic", "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor."},
+{"numero_controle_pncp": "14674303000102-2-000010/2026", "veredito": "nao_tic", "motivo": "Licenciamento de uso do Software Projuris ADV na modalidade SaaS, fora do escopo."},
+{"numero_controle_pncp": "13937073000156-2-000106/2025", "veredito": "nao_tic", "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor."},
+{"numero_controle_pncp": "03702512000198-2-000090/2024", "veredito": "nao_tic", "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor."},
+{"numero_controle_pncp": "13937032000160-2-000490/2024", "veredito": "nao_tic", "motivo": "Renovacao de licenciamento/garantia/suporte para solucao de firewall Next Generation Firewall (NGFW) Fortinet - firewall/seguranca de rede, explicitamente fora do escopo."},
+{"numero_controle_pncp": "32634420000116-2-000028/2026", "veredito": "nao_tic", "motivo": "Servico de TV por assinatura digital com decodificadores em comodato, equipamento multimidia/TV, nao e solucao de TI."},
+{"numero_controle_pncp": "13100722000160-2-000012/2023", "veredito": "tic", "motivo": "Servicos continuados de suporte tecnico para Appliance de Backup Oracle Zero Data Loss Recovery - sustentacao de infraestrutura de backup, categoria A."},
+{"numero_controle_pncp": "33390921000167-2-000371/2024", "veredito": "nao_tic", "motivo": "Equipamentos e Componentes de Informatica - rotulo generico de categoria PNCP, nao especifica computador/monitor."},
+{"numero_controle_pncp": "14674303000102-2-000011/2026", "veredito": "nao_tic", "motivo": "Suporte tecnico com hospedagem na nuvem do fornecedor, manutencao/atualizacao do software Pergamum (gestao de biblioteca) - hospedagem em nuvem e sustentacao de sistema aplicativo, ambos fora do escopo."},
+{"numero_controle_pncp": "00575607000108-2-000032/2026", "veredito": "nao_tic", "motivo": "Administracao/Operacao/Desenvolvimento de Sistemas de Informatica e Software - rotulo generico de categoria PNCP, desenvolvimento de sistemas, fora do escopo."},
+{"numero_controle_pncp": "13100722000160-2-000075/2026", "veredito": "nao_tic", "motivo": "Tela interativa 75\" com suporte movel, equipamento multimidia, nao e computador/monitor."},
+{"numero_controle_pncp": "14045546000173-2-000489/2025", "veredito": "nao_tic", "motivo": "Manutencao e suporte do software Pergamum de gerenciamento de rede de bibliotecas - sustentacao de sistema aplicativo, categoria diferente de sustentacao de infraestrutura."},
+{"numero_controle_pncp": "13078518000190-2-000012/2025", "veredito": "nao_tic", "motivo": "Implantacao do software GO!FIVE - implantacao de sistema/software aplicativo, fora do escopo."}
+]
