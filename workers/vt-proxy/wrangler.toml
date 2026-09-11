@@ -1,3 +1,14 @@
 name = "vt-proxy"
 main = "src/index.js"
 compatibility_date = "2026-09-01"
+
+# Rate limit por IP via Durable Object -- mesmo padrao do worker rag-licitacoes
+# (rag-portarias/portarias/worker/wrangler.toml). new_sqlite_classes (nao o
+# storage key-value legado) para caber no Workers Free plan.
+[[durable_objects.bindings]]
+name = "RATE_LIMITER_DO"
+class_name = "RateLimiterDO"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["RateLimiterDO"]
