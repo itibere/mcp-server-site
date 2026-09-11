@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTTP Hardening — Itiberê Paquier</title>
+  <meta name="description" content="Auditoria e hardening de segurança HTTP aplicado neste mesmo site: headers ausentes, CSP com unsafe-inline, dependência de CDN não oficial e endpoint sem rate limit -- o que causa cada um, o que corrigimos e por quê, alinhado a OWASP Top 10:2025 e OWASP API Security Top 10.">
+
+  <!-- Tailwind CSS Standalone -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2305070c'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2310b981' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='17' font-weight='700' fill='%2310b981' text-anchor='middle'>&gt;_</text></svg>">
+
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <meta property="og:title" content="HTTP Hardening — Itiberê Paquier">
+  <meta property="og:description" content="Headers ausentes, CSP com unsafe-inline, CDN não oficial e endpoint sem rate limit -- o que corrigimos neste site e por quê, alinhado a OWASP Top 10:2025.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itibere.tec.br/seguranca/http-hardening/">
+</head>
+<body class="bg-[#05070c] text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <div class="fixed inset-0 bg-grid-cyber pointer-events-none z-0 opacity-40"></div>
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+  <div class="fixed bottom-1/3 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+  <header class="sticky top-0 z-50 border-b border-emerald-500/20 bg-[#05070c]/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="../../" class="flex items-center gap-2 text-sm font-mono-code group hover:no-underline">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]"></span>
+        <span class="text-emerald-400 font-semibold">itibere</span><span class="text-slate-500">@</span><span class="text-cyan-400">bsb-infra</span><span class="text-slate-500">:~#</span>
+        <span class="text-slate-300 group-hover:text-emerald-300 transition">home</span>
+        <span class="inline-block w-2 h-4 bg-emerald-400/80 animate-blink ml-0.5"></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-14">
+
+    <!-- HERO -->
+    <section class="rounded-2xl border border-amber-500/30 bg-gradient-to-br from-[#0a0e1a] via-[#14100a] to-[#1a140d] p-8 sm:p-12 relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 w-72 h-72 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 space-y-4">
+        <span class="px-3 py-1 rounded-full text-xs font-mono-code font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 inline-flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          SEGURANÇA / HARDENING
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          HTTP Hardening
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+          Auditoria de segurança HTTP feita neste mesmo site: nenhum incidente, nenhuma exploração — uma varredura deliberada em busca do tipo de furo que qualquer site estático "escrito na mão" tende a acumular sem perceber. Como cada um nasce, o que corrigimos e por quê.
+        </p>
+        <div class="flex flex-wrap gap-x-8 gap-y-2 pt-2 text-xs font-mono-code text-slate-400">
+          <span><span class="text-slate-500">cobertura</span> 11 páginas HTML + 1 endpoint público</span>
+          <span><span class="text-slate-500">mitigação</span> headers HTTP + CSP restrito + CDN oficial + rate limit</span>
+          <span><span class="text-slate-500">status</span> <span class="text-emerald-400">confirmado em produção</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 ONDE NASCE -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">01</span>
+        <h2 class="text-xl font-bold text-white">Onde esse tipo de furo costuma nascer</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Não é sobre um bug isolado numa função — é sobre um padrão de construção que se repete em qualquer site estático montado sem build step, sem template compartilhado, página por página. Três hábitos concretos, encontrados nas próprias páginas deste site antes de hoje:
+      </p>
+      <div class="grid sm:grid-cols-1 gap-4">
+        <div class="rounded-xl border border-slate-800 bg-[#090e17] p-5 space-y-2">
+          <h3 class="text-sm font-bold text-amber-300 font-mono-code">Tipo 1 — lógica de interface escrita direto num &lt;script&gt; dentro do HTML</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Prático pra escrever rápido, mas isso obriga o <code class="font-mono-code text-amber-300">Content-Security-Policy</code> a incluir <code class="font-mono-code text-amber-300">'unsafe-inline'</code> em <code class="font-mono-code text-amber-300">script-src</code> — e uma vez com isso ligado, o navegador executa <strong class="text-white">qualquer</strong> script que aparecer inline no HTML, escrito pelo desenvolvedor ou injetado por um atacante via um bug de <code class="font-mono-code text-amber-300">innerHTML</code> não escapado. O CSP vira decoração. Encontrado em 9 das 11 páginas HTML deste site.
+          </p>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-[#090e17] p-5 space-y-2">
+          <h3 class="text-sm font-bold text-amber-300 font-mono-code">Tipo 2 — dependência de terceiro carregada de um link não oficial</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Um <code class="font-mono-code text-amber-300">&lt;script src&gt;</code> que "funciona" nunca foi verificado se veio do canal público e documentado do fornecedor. Neste site, as 11 páginas carregavam o Tailwind de um caminho interno do Google (<code class="font-mono-code text-amber-300">gstatic.com/antigravity/web/dev/...</code>), não do CDN oficial — provável resíduo do ambiente de preview de uma ferramenta de desenvolvimento que vazou pro HTML publicado. Funciona até o dono do caminho decidir que não deveria.
+          </p>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-[#090e17] p-5 space-y-2">
+          <h3 class="text-sm font-bold text-amber-300 font-mono-code">Tipo 3 — endpoint próprio chamado via fetch(), "protegido" só por CORS</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            CORS é aplicado pelo navegador de quem chama, não pelo servidor — uma chamada direta via <code class="font-mono-code text-amber-300">curl</code> ou script ignora CORS e chega normal no backend. Sem outra barreira, qualquer um que descubra a URL (trivial: está no JavaScript da própria página) pode esgotar a cota paga de uma API de terceiro. Era o caso do endpoint de verificação de hash/link deste site.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 O QUE FIZEMOS -->
+    <section class="space-y-5">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">02</span>
+        <h2 class="text-xl font-bold text-white">O que corrigimos, passo a passo</h2>
+      </div>
+
+      <div class="space-y-3">
+        <h3 class="text-base font-bold text-white">a) Headers HTTP reais, não meta tag</h3>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+          Uma tentativa anterior de proteção usava <code class="font-mono-code text-amber-300">&lt;meta http-equiv="X-Content-Type-Options"&gt;</code> — que navegadores simplesmente ignoram; esse header só tem efeito como resposta HTTP de verdade. GitHub Pages (onde o site é hospedado) não permite configurar headers customizados. A saída: o domínio já passa pelo Cloudflare como proxy, então os headers entram via <strong class="text-white">Transform Rule</strong> na borda, sem precisar de servidor próprio.
+        </p>
+        <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+          <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Antes → depois (curl -I https://itibere.tec.br/)</div>
+          <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-slate-600"># antes: nenhum desses 5 headers presente na resposta real</span>
+<span class="text-red-400">✗</span> Strict-Transport-Security
+<span class="text-red-400">✗</span> X-Content-Type-Options   <span class="text-slate-600"># só existia via &lt;meta&gt;, sem efeito</span>
+<span class="text-red-400">✗</span> X-Frame-Options
+<span class="text-red-400">✗</span> Permissions-Policy
+<span class="text-red-400">✗</span> Content-Security-Policy
+
+<span class="text-slate-600"># depois: Cloudflare Transform Rule, "Add static header to response"</span>
+<span class="text-emerald-400">✓</span> Strict-Transport-Security: max-age=31536000; includeSubDomains
+<span class="text-emerald-400">✓</span> X-Content-Type-Options: nosniff
+<span class="text-emerald-400">✓</span> X-Frame-Options: DENY
+<span class="text-emerald-400">✓</span> Permissions-Policy: geolocation=(), microphone=(), camera=()
+<span class="text-emerald-400">✓</span> Content-Security-Policy: default-src 'self'; ...</pre>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <h3 class="text-base font-bold text-white">b) CSP sem <code class="font-mono-code text-amber-300">'unsafe-inline'</code> em script-src</h3>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+          Pra tirar <code class="font-mono-code text-amber-300">'unsafe-inline'</code> sem quebrar as páginas, todo bloco <code class="font-mono-code text-amber-300">&lt;script&gt;</code> inline precisou virar arquivo externo primeiro — <code class="font-mono-code text-amber-300">assets/ano.js</code> (o rodapé com o ano, repetido em 8 páginas) e <code class="font-mono-code text-amber-300">assets/checagem-hash-link.js</code> (a lógica inteira da ferramenta de hash/link). Só depois disso o CSP pôde ficar restrito.
+        </p>
+        <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+          <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Antes → depois</div>
+          <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-slate-600">&lt;!-- antes: logica direto no HTML --&gt;</span>
+<span class="text-cyan-300">&lt;script&gt;</span>
+  document.getElementById(<span class="text-amber-300">'ano'</span>).textContent = <span class="text-purple-300">new</span> Date().getFullYear()<span class="text-slate-600">;</span>
+<span class="text-cyan-300">&lt;/script&gt;</span>
+
+<span class="text-slate-600">&lt;!-- depois: arquivo externo, mesma origem (self) --&gt;</span>
+<span class="text-cyan-300">&lt;script src=</span><span class="text-amber-300">"assets/ano.js"</span><span class="text-cyan-300"> defer&gt;&lt;/script&gt;</span>
+
+<span class="text-slate-600"># header, script-src antes:</span>
+script-src <span class="text-amber-300">'self' 'unsafe-inline' https://www.gstatic.com</span>
+
+<span class="text-slate-600"># header, script-src depois:</span>
+script-src <span class="text-amber-300">'self' https://cdn.tailwindcss.com</span></pre>
+        </div>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+          Sem <code class="font-mono-code text-amber-300">'unsafe-inline'</code>, um <code class="font-mono-code text-amber-300">&lt;script&gt;</code> ou atributo <code class="font-mono-code text-amber-300">onerror=</code> que um atacante conseguisse injetar via algum bug futuro simplesmente não executaria — o navegador recusa rodar qualquer script que não venha de uma origem explicitamente listada. <code class="font-mono-code text-amber-300">style-src</code> manteve <code class="font-mono-code text-amber-300">'unsafe-inline'</code> propositalmente: o Tailwind via CDN injeta <code class="font-mono-code text-amber-300">&lt;style&gt;</code> em runtime pra aplicar as classes utilitárias, e evitar isso exigiria trocar a abordagem CDN por um build compilado — fora de escopo aqui.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <h3 class="text-base font-bold text-white">c) Dependência trocada pro canal oficial</h3>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+          O script do Tailwind, presente nas 11 páginas, apontava pra <code class="font-mono-code text-amber-300">gstatic.com/antigravity/web/dev/tailwindcss.min.js</code> — um caminho sem documentação pública, quase certamente artefato do preview de uma ferramenta de desenvolvimento. Trocado pelo <a href="https://tailwindcss.com/docs/installation/play-cdn" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">Play CDN oficial da Tailwind Labs</a> (<code class="font-mono-code text-amber-300">cdn.tailwindcss.com</code>), documentado e com contrato público de estabilidade. Efeito colateral direto: o <code class="font-mono-code text-amber-300">script-src</code> do CSP deixou de precisar liberar o domínio <code class="font-mono-code text-amber-300">gstatic.com</code> inteiro (que hospeda um monte de coisa não relacionada do Google) — allowlist mais estreita, restrita a um domínio de propósito único.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <h3 class="text-base font-bold text-white">d) Rate limit no endpoint público</h3>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+          O Worker que atende a ferramenta de verificação de hash/link (proxy pra API do VirusTotal) não tinha nenhum limite — CORS restringia origem no navegador, mas uma chamada direta via script passava reto e podia esgotar a cota paga da chave de API. Aplicado o mesmo padrão de Durable Object (instância única e autoritativa por IP, janela fixa de 60s) já detalhado no case <a href="../protecao-rag/" class="underline hover:text-amber-300">Proteção de Endpoint de IA</a> — não repetido aqui pra não duplicar conteúdo. Testado em produção: 10 chamadas passam, a 11ª volta <code class="font-mono-code text-amber-300">HTTP 429</code>.
+        </p>
+      </div>
+    </section>
+
+    <!-- 03 BOAS PRÁTICAS -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">03</span>
+        <h2 class="text-xl font-bold text-white">Frameworks e boas práticas seguidas</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Cada correção acima mapeia pra uma categoria nomeada de referências públicas de segurança — não foi uma lista de tarefas arbitrária:
+      </p>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden divide-y divide-slate-800">
+        <div class="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+          <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">A02:2025</span>
+          <span class="text-sm text-slate-300"><strong class="text-white">Security Misconfiguration</strong> — OWASP Top 10:2025. Cobre os headers HTTP ausentes/mal configurados corrigidos no passo (a).</span>
+        </div>
+        <div class="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+          <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">A05:2025</span>
+          <span class="text-sm text-slate-300"><strong class="text-white">Injection</strong> — OWASP Top 10:2025. O CSP restrito do passo (b) é mitigação direta contra XSS injetado, uma das formas de injeção cobertas por essa categoria.</span>
+        </div>
+        <div class="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+          <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">A03:2025</span>
+          <span class="text-sm text-slate-300"><strong class="text-white">Software Supply Chain Failures</strong> — OWASP Top 10:2025. Categoria que cobre exatamente o passo (c): depender de um caminho de distribuição não oficial pra uma biblioteca de terceiro.</span>
+        </div>
+        <div class="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+          <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">API4:2023</span>
+          <span class="text-sm text-slate-300"><strong class="text-white">Unrestricted Resource Consumption</strong> — OWASP API Security Top 10. O rate limit do passo (d) é a mitigação recomendada nessa categoria.</span>
+        </div>
+        <div class="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+          <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">Secure Headers</span>
+          <span class="text-sm text-slate-300">Conjunto de headers implementado (HSTS, X-Content-Type-Options, X-Frame-Options, CSP, Permissions-Policy) segue o baseline do <strong class="text-white">OWASP Secure Headers Project</strong> e o <strong class="text-white">HTTP Headers Cheat Sheet</strong> da OWASP Cheat Sheet Series.</span>
+        </div>
+        <div class="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+          <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">Least privilege</span>
+          <span class="text-sm text-slate-300">O token de API usado pra automatizar a purga de cache (fora do escopo deste case) foi escopado só pra "Cache Purge" numa única zona, nunca "All zones" — princípio geral de menor privilégio, não específico de nenhum framework citado acima.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 RESULTADO -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-emerald-500/60">
+        <span class="text-xs font-mono-code text-slate-500">04</span>
+        <h2 class="text-xl font-bold text-white">Resultado</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Tudo confirmado em produção, não só configurado: headers reais conferidos via <code class="font-mono-code text-amber-300">curl -I</code>, CSP restrito testado ponta a ponta na ferramenta de hash/link sem quebrar nenhuma função, rate limit disparando <code class="font-mono-code text-amber-300">429</code> exatamente no limite configurado.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        O motivo de cada item elevar a segurança de verdade, não só "marcar item de checklist":
+      </p>
+      <ul class="text-sm sm:text-base text-slate-300 leading-relaxed space-y-2 list-disc list-inside max-w-2xl">
+        <li><strong class="text-white">Headers HTTP</strong> são aplicados pelo navegador, fora do controle de qualquer bug futuro no código da aplicação — uma camada de proteção que não depende de "lembrar de fazer certo" toda vez que alguém editar uma página.</li>
+        <li><strong class="text-white">CSP sem unsafe-inline</strong> transforma a política de segurança de "decorativa" em funcional: passa a barrar de verdade um script injetado, não só documentar a intenção.</li>
+        <li><strong class="text-white">CDN oficial</strong> remove uma dependência de infraestrutura que não estava sob controle nem contrato nenhum — o site parava de depender da boa vontade de um caminho interno do Google continuar acessível.</li>
+        <li><strong class="text-white">Rate limit</strong> protege disponibilidade e orçamento contra abuso automatizado, sem exigir login nem fricção nenhuma de quem usa a ferramenta normalmente.</li>
+      </ul>
+    </section>
+
+    <!-- 05 FONTES -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">05</span>
+        <h2 class="text-xl font-bold text-white">Fontes</h2>
+      </div>
+      <ul class="text-sm text-slate-400 leading-relaxed space-y-2 max-w-2xl">
+        <li><a href="https://top10.owasp.org/2025" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP Top 10:2025</a> — categorias A02 (Security Misconfiguration), A03 (Software Supply Chain Failures) e A05 (Injection).</li>
+        <li><a href="https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP API Security Top 10 (2023) — API4: Unrestricted Resource Consumption</a>.</li>
+        <li><a href="https://owasp.org/www-project-secure-headers/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP Secure Headers Project</a>.</li>
+        <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">HTTP Headers Cheat Sheet — OWASP Cheat Sheet Series</a>.</li>
+        <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">Content Security Policy Cheat Sheet — OWASP Cheat Sheet Series</a>.</li>
+        <li><a href="https://patchstack.com/articles/wordpress-security-headers/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">HTTP Security Headers for WordPress: A Comprehensive Guide — Patchstack</a>.</li>
+        <li><a href="https://wpscan.com/blog/how-to-secure-a-website/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">How to Secure Your Website: Top Tips From Enterprise Security Experts — WPScan</a>.</li>
+        <li><a href="https://blog.sucuri.net/2025/12/how-to-protect-your-site-from-content-sniffing-with-http-security-headers.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">How to Protect Your Site From Content Sniffing with HTTP Security Headers — Sucuri</a>.</li>
+        <li><a href="https://tailwindcss.com/docs/installation/play-cdn" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">Play CDN — documentação oficial Tailwind CSS</a>.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-emerald-500/20 bg-[#04060a] py-12 mt-20 relative z-10 font-mono-code text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3 text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span>© <span id="ano">2026</span> Itiberê Paquier · itibere.tec.br</span>
+      </div>
+      <div class="flex items-center gap-6 text-slate-400">
+        <a href="../../" class="hover:text-amber-400 transition">Projetos</a>
+        <a href="../../sobre.html" class="hover:text-white transition">Sobre</a>
+        <a href="../../privacidade.html" class="hover:text-white transition">Privacidade</a>
+        <a href="mailto:itibere.paquier@gmail.com" class="hover:text-cyan-400 transition">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/ano.js" defer></script>
+</body>
+</html>
