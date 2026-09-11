@@ -200,6 +200,14 @@ script-src <span class="text-amber-300">'self' https://cdn.tailwindcss.com</span
           <span class="text-sm text-slate-300">Conjunto de headers implementado (HSTS, X-Content-Type-Options, X-Frame-Options, CSP, Permissions-Policy) segue o baseline do <strong class="text-white">OWASP Secure Headers Project</strong> e o <strong class="text-white">HTTP Headers Cheat Sheet</strong> da OWASP Cheat Sheet Series.</span>
         </div>
         <div class="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+          <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">CWE-1021</span>
+          <span class="text-sm text-slate-300"><strong class="text-white">Improper Restriction of Rendered UI Layers or Frames</strong> — catálogo de fraquezas do MITRE. É a fraqueza estrutural por trás de clickjacking; <code class="font-mono-code text-amber-300">X-Frame-Options: DENY</code> e <code class="font-mono-code text-amber-300">frame-ancestors 'none'</code> no passo (a) fecham exatamente essa.</span>
+        </div>
+        <div class="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+          <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">CWE-829</span>
+          <span class="text-sm text-slate-300"><strong class="text-white">Inclusion of Functionality from Untrusted Control Sphere</strong> — catálogo de fraquezas do MITRE. Descreve com precisão o passo (c): carregar biblioteca de um caminho que não é o canal de distribuição pretendido pelo fornecedor.</span>
+        </div>
+        <div class="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
           <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">Least privilege</span>
           <span class="text-sm text-slate-300">O token de API usado pra automatizar a purga de cache (fora do escopo deste case) foi escopado só pra "Cache Purge" numa única zona, nunca "All zones" — princípio geral de menor privilégio, não específico de nenhum framework citado acima.</span>
         </div>
@@ -235,6 +243,8 @@ script-src <span class="text-amber-300">'self' https://cdn.tailwindcss.com</span
       <ul class="text-sm text-slate-400 leading-relaxed space-y-2 max-w-2xl">
         <li><a href="https://top10.owasp.org/2025" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP Top 10:2025</a> — categorias A02 (Security Misconfiguration), A03 (Software Supply Chain Failures) e A05 (Injection).</li>
         <li><a href="https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP API Security Top 10 (2023) — API4: Unrestricted Resource Consumption</a>.</li>
+        <li><a href="https://cwe.mitre.org/data/definitions/1021.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">MITRE CWE-1021 — Improper Restriction of Rendered UI Layers or Frames</a>.</li>
+        <li><a href="https://cwe.mitre.org/data/definitions/829.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">MITRE CWE-829 — Inclusion of Functionality from Untrusted Control Sphere</a>.</li>
         <li><a href="https://owasp.org/www-project-secure-headers/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP Secure Headers Project</a>.</li>
         <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">HTTP Headers Cheat Sheet — OWASP Cheat Sheet Series</a>.</li>
         <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">Content Security Policy Cheat Sheet — OWASP Cheat Sheet Series</a>.</li>
