@@ -74,10 +74,24 @@
 
       <!-- COLUNA: PROJETOS DE IA -->
       <div class="space-y-6">
-        <div class="flex items-center gap-2.5 px-1">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          <h2 class="text-sm font-mono-code font-semibold uppercase tracking-wider text-slate-300">Projetos de IA</h2>
-        </div>
+        <button type="button" id="toggle-ia" aria-expanded="false" aria-controls="lista-ia" class="group w-full text-left p-8 rounded-2xl bg-[#090e17] border border-slate-800 hover:border-purple-500/40 transition space-y-4 flex flex-col justify-between min-h-[140px] border-cyber">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded bg-purple-950 text-purple-400 border border-purple-800 text-xs font-mono-code">2 PROJETOS</span>
+              <span class="text-slate-500 text-lg">🧠</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white group-hover:text-purple-300 transition">Projetos de IA</h2>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Monitor de contratações públicas de TIC via MCP e busca semântica sobre normativos de licitação.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono-code text-slate-400">
+            <span>2 cards</span>
+            <span class="chevron text-purple-400 transition-transform inline-block">▾</span>
+          </div>
+        </button>
+
+        <div id="lista-ia" class="hidden space-y-6">
 
         <a href="pncp-monitor/" class="group p-8 rounded-2xl bg-[#090e17] border border-slate-800 hover:border-purple-500/40 transition space-y-4 flex flex-col justify-between min-h-[220px] border-cyber">
           <div class="space-y-3">
@@ -112,14 +126,30 @@
             <span class="text-emerald-400 group-hover:translate-x-1 transition-transform inline-block">Abrir chat →</span>
           </div>
         </a>
+
+        </div>
       </div>
 
       <!-- COLUNA: PROJETOS DE SEGURANÇA -->
       <div class="space-y-6">
-        <div class="flex items-center gap-2.5 px-1">
-          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-          <h2 class="text-sm font-mono-code font-semibold uppercase tracking-wider text-slate-300">Projetos de Segurança</h2>
-        </div>
+        <button type="button" id="toggle-seguranca" aria-expanded="false" aria-controls="lista-seguranca" class="group w-full text-left p-8 rounded-2xl bg-[#090e17] border border-slate-800 hover:border-amber-500/40 transition space-y-4 flex flex-col justify-between min-h-[140px] border-cyber">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded bg-amber-950 text-amber-400 border border-amber-800 text-xs font-mono-code">5 PROJETOS</span>
+              <span class="text-slate-500 text-lg">🛡️</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white group-hover:text-amber-300 transition">Projetos de Segurança</h2>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Playbooks, casos reais e ferramenta de verificação — reputação de domínio, proteção de endpoint, prompt injection, hardening HTTP.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono-code text-slate-400">
+            <span>5 cards</span>
+            <span class="chevron text-amber-400 transition-transform inline-block">▾</span>
+          </div>
+        </button>
+
+        <div id="lista-seguranca" class="hidden space-y-6">
 
         <a href="seguranca/url-reputation/" class="group p-8 rounded-2xl bg-[#090e17] border border-slate-800 hover:border-amber-500/40 transition space-y-4 flex flex-col justify-between min-h-[220px] border-cyber">
           <div class="space-y-3">
@@ -205,6 +235,8 @@
             <span class="text-amber-400 group-hover:translate-x-1 transition-transform inline-block">Ver case →</span>
           </div>
         </a>
+
+        </div>
       </div>
 
     </section>
@@ -228,5 +260,6 @@
   </footer>
 
   <script src="assets/ano.js" defer></script>
+  <script src="assets/home-toggle.js" defer></script>
 </body>
 </html>
