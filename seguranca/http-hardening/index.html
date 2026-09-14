@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HTTP Hardening — Itiberê Paquier</title>
-  <meta name="description" content="Auditoria e hardening de segurança HTTP aplicado neste mesmo site: headers ausentes, CSP com unsafe-inline, dependência de CDN não oficial e endpoint sem rate limit -- o que causa cada um, o que corrigimos e por quê, alinhado a OWASP Top 10:2025 e OWASP API Security Top 10.">
+  <meta name="description" content="Auditoria e hardening de segurança HTTP aplicado neste mesmo site: headers ausentes, CSP com unsafe-inline, dependência de CDN não oficial, endpoint sem rate limit e hardening de sessão/login (SSO) -- o que causa cada um, o que corrigimos e por quê, alinhado a OWASP Top 10:2025 e OWASP API Security Top 10.">
 
   <!-- Tailwind CSS Standalone -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,7 +22,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
   <meta property="og:title" content="HTTP Hardening — Itiberê Paquier">
-  <meta property="og:description" content="Headers ausentes, CSP com unsafe-inline, CDN não oficial e endpoint sem rate limit -- o que corrigimos neste site e por quê, alinhado a OWASP Top 10:2025.">
+  <meta property="og:description" content="Headers ausentes, CSP com unsafe-inline, CDN não oficial, endpoint sem rate limit e hardening de sessão/login (SSO) -- o que corrigimos neste ecossistema e por quê, alinhado a OWASP Top 10:2025.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://itibere.tec.br/seguranca/http-hardening/">
 </head>
@@ -60,8 +60,8 @@
           Auditoria de segurança HTTP feita neste mesmo site: nenhum incidente, nenhuma exploração — uma varredura deliberada em busca do tipo de furo que qualquer site estático "escrito na mão" tende a acumular sem perceber. Como cada um nasce, o que corrigimos e por quê.
         </p>
         <div class="flex flex-wrap gap-x-8 gap-y-2 pt-2 text-xs font-mono-code text-slate-400">
-          <span><span class="text-slate-500">cobertura</span> 11 páginas HTML + 1 endpoint público</span>
-          <span><span class="text-slate-500">mitigação</span> headers HTTP + CSP restrito + CDN oficial + rate limit</span>
+          <span><span class="text-slate-500">cobertura</span> 11 páginas HTML + 1 endpoint público + 1 app com SSO</span>
+          <span><span class="text-slate-500">mitigação</span> headers HTTP + CSP restrito + CDN oficial + rate limit + hardening de sessão</span>
           <span><span class="text-slate-500">status</span> <span class="text-emerald-400">confirmado em produção</span></span>
         </div>
       </div>
@@ -169,10 +169,56 @@ script-src <span class="text-amber-300">'self' https://cdn.tailwindcss.com</span
       </div>
     </section>
 
-    <!-- 03 BOAS PRÁTICAS -->
-    <section class="space-y-4">
+    <!-- 03 HARDENING DE SESSAO/LOGIN -->
+    <section class="space-y-5">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
         <span class="text-xs font-mono-code text-slate-500">03</span>
+        <h2 class="text-xl font-bold text-white">Auditoria complementar: hardening de sessão e login (SSO)</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Fora do escopo das 11 páginas estáticas acima: um app deste ecossistema que exige login de verdade (SSO via Google, sessão mantida no servidor por trás de um Worker) foi auditado especificamente contra bypass de autenticação e acesso indevido à interface. Resultado da auditoria: nenhum vetor de bypass encontrado — mas o padrão de hardening usado vale documentar aqui, porque é o checklist que separa "login de verdade" de "cadeado decorativo".
+      </p>
+
+      <div class="space-y-3">
+        <h3 class="text-base font-bold text-white">a) Identidade e sessão no servidor, nunca no cliente</h3>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+          Falha clássica de site estático "com login": a "sessão" existe só como variável JavaScript no navegador — forjável no devtools, e o conteúdo protegido continua saindo do servidor pra qualquer requisição, sessão ou não. A correção estrutural é mover o gate pro servidor: toda rota que serve conteúdo confere a sessão <strong class="text-white">antes</strong> de renderizar qualquer coisa, e qualquer rota não reconhecida cai em <code class="font-mono-code text-amber-300">404</code> por padrão — default-deny, não default-allow.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <h3 class="text-base font-bold text-white">b) Cookie de sessão com atributos corretos + payload assinado</h3>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+          <code class="font-mono-code text-amber-300">HttpOnly</code> (inacessível via JavaScript, mesmo se houver um bug de XSS), <code class="font-mono-code text-amber-300">Secure</code> (nunca trafega em HTTP puro) e <code class="font-mono-code text-amber-300">SameSite=Lax</code> (bloqueia envio em requisição cross-site não-GET). O payload (identidade + validade) vai assinado com HMAC-SHA256 usando uma chave que só existe como secret de servidor — alterar qualquer byte do payload invalida a assinatura, e a comparação da assinatura é feita em tempo constante (evita side-channel por tempo de resposta).
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <h3 class="text-base font-bold text-white">c) CSRF no próprio fluxo de login</h3>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+          OAuth tem sua própria superfície de CSRF: sem proteção, um atacante pode induzir a vítima a completar um login vinculado à sessão do atacante ("login CSRF"). Mitigado com um <code class="font-mono-code text-amber-300">state</code> aleatório de 128 bits, gerado antes do redirecionamento pro provedor de identidade, guardado em cookie assinado, e conferido em tempo constante contra o valor devolvido no callback.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <h3 class="text-base font-bold text-white">d) Token de identidade validado na origem, nunca confiado vindo do cliente</h3>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+          O fluxo usado é Authorization Code (não Implicit): o código de autorização é trocado por um token de identidade numa chamada servidor-a-servidor autenticada por credencial de aplicação (nunca exposta ao navegador) — não existe caminho onde o cliente entregue um token pronto pro servidor aceitar sem essa troca. Emissor, audiência, expiração e verificação de e-mail do token são conferidos antes de qualquer decisão de acesso; o e-mail final passa por allowlist fechada, e a mensagem de erro de "não autorizado" é sempre genérica — não diferencia "conta não existe" de "conta existe mas não está na lista", pra não virar oráculo de enumeração.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <h3 class="text-base font-bold text-white">e) Rate limit no fluxo de login</h3>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+          Mesmo padrão de Durable Object (instância única e autoritativa por chave) já usado no rate limit do endpoint da seção anterior, aqui aplicado por IP nas rotas de início e retorno do login: trava após N falhas numa janela, com tempo de bloqueio fixo. Não impede brute-force de senha (isso é problema do provedor de identidade, que já tem suas próprias proteções) — reduz ruído e tentativas automatizadas de martelar o fluxo de callback.
+        </p>
+      </div>
+    </section>
+
+    <!-- 04 BOAS PRÁTICAS -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">04</span>
         <h2 class="text-xl font-bold text-white">Frameworks e boas práticas seguidas</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
@@ -211,13 +257,29 @@ script-src <span class="text-amber-300">'self' https://cdn.tailwindcss.com</span
           <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">Least privilege</span>
           <span class="text-sm text-slate-300">O token de API usado pra automatizar a purga de cache (fora do escopo deste case) foi escopado só pra "Cache Purge" numa única zona, nunca "All zones" — princípio geral de menor privilégio, não específico de nenhum framework citado acima.</span>
         </div>
+        <div class="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+          <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">A07:2025</span>
+          <span class="text-sm text-slate-300"><strong class="text-white">Authentication Failures</strong> — OWASP Top 10:2025. Cobre os itens (a), (c), (d) e (e) da seção 03: gate no servidor, CSRF no login, validação de token na origem e rate limit de tentativas.</span>
+        </div>
+        <div class="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+          <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">A04:2025</span>
+          <span class="text-sm text-slate-300"><strong class="text-white">Cryptographic Failures</strong> — OWASP Top 10:2025. Cobre o item (b): assinatura HMAC-SHA256 do cookie de sessão e comparação em tempo constante.</span>
+        </div>
+        <div class="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+          <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">CWE-352</span>
+          <span class="text-sm text-slate-300"><strong class="text-white">Cross-Site Request Forgery (CSRF)</strong> — catálogo de fraquezas do MITRE. É a fraqueza estrutural por trás do login CSRF; o parâmetro <code class="font-mono-code text-amber-300">state</code> assinado no item (c) fecha exatamente essa.</span>
+        </div>
+        <div class="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+          <span class="text-xs font-mono-code text-amber-400 shrink-0 sm:w-48">CWE-613</span>
+          <span class="text-sm text-slate-300"><strong class="text-white">Insufficient Session Expiration</strong> — catálogo de fraquezas do MITRE. A validade embutida e assinada no payload da sessão (item b) garante expiração real, não decorativa.</span>
+        </div>
       </div>
     </section>
 
-    <!-- 04 RESULTADO -->
+    <!-- 05 RESULTADO -->
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-emerald-500/60">
-        <span class="text-xs font-mono-code text-slate-500">04</span>
+        <span class="text-xs font-mono-code text-slate-500">05</span>
         <h2 class="text-xl font-bold text-white">Resultado</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
@@ -234,14 +296,14 @@ script-src <span class="text-amber-300">'self' https://cdn.tailwindcss.com</span
       </ul>
     </section>
 
-    <!-- 05 FONTES -->
+    <!-- 06 FONTES -->
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
-        <span class="text-xs font-mono-code text-slate-500">05</span>
+        <span class="text-xs font-mono-code text-slate-500">06</span>
         <h2 class="text-xl font-bold text-white">Fontes</h2>
       </div>
       <ul class="text-sm text-slate-400 leading-relaxed space-y-2 max-w-2xl">
-        <li><a href="https://top10.owasp.org/2025" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP Top 10:2025</a> — categorias A02 (Security Misconfiguration), A03 (Software Supply Chain Failures) e A05 (Injection).</li>
+        <li><a href="https://top10.owasp.org/2025" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP Top 10:2025</a> — categorias A02 (Security Misconfiguration), A03 (Software Supply Chain Failures), A04 (Cryptographic Failures), A05 (Injection) e A07 (Authentication Failures).</li>
         <li><a href="https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP API Security Top 10 (2023) — API4: Unrestricted Resource Consumption</a>.</li>
         <li><a href="https://cwe.mitre.org/data/definitions/1021.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">MITRE CWE-1021 — Improper Restriction of Rendered UI Layers or Frames</a>.</li>
         <li><a href="https://cwe.mitre.org/data/definitions/829.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">MITRE CWE-829 — Inclusion of Functionality from Untrusted Control Sphere</a>.</li>
@@ -252,6 +314,10 @@ script-src <span class="text-amber-300">'self' https://cdn.tailwindcss.com</span
         <li><a href="https://wpscan.com/blog/how-to-secure-a-website/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">How to Secure Your Website: Top Tips From Enterprise Security Experts — WPScan</a>.</li>
         <li><a href="https://blog.sucuri.net/2025/12/how-to-protect-your-site-from-content-sniffing-with-http-security-headers.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">How to Protect Your Site From Content Sniffing with HTTP Security Headers — Sucuri</a>.</li>
         <li><a href="https://tailwindcss.com/docs/installation/play-cdn" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">Play CDN — documentação oficial Tailwind CSS</a>.</li>
+        <li><a href="https://cwe.mitre.org/data/definitions/352.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">MITRE CWE-352 — Cross-Site Request Forgery (CSRF)</a>.</li>
+        <li><a href="https://cwe.mitre.org/data/definitions/613.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">MITRE CWE-613 — Insufficient Session Expiration</a>.</li>
+        <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">Session Management Cheat Sheet — OWASP Cheat Sheet Series</a>.</li>
+        <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">Cross-Site Request Forgery Prevention Cheat Sheet — OWASP Cheat Sheet Series</a>.</li>
       </ul>
     </section>
 
