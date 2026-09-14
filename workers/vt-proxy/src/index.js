@@ -94,6 +94,32 @@ function motivosFrom(results) {
     .map(([engine, r]) => `${engine}: ${r.category}`);
 }
 
+// Resumo agregado das verificacoes do VirusTotal -- sempre devolvido,
+// independente do status (limpo, alerta ou malicioso). Antes, esse dado
+// (quantos motores de antivirus/seguranca analisaram e o que cada grupo
+// concluiu) so aparecia quando havia algo suspeito/malicioso; ficava
+// escondido no caso mais comum (limpo), que e exatamente quando o usuario
+// mais quer ver "quantos motores confirmaram que ta seguro".
+function resumoFrom(stats) {
+  if (!stats) return null;
+  const harmless = stats.harmless ?? 0;
+  const malicious = stats.malicious ?? 0;
+  const suspicious = stats.suspicious ?? 0;
+  const undetected = stats.undetected ?? 0;
+  const timeout = stats.timeout ?? 0;
+  const total = harmless + malicious + suspicious + undetected + timeout;
+  if (total === 0) return null;
+
+  const partes = [];
+  if (harmless) partes.push(`${harmless} classificaram como seguro`);
+  if (malicious) partes.push(`${malicious} classificaram como malicioso`);
+  if (suspicious) partes.push(`${suspicious} classificaram como suspeito`);
+  if (undetected) partes.push(`${undetected} não retornaram classificação`);
+  if (timeout) partes.push(`${timeout} expiraram na análise`);
+
+  return `${total} mecanismo${total === 1 ? "" : "s"} de segurança analisaram: ${partes.join(", ")}.`;
+}
+
 function urlIdFor(url) {
   const b64 = btoa(url).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
   return b64;
@@ -124,8 +150,15 @@ async function handleHash(request, env) {
   }
 
   const data = await res.json();
-  const status = normalize(data.data?.attributes?.last_analysis_stats);
-  return json(request, { found: true, status, message: MESSAGES.hash[status] });
+  const stats = data.data?.attributes?.last_analysis_stats;
+  const status = normalize(stats);
+  return json(request, {
+    found: true,
+    status,
+    message: MESSAGES.hash[status],
+    resumo: resumoFrom(stats),
+    motivos: motivosFrom(data.data?.attributes?.last_analysis_results),
+  });
 }
 
 async function handleUrlSubmit(request, env) {
@@ -149,7 +182,9 @@ async function handleUrlSubmit(request, env) {
     return json(request, {
       done: true,
       status,
-      message: MESSAGES.url[status] + (status !== "limpo" ? ` Motivos: ${motivosFrom(attrs?.last_analysis_results).join("; ")}` : ""),
+      message: MESSAGES.url[status],
+      resumo: resumoFrom(attrs?.last_analysis_stats),
+      motivos: motivosFrom(attrs?.last_analysis_results),
     });
   }
 
@@ -185,13 +220,13 @@ async function handleUrlPoll(request, env, analysisId) {
   const urlId = data.meta?.url_info?.id;
   if (!urlId) {
     const status = normalize(attrs?.stats);
-    return json(request, { done: true, status, message: MESSAGES.url[status] });
+    return json(request, { done: true, status, message: MESSAGES.url[status], resumo: resumoFrom(attrs?.stats) });
   }
 
   const report = await vtFetch(`/urls/${urlId}`, env.VT_API_KEY);
   if (!report.ok) {
     const status = normalize(attrs?.stats);
-    return json(request, { done: true, status, message: MESSAGES.url[status] });
+    return json(request, { done: true, status, message: MESSAGES.url[status], resumo: resumoFrom(attrs?.stats) });
   }
   const reportData = await report.json();
   const reportAttrs = reportData.data?.attributes;
@@ -199,7 +234,9 @@ async function handleUrlPoll(request, env, analysisId) {
   return json(request, {
     done: true,
     status,
-    message: MESSAGES.url[status] + (status !== "limpo" ? ` Motivos: ${motivosFrom(reportAttrs?.last_analysis_results).join("; ")}` : ""),
+    message: MESSAGES.url[status],
+    resumo: resumoFrom(reportAttrs?.last_analysis_stats),
+    motivos: motivosFrom(reportAttrs?.last_analysis_results),
   });
 }
 
