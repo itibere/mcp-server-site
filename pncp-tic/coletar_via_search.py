@@ -13,6 +13,7 @@ import argparse
 import json
 import sys
 import time
+import unicodedata
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -96,17 +97,25 @@ def eh_servico(objeto: str) -> bool:
     return "serviç" in (objeto or "").lower() or "servico" in (objeto or "").lower()
 
 
+def slug(nome: str) -> str:
+    sem_acento = unicodedata.normalize("NFKD", nome).encode("ascii", "ignore").decode("ascii")
+    return "_".join(sem_acento.lower().split())
+
+
 def main():
     global UF, ESFERA
 
     parser = argparse.ArgumentParser(description="Coleta candidatos TIC via /api/search/ do PNCP.")
     parser.add_argument("--uf", default="DF", help="sigla da UF (default: DF)")
     parser.add_argument("--esfera", default="F", choices=sorted(ESFERAS), help="F/E/M/D (default: F, Federal)")
+    parser.add_argument("--municipio", default=None, help="filtra so este municipio (nome exato, ex: Belem) - so faz sentido com --esfera M")
     args = parser.parse_args()
     UF = args.uf.upper()
     ESFERA = args.esfera.upper()
+    municipio = args.municipio
     esfera_nome = ESFERAS[ESFERA]
-    out_json = Path(__file__).parent / f"resultado_tic_{UF.lower()}_{esfera_nome.lower()}.json"
+    sufixo_municipio = f"_{slug(municipio)}" if municipio else ""
+    out_json = Path(__file__).parent / f"resultado_tic_{UF.lower()}_{esfera_nome.lower()}{sufixo_municipio}.json"
 
     # Cada termo entre aspas: sem isso, uma frase de varias palavras (ex.:
     # "desenvolvimento de sistemas") vira palavras soltas ORadas entre si no
@@ -139,6 +148,13 @@ def main():
         time.sleep(0.3)
 
     print(f"\ntotal bruto coletado: {len(todos)}")
+
+    if municipio:
+        alvo_slug = slug(municipio)
+        antes = len(todos)
+        todos = [it for it in todos if slug(it.get("municipio_nome") or "") == alvo_slug]
+        total = len(todos)
+        print(f"filtrado para municipio '{municipio}': {len(todos)} de {antes} (UF inteira)")
 
     vencendo = []
     for it in todos:
@@ -176,7 +192,7 @@ def main():
     resultado = {
         "geradoEm": time.strftime("%Y-%m-%dT%H:%M:%S"),
         "escopo": {
-            "uf": UF, "esfera": esfera_nome, "criterioTIC": "palavra-chave no objeto (busca full-text OR)",
+            "uf": UF, "esfera": esfera_nome, "municipio": municipio, "criterioTIC": "palavra-chave no objeto (busca full-text OR)",
             "mesesJanelaInicio": MESES_JANELA_INICIO, "mesesJanelaFim": MESES_JANELA_FIM,
             "janelaVencimento": f"{janela_inicio.isoformat()} a {janela_fim.isoformat()}",
             "fonte": "https://pncp.gov.br/api/search/",

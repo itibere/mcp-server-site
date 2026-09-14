@@ -21,7 +21,14 @@ git commit && git push
    API `/v1/contratos` documentada). Filtra `ufs`/`esferas`/`status`
    direto no servidor, sem precisar descobrir CNPJ de órgão primeiro —
    muito mais rápido que a abordagem antiga (ver "Legado" abaixo). Escreve
-   `resultado_tic_df_federal.json`.
+   `resultado_tic_df_federal.json`. Aceita `--uf`/`--esfera` pra outros
+   escopos (ex: `--uf BA --esfera E`) e, opcionalmente, `--municipio "Nome"`
+   pra recorte municipal dentro da UF (a API só filtra por `ufs`/`esferas`
+   no servidor — `municipio_nome` vem no item bruto e o filtro é feito no
+   cliente, após a coleta, então esfera `M` sem `--municipio` traz a UF
+   inteira). Nomes de arquivo/pasta ganham sufixo do município (slug sem
+   acento, ex: `resultado_tic_pa_municipal_belem.json`,
+   `julgamento_lotes/m_pa_belem/`).
 2. **`_preparar_lotes.py`** — corta os candidatos em `julgamento_lotes/lote_NN.json`
    (lotes de 45, só `numero_controle_pncp`/`orgao`/`objeto`).
 3. **Julgamento** — o filtro de palavra-chave do passo 1 é full-text OR,
@@ -40,7 +47,7 @@ git commit && git push
 
    - **A) Serviços de Sustentação de Infraestrutura de TIC** — manutenção,
      suporte técnico, garantia, operação de servidores, storage/armazenamento,
-     backup, datacenter (climatização de precisão, UPS, sala-cofre). Inclui
+     datacenter (climatização de precisão, UPS, sala-cofre). Inclui
      "atendimento a usuários"/helpdesk/service desk quando empacotado
      *junto* com operação de infraestrutura no mesmo contrato (modelo
      oficial SISP, Portaria SGD/MGI 1.070/2023, trata os dois como um
@@ -52,12 +59,25 @@ git commit && git push
      e-mail; certificados digitais (A3, SSL/TLS). Todos esses ficam fora
      do escopo mesmo sendo "infra" em sentido técnico amplo — o usuário
      restringiu deliberadamente a só o núcleo de sustentação de
-     servidor/storage/backup/datacenter.
+     servidor/storage/datacenter.
    - **B) Fornecimento de Hardware (Computadores/Monitores)** — *somente*
      aquisição de desktop, notebook, estação de trabalho, monitor.
      **Não inclui** switch, roteador, equipamento de rede, servidor novo,
      storage novo, equipamento multimídia (som/câmera/projetor),
      keypads/urnas eletrônicas.
+
+   **Regra de backup (revisada 2026-09-14).** Solução/serviço de backup
+   isolado **não** entra em A nem B — vira `nao_tic`. Backup só conta como
+   TIC (categoria A) quando o mesmo objeto empacota backup **junto** com
+   pelo menos um destes serviços: Service Desk, ITSM, Controle de ativos,
+   ou Chatbot com IA. Backup sozinho, ou backup + qualquer outra coisa fora
+   dessa lista, continua `nao_tic`.
+
+   **Regra de appliance (revisada 2026-09-14).** Qualquer objeto que
+   envolva appliance (de qualquer tipo — segurança, backup, storage, rede
+   etc.) é sempre `nao_tic`, exclusão categórica que prevalece sobre
+   qualquer outro critério acima — não entra em Serviços (A) nem em
+   Hardware (B), mesmo se combinado com algo elegível.
 
    Tudo mais é `nao_tic`, incluindo desenvolvimento/evolução/sustentação
    de **sistemas de informação** (é desenvolvimento de software aplicativo,

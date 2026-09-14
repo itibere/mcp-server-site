@@ -1,100 +1,5 @@
 [
  {
-  "numero_controle_pncp": "86900545000170-2-000021/2026",
-  "orgao": "AGENCIA ESPACIAL BRASILEIRA - AEB",
-  "objeto": "CONTRATAÇÃO DE LICENÇA ANUAL DE USO DE SOFTWARE INTELIGOV (SAAS), INCLUINDO TREINAMENTO E SUPORTE TÉCNICO."
- },
- {
-  "numero_controle_pncp": "00531640000128-2-000085/2023",
-  "orgao": "SUPREMO TRIBUNAL FEDERAL",
-  "objeto": "O objeto do presente Contrato é a prestação de serviço especializado, na forma de licença de uso, de software na modalidade SaaS (Software as a Service) de sistema de acompanhamento legislativo, observados o Termo de Referência e a proposta da CONTRATADA, os quais, independentemente de transcrição, são partes integrantes deste instrumento, naquilo que não o contrarie."
- },
- {
-  "numero_controle_pncp": "00394460000141-2-000652/2024",
-  "orgao": "MINISTERIO DA FAZENDA",
-  "objeto": "CONTRATAÇÃO DE AQUISIÇÃO DE SOLUÇÃO DE SERVIDORES DE REDE E DE LICENÇAS PARA SOLUÇÃO DE VIRTUALIZAÇÃO DE SERVIDORES DE REDE, COMTEMPLANDO GARANTIA DO FABRICANTE, SUPORTE TÉCNICO, TREINAMENTO E SERVIÇOS TÉCNICOS ESPECIALIZADOS SOB DEMANDA, CONFORME DISPOSTO NO ETP DIGITAL 99/2023 E ESPECIFICADA NO TERMO DE REFERÊNCIA."
- },
- {
-  "numero_controle_pncp": "33583550000130-2-000080/2025",
-  "orgao": "CONSELHO FEDERAL DE MEDICINA",
-  "objeto": "Contratação de empresa especializada para prestação de serviços técnicos de estudo sobre as políticas de integração de dados na área da saúde e a aplicação de inteligência artificial (IA) no âmbito do Conselho Federal de Medicina (CFM), conforme especificações e condições estabelecidas no Termo de Referência e seus anexos."
- },
- {
-  "numero_controle_pncp": "00038166000105-2-000139/2026",
-  "orgao": "BANCO CENTRAL DO BRASIL",
-  "objeto": "INSCRIÇÃO DE SERVIDOR DO DEREG NA LICENÇA DE USO FSI CONNECT"
- },
- {
-  "numero_controle_pncp": "03112386000111-2-000076/2025",
-  "orgao": "AGENCIA NACIONAL DE VIGILANCIA SANITARIA",
-  "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE OPERAÇÃO, SUPORTE E SUSTENTAÇÃO DA INFRAESTRUTURA DE TI DA ANVISA, VISANDO GARANTIR ALTA DISPONIBILIDADE, SEGURANÇA E EFICIÊNCIA NO ATENDIMENTO AOS USUÁRIOS, COM REMUNERAÇÃO FIXA MENSAL POR CATEGORIAS DE SERVIÇOS VINCULADAS AO ATINGIMENTO DE INDICADORES DE NÍVEL MÍNIMO DE SERVIÇOS (NMS), SEM DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA"
- },
- {
-  "numero_controle_pncp": "02030715000112-2-000258/2024",
-  "orgao": "AGENCIA NACIONAL DE TELECOMUNICACOES",
-  "objeto": "PRESTAÇÃO DE SUPORTE TÉCNICO ESPECIALIZADO PARA EQUIPAMENTOS E SOFTWARES DA MARCA HUAWEI, QUE COMPÕEM A SOLUÇÃO DE REDE LAN DA ANATEL."
- },
- {
-  "numero_controle_pncp": "03112386000111-2-000034/2026",
-  "orgao": "AGENCIA NACIONAL DE VIGILANCIA SANITARIA",
-  "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE AQUISIÇÃO DE DE SERVIDORES DE REDE DE ALTA PERFORMANCE, COM GARANTIA E SUPORTE TÉCNICO POR 60 (SESSENTA) MESES, NA MODALIDADE DE ATENDIMENTO 24X7 (24 HORAS POR DIA, 7 DIAS POR SEMANA), DESTINADOS A ATENDER AS DEMANDAS COMPUTACIONAIS DA ANVISA. OS EQUIPAMENTOS DEVERÃO INCLUIR SERVIDORES DO TIPO 1, COMPOSTOS POR 2 (DOIS) PROCESSADORES INTEL XEON DE, NO MÍNIMO, 6ª GERAÇÃO, COM 32 CORES CADA, 2 TB DE MEMÓRIA RAM, 3 (TRÊS) UNIDADES DE ARMAZENAMENTO DE 480 GB SSD NVME E 1 GPU DE ALTO DESEMPENHO, E SERVIDORES DO TIPO 2, COMPOSTOS POR 2 (DOIS) PROCESSADORES INTEL XEON DE, NO MÍNIMO, 6ª GERAÇÃO COM 32 CORES CADA, 2 TB DE MEMÓRIA RAM E 3 (TRÊS) UNIDADES DE ARMAZENAMENTO DE 480 GB SSD NVME. TODOS OS SERVIDORES DEVEM SUPORTAR VMWARE ESX BARE-METAL. O FORNECIMENTO DEVERÁ ASSEGURAR SUPORTE TÉCNICO INTEGRAL PELO PERÍODO ESPECIFICADO, ABRANGENDO ATUALIZAÇÃO DE FIRMWARE, SUBSTITUIÇÃO DE COMPONENTES DEFEITUOSOS E ASSISTÊNCIA TÉCNICA ESPECIALIZADA, GARANTINDO A MÁXIMA DISPONIBILIDADE E CONFIABILIDADE DOS SISTEMAS"
- },
- {
-  "numero_controle_pncp": "00414607000118-2-000229/2025",
-  "orgao": "TRIBUNAL DE CONTAS DA UNIAO",
-  "objeto": "Contratação de serviços técnicos especializados de natureza contínua com dedicação exclusiva de mão de obra, na área de computação em nuvens públicas, na modalidade híbrida de remuneração por postos de trabalho ajustada por resultados (níveis mínimos de serviço), pelo período de 24 (vinte e quatro) meses, prorrogável, conforme a Lei 14.133/2021, até o limite de 120 (cento e vinte) meses de prestação dos serviços."
- },
- {
-  "numero_controle_pncp": "05526783000165-2-000274/2026",
-  "orgao": "MINISTERIO DA CIDADANIA",
-  "objeto": "CONTRATAÇÃO DE SOLUÇÃO INTEGRADA DE STORAGE, GAVETA DE EXPANSÃO, SWITCH SAN E DISCOS ADICIONAIS, COMPONDO UMA ÚNICA SOLUÇÃO DE TIC, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA"
- },
- {
-  "numero_controle_pncp": "07947821000189-2-000060/2025",
-  "orgao": "AGENCIA NACIONAL DE AVIACAO CIVIL - ANAC",
-  "objeto": "CONTRATAÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS DE SEGURANÇA DA INFORMAÇÃO PARA A IMPLANTAÇÃO DE UM SECURITY OPERATION CENTER - SOC, ENVOLVENDO A PRESTAÇÃO DE SERVIÇOS DE TESTES DE INVASÃO."
- },
- {
-  "numero_controle_pncp": "26989715000102-2-001492/2026",
-  "orgao": "MINISTERIO PUBLICO DA UNIAO",
-  "objeto": "Fornecimento de materiais de informática, áudio e vídeo, inclusindo ribbon colorido para impressão."
- },
- {
-  "numero_controle_pncp": "26989715000102-2-001493/2026",
-  "orgao": "MINISTERIO PUBLICO DA UNIAO",
-  "objeto": "Fornecimento de materiais de informática, áudio e vídeo, incluindo sistema transmissor HDMI sem fio, 4K, com 4 receptores."
- },
- {
-  "numero_controle_pncp": "37115532000184-2-000003/2026",
-  "orgao": "CONSELHO REGIONAL DE PSICOLOGIA DO DISTRITO FEDERAL - CRP 01",
-  "objeto": "Contratação de pessoa jurídica para o fornecimento, pelo período de 12 (doze) meses, de licenças de acesso à plataforma colaborativa corporativa na modalidade Software as a Service (SaaS), correspondente à solução Google Workspace Business (Starter e Standard), para uso do Conselho Regional de Psicologia do Distrito Federal (CRP 01/DF). A contratação abrange licenças de software, serviços em nuvem, contas institucionais de e-mail e demais funcionalidades/recursos inclusos nos pacotes, garantindo a preservação dos dados do domínio institucional (@crp-01.org.br), a continuidade dos serviços de comunicação e colaboração corporativa, bem como suporte técnico, migração e manutenção durante a vigência contratual, nas condições estabelecidas no Termo de Referência."
- },
- {
-  "numero_controle_pncp": "00393272000107-2-000018/2024",
-  "orgao": "CONSELHO FEDERAL DE PSICOLOGIA",
-  "objeto": "Contratação de pessoa jurídica especializada para o fornecimento de solução do firewall Sophos, contemplando atualização de versões e assinaturas de proteção, manutenção, licenciamento, instalação e suporte técnico, nos termos da tabela abaixo, conforme condições e exigências estabelecidas neste instrumento, por 3 (três) anos, conforme condições e exigências estabelecidas Edital e seus Anexos."
- },
- {
-  "numero_controle_pncp": "00488478000102-2-000129/2025",
-  "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
-  "objeto": "FORNECIMENTO DE LICENCIAMENTO DO SOFTWARE TEAMVIEWER, NO PLANO CORPORATE."
- },
- {
-  "numero_controle_pncp": "04204444000108-2-000010/2024",
-  "orgao": "AGENCIA NACIONAL DE AGUAS E SANEAMENTO BASICO (ANA)",
-  "objeto": "CONTRATAÇÃO DE SERVIÇOS ESPECIALIZADOS DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO, VOLTADOS, DIRETA OU INDIRETAMENTE, AO SUPORTE NECESSÁRIO PARA MANUTENÇÃO DOS SISTEMAS E SERVIÇOS QUE ATENDEM AS NECESSIDADES ESTRATÉGICAS DA AGÊNCIA NACIONAL DE ÁGUAS E SANEAMENTO BÁSICO – ANA, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA SERVIÇOS DE TIC 8/2024, DOCUMENTO Nº 02500.045223/2024-76."
- },
- {
-  "numero_controle_pncp": "00489828000155-2-000516/2026",
-  "orgao": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
-  "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO PARA FORNECIMENTO, POR SUBSCRIÇÃO, DE 12 (DOZE) LICENÇAS ANUAIS DE ACESSO À PLATAFORMA FIGMA, NO PLANO ORGANIZATION, PERFIL DE ACESSO FULL, DESTINADAS A ATIVIDADES DE CRIAÇÃO, EDIÇÃO, PROTOTIPAÇÃO E GERENCIAMENTO DE ARTEFATOS VISUAIS, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA."
- },
- {
-  "numero_controle_pncp": "23612685000122-2-000028/2025",
-  "orgao": "MINISTERIO DO TRABALHO",
-  "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE DE 3 (TRÊS) LICENÇAS DE USO DELPHI ENTERPRISE NETWORK USER, ÚLTIMA VERSÃO, PARA ATENDER ÀS NECESSIDADES DO MINISTÉRIO DO TRABALHO E EMPREGO (MTE),  NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA"
- },
- {
   "numero_controle_pncp": "00530352000159-2-000153/2026",
   "orgao": "CAMARA DOS DEPUTADOS",
   "objeto": "Aquisição de licenças do software Figma - Organization Full Seat, pelo prazo de 12\n(doze) meses, conforme condições e exigências estabelecidas neste instrumento e\nem seus Anexos."
@@ -223,5 +128,100 @@
   "numero_controle_pncp": "00394494000136-2-000435/2024",
   "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
   "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE ATUALIZAÇÃO E EXPANSÃO DE SOLUÇÃO TECNOLÓGICA INTEGRADA PARA BUSCA INTELIGENTE EM CONTEXTOS, INDEXAÇÃO E ONTOLOGIAS, TRATAMENTO E ANÁLISE DE DADOS COM RECURSOS AVANÇADOS PARA ANÁLISE DE VÍNCULOS, BEM COMO SERVIÇO DE SUPORTE ESPECIALIZADO E CUSTOMIZAÇÕES SOB DEMANDA, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA."
+ },
+ {
+  "numero_controle_pncp": "00394460000141-2-000489/2026",
+  "orgao": "MINISTERIO DA FAZENDA",
+  "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO PARA SUBSCRIÇÃO DE 5 (CINCO) LICENÇAS DO SOFTWARE STATA 19, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA"
+ },
+ {
+  "numero_controle_pncp": "03353358000196-2-000163/2026",
+  "orgao": "MINISTERIO DO DESENVOLVIMENTO REGIONAL",
+  "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO, POR MEIO DO REGISTRO DE PREÇOS, PARA A AQUISIÇÃO DE MONITORES SOBRESSALENTES"
+ },
+ {
+  "numero_controle_pncp": "00627612000109-2-000146/2026",
+  "orgao": "FUNDACAO ESCOLA NACIONAL DE ADMINISTRACAO PUBLICA",
+  "objeto": "CONTRATAÇÃO DE SERVIÇO DE LICENCIAMENTO DE USO DA PLATAFORMA ZOOM MEETINGS, NO PLANO ENTERPRISE ESSENTIALS, COM RECURSOS DE VIDEOCONFERÊNCIA E GRAVAÇÃO EM NUVEM, PELO PERÍODO DE 12 (DOZE) MESES, PARA ATENDER ÀS ATIVIDADES EDUCACIONAIS, INSTITUCIONAIS E ADMINISTRATIVAS DA ENAP, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA."
+ },
+ {
+  "numero_controle_pncp": "00509968000148-2-002504/2026",
+  "orgao": "TRIBUNAL SUPERIOR DO TRABALHO",
+  "objeto": "CONTRATAÇÃO DE ASSINATURAS DE SOFTWARE DE ORÇAMENTO E GESTÃO DE OBRAS E SERVIÇOS DE ENGENHARIA, INCLUINDO ATUALIZAÇÕES E SUPORTE TÉCNICO POR 12 MESES - CONTRATO PE-047/2026"
+ },
+ {
+  "numero_controle_pncp": "00394452000103-2-017123/2023",
+  "orgao": "COMANDO DO EXERCITO",
+  "objeto": "SERVIÇOS DE MANUTENÇÃO PREVENTIVA E CORRETIVA DAS INSTALAÇÕES E EQUIPAMENTOS DOS SEGUINTES SISTEMAS: HIDROSSANITÁRIOS, DE ÁGUAS PLUVIAIS, ELÉTRICOS DE FORÇA, LUZ E GERAÇÃO DE EMERGÊNCIA, DE REFRIGERAÇÃO (AR CONDICIONADO CENTRAL E DEMAIS TIPOS DE EQUIPAMENTOS), DE PROTEÇÃO CONTRA DESCARGAS ATMOSFÉRICAS, DE PREVENÇÃO E COMBATE A INCÊNDIOS, DE CABEAMENTO ESTRUTURADO (REDE DE DADOS) BEM COMO DE SERVIÇOS EVENTUAIS POR DEMANDA, COM FORNECIMENTO DE PESSOAL, MATERIAIS E EQUIPAMENTOS NECESSÁRIOS À EXECUÇÃO DOS SERVIÇOS, A SEREM REALIZADOS NA ASA SUL, ASA NORTE, CRUZEIRO, SETOR MILITAR URBANO-SMU, VILA RESIDENCIAL DO RCG, QUADRA RESIDENCIAL DOS GENERAIS, SEDE DA PREFEITURA MILITAR DE BRASÍLIA, LAGO SUL E GARAGEM DA PREFEITURA MILITAR DE BRASÍLIA, NOS IMÓVEIS E ÁREAS SOB A ADMINISTRAÇÃO DA PMB."
+ },
+ {
+  "numero_controle_pncp": "00038174000143-2-000036/2024",
+  "orgao": "FUNDACAO UNIVERSIDADE DE BRASILIA",
+  "objeto": "CONTRATAÇÃO DA LICENÇA DO SOFTWARE GEOSOFT OASIS MONTAJ E SEUS MÓDULOS COMPLEMENTARES, NAS CONDIÇÕES ESTABELECIDOS NO TERMO DE REFERÊNCIA."
+ },
+ {
+  "numero_controle_pncp": "00119784000171-2-000032/2026",
+  "orgao": "CONSELHO FEDERAL DE MEDICINA VETERINARIA",
+  "objeto": "Contratação de serviço contínuo de atualização e manutenção de licenças do software ScriptCase Enterprise Full (usuários ilimitados), com suporte técnico Ouro, conforme as especificações, condições e exigências estabelecidas no Termo de Referência e no Estudo Técnico Preliminar."
+ },
+ {
+  "numero_controle_pncp": "00394411000109-2-000324/2025",
+  "orgao": "PRESIDENCIA DA REPUBLICA",
+  "objeto": "PRESTAÇÃO DE SERVIÇOS DE CAPACITAÇÃO DE MESTRADO PROFISSIONAL EM ADMINISTRAÇÃO PÚBLICA – CIÊNCIA DE DADOS E INTELIGÊNCIA ARTIFICIAL NO SETOR PÚBLICO."
+ },
+ {
+  "numero_controle_pncp": "00488478000102-2-000136/2025",
+  "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
+  "objeto": "PRESTAÇÃO DE SERVIÇO DE GARANTIA ESTENDIDA DOS SERVIDORES MARCA DELL PARA A APLICAÇÃO HIPER CONVERGÊNCIA."
+ },
+ {
+  "numero_controle_pncp": "00394445000101-2-000050/2023",
+  "orgao": "MINISTERIO DA EDUCACAO",
+  "objeto": "SOLUÇÃO ENTERPRISE LINUX E SERVIDORES DE APLICAÇÃO, INCLUINDO SUPORTE TÉCNICO OFICIAL DO FABRICANTE E CONSULTORIA ESPECIALIZADA, CONFORME CONDIÇÕES, QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO E EM SEUS ANEXOS."
+ },
+ {
+  "numero_controle_pncp": "10791831000182-2-000018/2024",
+  "orgao": "INSTITUTO FEDERAL DE EDUCACAO, CIENCIA E TECNOLOGIA DE BRASILIA",
+  "objeto": "Contratação de serviços de  Certificação Digital em nuvem tipo A3 emitida por autoridade certificadora do Governo\r\n(SERPRO) para o IFB - Reitoria e demais Campi"
+ },
+ {
+  "numero_controle_pncp": "00531640000128-2-000002/2025",
+  "orgao": "SUPREMO TRIBUNAL FEDERAL",
+  "objeto": "Contratação de empresa especializada para a prestação de serviços técnicos nas áreas de operação de central de atendimento a usuários de TI, atendimento de manifestações relativas aos serviços e a prestação de informações processuais da Ouvidoria do Supremo Tribunal Federal – STF, manutenção de hardware e microinformática, logística, suporte ao sistema de telefonia do STF, incluindo atendimentos remotos e presenciais, rotinas periódicas, orientação e esclarecimento de dúvidas, recebimento, registro, análise, diagnóstico e atendimento de solicitações de usuários, e serviços proativos, preventivos, corretivos e reativos."
+ },
+ {
+  "numero_controle_pncp": "26989715000102-2-001598/2026",
+  "orgao": "MINISTERIO PUBLICO DA UNIAO",
+  "objeto": "Contratação de empresa especializada na prestação de serviços comuns de treinamentos Fortinet para membros da Equipe de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos do MPT, visando o desenvolvimento de competências técnicas essenciais em administração, análise e gestão de soluções Fortinet para segurança da informação institucional."
+ },
+ {
+  "numero_controle_pncp": "00509018000113-2-000280/2023",
+  "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
+  "objeto": "PRESTAÇÃO DE SERVIÇO DE PROCESSAMENTO DE BANCO DE DADOS ORACLE EM NÚVEM PRIVADA NA PLATAFORMA EXADATA CLOUD AT CUSTOMER EM DOIS EQUIPAMENTOS, SENDO UM X9M OU SUPERIOR, COM 8 DB NODES E 8 STORAGE NODES E OUTRO X9M OU SUPERIOR, COM 4 DB NODES E 4 STORAGE NODES, INCLUINDO A INSTALAÇÃO DOS MESMOS, CRÉDITOS EM NUVEM PARA PROCESSAMENTO DE BANCO DE DADOS EM 350 (OCPU) EM MÉDIA (ORACLE PAAS AND IAAS UNIVERSAL CREDITS) E SERVIÇOS DE SUPORTE AVANÇADO ORACLE ACS(ADVANCED CUSTOMER SERVICES), PELO PERÍODO DE 48 MESES, DE ACORDO COM AS ESPECIFICAÇÕES TÉCNICAS QUE CONSTAM DO TERMO DE REFERÊNCIA E SEUS ANEXOS E PEDIDOS DE COMPRA CPQ – 3020313 E BR-14959191 DA CONTRATADA."
+ },
+ {
+  "numero_controle_pncp": "00394411000109-2-000332/2026",
+  "orgao": "PRESIDENCIA DA REPUBLICA",
+  "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO COMPOSTA POR SERVIÇOS TÉCNICOS ESPECIALIZADOS DE SUSTENTAÇÃO, DESENVOLVIMENTO, TESTES, QUALIDADE E MÉTRICAS DE SOFTWARE, PARA ATENDIMENTO DAS NECESSIDADES DA IMPRENSA NACIONAL, SEM DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA, SOB DEMANDA, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA NO DOC SEI 7526089 E 7526091"
+ },
+ {
+  "numero_controle_pncp": "26989715000102-2-001584/2026",
+  "orgao": "MINISTERIO PUBLICO DA UNIAO",
+  "objeto": "Serviços de tratamento de acervo documental e gestão da informação dos documentos das áreas administrativa e finalística das unidades do Ministério Público Federal – MPF."
+ },
+ {
+  "numero_controle_pncp": "15126437000143-2-000692/2026",
+  "orgao": "EMPRESA BRASILEIRA DE SERVIÇOS HOSPITALARES",
+  "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É O FORNECIMENTO DE MICROCOMPUTADORES, NOTEBOOKS E MONITORES,\nCONFORME CONDIÇÕES, QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO, PELO SISTEMA DE REGISTRO DE PREÇOS -\nSRP, PARA ABASTECER TODOS OS HOSPITAIS UNIVERSITÁRIOS FEDERAIS (HUF) DAS REGIÕES NORTE, NORDESTE, CENTRO-OESTE,\nSUDESTE E SUL DO BRASIL, SOB GESTÃO DA EMPRESA BRASILEIRA DE SERVIÇOS HOSPITALARES – HU BRASIL, NAS\nCONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA."
+ },
+ {
+  "numero_controle_pncp": "00487140000136-2-000075/2026",
+  "orgao": "CONSELHO FEDERAL DE FISIOTERAPIA E TERAPIA OCUPACIONAL",
+  "objeto": "ontratação de empresa especializada para disponibilização de 08 (oito) assinaturas Premium da plataforma corporativa de capacitação em Tecnologia da Informação da 4Linux, pelo período de 12 (doze) meses, destinadas aos empregados do Setor de Tecnologia da Informação – SETIN do Conselho Federal de Fisioterapia e Terapia Ocupacional – COFFITO, com acesso a conteúdos, trilhas de aprendizagem, atividades práticas, laboratórios, recursos tecnológicos e demais funcionalidades integrantes da solução, abrangendo áreas relacionadas à administração de sistemas, computação em nuvem, DevOps, contêineres, segurança da informação, banco de dados, programação, monitoramento, observabilidade e demais temas pertinentes à atuação da equipe de Tecnologia da Informação"
+ },
+ {
+  "numero_controle_pncp": "02030715000112-2-000122/2026",
+  "orgao": "AGENCIA NACIONAL DE TELECOMUNICACOES",
+  "objeto": "CONTRATAÇÃO DE SERVIÇO DE SUPORTE TÉCNICO ESPECIALIZADO NÍVEL 3 DE APOIO AO PROCESSO DE SEGURANÇA DA INFORMAÇÃO COM ATENDIMENTO REMOTO PARA A AGÊNCIA NACIONAL DE TELECOMUNICAÇÕES NAS CONDIÇÕES ESTABELECIDAS NESTE CONTRATO E NO TERMO DE REFERÊNCIA."
  }
 ]

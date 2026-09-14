@@ -1,29 +1,18 @@
 {
-  "geradoEm": "2026-09-11T16:58:20",
+  "geradoEm": "2026-09-14T09:42:50",
   "escopo": {
     "uf": "BA",
     "esfera": "Estadual",
     "criterioTIC": "palavra-chave no objeto (busca full-text OR)",
     "mesesJanelaInicio": 6,
     "mesesJanelaFim": 12,
-    "janelaVencimento": "2027-03-10 a 2027-09-06",
+    "janelaVencimento": "2027-03-13 a 2027-09-09",
     "fonte": "https://pncp.gov.br/api/search/"
   },
-  "totalCandidatosTIC": 5464,
-  "totalVencendoJanela": 66,
+  "totalCandidatosTIC": 5465,
+  "totalVencendoJanela": 65,
   "totalServicos": 29,
   "contratos": [
-    {
-      "orgao": "CASA CIVIL",
-      "orgao_cnpj": "03661160000170",
-      "vence_em": "2027-03-10",
-      "valor_global": 973879.32,
-      "objeto": "Administração, Operação, Desenv. de Sistemas de Informática e Software",
-      "eh_servico_texto": false,
-      "modalidade": "Dispensa",
-      "numero_controle_pncp": "03661160000170-2-000021/2026",
-      "link": "https://pncp.gov.br/app/contratos/03661160000170/2026/21"
-    },
     {
       "orgao": "FUNDACAO CULTURAL DO ESTADO DA BAHIA",
       "orgao_cnpj": "13266325000162",

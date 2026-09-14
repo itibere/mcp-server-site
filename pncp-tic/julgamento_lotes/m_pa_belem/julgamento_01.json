@@ -1,0 +1,9 @@
+[
+{"numero_controle_pncp": "07917818000112-2-000001/2026", "veredito": "nao_tic", "motivo": "Licenciamento e suporte de software OrcaFacil, licenciamento de sistema aplicativo isolado, fora do escopo."},
+{"numero_controle_pncp": "07917818000112-2-000002/2026", "veredito": "nao_tic", "motivo": "Sistema online Banco de Precos com licencas/treinamento/suporte, SaaS/licenciamento isolado, fora do escopo."},
+{"numero_controle_pncp": "05055033000152-2-000013/2026", "veredito": "tic", "motivo": "Locacao de computadores desktop e notebooks (com impressoras/perifericos), fornecimento de hardware (computador/monitor)."},
+{"numero_controle_pncp": "05055033000152-2-000025/2025", "veredito": "nao_tic", "motivo": "Certificado de assinatura digital A3, fora do escopo."},
+{"numero_controle_pncp": "05055033000152-2-000026/2026", "veredito": "nao_tic", "motivo": "Solucao educacional integrada (materiais didaticos, apps, plataforma, realidade virtual), nao e sustentacao de infraestrutura nem hardware."},
+{"numero_controle_pncp": "49159407000155-2-000025/2026", "veredito": "nao_tic", "motivo": "Telefonia em nuvem (Cloud PBX/Contact Center), cloud/telecom, fora do escopo."},
+{"numero_controle_pncp": "05055025000106-2-000008/2026", "veredito": "nao_tic", "motivo": "Locacao de equipamentos de ponto eletronico com reconhecimento facial, nao e computador/monitor nem sustentacao de infraestrutura."}
+]

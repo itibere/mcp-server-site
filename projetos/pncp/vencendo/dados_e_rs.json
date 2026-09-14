@@ -1,0 +1,580 @@
+{
+ "geradoEm": "2026-09-14T09:24:36",
+ "cobertura": {
+  "uf": "RS",
+  "esfera": "Estadual",
+  "criterioTIC": "palavra-chave no objeto (busca full-text OR)",
+  "janelaVencimento": "2027-03-13 a 2027-09-09",
+  "mesesJanelaInicio": 6,
+  "mesesJanelaFim": 12,
+  "fonte": "https://pncp.gov.br/api/search/"
+ },
+ "totais": {
+  "candidatosTIC": 702,
+  "vencendoJanela": 5,
+  "servicos": 3
+ },
+ "julgamentoAgente": {
+  "total_antes": 89,
+  "aprovados": 5,
+  "reprovados": 84,
+  "exemplosReprovados": [
+   {
+    "orgao": "SECRETARIA DO MEIO AMBIENTE E INFRAESTRUTURA",
+    "objeto": "Contratação de empresa especializada para prestação de serviço de acesso à internet, via fibra óptica, para a sede do Parque Estadual de Camaquã, conforme Anexo V - Termo de Referência.",
+    "motivo": "Acesso a internet via fibra optica, conectividade como servico, fora do escopo.",
+    "numero_controle_pncp": "03330683000133-2-000012/2024"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL ASSEMBLEIA LEGISLATIVA",
+    "objeto": "Contratação de pessoa jurídica especializada para fornecimento de licenças de manutenção, perpétuas e de subscrição para Proxy Web Skyhigh, e Anti-Virus MOVE Trellix, incluindo suporte técnico, conforme especificações e condições previstas no Edital e seus Anexos.",
+    "motivo": "Licencas de Proxy Web e Anti-Virus com suporte, licenciamento de software de seguranca isolado, fora do escopo.",
+    "numero_controle_pncp": "88243688000181-2-000004/2024"
+   },
+   {
+    "orgao": "FUNDACAO GAUCHA DO TRABALHO E ACAO SOCIAL",
+    "objeto": "Contratação de 1 (uma) Licença do Sistema de Cálculo Memorial Índices, Memo Calc, de acesso online.",
+    "motivo": "Licenca de sistema de calculo online, licenciamento de software isolado, fora do escopo.",
+    "numero_controle_pncp": "94392164000155-2-000003/2026"
+   },
+   {
+    "orgao": "POLICIA CIVIL",
+    "objeto": "O objeto do presente instrumento é a contratação de empresa especializada prestadora de serviços de manutenção corretiva e preventiva nos equipamentos de informática pertencentes à Polícia Civil do Estado do Rio Grande do Sul, em substituição ao processo 21/1204-0002633-9, de acordo com Termo de Referência e demais anexos do Edital.",
+    "motivo": "Manutencao corretiva/preventiva generica em equipamentos de informatica, nao especifica sustentacao de servidor/storage/datacenter.",
+    "numero_controle_pncp": "00058163000125-2-000190/2024"
+   },
+   {
+    "orgao": "SECRETARIA DA SEGURANCA PUBLICA",
+    "objeto": "Contratação de solução integrada de empresa especializada na prestação de serviços técnicos nas áreas de Telefonia, Tecnologia da Informação e Comunicação (TIC) para operação, atualização, manutenção preventiva e corretiva da infraestrutura de voz e de dados da Secretaria de Segurança Pública do Estado do Rio Grande do Sul (SSPRS), com serviços continuados, sem dedicação exclusiva de mão de obra, incluindo o fornecimento de peças de reposição e garantias estendidas.",
+    "motivo": "Operacao e manutencao de infraestrutura de voz e dados/telefonia, telecomunicacao, fora do nucleo servidor/storage/datacenter.",
+    "numero_controle_pncp": "87958583000146-2-000005/2026"
+   },
+   {
+    "orgao": "PROCURADORIA GERAL DO ESTADO",
+    "objeto": "Contratação de serviços para atualização da plataforma Orquesta BPMS, versão 3, disponibilização de plataforma na nuvem da Zeev (incluindo ambiente de apoio), migração de base de dados e arquivos, customização de objetos de banco de dados, prestação de serviços de suporte técnico, consultoria especializada e treinamento na implantação e administração na solução Zeev Enterprise.",
+    "motivo": "Atualizacao/suporte de plataforma BPMS em nuvem (Zeev), SaaS/sistema aplicativo, fora do escopo.",
+    "numero_controle_pncp": "89027825000103-2-000001/2024"
+   },
+   {
+    "orgao": "SECRETARIA DA FAZENDA",
+    "objeto": "Contratação de prestação de serviços continuados sem dedicação exclusiva de mão de obra, de extensão de suporte técnico, manutenção, atualizações de versões com instalação para Licenciamento de software de gerenciamento de monitoramento OpMon, que serão prestados nas condições estabelecidas no Termo de Referência, Anexo I deste contrato.",
+    "motivo": "Suporte e licenciamento de software de monitoramento (OpMon), licenciamento de software isolado, fora do escopo.",
+    "numero_controle_pncp": "87958674000181-2-000003/2024"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL PROCURADORIA GERAL DE JUSTICA",
+    "objeto": "Contratação de serviços para emissão de certificados digitais em nuvem (NEOID) e certificados para equipamentos tipo A1.",
+    "motivo": "Certificados digitais em nuvem e tipo A1, fora do escopo.",
+    "numero_controle_pncp": "93802833000157-2-000002/2024"
+   },
+   {
+    "orgao": "ESTADO DO RIO GRANDE DO SUL",
+    "objeto": "Contratação de empresa especializada para fornecimento de acesso dedicado à internet, via fibra óptica, com velocidade de 400 Mbps simétrica, upload e download.",
+    "motivo": "Acesso dedicado a internet via fibra optica, conectividade como servico, fora do escopo.",
+    "numero_controle_pncp": "87934675000196-2-000040/2026"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL PODER JUDICIARIO",
+    "objeto": "Contratação de empresa para emissão de certificados digitais no padrão ITU-T X.509 para equipamentos e sistemas deste Poder Judiciário (incluindo o sistema e-Proc), com raiz internacional.",
+    "motivo": "Certificados digitais, fora do escopo.",
+    "numero_controle_pncp": "89522064000166-2-000070/2026"
+   },
+   {
+    "orgao": "AGENCIA ESTADUAL DE REGULACAO DOS SERVICOS PUBLICOS DELEGADOS DO RIO GRANDE DO SUL",
+    "objeto": "Contratação de serviço de locação, na modalidade Hardware as a Service (HaaS), de 4 (quatro) unidades de Relógio-Ponto Eletrônico – REP, categoria REP-P, em conformidade com a Portaria MTP nº 671/2021, equipados com tecnologias de Reconhecimento Facial e Leitor RFID, a serem instalados na sede da Agência em Porto Alegre – RS.",
+    "motivo": "Locacao de relogio-ponto eletronico biometrico, equipamento de controle de ponto, nao e hardware elegivel.",
+    "numero_controle_pncp": "01962045000100-2-000004/2026"
+   },
+   {
+    "orgao": "SECRETARIA DA SEGURANCA PUBLICA",
+    "objeto": "Contratação de licença anual de software Sentimonitor – Security and Crime da empresa ARTIFICIAL INTELLIGENCE ENGINEERS DESENVOLVIMENTO DE SOFTWARE LTDA, inscrita no CNPJ nº. 10.477.642/0001-30, visando o acesso ao software por um ano, treinamento da equipe, implantação da ferramenta e suporte técnico e acompanhamento por toda vigência do contrato.",
+    "motivo": "Licenca anual de software de seguranca/vigilancia preditiva com suporte, licenciamento de software isolado, fora do escopo.",
+    "numero_controle_pncp": "87958583000146-2-000002/2025"
+   },
+   {
+    "orgao": "DEPARTAMENTO ESTADUAL DE TRANSITO",
+    "objeto": "O objeto do presente instrumento é a aquisição de equipamentos e serviços para instalação de\r\nrede sem fio na nova sede do DETRAN/RS.",
+    "motivo": "Instalacao de rede sem fio, conectividade/rede, fora do escopo.",
+    "numero_controle_pncp": "01935819000103-2-000010/2025"
+   },
+   {
+    "orgao": "SECRETARIA DA ADMINISTRACAO PENITENCIARIA",
+    "objeto": "Software/Sistemas de Informação. Tipo: Licença de Uso; Detalhamento especificação: aquisição de 09 Unidades da LICENÇA - AUTODESK ARCHITECTURE ENGINEERING CONSTRUCTION COLLECTION SU 1 ANO.",
+    "motivo": "Licenca de software AUTODESK AEC Collection, licenciamento de software isolado, fora do escopo.",
+    "numero_controle_pncp": "32613632000117-2-000001/2026"
+   },
+   {
+    "orgao": "SECRETARIA DA SEGURANCA PUBLICA",
+    "objeto": "Contratação emergencial de serviços de locação de uma solução integrada de monitoramento e rastreamento eletrônico de pessoas, compreendendo fornecimento de hardware, software e serviços técnicos especializados.",
+    "motivo": "Locacao de solucao de monitoramento/rastreamento eletronico de pessoas, seguranca/vigilancia, fora do escopo.",
+    "numero_controle_pncp": "87958583000146-2-000007/2026"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL TRIBUNAL DE CONTAS DO ESTADO",
+    "objeto": "Contratação de empresa especializada na intermediação para a prestação de serviços continuados de fornecimento de combustíveis e lavagens de veículos, gerenciamento e controle, que utilize sistema informatizado e integrado, via internet, por meio de cartões magnéticos ou com chips (ou por tecnologia mais avançada equivalente), para os veículos do Tribunal de Contas do Estado do Rio Grande do Sul – TCE-RS",
+    "motivo": "Gestao de frota de veiculos via sistema informatizado, nao e infraestrutura nem hardware de TIC.",
+    "numero_controle_pncp": "89550032000174-2-000029/2026"
+   },
+   {
+    "orgao": "PROCURADORIA GERAL DO ESTADO",
+    "objeto": "Contratação de serviço de assinatura da plataforma digital de livros Minha Biblioteca, com acesso web às coleções MB Jurídica e MB Sociais Aplicadas, pelo período de 12 (doze) meses, contemplando 1.194 (mil cento e noventa e quatro) licenças de acesso individual, destinadas aos Procuradores(as) do Estado, servidores(as) e demais colaboradores(as) da Procuradoria-Geral do Estado do Rio Grande do Sul -PGE/RS.",
+    "motivo": "Assinatura de plataforma digital de livros, assinatura de conteudo, nao e TIC.",
+    "numero_controle_pncp": "89027825000103-2-000005/2026"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL ASSEMBLEIA LEGISLATIVA",
+    "objeto": "O objeto deste Contrato consiste no fornecimento do Software GNUTECA, na modalidade de licenciamento perpétuo, incluindo serviços de Implantação e Garantia, nas condições estabelecidas no Contrato, em seus Anexos e no Termo de Referência SEI nº 3509596.",
+    "motivo": "Licenciamento perpetuo de software (GNUTECA) com implantacao/garantia, licenciamento de software isolado, fora do escopo.",
+    "numero_controle_pncp": "88243688000181-2-000038/2024"
+   },
+   {
+    "orgao": "POLICIA CIVIL",
+    "objeto": "Contratação de empresa especializada para o licenciamento anual do software Liquid Suite, que se refere à nuvem que armazena os prontuários da Divisão Policlínica do Departamento de Saúde (Policlínica / DSA) da Polícia Civil.",
+    "motivo": "Licenciamento de software em nuvem (Liquid Suite), SaaS isolado, fora do escopo.",
+    "numero_controle_pncp": "00058163000125-2-000045/2026"
+   },
+   {
+    "orgao": "SECRETARIA DE DESENVOLVIMENTO ECONOMICO E TURISMO",
+    "objeto": "Contratação da assinatura anual dos índices econômicos referentes ao Software Memorial 8.",
+    "motivo": "Assinatura anual de indices economicos (software Memorial 8), assinatura de conteudo, fora do escopo.",
+    "numero_controle_pncp": "87958591000192-2-000004/2024"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL ASSEMBLEIA LEGISLATIVA",
+    "objeto": "prestação de serviços técnico-profissionais para elaboração, execução, montagem e instalação de exposição informativa permanente no Foyer do Teatro Dante Barone da Assembleia Legislativa do Estado do Rio Grande do Sul, incluindo projeto expográfico, curadoria, criação e projeto de identidade visual, pesquisa histórica, produção de textos, criação, produção, execução e instalação de mobiliário expositivo e de painéis, execução da cenografia, conteúdo audiovisual e recursos de acessibilidade",
+    "motivo": "Elaboracao de exposicao informativa (cenografia/curadoria), nao e TIC.",
+    "numero_controle_pncp": "88243688000181-2-000013/2026"
+   },
+   {
+    "orgao": "INSTITUTO DE ASSISTENCIA A SAUDE DOS SERVIDORES PUBLICOS DO RIO GRANDE DO SUL",
+    "objeto": "Contratação de licença de uso de software para disponibilização da plataforma digital de rastreamento e predição de risco de doenças crônicas (bot interativo de IA), incluindo\r\ncoleta de dados, análise preditiva e relatórios, conforme Termo de Referência.",
+    "motivo": "Licenca de software de plataforma preditiva de saude (bot IA), SaaS licenciamento isolado, fora do escopo.",
+    "numero_controle_pncp": "30483455000176-2-000006/2026"
+   },
+   {
+    "orgao": "FUNDACAO GAUCHA DO TRABALHO E ACAO SOCIAL",
+    "objeto": "Acesso permanente e ilimitado à internet Banda Larga, plano de, no mínimo 700 Mbps de dowload e 300 Mbps de upload, via conexão por fibra optica, sem IP Fixo, para a Caso do Trabalhador em Porto Alegre/RS.",
+    "motivo": "Acesso a internet banda larga via fibra optica, conectividade como servico, fora do escopo.",
+    "numero_controle_pncp": "94392164000155-2-000004/2026"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL ASSEMBLEIA LEGISLATIVA",
+    "objeto": "O objeto deste contrato é a prestação de serviços de suporte técnico, atualização de licenças, transcrição automática ilimitada e customizações para o sistema de gravação de áudio e vídeo DRS Plenário, no âmbito da CONTRATANTE, conforme especificações e condições previstas neste instrumento e seus anexos.",
+    "motivo": "Suporte tecnico e atualizacao de sistema de gravacao de audio/video (DRS Plenario), sistema aplicativo especifico, fora do escopo.",
+    "numero_controle_pncp": "88243688000181-2-000054/2025"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL PODER JUDICIARIO",
+    "objeto": "Contratação de empresa (s) especializada (s) para fornecimento de materiais diversos de Tecnologia de Informação e Comunicação, visando atender às necessidades do Tribunal de Justiça Militar do Estado do Rio Grande do Sul (TJM/RS), da 1ª Auditoria Militar, da 2ª Auditoria Militar, da 3ª Auditoria Militar de Santa Maria e da 4ª Auditoria Militar de Passo Fundo, conforme quantidades e especificações técnicas do Anexo IV – Termo de Referência, do Edital e anexos.",
+    "motivo": "Fornecimento generico de materiais diversos de TIC, nao especifica computador/monitor.",
+    "numero_controle_pncp": "89522064000247-2-000011/2026"
+   },
+   {
+    "orgao": "INSTITUTO GERAL DE PERICIAS",
+    "objeto": "Contratação de assinatura digital anual do Jornal Gaúcha Zero Hora (GZH), com acesso integral a todo o conteúdo disponibilizado pelo veículo de comunicação, contemplando as publicações realizadas de segunda-feira a sábado, nas condições estabelecidas no Termo\r\nde Referência, Anexo I, e a proposta comercial.",
+    "motivo": "Assinatura digital de jornal, assinatura de conteudo, nao e TIC.",
+    "numero_controle_pncp": "02626165000107-2-000001/2024"
+   },
+   {
+    "orgao": "INSTITUTO RIO GRANDENSE DO ARROZ",
+    "objeto": "Contratação do curso comtemplando a participação de 06 servidores: Obras Públicas & Inteligência Artificial: Análise de Prompts, Viabilidade, ETP, EVTEA, Gestão de Riscos, Orçamento e Fiscalização, Incluindo Análise de Aditivos - Porto Alegre/RS",
+    "motivo": "Curso de capacitacao, treinamento, nao e infraestrutura nem hardware.",
+    "numero_controle_pncp": "92854876000113-2-000024/2026"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL PODER JUDICIARIO",
+    "objeto": "Contratação de empresa revendedora autorizada da Microsoft Corporation, devidamente credenciada como Large Solution Partner (LSP), para o fornecimento de licenças de software do fabricante Microsoft, pelo período de 12 (doze) meses.",
+    "motivo": "Fornecimento de licencas de software Microsoft via revenda, licenciamento de software isolado, fora do escopo.",
+    "numero_controle_pncp": "89522064000166-2-000090/2026"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL DEFENSORIA PUBLICA DO ESTADO DO RS",
+    "objeto": "Contratação de empresa especializada na prestação de serviços de extensão/renovação de garantia e suporte para switches utilizados no núcleo de rede da Defensoria Pública do Estado do Rio Grande do Sul.",
+    "motivo": "Garantia e suporte para switches de nucleo de rede, equipamento de rede excluido explicitamente de hardware.",
+    "numero_controle_pncp": "74704636000150-2-000018/2024"
+   },
+   {
+    "orgao": "SECRETARIA DA FAZENDA",
+    "objeto": "Aquisição de 07 (sete) licenças de uso do software Adobe Creative Cloud, em português do Brasil, na modalidade assinatura anual, com acesso ao conjunto completo de aplicações, suporte técnico oficial e compatibilidade com o ambiente tecnológico da Secretaria da Fazenda do Estado do Rio Grande do Sul – SEFAZ/RS.",
+    "motivo": "Licencas de software Adobe Creative Cloud, SaaS licenciamento isolado, fora do escopo.",
+    "numero_controle_pncp": "87958674000181-2-000008/2026"
+   },
+   {
+    "orgao": "INSTITUTO DE PREVIDENCIA DO ESTADO DO RIO GRANDE DO SUL",
+    "objeto": "Prestação do serviço continuado, sem dedicação exclusiva de mão de obra do serviço de PABX VOIP VIRTUAL V2 (VOP), instalado e processado no Data Center da PROCERGS e operado pela CONTRATANTE.",
+    "motivo": "Servico de PABX VoIP virtual, telefonia/conectividade, fora do escopo.",
+    "numero_controle_pncp": "92829100000143-2-000004/2025"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL PODER JUDICIARIO",
+    "objeto": "Contratação de empresa(s) especializada(s) para serviço de outsourcing de impressão, que inclui o fornecimento de  equipamentos do tipo impressoras, multifuncionais e scanners, com respectivas manutenções preventiva e corretiva, fornecimento de  insumos originais (exceto papel) e software de gerenciamento para medição e controle das impressões.",
+    "motivo": "Outsourcing de impressao (impressoras, multifuncionais, scanners), fora da lista de hardware elegivel (desktop/notebook/estacao de trabalho/monitor).",
+    "numero_controle_pncp": "89522064000247-2-000008/2026"
+   },
+   {
+    "orgao": "SECRETARIA DA FAZENDA",
+    "objeto": "Contratação de serviços continuados sem dedicação exclusiva de mão de obra, de extensão de suporte técnico e garantia, manutenção, atualização de versão, subscrição e demais serviços da Solução Cloudera Data Platform – CDP, para a Secretaria da Fazenda do RS.",
+    "motivo": "Suporte/garantia/subscricao de plataforma de dados Cloudera (CDP), plataforma/licenciamento de software, fora do escopo.",
+    "numero_controle_pncp": "87958674000181-2-000008/2025"
+   },
+   {
+    "orgao": "ESTADO DO RIO GRANDE DO SUL",
+    "objeto": "Contratação de empresa especializada para execução de obra de engenharia, com fornecimento de materiais e mão de obra, destinada à reforma do 7º andar do prédio do Ministério Público do Estado do Rio Grande do Sul, situado na Rua General Andrade Neves, nº 106, Porto Alegre/RS, visando à adequação do espaço para a lotação do Departamento de Gestão de Desastres da Coordenadoria Estadual de Proteção e Defesa Civil, incluindo a implantação de infraestrutura compatível",
+    "motivo": "Obra de engenharia (reforma predial), nao e TIC.",
+    "numero_controle_pncp": "87934675000196-2-000079/2026"
+   },
+   {
+    "orgao": "INSTITUTO RIO GRANDENSE DO ARROZ",
+    "objeto": "Contratação de empresa especializada em sistema pronto de gestão ERP para controle de grãos, estoques, administrativo e comercial específico, para controle do produto arroz.",
+    "motivo": "Sistema ERP para controle de graos, sistema aplicativo, fora do escopo.",
+    "numero_controle_pncp": "92854876000113-2-000003/2024"
+   },
+   {
+    "orgao": "SECRETARIA DE PLANEJAMENTO, GOVERNANCA E GESTAO",
+    "objeto": "Contratação de serviço de internet satelital de baixa órbita (LEO), com franquia mínima de 500 (quinhentos) gigabytes por mês, para atendimento das necessidades da Secretaria de Planejamento, Governança e Gestão, bem como do Gabinete do Governador e do Vice-Governador, em deslocamento, bem como em eventos e compromissos oficiais realizados em regiões remotas, com ausência ou baixa cobertura 4G/5G.",
+    "motivo": "Internet satelital de baixa orbita, conectividade como servico, fora do escopo.",
+    "numero_controle_pncp": "87958682000128-2-000020/2026"
+   },
+   {
+    "orgao": "AGENCIA ESTADUAL DE REGULACAO DOS SERVICOS PUBLICOS DELEGADOS DO RIO GRANDE DO SUL",
+    "objeto": "Licenciamento de Uso do Banco de Dados denominado “FGVDADOS PREMIUM”, a ser disponibilizado pelo FGV IBRE, por meio do site do FGV IBRE e de API (Interface de Programação de Aplicativos), sem caráter de exclusividade, que serão prestados nas condições estabelecidas no Termo de Referência Nº 2/2025 - DRE.",
+    "motivo": "Licenciamento de banco de dados (FGVDADOS PREMIUM), assinatura de conteudo/licenciamento isolado, fora do escopo.",
+    "numero_controle_pncp": "01962045000100-2-000006/2025"
+   },
+   {
+    "orgao": "SECRETARIA DA FAZENDA",
+    "objeto": "contratação de fornecedor especializado e autorizado para prest. de serviços de conectividade com a nuvem púb Azure da Microsoft para os Data Centers SEFAZ/RS mediante fornecimento de conexão privada do tipo MPLS ao Data Center da nuvem pública da Microsoft por meio de enlaces de fibra óptica, conexão não fracionada, com tx de transf simétrica, full duplex, com velocidade de 2Gbps expansível até 5Gbps, garantida, entre a Rede SEFAZ/RS e a nuvem Azure da Microsoft, incluindo toda a infraestrutura",
+    "motivo": "Conectividade privada MPLS para nuvem Azure, conectividade/cloud, fora do escopo.",
+    "numero_controle_pncp": "87958674000181-2-000010/2025"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL DEFENSORIA PUBLICA DO ESTADO DO RS",
+    "objeto": "Contratação de empresa especializada para fornecimento de assinatura anual para uso de Licenças Premium do Software GITLAB.",
+    "motivo": "Licencas Premium do software GitLab, SaaS licenciamento isolado, fora do escopo.",
+    "numero_controle_pncp": "74704636000150-2-000043/2024"
+   },
+   {
+    "orgao": "SECRETARIA DA FAZENDA",
+    "objeto": "Contratação de prestação de serviços de garantia de atualização e suporte técnico do Software Zeev Orquestra BPMS Versão 3.",
+    "motivo": "Garantia/atualizacao/suporte tecnico de software BPMS (Zeev Orquestra), sistema aplicativo, fora do escopo.",
+    "numero_controle_pncp": "87958674000181-2-000011/2024"
+   },
+   {
+    "orgao": "SECRETARIA DA SEGURANCA PUBLICA",
+    "objeto": "Contratação de prestação de serviços técnicos nas áreas de Telefonia, Tecnologia da Informação e Comunicação (TIC) para operação, atualização, manutenção preventiva e corretiva da infraestrutura de voz e de dados da Secretaria de Segurança Pública do Estado do Rio Grande do Sul (SSPRS), em Porto Alegre, conforme anexo VI - Termo de Referência.",
+    "motivo": "Operacao e manutencao de infraestrutura de voz e dados/telefonia, telecomunicacao, fora do nucleo servidor/storage/datacenter.",
+    "numero_controle_pncp": "87958583000146-2-000012/2026"
+   },
+   {
+    "orgao": "SECRETARIA DE DESENVOLVIMENTO SOCIAL",
+    "objeto": "Prestação dos serviços de modernização do Sistema Estadual de Gestão da Assistência Social (SEGDAS), ferramenta utilizada pela Secretaria de Desenvolvimento Social para a gestão das políticas públicas de assistência social no Estado do Rio Grande do Sul.",
+    "motivo": "Modernizacao de sistema de gestao de assistencia social (SEGDAS), desenvolvimento/sustentacao de sistema aplicativo, fora do escopo.",
+    "numero_controle_pncp": "87958633000195-2-000017/2025"
+   },
+   {
+    "orgao": "SECRETARIA DO DESENVOLVIMENTO RURAL, PESCA E COOPERATIVISMO",
+    "objeto": "Realização da Feira Digital Sabor Gaúcho, mediante disponibilização e gestão de plataforma digital destinada à ampliação da comercialização das agroindústrias familiares e ao fortalecimento da produção regional, contemplando cadastramento e integração de agroindústrias familiares inscritas no Programa Estadual de Agroindústria Familiar - PEAF e operação de marketplace digital, nos modelos B2B e B2C, conectando produtores a compradores institucionais, comerciais e consumidores finais.",
+    "motivo": "Plataforma digital de marketplace (Feira Digital), sistema/plataforma aplicativa, fora do escopo.",
+    "numero_controle_pncp": "13106183000176-2-000095/2026"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL PROCURADORIA GERAL DE JUSTICA",
+    "objeto": "Serviços de seguro com enquadramento de prédio e conteúdo com importâncias seguradas individualizadas conforme descrito item 3.1, sendo: prédio igual sala 202 e conteúdo igual mobiliário; equipamentos de informática; e, equipamentos de som, áudio e eletrônicos, pelo prazo de 12 (doze) meses, a contar das 24h do dia 24/06/2025.",
+    "motivo": "Servico de seguro de predio e conteudo, nao e TIC.",
+    "numero_controle_pncp": "93802833000157-2-000020/2025"
+   },
+   {
+    "orgao": "ESTADO DO RIO GRANDE DO SUL",
+    "objeto": "Cessão de licença, atualização e suporte técnico dos softwares de automação de estúdio (InfoAudio Premium), Gravador de Censura (Inforec) e de Programação Musical (Central de Aplicativos) e catalogação (Music Master).",
+    "motivo": "Licenca e suporte de softwares de automacao de estudio de radio, licenciamento de software isolado, fora do escopo.",
+    "numero_controle_pncp": "87934675000196-2-000059/2024"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL TRIBUNAL DE CONTAS DO ESTADO",
+    "objeto": "Contratação de ferramenta de consultoria on-line sobre tributação na fonte por tipo de serviço (simulador) e acesso a banco de dados sobre legislação tributária e sua interpretação.",
+    "motivo": "Ferramenta de consultoria online e acesso a banco de dados de legislacao tributaria, assinatura de conteudo, fora do escopo.",
+    "numero_controle_pncp": "89550032000174-2-000015/2024"
+   },
+   {
+    "orgao": "SECRETARIA DA FAZENDA",
+    "objeto": "Contratação de licenças do software IBM WEBSPHERE MQ PART NUMBER E0256LL (1 ANO) e contratação de serviços de instalação de novas versões, restabelecimento de versão e atualização de versão.",
+    "motivo": "Licencas de software IBM WebSphere MQ com servicos de instalacao/atualizacao, licenciamento de software isolado, fora do escopo.",
+    "numero_controle_pncp": "87958674000181-2-000009/2024"
+   },
+   {
+    "orgao": "JUNTA COMERCIAL, INDUSTRIAL E SERVICOS DO RIO GRANDE DO SUL - JUCISRS",
+    "objeto": "Contratação de consultoria técnica especializada, em tecnologia da informação,unidades de serviços técnicos – USTs, para desenvolvimento, implementação e suporte de soluções tecnológicas voltadas à qualificação e modernização do Cadastro Estadual de Empresas (CEE), envolvendo a atualização, auditoria, construção de histórico, validações e aprimoramento contínuo do cadastro estadual, utilizando recursos de inteligência artificial (IA) e evolutivas com o Sistema de Registro Mercantil (SRM).",
+    "motivo": "Consultoria tecnica para desenvolvimento e modernizacao de cadastro estadual, desenvolvimento de sistema/consultoria, fora do escopo.",
+    "numero_controle_pncp": "18104636000149-2-000002/2026"
+   },
+   {
+    "orgao": "JUNTA COMERCIAL, INDUSTRIAL E SERVICOS DO RIO GRANDE DO SUL - JUCISRS",
+    "objeto": "Contratação de consultoria técnica especializada, em tecnologia da informação, estimadas em\r\n9.675 (nove mil, seiscentos e setenta e cinco) unidades de serviços técnicos – USTs, para\r\ndesenvolvimento, implementação e suporte de soluções tecnológicas voltadas à qualificação e\r\nmodernização do Cadastro Estadual de Empresas (CEE), envolvendo a atualização, auditoria,",
+    "motivo": "Consultoria tecnica para desenvolvimento e modernizacao de cadastro estadual, desenvolvimento de sistema/consultoria, fora do escopo.",
+    "numero_controle_pncp": "18104636000149-2-000014/2025"
+   },
+   {
+    "orgao": "SECRETARIA DA SAUDE",
+    "objeto": "Contratação Emergencial de empresa especializada na locação de sistema de monitoramento contínuo de temperatura ambiente e da rede de frio para o HEMORGS.",
+    "motivo": "Locacao de sistema de monitoramento de temperatura ambiente/rede de frio, equipamento de monitoramento (IoT), nao e hardware elegivel.",
+    "numero_controle_pncp": "87958625000149-2-000183/2026"
+   },
+   {
+    "orgao": "PROCURADORIA GERAL DO ESTADO",
+    "objeto": "Contratação de 25 acessos à Plataforma de Capacitação Online ALURA para empresas, pelo período de 12 meses, destinados à capacitação de servidores da Procuradoria-Geral do Estado do Rio Grande do Sul.",
+    "motivo": "Acessos a plataforma de capacitacao online (Alura), treinamento, nao e infraestrutura nem hardware.",
+    "numero_controle_pncp": "89027825000103-2-000018/2026"
+   },
+   {
+    "orgao": "SECRETARIA DA SAUDE",
+    "objeto": "O objeto do presente instrumento é a contratação de solução LMS (Learning Management\r\nSystem – Sistema de Gestão de Aprendizagem) Moodle em modelo Saas (Software as a Service) para a realização de cursos e treinamentos para os públicos interno e externo da Secretaria da Saúde do Estado do RS.",
+    "motivo": "Solucao LMS Moodle em modelo SaaS, cloud/SaaS, fora do escopo.",
+    "numero_controle_pncp": "87958625000149-2-000127/2026"
+   },
+   {
+    "orgao": "FUNDACAO DE PREVIDENCIA COMPLEMENTAR DO SERVIDOR PUBLICO DO ESTADO DO RIO GRANDE DO SUL - RS-PREV",
+    "objeto": "Contratação de empresa especializada para fornecimento de sistema informatizado no modelo SAAS – software as a service (software como serviço), em plataforma WEB, para o gerenciamento integrado de planejamento estratégico;",
+    "motivo": "Sistema SaaS de gerenciamento de planejamento estrategico, cloud/SaaS, fora do escopo.",
+    "numero_controle_pncp": "24846794000177-2-000003/2024"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL PROCURADORIA GERAL DE JUSTICA",
+    "objeto": "Serviço de monitoramento e clipping de matérias jornalísticas sobre o MP/RS e áreas de interesse veiculadas nas mídias impressa, eletrônica e digital; e serviço de monitoramento de informações veiculadas em jornal, revista, rádio, TV e internet sobre a DPE/RS e sobre o TJ/RS para efeitos comparativos de análise de mídia com o clipping do MP/RS",
+    "motivo": "Servico de monitoramento e clipping de midia, nao e TIC.",
+    "numero_controle_pncp": "93802833000157-2-000017/2026"
+   },
+   {
+    "orgao": "SECRETARIA DE OBRAS E HABITACAO",
+    "objeto": "Licenciamento de Uso do Banco de Dados online denominado \"FGV DADOS\", licenciado pelo FGV IBRE, de acordo\r\ncom os itens abaixo relacionados: a) 03 pontos de acesso individuais e intransferíveis ao banco de dados FGV DADOS; b)\r\nLicenciamento de acesso ao banco de dados FGV DADOS por 12 meses; c) Atualização contínua dos dados durante a vigência\r\ndo contrato; d) Suporte técnico e assistência durante o período de acesso.",
+    "motivo": "Licenciamento de banco de dados online (FGV DADOS), assinatura de conteudo, fora do escopo.",
+    "numero_controle_pncp": "87958641000131-2-000200/2026"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL TRIBUNAL DE CONTAS DO ESTADO",
+    "objeto": "Prestação de serviços de licenciamento, suporte técnico, treinamento, manutenção, atualização e atendimento para o software Ronda Ponto, da marca Sênior Sistemas, incluindo integrações com sistemas corporativos.",
+    "motivo": "Licenciamento/suporte de software de ponto eletronico (Ronda Ponto), sistema aplicativo, fora do escopo.",
+    "numero_controle_pncp": "89550032000174-2-000045/2026"
+   },
+   {
+    "orgao": "SECRETARIA DA SAUDE",
+    "objeto": "Aquisição de bens: 300 rl de ETIQUETA AUTOADESIVA - POLIPROPILENO - BRANCO FOSCO - 100MMX120MM (ITEM 01 - GCE 0045.0178.000047), 300 rl de ETIQUETA AUTOADESIVA - POLIPROPILENO - BRANCO FOSCO - 50MMX25MM (ITEM 02 - GCE 0045.0178.000048) e 420 rl de FITA RIBBON - RESINA ORIGINAL PRETA LARGURA: 110MM X 74M (ITEM 03 - GCE 0034.0089.010071), em que é beneficiário o Departamento Estadual de Sangue e Hemoderivados - DESH.",
+    "motivo": "Etiquetas e fitas ribbon (consumiveis de impressora), nao e TIC.",
+    "numero_controle_pncp": "87958625000149-2-000204/2026"
+   },
+   {
+    "orgao": "PROCURADORIA GERAL DO ESTADO",
+    "objeto": "contração de empresa especializada para a prestação de\r\nserviços técnicos de Diagnóstico, Parametrização, Customização (Desenvolvimento), Especificação,\r\nDocumentação, Treinamento e Transformação Digital para atendimento das necessidades da  PGERS, utilizando as Soluções Microsoft 365 implementadas enovas que possam surgir e contribuir para os serviços prestados pela PGE-RS",
+    "motivo": "Diagnostico/customizacao/treinamento sobre Microsoft 365, consultoria sobre SaaS, nao e infraestrutura nem hardware.",
+    "numero_controle_pncp": "89027825000103-2-000015/2024"
+   },
+   {
+    "orgao": "INSTITUTO GERAL DE PERICIAS",
+    "objeto": "O objeto do presente instrumento é a aquisição de Serviço de Implantação e Solução Padrão Labware LIMS para Laboratório Forense com 24 licenças e 12 meses de Suporte e Manutenção Inclusos, nas condições estabelecidas no Termo de Referência.",
+    "motivo": "Implantacao de solucao LIMS para laboratorio forense com licencas e suporte, sistema aplicativo, fora do escopo.",
+    "numero_controle_pncp": "02626165000107-2-000006/2025"
+   },
+   {
+    "orgao": "ESTADO DO RIO GRANDE DO SUL",
+    "objeto": "execução e elaboração de projetos, execução de obra e fornecimento de bens,\r\ninclusive de tecnologias de informação e comunicação (TICs), para a implantação do\r\nCentro Estadual de Gestão Integrada de Riscos e Desastres (CEGIRD), a partir da reforma\r\ne ampliação de edificação existente e implantação e homologação de heliponto, suficientemente especificada nos projetos, memoriais e especificações técnicas, detalhes, catálogo de componentes e planilha orçamentária.",
+    "motivo": "Execucao de obra e fornecimento de bens (incluindo TICs) para centro de gestao de riscos, obra de engenharia, nao e sustentacao de infraestrutura core.",
+    "numero_controle_pncp": "87934675000196-2-000036/2026"
+   },
+   {
+    "orgao": "BRIGADA MILITAR DO ESTADO DO RIO GRANDE DO SUL",
+    "objeto": "Contratação de empresa especializada e autorizada pelo fabricante para prestação de serviços de manutenção preventiva e corretiva do equipamento de hemodinâmica Philips Azurion 7 M20, instalado no Setor de Hemodinâmica do HBMPA, na modalidade Value, contemplando mão de obra técnica especializada, manutenções programadas e suporte técnico.",
+    "motivo": "Manutencao de equipamento de hemodinamica, equipamento medico, nao e TIC.",
+    "numero_controle_pncp": "89175541000164-2-000080/2026"
+   },
+   {
+    "orgao": "AGENCIA ESTADUAL DE REGULACAO DOS SERVICOS PUBLICOS DELEGADOS DO RIO GRANDE DO SUL",
+    "objeto": "Contratação de serviços Contratação de empresa especializada para serviços de manutenção, suporte e atualização relacionados a produtos Qlik licenciados que serão prestados nas condições estabelecidas no Termo de Referência, Anexo VI ao Edital.",
+    "motivo": "Manutencao/suporte de produtos Qlik (BI) licenciados, licenciamento de software isolado, fora do escopo.",
+    "numero_controle_pncp": "01962045000100-2-000009/2025"
+   },
+   {
+    "orgao": "SECRETARIA DA SAUDE",
+    "objeto": "Contratação de serviços técnicos especializados de análise,\r\ndesenvolvimento, customização, implantação, sustentação/administração de ambientes e monitoramento para soluções,\r\nutilizando metodologias ágeis, na área de Tecnologia da Informação",
+    "motivo": "Analise, desenvolvimento e customizacao de solucoes de TI (metodologias ageis), desenvolvimento de sistemas, fora do escopo.",
+    "numero_controle_pncp": "87958625000149-2-000124/2024"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL TRIBUNAL DE CONTAS DO ESTADO",
+    "objeto": "Contratação de acesso ao sistema Banco de preços versão plus, com 7 licenças de uso, até 9\r\nusuários e um acesso com simultaneidade.",
+    "motivo": "Acesso a sistema Banco de precos com licencas de uso, licenciamento/SaaS, fora do escopo.",
+    "numero_controle_pncp": "89550032000174-2-000029/2023"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL DEFENSORIA PUBLICA DO ESTADO DO RS",
+    "objeto": "Solução de tecnologia da informação e comunicação de\r\nlicença de softwares de Design Gráfico, com direito de atualização e suporte.",
+    "motivo": "Licenca de software de design grafico, SaaS licenciamento isolado, fora do escopo.",
+    "numero_controle_pncp": "74704636000150-2-000031/2026"
+   },
+   {
+    "orgao": "ESTADO DO RIO GRANDE DO SUL",
+    "objeto": "30 unidades Serviço de Acesso Internet, 1TB por antena/mês Starlink, com serviço de conectividade via satélite em baixa órbita (LEO), utilizando a tecnologia Starlink, por meio de planos de dados prioritários organizados em faixas de consumo, visando assegurar a continuidade da comunicação sempre que necessário, especialmente em áreas remotas, isoladas ou com infraestrutura de telecomunicações comprometidas no Estado do Rio Grande do Sul",
+    "motivo": "Acesso a internet via satelite Starlink, conectividade como servico, fora do escopo.",
+    "numero_controle_pncp": "87934675000196-2-000111/2026"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL PROCURADORIA GERAL DE JUSTICA",
+    "objeto": "Aassinatura anual do plano de pesquisa jurídica Básico para até 45 usuários, que permite, através do acesso à plataforma Jusbrasil (jusbrasil.com.br), consulta, cópia e download de jurisprudências, diários oficiais, modelos e peças, bem como acompanhamento e consulta de até 5 (cinco) processos, notificações por email sobre novas movimentações",
+    "motivo": "Assinatura de plataforma de pesquisa juridica (Jusbrasil), assinatura de conteudo, fora do escopo.",
+    "numero_controle_pncp": "93802833000157-2-000018/2026"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL PODER JUDICIARIO",
+    "objeto": "Contratação de serviços de Suporte ao Usuário de TI relacionados à Prática da Central de Serviços de TIC (Nível 1), ao Serviço de Suporte Técnico de Campo (Nível 2) e às Práticas de Gerenciamento de Serviços de TIC, todos segundo às normas adotadas pela ISO/IEC 20000 (Gerenciamento de Serviços de TI), pela norma ISO 27001 (Segurança da Informação) e pelas práticas do ITIL 4 (Information Technology Infrastructure Library 4).",
+    "motivo": "Suporte a usuario e central de servicos (ITSM/ITIL) isolado, sem operacao de infraestrutura servidor/storage/datacenter empacotada junto.",
+    "numero_controle_pncp": "89522064000166-2-000120/2025"
+   },
+   {
+    "orgao": "SECRETARIA DA ADMINISTRACAO PENITENCIARIA",
+    "objeto": "Contratação de empresa especializada para prestação de serviço de acesso à internet móvel ilimitada via satélite de baixa órbita (LEO), com fornecimento, instalação e ativação de equipamentos (antenas, modems, roteadores, periféricos), suporte técnico e manutenção, para dois veículos oficiais da SSPS.",
+    "motivo": "Acesso a internet movel via satelite com equipamentos, conectividade como servico, fora do escopo.",
+    "numero_controle_pncp": "32613632000117-2-000005/2025"
+   },
+   {
+    "orgao": "SECRETARIA DA FAZENDA",
+    "objeto": "contratação de Software, para gerir os créditos carteira hipotecaria e comercial havidos pelo Estado face a extinção da Autarquia CAIXA ECONÔMICA ESTADUAL DO RIO GRANDE DO SUL",
+    "motivo": "Software para gestao de creditos de carteira hipotecaria, sistema aplicativo, fora do escopo.",
+    "numero_controle_pncp": "87958674000181-2-000020/2025"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL TRIBUNAL DE CONTAS DO ESTADO",
+    "objeto": "Contratação de solução de software para gestão da cadeia de valor e de processos de trabalho do TCE-RS, sob a visão de governança de um escritório de processos, compreendendo licenciamento de software, instalação, serviços de manutenção e suporte, capacitação da equipe e serviço de banco de dados em nuvem (DBaaS), pelo período de 12 (doze) meses, conforme condições estabelecidas no Termo de Referência.",
+    "motivo": "Software de gestao de processos com licenciamento e DBaaS em nuvem, sistema aplicativo/cloud, fora do escopo.",
+    "numero_controle_pncp": "89550032000174-2-000050/2026"
+   },
+   {
+    "orgao": "PROCURADORIA GERAL DO ESTADO",
+    "objeto": "O objeto do presente instrumento é a contratação do combo FÓRUM ASSINATURA + FÓRUM IAh, consistente na disponibilização de solução integrada de conteúdo jurídico digital e inteligência artificial jurídica especializada, com 7 (sete) licenças e 35 (trinta e cinco) acessos simultâneos para cada produto contratado, pelo período de 12 (doze) meses, destinadas aos Procuradores(as) do Estado, servidores(as) e demais colaboradores(as) da Procuradoria-Geral do Estado do Rio Grande do Sul – PGE-RS",
+    "motivo": "Conteudo juridico digital e IA juridica (Forum Assinatura + Forum IAh), assinatura de conteudo/SaaS IA, fora do escopo.",
+    "numero_controle_pncp": "89027825000103-2-000030/2026"
+   },
+   {
+    "orgao": "INSTITUTO RIO GRANDENSE DO ARROZ",
+    "objeto": "Contratação de empresa especializada de subscrição de software gerencial CONTRATOSGOV, com todas as suas funcionalidades para a utilização de 100 (cem) acessos para usuários simultâneos do Instituto Rio Grandense do Arroz, incluindo manutenção e suporte técnico.",
+    "motivo": "Subscricao de software gerencial (CONTRATOSGOV) com manutencao/suporte, SaaS licenciamento isolado, fora do escopo.",
+    "numero_controle_pncp": "92854876000113-2-000017/2025"
+   },
+   {
+    "orgao": "PROCURADORIA GERAL DO ESTADO",
+    "objeto": "Contratação da solução de inteligência artificial Minuta IA, da empresa jAI, na modalidade plano Enterprise com 600 licenças, com vigência de 12 (doze) meses, para atender às necessidades da Procuradoria-Geral do Estado do Rio Grande do Sul (PGE-RS).",
+    "motivo": "Solucao de IA (Minuta IA) por licencas, SaaS licenciamento isolado, fora do escopo.",
+    "numero_controle_pncp": "89027825000103-2-000026/2025"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL TRIBUNAL DE CONTAS DO ESTADO",
+    "objeto": "Contratação de 200 (duzentas) licenças de uso da Plataforma Minha Biblioteca - MB, nas modalidades MB Jurídico e MB Ciências Sociais Aplicadas.",
+    "motivo": "Licencas de plataforma digital de livros (Minha Biblioteca), assinatura de conteudo, fora do escopo.",
+    "numero_controle_pncp": "89550032000174-2-000047/2025"
+   },
+   {
+    "orgao": "INSTITUTO GERAL DE PERICIAS",
+    "objeto": "contratação dede assinatura digital anual d o Jornal Correio do Povo, com acesso integral a todo o conteúdo disponibilizado pelo veículo de comunicação, contemplando as publicações realizadas de segunda-feira a sábado, e nas condições estabelecidas nos itens 6 e 9.1 do Termo de Referência, Anexo I, e a proposta comercial",
+    "motivo": "Assinatura digital de jornal, assinatura de conteudo, nao e TIC.",
+    "numero_controle_pncp": "02626165000107-2-000002/2024"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL PROCURADORIA GERAL DE JUSTICA",
+    "objeto": "Renovação das subscrições anuais das licenças do software de backup IBM Storage Protect existentes no MPRS, incluindo os serviços de suporte técnico e acesso a correções/atualizações de software.",
+    "motivo": "Renovacao de licencas de software de backup (IBM Storage Protect) com suporte tecnico, backup isolado (sem Service Desk/ITSM/Controle de ativos/Chatbot IA empacotado junto), regra de backup exclui.",
+    "numero_controle_pncp": "93802833000157-2-000005/2024"
+   },
+   {
+    "orgao": "SUPERINTENDENCIA DOS SERVICOS PENITENCIARIOS",
+    "objeto": "Aquisição de 1 (uma) licença do software Orçafascio (12 meses) destinado à elaboração de orçamento de obras e serviços, para atender às necessidades da Divisão de Engenharia do Departamento de Planejamento da Polícia Penal, contemplando os módulos Orçamento, Bases Adicionais e OrçaBIM, conforme especificações e quantidades estabelecidas no Termo de Referência.",
+    "motivo": "Licenca de software de orcamento de obras (Orcafascio), SaaS licenciamento isolado, fora do escopo.",
+    "numero_controle_pncp": "17176399000169-2-000022/2026"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL TRIBUNAL DE CONTAS DO ESTADO",
+    "objeto": "Prestação de de serviço de acesso corporativo à Internet para os 9 (nove) Serviços Regionais do TCE-RS.",
+    "motivo": "Acesso corporativo a Internet, conectividade como servico, fora do escopo.",
+    "numero_controle_pncp": "89550032000174-2-000050/2025"
+   },
+   {
+    "orgao": "PROCURADORIA GERAL DO ESTADO",
+    "objeto": "Contratação de 25 assinaturas de Memorial 8 - Índices Gold, em utilização pelas diversas equipes de peritos da Procuradoria-Geral do Estado, pelo período de 12 (doze) meses, nas condições estabelecidas no Termo de Referência, Anexo I do Contrato.",
+    "motivo": "Assinaturas de indices (Memorial 8), assinatura de conteudo, fora do escopo.",
+    "numero_controle_pncp": "89027825000103-2-000011/2024"
+   },
+   {
+    "orgao": "FUNDACAO DE PREVIDENCIA COMPLEMENTAR DO SERVIDOR PUBLICO DO ESTADO DO RIO GRANDE DO SUL - RS-PREV",
+    "objeto": "Contratação de empresa especializada para fornecimento de sistema informatizado no modelo SAAS – software as a service (software como serviço), em plataforma WEB, para o gerenciamento integrado de planejamento estratégico.",
+    "motivo": "Sistema SaaS de gerenciamento de planejamento estrategico, cloud/SaaS, fora do escopo.",
+    "numero_controle_pncp": "24846794000177-2-000006/2026"
+   },
+   {
+    "orgao": "SECRETARIA DO MEIO AMBIENTE E INFRAESTRUTURA",
+    "objeto": "Contratação de empresa especializada para prestação de serviço de acesso à internet via fibra óptica, para a sede do Parque Estadual de Ibitiriá, conforme Anexo V - Termo de Referência.",
+    "motivo": "Acesso a internet via fibra optica, conectividade como servico, fora do escopo.",
+    "numero_controle_pncp": "03330683000133-2-000014/2025"
+   },
+   {
+    "orgao": "SECRETARIA DA FAZENDA",
+    "objeto": "contratação de empresa especializada na prestação de serviços técnicos de Desenvolvimento e Manutenção de Soluções de BI e Analytics incluindo: Administração de Banco de Dados, Arquitetura de Dados, Análise de Dados, Business Intelligence, e Ciência de Dados da Secretaria da Fazenda do Estado do Rio Grande do Sul, que serão prestados nas condições estabelecidas no Termo de Referência, Anexo I deste contrato.",
+    "motivo": "Desenvolvimento e manutencao de solucoes de BI/Analytics e ciencia de dados, desenvolvimento de sistemas, fora do escopo.",
+    "numero_controle_pncp": "87958674000181-2-000013/2024"
+   },
+   {
+    "orgao": "RIO GRANDE DO SUL PROCURADORIA GERAL DE JUSTICA",
+    "objeto": "Contratação de subscrição de licenças de uso de softwares, bem como a prestação de serviços de consultoria em suporte técnico, sob demanda, de forma contínua.",
+    "motivo": "Subscricao de licencas de software com consultoria de suporte, licenciamento de software generico, fora do escopo.",
+    "numero_controle_pncp": "93802833000157-2-000027/2026"
+   }
+  ]
+ },
+ "contratos": [
+  {
+   "orgao": "RIO GRANDE DO SUL PROCURADORIA GERAL DE JUSTICA",
+   "orgaoCnpj": "93802833000157",
+   "venceEm": "2027-05-18",
+   "valor": 6745780.0,
+   "objeto": "Aquisição de 2.000 microcomputadores (CPU, monitor, teclado e mouse) com 60 meses de garantia",
+   "servico": false,
+   "numeroControlePncp": "93802833000157-2-000013/2026",
+   "link": "https://pncp.gov.br/app/contratos/93802833000157/2026/13"
+  },
+  {
+   "orgao": "RIO GRANDE DO SUL PROCURADORIA GERAL DE JUSTICA",
+   "orgaoCnpj": "93802833000157",
+   "venceEm": "2027-05-19",
+   "valor": 87324.0,
+   "objeto": "Contratação de serviços de manutenção corretiva para equipamentos da Infraestrutura de Storage: 02 (duas unidades) storage Hitachi HUS 130 e 04 (quatro unidades) Hitachi HNAS 4060.",
+   "servico": true,
+   "numeroControlePncp": "93802833000157-2-000012/2026",
+   "link": "https://pncp.gov.br/app/contratos/93802833000157/2026/12"
+  },
+  {
+   "orgao": "SECRETARIA DA FAZENDA",
+   "orgaoCnpj": "87958674000181",
+   "venceEm": "2027-08-01",
+   "valor": 8337178.92,
+   "objeto": "prestação de serviços na área de Tecnologia da Informação e Comunicação (TIC), compreendendo suporte técnico ao usuário, planejamento, implantação e execução de serviços relacionados a suporte e sustentação de infraestrutura de TIC da SEFAZ.",
+   "servico": true,
+   "numeroControlePncp": "87958674000181-2-000007/2025",
+   "link": "https://pncp.gov.br/app/contratos/87958674000181/2025/7"
+  },
+  {
+   "orgao": "RIO GRANDE DO SUL PROCURADORIA GERAL DE JUSTICA",
+   "orgaoCnpj": "93802833000157",
+   "venceEm": "2027-08-08",
+   "valor": 311107.31,
+   "objeto": "Manutenção preventiva, preditiva e corretiva, além de suporte técnico e atendimento a chamados de emergência com plantão efetivo 24h, dos sistemas de climatização no Centro de Processamento de Dados (Data Centers) da sede Institucional.",
+   "servico": false,
+   "numeroControlePncp": "93802833000157-2-000009/2024",
+   "link": "https://pncp.gov.br/app/contratos/93802833000157/2024/9"
+  },
+  {
+   "orgao": "RIO GRANDE DO SUL PROCURADORIA GERAL DE JUSTICA",
+   "orgaoCnpj": "93802833000157",
+   "venceEm": "2027-08-21",
+   "valor": 9996.0,
+   "objeto": "Contratação de serviços de manutenção corretiva para os seguintes equipamentos, pelo período de 12 (doze) meses \"on-site\": Equipamentos do Chassi Blades: 01 (um) Chassi DELL PowerEdge M1000e com 16 Servidores DELL PowerEdge M630, PDUs do chassi, 02 Switches DELL Force10 MXL, iKVM, CMCs, fontes de alimentação, ventiladores e demais componentes do chassi.",
+   "servico": true,
+   "numeroControlePncp": "93802833000157-2-000023/2026",
+   "link": "https://pncp.gov.br/app/contratos/93802833000157/2026/23"
+  }
+ ]
+}

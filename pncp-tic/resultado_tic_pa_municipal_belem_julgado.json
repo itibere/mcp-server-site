@@ -1,0 +1,72 @@
+{
+  "geradoEm": "2026-09-14T09:51:41",
+  "escopo": {
+    "uf": "PA",
+    "esfera": "Municipal",
+    "municipio": "Belém",
+    "criterioTIC": "palavra-chave no objeto (busca full-text OR)",
+    "mesesJanelaInicio": 6,
+    "mesesJanelaFim": 12,
+    "janelaVencimento": "2027-03-13 a 2027-09-09",
+    "fonte": "https://pncp.gov.br/api/search/"
+  },
+  "totalCandidatosTIC": 38,
+  "totalVencendoJanela": 1,
+  "totalServicos": 1,
+  "contratos": [
+    {
+      "orgao": "BELEM SECRETARIA MUNICIPAL DE EDUCACAO E CULTURA",
+      "orgao_cnpj": "05055033000152",
+      "vence_em": "2027-06-03",
+      "valor_global": 3080500.32,
+      "objeto": "O presente Contrato tem como objeto a “CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA LOCAÇÃO DE IMPRESSORAS, COMPUTADORES (DESKTOP), NOTEBOOKS E PERIFÉRICOS”, com prestação de serviços de suporte e manutenção corretiva e preventiva, bem como o fornecimento e/ou substituição de peças e componentes, suprimentos (toner, cartucho, cilindros etc.), software de gerenciamento e demais insumos utilizados na operação, com o objetivo de atender de forma contínua e eficiente às necessidades da SECRETARIA MUNICIPAL DE COORDENAÇÃO GERAL DO PLANEJAMENTO E GESTÃO – SEGEP e demais órgãos e entidades da Prefeitura Municipal de Belém, pelo período de 12 (doze) meses.",
+      "eh_servico_texto": true,
+      "modalidade": "Dispensa",
+      "numero_controle_pncp": "05055033000152-2-000013/2026",
+      "link": "https://pncp.gov.br/app/contratos/05055033000152/2026/13"
+    }
+  ],
+  "julgamentoAgente": {
+    "total_antes": 7,
+    "aprovados": 1,
+    "reprovados": 6,
+    "exemplosReprovados": [
+      {
+        "orgao": "SESMA-SECRETARIA MUNICIPAL DE SAUDE E MEIO AMBIENTE",
+        "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA PRESTAÇÃO DE SERVIÇO DE LICENCIAMENTO E SUPORTE DO SOFTWARE ORÇAFÁCIL PARA ELABORAÇÃO DE ORÇAMENTOS, COMPOSIÇÕES DE CUSTOS, MEDIÇÕES E APOIO ÀS ATIVIDADES TÉCNICAS DO SETOR DE ENGENHARIA, PELO PERÍODO DE 12 (DOZE) MESES, destinados ao atendimento das necessidades administrativas da SECRETARIA MUNICIPAL DE SAÚDE DE BELÉM",
+        "motivo": "Licenciamento e suporte de software OrcaFacil, licenciamento de sistema aplicativo isolado, fora do escopo.",
+        "numero_controle_pncp": "07917818000112-2-000001/2026"
+      },
+      {
+        "orgao": "SESMA-SECRETARIA MUNICIPAL DE SAUDE E MEIO AMBIENTE",
+        "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA PRESTAÇÃO DOS SERVIÇOS DE SISTEMA ON LINE DO “ BANCO DE PREÇOS” COM VIGÊNCIA PARA 12 (DOZE) MESES, INCLUINDO 05 (CINCO) LICENÇAS DE USO, TREINAMENTO E SUPORTE, COM OBJETIVO DE ATENDER AS DEMANDAS DA SECRETARIA MUNICIPAL DE SAÚDE DE BELÉM DO PARÁ.",
+        "motivo": "Sistema online Banco de Precos com licencas/treinamento/suporte, SaaS/licenciamento isolado, fora do escopo.",
+        "numero_controle_pncp": "07917818000112-2-000002/2026"
+      },
+      {
+        "orgao": "BELEM SECRETARIA MUNICIPAL DE EDUCACAO E CULTURA",
+        "objeto": "CONTRATAÇÃO DE SERVIÇO DE EMPRESA PARA EMISSÃO DE CERTIFICADO DE ASSINATURA DIGITAL -  PESSOA FÍSICA, TIPO A3 (E-CPF) destinada a atender esta Secretaria Municipal de Educação, Ciência e Tecnologia – SEMEC, conforme especificações e quantitativos discriminados no Termo de Referência",
+        "motivo": "Certificado de assinatura digital A3, fora do escopo.",
+        "numero_controle_pncp": "05055033000152-2-000025/2025"
+      },
+      {
+        "orgao": "BELEM SECRETARIA MUNICIPAL DE EDUCACAO E CULTURA",
+        "objeto": "O objeto do presente instrumento é a contratação de empresa especializada para implantação do Projeto EduTech Matematicando, destinado aos estudantes do 1°, 4º e 8º anos do Ensino Fundamental da Rede Municipal de Educação de Belém, contemplando solução educacional integrada composta pelo fornecimento de materiais didáticos físicos e digitais, licenciamento de aplicativos educacionais, disponibilização de plataforma tecnológica, formação continuada de professores, suporte técnico e pedagógico, bem como recursos de realidade virtual e fortalecimento das aprendizagens da Matemática, para atendimento das Unidades de Ensino Fundamental do Município de Belém/PA, conforme as condições estabelecidas no Termo de Referência.",
+        "motivo": "Solucao educacional integrada (materiais didaticos, apps, plataforma, realidade virtual), nao e sustentacao de infraestrutura nem hardware.",
+        "numero_controle_pncp": "05055033000152-2-000026/2026"
+      },
+      {
+        "orgao": "GUARDA MUNICIPAL DE BELEM",
+        "objeto": "CONTRATAÇÃO DE SERVIÇO DE SOLUÇÃO DE TELEFONIA EM NUVEM (CLOUD PBX/ CONTACT CENTER) DE UTILIDADE PÚBLICA DE EMERGÊNCIA (153) para a Guarda Municipal de Belém-GMB",
+        "motivo": "Telefonia em nuvem (Cloud PBX/Contact Center), cloud/telecom, fora do escopo.",
+        "numero_controle_pncp": "49159407000155-2-000025/2026"
+      },
+      {
+        "orgao": "BELEM SECRETARIA MUNICIPAL DE FINANCAS",
+        "objeto": "A presente contratação tem como objeto a locação de 6 (seis) equipamentos de ponto eletrônico com tecnologia de reconhecimento facial REP-P, em regime de locação com cessão de uso de software, devidamente homologados pelo Ministério do Trabalho e Emprego – MTE e em conformidade com a Portaria nº 671/2021 do MTE, incluindo conectividade via rede Wi-Fi e capacidade de importação e extração remota de dados, licença de uso do software, instalação, configuração, treinamento, suporte técnico remoto e presencial, manutenção preventiva e corretiva para o pleno funcionamento dos equipamentos durante o período contratual para atender as necessidades da Secretaria e suas unidades.",
+        "motivo": "Locacao de equipamentos de ponto eletronico com reconhecimento facial, nao e computador/monitor nem sustentacao de infraestrutura.",
+        "numero_controle_pncp": "05055025000106-2-000008/2026"
+      }
+    ]
+  }
+}

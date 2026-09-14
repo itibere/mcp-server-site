@@ -1,10 +1,5 @@
 [
  {
-  "numero_controle_pncp": "03661160000170-2-000021/2026",
-  "orgao": "CASA CIVIL",
-  "objeto": "Administração, Operação, Desenv. de Sistemas de Informática e Software"
- },
- {
   "numero_controle_pncp": "13266325000162-2-000024/2026",
   "orgao": "FUNDACAO CULTURAL DO ESTADO DA BAHIA",
   "objeto": "Equipamentos e Componentes de Informática"
@@ -223,5 +218,10 @@
   "numero_controle_pncp": "04142491000166-2-000148/2026",
   "orgao": "MINISTERIO PUBLICO DO ESTADO DA BAHIA",
   "objeto": "Cessão de direito de uso do software GCA - Gestão de Competências AncoraRh, modalidade In House, englobando os serviços de atualização e suporte técnico, para utilização do software por até 2.900 (dois mil e novecentos) usuários"
+ },
+ {
+  "numero_controle_pncp": "13937032000160-2-000068/2026",
+  "orgao": "ESTADO DA BAHIA",
+  "objeto": "AQUISIÇÃO DE ESCÂNERES PARA INSPEÇÃO DE SEGURANÇA, COM TECNOLOGIA DE\nVARREDURA DE OBJETOS POR TRANSMISSÃO DE RAIOS X, COM PERSPECTIVA DE VISUALIZAÇÃO TRIDIMENSIONAL (3D),\nEM VISTA ÚNICA (SINGLE VIEW) E AINDA, RECURSO DE INTELIGÊNCIA ARTIFICIAL, COM TÚNEL DE INSPEÇÃO COM ÁREA\nAPROXIMADA DE 60 CM (SESSENTA CENTÍMETROS) X 40 CM (QUARENTA CENTÍMETROS), DAQUI EM DIANTE CHAMADO\nDE ESCÂNERES POR RAIOS X 6040 3D IA, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA."
  }
 ]

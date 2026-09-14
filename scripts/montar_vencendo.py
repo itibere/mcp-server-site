@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import json
 import sys
+import unicodedata
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -41,7 +42,14 @@ ESFERA_NOME_PARA_CODE = {"Federal": "F", "Estadual": "E", "Municipal": "M", "Dis
 UF_NOMES = {
     "DF": "Distrito Federal",
     "BA": "Bahia",
+    "RS": "Rio Grande do Sul",
+    "PA": "Pará",
 }
+
+
+def slug(nome: str) -> str:
+    sem_acento = unicodedata.normalize("NFKD", nome).encode("ascii", "ignore").decode("ascii")
+    return "_".join(sem_acento.lower().split())
 
 
 def montar(bruto: dict) -> dict:
@@ -65,6 +73,7 @@ def montar(bruto: dict) -> dict:
         "cobertura": {
             "uf": escopo.get("uf"),
             "esfera": escopo.get("esfera"),
+            "municipio": escopo.get("municipio"),
             "criterioTIC": escopo.get("criterioTIC"),
             "janelaVencimento": escopo.get("janelaVencimento"),
             "mesesJanelaInicio": escopo.get("mesesJanelaInicio"),
@@ -81,7 +90,7 @@ def montar(bruto: dict) -> dict:
     }
 
 
-def atualizar_manifesto(esfera_code: str, esfera_nome: str, uf: str, arquivo: str, gerado_em: str | None) -> None:
+def atualizar_manifesto(esfera_code: str, esfera_nome: str, uf: str, municipio: str | None, arquivo: str, gerado_em: str | None) -> None:
     if MANIFESTO.exists():
         manifesto = json.loads(MANIFESTO.read_text(encoding="utf-8"))
     else:
@@ -92,13 +101,14 @@ def atualizar_manifesto(esfera_code: str, esfera_nome: str, uf: str, arquivo: st
         "esferaNome": esfera_nome,
         "uf": uf,
         "ufNome": UF_NOMES.get(uf, uf),
+        "municipio": municipio,
         "arquivo": arquivo,
         "geradoEm": gerado_em,
     }
 
     escopos = manifesto.setdefault("escopos", [])
     for i, e in enumerate(escopos):
-        if e.get("esferaCode") == esfera_code and e.get("uf") == uf:
+        if e.get("esferaCode") == esfera_code and e.get("uf") == uf and (e.get("municipio") or None) == (municipio or None):
             escopos[i] = entrada
             break
     else:
@@ -120,15 +130,17 @@ def main() -> int:
     uf = (escopo.get("uf") or "").upper()
     esfera_nome = escopo.get("esfera") or "Federal"
     esfera_code = ESFERA_NOME_PARA_CODE.get(esfera_nome, "F")
+    municipio = escopo.get("municipio")
+    sufixo_municipio = f"_{slug(municipio)}" if municipio else ""
 
-    nome_arquivo = f"dados_{esfera_code.lower()}_{uf.lower()}.json"
+    nome_arquivo = f"dados_{esfera_code.lower()}_{uf.lower()}{sufixo_municipio}.json"
     saida = PASTA_VENCENDO / nome_arquivo
 
     PASTA_VENCENDO.mkdir(parents=True, exist_ok=True)
     saida.write_text(json.dumps(dados, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{saida}: {len(dados['contratos'])} contratos de TIC vencendo")
 
-    atualizar_manifesto(esfera_code, esfera_nome, uf, nome_arquivo, dados.get("geradoEm"))
+    atualizar_manifesto(esfera_code, esfera_nome, uf, municipio, nome_arquivo, dados.get("geradoEm"))
     return 0
 
 

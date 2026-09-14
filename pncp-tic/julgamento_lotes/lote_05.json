@@ -1,100 +1,5 @@
 [
  {
-  "numero_controle_pncp": "00394452000103-2-004281/2026",
-  "orgao": "COMANDO DO EXERCITO",
-  "objeto": "EMISSÃO DE CERTIFICADO DIGITAL"
- },
- {
-  "numero_controle_pncp": "00394452000103-2-004727/2026",
-  "orgao": "COMANDO DO EXERCITO",
-  "objeto": "OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO, POR MEIO DO REGISTRO DE PREÇOS, PARA A AQUISIÇÃO DE ESTAÇÕES DE TRABALHO (DESKTOPS), EQUIPAMENTOS MÓVEIS (NOTEBOOKS) E MONITORES SOBRESSALENTES, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA."
- },
- {
-  "numero_controle_pncp": "23612685000122-2-000017/2026",
-  "orgao": "MINISTERIO DO TRABALHO",
-  "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE SEGURANÇA CIBERNÉTICA COMPOSTA DE SERVIÇOS E FORNECIMENTO DE SOLUÇÕES DE ANTIMALWARE COM XDR (EXTENDED DETECTION AND RESPONSE) - PARA DESKTOPS, SERVIDORES E CONTAINERS - E ANTISPAM, COM SERVIÇOS BÁSICOS E AVANÇADOS; E TRANSFERÊNCIA DE CONHECIMENTO, EM ATENDIMENTO ÀS NECESSIDADES DO MINISTÉRIO DO TRABALHO E EMPREGO - MTE, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA."
- },
- {
-  "numero_controle_pncp": "23612685000122-2-000018/2026",
-  "orgao": "MINISTERIO DO TRABALHO",
-  "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE SEGURANÇA CIBERNÉTICA COMPOSTA DE SERVIÇOS E FORNECIMENTO DE SOLUÇÕES DE ANTIMALWARE COM XDR (EXTENDED DETECTION AND RESPONSE) - PARA DESKTOPS, SERVIDORES E CONTAINERS - E ANTISPAM, COM SERVIÇOS BÁSICOS E AVANÇADOS; E TRANSFERÊNCIA DE CONHECIMENTO, EM ATENDIMENTO ÀS NECESSIDADES DO MINISTÉRIO DA GESTÃO E DA INOVAÇÃO E DEMAIS ÓRGÃOS SOLICITANTES, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA."
- },
- {
-  "numero_controle_pncp": "00059311000126-2-000356/2026",
-  "orgao": "FUNDACAO NACIONAL DO INDIO",
-  "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO,  POR MEIO DO REGISTRO DE PREÇOS,  PARA A AQUISIÇÃO DE ESTAÇÕES DE TRABALHO (DESKTOPS), EQUIPAMENTOS MÓVEIS (NOTEBOOKS) E MONITORES SOBRESSALENTES, CONFORME CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA."
- },
- {
-  "numero_controle_pncp": "03277610000125-2-000717/2026",
-  "orgao": "MINISTERIO DA DEFESA",
-  "objeto": "CONTRATAÇÃO DE EMPRESA PARA FORNECIMENTO DE TELAS INTERATIVAS E CÂMERAS DE VIDEOCONFERÊNCIA, NOS TERMOS ABAIXO, E NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA."
- },
- {
-  "numero_controle_pncp": "33618570000107-2-000151/2024",
-  "orgao": "CONSELHO FEDERAL DE CONTABILIDADE",
-  "objeto": "Contratação de garantia do Chassis Blade Huawei E9000 e Servidores Blade Huawei existentes no CFC, para o período de 36 (trinta e seis) meses"
- },
- {
-  "numero_controle_pncp": "33618570000107-2-000022/2024",
-  "orgao": "CONSELHO FEDERAL DE CONTABILIDADE",
-  "objeto": "Contratação de garantia do Chassis Blade Huawei E9000 e Servidores Blade Huawei existentes no CFC, para o período de 36 (trinta e seis)."
- },
- {
-  "numero_controle_pncp": "30871497000184-2-000032/2023",
-  "orgao": "CONSELHO FEDERAL DOS TECNICOS INDUSTRIAIS",
-  "objeto": "Aditamento de PRORROGAÇÃO ao CONTRATO nº 0009/2023 de aquisição e suporte técnico de solução de Telefonia VOIP com fornecimento em comodato de aparelhos e a portabilidade do serviço na modalidade 0800"
- },
- {
-  "numero_controle_pncp": "30871497000184-2-000033/2023",
-  "orgao": "CONSELHO FEDERAL DOS TECNICOS INDUSTRIAIS",
-  "objeto": "Aditamento de PRORROGAÇÃO ao CONTRATO nº 00010/2023 de aquisição e suporte técnico de solução de link de internet dedicado principal e de contingência, para atender as necessidades do Conselho Federal Dos Técnicos Industriais (CFT)."
- },
- {
-  "numero_controle_pncp": "00531640000128-2-000019/2026",
-  "orgao": "SUPREMO TRIBUNAL FEDERAL",
-  "objeto": "A prestação de serviços de Suporte Técnico Microsoft - Unified Enterprise Support para os produtos e tecnologias deste fabricante utilizados no STF."
- },
- {
-  "numero_controle_pncp": "26989715000102-2-000762/2026",
-  "orgao": "MINISTERIO PUBLICO DA UNIAO",
-  "objeto": "ATENDER A DESPESA COM A CONTRATAÇÃO DE EMPRESA PARA MINISTRAR TREINAMENTOS OFICIAIS DE SEGURANÇA CIBERNÉTICA EC-COUNCIL, INCLUINDO MATERIAL DIDÁTICO OFICIAL, LABORATÓRIOS PRÁTICOS E VOUCHERS PARA PROVAS DE CERTIFICAÇÃO INTERNACIONAL, PARA MEMBROS DA EQUIPE\nDE PREVENÇÃO, TRATAMENTO E RESPOSTA A INCIDENTES CIBERNÉTICOS DO MPT (ETIR/MPT). Processo 20.02.0001.0010165/2025-49 INEXIGIBILIDADE 26/2026"
- },
- {
-  "numero_controle_pncp": "00530279000115-2-000057/2026",
-  "orgao": "SENADO FEDERAL",
-  "objeto": "Contratação de licença de uso do sistema Videofarma Banco de Dados com Exportação de Dados, na modalidade rede, incluindo suporte técnico e manutenção do sistema, e a prestação de serviço de suporte técnico corretivo, sob demanda, durante o período de 12 (doze) meses consecutivos."
- },
- {
-  "numero_controle_pncp": "00331165000146-2-000012/2026",
-  "orgao": "CONSELHO REGIONAL REPRESENTANTES COMERCIAIS DO D.F",
-  "objeto": "Aquisição com ENTREGA ÚNICA, conforme especificado neste Termo de Referência, de componentes de hardware, consistentes em 01 (uma) placa de vídeo dedicada com capacidade mínima de 2GB e 01 (uma) fonte de alimentação para computador com potência nominal de 240W, destinados à manutenção corretiva e à melhoria do desempenho de equipamento de informática do Setor Financeiro do Conselho Regional dos Representantes Comerciais no Distrito Federal – CORE-DF"
- },
- {
-  "numero_controle_pncp": "61919643000209-2-000016/2026",
-  "orgao": "CONSELHO FEDERAL DE ODONTOLOGIA",
-  "objeto": "Contratação de escritório de advocacia com notória especialização em Direito Odontológico e Direito Sanitário para execução integrada de serviços técnicos especializados de natureza predominantemente intelectual, voltados ao diagnóstico, à padronização, à implementação, ao monitoramento e à governança do sistema fiscalizatório nacional no âmbito do Sistema CFO/CROs, bem como ao suporte técnico-jurídico especializado em direito odontológico e sanitário, nas \ncondições estabelecidas no Termo de Referência."
- },
- {
-  "numero_controle_pncp": "33618570000107-2-000023/2024",
-  "orgao": "CONSELHO FEDERAL DE CONTABILIDADE",
-  "objeto": "Aquisição de licenças de uso da solução de segurança antivírus Kaspersky Endpoint Security para estações de trabalho (endpoints), servidores e dispositivos móveis, gerenciados por solução centralizada no modelo onpremisse, contemplando o serviço de implantação, o repasse de conhecimento hands-on, a manutenção preventiva/corretiva periódica, além da garantia, suporte técnico e atualizações por 36 (trinta e seis) meses."
- },
- {
-  "numero_controle_pncp": "33618570000107-2-000150/2024",
-  "orgao": "CONSELHO FEDERAL DE CONTABILIDADE",
-  "objeto": "Aquisição de licenças de uso da solução de segurança antivírus Kaspersky Endpoint Security para estações de trabalho (endpoints), servidores e dispositivos móveis, gerenciados por solução centralizada no modelo onpremisse, contemplando o serviço de implantação, o repasse de conhecimento hands-on, a manutenção preventiva/corretiva periódica, além da garantia, suporte técnico e atualizações por 36 (trinta e seis) meses"
- },
- {
-  "numero_controle_pncp": "26989715000102-2-000783/2026",
-  "orgao": "MINISTERIO PUBLICO DA UNIAO",
-  "objeto": "Contratação de empresa especializada na prestação de serviços de rastreamento e monitoramento veicular, via satélite por GPS/GSM/GPRS, compreendendo a instalação de módulos rastreadores e de identificação de condutores em comodato, disponibilização de licença de software de gerenciamento com acesso via web e os respectivos serviços de colocação da ferramenta de rastreamento, configuração, capacitação, suporte técnico e garantia de funcionamento durante toda a vigência contratual, para a gestão de frota do Ministério Público do Distrito Federal e Territórios, nas condições estabelecidas no Termo de Referência, anexo ao Edital."
- },
- {
-  "numero_controle_pncp": "05526783000165-2-000223/2026",
-  "orgao": "MINISTERIO DA CIDADANIA",
-  "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NOS SERVIÇOS DE DESENVOLVIMENTO DE SOFTWARE, PARA DESENVOLVIMENTO DE NOVOS PROJETOS CONFORME ELENCADOS NO PDTIC 2023/2027, SERVIÇOS DE AUDITORIA DE MÉTRICAS, EM PONTOS DE FUNÇÃO E SERVIÇOS DE MANUTENÇÃO PREVENTIVA E ADAPTATIVA DOS SISTEMAS LEGADOS DO MDS"
- },
- {
   "numero_controle_pncp": "07947821000189-2-000044/2026",
   "orgao": "AGENCIA NACIONAL DE AVIACAO CIVIL - ANAC",
   "objeto": "CONTRATAÇÃO DE CESSÃO DE DIREITO DE USO (LICENÇA) DE SOFTWARE AVANÇADO DE ACESSO À BASE DE DADOS DE PREÇOS,"
@@ -108,6 +13,11 @@
   "numero_controle_pncp": "07947821000189-2-000045/2026",
   "orgao": "AGENCIA NACIONAL DE AVIACAO CIVIL - ANAC",
   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE LICENÇA DE SOFTWARE PARA SUPORTE À GESTÃO DE CRISES"
+ },
+ {
+  "numero_controle_pncp": "04903587000108-2-000018/2026",
+  "orgao": "AGENCIA NACIONAL DE TRANSPORTES AQUAVIARIOS",
+  "objeto": "CONTRATAÇÃO DE CERTIFICADO DIGITAL SSL/TLS, DO TIPO WILDCARD OV, FORMATO A1, COM VALIDADE MÍNIMA DE 12 (DOZE) MESES, PARA UTILIZAÇÃO EM MÚLTIPLOS SUBDOMÍNIOS INSTITUCIONAIS COM SUPORTE TÉCNICO INCLUSO, ONDE A CONTRATADA OBRIGA-SE A EXECUTAR OS SERVIÇOS DE ACORDO COM O TERMO DE REFERÊNCIA (2893157), CONSTANTE DO PRESENTE PROCESSO."
  },
  {
   "numero_controle_pncp": "33892175000100-2-000023/2026",
@@ -223,5 +133,95 @@
   "numero_controle_pncp": "00394452000103-2-003522/2026",
   "orgao": "COMANDO DO EXERCITO",
   "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE EMPRESA ESPECIALIZADA NA OFERTA DE PLATAFORMA ONLINE EAD PARA TREINAMENTO E APERFEIÇOAMENTO DE PESSOAL POR NO MÍNIMO 12 (DOZE) MESES."
+ },
+ {
+  "numero_controle_pncp": "00509018000113-2-000282/2023",
+  "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
+  "objeto": "Prestação de serviço de processamento de banco de dados Oracle em núvem privada na plataforma Exadata Cloud at Customer em dois equipamentos, sendo um X9M ou superior, com 8 DB Nodes e 8 Storage Nodes e outro X9M ou superior, com 4 DB Nodes e 4 Storage Nodes, incluindo a instalação dos mesmos, créditos em nuvem para processamento de banco de dados em 350 (OCPU) em média (Oracle PaaS and IaaS Universal Credits) e serviços de suporte avançado Oracle ACS(Advanced Customer Services), pelo período de 48 meses, de acordo com as especificações técnicas que constam do Termo de Referência e seus anexos e pedidos de compra CPQ – 3020313 e BR-14959191 da CONTRATADA."
+ },
+ {
+  "numero_controle_pncp": "00489828000155-2-000018/2024",
+  "orgao": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
+  "objeto": "Contratação de serviços comuns de computação em nuvem sob o modelo de intermediação."
+ },
+ {
+  "numero_controle_pncp": "00488478000102-2-000067/2025",
+  "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
+  "objeto": "PRESTAÇÃO DE SERVIÇOS CONTINUADOS DE AUXILIAR DE BIBLIOTECA, EM REGIME DE DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA, PARA O SUPERIOR TRIBUNAL DE JUSTIÇA (STJ) E A ESCOLA NACIONAL DE FORMAÇÃO E APERFEIÇOAMENTO DE MAGISTRADOS (ENFAM)."
+ },
+ {
+  "numero_controle_pncp": "00530279000115-2-000101/2026",
+  "orgao": "SENADO FEDERAL",
+  "objeto": "Fornecimento de aparelhos telefônicos “Voz sobre IP” (VoIP) para a Secretaria de Patrimônio do Senado Federal"
+ },
+ {
+  "numero_controle_pncp": "26989350000116-2-000032/2026",
+  "orgao": "FUNDACAO NACIONAL DE SAUDE",
+  "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE EMPRESA ESPECIALIZADA PARA FORNECIMENTO DE INFRAESTRUTURA DE NUVEM SOB DEMANDA, CONTEMPLANDO SERVIÇOS DE PROTEÇÃO DE DADOS DE INSTÂNCIAS VIRTUAIS, SERVIDORES DE ARQUIVOS E OBJETOS DO MICROSOFT OFFICE 365, SEGURANÇA DA INFORMAÇÃO, BALANCEAMENTO DE CARGAS PARA AS APLICAÇÕES, MONITORAMENTO CONTÍNUO DO AMBIENTE, IMPLANTAÇÃO E REPASSE DE CONHECIMENTO"
+ },
+ {
+  "numero_controle_pncp": "04204444000108-2-000005/2026",
+  "orgao": "AGENCIA NACIONAL DE AGUAS E SANEAMENTO BASICO (ANA)",
+  "objeto": "CONTRATAÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS PARA RENOVAÇÃO DA GARANTIA DE HARDWARE DOS SERVIDORES LENOVO SR850, ASSEGURADA POR MEIO DE SUPORTE OFICIAL DO FABRICANTE OU DE PARCEIRO AUTORIZADO"
+ },
+ {
+  "numero_controle_pncp": "26994558000123-2-000121/2026",
+  "orgao": "ADVOCACIA GERAL DA UNIAO",
+  "objeto": "AQUISIÇÃO DE ESTAÇÕES DE TRABALHO (DESKTOPS) E WORKSTATIONS COM MONITORES ADICIONAIS, INCLUINDO GARANTIA E SUPORTE TÉCNICO PELO PERÍODO DE 60 (SESSENTA) MESES, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA."
+ },
+ {
+  "numero_controle_pncp": "05457283000119-2-000012/2024",
+  "orgao": "MINISTERIO DO TURISMO",
+  "objeto": "CONTRATAÇÃO DE SERVIÇOS DE ASSINATURA DE BASE DE DADOS DE INFORMAÇÕES ECONÔMICAS REFERENTES A INVESTIMENTO DIRETO ESTRANGEIRO (IDE) COM FOCO NO SETOR DE TURISMO, DISPONIBILIZADA EM PLATAFORMA ACESSÍVEL VIA INTERNET, PARA ATENDIMENTO ÀS NECESSIDADES DA COORDENAÇÃO-GERAL DE ATRAÇÃO DE INVESTIMENTOS (CGINV) DA SECRETARIA NACIONAL DE INFRAESTRUTURA, CRÉDITO E INVESTIMENTOS NO TURISMO (SNINFRA), CONFORME CONDIÇÕES, QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA."
+ },
+ {
+  "numero_controle_pncp": "03353358000196-2-000100/2026",
+  "orgao": "MINISTERIO DO DESENVOLVIMENTO REGIONAL",
+  "objeto": "CONTRATAÇÃO DE SERVIÇOS CONSISTENTES NO FORNECIMENTO DE LICENÇAS DO SOFTWARE AUTODESK AUTOCAD - VERSÃO COMPLETA, NA MODALIDADE DE SUBSCRIÇÃO, A SEREM EXECUTADOS DE FORMA INTEGRALMENTE REMOTA, CONFORME QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA"
+ },
+ {
+  "numero_controle_pncp": "08829974000194-2-000058/2025",
+  "orgao": "INSTITUTO CHICO MENDES DE CONSERVACAO DA BIODIVERSIDADE",
+  "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA NA PRESTAÇÃO DE SERVIÇOS ESTRATÉGICOS DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO (TI) PELA DATAPREV À CONTRATANTE, COMPREENDENDO A SOLUÇÃO DE INSTALAÇÃO DO SEI (SAAS - SOFTWARE AS SERVICE) E SERVIÇO DE CONSULTORIA, CONFORME ESPECIFICAÇÕES TÉCNICAS DESCRITAS NOS RESPECTIVOS MODELOS DE NEGÓCIO"
+ },
+ {
+  "numero_controle_pncp": "26474056000171-2-000093/2026",
+  "orgao": "INSTITUTO DO PATRIMONIO HISTORICO E ARTISTICO NACIONAL",
+  "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇO ESPECIALIZADO, COM O FORNECIMENTO DOS MATERIAIS INDISPENSÁVEIS, DESTINADOS AO REMANEJAMENTO DE 02 (DOIS) EQUIPAMENTOS DE AR CONDICIONADO DE ALTA PRECISÃO, PARA POSICIONAMENTO ADEQUADO ENTRE OS RACKS, CONFORME BOAS PRÁTICAS DE CLIMATIZAÇÃO DE AMBIENTES CRÍTICOS, E À ADEQUAÇÃO DO SISTEMA DE DRENAGEM POR GRAVIDADE DE 04 (QUATRO) EQUIPAMENTOS DE AR CONDICIONADO DE ALTA PRECISÃO DA MARCA VERTIV MODELO LIEBERT CR025, CONSIDERANDO AS ADEQUAÇÕES TÉCNICAS REQUERIDAS PARA A CORRETA INSTALAÇÃO, O PLENO FUNCIONAMENTO E A SEGURANÇA OPERACIONAL DOS SISTEMAS DE CLIMATIZAÇÃO DA SALA DO DATACENTER DO INSTITUTO DO PATRIMÔNIO HISTÓRICO E ARTÍSTICO"
+ },
+ {
+  "numero_controle_pncp": "00394502000144-2-000511/2025",
+  "orgao": "COMANDO DA MARINHA",
+  "objeto": "CONTRATAÇÃO DE INSTITUIÇÃO DE ENSINO PARA CAPACITAÇÃO DE PESSOAL EM CURSO NA MODALIDADE EAD DE TECNOLOGIA DA INFORMAÇÃO"
+ },
+ {
+  "numero_controle_pncp": "26664015000148-2-000014/2025",
+  "orgao": "CONTROLADORIA-GERAL DA UNIAO",
+  "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS DE TI PARA OPERAÇÃO E GESTÃO DE CENTRAL DE SERVIÇOS (SERVICE DESK), CONTEMPLANDO ATENDIMENTOS DE 1º NÍVEL, TELEFÔNICO, E DE 2º NÍVEL, PRESENCIAL E REMOTO, EM BRASÍLIA E DEMAIS 26 (VINTE E SEIS) UNIDADES DA FEDERAÇÃO, POR UM PERÍODO DE 24 (VINTE E QUATRO) MESES, PRORROGÁVEL ATÉ O LIMITE DE 120 (CENTO E VINTE) MESES, PARA A CONTROLADORIA GERAL DA UNIÃO – CGU, CONFORME CONDIÇÕES, QUANTIDADES, EXIGÊNCIAS E ESTIMATIVAS, ESTABELECIDAS NO TERMO DE REFERÊNCIA."
+ },
+ {
+  "numero_controle_pncp": "00396895000125-2-000347/2025",
+  "orgao": "MINISTERIO DA AGRICULTURA, PECUARIA E ABASTECIMENTO",
+  "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS EM TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO (TIC) SOB DEMANDA, PARA ATENDER ÀS NECESSIDADES DO MINISTÉRIO DA AGRICULTURA E PECUÁRIA - MAPA, MINISTÉRIO DO DESENVOLVIMENTO AGRÁRIO - MDA, MINISTÉRIO DA PESCA E AQUICULTURA - MPA E INSTITUTO NACIONAL DE METEOROLOGIA - INMET, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA."
+ },
+ {
+  "numero_controle_pncp": "04892707000100-2-000202/2024",
+  "orgao": "DNIT-DEPARTAMENTO NACIONAL DE INFRAEST DE TRANSPORTES",
+  "objeto": "LICENCIAMENTO DE USO DO SOFTWARE TRIMBLE QUANTM ENTERPRISE/PATHFINDER, PARA PROCESSAMENTO DE TRAÇADOS EM PROJETOS DE ATÉ 250 KM DE EXTENSÃO. GESTOR: PAULO MOREIRA NETO - COORDENADOR-GERAL DE PLANEJAMENTO E PROGRAMAÇÃO DE INVESTIMENTOS."
+ },
+ {
+  "numero_controle_pncp": "27136980000100-2-000016/2026",
+  "orgao": "MINISTERIO DA MULHER, DA FAMILIA E DOS DIREITOS HUMANOS",
+  "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO, COM AQUISIÇÃO DE 4 (QUATRO) COMPUTADORES, PARA ATENDIMENTO DA SECRETARIA NACIONAL DOS DIREITOS DAS PESSOAS LGBTQIA+"
+ },
+ {
+  "numero_controle_pncp": "27136980000100-2-000017/2026",
+  "orgao": "MINISTERIO DA MULHER, DA FAMILIA E DOS DIREITOS HUMANOS",
+  "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO, COM AQUISIÇÃO DE 18 (DEZOITO) COMPUTADORES, PARA ATENDIMENTO DA SECRETARIA NACIONAL DOS DIREITOS DA PESSOA COM DEFICIÊNCIA - SNDPD."
+ },
+ {
+  "numero_controle_pncp": "27136980000100-2-000014/2026",
+  "orgao": "MINISTERIO DA MULHER, DA FAMILIA E DOS DIREITOS HUMANOS",
+  "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO, COM AQUISIÇÃO DE 6 (SEIS) COMPUTADORES, PARA ATENDIMENTO DA SECRETARIA NACIONAL DE PROMOÇÃO E DEFESA DOS DIREITOS HUMANOS - SNDH"
  }
 ]
