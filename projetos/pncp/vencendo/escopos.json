@@ -5,6 +5,7 @@
    "esferaNome": "Federal",
    "uf": "DF",
    "ufNome": "Distrito Federal",
+   "municipio": null,
    "arquivo": "dados_f_df.json",
    "geradoEm": "2026-09-14T09:24:28"
   },
@@ -13,6 +14,7 @@
    "esferaNome": "Estadual",
    "uf": "BA",
    "ufNome": "Bahia",
+   "municipio": null,
    "arquivo": "dados_e_ba.json",
    "geradoEm": "2026-09-14T09:42:50"
   },
@@ -21,6 +23,7 @@
    "esferaNome": "Estadual",
    "uf": "RS",
    "ufNome": "Rio Grande do Sul",
+   "municipio": null,
    "arquivo": "dados_e_rs.json",
    "geradoEm": "2026-09-14T09:24:36"
   },

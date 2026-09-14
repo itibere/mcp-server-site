@@ -10,8 +10,8 @@
     "fonte": "https://pncp.gov.br/api/search/"
   },
   "totalCandidatosTIC": 6361,
-  "totalVencendoJanela": 73,
-  "totalServicos": 39,
+  "totalVencendoJanela": 67,
+  "totalServicos": 35,
   "contratos": [
     {
       "orgao": "FUNDO CONSTITUCIONAL DO DISTRITO FEDERAL - FCDF",
@@ -25,17 +25,6 @@
       "link": "https://pncp.gov.br/app/contratos/05448380000145/2026/110"
     },
     {
-      "orgao": "MINISTERIO DO TURISMO",
-      "orgao_cnpj": "05457283000119",
-      "vence_em": "2027-03-20",
-      "valor_global": 103080.0,
-      "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇO DE MANUTENÇÃO E SUPORTE EM SOLUÇÃO DE STORAGE (HUAWEI OCEANSTOR DORADO 5000 V6), NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-      "eh_servico_texto": true,
-      "modalidade": "Pregão - Eletrônico",
-      "numero_controle_pncp": "05457283000119-2-000007/2026",
-      "link": "https://pncp.gov.br/app/contratos/05457283000119/2026/7"
-    },
-    {
       "orgao": "AGENCIA NACIONAL DE MINERACAO",
       "orgao_cnpj": "29406625000130",
       "vence_em": "2027-03-23",
@@ -45,17 +34,6 @@
       "modalidade": "Dispensa",
       "numero_controle_pncp": "29406625000130-2-000026/2026",
       "link": "https://pncp.gov.br/app/contratos/29406625000130/2026/26"
-    },
-    {
-      "orgao": "MINISTERIO PUBLICO DA UNIAO",
-      "orgao_cnpj": "26989715000102",
-      "vence_em": "2027-03-25",
-      "valor_global": 757080.0,
-      "objeto": "Contratação  de  serviços  de  manutenção,  troca  de  peças,  e  suporte  técnico  com serviços especializados de apoio a sustentação de ambientes tecnológicos para os produtos de armazenamento de acordo com as especificações técnicas que constam no Termo de Referência e seus Anexos",
-      "eh_servico_texto": true,
-      "modalidade": "Pregão - Eletrônico",
-      "numero_controle_pncp": "26989715000102-2-000254/2024",
-      "link": "https://pncp.gov.br/app/contratos/26989715000102/2024/254"
     },
     {
       "orgao": "MINISTERIO DA GESTAO E DA INOVACAO EM SERVICOS PUBLICOS",
@@ -199,17 +177,6 @@
       "modalidade": "Inexigibilidade",
       "numero_controle_pncp": "00375114000116-2-000056/2026",
       "link": "https://pncp.gov.br/app/contratos/00375114000116/2026/56"
-    },
-    {
-      "orgao": "MINISTERIO DA CIDADANIA",
-      "orgao_cnpj": "05526783000165",
-      "vence_em": "2027-04-30",
-      "valor_global": 494664.0,
-      "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE SERVIÇO DE SUPORTE TÉCNICO (PREVENTIVO E CORRETIVO) EM TODOS OS COMPONENTES QUE FAZEM PARTE DA SOLUÇÃO DE STORAGE NETAPP MODELO FAS 8300 IMPLANTADA NO MINISTÉRIO DO DESENVOLVIMENTO E ASSISTÊNCIA SOCIAL, FAMÍLIA E COMBATE À FOME (MDS)",
-      "eh_servico_texto": true,
-      "modalidade": "Pregão - Eletrônico",
-      "numero_controle_pncp": "05526783000165-2-000213/2026",
-      "link": "https://pncp.gov.br/app/contratos/05526783000165/2026/213"
     },
     {
       "orgao": "MINISTERIO DO MEIO AMBIENTE",
@@ -419,17 +386,6 @@
       "modalidade": "Dispensa",
       "numero_controle_pncp": "00331165000146-2-000015/2026",
       "link": "https://pncp.gov.br/app/contratos/00331165000146/2026/15"
-    },
-    {
-      "orgao": "INSTITUTO DE PESQUISA ECONOMICA APLICADA",
-      "orgao_cnpj": "33892175000100",
-      "vence_em": "2027-06-15",
-      "valor_global": 206400.0,
-      "objeto": "PRESTAÇÃO DE SERVIÇOS CONTÍNUOS DE MANUTENÇÃO PREDITIVA, PREVENTIVA E CORRETIVA DO SISTEMA DE NOBREAK COM FORNECIMENOT DE PEÇAS SOB DEMANDA, NAS DEPENDÊNCIAS DO INSTITUTO DE PESQUISA ECONÔMICA E APLICADA - IPEA",
-      "eh_servico_texto": true,
-      "modalidade": "Pregão - Eletrônico",
-      "numero_controle_pncp": "33892175000100-2-000028/2026",
-      "link": "https://pncp.gov.br/app/contratos/33892175000100/2026/28"
     },
     {
       "orgao": "SUPREMO TRIBUNAL FEDERAL",
@@ -674,17 +630,6 @@
       "link": "https://pncp.gov.br/app/contratos/00394494000136/2026/1404"
     },
     {
-      "orgao": "COMANDO DO EXERCITO",
-      "orgao_cnpj": "00394452000103",
-      "vence_em": "2027-07-23",
-      "valor_global": 89600.0,
-      "objeto": "AQUISIÇÃO DE MATERIAIS DE TIC, CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO: 02 (DUAS) FONTE ALIMENTAÇÃO INITERRUPTA, TIPO DUPLA CONVERSÃO, TIPO ONDA SENOIDAL, NÚMERO DE FASES TRIFÁSICO, CAPACIDADE NOMINAL 40 KVA.",
-      "eh_servico_texto": false,
-      "modalidade": "Pregão - Eletrônico",
-      "numero_controle_pncp": "00394452000103-2-006122/2025",
-      "link": "https://pncp.gov.br/app/contratos/00394452000103/2025/6122"
-    },
-    {
       "orgao": "FUNDACAO NACIONAL DO INDIO",
       "orgao_cnpj": "00059311000126",
       "vence_em": "2027-07-27",
@@ -795,17 +740,6 @@
       "link": "https://pncp.gov.br/app/contratos/15126437000143/2026/719"
     },
     {
-      "orgao": "MINISTERIO DO DESENVOLVIMENTO REGIONAL",
-      "orgao_cnpj": "03353358000196",
-      "vence_em": "2027-08-25",
-      "valor_global": 98400.0,
-      "objeto": "CONTRATAÇÃO DE AQUISIÇÃO DE BATERIAS, RETIFICADORES E MÓDULOS SUPERVISORES NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.\nITEM 3 - ESPECIFICAÇÃO: BATERIA ESTACIONÁRIA DE ALTA CAPACIDADE - SISTEMA ELETROQUÍMICO - OBRIGATÓRIO:- CHUMBO-ÁCIDO SELADO - TENSÃO NOMINAL: 2 V - CAPACIDADE NOMINAL - OBRIGATÓRIO: 200 AH.",
-      "eh_servico_texto": false,
-      "modalidade": "Pregão - Eletrônico",
-      "numero_controle_pncp": "03353358000196-2-000192/2026",
-      "link": "https://pncp.gov.br/app/contratos/03353358000196/2026/192"
-    },
-    {
       "orgao": "INST. NAC. COLON. REFORMA AGRARIA - INCRA",
       "orgao_cnpj": "03204421000122",
       "vence_em": "2027-09-04",
@@ -819,8 +753,8 @@
   ],
   "julgamentoAgente": {
     "total_antes": 533,
-    "aprovados": 73,
-    "reprovados": 460,
+    "aprovados": 67,
+    "reprovados": 466,
     "exemplosReprovados": [
       {
         "orgao": "CONSELHO DE ARQUITETURA E URBANISMO DO BRASIL",
@@ -937,6 +871,12 @@
         "numero_controle_pncp": "00720532000101-2-000006/2026"
       },
       {
+        "orgao": "MINISTERIO DO TURISMO",
+        "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇO DE MANUTENÇÃO E SUPORTE EM SOLUÇÃO DE STORAGE (HUAWEI OCEANSTOR DORADO 5000 V6), NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
+        "motivo": "Manutencao e suporte em solucao de storage isolada, sem hardware nem mao de obra dedicada continua empacotados junto, regra de storage exclui.",
+        "numero_controle_pncp": "05457283000119-2-000007/2026"
+      },
+      {
         "orgao": "CONSELHO FEDERAL DE CONTABILIDADE",
         "objeto": "Contratação de licenças de Software Microsoft SQL Server 2022 (ou superior), habilitadas para Azure Arc, com suporte técnico oficial e atualizações durante a vigência, para atendimento às necessidades do Conselho Federal de Contabilidade (CFC). Abrange as edições Standard e Enterprise, conforme dimensionamento mínimo indicado no Termo de Referência (TR), incluindo disponibilização de painéis de monitoramento/consumo, relatórios e evidências de conformidade, sem implantação de componentes proprietários adicionais além dos previstos pela Microsoft.",
         "motivo": "Licenca de software de banco de dados (SQL Server) com suporte, licenciamento de software isolado, fora do escopo.",
@@ -1007,6 +947,12 @@
         "objeto": "CONTRATAÇÃO DE SERVIÇOS DE DESENVOLVIMENTO E SUSTENTAÇÃO DE SOLUÇÕES DE INTEGRAÇÃO E INTEROPERABILIDADE PARA A EMPRESA BRASILEIRA DE SERVIÇOS HOSPITALARES (EBSERH) E SUA REDE DE HOSPITAIS UNIVERSITÁRIOS, DE ACORDO COM AS MÉTRICAS E AS ESPECIFICAÇÕES, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA E NA DOCUMENTAÇÃO DE APOIO.",
         "motivo": "Desenvolvimento e sustentacao de solucoes de integracao/interoperabilidade, desenvolvimento de software aplicativo, fora do escopo.",
         "numero_controle_pncp": "15126437000143-2-000426/2025"
+      },
+      {
+        "orgao": "MINISTERIO PUBLICO DA UNIAO",
+        "objeto": "Contratação  de  serviços  de  manutenção,  troca  de  peças,  e  suporte  técnico  com serviços especializados de apoio a sustentação de ambientes tecnológicos para os produtos de armazenamento de acordo com as especificações técnicas que constam no Termo de Referência e seus Anexos",
+        "motivo": "Manutencao, troca de pecas e suporte tecnico para produtos de armazenamento (storage) isolado, sustentacao reativa sem mao de obra dedicada continua nem hardware junto, regra de storage exclui.",
+        "numero_controle_pncp": "26989715000102-2-000254/2024"
       },
       {
         "orgao": "PRESIDENCIA DA REPUBLICA",
@@ -1447,6 +1393,12 @@
         "numero_controle_pncp": "00414607000118-2-000104/2025"
       },
       {
+        "orgao": "MINISTERIO DA CIDADANIA",
+        "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE SERVIÇO DE SUPORTE TÉCNICO (PREVENTIVO E CORRETIVO) EM TODOS OS COMPONENTES QUE FAZEM PARTE DA SOLUÇÃO DE STORAGE NETAPP MODELO FAS 8300 IMPLANTADA NO MINISTÉRIO DO DESENVOLVIMENTO E ASSISTÊNCIA SOCIAL, FAMÍLIA E COMBATE À FOME (MDS)",
+        "motivo": "Suporte tecnico preventivo e corretivo isolado em solucao de storage NetApp, sem hardware nem mao de obra dedicada continua empacotados junto, regra de storage exclui.",
+        "numero_controle_pncp": "05526783000165-2-000213/2026"
+      },
+      {
         "orgao": "TRIBUNAL DE CONTAS DA UNIAO",
         "objeto": "Contratação de serviços contínuos de gerenciamento de resíduos sólidos urbanos gerados no TCU e no ISC, incluindo coleta, transporte, tratamento e destinação final ambientalmente adequada, bem como a elaboração/atualização e cadastro do Plano de Gerenciamento de Resíduos Sólidos (PGRS) na respectiva plataforma digital oficial do Governo do Distrito Federal (PGRS Digital), para o TCU.",
         "motivo": "Gerenciamento de residuos solidos urbanos, nao e TIC.",
@@ -1761,7 +1713,7 @@
       {
         "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
         "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA PRESTAÇÃO DE SERVIÇOS DE SUPORTE TÉCNICO E MANUTENÇÃO DE 48 (QUARENTA E OITO) SWITCHES DE REDE DELL TECHNOLOGIES QUE COMPÕEM A INFRAESTRUTURA DE REDE DO TRE-DF, COM BASE NO SERVIÇO PROSUPPORT PLUS, NOS TERMOS E CONDIÇÕES ESTABELECIDOS NO TERMO DE REFERÊNCIA E NA PROPOSTA DA CONTRATADA; O SUPORTE COMPREENDERÁ ATENDIMENTO REMOTO E PRESENCIAL 24X7, RESPOSTA EM ATÉ 4 HORAS PARA FALHAS CRÍTICAS, ACESSO A FIRMWARE EXCLUSIVO, SUBSTITUIÇÃO DE PEÇAS ORIGINAIS E MANUTENÇÃO DE GERENTE TÉCNICO (SAM).",
-        "motivo": "Suporte e manutencao de switches de rede, fora do nucleo de sustentacao (servidor/storage/datacenter).",
+        "motivo": "Suporte e manutencao de switches de rede, fora do nucleo de sustentacao (servidor/datacenter).",
         "numero_controle_pncp": "00509018000113-2-002464/2025"
       },
       {
@@ -1803,7 +1755,7 @@
       {
         "orgao": "CONSELHO FEDERAL DE QUIMICA",
         "objeto": "Fornecimento de baterias estacionárias e instalação/substituição das baterias, realização de testes de funcionamento e validação do sistema, bem como a retirada e destinação final ambientalmente adequada das baterias inservíveis.",
-        "motivo": "Fornecimento e instalacao de baterias estacionarias, objeto generico, nao especifica sustentacao de infraestrutura de datacenter.",
+        "motivo": "Fornecimento/instalacao de baterias estacionarias (nobreak/UPS) isolado, sem hardware nem Service Desk/ITSM/Controle de ativos junto, regra de nobreak exclui.",
         "numero_controle_pncp": "33839275000172-2-000022/2026"
       },
       {
@@ -1899,7 +1851,7 @@
       {
         "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
         "objeto": "Prestação de serviço de processamento de banco de dados Oracle em núvem privada na plataforma Exadata Cloud at Customer em dois equipamentos, sendo um X9M ou superior, com 8 DB Nodes e 8 Storage Nodes e outro X9M ou superior, com 4 DB Nodes e 4 Storage Nodes, incluindo a instalação dos mesmos, créditos em nuvem para processamento de banco de dados em 350 (OCPU) em média (Oracle PaaS and IaaS Universal Credits) e serviços de suporte avançado Oracle ACS(Advanced Customer Services), pelo período de 48 meses, de acordo com as especificações técnicas que constam do Termo de Referência e seus anexos e pedidos de compra CPQ – 3020313 e BR-14959191 da CONTRATADA.",
-        "motivo": "Processamento de banco de dados Oracle em nuvem privada (Exadata Cloud at Customer), cloud, fora do escopo.",
+        "motivo": "Processamento de banco de dados Oracle em nuvem privada (Exadata Cloud at Customer), cloud, fora do escopo mesmo com storage nodes incluidos.",
         "numero_controle_pncp": "00509018000113-2-000282/2023"
       },
       {
@@ -1971,7 +1923,7 @@
       {
         "orgao": "MINISTERIO DA DEFESA",
         "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE INFRAESTRUTURA TECNOLÓGICA PARA VIRTUALIZAÇÃO, ARMAZENAMENTO E PROCESSAMENTO, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO, E NO TERMO DE REFERÊNCIA N° 179/2025.",
-        "motivo": "Aquisicao nova de infraestrutura de virtualizacao/armazenamento/processamento como bem, nao e sustentacao de algo existente.",
+        "motivo": "Aquisicao nova de infraestrutura de virtualizacao/armazenamento/processamento como bem, aquisicao nova e storage isolado sem hardware nem mao de obra dedicada continua junto.",
         "numero_controle_pncp": "03277610000125-2-000834/2026"
       },
       {
@@ -2051,6 +2003,12 @@
         "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SOLUÇÃO AVANÇADA DE SEGURANÇA, CONTEMPLANDO O LICENCIAMENTO, SUPORTE TÉCNICO, GARANTIA E ATUALIZAÇÃO POR 12 (DOZE) MESES, NO ÂMBITO DA SEDE NACIONAL, NAS UNIDADES REGIONAIS E NA UNIVERSIDADE CORPORATIVA DA POLÍCIA RODOVIÁRIA FEDERAL, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO.",
         "motivo": "Solucao avancada de seguranca com licenciamento/suporte, seguranca de rede/endpoint, fora do escopo.",
         "numero_controle_pncp": "00394494010441-2-000653/2026"
+      },
+      {
+        "orgao": "INSTITUTO DE PESQUISA ECONOMICA APLICADA",
+        "objeto": "PRESTAÇÃO DE SERVIÇOS CONTÍNUOS DE MANUTENÇÃO PREDITIVA, PREVENTIVA E CORRETIVA DO SISTEMA DE NOBREAK COM FORNECIMENOT DE PEÇAS SOB DEMANDA, NAS DEPENDÊNCIAS DO INSTITUTO DE PESQUISA ECONÔMICA E APLICADA - IPEA",
+        "motivo": "Manutencao preditiva/preventiva/corretiva de sistema de nobreak isolada, sem hardware nem Service Desk/ITSM/Controle de ativos junto, regra de nobreak exclui.",
+        "numero_controle_pncp": "33892175000100-2-000028/2026"
       },
       {
         "orgao": "AGENCIA NACIONAL DE TELECOMUNICACOES",
@@ -2361,13 +2319,13 @@
       {
         "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
         "objeto": "CONTRATAÇÃO EMERGENCIAL PARA PRESTAÇÃO DE SERVIÇO DE IMPRESSÃO CORPORATIVA ABRANGENDO O FORNECIMENTO DE EQUIPAMENTOS, FERRAMENTA DE GERENCIAMENTO DE IMPRESSÃO, SUPRIMENTOS (EXCETO PAPEL) E SERVIÇOS DE MANUTENÇÃO, SUPORTE TÉCNICO EM REGIME DE DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA.",
-        "motivo": "Impressao corporativa com equipamentos e suprimentos, impressora fora da lista de hardware elegivel e nao e sustentacao de servidor/storage/datacenter.",
+        "motivo": "Servico de impressao corporativa (equipamentos, gerenciamento, suprimentos, manutencao com mao de obra dedicada), impressora isolada sem hardware(B) nem Service Desk/ITSM/Controle de ativos junto, regra de impressora exclui.",
         "numero_controle_pncp": "00488478000102-2-000130/2026"
       },
       {
         "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
         "objeto": "CONTRATAÇÃO EMERGENCIAL PARA PRESTAÇÃO DE SERVIÇO DE IMPRESSÃO CORPORATIVA ABRANGENDO O FORNECIMENTO DE EQUIPAMENTOS, FERRAMENTA DE GERENCIAMENTO DE IMPRESSÃO, SUPRIMENTOS (EXCETO PAPEL) E SERVIÇOS DE MANUTENÇÃO, SUPORTE TÉCNICO EM REGIME DE DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA.",
-        "motivo": "Impressao corporativa com equipamentos e suprimentos, impressora fora da lista de hardware elegivel e nao e sustentacao de servidor/storage/datacenter.",
+        "motivo": "Servico de impressao corporativa (equipamentos, gerenciamento, suprimentos, manutencao com mao de obra dedicada), impressora isolada sem hardware(B) nem Service Desk/ITSM/Controle de ativos junto, regra de impressora exclui.",
         "numero_controle_pncp": "00488478000102-2-000130/2026"
       },
       {
@@ -2499,7 +2457,7 @@
       {
         "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
         "objeto": "CONTRATAÇÃO DE EQUIPAMENTOS DE IMPRESSÃO E DIGITALIZAÇÃO, ESPECIFICADOS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Equipamentos de impressao e digitalizacao, fora da lista de hardware elegivel.",
+        "motivo": "Equipamentos de impressao e digitalizacao, isolado sem hardware(B) nem Service Desk/ITSM/Controle de ativos junto, regra de impressora exclui.",
         "numero_controle_pncp": "00394494000136-2-001380/2026"
       },
       {
@@ -2577,7 +2535,7 @@
       {
         "orgao": "SENADO FEDERAL",
         "objeto": "Prestação de serviços de impressão em grandes formatos (plotter) mediante disponibilização de equipamentos (locação), fornecimento de Componentes, peças,\nsuprimentos (exceto mídia) e materiais necessários; prestação de manutenção preventiva e corretiva durante 48 (quarenta e oito) meses consecutivos; e a realização de treinamento operacional.",
-        "motivo": "Impressao em grandes formatos (plotter) com locacao de equipamentos, fora da lista de hardware elegivel e nao e sustentacao de infraestrutura core.",
+        "motivo": "Impressao em grandes formatos (plotter) com locacao de equipamentos e manutencao, impressora isolada sem hardware(B) nem Service Desk/ITSM/Controle de ativos junto, regra de impressora exclui.",
         "numero_controle_pncp": "00530279000115-2-000025/2023"
       },
       {
@@ -2665,9 +2623,15 @@
         "numero_controle_pncp": "00394494000136-2-001419/2026"
       },
       {
+        "orgao": "COMANDO DO EXERCITO",
+        "objeto": "AQUISIÇÃO DE MATERIAIS DE TIC, CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO: 02 (DUAS) FONTE ALIMENTAÇÃO INITERRUPTA, TIPO DUPLA CONVERSÃO, TIPO ONDA SENOIDAL, NÚMERO DE FASES TRIFÁSICO, CAPACIDADE NOMINAL 40 KVA.",
+        "motivo": "Aquisicao de fontes de alimentacao ininterrupta (nobreak) trifasicas isoladas, sem hardware ou Service Desk/ITSM/Controle de ativos empacotado junto, regra de nobreak exclui.",
+        "numero_controle_pncp": "00394452000103-2-006122/2025"
+      },
+      {
         "orgao": "MINISTERIO DA SAUDE",
         "objeto": "CONTRATAÇÃO DE SERVIÇO COMUM DE LOCAÇÃO (OUTSOURCING) DE IMPRESSORA PLOTTER COM CAPACIDADE DE IMPRESSÃO EM FORMATO A0, INCLUINDO INSTALAÇÃO, CONFIGURAÇÃO, MANUTENÇÃO PREVENTIVA E CORRETIVA, SUPORTE TÉCNICO E FORNECIMENTO DE SUPRIMENTOS DE IMPRESSÃO (CARTUCHO DE TINTA/TINTA/TONER), SEM FORNECIMENTO DE PAPEL, PARA ATENDIMENTO ÀS DEMANDAS DA COORDENAÇÃO-GERAL DE INFRAESTRUTURA PREDIAL",
-        "motivo": "Locacao outsourcing de impressora plotter, nao e computador/monitor nem sustentacao de servidor/storage/datacenter.",
+        "motivo": "Locacao outsourcing de impressora plotter isolada, sem hardware ou Service Desk/ITSM/Controle de ativos empacotado junto, regra de impressoras exclui.",
         "numero_controle_pncp": "00394544000185-2-007838/2026"
       },
       {
@@ -2805,7 +2769,7 @@
       {
         "orgao": "AGENCIA NACIONAL DE TELECOMUNICACOES",
         "objeto": "PRESTAÇÃO DE SUPORTE TÉCNICO ESPECIALIZADO PARA EQUIPAMENTOS E SOFTWARES DA MARCA HUAWEI, QUE COMPÕEM A SOLUÇÃO DE REDE LAN DA ANATEL.",
-        "motivo": "Suporte tecnico para equipamentos e softwares de rede LAN, suporte a equipamento de rede, fora do nucleo servidor/storage/datacenter.",
+        "motivo": "Suporte tecnico para equipamentos e softwares de rede LAN (marca Huawei, modelo de equipamento de rede), suporte a equipamento de rede, fora do nucleo servidor/datacenter.",
         "numero_controle_pncp": "02030715000112-2-000258/2024"
       },
       {
@@ -2823,7 +2787,7 @@
       {
         "orgao": "MINISTERIO DA CIDADANIA",
         "objeto": "CONTRATAÇÃO DE SOLUÇÃO INTEGRADA DE STORAGE, GAVETA DE EXPANSÃO, SWITCH SAN E DISCOS ADICIONAIS, COMPONDO UMA ÚNICA SOLUÇÃO DE TIC, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA",
-        "motivo": "Aquisicao de solucao integrada de storage, switch SAN e discos, aquisicao nova de equipamento, fora do escopo.",
+        "motivo": "Aquisicao de solucao integrada de storage, switch SAN e discos, sem hardware ou mao de obra continua empacotado junto, regra de storage exclui.",
         "numero_controle_pncp": "05526783000165-2-000274/2026"
       },
       {
@@ -2883,37 +2847,37 @@
       {
         "orgao": "CONSELHO FEDERAL DE ODONTOLOGIA",
         "objeto": "Contratação de solução de tecnologia da informação e comunicação consistente no fornecimento da Plataforma CERTILLION, solução de assinatura digital baseada em certificado digital padrão ICP-Brasil, na modalidade Servidor CERTILLION Private Cloud Ilimitado, com fornecimento de suporte técnico e atualizações contínuas, destinada exclusivamente ao Sistema de Prescrição Eletrônica do Conselho Federal de Odontologia).",
-        "motivo": "Plataforma de assinatura digital baseada em certificado ICP-Brasil, certificado digital, fora do escopo.",
+        "motivo": "Plataforma de assinatura digital baseada em certificado ICP-Brasil em private cloud, certificado digital/cloud, fora do escopo.",
         "numero_controle_pncp": "61919643000209-2-000024/2026"
       },
       {
         "orgao": "MINISTERIO DO DESENVOLVIMENTO AGRARIO",
         "objeto": "AQUISIÇÃO DE EQUIPAMENTO (HARDWARE) DO TIPO ENDPOINT DE VIDEOCONFERÊNCIA PARA SALAS MÉDIAS, COM SUPORTE E GARANTIA TÉCNICA POR 36 (TRINTA E SEIS) MESES, ON-SITE, SOB DEMANDA, SEM GARANTIA DE DEMANDA MÍNIMA, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA",
-        "motivo": "Equipamento endpoint de videoconferencia, equipamento multimidia, fora do escopo.",
+        "motivo": "Endpoint de videoconferencia com suporte, equipamento multimidia, categoria excluida.",
         "numero_controle_pncp": "01612452000197-2-000021/2026"
       },
       {
         "orgao": "COMANDO DO EXERCITO",
         "objeto": "SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE\nSERVIÇO DE CONECTIVIDADE SATELITAL.",
-        "motivo": "Servico de conectividade satelital, conectividade, fora do escopo.",
+        "motivo": "Servico de conectividade satelital, conectividade como servico, fora do escopo.",
         "numero_controle_pncp": "00394452000103-2-005726/2026"
       },
       {
         "orgao": "CONSELHO FEDERAL DE MEDICINA VETERINARIA",
         "objeto": "Contratação da prestação de serviços técnicos especializados destinados à implementação do novo Plano de Contas Contábil do Sistema CFMV/CRMVs no sistema Siscont.NET, contemplando análise técnica, parametrização sistêmica, migração e saneamento de dados, relacionamento de contas (de/para), integrações\nsistêmicas, homologação, suporte técnico e capacitação de usuários,",
-        "motivo": "Implementacao de plano de contas em sistema contabil (Siscont.NET), sistema aplicativo, fora do escopo.",
+        "motivo": "Implementacao de plano de contas contabil em sistema aplicativo (Siscont.NET), desenvolvimento/sustentacao de sistema de informacao, fora do escopo.",
         "numero_controle_pncp": "00119784000171-2-000031/2026"
       },
       {
         "orgao": "FUNDACAO CULTURAL PALMARES",
         "objeto": "SERVIÇOS COMUNS DE LICENÇA DE USO PARA UTILIZAÇÃO DE FERRAMENTA DE SELEÇÃO E MONITORAMENTO DE EDITAIS CULTURAIS, NAS CONDIÇÕES",
-        "motivo": "Licenca de ferramenta de selecao/monitoramento de editais, SaaS licenciamento isolado, fora do escopo.",
+        "motivo": "Licenca de ferramenta de selecao/monitoramento de editais culturais, licenciamento isolado, fora do escopo.",
         "numero_controle_pncp": "32901688000177-2-000006/2024"
       },
       {
         "orgao": "CONSELHO REGIONAL DE NUTRICIONISTAS 1 REGIAO",
         "objeto": "O presente instrumento tem por objeto a prestação, pelo BANCO ao CONTRATANTE, dos serviços de pagamentos, recebimentos e gestão financeira para a utilização de soluções de mobilidade urbana por meio de plataforma inteligente de seleção de viagens, com solução complementar para cotação e seleção das melhores condições de deslocamento (corridas de carro privado e táxi) entre os parceiros integrados, por meio do APLICATIVO.",
-        "motivo": "Servicos de pagamento/gestao financeira para mobilidade urbana, nao e TIC.",
+        "motivo": "Servicos de pagamento/gestao financeira para mobilidade urbana via aplicativo, nao e infraestrutura nem hardware de TIC.",
         "numero_controle_pncp": "00581009000133-2-000005/2026"
       },
       {
@@ -2931,7 +2895,7 @@
       {
         "orgao": "SUPERIOR TRIBUNAL DE JUSTICA",
         "objeto": "PRESTAÇÃO DE SERVIÇO TÉCNICO ESPECIALIZADO EM TREINAMENTO E APERFEIÇOAMENTO DE PESSOAL, DE NATUREZA PREDOMINANTEMENTE INTELECTUAL, CONSISTENTE NA REALIZAÇÃO DA AÇÃO INTERNA DE EDUCAÇÃO MESTRADO ACADÊMICO EM INFORMÁTICA.",
-        "motivo": "Treinamento de mestrado academico em informatica, capacitacao, fora do escopo.",
+        "motivo": "Treinamento em mestrado academico em informatica, capacitacao, fora do escopo.",
         "numero_controle_pncp": "00488478000102-2-000021/2025"
       },
       {
@@ -2949,13 +2913,13 @@
       {
         "orgao": "PRESIDENCIA DA REPUBLICA",
         "objeto": "PRESTAÇÃO DE SERVIÇOS CONTÍNUOS PARA FORNECIMENTO DE ACESSO À PLATAFORMA FÓRUM DE CONHECIMENTO JURÍDICO, COMPREENDENDO O ACESSO AOS SEUS MÓDULOS: FÓRUM LIVROS, FÓRUM REVISTAS, FÓRUM INFORMATIVO E A FERRAMENTA DE INTELIGÊNCIA ARTIFICIAL FÓRUM IAH®.",
-        "motivo": "Acesso a plataforma de conhecimento juridico com IA, SaaS, fora do escopo.",
+        "motivo": "Acesso a plataforma de conteudo juridico com ferramenta de IA, SaaS/assinatura de conteudo, fora do escopo.",
         "numero_controle_pncp": "00394411000109-2-000311/2026"
       },
       {
         "orgao": "CONSELHO REGIONAL DE MEDICINA DO DISTRITO FEDERAL",
         "objeto": "Contratação de solução tecnológica integrada de planejamento de compras e contratações governamentais, no modelo de licenciamento de Software como Serviço (SaaS) — plataforma GovPlan —, abrangendo módulos para elaboração, gerenciamento e acompanhamento do Plano de Contratações Anual (PCA), Documento de Formalização de Demanda (DFD), Estudo Técnico Preliminar (ETP) e relatórios gerenciais, incluindo suporte técnico contínuo e atualizações normativas.",
-        "motivo": "Plataforma SaaS de planejamento de compras (GovPlan), licenciamento isolado, fora do escopo.",
+        "motivo": "Plataforma SaaS de planejamento de compras (GovPlan), fora do escopo.",
         "numero_controle_pncp": "03495116000137-2-000007/2026"
       },
       {
@@ -2973,13 +2937,13 @@
       {
         "orgao": "INSTITUTO DO PATRIMONIO HISTORICO E ARTISTICO NACIONAL",
         "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO DE SERVIÇOS DE CONSULTORIA TÉCNICA ESPECIALIZADA PARA APOIO À GESTÃO E QUALIDADE DE TI, POR ALOCAÇÃO DE PERFIL PROFISSIONAL VINCULADO AO ALCANCE DE RESULTADOS, SEM DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA, SOB DEMANDA DE NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA",
-        "motivo": "Consultoria tecnica especializada para gestao e qualidade de TI, consultoria generica, nao e sustentacao de infraestrutura core.",
+        "motivo": "Consultoria tecnica especializada de apoio a gestao e qualidade de TI, consultoria de gestao, nao e sustentacao de infraestrutura servidor/storage/datacenter.",
         "numero_controle_pncp": "26474056000171-2-000193/2025"
       },
       {
         "orgao": "AGENCIA NACIONAL DE AVIACAO CIVIL - ANAC",
         "objeto": "CONTRATAÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS DE SEGURANÇA DA INFORMAÇÃO PARA A IMPLANTAÇÃO DE UM SECURITY OPERATION CENTER - SOC, ENVOLVENDO A PRESTAÇÃO DE SERVIÇOS DE GERENCIAMENTO, MONITORAMENTO, DETECÇÃO E RESPOSTA A INCIDENTES DE SEGURANÇA, DE GESTÃO DE VULNERABILIDADES, DE GESTÃO DE ATIVOS E CONFIGURAÇÃO SEGURA, DE GESTÃO DE CONTA, CONTROLE DE ACESSO E AUDITORIA E DE APOIO À GESTÃO DE SEGURANÇA,",
-        "motivo": "Servicos de seguranca da informacao (SOC), seguranca, fora do escopo.",
+        "motivo": "Security Operation Center (SOC), seguranca da informacao, fora do escopo.",
         "numero_controle_pncp": "07947821000189-2-000062/2025"
       },
       {
@@ -2991,31 +2955,31 @@
       {
         "orgao": "MINISTERIO DOS TRANSPORTES",
         "objeto": "O PRESENTE INSTRUMENTO TEM POR OBJETO A CONTRATAÇÃO DE SERVIÇOS CONTÍNUOS DE ACESSO A TV POR ASSINATURA DIGITAL, COM INSTALAÇÃO, ASSISTÊNCIA TÉCNICA E FORNECIMENTO DE TODOS OS EQUIPAMENTOS (EM REGIME DE COMODATO), NECESSÁRIOS PARA UMA QUANTIDADE ESTIMADA DE 31 (TRINTA E UM) PONTOS DE ACESSO, A SEREM EXECUTADOS NAS DEPENDÊNCIAS DO EDIFÍCIO SEDE E ANEXO DO MINISTÉRIO DOS TRANSPORTES, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Acesso a TV por assinatura digital com equipamentos, nao e TIC.",
+        "motivo": "TV por assinatura digital com equipamentos em comodato, equipamento multimidia, fora do escopo.",
         "numero_controle_pncp": "37115342000167-2-000046/2026"
       },
       {
         "orgao": "AGENCIA ESPACIAL BRASILEIRA - AEB",
         "objeto": "O SERVIÇO VISA FACILITAR A EMISSÃO DE CERTIFICADO DIGITAL PARA AS PESSOAS FÍSICAS REGISTRADAS NO CONTRATANTE, COM A POSSIBILIDADE DE REALIZAR A EMISSÃO DE CERTIFICADOS DIGITAIS DE FORMA SIMPLIFICADA, SENDO DISPENSADA A VALIDAÇÃO PRESENCIAL DO TITULAR.",
-        "motivo": "Emissao de certificado digital, fora do escopo.",
+        "motivo": "Servico de emissao simplificada de certificado digital, fora do escopo.",
         "numero_controle_pncp": "86900545000170-2-000017/2024"
       },
       {
         "orgao": "COMANDO DO EXERCITO",
         "objeto": "CONTRATAÇÃO DE SERVIÇOS COMUNS DE INTERNET E TELEVISÃO POR ASSINATURAS, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Internet e TV por assinatura, conectividade/midia, fora do escopo.",
+        "motivo": "Internet e TV por assinatura, conectividade/multimidia, fora do escopo.",
         "numero_controle_pncp": "00394452000103-2-003946/2024"
       },
       {
         "orgao": "AGENCIA NACIONAL DE MINERACAO",
         "objeto": "ASSINATURA ANUAL DA BASE DE DADOS WEBDEWEY DA ONLINE COMPUTER LIBRARY CENTER (OCLC)",
-        "motivo": "Assinatura de base de dados bibliografica (WebDewey), assinatura de conteudo, nao e TIC.",
+        "motivo": "Assinatura de base de dados (WebDewey/OCLC), assinatura de conteudo, nao e TIC.",
         "numero_controle_pncp": "29406625000130-2-000055/2024"
       },
       {
         "orgao": "SENADO FEDERAL",
         "objeto": "Aquisição de equipamentos, ferramentas, componentes, suprimentos e peças de reposição, para a Secretaria de Comunicação Social do Senado Federal (Item 20).",
-        "motivo": "Aquisicao generica de equipamentos/componentes/suprimentos para comunicacao social, nao especifica computador/monitor.",
+        "motivo": "Aquisicao generica de equipamentos, ferramentas, componentes, suprimentos e pecas, nao especifica computador/monitor.",
         "numero_controle_pncp": "00530279000115-2-000182/2026"
       },
       {
@@ -3027,7 +2991,7 @@
       {
         "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
         "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE ATUALIZAÇÃO E EXPANSÃO DE SOLUÇÃO TECNOLÓGICA INTEGRADA PARA BUSCA INTELIGENTE EM CONTEXTOS, INDEXAÇÃO E ONTOLOGIAS, TRATAMENTO E ANÁLISE DE DADOS COM RECURSOS AVANÇADOS PARA ANÁLISE DE VÍNCULOS, BEM COMO SERVIÇO DE SUPORTE ESPECIALIZADO E CUSTOMIZAÇÕES SOB DEMANDA, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Atualizacao/expansao de solucao de busca inteligente/indexacao/analise de dados, sistema aplicativo, fora do escopo.",
+        "motivo": "Solucao de busca inteligente/indexacao/analise de vinculos com suporte, sistema aplicativo analitico, fora do escopo.",
         "numero_controle_pncp": "00394494000136-2-000435/2024"
       },
       {
@@ -3045,13 +3009,13 @@
       {
         "orgao": "TRIBUNAL SUPERIOR DO TRABALHO",
         "objeto": "CONTRATAÇÃO DE ASSINATURAS DE SOFTWARE DE ORÇAMENTO E GESTÃO DE OBRAS E SERVIÇOS DE ENGENHARIA, INCLUINDO ATUALIZAÇÕES E SUPORTE TÉCNICO POR 12 MESES - CONTRATO PE-047/2026",
-        "motivo": "Assinaturas de software de orcamento/gestao de obras com suporte, licenciamento de software isolado, fora do escopo.",
+        "motivo": "Assinaturas de software de orcamento/gestao de obras de engenharia, licenciamento de software, fora do escopo.",
         "numero_controle_pncp": "00509968000148-2-002504/2026"
       },
       {
         "orgao": "COMANDO DO EXERCITO",
         "objeto": "SERVIÇOS DE MANUTENÇÃO PREVENTIVA E CORRETIVA DAS INSTALAÇÕES E EQUIPAMENTOS DOS SEGUINTES SISTEMAS: HIDROSSANITÁRIOS, DE ÁGUAS PLUVIAIS, ELÉTRICOS DE FORÇA, LUZ E GERAÇÃO DE EMERGÊNCIA, DE REFRIGERAÇÃO (AR CONDICIONADO CENTRAL E DEMAIS TIPOS DE EQUIPAMENTOS), DE PROTEÇÃO CONTRA DESCARGAS ATMOSFÉRICAS, DE PREVENÇÃO E COMBATE A INCÊNDIOS, DE CABEAMENTO ESTRUTURADO (REDE DE DADOS) BEM COMO DE SERVIÇOS EVENTUAIS POR DEMANDA, COM FORNECIMENTO DE PESSOAL, MATERIAIS E EQUIPAMENTOS NECESSÁRIOS À EXECUÇÃO DOS SERVIÇOS, A SEREM REALIZADOS NA ASA SUL, ASA NORTE, CRUZEIRO, SETOR MILITAR URBANO-SMU, VILA RESIDENCIAL DO RCG, QUADRA RESIDENCIAL DOS GENERAIS, SEDE DA PREFEITURA MILITAR DE BRASÍLIA, LAGO SUL E GARAGEM DA PREFEITURA MILITAR DE BRASÍLIA, NOS IMÓVEIS E ÁREAS SOB A ADMINISTRAÇÃO DA PMB.",
-        "motivo": "Manutencao predial ampla (hidrossanitario, eletrico, ar condicionado, cabeamento estruturado), contrato de manutencao predial geral, nao e TIC especifico.",
+        "motivo": "Manutencao predial geral (hidrossanitario, eletrico, ar condicionado, cabeamento estruturado entre outros sistemas), manutencao predial ampla, nao e sustentacao de infraestrutura TIC especifica.",
         "numero_controle_pncp": "00394452000103-2-017123/2023"
       },
       {
@@ -3063,7 +3027,7 @@
       {
         "orgao": "CONSELHO FEDERAL DE MEDICINA VETERINARIA",
         "objeto": "Contratação de serviço contínuo de atualização e manutenção de licenças do software ScriptCase Enterprise Full (usuários ilimitados), com suporte técnico Ouro, conforme as especificações, condições e exigências estabelecidas no Termo de Referência e no Estudo Técnico Preliminar.",
-        "motivo": "Atualizacao e manutencao de licencas de software (ScriptCase) com suporte, licenciamento isolado, fora do escopo.",
+        "motivo": "Atualizacao e manutencao de licencas de software ScriptCase com suporte, licenciamento de software, fora do escopo.",
         "numero_controle_pncp": "00119784000171-2-000032/2026"
       },
       {
@@ -3075,7 +3039,7 @@
       {
         "orgao": "MINISTERIO DA EDUCACAO",
         "objeto": "SOLUÇÃO ENTERPRISE LINUX E SERVIDORES DE APLICAÇÃO, INCLUINDO SUPORTE TÉCNICO OFICIAL DO FABRICANTE E CONSULTORIA ESPECIALIZADA, CONFORME CONDIÇÕES, QUANTIDADES E EXIGÊNCIAS ESTABELECIDAS NESTE INSTRUMENTO E EM SEUS ANEXOS.",
-        "motivo": "Solucao Enterprise Linux e servidores de aplicacao com suporte e consultoria, licenciamento de software, fora do escopo.",
+        "motivo": "Solucao Enterprise Linux (subscricao) com suporte tecnico do fabricante e consultoria, licenciamento de software, fora do escopo.",
         "numero_controle_pncp": "00394445000101-2-000050/2023"
       },
       {
@@ -3087,79 +3051,79 @@
       {
         "orgao": "MINISTERIO PUBLICO DA UNIAO",
         "objeto": "Contratação de empresa especializada na prestação de serviços comuns de treinamentos Fortinet para membros da Equipe de Prevenção, Tratamento e Resposta a Incidentes Cibernéticos do MPT, visando o desenvolvimento de competências técnicas essenciais em administração, análise e gestão de soluções Fortinet para segurança da informação institucional.",
-        "motivo": "Treinamentos Fortinet para equipe de seguranca, treinamento/seguranca, fora do escopo.",
+        "motivo": "Treinamento Fortinet para equipe de resposta a incidentes, capacitacao, fora do escopo.",
         "numero_controle_pncp": "26989715000102-2-001598/2026"
       },
       {
         "orgao": "TRIBUNAL SUPERIOR ELEITORAL",
         "objeto": "PRESTAÇÃO DE SERVIÇO DE PROCESSAMENTO DE BANCO DE DADOS ORACLE EM NÚVEM PRIVADA NA PLATAFORMA EXADATA CLOUD AT CUSTOMER EM DOIS EQUIPAMENTOS, SENDO UM X9M OU SUPERIOR, COM 8 DB NODES E 8 STORAGE NODES E OUTRO X9M OU SUPERIOR, COM 4 DB NODES E 4 STORAGE NODES, INCLUINDO A INSTALAÇÃO DOS MESMOS, CRÉDITOS EM NUVEM PARA PROCESSAMENTO DE BANCO DE DADOS EM 350 (OCPU) EM MÉDIA (ORACLE PAAS AND IAAS UNIVERSAL CREDITS) E SERVIÇOS DE SUPORTE AVANÇADO ORACLE ACS(ADVANCED CUSTOMER SERVICES), PELO PERÍODO DE 48 MESES, DE ACORDO COM AS ESPECIFICAÇÕES TÉCNICAS QUE CONSTAM DO TERMO DE REFERÊNCIA E SEUS ANEXOS E PEDIDOS DE COMPRA CPQ – 3020313 E BR-14959191 DA CONTRATADA.",
-        "motivo": "Processamento de banco de dados Oracle em nuvem privada com creditos de nuvem, cloud/IaaS, fora do escopo.",
+        "motivo": "Processamento de banco de dados Oracle em nuvem privada (Exadata Cloud at Customer) com creditos em nuvem, cloud/IaaS, fora do escopo.",
         "numero_controle_pncp": "00509018000113-2-000280/2023"
       },
       {
         "orgao": "PRESIDENCIA DA REPUBLICA",
         "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO COMPOSTA POR SERVIÇOS TÉCNICOS ESPECIALIZADOS DE SUSTENTAÇÃO, DESENVOLVIMENTO, TESTES, QUALIDADE E MÉTRICAS DE SOFTWARE, PARA ATENDIMENTO DAS NECESSIDADES DA IMPRENSA NACIONAL, SEM DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA, SOB DEMANDA, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA NO DOC SEI 7526089 E 7526091",
-        "motivo": "Sustentacao, desenvolvimento, testes e qualidade de software, desenvolvimento de sistema de informacao, fora do escopo.",
+        "motivo": "Sustentacao, desenvolvimento, testes e metricas de software, desenvolvimento de sistema de informacao, fora do escopo.",
         "numero_controle_pncp": "00394411000109-2-000332/2026"
       },
       {
         "orgao": "MINISTERIO PUBLICO DA UNIAO",
         "objeto": "Serviços de tratamento de acervo documental e gestão da informação dos documentos das áreas administrativa e finalística das unidades do Ministério Público Federal – MPF.",
-        "motivo": "Tratamento de acervo documental e gestao da informacao, gestao documental, nao e infraestrutura nem hardware.",
+        "motivo": "Tratamento de acervo documental e gestao da informacao, gestao documental, fora do escopo.",
         "numero_controle_pncp": "26989715000102-2-001584/2026"
       },
       {
         "orgao": "CONSELHO FEDERAL DE FISIOTERAPIA E TERAPIA OCUPACIONAL",
         "objeto": "ontratação de empresa especializada para disponibilização de 08 (oito) assinaturas Premium da plataforma corporativa de capacitação em Tecnologia da Informação da 4Linux, pelo período de 12 (doze) meses, destinadas aos empregados do Setor de Tecnologia da Informação – SETIN do Conselho Federal de Fisioterapia e Terapia Ocupacional – COFFITO, com acesso a conteúdos, trilhas de aprendizagem, atividades práticas, laboratórios, recursos tecnológicos e demais funcionalidades integrantes da solução, abrangendo áreas relacionadas à administração de sistemas, computação em nuvem, DevOps, contêineres, segurança da informação, banco de dados, programação, monitoramento, observabilidade e demais temas pertinentes à atuação da equipe de Tecnologia da Informação",
-        "motivo": "Assinaturas de plataforma de capacitacao em TI (4Linux), treinamento, fora do escopo.",
+        "motivo": "Assinaturas de plataforma de capacitacao em TI (4Linux), treinamento/SaaS, fora do escopo.",
         "numero_controle_pncp": "00487140000136-2-000075/2026"
       },
       {
         "orgao": "AGENCIA NACIONAL DE TELECOMUNICACOES",
         "objeto": "CONTRATAÇÃO DE SERVIÇO DE SUPORTE TÉCNICO ESPECIALIZADO NÍVEL 3 DE APOIO AO PROCESSO DE SEGURANÇA DA INFORMAÇÃO COM ATENDIMENTO REMOTO PARA A AGÊNCIA NACIONAL DE TELECOMUNICAÇÕES NAS CONDIÇÕES ESTABELECIDAS NESTE CONTRATO E NO TERMO DE REFERÊNCIA.",
-        "motivo": "Suporte tecnico especializado nivel 3 de apoio a seguranca da informacao, seguranca, fora do escopo.",
+        "motivo": "Suporte tecnico especializado remoto para processo de seguranca da informacao, seguranca, fora do escopo.",
         "numero_controle_pncp": "02030715000112-2-000122/2026"
       },
       {
         "orgao": "MINISTERIO DA FAZENDA",
         "objeto": "AQUISIÇÃO DE EQUIPAMENTOS DE DIGITALIZAÇÃO DE DOCUMENTOS (SCANNERS) PARA ÁREA DE ATENDIMENTO AO CONTRIBUINTE, PROVENIENTE DA ATA DE REGISTRO DE PREÇOS Nº 1/2025, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Aquisicao de scanners de digitalizacao, periferico, nao e computador/monitor.",
+        "motivo": "Aquisicao de scanners, periferico, fora da lista de hardware elegivel (desktop/notebook/estacao de trabalho/monitor).",
         "numero_controle_pncp": "00394460000141-2-000602/2026"
       },
       {
         "orgao": "CAMARA DOS DEPUTADOS",
         "objeto": "Fornecimento de licenças de software de Inteligência Artificial – IA, Midjourney, para\nuso na geração de imagens.",
-        "motivo": "Licenca de software de IA generativa de imagens (Midjourney), SaaS licenciamento isolado, fora do escopo.",
+        "motivo": "Licencas de software Midjourney (IA geracao de imagens), SaaS licenciamento isolado, fora do escopo.",
         "numero_controle_pncp": "00530352000159-2-000160/2026"
       },
       {
         "orgao": "MINISTERIO PUBLICO DA UNIAO",
         "objeto": "contratação de certificados digitais do tipo A3 pessoa física (e-CPF) em nuvem, para colaboradores da Escola Superior do Ministério Público da União - ESMPU; do tipo A3 pessoa jurídica (e-CNPJ) em nuvem, para transações institucionais; do tipo A1 pessoa jurídica (e-CNPJ), com armazenamento local, para transações institucionais; do tipo A1 pessoa física (e-CPF), com armazenamento local, para transações institucionais; e certificado digital wildcard ssl para servidor, com armazenamento local, para transações institucionais.",
-        "motivo": "Certificados digitais A1/A3 e wildcard SSL, fora do escopo.",
+        "motivo": "Certificados digitais diversos (A3/A1), fora do escopo.",
         "numero_controle_pncp": "26989715000102-2-001458/2024"
       },
       {
         "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
         "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DA RENOVAÇÃO DE LICENÇA - SOLUÇÃO PARA DESBLOQUEIO, EXTRAÇÃO AVANÇADA COM CAPACIDADE DE ENRIQUECIMENTO DE DADOS DE NUVEM, GERAÇÃO E COMPARTILHAMENTO DE RELATÓRIOS - COM SUPORTE TÉCNICO E ATUALIZAÇÃO TECNOLÓGICA POR 12 (DOZE) MESES, NOS TERMOS DA TABELA ABAIXO, CONFORME CONDIÇÕES E EXIGÊNCIAS ESTABELECIDAS NO TERMO DE REFERÊNCIA (30133256).",
-        "motivo": "Renovacao de licenca de solucao forense de extracao de dados, licenciamento de software isolado, fora do escopo.",
+        "motivo": "Renovacao de licenca de solucao forense de extracao de dados com suporte, licenciamento de software, fora do escopo.",
         "numero_controle_pncp": "00394494000136-2-000784/2026"
       },
       {
         "orgao": "MINISTERIO PUBLICO DA UNIAO",
         "objeto": "Contratação de empresa especializada para a prestação de serviço tecnicamente qualificado de Sustentação, Evolução e Treinamento do software MentoRH",
-        "motivo": "Sustentacao, evolucao e treinamento de software (MentoRH), desenvolvimento de sistema aplicativo, fora do escopo.",
+        "motivo": "Sustentacao, evolucao e treinamento do software MentoRH, desenvolvimento de sistema de informacao, fora do escopo.",
         "numero_controle_pncp": "26989715000102-2-000293/2025"
       },
       {
         "orgao": "PRESIDENCIA DA REPUBLICA",
         "objeto": "EMISSAO DE NE CONFORME AUT DO ORDENADOR 7775841, ATA DE REGISTRO DE PRECOS Nº 02/2026, COM RECURSO DESCENTRALIZADO PELA PRESIDENCIA DA REPUBLICA, EM DECORRENCIA DOS SERVICOS GRAFICOS PRESTADOS PELA IMPRENSA NACIONAL",
-        "motivo": "Servicos graficos da Imprensa Nacional, nao e TIC.",
+        "motivo": "Emissao de nota de empenho para servicos graficos, nao e TIC.",
         "numero_controle_pncp": "00394411000109-2-000369/2026"
       },
       {
         "orgao": "AGENCIA ESPACIAL BRASILEIRA - AEB",
         "objeto": "CONTRATAÇÃO DE SERVIÇO CONTINUADO DE ACESSO À INTERNET BANDA LARGA POR MEIO DE FIBRA ÓPTICA, INCLUINDO A INSTALAÇÃO DA INFRAESTRUTURA NECESSÁRIA, DISPONIBILIZAÇÃO DE REDE WI-FI, FORNECIMENTO DOS EQUIPAMENTOS NECESSÁRIOS EM REGIME DE COMODATO, SUPORTE TÉCNICO E MANUTENÇÃO DURANTE TODA A VIGÊNCIA CONTRATUAL, PARA ATENDIMENTO DA CASA DE APOIO DA AGÊNCIA ESPACIAL BRASILEIRA (AEB), LOCALIZADA EM ALCÂNTARA/MA.",
-        "motivo": "Acesso a internet banda larga por fibra com Wi-Fi e equipamentos em comodato, conectividade, fora do escopo.",
+        "motivo": "Acesso a internet banda larga com equipamentos em comodato, conectividade como servico, fora do escopo.",
         "numero_controle_pncp": "86900545000170-2-000023/2026"
       },
       {
@@ -3177,7 +3141,7 @@
       {
         "orgao": "CONSELHO FEDERAL DE FARMACIA",
         "objeto": "Valor empenhado para pagamento de renovação de contrato referente ao 2º Termo Aditivo, pela contratação de licença de uso de software especificamente voltado para a gestão e fiscalização de contratos realizados pela Administração Pública - ContratosGov, de forma a facilitar a Gestão e Fiscalização dos Contratos do Conselho Federal de Farmácia.",
-        "motivo": "Licenca de software de gestao/fiscalizacao de contratos (ContratosGov), licenciamento isolado, fora do escopo.",
+        "motivo": "Licenca de software de gestao/fiscalizacao de contratos (ContratosGov), licenciamento de sistema aplicativo, fora do escopo.",
         "numero_controle_pncp": "60984473000100-2-000124/2026"
       },
       {
@@ -3189,31 +3153,31 @@
       {
         "orgao": "MINISTERIO PUBLICO DA UNIAO",
         "objeto": "Contratação de empresa especializada no fornecimento de bibliotecas de fitas (tape libraries) e de fitas LTO para a solução de backup corporativo do Ministério Público do Trabalho, com prestação de serviços associados de garantia e suporte técnico, de acordo com as especificações, condições e quantidades estabelecidas no Termo de Referência.",
-        "motivo": "Bibliotecas de fitas e fitas LTO para solucao de backup isolada (sem Service Desk/ITSM/Controle de ativos/Chatbot IA empacotado junto), regra de backup exclui.",
+        "motivo": "Bibliotecas de fitas (tape libraries) para solucao de backup isolada, sem Service Desk/ITSM/Controle de ativos/Chatbot IA empacotado junto, regra de backup exclui.",
         "numero_controle_pncp": "26989715000102-2-001686/2026"
       },
       {
         "orgao": "SENADO FEDERAL",
         "objeto": "Subscrição de 90 (noventa) licenças do software de gestão jurídica CPJ-3C acrescido de serviços associados às assinaturas, para utilização pela Advocacia do Senado Federal (ADVOSF), além de treinamentos iniciais para uso da plataforma e migração inicial dos dados, durante 12 (doze) meses consecutivos.",
-        "motivo": "Licencas de software de gestao juridica (CPJ-3C) com treinamento, licenciamento isolado, fora do escopo.",
+        "motivo": "Licencas de software de gestao juridica (CPJ-3C) com treinamento, licenciamento de sistema aplicativo, fora do escopo.",
         "numero_controle_pncp": "00530279000115-2-000190/2026"
       },
       {
         "orgao": "CONSELHO FEDERAL DE FARMACIA",
         "objeto": "DF Consultoria Engenharia e Treinamento Ltda., Empenho para atender ao pagamento referente à renovação do Contrato nº 17/2023, que possui uma vigência contratual de 22/08/2025 a 21/08/2026. Processo SEI nº 24.0.000010475-9, relativo ao 3º Termo Aditivo ao contrato - período de 22/08/2026 a 21/08/2027.",
-        "motivo": "Renovacao de contrato de consultoria/engenharia/treinamento, nao especifica sustentacao de infraestrutura nem hardware.",
+        "motivo": "Renovacao de contrato de consultoria/engenharia/treinamento generico, nao especifica infraestrutura de TIC nem hardware.",
         "numero_controle_pncp": "60984473000100-2-000117/2026"
       },
       {
         "orgao": "CONTROLADORIA-GERAL DA UNIAO",
         "objeto": "CONTRATAÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS DE OPERAÇÃO, MODELAGEM E IMPLANTAÇÃO DE FUNCIONALIDADES DO SOFTWARE DE GERENCIAMENTO DE SERVIÇOS ITSM, A SEREM EXECUTADOS COM REGIME DE DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Operacao, modelagem e implantacao de funcionalidades de software ITSM, sistema aplicativo isolado, fora do escopo.",
+        "motivo": "Operacao, modelagem e implantacao de funcionalidades de software ITSM, ITSM como produto/sistema isolado, fora do escopo.",
         "numero_controle_pncp": "26664015000148-2-000020/2026"
       },
       {
         "orgao": "BANCO CENTRAL DO BRASIL",
         "objeto": "CONTRATAÇÃO DE SERVIÇOS DE CONSCIENTIZAÇÃO E TREINAMENTO EM SEGURANÇA DA INFORMAÇÃO E LGPD BRASILEIRA JUNTO AOS USUÁRIOS INTERNOS DO BANCO CENTRAL DO BRASIL",
-        "motivo": "Conscientizacao e treinamento em seguranca da informacao e LGPD, treinamento, fora do escopo.",
+        "motivo": "Conscientizacao e treinamento em seguranca da informacao/LGPD, capacitacao, fora do escopo.",
         "numero_controle_pncp": "00038166000105-2-000143/2025"
       },
       {
@@ -3225,7 +3189,7 @@
       {
         "orgao": "CONSELHO FEDERAL DE FARMACIA",
         "objeto": "Contratação de empresa especializada no fornecimento de solução integrada de serviços gerenciados de segurança (Managed Security Services - MSS) que deverão englobar provimento de equipamentos (hardware), software, serviços de segurança gerenciada em regime 24X7, monitoramento, gestão de vulnerabilidades, resposta a incidentes de segurança, migração dos serviços de maneira transparente (sem interrupções) e transferência de conhecimento para a equipe técnica do Conselho Federal de Farmácia - CFF.",
-        "motivo": "Servicos gerenciados de seguranca (MSS) com monitoramento 24x7 e gestao de vulnerabilidades, seguranca, fora do escopo mesmo incluindo hardware no pacote.",
+        "motivo": "Servicos gerenciados de seguranca (MSS 24x7) com hardware/software de seguranca, seguranca da informacao, fora do escopo mesmo incluindo equipamentos.",
         "numero_controle_pncp": "60984473000100-2-000112/2026"
       },
       {
@@ -3237,13 +3201,13 @@
       {
         "orgao": "AGENCIA ESPACIAL BRASILEIRA - AEB",
         "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO PARA ATENDIMENTO DAS NECESSIDADES DA COORDENAÇÃO DE SATÉLITES E APLICAÇÕES (CSA) DA AGÊNCIA ESPACIAL BRASILEIRA (AEB), COMPREENDENDO IMPRESSORA 3D BASEADA NA TECNOLOGIA DE MODELAGEM POR DEPOSIÇÃO FUNDIDA (FDM), SISTEMA AUTOMATIZADO MULTIFILAMENTOS, ACESSÓRIOS E EQUIPAMENTOS AUXILIARES.",
-        "motivo": "Impressora 3D e sistema multifilamentos, equipamento especializado, nao e computador/monitor nem sustentacao de infraestrutura.",
+        "motivo": "Impressora 3D e sistema multifilamentos isolados, sem hardware ou Service Desk/ITSM/Controle de ativos empacotado junto, regra de impressoras exclui.",
         "numero_controle_pncp": "86900545000170-2-000025/2026"
       },
       {
         "orgao": "CONSELHO FEDERAL DE ENGENHARIA E AGRONOMIA",
         "objeto": "O objeto é a contratação de solução de tecnologia da informação e comunicação de MODERNIZAÇÃO DOS PROCESSOS DE GESTÃO DOCUMENTAL, ABRANGENDO A GUARDA, ORGANIZAÇÃO E TRATAMENTO DE DOCUMENTOS FÍSICOS E DIGITAIS, BEM COMO A CONVERSÃO DE DOCUMENTOS FÍSICOS EM FORMATO DIGITAL, EM CONFORMIDADE COM A LEGISLAÇÃO E NORMATIZAÇÃO VIGENTE, com o suporte de infraestrutura física e tecnológica, além da disponibilização de insumos, equipamentos e mão de obra especializada, nas condições estabelecidas no Termo de Referência.",
-        "motivo": "Modernizacao de gestao documental (guarda/digitalizacao de documentos), nao e sustentacao de infraestrutura nem hardware.",
+        "motivo": "Modernizacao de gestao documental com mao de obra especializada, gestao documental, nao e sustentacao de infraestrutura nem hardware.",
         "numero_controle_pncp": "33665647000191-2-000009/2026"
       },
       {
@@ -3255,55 +3219,61 @@
       {
         "orgao": "PRESIDENCIA DA REPUBLICA",
         "objeto": "ATUALIZAÇÃO DAS LICENÇAS DO SISTEMA DE GERENCIAMENTO DOS ATIVOS DE REDE, FORNECIMENTO DE MÓDULO DE ANÁLISE DE DADOS E PRESTAÇÃO DE SERVIÇO DE SUPORTE TÉCNICO ESPECIALIZADO NOS ATIVOS DE REDE DA PRESIDÊNCIA DA REPÚBLICA",
-        "motivo": "Atualizacao de licencas de sistema de gerenciamento de ativos de rede com suporte, licenciamento de sistema, fora do escopo.",
+        "motivo": "Atualizacao de licencas de sistema de gerenciamento de ativos de rede com modulo de analise e suporte, licenciamento de software, fora do escopo.",
         "numero_controle_pncp": "00394411000109-2-000360/2025"
       },
       {
         "orgao": "CONSELHO ADMINISTRATIVO DE DEFESA ECONOMICA-CADE",
         "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SERVIÇOS NÃO CONTÍNUOS DE FORNECIMENTO DE UMA FERRAMENTA DE INTELIGÊNCIA DE MERCADO BASEADA EM INTELIGÊNCIA ARTIFICIAL E CIÊNCIA DE DADOS, PROJETADA PARA MONITORAR PREÇOS, SORTIMENTO E ATRIBUTOS DE PRODUTOS NO E-COMMERCE, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Ferramenta de inteligencia de mercado baseada em IA, SaaS/ferramenta analitica, fora do escopo.",
+        "motivo": "Ferramenta de inteligencia de mercado baseada em IA/ciencia de dados, SaaS/ferramenta analitica, fora do escopo.",
         "numero_controle_pncp": "00418993000116-2-000029/2026"
       },
       {
         "orgao": "AGENCIA NACIONAL DE TRANSPORTES TERRESTRES - ANTT",
         "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SOLUÇÃO DE COMUNICAÇÃO DE REDE DE DADOS E LINK DE INTERNET, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Solucao de comunicacao de rede de dados e link de internet, conectividade, fora do escopo.",
+        "motivo": "Solucao de comunicacao de rede de dados e link de internet, conectividade como servico, fora do escopo.",
         "numero_controle_pncp": "04898488000177-2-000044/2026"
       },
       {
         "orgao": "MINISTERIO PUBLICO DA UNIAO",
         "objeto": "Contratação de empresa especializada para fornecimento de cessão temporária de direito de uso de licenças de software em modelo SaaS — Software as a Service, com assinatura anual, dos sistemas Miro, plano Business, e Mentimeter, plano Pro, a fim de atender às necessidades de planejamento acadêmico, facilitação pedagógica, colaboração em tempo real e interação com participantes em ações formativas presenciais, híbridas e remotas promovidas pela Escola Superior do Ministério Público da União — ESMPU, conforme condições, quantidades e exigências estabelecidas no Termo de Referência.",
-        "motivo": "Licencas SaaS (Miro, Mentimeter), licenciamento isolado, fora do escopo.",
+        "motivo": "Licencas SaaS (Miro, Mentimeter), fora do escopo.",
         "numero_controle_pncp": "26989715000102-2-001812/2026"
       },
       {
         "orgao": "EMPRESA BRASILEIRA DE PESQUISA AGROPECUARIA",
         "objeto": "PRESTAÇÃO DE SERVIÇOS DE SUPORTE, MANUTENÇÃO E SUSTENTAÇÃO DA SOLUÇÃO ERP, SAP S/4HANA PARA A EMPRESA BRASILEIRA DE PESQUISA AGROPECUÁRIA - EMBRAPA (LOTE 2).",
-        "motivo": "Suporte, manutencao e sustentacao de ERP SAP S/4HANA, sistema aplicativo, fora do escopo.",
+        "motivo": "Suporte, manutencao e sustentacao de ERP (SAP S/4HANA), sistema aplicativo, fora do escopo.",
         "numero_controle_pncp": "00348003000110-2-000004/2025"
+      },
+      {
+        "orgao": "MINISTERIO DO DESENVOLVIMENTO REGIONAL",
+        "objeto": "CONTRATAÇÃO DE AQUISIÇÃO DE BATERIAS, RETIFICADORES E MÓDULOS SUPERVISORES NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.\nITEM 3 - ESPECIFICAÇÃO: BATERIA ESTACIONÁRIA DE ALTA CAPACIDADE - SISTEMA ELETROQUÍMICO - OBRIGATÓRIO:- CHUMBO-ÁCIDO SELADO - TENSÃO NOMINAL: 2 V - CAPACIDADE NOMINAL - OBRIGATÓRIO: 200 AH.",
+        "motivo": "Aquisicao de baterias, retificadores e modulos supervisores para UPS/nobreak isolados, sem hardware ou Service Desk/ITSM/Controle de ativos empacotado junto, regra de nobreak exclui.",
+        "numero_controle_pncp": "03353358000196-2-000192/2026"
       },
       {
         "orgao": "FUND COORD DE APERFEICOAMENTO DE PESSOAL DE NIVEL SUP",
         "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE EMISSÃO DE CERTIFICADOS DIGITAIS (CERTIFICADO DIGITAL A1 - SERVIDOR), PARA CONEXÃO COM O SIAFI E SERPRO, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA",
-        "motivo": "Emissao de certificado digital A1-servidor, certificado digital, fora do escopo.",
+        "motivo": "Emissao de certificados digitais A1 servidor, fora do escopo.",
         "numero_controle_pncp": "00889834000108-2-000017/2023"
       },
       {
         "orgao": "MINISTERIO PUBLICO DA UNIAO",
         "objeto": "Contratação de empresa especializada para fornecimento de assinatura do aplicativo Magnific (anteriormente Freepik) Plano Business, pelo período de 12 (doze) meses, a fim de atender às necessidades de edição de vídeos por celular (mobile video editing) e de produção de imagens, vídeos e áudio com o uso de recursos de Inteligência Artificial (IA), conforme condições, quantidades e exigências estabelecidas neste instrumento.",
-        "motivo": "Assinatura de aplicativo de edicao de video/imagem com IA (Magnific/Freepik), SaaS, fora do escopo.",
+        "motivo": "Assinatura de aplicativo Magnific/Freepik (IA), SaaS, fora do escopo.",
         "numero_controle_pncp": "26989715000102-2-001813/2026"
       },
       {
         "orgao": "MINISTERIO PUBLICO DA UNIAO",
         "objeto": "O objeto do presente instrumento é contratação de empresa especializada para fornecimento de assinaturas do aplicativo CapCut Pro, pelo período de 12 (doze) meses, a fim de atender às necessidades de edição de vídeos por celular (mobile video editing) e de produção de imagens, vídeos e áudio com o uso de recursos de Inteligência Artificial (IA), conforme condições, quantidades e exigências estabelecidas neste instrumento.",
-        "motivo": "Assinatura de aplicativo de edicao de video (CapCut Pro), SaaS, fora do escopo.",
+        "motivo": "Assinatura de aplicativo CapCut Pro, SaaS, fora do escopo.",
         "numero_controle_pncp": "26989715000102-2-001690/2026"
       },
       {
         "orgao": "MINISTERIO DA AGRICULTURA, PECUARIA E ABASTECIMENTO",
         "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE LICENÇAS PARA USO DE FERRAMENTA AUTORAL DE CRIAÇÃO DE E-LEARNING (APRENDIZAGEM ELETRÔNICA), PELO PERÍODO DE 12 (DOZE) MESES, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Licencas de ferramenta autoral de criacao de e-learning, SaaS licenciamento isolado, fora do escopo.",
+        "motivo": "Licencas de ferramenta autoral de e-learning, SaaS/licenciamento isolado, fora do escopo.",
         "numero_controle_pncp": "00396895000125-2-000647/2026"
       },
       {
@@ -3315,55 +3285,55 @@
       {
         "orgao": "MINISTERIO DOS TRANSPORTES",
         "objeto": "ONTRATAÇÃO DE EMPRESA ESPECIALIZADA POR MEIO DO SISTEMA DE REGISTRO DE PREÇOS (SRP), PARA O FORNECIMENTO DE SUBSCRIÇÃO DE LICENÇAS DE SOFTWARE, APLICATIVOS, SISTEMAS OPERACIONAIS E SERVIÇOS ASSOCIADOS DO FABRICANTE MICROSOFT, DESTINADOS AO ATENDIMENTO DAS NECESSIDADES DO MINISTÉRIO DOS TRANSPORTES",
-        "motivo": "Subscricao de licencas de software e sistemas operacionais Microsoft, licenciamento isolado, fora do escopo.",
+        "motivo": "Subscricao de licencas Microsoft, licenciamento isolado, fora do escopo.",
         "numero_controle_pncp": "37115342000167-2-000056/2026"
       },
       {
         "orgao": "MINISTERIO PUBLICO DA UNIAO",
         "objeto": "Contratação de empresa especializada no fornecimento de bibliotecas de fitas (tape libraries) para a solução de backup corporativo do Ministério Público do Trabalho, com prestação de serviços associados de garantia e suporte técnico, de acordo com as especificações, condições e quantidades estabelecidas no Termo de Referência e nos documentos constantes no processo PGEA 20.02.0001.0006352/2026-80",
-        "motivo": "Bibliotecas de fitas para solucao de backup isolada (sem Service Desk/ITSM/Controle de ativos/Chatbot IA empacotado junto), regra de backup exclui.",
+        "motivo": "Bibliotecas de fitas (tape libraries) para solucao de backup isolada, sem Service Desk/ITSM/Controle de ativos/Chatbot IA empacotado junto, regra de backup exclui.",
         "numero_controle_pncp": "26989715000102-2-001711/2026"
       },
       {
         "orgao": "AGENCIA NACIONAL DE AVIACAO CIVIL - ANAC",
         "objeto": "AQUISIÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE VIDEOCONFERÊNCIA CORPORATIVA, INCLUINDO EQUIPAMENTOS ENDPOINT, INSTALAÇÃO E GARANTIA.",
-        "motivo": "Solucao de videoconferencia corporativa com equipamentos endpoint, equipamento multimidia, fora do escopo.",
+        "motivo": "Solucao de videoconferencia corporativa com equipamentos endpoint, equipamento multimidia, categoria excluida.",
         "numero_controle_pncp": "07947821000189-2-000091/2026"
       },
       {
         "orgao": "MINISTERIO PUBLICO DA UNIAO",
         "objeto": "Contratação de licenciamento por subscrição do software MySQL Enterprise Edition (1-4 socket) com direitos de atualização e suporte técnico do fabricante do produto, nas  condições estabelecidas neste instrumento e no edital e seus anexos, em especial no Termo de Referência",
-        "motivo": "Licenciamento de software MySQL Enterprise com suporte, licenciamento de software isolado, fora do escopo.",
+        "motivo": "Licenciamento de software de banco de dados (MySQL Enterprise) com suporte, licenciamento de software, fora do escopo.",
         "numero_controle_pncp": "26989715000102-2-002222/2025"
       },
       {
         "orgao": "MINISTERIO DE PORTOS E AEROPORTOS",
         "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA POR MEIO DO SISTEMA DE REGISTRO DE PREÇOS (SRP), PARA O FORNECIMENTO DE SUBSCRIÇÃO DE LICENÇAS DE SOFTWARE, APLICATIVOS, SISTEMAS OPERACIONAIS E SERVIÇOS ASSOCIADOS DO FABRICANTE MICROSOFT, DESTINADOS AO ATENDIMENTO DAS NECESSIDADES DO MINISTÉRIO DE PORTOS E AEROPORTOS",
-        "motivo": "Subscricao de licencas de software Microsoft, licenciamento isolado, fora do escopo.",
+        "motivo": "Subscricao de licencas Microsoft, licenciamento isolado, fora do escopo.",
         "numero_controle_pncp": "49582441000138-2-000046/2026"
       },
       {
         "orgao": "SENADO FEDERAL",
         "objeto": "Contratação de Solução de videoconferência para reuniões legislativas remotas realizadas pela Secretaria Geral da Mesa (SGM) e realização de atividades educacionais pelo Instituto Legislativo do Brasil (ILB),",
-        "motivo": "Solucao de videoconferencia para reunioes legislativas, equipamento multimidia, fora do escopo.",
+        "motivo": "Solucao de videoconferencia, equipamento multimidia, categoria excluida.",
         "numero_controle_pncp": "00530279000115-2-000194/2026"
       },
       {
         "orgao": "TRIBUNAL DE JUSTICA DO DISTRITO FEDERAL E DOS TERRITORIOS",
         "objeto": "PRESTAÇÃO DE SERVIÇOS DE SUPORTE TÉCNICO  E DE ATUALIZAÇÃO DE LICENÇAS QUE CONSISTEM NO FORNECIMENTO DAS ALTERAÇÕES CORRETIVAS QUE FOREM NECESSÁRIAS AO FUNCIONAMENTO DOS SOFTWARES CONTRATADOS E NA PRESTAÇÃO DE APOIO, VISANDO À RESOLUÇÃO DE PROBLEMAS E DÚVIDAS QUANTO AO FUNCIONAMENTO DOS PROGRAMAS, BEM COMO DAS ALTERAÇÕES EVOLUTIVAS REPRESENTADAS POR NOVAS VERSÕES DISPONIBILIZADOS PELA ORACLE",
-        "motivo": "Suporte tecnico e atualizacao de licencas de softwares Oracle, licenciamento de software isolado, fora do escopo.",
+        "motivo": "Suporte tecnico e atualizacao de licencas de software Oracle, licenciamento de software, fora do escopo.",
         "numero_controle_pncp": "00531954000120-2-000099/2024"
       },
       {
         "orgao": "MINISTERIO DA JUSTICA E SEGURANCA PUBLICA",
         "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É À CONTRATAÇÃO DE \"EMPRESA ESPECIALIZADA NA PRESTAÇÃO DE SERVIÇOS DE MANUTENÇÃO PREVENTIVA E CORRETIVA, SUPORTE TÉCNICO, COM FORNECIMENTO DE PEÇAS, EQUIPAMENTOS E INSUMOS, PARA EQUIPAMENTOS DA MARCA HENRY, MODELO PRIMME SF ACESSO\", PARA ATENDER AS DEMANDAS DA DIRETORIA DE OPERAÇÕES INTEGRADAS E DE INTELIGÊNCIA, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA (32183463).",
-        "motivo": "Manutencao e suporte de equipamentos de controle de acesso/biometria (marca Henry), nao e servidor/storage/datacenter nem hardware elegivel.",
+        "motivo": "Manutencao e suporte para equipamentos marca Henry modelo Primme SF Acesso (terminal de controle de acesso/ponto biometrico), nao e impressora/storage/nobreak/hardware elegivel.",
         "numero_controle_pncp": "00394494000136-2-001862/2025"
       },
       {
         "orgao": "CONSELHO FEDERAL DE FARMACIA",
         "objeto": "Moura Lima e Siqueira Advogados Associados - Empenho referente à vigência 29/08/2026 a 28/08/2027, para atender ao pagamento referente à renovação de contratação de escritório advocatício, especializado na aplicabilidade da Lei 13.709/18 (Lei Geral de Proteção de Dados – LGPD) e em assessoria jurídica trabalhista, compreendendo a prestação de serviços jurídicos de consultoria especializada em procedimentos de adequação à Lei Geral de Proteção de Dados e demais práticas de Segurança da Informação e assessoria jurídica para alcance da conformidade trabalhista no Conselho Federal de Farmácia, relativo ao termo aditivo nº 3/2026 do Contrato nº 19/2023, conforme Processo SEI nº 23.0.000002056-7.",
-        "motivo": "Servico juridico especializado em LGPD/trabalhista, nao e TIC.",
+        "motivo": "Assessoria juridica LGPD/trabalhista, servico juridico, nao e TIC.",
         "numero_controle_pncp": "60984473000100-2-000120/2026"
       },
       {
@@ -3381,13 +3351,13 @@
       {
         "orgao": "FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO",
         "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE SUBSCRIÇÃO DE LICENÇAS PARA OS SERVIÇOS DE ACESSO A BASES DE DADOS, PESQUISAS, PROGNÓSTICOS E ACONSELHAMENTO IMPARCIAL ESPECIALIZADO EM TIC PROVIDO PELA EMPRESA GARTNER DO BRASIL SERVIÇOS DE PESQUISA LTDA, POR MEIO DE INEXIGIBILIDADE DE LICITAÇÃO, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Licenca de acesso a bases de dados e consultoria Gartner, assinatura de conteudo/licenciamento isolado, fora do escopo.",
+        "motivo": "Licencas de acesso a bases de dados/pesquisas/consultoria TIC (Gartner), assinatura de conteudo/consultoria, fora do escopo.",
         "numero_controle_pncp": "00378257000181-2-000043/2025"
       },
       {
         "orgao": "AUTORIDADE NACIONAL DE PROTEÇÃO DE DADOS",
         "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE LICENÇAS DE SOFTWARES DE DESIGN GRÁFICO, COM DIREITO DE ATUALIZAÇÃO E SUPORTE",
-        "motivo": "Licencas de software de design grafico, SaaS licenciamento isolado, fora do escopo.",
+        "motivo": "Licencas de software de design grafico com suporte, SaaS licenciamento isolado, fora do escopo.",
         "numero_controle_pncp": "44365866000171-2-000008/2024"
       },
       {
@@ -3405,49 +3375,49 @@
       {
         "orgao": "CONSELHO NACIONAL DE DESENVOLVIMENTO CIENTIFICO E TECNOLOGICO-CNPQ",
         "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE CERTIFICADOS DIGITAIS DO TIPO A3 E-CPF E A3 E-CNPJ PARA SERVIÇOS ELETRÔNICOS, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Certificados digitais A3, fora do escopo.",
+        "motivo": "Certificados digitais A3 e-CPF/e-CNPJ, fora do escopo.",
         "numero_controle_pncp": "33654831000136-2-000057/2024"
       },
       {
         "orgao": "INSTITUTO NACIONAL DE TECNOLOGIA DA INFORMACAO",
         "objeto": "AQUISIÇÃO DE MATERIAL DE CONSUMO DE INFORMÁTICA: FERRAMENTAS, EQUIPAMENTOS E CABEAMENTO, A SEREM SOLICITADOS CONFORME DEMANDA, PARA ATENDER ÀS NECESSIDADES DO INSTITUTO NACIONAL DE TECNOLOGIA - ITI.",
-        "motivo": "Material de consumo de informatica (ferramentas, equipamentos, cabeamento), generico, nao especifica computador/monitor.",
+        "motivo": "Material de consumo de informatica (ferramentas, equipamentos, cabeamento), generico/consumivel, nao especifica computador/monitor.",
         "numero_controle_pncp": "04039532000193-2-000015/2026"
       },
       {
         "orgao": "MINISTERIO PUBLICO DA UNIAO",
         "objeto": "Contratação de pessoa jurídica especializada na prestação de serviços de manutenção, suporte técnico, atualização e serviços eventuais do Sistema Integrado de Gestão de Pessoas – MENTORH, do Ministério Público Militar – MPM.",
-        "motivo": "Manutencao/suporte de sistema de gestao de pessoas (MENTORH), sistema aplicativo, fora do escopo.",
+        "motivo": "Manutencao e suporte de sistema aplicativo (MENTORH), desenvolvimento de sistema de informacao, fora do escopo.",
         "numero_controle_pncp": "26989715000102-2-002253/2025"
       },
       {
         "orgao": "AUDITORIAS DA JUSTICA MILITAR",
         "objeto": "Contratação de empresa especializada para prestação de serviços de apoio às atividades administrativas na área de manutenção geral e reparos, de forma contínua, pelo período de 24 (vinte e quatro) meses, a serem executados com regime de dedicação exclusiva de mão de obra, com fornecimento de uniformes, equipamentos de proteção individual - EPIs e relógio de ponto biométrico, para atender as demandas do Edifício-Sede da 11ª Circunscrição Judiciária Militar, em Brasília/DF.",
-        "motivo": "Servicos administrativos de manutencao geral/reparos e EPIs, nao e TIC.",
+        "motivo": "Apoio administrativo em manutencao predial geral com mao de obra, nao e TIC.",
         "numero_controle_pncp": "00497552002796-2-000061/2025"
       },
       {
         "orgao": "FUNDACAO CULTURAL PALMARES",
         "objeto": "AQUISIÇÃO DE CATRACA PARA CONTROLE DE ACESSO DE PESSOAS, COM TECNOLOGIA DE RECONHECIMENTO FACIAL E SOFTWARE COM LICENCIAMENTO PERMANENTE, INCLUINDO INSTALAÇÃO, CONFIGURAÇÃO E TREINAMENTO, VISANDO APRIMORAR A SEGURANÇA E O CONTROLE DE FLUXO DE ENTRADA E SAÍDA NAS DEPENDÊNCIAS DA FUNDAÇÃO CULTURAL PALMARES",
-        "motivo": "Catraca de controle de acesso com reconhecimento facial, seguranca patrimonial, fora do escopo.",
+        "motivo": "Catraca de controle de acesso com reconhecimento facial e software, equipamento de controle de acesso, nao e impressora/storage/nobreak/hardware elegivel.",
         "numero_controle_pncp": "32901688000177-2-000042/2026"
       },
       {
         "orgao": "INSTITUTO NACIONAL DE TECNOLOGIA DA INFORMACAO",
         "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A AQUISIÇÃO DE MATERIAIS DE CONSUMO DE INFORMÁTICA: FERRAMENTAS, EQUIPAMENTOS E CABEAMENTO, NAS CONDIÇÕES ESTABELECIDAS NO EDITAL, TERMO DE REFERÊNCIA E SEUS ANEXOS",
-        "motivo": "Material de consumo de informatica (ferramentas, equipamentos, cabeamento), generico, nao especifica computador/monitor.",
+        "motivo": "Material de consumo de informatica (ferramentas, equipamentos, cabeamento), generico/consumivel, nao especifica computador/monitor.",
         "numero_controle_pncp": "04039532000193-2-000014/2026"
       },
       {
         "orgao": "SUPREMO TRIBUNAL FEDERAL",
         "objeto": "O objeto do presente Contrato é a prestação de serviços de Cloud da ORACLE, observados o Termo de Referência (Anexo III do Contrato) e o Pedido de Compra CPQ-2926244 - 1, datado de 22 de março de 2023, e o Contrato de Serviços da CONTRATADA, os quais, independentemente de transcrição, são partes integrantes deste instrumento, naquilo que não o contrarie. Em caso de divergência entre os termos deste Contrato e do Termo de Referência, as disposições do Contrato prevalecerão sobre as disposições do Termo de Referência.",
-        "motivo": "Servicos de Cloud Oracle, SaaS/cloud, fora do escopo.",
+        "motivo": "Servicos de Cloud Oracle, cloud, fora do escopo.",
         "numero_controle_pncp": "00531640000128-2-000129/2023"
       },
       {
         "orgao": "BASE ADMINISTRATIVA DO QUARTEL-GENERAL DO EXERCITO",
         "objeto": "CENTRAL DE SERVIÇO DE TIC PARA ATENDER AS DEMANDAS DO GABINETE DO COMANDANTE DO EXÉRCITO E O CENTRO DE COMUNICAÇÃO SOCIAL DO EXÉRCITO.",
-        "motivo": "Central de servico de TIC (service desk) isolada, sem operacao de infraestrutura empacotada junto.",
+        "motivo": "Central de servico de TIC generica para gabinete/comunicacao social, sem detalhar sustentacao de infraestrutura nem hardware.",
         "numero_controle_pncp": "21744847000150-2-000680/2025"
       },
       {
@@ -3459,121 +3429,121 @@
       {
         "orgao": "MINISTERIO DA CIDADANIA",
         "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE PROTEÇÃO E RESPOSTA A AMEAÇAS CIBERNÉTICAS (EDR/XDR), ABRANGENDO A PROTEÇÃO DE REDE DE DADOS, ENDPOINTS, SERVIDORES WINDOWS E LINUX (FÍSICOS E VIRTUAIS), COM CONSOLE DE GERENCIAMENTO CENTRALIZADO",
-        "motivo": "Solucao EDR/XDR de protecao e resposta a ameacas ciberneticas, seguranca de rede/endpoint, fora do escopo.",
+        "motivo": "Solucao EDR/XDR de protecao a ameacas ciberneticas, seguranca de rede/endpoint, fora do escopo.",
         "numero_controle_pncp": "05526783000165-2-000289/2026"
       },
       {
         "orgao": "MINISTERIO DO MEIO AMBIENTE",
         "objeto": "O OBJETO DO PRESENTE INSTRUMENTO É A CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO DE ASSINATURA (SUBSCRIÇÃO) POR UM PERÍODO PRÉ-ESTABELECIDO BASEADO NA MODALIDADE EAS (ENTERPRISE) DE LICENÇAS MICROSOFT, NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Assinatura de licencas Microsoft Enterprise, licenciamento de software isolado, fora do escopo.",
+        "motivo": "Assinatura de licencas Microsoft (modalidade EAS), licenciamento isolado, fora do escopo.",
         "numero_controle_pncp": "37115375000107-2-000015/2024"
       },
       {
         "orgao": "MINISTERIO DAS RELACOES EXTERIORES",
         "objeto": "CONTRATAÇÃO DE EMPRESA ESPECIALIZADA PARA A PRESTAÇÃO DE SERVIÇOS CONTINUADOS DE SERVIÇO TELEFÔNICO FIXO COMUTADO – STFC, SEM DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA, INCLUINDO ATIVAÇÃO E MIGRAÇÃO, MANUTENÇÃO DOS ACESSOS E DA NUMERAÇÃO, FACILIDADES, TRÁFEGO LOCAL, DE LONGA DISTÂNCIA NACIONAL E INTERNACIONAL, SUPORTE TÉCNICO, FATURAMENTO DETALHADO E DEMAIS ATIVIDADES DESCRITAS NO TERMO DE REFERÊNCIA",
-        "motivo": "Servico telefonico fixo comutado (STFC), telecomunicacao/conectividade, fora do escopo.",
+        "motivo": "Servico telefonico fixo comutado (STFC), telecom, fora do escopo.",
         "numero_controle_pncp": "00394536000139-2-000229/2026"
       },
       {
         "orgao": "COMANDO DA MARINHA",
         "objeto": "O OBJETO DA PRESENTE CONTRATAÇÃO CONSISTE NA AQUISIÇÃO DE MATERIAIS PERMANENTES E DE  CONSUMO — INCLUINDO IMPRESSORAS MULTIFUNCIONAIS, SUPRIMENTOS DE INFORMÁTICA (TONERS, CILINDROS, FITAS ROTULADORAS E BATERIAS CR-2032), VENTILADORES DE COLUNA, BANCOS PARA VESTIÁRIO, TAPETES/CAPACHOS PERSONALIZADOS, APARELHO DE AR-CONDICIONADO E CONJUNTO EXAUSTOR COM COIFA INDUSTRIAL PARA FOGÃO DE COZINHA —, DESTINADOS À MANUTENÇÃO, CONSERVAÇÃO E PLENO\nSUPORTE OPERACIONAL DAS INSTALAÇÕES DA SECRETARIA DA COMISSÃO INTERMINISTERIAL PARA OS RECURSOS DO MAR (SECIRM)",
-        "motivo": "Materiais permanentes e de consumo diversos (impressoras multifuncionais, suprimentos, mobiliario), nao e sustentacao de infraestrutura nem hardware elegivel.",
+        "motivo": "Materiais permanentes/consumo diversos (impressoras multifuncionais, suprimentos, ventiladores, ar-condicionado domestico etc.), impressoras dentro de pacote de manutencao predial generica, sem hardware ou Service Desk/ITSM/Controle de ativos empacotado, regra de impressoras exclui.",
         "numero_controle_pncp": "00394502000144-2-001471/2026"
       },
       {
         "orgao": "COMANDO DA MARINHA",
         "objeto": "O OBJETO DA PRESENTE CONTRATAÇÃO CONSISTE NA AQUISIÇÃO DE MATERIAIS PERMANENTES E DE CONSUMO — INCLUINDO IMPRESSORAS MULTIFUNCIONAIS, SUPRIMENTOS DE INFORMÁTICA (TONERS, CILINDROS, FITAS ROTULADORAS E BATERIAS CR-2032), VENTILADORES DE COLUNA, BANCOS PARA VESTIÁRIO, TAPETES/CAPACHOS PERSONALIZADOS, APARELHO DE AR-CONDICIONADO E CONJUNTO EXAUSTOR COM COIFA INDUSTRIAL PARA FOGÃO DE COZINHA —, DESTINADOS À MANUTENÇÃO, CONSERVAÇÃO E PLENO\nSUPORTE OPERACIONAL DAS INSTALAÇÕES DA SECRETARIA DA COMISSÃO INTERMINISTERIAL PARA OS RECURSOS DO MAR (SECIRM).",
-        "motivo": "Materiais permanentes e de consumo diversos (impressoras multifuncionais, suprimentos, mobiliario), nao e sustentacao de infraestrutura nem hardware elegivel.",
+        "motivo": "Materiais permanentes/consumo diversos (impressoras multifuncionais, suprimentos, ventiladores, ar-condicionado domestico etc.), impressoras dentro de pacote de manutencao predial generica, sem hardware ou Service Desk/ITSM/Controle de ativos empacotado, regra de impressoras exclui.",
         "numero_controle_pncp": "00394502000144-2-001476/2026"
       },
       {
         "orgao": "COMANDO DA MARINHA",
         "objeto": "O OBJETO DA PRESENTE CONTRATAÇÃO CONSISTE NA AQUISIÇÃO DE MATERIAIS PERMANENTES E DE CONSUMO — INCLUINDO IMPRESSORAS MULTIFUNCIONAIS, SUPRIMENTOS DE INFORMÁTICA (TONERS, CILINDROS, FITAS ROTULADORAS E BATERIAS CR-2032), VENTILADORES DE COLUNA, BANCOS PARA VESTIÁRIO, TAPETES/CAPACHOS PERSONALIZADOS, APARELHO DE AR-CONDICIONADO E CONJUNTO EXAUSTOR COM COIFA INDUSTRIAL PARA FOGÃO DE COZINHA —, DESTINADOS À MANUTENÇÃO, CONSERVAÇÃO E PLENO\nSUPORTE OPERACIONAL DAS INSTALAÇÕES DA SECRETARIA DA COMISSÃO INTERMINISTERIAL PARA OS RECURSOS DO MAR (SECIRM).",
-        "motivo": "Materiais permanentes e de consumo diversos (impressoras multifuncionais, suprimentos, mobiliario), nao e sustentacao de infraestrutura nem hardware elegivel.",
+        "motivo": "Materiais permanentes/consumo diversos (impressoras multifuncionais, suprimentos, ventiladores, ar-condicionado domestico etc.), impressoras dentro de pacote de manutencao predial generica, sem hardware ou Service Desk/ITSM/Controle de ativos empacotado, regra de impressoras exclui.",
         "numero_controle_pncp": "00394502000144-2-001479/2026"
       },
       {
         "orgao": "COMANDO DA MARINHA",
         "objeto": "O OBJETO DA PRESENTE CONTRATAÇÃO CONSISTE NA AQUISIÇÃO DE MATERIAIS PERMANENTES E DE CONSUMO — INCLUINDO IMPRESSORAS MULTIFUNCIONAIS, SUPRIMENTOS DE INFORMÁTICA (TONERS, CILINDROS, FITAS ROTULADORAS E BATERIAS CR-2032), VENTILADORES DE COLUNA, BANCOS PARA VESTIÁRIO, TAPETES/CAPACHOS PERSONALIZADOS, APARELHO DE AR-CONDICIONADO E CONJUNTO EXAUSTOR COM COIFA INDUSTRIAL PARA FOGÃO DE COZINHA —, DESTINADOS À MANUTENÇÃO, CONSERVAÇÃO E PLENO SUPORTE OPERACIONAL DAS INSTALAÇÕES DA SECRETARIA DA COMISSÃO INTERMINISTERIAL PARA OS RECURSOS DO MAR (SECIRM),",
-        "motivo": "Materiais permanentes e de consumo diversos (impressoras multifuncionais, suprimentos, mobiliario), nao e sustentacao de infraestrutura nem hardware elegivel.",
+        "motivo": "Materiais permanentes/consumo diversos (impressoras multifuncionais, suprimentos, ventiladores, ar-condicionado domestico etc.), impressoras dentro de pacote de manutencao predial generica, sem hardware ou Service Desk/ITSM/Controle de ativos empacotado, regra de impressoras exclui.",
         "numero_controle_pncp": "00394502000144-2-001472/2026"
       },
       {
         "orgao": "COMANDO DA MARINHA",
         "objeto": "O OBJETO DA PRESENTE CONTRATAÇÃO CONSISTE NA AQUISIÇÃO DE MATERIAIS PERMANENTES E DE CONSUMO — INCLUINDO IMPRESSORAS MULTIFUNCIONAIS, SUPRIMENTOS DE INFORMÁTICA (TONERS, CILINDROS, FITAS ROTULADORAS E BATERIAS CR-2032), VENTILADORES DE COLUNA, BANCOS PARA VESTIÁRIO, TAPETES/CAPACHOS PERSONALIZADOS, APARELHO DE AR-CONDICIONADO E CONJUNTO EXAUSTOR COM COIFA INDUSTRIAL PARA FOGÃO DE COZINHA —, DESTINADOS À MANUTENÇÃO, CONSERVAÇÃO E PLENO\nSUPORTE OPERACIONAL DAS INSTALAÇÕES DA SECRETARIA DA COMISSÃO INTERMINISTERIAL PARA OS RECURSOS DO MAR (SECIRM).",
-        "motivo": "Materiais permanentes e de consumo diversos (impressoras multifuncionais, suprimentos, mobiliario), nao e sustentacao de infraestrutura nem hardware elegivel.",
+        "motivo": "Materiais permanentes/consumo diversos (impressoras multifuncionais, suprimentos, ventiladores, ar-condicionado domestico etc.), impressoras dentro de pacote de manutencao predial generica, sem hardware ou Service Desk/ITSM/Controle de ativos empacotado, regra de impressoras exclui.",
         "numero_controle_pncp": "00394502000144-2-001480/2026"
       },
       {
         "orgao": "COMANDO DA MARINHA",
         "objeto": "O OBJETO DA PRESENTE CONTRATAÇÃO CONSISTE NA AQUISIÇÃO DE MATERIAIS PERMANENTES E DE CONSUMO — INCLUINDO IMPRESSORAS MULTIFUNCIONAIS, SUPRIMENTOS DE INFORMÁTICA (TONERS, CILINDROS, FITAS ROTULADORAS E BATERIAS CR-2032), VENTILADORES DE COLUNA, BANCOS PARA VESTIÁRIO, TAPETES/CAPACHOS PERSONALIZADOS, APARELHO DE AR-CONDICIONADO E CONJUNTO EXAUSTOR COM COIFA INDUSTRIAL PARA FOGÃO DE COZINHA —, DESTINADOS À MANUTENÇÃO, CONSERVAÇÃO E PLENO\nSUPORTE OPERACIONAL DAS INSTALAÇÕES DA SECRETARIA DA COMISSÃO INTERMINISTERIAL PARA OS RECURSOS DO MAR (SECIRM).",
-        "motivo": "Materiais permanentes e de consumo diversos (impressoras multifuncionais, suprimentos, mobiliario), nao e sustentacao de infraestrutura nem hardware elegivel.",
+        "motivo": "Materiais permanentes/consumo diversos (impressoras multifuncionais, suprimentos, ventiladores, ar-condicionado domestico etc.), impressoras dentro de pacote de manutencao predial generica, sem hardware ou Service Desk/ITSM/Controle de ativos empacotado, regra de impressoras exclui.",
         "numero_controle_pncp": "00394502000144-2-001482/2026"
       },
       {
         "orgao": "MINISTERIO PUBLICO DA UNIAO",
         "objeto": "Contratação de empresa especializada no fornecimento de bibliotecas de fitas (tape libraries) e de fitas LTO para a solução de backup corporativo do Ministério Público do Trabalho, com prestação de serviços associados de garantia e suporte técnico, de acordo com as especificações, condições e quantidades estabelecidas no Termo de Referência e nos docs. constantes no PGEA 20.02.0001.0006778/2024-30",
-        "motivo": "Bibliotecas de fitas e fitas LTO para solucao de backup corporativo, backup isolado (sem Service Desk/ITSM/Controle de ativos/Chatbot IA empacotado junto), regra de backup exclui.",
+        "motivo": "Bibliotecas de fitas (tape libraries) para solucao de backup isolada, sem Service Desk/ITSM/Controle de ativos/Chatbot IA empacotado junto, regra de backup exclui.",
         "numero_controle_pncp": "26989715000102-2-001776/2026"
       },
       {
         "orgao": "SENADO FEDERAL",
         "objeto": "Fornecimento de garantia e suporte técnico para os comutadores Huawei S5720-52X-PWR-SI-AC – 396 comutadores, durante 12 (doze) meses\nconsecutivos, de acordo com os termos e especificações constantes deste contrato e do edital.",
-        "motivo": "Garantia e suporte para comutadores (switches), equipamento de rede excluido explicitamente de hardware, nao e sustentacao de servidor/storage/datacenter.",
+        "motivo": "Garantia e suporte tecnico para comutadores (switches) Huawei, equipamento de rede, fora do nucleo servidor/storage/datacenter.",
         "numero_controle_pncp": "00530279000115-2-000206/2026"
       },
       {
         "orgao": "JUSTICA FEDERAL DE PRIMEIRA INSTANCIA",
         "objeto": "FORNECIMENTO, POR DEMANDA, DE MATERIAIS GRÁFICOS (PAPÉIS, TINTAS, PRODUTOS QUÍMICOS E OUTROS), QUE CONSTAM NO ITEM 10 DO TERMO DE REFERÊNCIA.",
-        "motivo": "Materiais graficos (papeis, tintas), nao e TIC.",
+        "motivo": "Materiais graficos (papeis, tintas, produtos quimicos), consumivel, nao e TIC.",
         "numero_controle_pncp": "00508903000188-2-001473/2025"
       },
       {
         "orgao": "CONSELHO FEDERAL DE MEDICINA",
         "objeto": "Subscrição de software para realização de videoconferências pela Internet.",
-        "motivo": "Software de videoconferencia, SaaS licenciamento isolado, fora do escopo.",
+        "motivo": "Subscricao de software de videoconferencia, SaaS, fora do escopo.",
         "numero_controle_pncp": "33583550000130-2-000078/2026"
       },
       {
         "orgao": "JUSTICA FEDERAL DE PRIMEIRA INSTANCIA",
         "objeto": "SERVIÇO DE SUPORTE TÉCNICO MENSAL PARA O SOFTWARE PERGAMUM, COM ATUALIZAÇÃO E MANUTENÇÃO PREVENTIVA, CORRETIVA, EVOLUTIVA E ADAPTATIVA, ATENDENDO ÀS BIBLIOTECAS DO CONSELHO DA JUSTIÇA FEDERAL, TRFS DA 5ª E 6ª REGIÕES, SEÇÕES E SUBSEÇÕES JUDICIÁRIAS, PARA GESTÃO DE ACERVO BIBLIOGRÁFICO E PARA COLEÇÃO DE ATOS NORMATIVOS, COM PREVISÃO PARA MIGRAR ATÉ 5 (CINCO) BASES DE DADOS DAS BIBLIOTECAS DA JUSTIÇA FEDERAL E PARCEIRAS, ALÉM DE INCLUIR A INTEGRAÇÃO DE ATÉ 20 (VINTE) BIBLIOTECAS.",
-        "motivo": "Suporte tecnico e manutencao de sistema de gestao de acervo bibliografico (Pergamum), sistema aplicativo, fora do escopo.",
+        "motivo": "Suporte tecnico mensal para sistema de gestao de acervo bibliografico (Pergamum), sistema aplicativo, fora do escopo.",
         "numero_controle_pncp": "00508903000188-2-001500/2025"
       },
       {
         "orgao": "FUNDO CONSTITUCIONAL DO DISTRITO FEDERAL - FCDF",
         "objeto": "Solução de segurança, conforme proposta apresentada pela empresa no PE nº 90045/2025 - DICOA/DEALF/CBMDF",
-        "motivo": "Solucao de seguranca vaga associada a corpo de bombeiros (CBMDF), sem detalhe de infraestrutura de TIC, provavel seguranca patrimonial.",
+        "motivo": "Solucao de seguranca (objeto vago, referencia a processo de seguranca/vigilancia), seguranca, fora do escopo.",
         "numero_controle_pncp": "05448380000145-2-000284/2026"
       },
       {
         "orgao": "INST. NAC. COLON. REFORMA AGRARIA - INCRA",
         "objeto": "CONTRATAÇÃO DE EMPRESA PARA EXECUÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS CONTINUADOS SEM DEDICAÇÃO EXCLUSIVA, SOB DEMANDA, DE CAPTURA E TRANSFORMAÇÃO  DA INFORMAÇÃO E TRATAMENTO DOCUMENTAL DO ACERVO ARQUIVÍSTICO , QUE CONTEMPLA DIGITALIZAÇÃO DE DOCUMENTOS EM PAPEL E MICROFORMAS PARA IMAGEM DIGITAL COM INDEXAÇÃO, RECONHECIMENTO ÓPTICO E INTELIGENTE DE CARACTERES (OCR/ICR), GESTÃO FÍSICA DE DOCUMENTOS, SERVIÇOS TÉCNICOS ESPECIALIZADOS EM DESENVOLVIMENTO DE SISTEMAS E MAPEAMENTO DE PROCESSO, SOLUÇÕES E SISTEMAS DE ECM E BPM E TREINAMENTO , NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Digitalizacao de documentos, OCR, gestao documental e desenvolvimento de sistemas, fora do escopo.",
+        "motivo": "Digitalizacao de documentos com OCR, gestao documental e desenvolvimento de sistemas ECM/BPM, nao e sustentacao de infraestrutura nem hardware.",
         "numero_controle_pncp": "03204421000122-2-000259/2025"
       },
       {
         "orgao": "CONSELHO NACIONAL DO MINISTÉRIO PÚBLICO",
         "objeto": "Contratação de virtualização de Servidores VMware Vsphere Standard per core, por 3 (três) anos.",
-        "motivo": "Licenciamento de software de virtualizacao (VMware vSphere), licenciamento de software isolado, fora do escopo.",
+        "motivo": "Licenciamento de software de virtualizacao de servidores (VMware vSphere), licenciamento de software isolado, fora do escopo.",
         "numero_controle_pncp": "11439520000111-2-000024/2024"
       },
       {
         "orgao": "MINISTERIO DO TRABALHO",
         "objeto": "CONTRATAÇÃO DE SOLUÇÃO DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO PARA EXECUÇÃO DE SERVIÇOS TÉCNICOS ESPECIALIZADOS DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÕES - TIC, BUSCANDO ATENDIMENTO DAS NECESSIDADES DO MINISTÉRIO DO TRABALHO E EMPREGO (MTE), NAS CONDIÇÕES ESTABELECIDAS NO TERMO DE REFERÊNCIA.",
-        "motivo": "Servicos tecnicos especializados de TIC genericos, nao especifica sustentacao de infraestrutura servidor/storage/datacenter.",
+        "motivo": "Servicos tecnicos especializados de TIC generico, sem especificar sustentacao de infraestrutura nem hardware.",
         "numero_controle_pncp": "23612685000122-2-000026/2024"
       },
       {
         "orgao": "JUSTICA FEDERAL DE PRIMEIRA INSTANCIA",
         "objeto": "O fornecimento de serviço contínuo de solução de governança, compliance, segurança e auditoria de dados não estruturados, incluindo análise e segurança de credenciais de usuários de rede, coleta e correlacionamento de eventos com informações provenientes de análise de dados não estruturados e metadados. Incluindo serviços de suporte técnico assistido, instalação, treinamento com transferência de conhecimento do ambiente implantado, incluindo também serviço de apoio a análise, investigação e tratamento de incidentes de segurança, conforme condições dispostas neste contrato e no Termo de Referência.",
-        "motivo": "Governanca, compliance, seguranca e auditoria de dados, seguranca da informacao, fora do escopo.",
+        "motivo": "Solucao de governanca/compliance/seguranca/auditoria de dados nao estruturados, seguranca da informacao, fora do escopo.",
         "numero_controle_pncp": "00508903000188-2-001491/2025"
       },
       {
         "orgao": "CONSELHO FEDERAL DE FISIOTERAPIA E TERAPIA OCUPACIONAL",
         "objeto": "Contratação de empresa especializada para prestação de serviços de monitoramento eletrônico de novas distribuições de processos judiciais, mediante acompanhamento automatizado de ações em que figurem como parte o Conselho Federal de Fisioterapia e Terapia Ocupacional – COFFITO, identificado por seu nome ou CNPJ, bem como o seu Presidente, abrangendo a coleta, processamento e envio das informações referentes às novas demandas judiciais distribuídas nos diversos órgãos do Poder Judiciário.",
-        "motivo": "Monitoramento eletronico de processos judiciais, servico juridico, nao e TIC.",
+        "motivo": "Monitoramento eletronico de processos judiciais, servico juridico/monitoramento, nao e TIC.",
         "numero_controle_pncp": "00487140000136-2-000098/2026"
       },
       {

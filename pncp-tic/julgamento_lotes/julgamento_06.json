@@ -1,7 +1,7 @@
 [
 {"numero_controle_pncp": "27136980000100-2-000015/2026", "veredito": "tic", "motivo": "Aquisicao de 30 computadores, fornecimento de hardware (computador/monitor)."},
 {"numero_controle_pncp": "27136980000100-2-000013/2026", "veredito": "tic", "motivo": "Aquisicao de 26 computadores, fornecimento de hardware (computador/monitor)."},
-{"numero_controle_pncp": "03277610000125-2-000834/2026", "veredito": "nao_tic", "motivo": "Aquisicao nova de infraestrutura de virtualizacao/armazenamento/processamento como bem, nao e sustentacao de algo existente."},
+{"numero_controle_pncp": "03277610000125-2-000834/2026", "veredito": "nao_tic", "motivo": "Aquisicao nova de infraestrutura de virtualizacao/armazenamento/processamento como bem, aquisicao nova e storage isolado sem hardware nem mao de obra dedicada continua junto."},
 {"numero_controle_pncp": "06165937000101-2-000002/2026", "veredito": "nao_tic", "motivo": "Internet dedicada via fibra optica, conectividade como servico, fora do escopo."},
 {"numero_controle_pncp": "00488478000102-2-000198/2024", "veredito": "nao_tic", "motivo": "Renovacao de garantia/licenciamento de software (Foxit PDF Compressor), licenca isolada, fora do escopo."},
 {"numero_controle_pncp": "00509968000148-2-001858/2025", "veredito": "nao_tic", "motivo": "Monitoramento e resposta a ataques ciberneticos, seguranca cibernetica, fora do escopo."},
@@ -16,7 +16,7 @@
 {"numero_controle_pncp": "00394445000101-2-000122/2026", "veredito": "nao_tic", "motivo": "Acesso a TV por assinatura digital, nao e infraestrutura nem hardware de TIC."},
 {"numero_controle_pncp": "26664015000148-2-000017/2025", "veredito": "nao_tic", "motivo": "Servicos tecnicos em computacao em nuvens publicas, cloud, fora do escopo."},
 {"numero_controle_pncp": "00394494010441-2-000653/2026", "veredito": "nao_tic", "motivo": "Solucao avancada de seguranca com licenciamento/suporte, seguranca de rede/endpoint, fora do escopo."},
-{"numero_controle_pncp": "33892175000100-2-000028/2026", "veredito": "tic", "motivo": "Manutencao preditiva/preventiva/corretiva de sistema de nobreak (UPS), sustentacao de datacenter."},
+{"numero_controle_pncp": "33892175000100-2-000028/2026", "veredito": "nao_tic", "motivo": "Manutencao preditiva/preventiva/corretiva de sistema de nobreak isolada, sem hardware nem Service Desk/ITSM/Controle de ativos junto, regra de nobreak exclui."},
 {"numero_controle_pncp": "02030715000112-2-000072/2024", "veredito": "nao_tic", "motivo": "Licencas SaaS Adobe Creative Cloud, licenciamento isolado, fora do escopo."},
 {"numero_controle_pncp": "10791831000182-2-000154/2026", "veredito": "nao_tic", "motivo": "Manutencao/suporte de repositorio institucional (software DSpace), sistema aplicativo, fora do escopo."},
 {"numero_controle_pncp": "00394494000136-2-000963/2026", "veredito": "nao_tic", "motivo": "Licencas de ferramenta digital de comunicacao/endomarketing (TV corporativa), SaaS isolado, fora do escopo."},
@@ -42,6 +42,6 @@
 {"numero_controle_pncp": "00394494000136-2-000983/2026", "veredito": "tic", "motivo": "Aquisicao de monitor de video, fornecimento de hardware (computador/monitor)."},
 {"numero_controle_pncp": "03277610000125-2-000845/2026", "veredito": "nao_tic", "motivo": "Controladora de acesso fisico de pessoas, seguranca patrimonial, nao e TIC."},
 {"numero_controle_pncp": "00531954000120-2-000155/2024", "veredito": "nao_tic", "motivo": "Servico de computacao em nuvem multicloud (cloud broker), cloud, fora do escopo."},
-{"numero_controle_pncp": "00889834000108-2-000027/2026", "veredito": "tic", "motivo": "Garantia com manutencao preventiva/corretiva e suporte 24x7 para servidores (HP ProLiant, IBM System x), sustentacao de infraestrutura."},
+{"numero_controle_pncp": "00889834000108-2-000027/2026", "veredito": "tic", "motivo": "Garantia com manutencao preventiva/corretiva e suporte 24x7 para servidores (modelos HP ProLiant DL380, IBM System x3950 - marca de servidor confirmada pelo modelo, nao impressora), sustentacao de infraestrutura."},
 {"numero_controle_pncp": "00394494000136-2-001176/2026", "veredito": "nao_tic", "motivo": "Aquisicao de aparelhos celulares smartphone, fora da lista de hardware elegivel."}
 ]

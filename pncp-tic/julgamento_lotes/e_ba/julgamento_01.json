@@ -32,7 +32,7 @@
 {"numero_controle_pncp": "13100722000160-2-000059/2026", "veredito": "nao_tic", "motivo": "Assinatura de biblioteca juridica digital (Jusbrasil), assinatura de conteudo, nao e TIC."},
 {"numero_controle_pncp": "04142491000166-2-000124/2026", "veredito": "nao_tic", "motivo": "Ferramenta de geracao de documentos licitatorios por assinatura, SaaS/software isolado, fora do escopo."},
 {"numero_controle_pncp": "04142491000166-2-000133/2026", "veredito": "nao_tic", "motivo": "Assinatura de pacote de pesquisa juridica com recursos de IA, assinatura de conteudo, nao e TIC."},
-{"numero_controle_pncp": "07778585000114-2-000239/2026", "veredito": "tic", "motivo": "Manutencao preventiva e corretiva com fornecimento de pecas para equipamentos de Datacenter, sustentacao de infraestrutura."},
+{"numero_controle_pncp": "07778585000114-2-000239/2026", "veredito": "tic", "motivo": "Manutencao preventiva e corretiva com fornecimento de pecas para equipamentos de Datacenter (generico, nao especifico de storage), sustentacao de infraestrutura."},
 {"numero_controle_pncp": "03661160000170-2-000058/2026", "veredito": "nao_tic", "motivo": "Servico de telefonia fixa comutada, telecom, fora do escopo."},
 {"numero_controle_pncp": "14674303000102-2-000006/2026", "veredito": "nao_tic", "motivo": "Servicos continuados de sustentacao e desenvolvimento de software (sistemas, portais web, apps mobile), desenvolvimento de sistemas de informacao, fora do escopo."},
 {"numero_controle_pncp": "08584392000195-2-000046/2026", "veredito": "nao_tic", "motivo": "Servico de telefonia fixa comutada, telecom, fora do escopo."},

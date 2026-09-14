@@ -46,8 +46,8 @@ git commit && git push
    categorias:
 
    - **A) Serviços de Sustentação de Infraestrutura de TIC** — manutenção,
-     suporte técnico, garantia, operação de servidores, storage/armazenamento,
-     datacenter (climatização de precisão, UPS, sala-cofre). Inclui
+     suporte técnico, garantia, operação de servidores,
+     datacenter (climatização de precisão, sala-cofre). Inclui
      "atendimento a usuários"/helpdesk/service desk quando empacotado
      *junto* com operação de infraestrutura no mesmo contrato (modelo
      oficial SISP, Portaria SGD/MGI 1.070/2023, trata os dois como um
@@ -78,6 +78,51 @@ git commit && git push
    etc.) é sempre `nao_tic`, exclusão categórica que prevalece sobre
    qualquer outro critério acima — não entra em Serviços (A) nem em
    Hardware (B), mesmo se combinado com algo elegível.
+
+   **Regra de storage (nova, 2026-09-14).** Storage/armazenamento saiu da
+   lista base de A — sozinho (aquisição, manutenção ou suporte de storage,
+   sem mais nada) é sempre `nao_tic`. Só conta como TIC (categoria A) se o
+   mesmo objeto empacotar storage **junto** com pelo menos um destes:
+   fornecimento de hardware (B — notebook, desktop, monitor, periféricos),
+   ou fornecimento de técnico(s)/analista(s) dedicado(s) que atuam **de
+   forma contínua** com a solução (posto de trabalho fixo/alocado, equipe
+   residente operando o storage no dia a dia).
+
+   **Distinção que importa aqui (não simplificar):** manutenção
+   corretiva/preventiva, garantia, suporte técnico com atendimento sob
+   demanda/acionamento, SLA de resposta a chamado — **não conta**, mesmo
+   que inclua visita técnica presencial quando dá problema. Isso é
+   sustentação reativa do *produto* (aciona quando quebra), não
+   fornecimento de mão de obra. Só conta quando o objeto deixa claro que
+   tem gente da contratada *atuando com* a solução continuamente (rotina
+   operacional, não resposta a incidente). Na dúvida genuína entre os dois
+   (texto ambíguo), julgar `nao_tic` sem gastar mais leitura em cima —
+   mas isso não é desculpa pra perder caso óbvio: se o objeto lista
+   hardware (B) junto com o storage, isso sozinho já garante `tic`
+   independente da parte de mão de obra: **sempre conferir a lista de itens
+   do objeto inteira antes de julgar por storage isolado** — não parar de
+   ler no primeiro trecho que menciona storage.
+
+   **Regra de impressoras (nova, 2026-09-14).** Impressora (compra ou
+   locação) como objeto único, ou serviço de gestão de impressoras
+   isolado, é sempre `nao_tic`. Só conta como TIC quando empacotado
+   **junto** com fornecimento de hardware (B) e/ou serviços como Service
+   Desk, ITSM, ou Controle de ativos.
+
+   **Regra de nobreak (nova, 2026-09-14).** Manutenção, venda ou aluguel
+   de nobreak como objeto único é sempre `nao_tic`. Só conta como TIC
+   quando empacotado **junto** com fornecimento de hardware (B) ou
+   serviços como Service Desk (N1/N2/N3), ITSM, ou sistema de controle de
+   ativos.
+
+   **Marca não determina categoria (nova, 2026-09-14).** A marca citada no
+   objeto (HP, IBM, Canon, Dell, Lenovo etc.) não classifica sozinha —
+   a mesma marca fabrica servidor, storage, notebook, impressora, nobreak
+   etc. Sempre ler a descrição do modelo/equipamento pra aplicar a regra
+   certa (ex.: "manutenção de equipamento marca HP" só cai na regra de
+   impressora se o modelo citado for de impressora; se o modelo for
+   servidor/storage/notebook HP, aplica-se o critério correspondente a
+   esse tipo de equipamento, não o de impressora).
 
    Tudo mais é `nao_tic`, incluindo desenvolvimento/evolução/sustentação
    de **sistemas de informação** (é desenvolvimento de software aplicativo,

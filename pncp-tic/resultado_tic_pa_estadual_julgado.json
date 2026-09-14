@@ -386,7 +386,7 @@
       {
         "orgao": "FUNDACAO DE ATENDIMENTO SOCIOEDUCATIVO DO PARA - FASEPA",
         "objeto": "Prestação de serviços empresa especializada na locação de equipamentos de informática com serviço de impressão, cópia e digitalização departamental, com acesso via Rede TCP-IP, incluindo serviço de manutenção preventiva e corretiva, com a substituição de peças e suprimentos, fornecimento de papel e fornecimento de software de bilhetagem, para atender as necessidades das Unidades da Fundação de Atendimento Socioeducativo do Pará, conforme descrito no Termo de Referência (TR)",
-        "motivo": "Locacao de equipamentos de informatica para impressao/copia/digitalizacao, nao especifica computador/monitor.",
+        "motivo": "Locacao de equipamentos de informatica para impressao/copia/digitalizacao (impressora) isolada, sem hardware B nem Service Desk/ITSM/Controle de ativos junto, regra de impressoras exclui.",
         "numero_controle_pncp": "84154186000123-2-000018/2026"
       },
       {
@@ -470,7 +470,7 @@
       {
         "orgao": "SECRETARIA DE ESTADO DE MEIO AMBIENTE E SUSTENTABILIDADE",
         "objeto": "Aquisição de 700 (setecentos) Nobreaks, visa atender a necessidade institucional de modernizaçãoeampliaçãodo parque tecnológico da SEMAS, garantindo condições adequadas para o desempenho das atividadestecnológicas, administrativas e operacionais,",
-        "motivo": "Aquisicao de nobreaks, equipamento de energia nao listado em hardware elegivel (desktop/notebook/estacao/monitor).",
+        "motivo": "Aquisicao de nobreaks como objeto unico, sem hardware B nem Service Desk/ITSM/Controle de ativos junto, regra de nobreak exclui.",
         "numero_controle_pncp": "34921783000168-2-000042/2026"
       },
       {

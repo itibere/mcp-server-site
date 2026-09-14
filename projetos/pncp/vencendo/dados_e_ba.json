@@ -3,6 +3,7 @@
  "cobertura": {
   "uf": "BA",
   "esfera": "Estadual",
+  "municipio": null,
   "criterioTIC": "palavra-chave no objeto (busca full-text OR)",
   "janelaVencimento": "2027-03-13 a 2027-09-09",
   "mesesJanelaInicio": 6,
