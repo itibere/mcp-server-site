@@ -54,7 +54,7 @@ const RESULT_BORDER = {
   erro: 'border-slate-700/60 bg-slate-900/30',
 };
 
-function showResult(status, message, motivos) {
+function showResult(status, message, motivos, resumo) {
   viewLoading.classList.add('hidden');
   viewForm.classList.add('hidden');
 
@@ -66,6 +66,14 @@ function showResult(status, message, motivos) {
   badge.textContent = BADGE_LABELS[status] || BADGE_LABELS.erro;
 
   document.getElementById('result-message').textContent = message;
+
+  const resumoEl = document.getElementById('result-resumo');
+  if (resumo) {
+    resumoEl.textContent = resumo;
+    resumoEl.classList.remove('hidden');
+  } else {
+    resumoEl.classList.add('hidden');
+  }
 
   const motivosEl = document.getElementById('result-motivos');
   motivosEl.innerHTML = '';
@@ -158,7 +166,7 @@ hashSubmit.addEventListener('click', async () => {
     } else if (data.found === false) {
       showResult('erro', 'Hash não encontrado na base do VirusTotal — arquivo desconhecido, não foi possível confirmar se é seguro.');
     } else {
-      showResult(data.status, data.message);
+      showResult(data.status, data.message, data.motivos, data.resumo);
     }
   } catch {
     showResult('erro', 'Falha de conexão com o serviço de verificação. Tente novamente mais tarde.');
@@ -205,11 +213,7 @@ async function pollUrlAnalysis(analysisId, attempt) {
       return;
     }
     if (data.done) {
-      const motivos = data.message && data.message.includes('Motivos:')
-        ? data.message.split('Motivos:')[1].split(';').map((s) => s.trim()).filter(Boolean)
-        : null;
-      const baseMessage = data.message.split(' Motivos:')[0];
-      showResult(data.status, baseMessage, motivos);
+      showResult(data.status, data.message, data.motivos, data.resumo);
     } else {
       setTimeout(() => pollUrlAnalysis(analysisId, attempt + 1), 3000);
     }
@@ -238,11 +242,7 @@ urlSubmit.addEventListener('click', async () => {
       loadingDetail.textContent = 'Análise em andamento, isso pode levar até 2 minutos...';
       pollUrlAnalysis(data.analysis_id);
     } else if (data.done) {
-      const motivos = data.message && data.message.includes('Motivos:')
-        ? data.message.split('Motivos:')[1].split(';').map((s) => s.trim()).filter(Boolean)
-        : null;
-      const baseMessage = data.message.split(' Motivos:')[0];
-      showResult(data.status, baseMessage, motivos);
+      showResult(data.status, data.message, data.motivos, data.resumo);
     }
   } catch {
     showResult('erro', 'Falha de conexão com o serviço de verificação. Tente novamente mais tarde.');
