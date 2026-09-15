@@ -1,0 +1,1651 @@
+{
+  "geradoEm": "2026-09-15T09:22:24",
+  "escopo": {
+    "uf": "MG",
+    "esfera": "Estadual",
+    "municipio": null,
+    "criterioTIC": "palavra-chave no objeto (busca full-text OR)",
+    "mesesJanelaInicio": 6,
+    "mesesJanelaFim": 12,
+    "janelaVencimento": "2027-03-14 a 2027-09-10",
+    "fonte": "https://pncp.gov.br/api/search/"
+  },
+  "totalCandidatosTIC": 4021,
+  "totalVencendoJanela": 18,
+  "totalServicos": 0,
+  "contratos": [
+    {
+      "orgao": "POLICIA CIVIL DO ESTADO DE MINAS GERAIS",
+      "orgao_cnpj": "18715532000170",
+      "vence_em": "2027-04-09",
+      "valor_global": 673971.34,
+      "objeto": "aquisição de workstation",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "18715532000170-2-000106/2026",
+      "link": "https://pncp.gov.br/app/contratos/18715532000170/2026/106"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "orgao_cnpj": "05461142000170",
+      "vence_em": "2027-06-02",
+      "valor_global": 1502770.0,
+      "objeto": "COMPUTADOR - MODELO: TIPO III - AVANCADO",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "05461142000170-2-003740/2026",
+      "link": "https://pncp.gov.br/app/contratos/05461142000170/2026/3740"
+    },
+    {
+      "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+      "orgao_cnpj": "16695025000197",
+      "vence_em": "2027-06-10",
+      "valor_global": 3568900.0,
+      "objeto": "MICROCOMPUTADOR DESKTOP",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "16695025000197-2-000585/2026",
+      "link": "https://pncp.gov.br/app/contratos/16695025000197/2026/585"
+    },
+    {
+      "orgao": "POLICIA CIVIL DO ESTADO DE MINAS GERAIS",
+      "orgao_cnpj": "18715532000170",
+      "vence_em": "2027-06-16",
+      "valor_global": 21480.0,
+      "objeto": "aquisição de notebooks",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "18715532000170-2-000162/2026",
+      "link": "https://pncp.gov.br/app/contratos/18715532000170/2026/162"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "orgao_cnpj": "05461142000170",
+      "vence_em": "2027-06-19",
+      "valor_global": 492720.57,
+      "objeto": "Aquisição de Computadores",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "05461142000170-2-003783/2026",
+      "link": "https://pncp.gov.br/app/contratos/05461142000170/2026/3783"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "orgao_cnpj": "05461142000170",
+      "vence_em": "2027-06-25",
+      "valor_global": 21479.1,
+      "objeto": "30 monitores para computador",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "05461142000170-2-003807/2026",
+      "link": "https://pncp.gov.br/app/contratos/05461142000170/2026/3807"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "orgao_cnpj": "05461142000170",
+      "vence_em": "2027-06-30",
+      "valor_global": 6082.97,
+      "objeto": "Aquisição de 01 Computador",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "05461142000170-2-003821/2026",
+      "link": "https://pncp.gov.br/app/contratos/05461142000170/2026/3821"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "orgao_cnpj": "05461142000170",
+      "vence_em": "2027-06-30",
+      "valor_global": 1563323.29,
+      "objeto": "Compra de COMPUTADOR, que deve ser executado conforme condições do Termo de Referência.",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "05461142000170-2-003820/2026",
+      "link": "https://pncp.gov.br/app/contratos/05461142000170/2026/3820"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "orgao_cnpj": "05461142000170",
+      "vence_em": "2027-06-30",
+      "valor_global": 1082768.66,
+      "objeto": "178 computadores.",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "05461142000170-2-003818/2026",
+      "link": "https://pncp.gov.br/app/contratos/05461142000170/2026/3818"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "orgao_cnpj": "05461142000170",
+      "vence_em": "2027-07-13",
+      "valor_global": 60110.8,
+      "objeto": "4 computadores (SIAD 1976702).",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "05461142000170-2-003861/2026",
+      "link": "https://pncp.gov.br/app/contratos/05461142000170/2026/3861"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "orgao_cnpj": "05461142000170",
+      "vence_em": "2027-07-20",
+      "valor_global": 11939.14,
+      "objeto": "Aquisição de 01Computador e 01 Notebook",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "05461142000170-2-003867/2026",
+      "link": "https://pncp.gov.br/app/contratos/05461142000170/2026/3867"
+    },
+    {
+      "orgao": "ESTADO DE MINAS GERAIS",
+      "orgao_cnpj": "18715615000160",
+      "vence_em": "2027-08-02",
+      "valor_global": 340500.0,
+      "objeto": "PROMOVER O REGISTRO DE PRECOS, PELO PERIODO DE 12 (DOZE) MESES, PARA AQUISICAO DE MICROCOMPUTADORES, NOTEBOOKS E MONITORES, CONFORME DEFINICOES E ESPECIFICACOES CONTIDAS NO TERMO DE REFERENCIA E ANEXOS DESTE EDITAL.",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "18715615000160-2-000004/2026",
+      "link": "https://pncp.gov.br/app/contratos/18715615000160/2026/4"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "orgao_cnpj": "05461142000170",
+      "vence_em": "2027-08-07",
+      "valor_global": 4728.08,
+      "objeto": "Aquisição de peças e insumos de informática (MONITORES)",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "05461142000170-2-004420/2026",
+      "link": "https://pncp.gov.br/app/contratos/05461142000170/2026/4420"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "orgao_cnpj": "05461142000170",
+      "vence_em": "2027-08-12",
+      "valor_global": 4164430.0,
+      "objeto": "Aquisição de de computadores, por meio da Ata de Registro de Preços nº 209/2025 - III, decorrente do Pregão Eletrônico para Registro de Preços nº 320/2024, conduzido pela Secretaria de Estado de Planejamento e Gestão  SEPLAG/MG, na condição de órgão gerenciador, da qual a Secretaria de Estado de Educação de Minas Gerais  SEE/MG que deve ser executado conforme condições do Termo de Referência.",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "05461142000170-2-004438/2026",
+      "link": "https://pncp.gov.br/app/contratos/05461142000170/2026/4438"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "orgao_cnpj": "05461142000170",
+      "vence_em": "2027-08-19",
+      "valor_global": 18022.11,
+      "objeto": "Aquisição de computadores e notebook",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "05461142000170-2-004492/2026",
+      "link": "https://pncp.gov.br/app/contratos/05461142000170/2026/4492"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "orgao_cnpj": "05461142000170",
+      "vence_em": "2027-08-19",
+      "valor_global": 18248.91,
+      "objeto": "Aquisição de 03 computadores",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "05461142000170-2-004493/2026",
+      "link": "https://pncp.gov.br/app/contratos/05461142000170/2026/4493"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+      "orgao_cnpj": "05461142000170",
+      "vence_em": "2027-09-03",
+      "valor_global": 12165.94,
+      "objeto": "2 computadores",
+      "eh_servico_texto": false,
+      "modalidade": "Pregão - Eletrônico",
+      "numero_controle_pncp": "05461142000170-2-004585/2026",
+      "link": "https://pncp.gov.br/app/contratos/05461142000170/2026/4585"
+    },
+    {
+      "orgao": "SECRETARIA DE ESTADO DE JUSTICA E SEGURANCA PUBLICA -SEJUSP",
+      "orgao_cnpj": "05487631000109",
+      "vence_em": "2027-09-04",
+      "valor_global": 1227050.0,
+      "objeto": "O objeto do presente instrumento é a aquisição de estações de trabalho do tipo workstation para prover a infraestrutura de microinformática de produção especializada das Áreas da  Secretaria de Estado de Justiça e Segurança Pública de Minas Gerais, nas condições estabelecidas no Termo de Referência.",
+      "eh_servico_texto": false,
+      "modalidade": "Inexigibilidade",
+      "numero_controle_pncp": "05487631000109-2-000420/2026",
+      "link": "https://pncp.gov.br/app/contratos/05487631000109/2026/420"
+    }
+  ],
+  "julgamentoAgente": {
+    "total_antes": 256,
+    "aprovados": 18,
+    "reprovados": 238,
+    "exemplosReprovados": [
+      {
+        "orgao": "DEPARTAMENTO DE EDIFICACOES E ESTRADAS DE RODAGEM DO ESTADO DE MINAS GERAIS - DER-MG",
+        "objeto": "contratação de serviço de capacitação destinado a 32 (trinta e dois) servidores do Departamento de Estradas de Rodagem do Estado de Minas Gerais - DER-MG, por meio da participação no curso Formação Executiva em Inteligência Artificial para Gestores",
+        "motivo": "capacitação/curso, não é sustentação de infra nem hardware",
+        "numero_controle_pncp": "17309790000194-2-000304/2026"
+      },
+      {
+        "orgao": "ADVOCACIA-GERAL DO ESTADO",
+        "objeto": "contratação de empresa especializada para emissão de certificado de servidor WEB SSL A1, Validação estendida (SSL-EV) de multidomínio, com 05 domínios, prazo operacional de 3 anos emitido na cadeia V10 da AC Raiz da ICP-Brasil.",
+        "motivo": "certificado digital, fora de escopo",
+        "numero_controle_pncp": "16745465000101-2-000001/2024"
+      },
+      {
+        "orgao": "FUNDACAO EZEQUIEL DIAS",
+        "objeto": "EQUIPAMENTO USO ADMINISTRATIVO",
+        "motivo": "equipamento uso administrativo, genérico demais, sem indicação de desktop/notebook/monitor",
+        "numero_controle_pncp": "17503475000101-2-000193/2026"
+      },
+      {
+        "orgao": "FUNDACAO HOSPITALAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Compra de Insumos Laboratoriais Imuno-hematológicos, com disponibilização de equipamentos em regime de comodato(estação de trabalho (automatizada ou semiautomatizada) para processar os cartões de teste, incubadora com controle estável de temperatura, centrífuga com capacidade para cartões, pipetas calibradas, dispenser para líquidos e nobreak para garantir funcionamento contínuo)",
+        "motivo": "insumo laboratorial com comodato de equipamento de laboratório, não é hardware de TI",
+        "numero_controle_pncp": "19843929000100-2-001569/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Aquisição de 190 Impressoras",
+        "motivo": "impressora isolada, regra de impressora exclui",
+        "numero_controle_pncp": "16695025000197-2-000154/2026"
+      },
+      {
+        "orgao": "PROCURADORIA GERAL DE JUSTICA DE MINAS GERAIS",
+        "objeto": "Aquisição de equipamento de videoconferência e seus acessórios, incluindo instalação, configuração, suporte técnico e demais atividades correlatas, sob a forma de entrega integral",
+        "motivo": "equipamento de videoconferência/audiovisual, não é B",
+        "numero_controle_pncp": "20971057000145-2-000055/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "26.0.000002207-0 - a aquisição de licenças de software, em sua última versão disponível e totalmente compatível com o sistema operacional Microsoft Windows 11",
+        "motivo": "licença de software isolada",
+        "numero_controle_pncp": "21154877000107-2-000061/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "Processo sei- 26.0.000002216-0\r\nAquisição de licenças de software, em sua última versão disponível e totalmente compatível com o sistema operacional Microsoft Windows 11, com entrega integral, conforme especificado no subitem 1.1 do Termo de Referência.",
+        "motivo": "licença de software isolada",
+        "numero_controle_pncp": "21154877000107-2-000059/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "contratação de empresa para a serviços de atualização de sistemas (softwares)\r\n\r\n - Elipse Care + Upgrade Elipse E3 versão 4.6 para 6.5 ou superior\r\n - Elipse Care + Upgrade Elipse EPM versão 2.0 para 5.0 ou superior",
+        "motivo": "atualização de sistema aplicativo (Elipse), sustentação de sistema de informação, não infra",
+        "numero_controle_pncp": "05461142000170-2-002029/2026"
+      },
+      {
+        "orgao": "INSTITUTO DE DESENVOLVIMENTO DO NORTE E NORDESTE DE MINAS GERAIS",
+        "objeto": "O objeto do presente Termo de Contrato é a Prestação de serviços de informática que deve ser executado conforme condições insertas na Proposta Comercial e Termo de Referência\r\nSEI: 2420.01.0000299/2026-28",
+        "motivo": "serviços de informática genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "04888232000189-2-000015/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 030/2026 - JJX COMÉRCIO E SERVIÇOS LTDA\r\n\r\nFornecimento de licenças do software Miro Enterprise (LOTE 03), com suporte técnico e atualização de versões.\r\n\r\nSEI 0016947-87.2026.8.13.0000",
+        "motivo": "fornecimento de licença de software com suporte, licença isolada",
+        "numero_controle_pncp": "21154554000113-2-000019/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "26.0.000002253-4 - aquisição de licenças de software, em sua última versão disponível e totalmente compatível com o sistema operacional Microsoft Windows 11, com entrega integral.",
+        "motivo": "licença de software isolada",
+        "numero_controle_pncp": "21154877000107-2-000067/2026"
+      },
+      {
+        "orgao": "CONTROLADORIA GERAL DO ESTADO",
+        "objeto": "Certificado Digital tipo A1, visando o acesso a plataforma b-Cadastros da Receita Federal do Brasil.",
+        "motivo": "certificado digital, fora de escopo",
+        "numero_controle_pncp": "05585681000110-2-000001/2026"
+      },
+      {
+        "orgao": "CORPO DE BOMBEIROS MILITAR DE MINAS GERAIS",
+        "objeto": "Serviço de Segurança e Integração à Rede Governo, Gerenciamento de Nível de Serviços da Rede IP Multisserviços e Conexão de Alta Disponibilidade a Internet",
+        "motivo": "conectividade/rede como serviço, explicitamente excluído",
+        "numero_controle_pncp": "03389126000198-2-000024/2026"
+      },
+      {
+        "orgao": "ESTADO DE MINAS GERAIS",
+        "objeto": "Contratação direta, por dispensa em razão do valor, para contratação de empresa objetivando a aquisição de certificado digital E-CPF.",
+        "motivo": "certificado digital, fora de escopo",
+        "numero_controle_pncp": "18715615000160-2-000265/2024"
+      },
+      {
+        "orgao": "FUNDACAO DE AMPARO A PESQUISA DO ESTADO DE MINAS GERAIS",
+        "objeto": "Contratação da prestação de serviços de Subscrição de Licença de Software CapCut Pro, sem dedicação exclusiva de mão de obra.",
+        "motivo": "licença SaaS isolada (CapCut Pro), item duplicado",
+        "numero_controle_pncp": "21949888000183-2-000006/2026"
+      },
+      {
+        "orgao": "FUNDACAO DE AMPARO A PESQUISA DO ESTADO DE MINAS GERAIS",
+        "objeto": "Contratação da prestação de serviços de Subscrição de Licença de Software CapCut Pro, sem dedicação exclusiva de mão de obra.",
+        "motivo": "licença SaaS isolada (CapCut Pro), item duplicado",
+        "numero_controle_pncp": "21949888000183-2-000006/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "25.0.000011591-9 -  a contratação de 10 (dez) assinaturas da Fórum IAh (Inteligência Artificial), por 12 (doze) meses, com interações ilimitadas para pesquisa, sem restrição quanto ao número de usuários simultâneos, a partir do conteúdo disponibilizado na Plataforma Fórum Conhecimento.",
+        "motivo": "assinatura de plataforma com IA, SaaS isolado",
+        "numero_controle_pncp": "21154877000107-2-000073/2026"
+      },
+      {
+        "orgao": "DEFENSORIA PUBLICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "O objeto do presente Contrato é a aquisição de bebedouros, sob a forma de entrega parcelada, que deve ser executado conforme condições do Termo de Referência (Lote 2).",
+        "motivo": "bebedouros, não é TI",
+        "numero_controle_pncp": "05599094000180-2-000035/2026"
+      },
+      {
+        "orgao": "ASSEMBLEIA LEGISLATIVA DO ESTADO DE MINAS GERAIS",
+        "objeto": "Item 1- Serviço de extensão de garantia para 2 (dois) servidores de rede da marca Dell, modelo PowerEdge R740 (service tags 8RNWK93, 9RNWK93); Item 2- serviço de extensão de garantia para 2 (dois) servidores de rede da marca Dell, modelo PowerEdge R940 (service tags 1G5KM93, 2G5KM93).",
+        "motivo": "extensão de garantia de servidor, sustentação reativa por acionamento, distinção da regra exclui",
+        "numero_controle_pncp": "17516113000147-2-000033/2024"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE JUSTICA E SEGURANCA PUBLICA -SEJUSP",
+        "objeto": "prestação de serviços de contratação de empresa especializada para prestação de serviços técnicos, sob demanda, constando de elaboração de projetos executivos de rede de comunicação (cabeamento estruturado e energia elétrica) e de execução de infraestrutura de rede comunicação (cabeamento lógico e energia elétrica), conforme especificações e condições previstas no edital e seus anexos, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "projeto e execução de cabeamento estruturado/rede sob demanda, conectividade/infra de rede, excluído",
+        "numero_controle_pncp": "05487631000109-2-000158/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE JUSTICA E SEGURANCA PUBLICA -SEJUSP",
+        "objeto": "aquisição de MOBILIÁRIOS DIVERSOS COM MONTAGEM sob demanda futura e eventual",
+        "motivo": "mobiliário, não é TI",
+        "numero_controle_pncp": "05487631000109-2-000417/2026"
+      },
+      {
+        "orgao": "POLICIA CIVIL DO ESTADO DE MINAS GERAIS",
+        "objeto": "a aquisição de de Equipamentos de Informática - Linha Avançada",
+        "motivo": "equipamentos de informática genérico, sem indicação de desktop/notebook/monitor",
+        "numero_controle_pncp": "18715532000170-2-000113/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "Processo SEI: 26.0.000003268-8\r\nContratação de empresa especializada para fornecimento de equipamentos de audiovisual e demais insumos necessários ao suprimento das demandas das diversas áreas do TRIBUNAL, com entrega integral, incluída a prestação de serviço de instalação, configuração e suporte técnico por 12 (doze) meses, exclusivamente, para o Lote 1, conforme especificações constantes do Termo de Referência.",
+        "motivo": "equipamentos de audiovisual, não é B",
+        "numero_controle_pncp": "21154877000107-2-000085/2026"
+      },
+      {
+        "orgao": "FUNDACAO EZEQUIEL DIAS",
+        "objeto": "Prestação de Integração à Rede Governo.",
+        "motivo": "integração à rede governo, conectividade como serviço, excluído",
+        "numero_controle_pncp": "17503475000101-2-000340/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "26.0.000003271-8 - a contratação de empresa especializada para fornecimento de equipamentos de audiovisual.",
+        "motivo": "equipamentos de audiovisual, não é B",
+        "numero_controle_pncp": "21154877000107-2-000087/2026"
+      },
+      {
+        "orgao": "FUNDACAO EZEQUIEL DIAS",
+        "objeto": "Prestação de serviços de Subscrição de Licença de Software de Delineamento Experimental para Desenvolvimento de Medicamentos (DOE).",
+        "motivo": "licença de software isolada",
+        "numero_controle_pncp": "17503475000101-2-000348/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS SECRETARIA DE ESTADO DA EDUCACAO",
+        "objeto": "erviços de serviços de assinatura de guias do Informativo MAI de Ensino - Ano 2026",
+        "motivo": "assinatura de informativo editorial, não é TI",
+        "numero_controle_pncp": "18715599000105-2-000428/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Prestação de serviços técnicos especializados de capacitação e mentoria estratégica, de natureza predominantemente intelectual, nas áreas de gestão estratégica, gestão de riscos organizacionais e construção de cenários prospectivos, a serem prestados à Polícia Militar de Minas Gerais (PMMG).",
+        "motivo": "capacitação/mentoria estratégica, não é infra nem hardware",
+        "numero_controle_pncp": "16695025000197-2-000323/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE AGRICULTURA, PECUARIA E ABASTECIMENTO",
+        "objeto": "O objeto do presente Contrato é a prestação de serviços de licenças de uso da plataforma Zoom - plano Business, que deve ser executado conforme condições do Termo de Referência",
+        "motivo": "licença SaaS isolada (Zoom)",
+        "numero_controle_pncp": "18715573000167-2-000017/2026"
+      },
+      {
+        "orgao": "FUNDACAO EZEQUIEL DIAS",
+        "objeto": "Aquisição de PEÇAS E ACESSÓRIOS PARA EQUIPAMENTOS: ELETRODO PARA PHMETRO.",
+        "motivo": "peça de laboratório (eletrodo phmetro), não é TI",
+        "numero_controle_pncp": "17503475000101-2-000359/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Prestação de serviços de tecnologia da informação, sendo Acesso a Solução de Business Intelligence, Produção de Solução de Business Intelligence, Suporte Técnico em Business Intelligence, Desenvolvimento e Manutenção Ágeis de Solução de Business Intelligence e Capacitação em Soluções de Business Intelligence.",
+        "motivo": "desenvolvimento/manutenção de solução de BI, sistema de informação, categoria diferente de infra",
+        "numero_controle_pncp": "16695025000197-2-000355/2026"
+      },
+      {
+        "orgao": "CORPO DE BOMBEIROS MILITAR DE MINAS GERAIS",
+        "objeto": "Prestação de serviços de tecnologia da informação",
+        "motivo": "serviços de TI genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "03389126000198-2-000051/2026"
+      },
+      {
+        "orgao": "INSTITUTO DE PREVIDENCIA DOS SERVIDORES DO ESTADO MG",
+        "objeto": "O serviço consiste no processamento dos acessos aos sistemas através da Plataforma de Autenticação, Autorização e Gestão de Papeis de Sistemas (Seg.ID).",
+        "motivo": "plataforma de autenticação/autorização, sistema de informação",
+        "numero_controle_pncp": "17217332000125-2-000192/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "O objeto do presente Contrato é a aquisição de PROJETOR MULTIMIDIA, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "projetor multimídia, equipamento multimídia excluído de B",
+        "numero_controle_pncp": "16695025000197-2-000376/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "26.0.000000154-5 - Prestação de serviços de tecnologia da informação - Sistema de Segurança e Integração/Gestão Rede IP Multisserviços, Acesso ao Ambiente Mainframe e Conexão Internet.",
+        "motivo": "rede IP multisserviços/mainframe/conexão internet, conectividade como serviço, excluído",
+        "numero_controle_pncp": "21154877000107-2-000110/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE FAZENDA DE MINAS GERAIS",
+        "objeto": "CONTRATO Nº 1190.01.0017499/2025-30 - Prestação de serviços da solução de segurança Senha Segura (Segura), incluindo aquisição de subscrições dos módulos Domun para acesso remoto a terceiros, My Safe (cofre de senhas e dados confidenciais) e DevOps Secrets Manager (DSM), além do suporte técnico, atualização, instalação, configuração e treinamento, sem dedicação exclusiva de mão de obra\r\nG",
+        "motivo": "solução de segurança/cofre de senhas (PAM), produto de segurança isolado, fora de escopo",
+        "numero_controle_pncp": "16907746000113-2-000029/2026"
+      },
+      {
+        "orgao": "FUNDACAO HOSPITALAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Consiste no envio de mensagens eletrônicas pelo protocolo SMTP (Simple Mail Transfer Protocol), a partir de aplicações de clientes do CONTRATADO.",
+        "motivo": "envio de e-mail via SMTP, serviço de e-mail explicitamente excluído",
+        "numero_controle_pncp": "19843929000100-2-002296/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 101/2026 - ZÊNITE INFORMAÇÃO E CONSULTORIA S/A\r\n\r\nPrestação de serviço de assinatura anual da plataforma Zênite Fácil IA, com 05 (cinco) acessos simultâneos e interações ilimitadas com a ferramenta ZIÁ, através de login e senha de uso exclusivo do TRIBUNAL na internet, nas condições estabelecidas no Termo de Referência e neste Contrato.\r\n\r\nSEI 0276987-85.2025.8.13.0000",
+        "motivo": "assinatura de plataforma com IA, SaaS isolado",
+        "numero_controle_pncp": "21154554000113-2-000208/2026"
+      },
+      {
+        "orgao": "PROCURADORIA GERAL DE JUSTICA DE MINAS GERAIS",
+        "objeto": "Prestação de serviços técnicos especializados para pesquisa, desenvolvimento e implantação na área da Inteligência Artificial Aplicada e soluções de Big Data, vinculada ao escopo de atribuições do Gabinete de Segurança e Inteligência  GSI / MPMG, incluindo transferência de conhecimento, à luz dos normativos vigentes, mormente a IN PGJAA n.º 1, de 13 de julho de 2021.",
+        "motivo": "pesquisa/desenvolvimento de solução de IA/Big Data, não é sustentação de infra",
+        "numero_controle_pncp": "20971057000145-2-000157/2025"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Switch Ethernet totalmente gerenciável - SWITCH CORE",
+        "motivo": "switch de rede, equipamento de rede não é B",
+        "numero_controle_pncp": "16695025000197-2-000447/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Prestação de serviços de 01 (um) Certificado Digital SSL/TLS de autenticação de servidor/equipamento, tipo A1, padrão ICP-Brasil, com validade de 12 (doze) meses, sem dedicação exclusiva de mão de obra",
+        "motivo": "certificado digital, fora de escopo",
+        "numero_controle_pncp": "05461142000170-2-003405/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "MAQUINA FUSÃO FIBRA ÓPTICA",
+        "motivo": "máquina de fusão de fibra óptica, equipamento de rede não é B",
+        "numero_controle_pncp": "16695025000197-2-000448/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 043/2026 I3R TECNOLOGIA S/S LTDA.\r\n\r\nAquisição de câmeras corporais (bodycams), incluindo software, acessórios, treinamento, manutenção e garantia, destinadas à implementação de projeto piloto para uso por Oficiais de Justiça da Comarca de Belo Horizonte.\r\n\r\nSEI 0022531-38.2026.8.13.0000",
+        "motivo": "câmeras corporais (bodycams), equipamento de segurança pessoal, não é TI",
+        "numero_controle_pncp": "21154554000113-2-000102/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE FAZENDA DE MINAS GERAIS",
+        "objeto": "O objeto do presente Contrato é aquisição de solução integrada para extração, processamento e análise forense de dados provenientes de dispositivos móveis, compreendendo equipamentos, licenças de software, suporte técnico especializado, garantia estendida, créditos para desbloqueio avançado e capacitação técnica, a presente contratação contempla fornecimento de bem associado à prestação de serviços técnicos e subscrições necessárias à operacionalização da solução tecnológica de análise forense, sendo os serviços indispensáveis ao pleno funcionamento e utilização da ferramenta, destinados ao atendimento das demandas do Laboratório de Auditoria Digital da Secretaria de Estado de Fazenda de Minas Gerais, sem dedicação exclusiva de mão de obra, que deve ser executado conforme condições do Termo de Referência e da proposta TECHBIZ assinada (137850081).",
+        "motivo": "solução forense de dados móveis (equipamento+software+serviços especializados), não é sustentação de infra nem hardware B",
+        "numero_controle_pncp": "16907746000113-2-000031/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "aquisição de peças e insumos de informática, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "peças e insumos de informática genérico, sem indicação de desktop/notebook/monitor",
+        "numero_controle_pncp": "05461142000170-2-003455/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Aquisição de peças e insumos de informática, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "peças e insumos de informática genérico, sem indicação de desktop/notebook/monitor",
+        "numero_controle_pncp": "05461142000170-2-003453/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "aquisição de peças e insumos de informática, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "peças e insumos de informática genérico, sem indicação de desktop/notebook/monitor",
+        "numero_controle_pncp": "05461142000170-2-003454/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Aquisição de peças e insumos de informática, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "peças e insumos de informática genérico, sem indicação de desktop/notebook/monitor",
+        "numero_controle_pncp": "05461142000170-2-003456/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Aquisição de peças e insumos de informática, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "peças e insumos de informática genérico, sem indicação de desktop/notebook/monitor",
+        "numero_controle_pncp": "05461142000170-2-003457/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Prestação de serviços de empresa especializada para prestação de serviços técnicos, sob demanda, constando de elaboração de projetos executivos de rede de comunicação (cabeamento estruturado e energia elétrica) e de execução de infraestrutura de rede comunicação (cabeamento lógico e energia elétrica), sem dedicação exclusiva de mão de obra, com fornecimento de materiais.\r\n\r\nProcesso SEI n°: 2350.01.0007071/2026-75.",
+        "motivo": "projeto e execução de cabeamento estruturado/rede sob demanda, conectividade como serviço, excluído",
+        "numero_controle_pncp": "05461142000170-2-003484/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "CABO DE REDE - TIPO: UTP; NUMERO DE PARES: 04; DIÂMETRO EXTERNO: 5,00 MM; CONDUTOR: COBRE; COR: AZUL; CATEGORIA: CAT6;",
+        "motivo": "cabo de rede, material de infraestrutura de rede, não é hardware B",
+        "numero_controle_pncp": "05461142000170-2-003494/2026"
+      },
+      {
+        "orgao": "UNIVERSIDADE ESTADUAL DE MONTES CLAROS",
+        "objeto": "MATERIAL E EQUIPAMENTOS MÉDICO-HOSPITALARES/ ESFIGMOMANOMETRO - TIPO: ANEROIDE; MANOMETRO: COM VISOR GRADUADO DE 0 A 300 MM/HG; BRACADEIRA (1): E MANGUITO COM DIMENSOES PARA PACIENTE ADULTO; FECHAMENTO EM VELCRO; MANGUITO/BULBO: MANGUITO, PÊRA E TUBOS CONECTORES EM BORRACHA, VALVULA EM METAL.",
+        "motivo": "esfigmomanômetro, equipamento médico, não é TI",
+        "numero_controle_pncp": "22675359000100-2-000086/2026"
+      },
+      {
+        "orgao": "PROCURADORIA GERAL DE JUSTICA DE MINAS GERAIS",
+        "objeto": "Aquisição de subscrição de licenças de uso do software OrçaFascio (módulos Orçamento e Bases Adicionais), por um período de 36 (trinta e seis) meses.",
+        "motivo": "licença de software isolada (OrçaFascio)",
+        "numero_controle_pncp": "20971057000145-2-000031/2024"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE JUSTICA E SEGURANCA PUBLICA -SEJUSP",
+        "objeto": "Prestação de serviços de tecnologia da informação, solução DAE Web (aplicativo e infraestrutura de hardware/software) que deve ser executado conforme condições insertas na Proposta Comercial e Termo de Referência.",
+        "motivo": "solução DAE Web (aplicativo), desenvolvimento/sustentação de sistema de informação, não infra",
+        "numero_controle_pncp": "05487631000109-2-000250/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "Processo sei 26.0.000001275-0 - contratação emergencial, de empresa especializada para desenvolvimento de solução tecnológica baseada no produto WSO2 API Manager (ponto central de entrada para gerenciar o tráfego de solicitações entre clientes e serviços) na modalidade de assinatura (subscription), com recursos integrados de controle de acesso e autenticação/autorização de APIs, incluindo suporte técnico especializado, com vistas a garantir o funcionamento contínuo, seguro e eficiente da plataforma, bem como apoio à equipe interna nas atividades de operação, configuração e diagnóstico de incidentes, devendo a solução a ser adotada ser compatível com ambientes de nuvem pública, privada ou híbrida, e on-premise, com capacidade de integração a sistemas já existentes no órgão, conforme especificações constantes do Termo de Referência.",
+        "motivo": "desenvolvimento de solução baseada em API Manager, sistema de informação",
+        "numero_controle_pncp": "21154877000107-2-000140/2026"
+      },
+      {
+        "orgao": "INSTITUTO DE PREVIDENCIA DOS SERVIDORES MILITARES DE MG",
+        "objeto": "O objeto do presente Termo de Contrato é a prestação de serviços de tecnologia da informação que deve ser executado conforme condições insertas na Proposta Comercial e Termo de Referência que, independentemente de transcrição.",
+        "motivo": "serviços de tecnologia da informação genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "17444779000137-2-000245/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "CARTUCHO FILTRANTE - MATÉRIA-PRIMA: CARVÃO E CELULOSE; IDENTIFICAÇÃO: EF200; DIMENSÕES: COM ROSCA, BITOLA 1/2 POLEGADA",
+        "motivo": "cartucho filtrante de água, não é TI",
+        "numero_controle_pncp": "16695025000197-2-000503/2026"
+      },
+      {
+        "orgao": "PROCURADORIA GERAL DE JUSTICA DE MINAS GERAIS",
+        "objeto": "Subscrição de licença de uso do Software Graykey.",
+        "motivo": "licença de software isolada (Graykey)",
+        "numero_controle_pncp": "20971057000145-2-000072/2025"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "O objeto do presente Contrato é a prestação de serviços de empresa especializada para prestação de serviços técnicos, sob demanda, constando de elaboração de projetos executivos de rede de comunicação (cabeamento estruturado e energia elétrica) e de execução de infraestrutura de rede comunicação (cabeamento lógico e energia elétrica), sem dedicação exclusiva de mão de obra, com fornecimento de materiais.",
+        "motivo": "projeto e execução de cabeamento estruturado/rede sob demanda, conectividade como serviço, excluído",
+        "numero_controle_pncp": "05461142000170-2-003856/2026"
+      },
+      {
+        "orgao": "FUNDACAO CLOVIS SALGADO",
+        "objeto": "Serviços técnicos especializados para contratação de serviços de atualizações, monitoramento, manutenção e suporte técnico do portal do Circuito Liberdade.",
+        "motivo": "atualização/manutenção/suporte de portal web, sustentação de sistema, não infra física",
+        "numero_controle_pncp": "17498205000141-2-000015/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Contratação/aquisição de Appliance Hiperconvergente",
+        "motivo": "appliance hiperconvergente, regra categórica de appliance exclui",
+        "numero_controle_pncp": "16695025000197-2-000512/2026"
+      },
+      {
+        "orgao": "FUNDACAO CLOVIS SALGADO",
+        "objeto": "Contratação de serviços de subscrição de licença de software, conforme o contrato nº 110/2026.",
+        "motivo": "subscrição de licença de software genérico",
+        "numero_controle_pncp": "17498205000141-2-000014/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Prestação de serviços de  SERVIÇO DE CABEAMENTO ESTRUTURADO",
+        "motivo": "serviço de cabeamento estruturado, conectividade/rede excluído",
+        "numero_controle_pncp": "05461142000170-2-003727/2026"
+      },
+      {
+        "orgao": "FUNDACAO HELENA ANTIPOFF",
+        "objeto": "Prestação de serviços de subscrição de licença de uso do software Adobe Creative Cloud For Teams Complete.",
+        "motivo": "licença SaaS isolada (Adobe Creative Cloud)",
+        "numero_controle_pncp": "16789398000127-2-000051/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "SWITCH DE ACESSO PORTA: 24 PORTAS 1000 RJ45 + 4 PORTAS SFP 1000;",
+        "motivo": "switch de rede, equipamento de rede não é B",
+        "numero_controle_pncp": "16695025000197-2-000520/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Contratação de softwares Office 365 Enterprise E3",
+        "motivo": "licença SaaS isolada (Office 365)",
+        "numero_controle_pncp": "05461142000170-2-003738/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "O objeto do presente contrato é a compra de impressora multifuncional",
+        "motivo": "impressora isolada, regra de impressora exclui",
+        "numero_controle_pncp": "16695025000197-2-000526/2026"
+      },
+      {
+        "orgao": "JUNTA COMERCIAL DO ESTADO DE MINAS GERAIS",
+        "objeto": "Objeto: Prestação de serviços de informática (Integração à Rede IP Multisserviços, Gestão de Contratos na Rede IP Multisserviços e Conexão de Alta Disponibilidade a Internet, conforme condições dispostas no Termo de Referência.",
+        "motivo": "integração/gestão rede IP multisserviços e conexão internet, conectividade como serviço, excluído",
+        "numero_controle_pncp": "17486275000180-2-000002/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS SECRETARIA DE ESTADO DA EDUCACAO",
+        "objeto": "Prestação de serviços de suporte técnico, manutenção e reparo, com fornecimento de peças, de servidor Blade, sem dedicação exclusiva de mão de obra.",
+        "motivo": "suporte/manutenção/reparo de servidor Blade, sustentação reativa (manutenção e reparo), distinção da regra exclui",
+        "numero_controle_pncp": "18715599000105-2-000495/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "compra de impressora multifuncional",
+        "motivo": "impressora multifuncional isolada, regra de impressora exclui",
+        "numero_controle_pncp": "16695025000197-2-000535/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "SEI: 25.0.000010526-3\r\nA contratação de empresa especializada para prestação de serviços de manutenção preventiva e corretiva, com suporte técnico remoto, para ativos críticos de infraestrutura (UPS e Ar-condicionado), conforme especificações constantes do Termo de Referência.",
+        "motivo": "manutenção preventiva/corretiva de UPS e ar-condicionado, sustentação reativa e regra de nobreak excluem",
+        "numero_controle_pncp": "21154877000107-2-000145/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE JUSTICA E SEGURANCA PUBLICA -SEJUSP",
+        "objeto": "Prestação de serviços de informática(Serviços Rede Governo) que deve ser executado conforme condições insertas na Proposta Comercial e Termo de Referência.",
+        "motivo": "serviços rede governo, conectividade como serviço, excluído",
+        "numero_controle_pncp": "05487631000109-2-000258/2026"
+      },
+      {
+        "orgao": "UNIVERSIDADE ESTADUAL DE MONTES CLAROS",
+        "objeto": "VIABILIZAÇÃO DE INFRAESTRUTURA DE UMA CLÍNICA VETERINÁRIA E SUPORTE TÉCNICO ESPECIALIZADO PARA A EXECUÇÃO DAS ATIVIDADES ACADÊMICAS PRÁTICAS DO CURSO DE MEDICINA VETERINÁRIA DA UNIMONTES\r\n\r\n2310.01.0029816/2025-27",
+        "motivo": "infraestrutura de clínica veterinária, não é TI",
+        "numero_controle_pncp": "22675359000100-2-000092/2026"
+      },
+      {
+        "orgao": "DEFENSORIA PUBLICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "Prestação de serviços de emissão de Certificados Digitais do tipo e-CPF A3 com validade de 3 (três) anos, Certificados Digitais do tipo e-CNPJ A3 com validade de 3 (três) anos, Certificados Digitais do tipo e-CNPJ A1 com validade de 1 (um) ano, incluindo serviços de validação presencial on site para validação e emissão de certificado digital",
+        "motivo": "certificados digitais, fora de escopo",
+        "numero_controle_pncp": "05599094000180-2-000013/2024"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Serviço de Segurança e Integração à Rede Governo, Gerenciamento de Nível de Serviços da Rede IP Multisserviços, Conexão de Alta Disponibilidade a Internet e Acesso ao Ambiente Mainframe.",
+        "motivo": "rede IP multisserviços/mainframe/conexão internet, conectividade como serviço, excluído",
+        "numero_controle_pncp": "16695025000197-2-000534/2026"
+      },
+      {
+        "orgao": "FUNDACAO HELENA ANTIPOFF",
+        "objeto": "Contratação de empresa especializada na prestação de serviços de subscrição de licença do software CAPCUT VERSÃO PRO, suporte técnico on-site, repasse de conhecimento hands-on, garantia e atualização por 12 (doze) meses.",
+        "motivo": "licença SaaS isolada (CapCut Pro)",
+        "numero_controle_pncp": "16789398000127-2-000053/2026"
+      },
+      {
+        "orgao": "SECRETARIA GERAL",
+        "objeto": "Prestação de serviços de tecnologia da informação que deve ser executado conforme condições insertas na Proposta Comercial e Termo de Referência",
+        "motivo": "serviços de tecnologia da informação genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "13235618000182-2-000002/2026"
+      },
+      {
+        "orgao": "INSTITUTO DE METROLOGIA E QUALIDADE DO ESTADO DE MINAS GERAIS",
+        "objeto": "O objeto do presente Termo de Contrato é a prestação de serviços de informática que deve ser executado conforme condições inseridas na Proposta Comercial e no Termo de Referência.",
+        "motivo": "serviços de informática genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "17322264000164-2-000007/2026"
+      },
+      {
+        "orgao": "ADVOCACIA-GERAL DO ESTADO",
+        "objeto": "contratação de solução de tecnologia da informação e comunicação de licenças de softwares de Design Gráfico, com direito de atualização e suporte, nas condições estabelecidas no Termo de Referência.",
+        "motivo": "licença de software de design gráfico, licença isolada",
+        "numero_controle_pncp": "16745465000101-2-000032/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "SEI: 26.0.000003240-8\r\nAquisição da 13ª série de livros digitais da Biblioteca Digital Fórum de Livros - 2025/2026, composta por 104 títulos inéditos, que serão disponibilizados, ao TRIBUNAL, por meio da Plataforma Digital Fórum Conhecimento Jurídico, com acesso ilimitado, simultâneo e perpétuo.",
+        "motivo": "livros digitais/biblioteca, não é TI",
+        "numero_controle_pncp": "21154877000107-2-000147/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "26.0.000000680-6 - a contratação de empresa especializada para fornecimento de livros impressos nacionais e/ou estrangeiros nas áreas de Administração Pública, Direito, Economia, Engenharia, Ciências Contábeis, Ciências Sociais, Matemática Financeira, Informática, Meio Ambiente, Administração de Empresas, dentre outras.",
+        "motivo": "livros impressos, não é TI",
+        "numero_controle_pncp": "21154877000107-2-000146/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 114/2026 - BPGR TECNOLOGIA E INFORMACAO LTDA\r\n\r\nPrestação de serviços de assinatura anual e prorrogável de serviço de busca especializada e ilimitada a todo o acervo do DJe/MG, por meio de 01 (um) acesso aos módulos Buscador DOInet e DOInet Alerta, através de login e senha de uso exclusivo do TJMG em sítio eletrônico.\r\n\r\nSEI 0040622-79.2026.8.13.0000",
+        "motivo": "assinatura de serviço de busca jurídica (DOInet), SaaS isolado",
+        "numero_controle_pncp": "21154554000113-2-000275/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "SERVIDOR DE GERENCIAMENTO DE VÍDEO PARA CFTV e SISTEMA DE ARMAZENAMENTO (STORAGE)",
+        "motivo": "servidor de gerenciamento de vídeo CFTV, segurança patrimonial excluída; storage isolado também exclui",
+        "numero_controle_pncp": "16695025000197-2-000544/2026"
+      },
+      {
+        "orgao": "POLICIA CIVIL DO ESTADO DE MINAS GERAIS",
+        "objeto": "Prestação de serviços de informática",
+        "motivo": "serviços de informática genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "18715532000170-2-000143/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS SECRETARIA DE ESTADO DA EDUCACAO",
+        "objeto": "aquisição de dispositivos de tecnologia da informação para uso educacional.",
+        "motivo": "dispositivos de TI para uso educacional, genérico demais, sem indicação clara de desktop/notebook/monitor",
+        "numero_controle_pncp": "18715599000105-2-000497/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "SWITCH DE ACESSO PORTA: 24 PORTAS 1000 RJ45 + 4 PORTAS SFP 1000;",
+        "motivo": "switch de rede, equipamento de rede não é B",
+        "numero_controle_pncp": "16695025000197-2-000548/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "25.0.000009079-7 -  Subscrição de Licença de software e extensão de texto para fala (TTS) que transforma texto escrito em áudio com vozes naturais, utilizando IA para criar locuções realistas para auxiliar pessoas com deficiência visual.",
+        "motivo": "licença de software de texto-para-fala, SaaS isolado",
+        "numero_controle_pncp": "21154877000107-2-000150/2026"
+      },
+      {
+        "orgao": "INSTITUTO DE PREVIDENCIA DOS SERVIDORES DO ESTADO MG",
+        "objeto": "Prestação de serviços de tecnologia da informação que deve ser executado conforme condições insertas na Proposta Comercial e Termo de Referência.",
+        "motivo": "serviços de tecnologia da informação genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "17217332000125-2-000223/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Subscrição de Licença de Software Miro  Versão Enterprise, conforme especificação técnica do Anexo I do Aviso de Dispensa de Licitação por Valor (COTEP Nº 1501561-019/2026).",
+        "motivo": "licença de software isolada (Miro Enterprise)",
+        "numero_controle_pncp": "05461142000170-2-003726/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "SEI: 25.0.000011655-9\r\nA contratação de 20 (vinte) licenças da solução eletrônica ZIÁ Zênite Fácil Inteligência Artificial, que contempla a Plataforma Zênite Fácil e a funcionalidade de pesquisa desse conteúdo com inteligência artificial (IA), por 12 (doze) meses.",
+        "motivo": "licenças de plataforma com IA, SaaS isolado",
+        "numero_controle_pncp": "21154877000107-2-000149/2026"
+      },
+      {
+        "orgao": "PROCURADORIA GERAL DE JUSTICA DE MINAS GERAIS",
+        "objeto": "Renovação de suporte e garantia dos equipamentos SWITCH BROCADE VDX que compõe a atual rede de dados interna do Datacenter da Procuradoria-Geral de Justiça do Estado de Minas Gerais, buscando assim atender aos requisitos necessários de segurança, disponibilidade e continuidade das operações de TIC - Tecnologia da Informação e Comunicações",
+        "motivo": "renovação de suporte/garantia de switch de rede de datacenter, equipamento de rede não é A nem B",
+        "numero_controle_pncp": "20971057000145-2-000211/2025"
+      },
+      {
+        "orgao": "INSTITUTO DE PREVIDENCIA DOS SERVIDORES MILITARES DE MG",
+        "objeto": "Prestação de serviços de atualização (upgrade) da licença de uso do software ScriptCase Enterprise Full (usuários ilimitados), incluindo suporte ouro e atualização de versões, pelo período de 12 (doze) meses, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "atualização de licença de software com suporte, licença isolada",
+        "numero_controle_pncp": "17444779000137-2-000299/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "NOBREAKS de 1500VA e 3000VA",
+        "motivo": "nobreaks isolados, regra de nobreak exclui",
+        "numero_controle_pncp": "16695025000197-2-000556/2026"
+      },
+      {
+        "orgao": "POLICIA CIVIL DO ESTADO DE MINAS GERAIS",
+        "objeto": "O objeto do Contrato é a aquisição de equipamentos para análise de vestígios forenses de informática, sob a forma de entrega integral, nas condições estabelecidas no Termo de Referência.",
+        "motivo": "equipamentos de análise forense de informática, não é hardware B",
+        "numero_controle_pncp": "18715532000170-2-000148/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE FAZENDA DE MINAS GERAIS",
+        "objeto": "Prestação de serviços de suporte técnico e manutenção para solução de segurança do tipo appliance, com a funcionalidade anti DDoS - Distributed Denial of Service, de solução de firewall, com a aquisição de subscrição de licença Arbor Atlas Inteligence Feed, sem dedicação exclusiva de mão de obra,",
+        "motivo": "suporte de appliance anti-DDoS/firewall, regra de appliance e exclusão de firewall",
+        "numero_controle_pncp": "16907746000113-2-000039/2026"
+      },
+      {
+        "orgao": "DEPARTAMENTO DE EDIFICACOES E ESTRADAS DE RODAGEM DO ESTADO DE MINAS GERAIS - DER-MG",
+        "objeto": "Contratação de serviços de informática - serviço de ProSMTP (Simple Mail Transfer Protocol)",
+        "motivo": "serviço de SMTP, e-mail explicitamente excluído",
+        "numero_controle_pncp": "17309790000194-2-000240/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE DESENVOLVIMENTO ECONOMICO",
+        "objeto": "Prestação de serviços de tecnologia da informação - hospedagem de servidores (Colocation).",
+        "motivo": "hospedagem de servidores (colocation), nuvem/hospedagem excluído",
+        "numero_controle_pncp": "19377514000199-2-000012/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "1 SWITCH",
+        "motivo": "switch, equipamento de rede não é B",
+        "numero_controle_pncp": "05461142000170-2-003739/2026"
+      },
+      {
+        "orgao": "FUNDACAO HOSPITALAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Contrato é a prestação de serviços de Instalação de Portas Automáticas com Biometria Facial",
+        "motivo": "instalação de portas automáticas com biometria facial, controle de acesso físico, não é TI",
+        "numero_controle_pncp": "19843929000100-2-002481/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS SECRETARIA DE ESTADO DA EDUCACAO",
+        "objeto": "Prestação de serviços de tecnologia da informação que deve ser executado conforme condições insertas na Proposta Comercial e Termo de Referência que, independentemente de transcrição",
+        "motivo": "serviços de tecnologia da informação genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "18715599000105-2-000501/2026"
+      },
+      {
+        "orgao": "INSTITUTO ESTADUAL DE FLORESTAS",
+        "objeto": "Segurança e Integração à Rede Governo, Gerenciamento de Nível de Serviços da Rede IP Multiserviços , Conexão de Alta Disponibilidade a Internet.",
+        "motivo": "segurança/integração rede governo, conectividade como serviço, excluído",
+        "numero_controle_pncp": "18746164000128-2-000105/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Prestação de serviços de emissão, gestão, personalização e disponibilização de Carteiras de Identidade Funcional da Polícia Militar de Minas Gerais, de forma integrada, incluindo o fornecimento e a operação de sistema informatizado, infraestrutura tecnológica, insumos, produção, suporte técnico, integração ao SIRH-PMMG e logística de entrega, sem dedicação exclusiva de mão de obra, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "emissão de carteira funcional com sistema informatizado, sistema de informação/serviço personalizado, não é B nem A",
+        "numero_controle_pncp": "16695025000197-2-000577/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Prestação de serviços de empresa especializada para prestação de serviços técnicos, sob demanda, constando de elaboração de projetos executivos de rede de comunicação (cabeamento estruturado e energia elétrica) e de execução de infraestrutura de rede comunicação (cabeamento lógico e energia elétrica), sem dedicação exclusiva de mão de obra, com fornecimento de materiais, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "cabeamento estruturado sob demanda, conectividade/rede excluído",
+        "numero_controle_pncp": "05461142000170-2-003742/2026"
+      },
+      {
+        "orgao": "FUNDACAO CLOVIS SALGADO",
+        "objeto": "prestação de serviços de locação de equipamentos destinados ao controle de acesso às dependências da FCS, compreendendo o fornecimento, montagem e instalação de 02 (duas) catracas eletrônicas com tecnologia de reconhecimento facial",
+        "motivo": "catracas eletrônicas com reconhecimento facial, controle de acesso físico, não é TI",
+        "numero_controle_pncp": "17498205000141-2-000018/2026"
+      },
+      {
+        "orgao": "FUNDACAO ESTADUAL DO MEIO AMBIENTE - FEAM",
+        "objeto": "SERVIÇOS REDE GOVERNO - GESTAO DA REDE IP MULTISERVICOS - ENGLOBANDO SEGURANCA, CONEXAO DE ALTA DISPONIBILIDADE E GERENCIAMENTO DA REDE.",
+        "motivo": "gestão de rede IP multisserviços, conectividade como serviço, excluído",
+        "numero_controle_pncp": "25455858000171-2-000012/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Equipamentos de videomonitoramento",
+        "motivo": "equipamentos de videomonitoramento, segurança/vigilância, não é TI",
+        "numero_controle_pncp": "16695025000197-2-000586/2026"
+      },
+      {
+        "orgao": "INSTITUTO MINEIRO DE AGROPECUARIA",
+        "objeto": "Rede IP",
+        "motivo": "rede IP, conectividade como serviço, excluído",
+        "numero_controle_pncp": "65179400000151-2-000020/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS GABINETE MILITAR DO GOVERNADOR",
+        "objeto": "aquisição de REFRIGERADORES",
+        "motivo": "refrigeradores, não é TI",
+        "numero_controle_pncp": "18715565000110-2-000022/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS GABINETE MILITAR DO GOVERNADOR",
+        "objeto": "Aquisição de REFRIGERADORES",
+        "motivo": "refrigeradores, não é TI",
+        "numero_controle_pncp": "18715565000110-2-000025/2026"
+      },
+      {
+        "orgao": "JUNTA COMERCIAL DO ESTADO DE MINAS GERAIS",
+        "objeto": "Prestação de \"Hospedagem em infraestrutura virtualizada, plataforma Oracle Exadata como serviço, infraestrutura como serviço (IaaS), suporte técnico a ambientes de TIC, acesso VPN, integração de ambiente operacional de TI multicloud, migração e sustentação de ambientes tecnológicos\"",
+        "motivo": "hospedagem virtualizada/Exadata/IaaS, nuvem/IaaS explicitamente excluído",
+        "numero_controle_pncp": "17486275000180-2-000003/2026"
+      },
+      {
+        "orgao": "PROCURADORIA GERAL DE JUSTICA DE MINAS GERAIS",
+        "objeto": "Prestação de serviços de subscrições de softwares Red Hat, com garantia e acesso às atualizações por 12 (doze) meses, a ser prestado por empresa especializada (lote I)\r\nPrestação de serviços especializados que compreendem (não necessariamente nesta ordem) organização, planejamento, desenvolvimento, integração, levantamento de requisitos, implantação, parametrização, apoio ao gerenciamento, suporte técnico, execução, operação e monitoramento continuado do ambiente de tecnologia da informação, e de atividades inerentes as soluções Red Hat (lote II).",
+        "motivo": "licença Red Hat e serviços de implantação/operação de plataforma, mais próximo de sustentação de sistema/plataforma que de infra física de servidor, dúvida genuína",
+        "numero_controle_pncp": "20971057000145-2-000133/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Aquisição de 01 impressora multifuncional",
+        "motivo": "impressora multifuncional isolada, regra de impressora exclui",
+        "numero_controle_pncp": "16695025000197-2-000682/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Aquisição de Protetor de Emenda Óptica, Conector para uso em informática e Cabo de Rede",
+        "motivo": "material de rede/fibra óptica, não é hardware B",
+        "numero_controle_pncp": "16695025000197-2-000604/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Contratação de empresa especializada em Sistemas de Informação Geográfica (SIG) para modernização\r\nda plataforma SIG da Polícia Militar de Minas Gerais (PMMG), denominada GeoPM",
+        "motivo": "modernização de plataforma SIG, desenvolvimento de sistema de informação",
+        "numero_controle_pncp": "16695025000197-2-002135/2024"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE AGRICULTURA, PECUARIA E ABASTECIMENTO",
+        "objeto": "aquisição de equipamentos de laboratório - Phmetro",
+        "motivo": "equipamento de laboratório (phmetro), não é TI",
+        "numero_controle_pncp": "18715573000167-2-000041/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Solução Robótica Quadrúpede Móvel, Tipo Cão-Robô, acompanhada de Acessórios Indispensáveis ao seu Pleno Funcionamento, destinada ao Apoio em Atividades Operacionais, Videomonitoramento",
+        "motivo": "robô quadrúpede para videomonitoramento, não é hardware B",
+        "numero_controle_pncp": "16695025000197-2-000610/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "O objeto do presente Contrato é a aquisição de peças e insumos de informática, que deve ser executado conforme condições do Termo de Referência (135305204);\r\nO valor da contratação é de R$ 12.682,00 (Doze mil, seiscentos e oitenta e dois reais).",
+        "motivo": "peças e insumos de informática genérico, sem indicação de desktop/notebook/monitor",
+        "numero_controle_pncp": "05461142000170-2-003780/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "SEI: 25.0.000008472-0\r\nContratação do serviço Serpro MultiCloud, na modalidade de assinatura, visando prover infraestrutura segura e homologada para utilização de modelos de linguagem de grande porte (LLMs) em projetos de inteligência artificial do Tribunal",
+        "motivo": "assinatura de infraestrutura em nuvem para LLM, cloud/IaaS excluído",
+        "numero_controle_pncp": "21154877000107-2-000165/2026"
+      },
+      {
+        "orgao": "FUNDACAO HOSPITALAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Contratação da prestação de serviço de plataforma digital de suporte à decisão clínica.",
+        "motivo": "plataforma digital de suporte à decisão clínica, sistema de informação/SaaS",
+        "numero_controle_pncp": "19843929000100-2-002504/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "CONTRATAÇÃO CORPORATIVA (ProBPMS) - Hospedagem em Contêiner, Plataforma Oracle Exadata como serviço, Desenvolvimento e Manutenção de Sistemas de Informação, Gestão de Ambiente de TI, Firewall de Aplicação web, Certificado Digital SSL/TLS e Jurídica, Suporte Técnico a Ambientes de TIC e Plataforma de Autenticação, Autorização e Gestão de Papeis e Sistemas (Seg.ID). Processo SEI nº 1500.01.0295606/2025-26.",
+        "motivo": "hospedagem em container/Exadata, desenvolvimento de sistemas, firewall e certificado digital, todos excluídos individualmente",
+        "numero_controle_pncp": "05461142000170-2-003790/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS SECRETARIA DE ESTADO DE CULTURA E TURISMO",
+        "objeto": "O objeto do presente Contrato é a compra de material de informática, equipamentos fotográficos, sonoros e acessórios, sob a forma de entrega integral, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "material de informática misturado com equipamento fotográfico/sonoro, sem discriminação clara de hardware B",
+        "numero_controle_pncp": "19138890000120-2-000227/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "SEI: 25.0.000011577-3\r\nA subscrição de software Autodesk AutoCAD Including Specialized Toolsets, em sua versão mais recente, com suporte técnico especializado e direito à atualização tecnológica (upgrade) durante a vigência contratual. A solução deve garantir compatibilidade nativa com o sistema operacional Microsoft Windows 11 (ou superior) e o conjunto integral de ferramentas e recursos, conforme especificações constantes no Termo de Referência.",
+        "motivo": "licença de software AutoCAD com suporte, licença isolada",
+        "numero_controle_pncp": "21154877000107-2-000164/2026"
+      },
+      {
+        "orgao": "ESCOLA DE SAUDE PUBLICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "Contratação da prestação do serviço ProSMTP (Simple Mail Transfer Protocol) da Prodemge, que consiste no envio de mensagens eletrônicas através das aplicações da ESP-MG (Moodle e DSpace), necessários para atender as necessidades das atividades da ESP/MG, nos termos da tabela abaixo e conforme condições e exigências estabelecidas no Termo de Referência (139808304).",
+        "motivo": "serviço de SMTP, e-mail explicitamente excluído",
+        "numero_controle_pncp": "08715327000151-2-000019/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 168/2026 OLIVEIRA ANDRADE SERVIÇOS DE MONITORAMENTO DE INFORMAÇÕES LTDA.\r\n\r\nPrestação de serviço continuado de monitoramento de mídia (clipping), abrangendo mídia impressa, portais de notícias, rádio, televisão e meios digitais correlatos, com disponibilização do conteúdo em plataforma digital, emissão de boletins e alertas, envio por e-mail e ferramenta de mensagem equivalente, além de curadoria humana especializada.\r\n\r\nSEI 0082219-28.2026.8.13.0000",
+        "motivo": "monitoramento de mídia (clipping), não é TI",
+        "numero_controle_pncp": "21154554000113-2-000304/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS SECRETARIA DE ESTADO DE CULTURA E TURISMO",
+        "objeto": "O objeto do presente Contrato é a compra de material de informática, equipamentos fotográficos, sonoros e acessórios, sob a forma de entrega integral, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "material de informática misturado com equipamento fotográfico/sonoro, sem discriminação clara de hardware B",
+        "numero_controle_pncp": "19138890000120-2-000228/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS SECRETARIA DE ESTADO DE CULTURA E TURISMO",
+        "objeto": "O objeto do presente Contrato é a compra de material de informática, equipamentos fotográficos, sonoros e acessórios, sob a forma de entrega integral, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "material de informática misturado com equipamento fotográfico/sonoro, sem discriminação clara de hardware B",
+        "numero_controle_pncp": "19138890000120-2-000229/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS SECRETARIA DE ESTADO DE CULTURA E TURISMO",
+        "objeto": "O objeto do presente Contrato é a compra de material de informática, equipamentos fotográficos, sonoros e acessórios, sob a forma de entrega integral, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "material de informática misturado com equipamento fotográfico/sonoro, sem discriminação clara de hardware B",
+        "numero_controle_pncp": "19138890000120-2-000230/2026"
+      },
+      {
+        "orgao": "PROCURADORIA GERAL DE JUSTICA DE MINAS GERAIS",
+        "objeto": "Prestação de serviços técnicos especializados de pesquisa e aconselhamento imparcial em Estratégia, Inovação Organizacional e Tecnologia da Informação, na forma de assinatura, nas condições estabelecidas no Termo de Referência.",
+        "motivo": "consultoria de estratégia/inovação/TI, não é infra nem hardware",
+        "numero_controle_pncp": "20971057000145-2-000126/2025"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 217/2024 RJR SERVIÇOS DE INFORMÁTICA LTDA. - Fornecimento por subscrição de licenças e prestação de serviços.\r\n\r\nSEI 0113796-92.2024.8.13.0000",
+        "motivo": "fornecimento de licenças e serviços genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "21154554000113-2-000249/2024"
+      },
+      {
+        "orgao": "INSTITUTO ESTADUAL DO PATRIMONIO HISTORICO E ARTISTICO DE MINAS GERAIS",
+        "objeto": "Contratação de empresa especializada na prestação de serviços de criação, produção, desenvolvimento e manutenção de software, mediante a subscrição de solução de Tecnologia da Informação por configuração para geração e publicação de formulários eletrônicos, geração de fluxo de trabalho e estruturação de dados, com funcionalidade de integração aos diversos sistemas do Estado, bem como aos sistemas existentes e novos do Instituto Estadual do Patrimônio Histórico e Artístico de Minas Gerais (Iepha/MG), além da integração ao Sistema Eletrônico de Informações (SEI) utilizado pelo Governo de Minas Gerais, desenvolvido pelo Tribunal Regional Federal da 4ª Região (TRF4). A contratação também contempla serviços de personalização, automatização de processos, procedimentos e formulários, manutenção de processos, consultoria e treinamento, com o emprego de inteligência artificial (IA) gratuita.",
+        "motivo": "desenvolvimento de software para formulários eletrônicos, sistema de informação",
+        "numero_controle_pncp": "16625196000140-2-000003/2025"
+      },
+      {
+        "orgao": "INSTITUTO DE PREVIDENCIA DOS SERVIDORES DO ESTADO MG",
+        "objeto": "Prestação de serviços técnicos especializados e continuados de tecnologia da informação, compreendendo conectividade de rede, segurança cibernética, gestão de níveis de serviço, acesso remoto seguro (VPN) e acesso ao ambiente de processamento centralizado (mainframe), no âmbito da Rede Governo, a serem executados pela PRODEMGE para atender às necessidades do IPSEMG",
+        "motivo": "conectividade de rede/VPN/mainframe via Rede Governo, conectividade como serviço, excluído",
+        "numero_controle_pncp": "17217332000125-2-000239/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 173/2026 AGÊNCIA RADIOWEB RS PRODUÇÃO JORNALÍSTICA SOCIEDADE SIMPLES.\r\n\r\n Prestação de serviços continuados de manutenção, operação, administração, produção, distribuição, monitoramento, suporte técnico e emissão de relatórios referentes à Rádio TJ Minas, rádio on-line corporativa personalizada do TJMG, já implantada e em funcionamento.\r\n\r\nSEI  0103934-29.2026.8.13.0000",
+        "motivo": "operação de rádio corporativa online, não é TI",
+        "numero_controle_pncp": "21154554000113-2-000307/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS GABINETE MILITAR DO GOVERNADOR",
+        "objeto": "Aquisição de refrigeradores - REFRIGERADOR DOMESTICO TIPO: GELADEIRA DO TIPO DOMESTICA, DUPLEX; CAPACIDADE: ENTRE 330 LITROS E 375 LITROS; POTENCIA MOTOR: CONFORME FABRICANTE; MATERIA-PRIMA: CHAPA DE ACO; SUPORTE DE APOIO E PES: PES NIVELADORES; ALIMENTACAO: 127 VOLTS;&#8239;",
+        "motivo": "refrigerador doméstico, não é TI",
+        "numero_controle_pncp": "18715565000110-2-000039/2026"
+      },
+      {
+        "orgao": "DEFENSORIA PUBLICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "Aquisição de ativos de rede (switches gerenciáveis), sob a forma de entrega parcelada",
+        "motivo": "switches gerenciáveis, equipamento de rede não é B",
+        "numero_controle_pncp": "05599094000180-2-000067/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS SECRETARIA DE ESTADO DE CULTURA E TURISMO",
+        "objeto": "O objeto do presente Contrato é a compra de material de informática, equipamentos fotográficos, sonoros e acessórios, sob a forma de entrega integral, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "material de informática misturado com equipamento fotográfico/sonoro, sem discriminação clara de hardware B",
+        "numero_controle_pncp": "19138890000120-2-000231/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS SECRETARIA DE ESTADO DE CULTURA E TURISMO",
+        "objeto": "O objeto do presente Contrato é a compra de material de informática, equipamentos fotográficos, sonoros e acessórios, sob a forma de entrega integral, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "material de informática misturado com equipamento fotográfico/sonoro, sem discriminação clara de hardware B",
+        "numero_controle_pncp": "19138890000120-2-000232/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Contratação de serviços de Serviço Móvel Pessoal (SMP), englobando tráfego de dados e acesso à Internet, serviços telefônicos Modalidade Locais, Modalidade Longa Distância Nacional, para ligações exclusivamente originadas dos terminais móveis do Plano Corporativo, e fornecimento dos equipamentos necessários, sob demanda, futura e eventual, conforme especificações, quantitativos e condições constantes no Termo de Referência anexo ao Edital nº 53/2024.",
+        "motivo": "serviço móvel pessoal (SMP) de telefonia, não é infra de TI",
+        "numero_controle_pncp": "05461142000170-2-000555/2024"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 171/2026 MARCELLI MÓVEIS PARA ESCRITÓRIO E INFORMÁTICA LTDA - EPP.\r\n\r\nAquisição de longarinas estofadas de 2 (dois) e de 3 (três) lugares, nas condições estabelecidas no Termo de Referência. (LOTE 01).\r\n\r\nSEI 0120267-56.2026.8.13.0000",
+        "motivo": "longarinas (mobiliário), não é TI",
+        "numero_controle_pncp": "21154554000113-2-000309/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 172/2026 MARCELLI MÓVEIS PARA ESCRITÓRIO E INFORMÁTICA LTDA - EPP.\r\n\r\nAquisição de longarinas em polipropileno concha de 3 (três) lugares, nas condições estabelecidas no Termo de Referência. (LOTE 02).\r\n\r\nSEI 0120366-26.2026.8.13.0000",
+        "motivo": "longarinas (mobiliário), não é TI",
+        "numero_controle_pncp": "21154554000113-2-000310/2026"
+      },
+      {
+        "orgao": "DEPARTAMENTO ESTADUAL DE TRANSITO DE MINAS GERAIS - DETRAN-MG",
+        "objeto": "Prestação de serviço de informática de Desenvolvimento e Manutenção de Sistemas de Informação, Sustentação de Sistemas de Informação e Desenvolvimento e Manutenção Ágeis de Soluções de Business Intelligence. SEI 1500.01.0079897/2026-92.",
+        "motivo": "desenvolvimento/sustentação de sistemas de informação e BI, categoria diferente de infra",
+        "numero_controle_pncp": "64566951000105-2-000002/2026"
+      },
+      {
+        "orgao": "OUVIDORIA GERAL DO ESTADO DE MINAS GERAIS",
+        "objeto": "Acesso a Solução MG-Ouv",
+        "motivo": "acesso a plataforma/sistema, sistema de informação",
+        "numero_controle_pncp": "07256298000144-2-000003/2026"
+      },
+      {
+        "orgao": "INSTITUTO DE PREVIDENCIA DOS SERVIDORES DO ESTADO MG",
+        "objeto": "A Prestação de serviços de informática que deve ser executado conforme condições insertas na Proposta Comercial e Termo de Referência.",
+        "motivo": "serviços de informática genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "17217332000125-2-000240/2026"
+      },
+      {
+        "orgao": "FUNDACAO DE EDUCACAO PARA O TRABALHO DE MINAS GERAIS",
+        "objeto": "Contratação de empresa especializada para a prestação de serviços de instalação e hospedagem do site institucional",
+        "motivo": "hospedagem de site institucional, cloud/hospedagem excluído",
+        "numero_controle_pncp": "17319831000123-2-000003/2026"
+      },
+      {
+        "orgao": "DEFENSORIA PUBLICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "Aquisição de insumos, peças e equipamentos de TIC, sob a forma de entrega parcelada, que deve ser executado conforme condições do Termo de Referência",
+        "motivo": "insumos/peças/equipamentos de TIC genérico, sem indicação de desktop/notebook/monitor",
+        "numero_controle_pncp": "05599094000180-2-000070/2026"
+      },
+      {
+        "orgao": "DEFENSORIA PUBLICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "Contrato é de aquisição de insumos, peças e equipamentos de TIC, sob a forma de entrega parcelada, que deve ser executado conforme condições do Termo de Referência",
+        "motivo": "insumos/peças/equipamentos de TIC genérico, sem indicação de desktop/notebook/monitor",
+        "numero_controle_pncp": "05599094000180-2-000071/2026"
+      },
+      {
+        "orgao": "DEFENSORIA PUBLICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "Contrato é de aquisição de insumos, peças e equipamentos de TIC, sob a forma de entrega parcelada, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "insumos/peças/equipamentos de TIC genérico, sem indicação de desktop/notebook/monitor",
+        "numero_controle_pncp": "05599094000180-2-000072/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "equipamento de telefonia IP (Centrais Telefônicas PABX IP, Conversor Gateway E1 VoIP e Aparelhos Telefônicos IP",
+        "motivo": "equipamento de telefonia IP (PABX/VoIP), não é hardware B",
+        "numero_controle_pncp": "16695025000197-2-000651/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE DESENVOLVIMENTO ECONOMICO",
+        "objeto": "O objeto do presente Termo de Contrato é a Aquisição de Licença de Software Adobe Creative Cloud For Teams complete, incluindo os serviços de suporte técnico e atualização de versões, sem dedicação exclusiva de mão de obra.",
+        "motivo": "licença SaaS isolada (Adobe Creative Cloud)",
+        "numero_controle_pncp": "19377514000199-2-000015/2026"
+      },
+      {
+        "orgao": "FUND CENTRO HEMATOLOGIA E HEMOTERAPIA DE MINAS GERAIS",
+        "objeto": "manutenção e suporte técnico do software Forponto\r\nSEI 2320.01.0000753/2026-30",
+        "motivo": "manutenção/suporte de software de ponto eletrônico, sistema aplicativo",
+        "numero_controle_pncp": "26388330000190-2-000077/2026"
+      },
+      {
+        "orgao": "JUNTA COMERCIAL DO ESTADO DE MINAS GERAIS",
+        "objeto": "Contratação da prestação de serviços de solução tecnológica de atendimento digital multicanal (Plataforma Omnichannel), na modalidade de subscrição de software (SaaS) em nuvem, sem dedicação exclusiva de mão de obra, para a JUNTA COMERCIAL DO ESTADO DE MINAS GERAIS  JUCEMG, conforme especificações constantes no Anexo I -Termo de Referência do Edital de Pregão Eletrônico nº.01/2026 (documento SEI nº 139946383 ).",
+        "motivo": "plataforma de atendimento digital em SaaS/nuvem, excluído",
+        "numero_controle_pncp": "17486275000180-2-000005/2026"
+      },
+      {
+        "orgao": "UNIVERSIDADE ESTADUAL DE MONTES CLAROS",
+        "objeto": "Aquisição de licença de software de assistência à saúde a fim de atender a demanda do Hospital Universitário Clemente de Fria - HUCF",
+        "motivo": "licença de software de saúde, licença isolada",
+        "numero_controle_pncp": "22675359000100-2-000120/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE INFRAESTRUTURA E MOBILIDADE",
+        "objeto": "Aquisição de 01 (uma) vaga no curso \"Plataforma Microsoft Azure\" visando à capacitação de 01 (um) servidor da Secretaria de Estado de Infraestrutura, Mobilidade e Parcerias - SEINFRA/MG",
+        "motivo": "curso de capacitação (Azure), não é infra nem hardware",
+        "numero_controle_pncp": "18715581000103-2-000017/2026"
+      },
+      {
+        "orgao": "UNIVERSIDADE ESTADUAL DE MONTES CLAROS",
+        "objeto": "Contratação de empresa especializada para prestação de serviços técnicos continuados de, atualização tecnológica, suporte técnico especializado, reinstalação, migração de dados, treinamento remoto e integração sistêmica do Sistema Integrado de Bibliotecas Pergamum ao Sistema Integrado de Gestão de Atividades Acadêmicas  SIGAA",
+        "motivo": "atualização/integração de sistema de biblioteca (Pergamum/SIGAA), sistema de informação",
+        "numero_controle_pncp": "22675359000100-2-000122/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Contratação de serviços de Serviço Móvel Pessoal (SMP), englobando tráfego de dados e acesso à Internet, serviços telefônicos Modalidade Locais, Modalidade Longa Distância Nacional, para ligações exclusivamente originadas dos terminais móveis do Plano Corporativo, e fornecimento dos equipamentos necessários, sob demanda, futura e eventual, conforme especificações, quantitativos e condições constantes no Termo de Referência anexo ao Edital nº 53/2024.",
+        "motivo": "serviço móvel pessoal (SMP) de telefonia, não é infra de TI",
+        "numero_controle_pncp": "05461142000170-2-000009/2025"
+      },
+      {
+        "orgao": "FUNDACAO HOSPITALAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "O objeto do presente Termo de Contrato é a prestação de serviços de tecnologia da informação, que deve ser executado conforme condições inseridas na Proposta Comercial e Termo de Referência que, independentemente de transcrição, integram este Contrato, e conforme descrito abaixo:\r\n\r\n1.1.1.           Acesso VPN O serviço de acesso VPN (Virtual Private Network) consiste na implementação de uma rede lógica para trafegar informações de forma segura, usando a técnica de tunelamento por criptografia, sobre uma conexão internet comum",
+        "motivo": "acesso VPN, conectividade como serviço, excluído",
+        "numero_controle_pncp": "19843929000100-2-002517/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "ONVERSOR PARA REDE FIBRA ÓPTICA - TAXA DE TRANSMISSÃO: 10BASE-T: 14.800 PPS / 100BASE-TX: 148.000 PPS",
+        "motivo": "conversor para rede de fibra óptica, equipamento de rede não é B",
+        "numero_controle_pncp": "16695025000197-2-000657/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "CONVERSOR PARA REDE FIBRA ÓPTICA - TAXA DE TRANSMISSÃO: 10BASE-T: 14.800 PPS / 100BASE-TX: 148.000 PPS; MODO DE TRANSMISSÃO",
+        "motivo": "conversor para rede de fibra óptica, equipamento de rede não é B",
+        "numero_controle_pncp": "16695025000197-2-000655/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 196/2026 IT-ONE TECNOLOGIA DA INFORMAÇÃO S.A.\r\n\r\nFornecimento e a implantação de subscrições de licenças de uso da solução de virtualização de desktops e aplicações Omnissa Horizon Universal, incluindo suporte técnico, manutenção e atualização de versões, pelo período de 12 (doze) meses.\r\n\r\nSEI 0153189-53.2026.8.13.0000",
+        "motivo": "licença de solução de virtualização de desktops (VDI) com suporte, licença de software isolada",
+        "numero_controle_pncp": "21154554000113-2-000385/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Elaboração de Projeto de Cabeamento Estruturado e Rede Elétrica com fornecimento de planta baixa e layout, formato A1 - SEI nº 2320.01.0009457/2026-53",
+        "motivo": "elaboração de projeto de cabeamento estruturado, rede/conectividade excluído",
+        "numero_controle_pncp": "05461142000170-2-003860/2026"
+      },
+      {
+        "orgao": "CONTROLADORIA GERAL DO ESTADO",
+        "objeto": "Contratação de empresa especializada na prestação de serviços de subscrição de licença de software Canva Pro última versão.",
+        "motivo": "licença SaaS isolada (Canva Pro)",
+        "numero_controle_pncp": "05585681000110-2-000002/2026"
+      },
+      {
+        "orgao": "POLICIA CIVIL DO ESTADO DE MINAS GERAIS",
+        "objeto": "prestação de serviços para aquisição da Subscrição de Licença, Atualização , Suporte , Manutenção, Garantia e Treinamento do Software Clearview PRO, por um período de 12 meses, com recurso proveniente de Emenda Parlamentar, Indicação 202197",
+        "motivo": "licença de software (Clearview) com suporte/manutenção, licença isolada",
+        "numero_controle_pncp": "18715532000170-2-000159/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "contratação de empresa de arquitetura/engenharia para execução de serviços de reforma dos vestiários de oficiais masculino, vestiário feminino, vestiário de sub. tenente e sargento, vestiário de subalternos\r\nmasculino e vestiário de cabo e soldados do Centro de Suprimentos e Aquisições de Tecnologia  da Informação e Comunicações - CSA-TIC do Centro de Tecnologia em Telecomunicações  CTT.",
+        "motivo": "reforma civil de vestiários, obra, não é TI",
+        "numero_controle_pncp": "16695025000197-2-000668/2026"
+      },
+      {
+        "orgao": "DEFENSORIA PUBLICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "Aquisição de insumos, peças e equipamentos de TIC, sob a forma de entrega parcelada, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "insumos/peças/equipamentos de TIC genérico, sem indicação de desktop/notebook/monitor",
+        "numero_controle_pncp": "05599094000180-2-000073/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Prestação de serviços de Serviço Móvel Pessoal (SMP), englobando tráfego de dados e acesso à Internet, serviços telefônicos Modalidade Locais, Modalidade Longa Distância Nacional, para ligações exclusivamente originadas dos terminais móveis do Plano Corporativo, e fornecimento dos equipamentos necessários",
+        "motivo": "serviço móvel pessoal (SMP) de telefonia, não é infra de TI",
+        "numero_controle_pncp": "05461142000170-2-000013/2025"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Prestação de serviços de Serviço Móvel Pessoal (SMP), englobando tráfego de dados e acesso à Internet, serviços telefônicos Modalidade Locais, Modalidade Longa Distância Nacional, para ligações exclusivamente originadas dos terminais móveis do Plano Corporativo, e fornecimento dos equipamentos necessários, sob demanda futura e eventual, nos termos da tabela abaixo e conforme condições e exigências estabelecidas no termo de referência, Anexo I do edital do RP Planejamento nº 53/2024.",
+        "motivo": "serviço móvel pessoal (SMP) de telefonia, não é infra de TI",
+        "numero_controle_pncp": "05461142000170-2-000012/2025"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE FAZENDA DE MINAS GERAIS",
+        "objeto": "Contrato nº 1190.01.0014051/2025-06 - Prestação de serviços de manutenção, preventiva e corretiva, para o Data Center instalado na Secretaria de Estado de Fazenda de Minas Gerais, sem dedicação exclusiva de mão de obra",
+        "motivo": "manutenção preventiva e corretiva de datacenter, sustentação reativa, distinção da regra exclui",
+        "numero_controle_pncp": "16907746000113-2-000047/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "O objeto do presente Contrato é a prestação de serviços de empresa especializada para prestação de serviços técnicos, sob demanda, constando de elaboração de projetos executivos de rede de comunicação (cabeamento estruturado e energia elétrica) e de execução de infraestrutura de rede comunicação (cabeamento lógico e energia elétrica), sem dedicação exclusiva de mão de obra, com fornecimento de materiais, que deve ser executado conforme condições do Termo de Referência e do Termo de Execução de Ata de Registro de Preços",
+        "motivo": "cabeamento estruturado sob demanda, rede/conectividade excluído",
+        "numero_controle_pncp": "05461142000170-2-003864/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS SECRETARIA DE ESTADO DA EDUCACAO",
+        "objeto": "Contratação de certificado digital (Certificado Digital do tipo b-Cadastros | A1), emitido por autoridade certificadora credenciada à ICP-Brasil - Serviço Federal de Processamento de Dados - SERPRO, pelo período de 1 (um) ano",
+        "motivo": "certificado digital, fora de escopo",
+        "numero_controle_pncp": "18715599000105-2-000519/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Aquisição de 01 impressora",
+        "motivo": "impressora isolada, regra de impressora exclui",
+        "numero_controle_pncp": "16695025000197-2-000677/2026"
+      },
+      {
+        "orgao": "CONTROLADORIA GERAL DO ESTADO",
+        "objeto": "Prestação de serviços de hospedagem e processamento de sistemas e sítios eletrônicos de propriedade da Controladoria-Geral do Estado de Minas Gerais (CGE), em ambiente dedicado, incluindo o serviço de instalação em baixa plataforma no Data Center da PRODEMGE (INF.5812).",
+        "motivo": "hospedagem/processamento de sistemas em datacenter, hospedagem/cloud excluído",
+        "numero_controle_pncp": "05585681000110-2-000003/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "CONTRATO Nº 1190.01.0000273/2026-14:  Prestação de serviços de empresa especializada para prestação de serviços técnicos, sob demanda, constando de elaboração de projetos executivos de rede de comunicação (cabeamento estruturado e energia elétrica) e de execução de infraestrutura de rede comunicação (cabeamento lógico e energia elétrica), sem dedicação exclusiva de mão de obra, com fornecimento de materiais",
+        "motivo": "cabeamento estruturado sob demanda, rede/conectividade excluído",
+        "numero_controle_pncp": "05461142000170-2-003865/2026"
+      },
+      {
+        "orgao": "PROCURADORIA GERAL DE JUSTICA DE MINAS GERAIS",
+        "objeto": "Prestação de serviço de subscrição de licenças de uso da ferramenta CLAUDE AI, versão Max 20x, conforme especificações, exigências e quantidades estabelecidas no Termo de Referência.",
+        "motivo": "licença SaaS isolada (Claude AI)",
+        "numero_controle_pncp": "20971057000145-2-000136/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 192/2026 SEMPRE TELECOMUNICAÇÕES LTDA.\r\n\r\nPrestação de serviços continuados de acesso à Internet em banda larga para as unidades de Arquivo e da GERSAT (Gerência de Saúde no Trabalho) do TRIBUNAL, em diversas localidades, com link de, no mínimo, 100 Mbps por localidade, tráfego ilimitado e disponibilidade ininterrupta, incluindo instalação, manutenção, suporte técnico e fornecimento de equipamentos em comodato. LOTE 07.\r\n\r\nSEI 0152729-66.2026.8.13.0000",
+        "motivo": "link de internet/banda larga, conectividade como serviço, excluído",
+        "numero_controle_pncp": "21154554000113-2-000322/2026"
+      },
+      {
+        "orgao": "INSTITUTO DE PREVIDENCIA DOS SERVIDORES MILITARES DE MG",
+        "objeto": "contratação de empresa de serviços especializada para fornecimento, implantação e suporte de solução integrada de Firewall de Aplicação Web (WAF) do fabricante F5 Networks, plataforma BIG-IP Virtual Edition Advanced WAF versão V23, contemplando balanceamento de carga de aplicações, subscrições, suporte técnico do fabricante e serviços especializados de instalação, configuração, ativação e colocação em produção, pelo período de 12 (doze) meses, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "firewall WAF (F5), segurança de rede explicitamente excluído",
+        "numero_controle_pncp": "17444779000137-2-000421/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Aquisição de solução forense, hardware e software, para extração e recuperação de dados de dispositivos móveis, incluindo smartphones e tablets. Suporta dispositivos móveis, mesmo quando bloqueados por senha, danificados ou desligados. Permite a extração física e/ou descriptografia de imagem de disco (full filesystem), lógica e de arquivos, além de recuperar dados apagados e acessar memórias NAND e eMMC, conforme especificações, condições, quantidade e exigências estabelecidas neste instrumento, para atender às necessidades do Núcleo de Operações Especiais de Inteligência e Segurança Pública, da DINT, de acordo com as condições e especificações mínimas contidas no Termo de Referência SEI nº 138552954 e na Proposta Comercial SEI nº 136969573.",
+        "motivo": "solução forense de extração de dados móveis, não é hardware B",
+        "numero_controle_pncp": "16695025000197-2-000694/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 1982026 MINAS COMÉRCIO E SERVIÇOS LTDA.\r\n\r\n\r\nFornecimento de licenças do software Sound Forge, LOTE 6.\r\n\r\nSEI 0165945-94.2026.8.13.0000",
+        "motivo": "licença de software isolada (Sound Forge)",
+        "numero_controle_pncp": "21154554000113-2-000344/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Prestação de serviço técnico especializado de engenharia para investigação geotécnica do subsolo, compreendendo a execução de sondagens de simples reconhecimento, coleta de amostras e ensaios laboratoriais de caracterização, em área de aproximadamente 1.600 m², que deve ser executado conforme condições do Termo de Referência",
+        "motivo": "investigação geotécnica de engenharia, não é TI",
+        "numero_controle_pncp": "16695025000197-2-000701/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE FAZENDA DE MINAS GERAIS",
+        "objeto": "Contrato nº 1190.01.0014139/2025-55 - Contratação da prestação de serviços e de assistência técnica para manutenção preventiva, corretiva, com substituição de peças, quando necessário, em equipamentos de telefonia, atualização de versão e/ou revisão do software de tarifação, sem dedicação exclusiva de mão de obra (Pregão Eletrônico n° 1191001 - 22/2026)",
+        "motivo": "manutenção reativa de equipamentos de telefonia, não é hardware B nem infra de servidor/datacenter",
+        "numero_controle_pncp": "16907746000113-2-000048/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Contratação de empresa técnica especializada para prestação de serviço continuado de solução de Software como Serviço (SaaS), destinada à emissão de laudos médicos de exames endoscópicos, assim como captura, gestão, armazenamento e edição, incluindo endoscopia digestiva e colonoscopia, contemplando o fornecimento de licenças de uso, infraestrutura em nuvem, suporte técnico, atualizações evolutivas e corretivas, bem como integração com equipamentos de captura de imagem e sistemas institucionais, sem dedicação exclusiva de mão de obra.",
+        "motivo": "SaaS em nuvem para laudos médicos, cloud/SaaS isolado",
+        "numero_controle_pncp": "16695025000197-2-000728/2026"
+      },
+      {
+        "orgao": "UNIVERSIDADE ESTADUAL DE MONTES CLAROS",
+        "objeto": "SUPORTE TÉCNICO EM INFORMÁTICA, MODALIDADE REMOTA E PRESENCIAL,SEM DEDICAÇÃO EXCLUSIVA DE MÃO DE OBRA",
+        "motivo": "suporte técnico em informática genérico, sem detalhe de pacote com infra ou hardware",
+        "numero_controle_pncp": "22675359000100-2-000123/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Contêiner de Telecomunicações, Grupo Moto Gerador 14 KVA, Ar Condicionado Wall Mounted 24.000 BTU/H & Roteador de Rede.",
+        "motivo": "aquisição pontual de contêiner/gerador/ar-condicionado/roteador, mistura de bens diversos, não é aquisição B nem sustentação continuada A",
+        "numero_controle_pncp": "16695025000197-2-000729/2026"
+      },
+      {
+        "orgao": "INSTITUTO DE PREVIDENCIA DOS SERVIDORES DO ESTADO MG",
+        "objeto": "A Prestação de serviços de tecnologia da informação que deve ser executado conforme condições insertas na Proposta Comercial e Termo de Referência.",
+        "motivo": "serviços de tecnologia da informação genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "17217332000125-2-000265/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "O objeto do presente Contrato é a aquisição de peças e insumos de informática, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "peças e insumos de informática genérico, sem indicação de desktop/notebook/monitor",
+        "numero_controle_pncp": "05461142000170-2-003979/2026"
+      },
+      {
+        "orgao": "UNIVERSIDADE ESTADUAL DE MONTES CLAROS",
+        "objeto": "Aquisição de materiais de escritório e de materiais específicos utilizados em atividades de restauração e conservação de acervos bibliográficos e documentais, sob a forma de entrega INTEGRAL.\r\nSEI: 2310.01.0005400/2026-44",
+        "motivo": "materiais de escritório/restauração de acervos, não é TI",
+        "numero_controle_pncp": "22675359000100-2-000125/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE FAZENDA DE MINAS GERAIS",
+        "objeto": "Locação do imóvel, de propriedade do LOCADOR, com uma área construída de 960,05 m2, sendo composto por salas montadas com divisórias, com a seguinte composição: um saguão para atendimento contribuintes, um saguão para retaguarda de analistas, sala chefia AF, sala gerência AF, sala de reunião, espaço para arquivo e almoxarifado, cozinha e área de serviços, 02 banheiros masculinos, 02 banheiros femininos, sala de equipamentos de informática e telefonia, sala para auditores residentes da DF, garagem coberta e áreas de circulação internas, situado na Rua Maricota Santos, ne 41, Centro, Município de Araguari, Matrícula nº 182, Livro 2 - \"Registro Geral\", Circunscrição de Araguari (MG), para abrigar as instalações da Administração Fazendária de Araguari.",
+        "motivo": "locação de imóvel, não é TI",
+        "numero_controle_pncp": "16907746000113-2-000050/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "GATEWAY PARA SISTEMA VOIP / PABX IP",
+        "motivo": "gateway VoIP/PABX IP, equipamento de telecom não é B",
+        "numero_controle_pncp": "16695025000197-2-000811/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 204 2026 MINAS COMÉRCIO E SERVIÇOS LTDA.\r\n\r\nFornecimento de licenças do software Rocket.chat. Lote 3.\r\n\r\nSEI 0171269-65.2026.8.13.0000",
+        "motivo": "licença de software isolada (Rocket.chat)",
+        "numero_controle_pncp": "21154554000113-2-000343/2026"
+      },
+      {
+        "orgao": "DEPARTAMENTO DE EDIFICACOES E ESTRADAS DE RODAGEM DO ESTADO DE MINAS GERAIS - DER-MG",
+        "objeto": "Contratação de serviços de informática - Acesso VPN, Serviços Rede Governo, Acesso ao Ambiente Mainframe",
+        "motivo": "VPN/Rede Governo/mainframe, conectividade como serviço, excluído",
+        "numero_controle_pncp": "17309790000194-2-000281/2026"
+      },
+      {
+        "orgao": "FUNDACAO EZEQUIEL DIAS",
+        "objeto": "Contratação da prestação de serviços de LICENCA DE USO PERPETUO DE SOFTWARE LABORATORIAL LINHA AGILENT, sem dedicação exclusiva de mão de obra.",
+        "motivo": "licença perpétua de software laboratorial, licença isolada",
+        "numero_controle_pncp": "17503475000101-2-000496/2026"
+      },
+      {
+        "orgao": "UNIVERSIDADE DO ESTADO DE MINAS GERAIS",
+        "objeto": "O objeto do presente Contrato é a locação do imóvel localizado na Praça Dom Ferrão, 167, Bairro Centro, Campanha - MG CEP 37400-000, destinado à instalação Biblioteca, Brinquedoteca (Laboratório do curso de Pedagogia), CEMEC (Laboratório do curso de História), Sala para grupos de estudo e pesquisa, Polo UAB, Laboratório de Informática, Empresa Júnior INOVA (Laboratório do curso de Processos Gerenciais) Unidade Acadêmica de Campanha da Universidade do Estado de Minas Gerais. PC SEI 2350.01.0009896/2026-42.",
+        "motivo": "locação de imóvel para biblioteca/laboratórios, não é TI",
+        "numero_controle_pncp": "65172579000115-2-000026/2026"
+      },
+      {
+        "orgao": "CONTROLADORIA GERAL DO ESTADO",
+        "objeto": "Produção de Solução de Business Intelligence (INF.5754).",
+        "motivo": "produção de solução de BI, desenvolvimento de sistema de informação",
+        "numero_controle_pncp": "05585681000110-2-000004/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Prestação de serviços de tecnologia da informação, referentes a hospedagem de servidores e sistemas, suporte técnico, acesso VPN, infraestrutura como serviço  IaaS, integração multicloud e sustentação de ambiente de TI.",
+        "motivo": "hospedagem/IaaS/multicloud/VPN, cloud e conectividade excluídos",
+        "numero_controle_pncp": "05461142000170-2-004416/2026"
+      },
+      {
+        "orgao": "FUNDACAO TV MINAS CULTURAL E EDUCATIVA",
+        "objeto": "O objeto a aquisição do Pacote Adobe Creative Cloud todos os Apps, com direito de atualização e suporte por 12 meses, por adesão carona a Ata de Registro de preços nº 40/2024 (126237572), Edital RP nº 90.001/2024 (133485658), por meio da CENTRAL DE COMPRAS, da SECRETARIA DE GESTÃO E INOVAÇÃO EM SERVIÇOS PÚBLICOS, nos termos da tabela abaixo e conforme condições e exigências estabelecidas neste documento e no Termo de Referência (126237571).",
+        "motivo": "licença SaaS isolada (Adobe Creative Cloud)",
+        "numero_controle_pncp": "21229281000129-2-000005/2026"
+      },
+      {
+        "orgao": "DEFENSORIA PUBLICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "Prestação de serviços de informática (INF-5456/00).",
+        "motivo": "serviços de informática genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "05599094000180-2-000083/2026"
+      },
+      {
+        "orgao": "UNIVERSIDADE ESTADUAL DE MONTES CLAROS",
+        "objeto": "Prestação de serviços de tecnologia da informação",
+        "motivo": "serviços de tecnologia da informação genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "22675359000100-2-000140/2026"
+      },
+      {
+        "orgao": "FUNDACAO HELENA ANTIPOFF",
+        "objeto": "Contratação, por inexigibilidade de licitação, da empresa NP TECNOLOGIA E GESTÃO DE DADOS LTDA., para disponibilização de licença de uso da ferramenta denominada Banco de Preços  Versão Plus + Painel, mediante acesso à plataforma online de pesquisa e comparação de preços praticados pela Administração Pública, conforme condições estabelecidas no Termo de Referência.",
+        "motivo": "licença/plataforma online de pesquisa de preços, SaaS isolado",
+        "numero_controle_pncp": "16789398000127-2-000058/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Prestação de Serviço Móvel Pessoal (SMP), englobando tráfego de dados e acesso à Internet, serviços telefônicos Modalidade Locais, Modalidade Longa Distância Nacional, para ligações exclusivamente originadas dos terminais móveis do Plano Corporativo, e fornecimento dos equipamentos necessários, sob demanda, futura e eventual.",
+        "motivo": "serviço móvel pessoal (SMP) de telefonia, não é infra de TI",
+        "numero_controle_pncp": "05461142000170-2-000162/2025"
+      },
+      {
+        "orgao": "FUND CENTRO HEMATOLOGIA E HEMOTERAPIA DE MINAS GERAIS",
+        "objeto": "Aquisição de equipamentos laboratoriais.",
+        "motivo": "equipamentos laboratoriais, não é TI",
+        "numero_controle_pncp": "26388330000190-2-000104/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 260/2024 TIM S.A - prestação de serviços de telefonia móvel pessoal (SMP), englobando tráfego de dados e acesso à internet, serviços telefônicos modalidade local, modalidade longa distância nacional, para ligações exclusivamente originadas dos terminais móveis do plano corporativo, incluindo o fornecimento dos equipamentos necessários, em comodato.\r\n\r\nSEI 0137016-22.2024.8.13.0000",
+        "motivo": "serviço móvel pessoal (SMP) de telefonia, não é infra de TI",
+        "numero_controle_pncp": "21154554000113-2-000357/2024"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 258/2024 COMPANHIA DE TECNOLOGIA DA INFORMAÇÃO DO ESTADO DE MINAS GERAIS - PRODEMGE - Serviços de informática com o objetivo de desenvolver, com uso de metodologias ágeis, sistema de orçamento, gestão de arrecadação, execução e controle orçamentário e de custos para o TRIBUNAL.\r\n\r\nSEI 0765336-67.2023.8.13.0000",
+        "motivo": "desenvolvimento ágil de sistema de orçamento/arrecadação, sistema de informação",
+        "numero_controle_pncp": "21154554000113-2-000360/2024"
+      },
+      {
+        "orgao": "UNIVERSIDADE ESTADUAL DE MONTES CLAROS",
+        "objeto": "Aquisição de Materiais de Consumo para o Posto de Coleta de Leite Humano.",
+        "motivo": "materiais de consumo para posto de coleta de leite humano, não é TI",
+        "numero_controle_pncp": "22675359000100-2-000146/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS SECRETARIA DE ESTADO DA EDUCACAO",
+        "objeto": "Este instrumento tem por objeto a prestação de serviços educacionais destinados ao Projeto Trilhas de Futuro. A instituição CONTRATADA pode ser pública ou privada, com ou sem fins lucrativos, e deve oferecer formação profissional e técnica de nível médio. O objetivo é fornecer educação de qualidade que prepare os alunos para o mercado de trabalho, contribuindo para o desenvolvimento socioeconômico e facilitando a inserção profissional dos formandos, que serão prestados nas condições estabelecidas no Termo de Referência, Anexo I do Edital SEE n.º 02/2025 e suas Retificações - Processo SEI n.º 1260.01.0044859/2025-16 .",
+        "motivo": "serviços educacionais (Trilhas de Futuro), não é TI",
+        "numero_controle_pncp": "18715599000105-2-000185/2026"
+      },
+      {
+        "orgao": "FUNDACAO EDUCACIONAL CAIO MARTINS",
+        "objeto": "O serviço contempla a disponibilização de infraestrutura de TIC como serviço, a partir da tecnologia de virtualização de recursos computacionais",
+        "motivo": "infraestrutura de TIC como serviço (IaaS/virtualização), cloud excluído",
+        "numero_controle_pncp": "19169713000101-2-000014/2024"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "prestação de serviços de impressão e reprografia, por meio da disponibilização de solução integrada de outsourcing de impressão, compreendendo a locação de equipamentos multifuncionais, instalação, configuração, suporte técnico especializado, manutenção preventiva e corretiva, reposição de peças, componentes e insumos (exceto papel e etiquetas), serviços de impressão, cópia, digitalização em rede, scanner, monitoramento operacional e demais atividades necessárias à plena execução da solução contratada.",
+        "motivo": "outsourcing de impressão (locação multifuncionais), regra de impressora exclui",
+        "numero_controle_pncp": "16695025000197-2-000912/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE JUSTICA E SEGURANCA PUBLICA -SEJUSP",
+        "objeto": "O objeto do Contrato é a prestação de serviço da Subscrição de Licença do Software GREYKEY, com recursos do 7/ Repasse, Meta 3/Ação 1, SIAFI: 9445787, em dedicação exclusiva de mão de obra, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "licença de software forense (Greykey), licença isolada",
+        "numero_controle_pncp": "05487631000109-2-000396/2026"
+      },
+      {
+        "orgao": "INSTITUTO ESTADUAL DO PATRIMONIO HISTORICO E ARTISTICO DE MINAS GERAIS",
+        "objeto": "Prestação de serviços de informática (INF-5513.00) executados pela PRODEMG.",
+        "motivo": "serviços de informática genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "16625196000140-2-000011/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS GABINETE MILITAR DO GOVERNADOR",
+        "objeto": "Prestação de serviço de hospedagem em infraestrutura virtualizada e acesso VPN-Prodemge.\r\nSEI 5140.01.0001937/2026-48",
+        "motivo": "hospedagem virtualizada e VPN, cloud/conectividade excluído",
+        "numero_controle_pncp": "18715565000110-2-000045/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Fornecimento de corta-vergalhões, pés de cabra/alavancas, cintas de tração para reboque veicular e manilhas, destinados a execução dos cursos do CPE,",
+        "motivo": "ferramentas de resgate veicular para cursos, não é TI",
+        "numero_controle_pncp": "16695025000197-2-000916/2026"
+      },
+      {
+        "orgao": "UNIVERSIDADE ESTADUAL DE MONTES CLAROS",
+        "objeto": "Aquisição de MATERIAL E EQUIPAMENTOS MÉDICO-HOSPITALARES.",
+        "motivo": "material/equipamentos médico-hospitalares, não é TI",
+        "numero_controle_pncp": "22675359000100-2-000150/2026"
+      },
+      {
+        "orgao": "PROCURADORIA GERAL DE JUSTICA DE MINAS GERAIS",
+        "objeto": "Contratação de serviço de consultoria especializada e suporte técnico para habilitação de equipe de tecnologia da informação, sob a forma de entrega parcelada, conforme especificações, exigências e quantidades estabelecidas no Termo de Referência.",
+        "motivo": "consultoria/suporte para habilitação de equipe de TI, capacitação, não é infra nem hardware",
+        "numero_controle_pncp": "20971057000145-2-000094/2024"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "Prestação de serviços continuados de acesso à Internet em banda larga para as unidades de Arquivo e da GERSAT (Gerência de Saúde no Trabalho) do TRIBUNAL, em diversas localidades, com link de, no mínimo, 100 Mbps por localidade, tráfego ilimitado e disponibilidade ininterrupta, incluindo instalação, manutenção, suporte técnico e fornecimento de equipamentos em comodato. Lote 1.\r\n\r\nSEI 0153018-96.2026.8.13.0000",
+        "motivo": "acesso internet banda larga, conectividade como serviço, excluído",
+        "numero_controle_pncp": "21154554000113-2-000347/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 193/2026 TECNOSERVER TELECOM LTDA.\r\n\r\nPrestação de serviços continuados de acesso à Internet em banda larga para as unidades de Arquivo e da GERSAT (Gerência de Saúde no Trabalho) do TRIBUNAL, em diversas localidades, com link de, no mínimo, 100 Mbps por localidade, tráfego ilimitado e disponibilidade ininterrupta, incluindo instalação, manutenção, suporte técnico e fornecimento de equipamentos em comodato. Lote 10.\r\n\r\nSEI 0152733-06.2026.8.13.0000",
+        "motivo": "acesso internet banda larga, conectividade como serviço, excluído",
+        "numero_controle_pncp": "21154554000113-2-000348/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 191/2026 VERÃO COMUNICAÇÕES LTDA.\r\n\r\nPrestação de serviços continuados de acesso à Internet em banda larga para as unidades de Arquivo e da GERSAT (Gerência de Saúde no Trabalho) do TRIBUNAL, em diversas localidades, com link de, no mínimo, 100 Mbps por localidade, tráfego ilimitado e disponibilidade ininterrupta, incluindo instalação, manutenção, suporte técnico e fornecimento de equipamentos em comodato.\r\n\r\nSEI 0152597-09.2026.8.13.0000",
+        "motivo": "acesso internet banda larga, conectividade como serviço, excluído",
+        "numero_controle_pncp": "21154554000113-2-000383/2026"
+      },
+      {
+        "orgao": "FUNDO DE MELHORIA DA PERICIA OFICIAL - FUMPOF",
+        "objeto": "Contratação  de  solução  de  Conectividade    Integrada,    pelo    período    de    12  meses, visando a  continuidade  da  infraestrutura  de  rede,  serviços  de  comunicação  de  dados  para interligação de unidades administrativas da  PCI à  Internet, aos Data  Centers do    CIASC  e/ou        outras    unidades    administrativas.    A    solução    abrange    implantação,  configuração, operação e manutenção de serviços de conectividade no modelo nuvem IP (VPN MPLS), com faturamento  mediante consumo  de  Unidade  de  Serviço  de  Rede  (USR), sendo que o  consumo  dessas  unidades  poderá  ser  redistribuído  para  outros  serviços    de    internet  previstos  na  proposta,  desde  que  respeitado  o  limite  total  de  URS contratado.",
+        "motivo": "conectividade integrada de rede/VPN MPLS, conectividade como serviço, excluído",
+        "numero_controle_pncp": "35747598000161-2-000036/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 209/2026 BIZZ INTERNET LTDA.\r\n\r\nPrestação de serviços continuados de acesso à Internet em banda larga para as unidades de Arquivo e da GERSAT (Gerência de Saúde no Trabalho) do TRIBUNAL, em diversas localidades, com link de, no mínimo, 100 Mbps por localidade, tráfego ilimitado e disponibilidade ininterrupta, incluindo instalação, manutenção, suporte técnico e fornecimento de equipamentos em comodato. lote 2.\r\n\r\nSEI 0185502-67.2026.8.13.0000",
+        "motivo": "acesso internet banda larga, conectividade como serviço, excluído",
+        "numero_controle_pncp": "21154554000113-2-000388/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 222/2026 COMPANHIA DE TECNOLOGIA DA INFORMAÇÃO DO ESTADO DE MINAS GERAIS - PRODEMGE\r\n\r\nPrestação de serviços de tecnologia da informação.\r\n\r\nSEI 0089014-50.2026.8.13.0000",
+        "motivo": "serviços de tecnologia da informação genérico, sem detalhe que enquadre em A ou B",
+        "numero_controle_pncp": "21154554000113-2-000584/2026"
+      },
+      {
+        "orgao": "POLICIA CIVIL DO ESTADO DE MINAS GERAIS",
+        "objeto": "O objeto do Contrato é a aquisição de equipamentos para análise de vestígios forenses de informática, sob a forma de entrega integral, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "equipamentos de análise forense de informática, não é hardware B",
+        "numero_controle_pncp": "18715532000170-2-000197/2026"
+      },
+      {
+        "orgao": "MINAS GERAIS SECRETARIA DE ESTADO DA EDUCACAO",
+        "objeto": "Este instrumento tem por objeto a prestação de serviços educacionais destinados ao Projeto Trilhas de Futuro. A instituição CONTRATADA pode ser pública ou privada, com ou sem fins lucrativos, e deve oferecer formação profissional e técnica de nível médio. O objetivo é fornecer educação de qualidade que prepare os alunos para o mercado de trabalho, contribuindo para o desenvolvimento socioeconômico e facilitando a inserção profissional dos formandos, que serão prestados nas condições estabelecidas no Termo de Referência, Anexo I do Edital SEE n.º 02/2025 e suas Retificações - Processo SEI n.º 1260.01.0044859/2025-16 .",
+        "motivo": "serviços educacionais (Trilhas de Futuro), não é TI",
+        "numero_controle_pncp": "18715599000105-2-000064/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "contratação de serviços contínuos de telefonia móvel - Serviço Móvel Pessoal - SMP, englobando tráfego de dados, acesso à internet e serviços telefônicos Modalidades Local, Longa Distância Nacional e Internacional, para ligações exclusivamente originadas dos terminais móveis do Plano Corporativo, incluindo o fornecimento dos equipamentos necessários, em regime comodato, conforme especificações do termo de referência.",
+        "motivo": "serviço móvel pessoal (SMP) de telefonia, não é infra de TI",
+        "numero_controle_pncp": "21154877000107-2-000176/2025"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Aquisição de equipamentos de musculação para compor a academia do 31º BPM.",
+        "motivo": "equipamentos de musculação, não é TI",
+        "numero_controle_pncp": "16695025000197-2-001040/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 190/2026 NETSPEED LTDA.\r\n\r\nPrestação de serviços continuados de acesso à Internet em banda larga para as unidades de Arquivo e da GERSAT (Gerência de Saúde no Trabalho) do TRIBUNAL, em diversas localidades, com link de, no mínimo, 100 Mbps por localidade, tráfego ilimitado e disponibilidade ininterrupta, incluindo instalação, manutenção, suporte técnico e fornecimento de equipamentos em comodato. Lote 3.\r\n\r\nSEI 0152391-92.2026.8.13.0000",
+        "motivo": "acesso internet banda larga, conectividade como serviço, excluído",
+        "numero_controle_pncp": "21154554000113-2-000403/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DA JUSTICA DO ESTADO DE MINAS GERAIS",
+        "objeto": "CT TJMG 210/2026 TELEMÍDIA SISTEMAS DE TELECOMUNICAÇÃO LTDA.\r\n\r\nPrestação de serviços continuados de acesso à Internet em banda larga para as unidades de Arquivo e da GERSAT (Gerência de Saúde no Trabalho) do TRIBUNAL, em diversas localidades, com link de, no mínimo, 100 Mbps por localidade, tráfego ilimitado e disponibilidade ininterrupta, incluindo instalação, manutenção, suporte técnico e fornecimento de equipamentos em comodato. Lote 4.\r\n\r\nSEI 0185504-37.2026.8.13.0000",
+        "motivo": "acesso internet banda larga, conectividade como serviço, excluído",
+        "numero_controle_pncp": "21154554000113-2-000401/2026"
+      },
+      {
+        "orgao": "INSTITUTO DE PREVIDENCIA DOS SERVIDORES MILITARES DE MG",
+        "objeto": "prestação de serviços de Licenças de Uso - Software Design Gráfico, com direito de atualização e suporte, pelo período de 12 (doze) meses, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "licença de software de design gráfico, licença isolada",
+        "numero_controle_pncp": "17444779000137-2-000553/2026"
+      },
+      {
+        "orgao": "TRIBUNAL DE CONTAS DO ESTADO DE MINAS GERAIS",
+        "objeto": "SEI: 26.0.000001747-6\r\na contratação, por 12 (doze) meses, da empresa Editora Fórum Ltda. para prestação de serviços especializados de assinatura da Plataforma Fórum Conhecimento Jurídico (Módulo Fórum de Direito), com acesso ilimitado, simultâneo e perpétuo, constantes de 61 publicações, sendo 25 revistas científicas, 35 títulos bônus e o Informativo Jacoby (diário), que reúnem doutrina de autores nacionais e internacionais, jurisprudência selecionada e legislação das diversas áreas do Direito, além de entrevistas e tendências jurisprudenciais.",
+        "motivo": "assinatura de plataforma de conteúdo jurídico, SaaS/conteúdo isolado",
+        "numero_controle_pncp": "21154877000107-2-000158/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE FAZENDA DE MINAS GERAIS",
+        "objeto": "Contrato nº 1190.01.0001075/2026-88: Contratação da prestação dos serviços de suporte técnico e atualização de versões do \"IBM Cloud Pak for Integration\", sem dedicação exclusiva de mão de obra (Pregão Eletrônico n° 1191001 50/2026)",
+        "motivo": "suporte/atualização de produto de integração em nuvem (IBM Cloud Pak), não é infra física",
+        "numero_controle_pncp": "16907746000113-2-000058/2026"
+      },
+      {
+        "orgao": "ADVOCACIA-GERAL DO ESTADO",
+        "objeto": "Assinatura do \"Pacote Essencial\", vinculado ao Plano Básico, que permite, através do acesso à plataforma digital Jusbrasil (https://www.jusbrasil.com.br/) (\"Plataforma\"), consulta, cópia e dowload de jurisprudências, diários oficiais, modelos e peças, bem como acompanhamento e consulta de até 5 (cinco) processos, notificações por e-mail sobre novas movimentações,visando fornecimento contínuo de 5 (cinco) acessos àquela ferramenta de pesquisa eletrônica, formada por repositório unificado de jurisprudências dos principais tribunais brasileiros, aos servidores da Advocacia-Geral do Estado de Minas Gerais.",
+        "motivo": "assinatura de plataforma de pesquisa jurídica (Jusbrasil), SaaS isolado",
+        "numero_controle_pncp": "16745465000101-2-000034/2025"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "60 ADAPTADORES PARA EQUIPAMENTOS DE INFORMATICA TIPO: SEM FIO (WIRELESS); CONECTOR: USB",
+        "motivo": "adaptadores wireless USB, acessório/periférico, não é desktop/notebook/monitor",
+        "numero_controle_pncp": "16695025000197-2-001083/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "200 CABOS DE REDE",
+        "motivo": "cabos de rede, material de rede não é hardware B",
+        "numero_controle_pncp": "16695025000197-2-001082/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE JUSTICA E SEGURANCA PUBLICA -SEJUSP",
+        "objeto": "Prestação de serviços de empresa especializada para prestação de serviços técnicos, sob demanda, constando de elaboração de projetos executivos de rede de comunicação (cabeamento estruturado e energia elétrica) e de execução de infraestrutura de rede comunicação (cabeamento lógico e energia elétrica), sem dedicação exclusiva de mão de obra, com fornecimento de materiais, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "cabeamento estruturado sob demanda, rede/conectividade excluído",
+        "numero_controle_pncp": "05487631000109-2-000418/2026"
+      },
+      {
+        "orgao": "PROCURADORIA GERAL DE JUSTICA DE MINAS GERAIS",
+        "objeto": "Aquisição de Software Clearview AI, na modalidade de subscrição, pelo período de 03 (três) anos, para 03 (três) usuários, sob a forma de entrega integral.",
+        "motivo": "licença de software isolada (Clearview AI)",
+        "numero_controle_pncp": "20971057000145-2-000107/2024"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Licenças Microsoft",
+        "motivo": "licenças Microsoft genérico, licença de software isolada",
+        "numero_controle_pncp": "05461142000170-2-004594/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "PLANO DE VOZ NACIONAL ILIMITADO E DADOS 30 GB - ACESSO A INTERNET - COM COMODATO DE APARELHO CELULAR MILITAR",
+        "motivo": "plano de voz/dados móvel com comodato de celular, serviço de telefonia, não é TI",
+        "numero_controle_pncp": "05461142000170-2-000631/2025"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Prestação de serviços de empresa especializada para prestação de serviços técnicos, sob demanda, constando de elaboração de projetos executivos de rede de comunicação (cabeamento estruturado e energia elétrica) e de execução de infraestrutura de rede comunicação (cabeamento lógico e energia elétrica), sem dedicação exclusiva de mão de obra, com fornecimento de materiais, que deve ser executado conforme condições do Termo de Referência.",
+        "motivo": "cabeamento estruturado sob demanda, rede/conectividade excluído",
+        "numero_controle_pncp": "05461142000170-2-004595/2026"
+      },
+      {
+        "orgao": "PROCURADORIA GERAL DE JUSTICA DE MINAS GERAIS",
+        "objeto": "Prestação de serviços mediante licenças de softwares na modalidade SaaS (Software as a Service) para design gráfico, edição de vídeo e banco de ativos, além de aquisição de licenciamento perpétuo de ferramenta para customização de imagens de sistema operacional, sob a forma de entrega integral.",
+        "motivo": "licenças SaaS de design/vídeo e licenciamento perpétuo de imagem de SO, licenças isoladas",
+        "numero_controle_pncp": "20971057000145-2-000207/2026"
+      },
+      {
+        "orgao": "POLICIA MILITAR DO ESTADO DE MINAS GERAIS",
+        "objeto": "Aquisição de 02 impressoras multifuncional",
+        "motivo": "impressoras multifuncionais isoladas, regra de impressora exclui",
+        "numero_controle_pncp": "16695025000197-2-001103/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE PLANEJAMENTO E GESTAO",
+        "objeto": "Prestação de serviços de empresa especializada para prestação de serviços técnicos, sob demanda, constando de elaboração de projetos executivos de rede de comunicação (cabeamento estruturado e energia elétrica) e de execução de infraestrutura de rede comunicação (cabeamento lógico e energia elétrica), sem dedicação exclusiva de mão de obra, com fornecimento de materiais, que deve ser executado conforme condições do Termo de Referência. - BRASILIA",
+        "motivo": "cabeamento estruturado sob demanda, rede/conectividade excluído",
+        "numero_controle_pncp": "05461142000170-2-004613/2026"
+      },
+      {
+        "orgao": "SECRETARIA DE ESTADO DE FAZENDA DE MINAS GERAIS",
+        "objeto": "Contrato nº 1190.01.0004894/2026-86:  Prestação de serviços de envio de mensagens SMS - Short Message Service compreendendo gerenciamento, transmissão de mensagens de texto para celulares e suporte técnico, sem dedicação exclusiva de mão de obra (Pregão Eletrônico n° 1191001 - 41/2026)",
+        "motivo": "envio de mensagens SMS com suporte, serviço de mensageria não é infra de TI",
+        "numero_controle_pncp": "16907746000113-2-000063/2026"
+      }
+    ]
+  }
+}
