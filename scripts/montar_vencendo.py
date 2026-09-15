@@ -44,6 +44,7 @@ UF_NOMES = {
     "BA": "Bahia",
     "RS": "Rio Grande do Sul",
     "PA": "Pará",
+    "MG": "Minas Gerais",
 }
 
 
