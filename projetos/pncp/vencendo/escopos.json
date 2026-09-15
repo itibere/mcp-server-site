@@ -44,6 +44,15 @@
    "municipio": "Belém",
    "arquivo": "dados_m_pa_belem.json",
    "geradoEm": "2026-09-14T09:51:41"
+  },
+  {
+   "esferaCode": "E",
+   "esferaNome": "Estadual",
+   "uf": "MG",
+   "ufNome": "Minas Gerais",
+   "municipio": null,
+   "arquivo": "dados_e_mg.json",
+   "geradoEm": "2026-09-15T09:22:24"
   }
  ]
 }
