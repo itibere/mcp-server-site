@@ -12,3 +12,4 @@ function ligarToggle(botaoId, painelId) {
 
 ligarToggle('toggle-ia', 'lista-ia');
 ligarToggle('toggle-seguranca', 'lista-seguranca');
+ligarToggle('toggle-playbooks', 'lista-playbooks');
