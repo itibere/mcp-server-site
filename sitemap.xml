@@ -36,4 +36,7 @@
   <url>
     <loc>https://itibere.tec.br/seguranca/http-hardening/</loc>
   </url>
+  <url>
+    <loc>https://itibere.tec.br/seguranca/prompt-injection-cli/</loc>
+  </url>
 </urlset>
