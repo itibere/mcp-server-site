@@ -75,6 +75,9 @@ ehthumbs.db
 Thumbs.db
 
 
+# Instruções locais do Claude Code: o GitHub Pages publicaria este arquivo
+CLAUDE.md
+
 # wrangler files
 .wrangler
 .dev.vars*
