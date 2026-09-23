@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shadow AI — Itiberê Paquier</title>
-  <meta name="description" content="Playbook de Shadow AI: onde a IA não autorizada aparece, por que os controles falham, como priorizar risco contra valor e o que o NIST AI RMF, o perfil de IA generativa (AI 600-1) e o Cyber AI Profile dizem sobre inventário.">
+  <meta name="description" content="Playbook de Shadow AI: onde a IA não autorizada aparece, por que os controles falham, como priorizar risco contra valor e como montar um programa de governança em 90 dias.">
 
   <!-- Tailwind CSS Standalone -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,7 +22,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
   <meta property="og:title" content="Shadow AI — Itiberê Paquier">
-  <meta property="og:description" content="Descobrir, priorizar e governar a IA que ninguém aprovou, com base no NIST AI RMF e no Cyber AI Profile.">
+  <meta property="og:description" content="Descobrir, priorizar e governar a IA que ninguém aprovou.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://itibere.tec.br/seguranca/shadow-ai/">
 </head>
@@ -57,12 +57,12 @@
           Shadow AI
         </h1>
         <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
-          A IA que ninguém aprovou já está dentro da organização: na aba do navegador, na extensão instalada, no recurso que o fornecedor ligou por padrão. Não há malware nem intrusão, então nenhum alerta dispara. Este playbook junta o que aprendi sobre como achar, priorizar e governar esse uso sem virar o setor que só diz "não".
+          Uso de IA fora do inventário e das políticas da organização: sem aprovação, sem contrato, sem registro. Não gera alerta. Este playbook trata de descoberta, priorização e governança desse uso.
         </p>
         <div class="flex flex-wrap gap-x-8 gap-y-2 pt-2 text-xs font-mono-code text-slate-400">
-          <span><span class="text-slate-500">base</span> webinar EC-Council CyberTalks + NIST</span>
-          <span><span class="text-slate-500">referência</span> AI RMF 1.0 · AI 600-1 · IR 8596</span>
-          <span><span class="text-slate-500">status</span> <span class="text-cyan-400">síntese de estudo</span></span>
+          <span><span class="text-slate-500">cobertura</span> uso de IA fora do inventário</span>
+          <span><span class="text-slate-500">abordagem</span> descobrir, priorizar, governar</span>
+          <span><span class="text-slate-500">horizonte</span> <span class="text-cyan-400">90 dias</span></span>
         </div>
       </div>
     </section>
@@ -71,27 +71,27 @@
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
         <span class="text-xs font-mono-code text-slate-500">01</span>
-        <h2 class="text-xl font-bold text-white">O que é, e por que não é só "funcionário usando ChatGPT"</h2>
+        <h2 class="text-xl font-bold text-white">O que é Shadow AI</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Shadow AI é qualquer uso de IA que acontece fora do inventário e das regras da organização. É a mesma lógica do <em>shadow IT</em>, com uma diferença que agrava tudo: o dado sai no momento do uso. Ele é colado no prompt, anexado ou lido por uma integração, e passa a ser guardado, registrado e às vezes usado para treino sob termos que ninguém da organização aceitou.
+        Uso de IA fora do inventário e das políticas da organização. Diferente do <em>shadow IT</em>, o dado sai no momento do uso e fica sujeito a retenção, registro e treino sob termos não aceitos pela organização.
       </p>
       <div class="grid sm:grid-cols-2 gap-3">
         <div class="rounded-xl border border-slate-800 bg-[#090e17] p-4 space-y-1">
           <div class="text-xs font-mono-code text-amber-400">conta pessoal</div>
-          <p class="text-sm text-slate-400 leading-relaxed">Plano gratuito, login pessoal, no equipamento corporativo. É a forma mais comum.</p>
+          <p class="text-sm text-slate-400 leading-relaxed">Plano gratuito com login pessoal em equipamento corporativo. Vetor mais frequente.</p>
         </div>
         <div class="rounded-xl border border-slate-800 bg-[#090e17] p-4 space-y-1">
           <div class="text-xs font-mono-code text-amber-400">extensão e app com OAuth</div>
-          <p class="text-sm text-slate-400 leading-relaxed">Assistente de navegador ou app de terceiros que recebeu acesso a e-mail, drive ou repositório.</p>
+          <p class="text-sm text-slate-400 leading-relaxed">Extensão de navegador ou aplicativo de terceiros com acesso a e-mail, drive ou repositório.</p>
         </div>
         <div class="rounded-xl border border-slate-800 bg-[#090e17] p-4 space-y-1">
-          <div class="text-xs font-mono-code text-amber-400">IA embutida no que já foi contratado</div>
-          <p class="text-sm text-slate-400 leading-relaxed">O fornecedor ligou um recurso de IA depois da sua avaliação. Ninguém instalou nada novo.</p>
+          <div class="text-xs font-mono-code text-amber-400">IA embutida em software contratado</div>
+          <p class="text-sm text-slate-400 leading-relaxed">Recurso de IA ativado pelo fornecedor após a avaliação, sem nova instalação.</p>
         </div>
         <div class="rounded-xl border border-slate-800 bg-[#090e17] p-4 space-y-1">
-          <div class="text-xs font-mono-code text-amber-400">API e agente sem dono</div>
-          <p class="text-sm text-slate-400 leading-relaxed">Script ou agente chamando a API de um modelo direto da estação, com chave e identidade não humana que ninguém responde.</p>
+          <div class="text-xs font-mono-code text-amber-400">API e agente sem responsável</div>
+          <p class="text-sm text-slate-400 leading-relaxed">Chamada direta à API de modelo a partir de estação, com chave ou identidade não humana sem responsável.</p>
         </div>
       </div>
     </section>
@@ -100,30 +100,27 @@
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
         <span class="text-xs font-mono-code text-slate-500">02</span>
-        <h2 class="text-xl font-bold text-white">Anatomia de um vazamento sem atacante</h2>
+        <h2 class="text-xl font-bold text-white">Caminho típico do vazamento</h2>
       </div>
-      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        O caminho típico não tem vilão. Tem alguém produtivo com prazo curto e uma aba aberta:
-      </p>
       <ol class="grid sm:grid-cols-5 gap-2 text-sm">
-        <li class="rounded-lg border border-slate-800 bg-[#090e17] p-3 text-slate-300"><span class="block text-[11px] font-mono-code text-slate-500">1 · prazo</span>A ferramenta aprovada é mais lenta ou pior.</li>
+        <li class="rounded-lg border border-slate-800 bg-[#090e17] p-3 text-slate-300"><span class="block text-[11px] font-mono-code text-slate-500">1 · prazo</span>Ferramenta aprovada lenta ou inadequada.</li>
         <li class="rounded-lg border border-slate-800 bg-[#090e17] p-3 text-slate-300"><span class="block text-[11px] font-mono-code text-slate-500">2 · conta pessoal</span>Plano gratuito, fora do SSO.</li>
-        <li class="rounded-lg border border-amber-800/60 bg-amber-950/20 p-3 text-slate-300"><span class="block text-[11px] font-mono-code text-amber-400">3 · colagem</span>Contrato, planilha ou código saem de uma vez.</li>
-        <li class="rounded-lg border border-amber-800/60 bg-amber-950/20 p-3 text-slate-300"><span class="block text-[11px] font-mono-code text-amber-400">4 · retenção</span>Guarda, log e treino sob termos desconhecidos.</li>
-        <li class="rounded-lg border border-red-800/60 bg-red-950/20 p-3 text-slate-300"><span class="block text-[11px] font-mono-code text-red-400">5 · incidente</span>Dado pessoal tratado por quem não tem contrato.</li>
+        <li class="rounded-lg border border-amber-800/60 bg-amber-950/20 p-3 text-slate-300"><span class="block text-[11px] font-mono-code text-amber-400">3 · colagem</span>Contratos, planilhas ou código enviados ao prompt.</li>
+        <li class="rounded-lg border border-amber-800/60 bg-amber-950/20 p-3 text-slate-300"><span class="block text-[11px] font-mono-code text-amber-400">4 · retenção</span>Armazenamento, log e treino sob termos não aceitos.</li>
+        <li class="rounded-lg border border-red-800/60 bg-red-950/20 p-3 text-slate-300"><span class="block text-[11px] font-mono-code text-red-400">5 · incidente</span>Dado pessoal sem tratamento, sem responsável.</li>
       </ol>
       <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 p-4 space-y-3">
-        <span class="text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider block">Números citados no webinar</span>
+        <span class="text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider block">Alguns números de mercado</span>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm text-slate-400">
           <div><span class="block text-2xl font-extrabold text-amber-300">77%</span>de quem usa IA generativa cola conteúdo direto no prompt</div>
           <div><span class="block text-2xl font-extrabold text-amber-300">82%</span>dessas colagens vêm de contas pessoais, não gerenciadas</div>
           <div><span class="block text-2xl font-extrabold text-amber-300">40%</span>dos arquivos enviados a ferramentas de IA contêm dado pessoal ou de cartão</div>
           <div><span class="block text-2xl font-extrabold text-amber-300">39,7%</span>das interações observadas com IA envolvem dado sensível</div>
         </div>
-        <p class="text-xs text-slate-500">Estatísticas de relatórios de mercado apresentadas pelo palestrante. Não conferi as fontes primárias: use como ordem de grandeza, não como número exato.</p>
+        <p class="text-xs text-slate-500">Use como ordem de grandeza. Origem dos números nas fontes, ao final.</p>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        No Brasil, o passo 5 tem nome na LGPD. Colar dado pessoal num serviço estrangeiro sem contrato é compartilhar com um operador sem as garantias dos arts. 39 e 46, e em geral é também uma transferência internacional (art. 33) sem base definida. Não precisa haver invasão para existir incidente a avaliar.
+        No Brasil, dado pessoal sem responsável é situação prevista na LGPD. Assim, a colagem de dado ignora a previsão dos arts. 39 e 46 e realiza transferência internacional de dados sem base definida (art. 33).
       </p>
     </section>
 
@@ -131,10 +128,10 @@
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
         <span class="text-xs font-mono-code text-slate-500">03</span>
-        <h2 class="text-xl font-bold text-white">Onde procurar: seis superfícies, cinco já pagas</h2>
+        <h2 class="text-xl font-bold text-white">Onde procurar</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Descoberta vem antes de política, porque não dá para governar o que não se vê. A boa notícia é que quase tudo sai de telemetria que a organização já tem. O que falta é alguém juntar.
+        Descoberta precede política. Cinco das seis fontes já existem na telemetria da organização; falta consolidar.
       </p>
       <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-x-auto">
         <table class="w-full text-sm text-left">
@@ -152,7 +149,7 @@
         </table>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        A sexta superfície é de graça e costuma render mais que as outras: uma janela curta (duas semanas, por exemplo) em que cada área declara as ferramentas de IA que usa, sem consequência. Em troca, a organização descobre o uso real e as necessidades que a ferramenta oficial não atende.
+        Registro com anistia: janela curta, de cerca de duas semanas, para cada área declarar as ferramentas de IA em uso, sem sanção. Custo zero e, em geral, a fonte mais produtiva: revela o uso real e as necessidades não atendidas pela ferramenta oficial.
       </p>
     </section>
 
@@ -160,10 +157,10 @@
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
         <span class="text-xs font-mono-code text-slate-500">04</span>
-        <h2 class="text-xl font-bold text-white">Controles que funcionam, e onde cada um falha</h2>
+        <h2 class="text-xl font-bold text-white">Controles e limitações</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Nenhum controle cobre tudo sozinho. Os programas que se surpreendem são os que contam como resolvido o que só um deles cobre.
+        Nenhum controle isolado garante cobertura. Cada um tem ponto cego conhecido.
       </p>
       <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-x-auto">
         <table class="w-full text-sm text-left">
@@ -181,7 +178,7 @@
         </table>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        A ordem importa. Primeiro oferecer uma ferramenta oficial boa, com SSO; depois gastar com bloqueio. Bloquear sem alternativa só empurra o uso para o celular pessoal, onde nenhum dos controles acima enxerga.
+        Ordem recomendada: ferramenta oficial adequada, com SSO, antes de investir em bloqueio. Bloqueio sem alternativa desloca o uso para dispositivos pessoais, fora do alcance dos controles.
       </p>
     </section>
 
@@ -189,17 +186,17 @@
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
         <span class="text-xs font-mono-code text-slate-500">05</span>
-        <h2 class="text-xl font-bold text-white">O fornecedor de modelo que você nunca contratou</h2>
+        <h2 class="text-xl font-bold text-white">Risco de quarta parte</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        A avaliação de fornecedor termina no contrato, mas o dado continua. O SaaS avaliado lança um recurso de IA depois da avaliação, ligado por padrão, e esse recurso chama um provedor de modelo que ninguém avaliou: uma <strong class="text-white">quarta parte</strong>. Perante o titular e o regulador, quem responde continua sendo a sua organização.
+        Recurso de IA ativado por padrão em SaaS já contratado, após a avaliação do fornecedor, costuma depender de um provedor de modelo não avaliado: uma <strong class="text-white">quarta parte</strong>. A responsabilidade perante titular e regulador permanece com a organização.
       </p>
       <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 p-4 text-sm text-slate-400 leading-relaxed">
-        <span class="text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider block mb-2">O que exigir por escrito, não em questionário</span>
-        Aviso prévio quando um recurso de IA for ativado ou o modelo de base mudar; lista de suboperadores de IA; proibição (ou opt-in explícito) de treino com seus dados; prazo de retenção; e, na saída, atestado de exclusão de dados <em>e de embeddings</em>.
+        <span class="text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider block mb-2">Exigir em contrato</span>
+        Aviso prévio quando um recurso de IA for ativado ou o modelo de base mudar; lista de suboperadores de IA; proibição (ou opt-in explícito) de treino com dados da organização; prazo de retenção; e, na saída, atestado de exclusão de dados <em>e de embeddings</em>.
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        O webinar citou que 48% das violações no DBIR 2026 envolveram um terceiro, e que parte relevante dos incidentes com alvo em IA veio de API, plugin ou má configuração de nuvem em volta do modelo, não do modelo em si. A superfície de ataque é a integração.
+        Quase metade das violações recentes envolve terceiros. Incidentes com alvo em IA partem, em boa parte, de APIs, plugins e configuração de nuvem no entorno do modelo.
       </p>
     </section>
 
@@ -207,20 +204,20 @@
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
         <span class="text-xs font-mono-code text-slate-500">06</span>
-        <h2 class="text-xl font-bold text-white">Validação é uma data, não um estado</h2>
+        <h2 class="text-xl font-bold text-white">Validação contínua</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Um modelo aprovado em março pode estar errado em setembro sem que nada quebre ou alerte. Isso vale para o que foi aprovado; para o que é sombra, ninguém chegou a validar nada.
+        Modelo aprovado pode degradar sem falha visível nem alerta. Uso não autorizado sequer passou por validação.
       </p>
       <div class="grid sm:grid-cols-3 gap-3 text-sm">
         <div class="rounded-xl border border-slate-800 bg-[#090e17] p-4 space-y-2">
           <div class="font-semibold text-white">Deriva</div>
-          <p class="text-slate-400">A entrada muda, um sistema anterior muda o formato, o fornecedor troca o modelo sem avisar.</p>
+          <p class="text-slate-400">Mudança na distribuição de entrada, no formato de sistemas de origem ou no modelo de base do fornecedor.</p>
           <p class="text-xs font-mono-code text-amber-400/80">medir: distribuição de entrada e saída, acerto contra amostra de referência, taxa de correção humana</p>
         </div>
         <div class="rounded-xl border border-slate-800 bg-[#090e17] p-4 space-y-2">
           <div class="font-semibold text-white">Viés</div>
-          <p class="text-slate-400">Padrões históricos repetidos em escala e com uma consistência que parece objetividade.</p>
+          <p class="text-slate-400">Reprodução de padrões históricos em escala.</p>
           <p class="text-xs font-mono-code text-amber-400/80">medir: desempenho por subgrupo, taxas de aprovação, recursos e reversões</p>
         </div>
         <div class="rounded-xl border border-slate-800 bg-[#090e17] p-4 space-y-2">
@@ -230,7 +227,7 @@
         </div>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Revalidar só por calendário não basta: é preciso deixar gatilhos configurados. Troca do modelo de base, mudança relevante na entrada ou pico na taxa de correção humana reabrem a avaliação. A taxa de correção é o indicador que costuma mudar primeiro. Sobre injeção via conteúdo, ver o case de <a href="../prompt-injection/" class="underline hover:text-amber-300">prompt injection</a>.
+        Revalidação por gatilho, além do calendário: troca do modelo de base, mudança relevante na entrada ou alta na taxa de correção humana reabrem a avaliação. A taxa de correção é o indicador antecedente. Injeção via conteúdo: ver <a href="../prompt-injection/" class="underline hover:text-amber-300">prompt injection</a>.
       </p>
     </section>
 
@@ -241,7 +238,7 @@
         <h2 class="text-xl font-bold text-white">Priorizar: risco contra valor</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        O inventário descoberto não pode virar uma fila única de "proibido até segunda ordem". Cada caso de uso recebe duas notas de 1 a 5, cabe numa página e tem um dono com nome. Uma nota comparável e repetível vale mais que uma precisa.
+        Cada caso de uso do inventário recebe duas notas de 1 a 5, em uma página, com responsável nomeado. Critério comparável e repetível tem prioridade sobre precisão.
       </p>
       <div class="grid sm:grid-cols-2 gap-3 text-sm">
         <div class="rounded-xl border border-red-900/60 bg-red-950/10 p-4 space-y-2">
@@ -257,19 +254,19 @@
         <div class="rounded-xl border border-slate-700 bg-slate-900/30 p-4 space-y-2">
           <div class="text-[11px] font-mono-code uppercase tracking-wider text-slate-300">Valor para o negócio</div>
           <ul class="text-slate-400 space-y-1 list-disc pl-5">
-            <li><span class="text-slate-200">Horas devolvidas:</span> medidas em amostra real, não estimadas em oficina</li>
+            <li><span class="text-slate-200">Horas devolvidas:</span> medidas em amostra real</li>
             <li><span class="text-slate-200">Receita ou custo:</span> atribuível e defensável</li>
             <li><span class="text-slate-200">Qualidade:</span> contra uma linha de base humana medida</li>
             <li><span class="text-slate-200">Aderência estratégica:</span> serve a um objetivo declarado</li>
-            <li><span class="text-slate-200">Prontidão:</span> quem vai usar vai usar de fato</li>
+            <li><span class="text-slate-200">Prontidão:</span> adesão efetiva dos usuários</li>
           </ul>
         </div>
       </div>
       <div class="grid grid-cols-2 gap-2 text-sm">
-        <div class="rounded-lg border border-emerald-800/60 bg-emerald-950/20 p-3"><span class="font-bold text-emerald-300">Liberar</span><span class="block text-xs text-slate-400">valor alto, risco baixo: controles padrão, via rápida. Ex.: rascunho de marketing, resumo de reunião</span></div>
-        <div class="rounded-lg border border-amber-800/60 bg-amber-950/20 p-3"><span class="font-bold text-amber-300">Governar</span><span class="block text-xs text-slate-400">valor alto, risco alto: piloto com gates e humano no circuito. Ex.: chatbot sobre dados de cliente</span></div>
-        <div class="rounded-lg border border-slate-800 bg-[#090e17] p-3"><span class="font-bold text-slate-300">Estacionar</span><span class="block text-xs text-slate-400">valor baixo, risco baixo: sem gasto de governança por ora. Ex.: busca em política interna</span></div>
-        <div class="rounded-lg border border-red-800/60 bg-red-950/20 p-3"><span class="font-bold text-red-300">Recusar</span><span class="block text-xs text-slate-400">valor baixo, risco alto: o "não" fácil. Ex.: negativa automática de pedido ou triagem de candidatos</span></div>
+        <div class="rounded-lg border border-emerald-800/60 bg-emerald-950/20 p-3"><span class="font-bold text-emerald-300">Liberar</span><span class="block text-xs text-slate-400">valor alto, risco baixo: controles padrão, via rápida</span></div>
+        <div class="rounded-lg border border-amber-800/60 bg-amber-950/20 p-3"><span class="font-bold text-amber-300">Governar</span><span class="block text-xs text-slate-400">valor alto, risco alto: piloto com gates e humano no circuito</span></div>
+        <div class="rounded-lg border border-slate-800 bg-[#090e17] p-3"><span class="font-bold text-slate-300">Estacionar</span><span class="block text-xs text-slate-400">valor baixo, risco baixo: sem investimento de governança por ora</span></div>
+        <div class="rounded-lg border border-red-800/60 bg-red-950/20 p-3"><span class="font-bold text-red-300">Recusar</span><span class="block text-xs text-slate-400">valor baixo, risco alto: não aprovar</span></div>
       </div>
     </section>
 
@@ -280,7 +277,7 @@
         <h2 class="text-xl font-bold text-white">Gates com prazo publicado</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Shadow AI nasce da demora. Um gate sem prazo de decisão publicado vira o motivo para as pessoas contornarem o processo. Um "não" rápido é melhor que um "talvez" lento.
+        Demora na aprovação alimenta o uso não autorizado. Todo gate precisa de prazo de decisão publicado.
       </p>
       <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-x-auto">
         <table class="w-full text-sm text-left">
@@ -303,27 +300,27 @@
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-cyan-500/60">
         <span class="text-xs font-mono-code text-slate-500">09</span>
-        <h2 class="text-xl font-bold text-white">O que o NIST diz</h2>
+        <h2 class="text-xl font-bold text-white">Enquadramento: inventário</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Os documentos do NIST não usam a expressão "shadow AI". Procurei no perfil de IA generativa e no rascunho do Cyber AI Profile e o termo não aparece. O problema, porém, está coberto, sob outro nome: <strong class="text-white">inventário</strong>. Tudo o que foi dito acima é, na linguagem do NIST, uma lacuna de inventário e de gestão de terceiros.
+        Os frameworks de referência não falam em "shadow AI". Tratam do mesmo problema como <strong class="text-white">inventário</strong> e gestão de terceiros. Os controles abaixo servem para justificar o programa perante auditoria ou diretoria.
       </p>
       <div class="space-y-3 text-sm">
         <div class="rounded-xl border border-cyan-900/60 bg-cyan-950/10 p-4 space-y-1">
           <div class="text-xs font-mono-code text-cyan-400">AI RMF 1.0 · GOVERN 1.6</div>
-          <p class="text-slate-300">"Mechanisms are in place to inventory AI systems and are resourced according to organizational risk priorities." É a base: existir mecanismo de inventário, com recurso proporcional ao risco. O mesmo framework tem a GOVERN 6.1, que pede políticas para riscos de IA vindos de terceiros.</p>
+          <p class="text-slate-300">"Mechanisms are in place to inventory AI systems and are resourced according to organizational risk priorities." Mecanismo de inventário com recursos proporcionais ao risco. A GOVERN 6.1 complementa com políticas para riscos de IA de terceiros.</p>
         </div>
         <div class="rounded-xl border border-cyan-900/60 bg-cyan-950/10 p-4 space-y-1">
           <div class="text-xs font-mono-code text-cyan-400">NIST AI 600-1 (perfil de IA generativa) · GV-1.6-001 a 003</div>
-          <p class="text-slate-300">Enumerar os sistemas de IA generativa da organização e ajustar o inventário aos riscos deles; <strong class="text-white">definir em política quais exceções de inventário valem para IA generativa embutida em software</strong> (é exatamente o recurso ligado por padrão da seção 05); e registrar proveniência de dados e problemas conhecidos em cada entrada. A GV-6.1-004 pede contratos e SLAs que especifiquem uso, segurança e proveniência do conteúdo.</p>
+          <p class="text-slate-300">Enumerar os sistemas de IA generativa da organização e ajustar o inventário aos riscos deles; <strong class="text-white">definir em política quais exceções de inventário valem para IA generativa embutida em software</strong>; e registrar proveniência de dados e problemas conhecidos em cada entrada. A GV-6.1-004 pede contratos e SLAs que especifiquem uso, segurança e proveniência do conteúdo.</p>
         </div>
         <div class="rounded-xl border border-cyan-900/60 bg-cyan-950/10 p-4 space-y-1">
           <div class="text-xs font-mono-code text-cyan-400">NIST IR 8596 (Cyber AI Profile, rascunho preliminar de dez/2025) · ID.AM-02</div>
-          <p class="text-slate-300">Leva o assunto para o CSF 2.0. Na subcategoria de inventário de software e serviços, afirma que a IA embutida em sistemas existentes dificulta manter o inventário atualizado, sobretudo em produto de terceiro, e recomenda que o inventário inclua <strong class="text-white">modelos, APIs, chaves, agentes, dados, integrações e permissões</strong>. É a lista da seção 01 com outro nome.</p>
+          <p class="text-slate-300">Aplicação ao CSF 2.0. Na subcategoria de inventário de software e serviços, afirma que a IA embutida em sistemas existentes dificulta manter o inventário atualizado, sobretudo em produto de terceiro, e recomenda que o inventário inclua <strong class="text-white">modelos, APIs, chaves, agentes, dados, integrações e permissões</strong>.</p>
         </div>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Na prática, as quatro funções do AI RMF se encaixam no programa: <span class="font-mono-code text-cyan-300">GOVERN</span> define dono, política e prazos dos gates; <span class="font-mono-code text-cyan-300">MAP</span> é a descoberta pelas seis superfícies; <span class="font-mono-code text-cyan-300">MEASURE</span> é a nota de risco e valor mais as métricas de validação; <span class="font-mono-code text-cyan-300">MANAGE</span> é liberar, governar, estacionar ou recusar. Um inventário que só lista o que foi aprovado tem uma lacuna em MAP, mesmo que pareça completo.
+        Correspondência com as funções do AI RMF: <span class="font-mono-code text-cyan-300">GOVERN</span> define dono, política e prazos dos gates; <span class="font-mono-code text-cyan-300">MAP</span> é a descoberta pelas seis superfícies; <span class="font-mono-code text-cyan-300">MEASURE</span> é a nota de risco e valor mais as métricas de validação; <span class="font-mono-code text-cyan-300">MANAGE</span> é liberar, governar, estacionar ou recusar. Inventário restrito ao que foi aprovado deixa lacuna em MAP.
       </p>
     </section>
 
@@ -331,13 +328,13 @@
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
         <span class="text-xs font-mono-code text-slate-500">10</span>
-        <h2 class="text-xl font-bold text-white">O relógio regulatório</h2>
+        <h2 class="text-xl font-bold text-white">Contexto regulatório</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        O webinar destacou que "a UE adiou o AI Act" é meia verdade. Segundo o apresentado, o Digital Omnibus adiou as obrigações de alto risco (anexo III para dez/2027 e anexo I para ago/2028), mas o dever de transparência do art. 50 vale desde ago/2026 e as multas não mudaram: até €35 milhões ou 7% do faturamento global para práticas proibidas. Orientação desatualizada virou, ela mesma, risco de conformidade. Confira as datas no Jornal Oficial da UE antes de usar.
+        EU AI Act: o Digital Omnibus adiou as obrigações de alto risco (anexo III para dez/2027 e anexo I para ago/2028), mas o dever de transparência do art. 50 vale desde ago/2026 e as multas não mudaram: até €35 milhões ou 7% do faturamento global para práticas proibidas. Orientação anterior ao Omnibus está desatualizada.
       </p>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Para quem opera no Brasil, a referência que já vale é a <strong class="text-white">LGPD</strong>: operador sem contrato, transferência internacional sem base e ausência de medidas de segurança são o enquadramento típico de um vazamento por shadow AI. O NIST AI RMF e a ISO/IEC 42001 servem para estruturar o programa: um único conjunto de controles, mapeado uma vez e usado como evidência para vários frameworks.
+        No Brasil, vale a <strong class="text-white">LGPD</strong>: operador sem contrato, transferência internacional sem base legal e ausência de medidas de segurança. NIST AI RMF e ISO/IEC 42001 estruturam o programa: um conjunto de controles, mapeado uma vez, usado como evidência para vários frameworks.
       </p>
     </section>
 
@@ -345,10 +342,10 @@
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-emerald-500/60">
         <span class="text-xs font-mono-code text-slate-500">11</span>
-        <h2 class="text-xl font-bold text-white">Por onde começar: 90 dias</h2>
+        <h2 class="text-xl font-bold text-white">Primeiros 90 dias</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Nada aqui exige plataforma nova. Exige um dono, um prazo de decisão e a telemetria que já existe.
+        Sem plataforma nova: responsável definido, prazo de decisão e telemetria existente.
       </p>
       <div class="grid sm:grid-cols-3 gap-3 text-sm">
         <div class="rounded-xl border border-slate-800 bg-[#090e17] p-4 space-y-2">
@@ -381,29 +378,14 @@
       </div>
     </section>
 
-    <!-- 12 LIÇÕES -->
-    <section class="space-y-4">
-      <div class="flex items-center gap-3 pl-3 border-l-2 border-emerald-500/60">
-        <span class="text-xs font-mono-code text-slate-500">12</span>
-        <h2 class="text-xl font-bold text-white">Cinco ideias para guardar</h2>
-      </div>
-      <ol class="space-y-2 text-sm text-slate-300 max-w-2xl list-decimal pl-5">
-        <li><strong class="text-white">Não se governa o que não se vê.</strong> A descoberta vem antes da política, e quase toda a telemetria necessária já existe.</li>
-        <li><strong class="text-white">O dado sai um prompt de cada vez.</strong> Uma ferramenta oficial boa vem antes de qualquer gasto com bloqueio.</li>
-        <li><strong class="text-white">Validação é uma data, não um estado.</strong> Configure gatilhos e acompanhe a taxa de correção humana.</li>
-        <li><strong class="text-white">O risco inclui um fornecedor que você não contratou.</strong> Aviso de mudança e atestado de exclusão por escrito.</li>
-        <li><strong class="text-white">Dê nota de risco e valor e decida dentro do prazo.</strong> É a demora que faz as pessoas contornarem o processo.</li>
-      </ol>
-    </section>
-
-    <!-- 13 FONTES -->
+    <!-- 12 FONTES -->
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
-        <span class="text-xs font-mono-code text-slate-500">13</span>
+        <span class="text-xs font-mono-code text-slate-500">12</span>
         <h2 class="text-xl font-bold text-white">Fontes</h2>
       </div>
       <ul class="text-sm text-slate-400 leading-relaxed space-y-2 max-w-2xl">
-        <li>EC-Council University · CyberTalks, webinar sobre Shadow AI (2026). Estrutura, tabelas e estatísticas citadas acima; os números de mercado não foram conferidos na fonte primária.</li>
+        <li>EC-Council University · CyberTalks, webinar sobre Shadow AI (2026). Base da estrutura deste playbook e origem das estatísticas de mercado (inclusive a de terceiros, do Verizon DBIR 2026) e das datas do EU AI Act após o Digital Omnibus. Não conferi as fontes primárias dos números; confira as datas no Jornal Oficial da UE.</li>
         <li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">NIST AI Risk Management Framework (AI RMF 1.0)</a>: GOVERN 1.6 e GOVERN 6.1.</li>
         <li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">NIST AI 600-1: Generative Artificial Intelligence Profile (jul/2024)</a>: GV-1.6-001 a 003 e GV-6.1-004.</li>
         <li><a href="https://csrc.nist.gov/pubs/ir/8596/iprd" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">NIST IR 8596: Cyber AI Profile (rascunho preliminar, dez/2025)</a>: ID.AM-02 e ID.AM-04.</li>
