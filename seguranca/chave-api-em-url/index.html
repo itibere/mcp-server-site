@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chave de API na URL — Itiberê Paquier</title>
+  <meta name="description" content="Caso real: numa ferramenta interna que chama uma API de LLM em nuvem, a chave de API ia na query string da URL — e a mensagem de erro de rede, que inclui a URL, era exibida direto na tela. Como o risco foi achado durante um diagnóstico de indisponibilidade, o que foi corrigido e o checklist pra qualquer aplicação que guarda chave de API.">
+
+  <!-- Tailwind CSS Standalone -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2305070c'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2310b981' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='17' font-weight='700' fill='%2310b981' text-anchor='middle'>&gt;_</text></svg>">
+
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <meta property="og:title" content="Chave de API na URL — Itiberê Paquier">
+  <meta property="og:description" content="Caso real: chave de API na query string + mensagem de erro exibida na tela = segredo a um timeout de distância do usuário. Achado, correção e checklist.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itibere.tec.br/seguranca/chave-api-em-url/">
+</head>
+<body class="bg-[#05070c] text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <div class="fixed inset-0 bg-grid-cyber pointer-events-none z-0 opacity-40"></div>
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+  <div class="fixed bottom-1/3 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+  <header class="sticky top-0 z-50 border-b border-emerald-500/20 bg-[#05070c]/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="../../" class="flex items-center gap-2 text-sm font-mono-code group hover:no-underline">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]"></span>
+        <span class="text-emerald-400 font-semibold">itibere</span><span class="text-slate-500">@</span><span class="text-cyan-400">bsb-infra</span><span class="text-slate-500">:~#</span>
+        <span class="text-slate-300 group-hover:text-emerald-300 transition">home</span>
+        <span class="inline-block w-2 h-4 bg-emerald-400/80 animate-blink ml-0.5"></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-14">
+
+    <!-- HERO -->
+    <section class="rounded-2xl border border-amber-500/30 bg-gradient-to-br from-[#0a0e1a] via-[#14100a] to-[#1a140d] p-8 sm:p-12 relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 w-72 h-72 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 space-y-4">
+        <span class="px-3 py-1 rounded-full text-xs font-mono-code font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 inline-flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          SEGURANÇA / GESTÃO DE SEGREDOS
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Chave de API na URL
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+          Uma ferramenta interna de análise de documentos chamava uma API de LLM em nuvem com a chave na query string (<code class="text-amber-300 font-mono-code text-xs">?key=...</code>). Sozinho, isso já é má prática. Somado a um tratamento de erro que mostrava a mensagem da exceção direto na tela, virou um vazamento esperando acontecer: bastava uma falha de rede pra chave aparecer no navegador de quem estivesse usando o sistema. O risco foi achado por acaso, durante o diagnóstico de um erro de indisponibilidade do fornecedor, e corrigido antes de qualquer exposição.
+        </p>
+        <div class="flex flex-wrap gap-x-8 gap-y-2 pt-2 text-xs font-mono-code text-slate-400">
+          <span><span class="text-slate-500">vetor</span> segredo na URL + mensagem de exceção exibida ao usuário</span>
+          <span><span class="text-slate-500">classe</span> CWE-598 · CWE-209</span>
+          <span><span class="text-slate-500">status</span> <span class="text-emerald-400">corrigido, sem exposição</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 O CENÁRIO -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">01</span>
+        <h2 class="text-xl font-bold text-white">O cenário</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        A aplicação é um web app Flask local: o usuário envia um PDF, o servidor extrai o texto e manda para a API do Google Gemini, que devolve uma análise. A tela começou a mostrar <em>"Não foi possível obter resposta da API Gemini (todos os modelos indisponíveis)"</em>. A causa desse erro era externa (sobrecarga do fornecedor, HTTP 503 em todos os modelos testados). Mas, ao ler o cliente HTTP pra entender a mensagem, apareceu um problema bem mais sério do que a indisponibilidade.
+      </p>
+    </section>
+
+    <!-- 02 O PROBLEMA -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">02</span>
+        <h2 class="text-xl font-bold text-white">O problema: duas decisões inofensivas que, juntas, vazam</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        A primeira peça estava no cliente da API. A chave ia montada dentro da URL, e qualquer erro de rede virava uma mensagem que incluía o texto original da exceção:
+      </p>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Antes: cliente da API</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed">url = <span class="text-emerald-300">f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent</span><span class="text-rose-400">?key={chave}</span><span class="text-emerald-300">"</span>
+<span class="text-cyan-400">try</span>:
+    resp = requests.post(url, json=payload, timeout=<span class="text-amber-300">180</span>)
+<span class="text-cyan-400">except</span> requests.RequestException <span class="text-cyan-400">as</span> e:
+    <span class="text-cyan-400">raise</span> RuntimeError(<span class="text-emerald-300">f"Falha de rede ao conectar com a API Gemini: </span><span class="text-rose-400">{e}</span><span class="text-emerald-300">"</span>)</pre>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        A segunda peça estava na rota Flask, que devolvia qualquer exceção para o template como mensagem amigável:
+      </p>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Antes: rota da aplicação</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-cyan-400">except</span> Exception <span class="text-cyan-400">as</span> e:
+    <span class="text-cyan-400">return</span> render_template(<span class="text-emerald-300">"index.html"</span>, erro=<span class="text-emerald-300">f"Erro ao processar o arquivo: </span><span class="text-rose-400">{e}</span><span class="text-emerald-300">"</span>)</pre>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        O elo que fecha a cadeia: quando a conexão falha, a biblioteca <code class="text-amber-300 font-mono-code text-xs">requests</code> (via urllib3) gera uma mensagem no formato <code class="text-amber-300 font-mono-code text-xs">Max retries exceeded with url: /v1beta/models/...?key=AIza...</code>, com caminho e query string completos. Queda de DNS, proxy corporativo, certificado inválido: qualquer um desses eventos comuns bastaria pra chave aparecer em texto puro no navegador, e dali em print de tela, chamado de suporte ou chat.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Nenhuma das duas decisões, isolada, parece grave. A chave na URL é um formato que o próprio fornecedor aceita. Mostrar o erro na tela é útil numa ferramenta interna. Juntas, formam o padrão descrito em <strong class="text-white">CWE-598</strong> (informação sensível em query string) combinado com <strong class="text-white">CWE-209</strong> (mensagem de erro com informação sensível).
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        A mesma leitura achou um bug menor, com efeito no mesmo ponto: o fallback de leitura da chave citava uma variável <code class="text-amber-300 font-mono-code text-xs">API_KEY</code> que não existia. Sem a chave no <code class="text-amber-300 font-mono-code text-xs">.env</code>, a aplicação quebraria com <code class="text-amber-300 font-mono-code text-xs">NameError</code> em vez de avisar que a configuração estava faltando.
+      </p>
+    </section>
+
+    <!-- 03 VERIFICAÇÃO -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">03</span>
+        <h2 class="text-xl font-bold text-white">Antes de corrigir: a chave já vazou?</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Achado um caminho de vazamento, a primeira pergunta é se ele já foi usado. Se sim, a correção de código não basta: a chave precisa ser revogada e trocada. A checagem cobriu os três lugares onde ela poderia estar:
+      </p>
+      <div class="rounded-xl border border-emerald-800/40 bg-emerald-950/20 overflow-hidden">
+        <div class="px-4 py-2 border-b border-emerald-800/40 text-[11px] font-mono-code text-emerald-400/90 uppercase tracking-wider">Resultado da verificação</div>
+        <div class="divide-y divide-emerald-900/40 text-sm text-slate-300">
+          <div class="p-4">O <code class="text-amber-300 font-mono-code text-xs">.env</code> está no <code class="text-amber-300 font-mono-code text-xs">.gitignore</code> e nunca entrou em nenhum commit do histórico.</div>
+          <div class="p-4">O valor da chave não aparece em nenhum commit (<code class="text-amber-300 font-mono-code text-xs">git grep</code> em todas as revisões) nem em nenhum arquivo do projeto fora do <code class="text-amber-300 font-mono-code text-xs">.env</code>.</div>
+          <div class="p-4">O erro que motivou a investigação era de indisponibilidade (HTTP 503), cuja mensagem não inclui a URL. Não há registro de falha de rede, o único caminho que levaria a chave pra tela, nas execuções conhecidas.</div>
+        </div>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Conclusão: a vulnerabilidade existia, mas não há sinal de que tenha sido disparada. Como a ferramenta roda localmente e só para uso próprio, trocar a chave ficou como medida opcional, não obrigatória. Numa aplicação exposta a outros usuários, o certo seria trocar mesmo assim, porque a ausência de registro não prova que o vazamento não aconteceu.
+      </p>
+    </section>
+
+    <!-- 04 CORREÇÃO -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">04</span>
+        <h2 class="text-xl font-bold text-white">A correção</h2>
+      </div>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-emerald-400/80 uppercase tracking-wider">Depois: chave no header, erro sem detalhe da requisição</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-slate-500"># A chave vai só no header: nunca na URL, que acaba em mensagens de exceção, logs e proxies.</span>
+headers = {<span class="text-emerald-300">"Content-Type"</span>: <span class="text-emerald-300">"application/json"</span>, <span class="text-emerald-300">"x-goog-api-key"</span>: chave}
+url = API_URL.format(modelo=modelo)   <span class="text-slate-500"># sem ?key=</span>
+<span class="text-cyan-400">try</span>:
+    resp = requests.post(url, json=payload, headers=headers, timeout=<span class="text-amber-300">180</span>)
+<span class="text-cyan-400">except</span> requests.RequestException <span class="text-cyan-400">as</span> e:
+    <span class="text-slate-500"># Só o tipo da exceção: a mensagem completa pode carregar detalhes da requisição.</span>
+    <span class="text-cyan-400">raise</span> RuntimeError(<span class="text-emerald-300">f"Falha de rede ao conectar com a API Gemini ({type(e).__name__})."</span>) <span class="text-cyan-400">from</span> None</pre>
+      </div>
+      <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 overflow-hidden">
+        <div class="divide-y divide-slate-800/80">
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">1. Chave movida da URL para o header <code class="text-amber-300 font-mono-code text-xs">x-goog-api-key</code></span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">Header é o canal previsto pelo fornecedor para autenticação. Ele não entra em mensagem de exceção de conexão, histórico de navegador, log de acesso de proxy nem cabeçalho <code class="text-amber-300 font-mono-code text-xs">Referer</code>.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">2. Mensagem de erro de rede reduzida ao tipo da exceção</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">É uma segunda camada de defesa: mesmo que algum dado sensível volte para a requisição no futuro, ele não sai pela tela. O <code class="text-amber-300 font-mono-code text-xs">from None</code> descarta a exceção original encadeada, que carregaria a mensagem completa.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">3. Fallback inexistente removido</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">Sem chave configurada, a aplicação agora mostra a mensagem prevista ("chave não configurada") em vez de quebrar com <code class="text-amber-300 font-mono-code text-xs">NameError</code>.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">4. De quebra: novas tentativas com espera crescente</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">Era o problema original. Agora HTTP 429, 500 e 503 geram até 3 tentativas por modelo (espera de 2 s e 4 s) antes de passar ao próximo. Timeout troca de modelo direto, para não empilhar esperas de 180 s.</p>
+          </div>
+        </div>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        A correção foi validada com testes que simulam a rede: uma falha de conexão cuja mensagem contém <code class="text-amber-300 font-mono-code text-xs">?key=CHAVE-FALSA</code> precisa gerar um erro que não contenha a chave, e todas as requisições precisam sair com a chave no header e nunca na URL.
+      </p>
+    </section>
+
+    <!-- 05 CHECKLIST -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">05</span>
+        <h2 class="text-xl font-bold text-white">Checklist: cuidado com chaves em qualquer aplicação</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        O caso é pequeno, mas o padrão se repete em qualquer integração com API paga: o segredo pode estar bem guardado no repositório e ainda assim vazar em tempo de execução. Pontos a checar:
+      </p>
+      <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 overflow-hidden">
+        <div class="divide-y divide-slate-800/80">
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">1. Segredo nunca na URL</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">Use header (<code class="text-amber-300 font-mono-code text-xs">Authorization</code>, <code class="text-amber-300 font-mono-code text-xs">x-api-key</code> ou o equivalente do fornecedor) mesmo quando a API aceita <code class="text-amber-300 font-mono-code text-xs">?key=</code>. URL é o dado mais copiado, logado e exibido de uma requisição.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">2. Exceção de biblioteca não vai crua para a tela</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">Mensagens de <code class="text-amber-300 font-mono-code text-xs">requests</code>, drivers de banco e SDKs podem carregar URL, host, usuário e query. Na interface, mostre mensagem própria e, no máximo, o tipo do erro. O detalhe completo vai para log controlado, depois de filtrar segredos.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">3. <code class="text-amber-300 font-mono-code text-xs">.env</code> no <code class="text-amber-300 font-mono-code text-xs">.gitignore</code> desde o primeiro commit, e <code class="text-amber-300 font-mono-code text-xs">.env.example</code> sem valores</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">Se o segredo já entrou no histórico, apagar o arquivo depois não resolve: a chave tem que ser trocada.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">4. Achou um caminho de vazamento? Verifique antes de corrigir</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">Procure o valor da chave no histórico do git, nos logs e nos arquivos gerados pela aplicação. Encontrou? Revogue e troque a chave primeiro, corrija o código depois.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">5. Chave com o menor escopo possível</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">Restrinja a chave no console do fornecedor à API usada e, se der, a IPs ou referers, e defina cota ou alerta de gasto. Se vazar mesmo assim, o estrago fica limitado.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">6. Teste que prova a ausência do segredo</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">Simule a falha com uma chave falsa conhecida e confira que ela não aparece na mensagem final. É barato e evita que uma refatoração futura traga o problema de volta sem ninguém perceber.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 STATUS -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-emerald-500/60">
+        <span class="text-xs font-mono-code text-slate-500">06</span>
+        <h2 class="text-xl font-bold text-white">Status</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Vulnerabilidade latente <strong class="text-white">identificada e corrigida antes de qualquer exposição</strong>. A verificação confirmou que a chave nunca entrou no histórico do git nem em arquivos do projeto, e não há registro de falha de rede que a tivesse levado pra tela. O que fica do caso: diagnosticar um erro qualquer é uma boa hora de reler o caminho do erro inteiro, até onde a mensagem chega na tela.
+      </p>
+    </section>
+
+    <!-- 07 FONTES -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">07</span>
+        <h2 class="text-xl font-bold text-white">Fontes</h2>
+      </div>
+      <ul class="text-sm text-slate-400 leading-relaxed space-y-2 max-w-2xl">
+        <li><a href="https://cwe.mitre.org/data/definitions/598.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">CWE-598: Use of GET Request Method With Sensitive Query Strings</a>.</li>
+        <li><a href="https://cwe.mitre.org/data/definitions/209.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">CWE-209: Generation of Error Message Containing Sensitive Information</a>.</li>
+        <li><a href="https://cwe.mitre.org/data/definitions/532.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">CWE-532: Insertion of Sensitive Information into Log File</a>, o mesmo risco quando a mensagem vai para log em vez de tela.</li>
+        <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">OWASP Secrets Management Cheat Sheet</a>.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-emerald-500/20 bg-[#04060a] py-12 mt-20 relative z-10 font-mono-code text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3 text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span>© <span id="ano">2026</span> Itiberê Paquier · itibere.tec.br</span>
+      </div>
+      <div class="flex items-center gap-6 text-slate-400">
+        <a href="../../" class="hover:text-amber-400 transition">Projetos</a>
+        <a href="../../sobre.html" class="hover:text-white transition">Sobre</a>
+        <a href="../../privacidade.html" class="hover:text-white transition">Privacidade</a>
+        <a href="mailto:itibere.paquier@gmail.com" class="hover:text-cyan-400 transition">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/ano.js" defer></script>
+</body>
+</html>
