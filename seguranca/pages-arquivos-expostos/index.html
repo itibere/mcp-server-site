@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub Pages Publica Mais do que o Site — Itiberê Paquier</title>
+  <meta name="description" content="Caso real: um site estático no GitHub Pages servia no domínio público scripts de pipeline, dados intermediários e arquivos de configuração que moravam no mesmo repositório. Por que deixar o repositório privado não resolvia, as opções avaliadas e a regra de WAF no Cloudflare que fechou os caminhos sem quebrar o site.">
+
+  <!-- Tailwind CSS Standalone -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2305070c'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2310b981' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='17' font-weight='700' fill='%2310b981' text-anchor='middle'>&gt;_</text></svg>">
+
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <meta property="og:title" content="GitHub Pages Publica Mais do que o Site — Itiberê Paquier">
+  <meta property="og:description" content="Caso real: scripts, dados e configurações do repositório servidos no domínio público pelo GitHub Pages. Diagnóstico, opções e a regra de WAF que fechou os caminhos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itibere.tec.br/seguranca/pages-arquivos-expostos/">
+</head>
+<body class="bg-[#05070c] text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <div class="fixed inset-0 bg-grid-cyber pointer-events-none z-0 opacity-40"></div>
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+  <div class="fixed bottom-1/3 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+  <header class="sticky top-0 z-50 border-b border-emerald-500/20 bg-[#05070c]/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="../../" class="flex items-center gap-2 text-sm font-mono-code group hover:no-underline">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]"></span>
+        <span class="text-emerald-400 font-semibold">itibere</span><span class="text-slate-500">@</span><span class="text-cyan-400">bsb-infra</span><span class="text-slate-500">:~#</span>
+        <span class="text-slate-300 group-hover:text-emerald-300 transition">home</span>
+        <span class="inline-block w-2 h-4 bg-emerald-400/80 animate-blink ml-0.5"></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-14">
+
+    <!-- HERO -->
+    <section class="rounded-2xl border border-amber-500/30 bg-gradient-to-br from-[#0a0e1a] via-[#14100a] to-[#1a140d] p-8 sm:p-12 relative overflow-hidden">
+      <div class="absolute -right-16 -top-16 w-72 h-72 bg-amber-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 space-y-4">
+        <span class="px-3 py-1 rounded-full text-xs font-mono-code font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 inline-flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          SEGURANÇA / EXPOSIÇÃO
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          GitHub Pages publica mais do que o site
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+          Um site estático hospedado no GitHub Pages dividia o repositório com scripts de um pipeline de coleta, arquivos de dados intermediários e configurações de deploy. O Pages não distingue o que é site do que não é: publica o repositório inteiro. Com isso, tudo ficava acessível por URL no domínio público. A dúvida inicial era outra, se valia a pena deixar o repositório privado para evitar cópia. A resposta levou a um problema mais concreto e a uma correção de poucos minutos.
+        </p>
+        <div class="flex flex-wrap gap-x-8 gap-y-2 pt-2 text-xs font-mono-code text-slate-400">
+          <span><span class="text-slate-500">vetor</span> hospedagem estática que serve o repositório inteiro</span>
+          <span><span class="text-slate-500">classe</span> CWE-538 · CWE-552</span>
+          <span><span class="text-slate-500">status</span> <span class="text-emerald-400">bloqueado, sem segredo exposto</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 A PERGUNTA -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">01</span>
+        <h2 class="text-xl font-bold text-white">A pergunta de partida: repositório privado impede cópia?</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        A preocupação era simples: com o repositório público, qualquer pessoa poderia copiar o site inteiro. A resposta curta é que <strong class="text-white">deixar o repositório privado não impede isso</strong>. HTML, CSS, JavaScript e textos precisam chegar ao navegador para a página funcionar, e o que chega ao navegador pode ser salvo com "Salvar página" ou um <code class="text-amber-300 font-mono-code text-xs">wget -r</code>.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        O que um repositório privado esconde é justamente o que <em>não</em> é site: histórico de commits, código de automações e configurações. A pergunta certa, então, passou a ser outra: o que o site está servindo além do próprio site?
+      </p>
+    </section>
+
+    <!-- 02 O ACHADO -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">02</span>
+        <h2 class="text-xl font-bold text-white">O achado: o domínio servia o repositório inteiro</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        No modo mais simples do GitHub Pages (publicar a partir de uma branch, com <code class="text-amber-300 font-mono-code text-xs">.nojekyll</code> na raiz), todo arquivo versionado vira uma URL pública no domínio do site. Uma checagem de fora, sem login, confirmou (caminhos genéricos, representando cada tipo de arquivo):
+      </p>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Antes: resposta HTTP de caminhos fora do site</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed"><span class="text-slate-500">$</span> curl -s -o /dev/null -w "%{http_code}" https://exemplo.dev/&lt;caminho&gt;
+/pipeline/coletor.py                 <span class="text-rose-400">200</span>   <span class="text-slate-500"># scripts do pipeline de coleta</span>
+/pipeline/dados/lote_01.json         <span class="text-rose-400">200</span>   <span class="text-slate-500"># dados intermediários</span>
+/scripts/gerar_pagina.py             <span class="text-rose-400">200</span>   <span class="text-slate-500"># gerador de páginas</span>
+/workers/proxy/wrangler.toml         <span class="text-rose-400">200</span>   <span class="text-slate-500"># config de worker serverless</span>
+/wrangler.jsonc                      <span class="text-rose-400">200</span>   <span class="text-slate-500"># config de deploy</span>
+/.assetsignore                       <span class="text-rose-400">200</span>   <span class="text-slate-500"># lista do que NÃO publicar (ironia)</span></pre>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Uma varredura nos arquivos versionados não achou chave, token nem senha. Então não havia segredo exposto, "só" código, dados e configuração que ninguém pretendia servir. Mesmo assim, é superfície desnecessária: um arquivo de configuração revela nomes de recursos, rotas e a estrutura da infraestrutura, o que ajuda quem quer mapear o ambiente. E basta um commit descuidado no futuro para um arquivo com segredo sair publicado no mesmo instante. O padrão se encaixa em <strong class="text-white">CWE-538</strong> (arquivo com informação sensível em diretório acessível externamente) e <strong class="text-white">CWE-552</strong> (arquivos acessíveis a partes externas).
+      </p>
+    </section>
+
+    <!-- 03 OPÇÕES -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">03</span>
+        <h2 class="text-xl font-bold text-white">As opções avaliadas</h2>
+      </div>
+      <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 overflow-hidden">
+        <div class="divide-y divide-slate-800/80">
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">1. Bloquear os caminhos na borda (escolhida)</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">O domínio já passava pelo proxy do Cloudflare. Uma regra de WAF bloqueia os caminhos antes de chegar ao GitHub. É rápido, grátis e não mexe na hospedagem. Limite: o código continua visível no GitHub, porque o repositório segue público.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">2. Repositório privado com hospedagem migrada</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">No plano gratuito do GitHub, o Pages exige repositório público. Tornar o repositório privado sem migrar antes <strong class="text-slate-200">derruba o site</strong>. Seria preciso publicar por outra plataforma (por exemplo, Cloudflare Workers com uma lista de exclusão de arquivos), apontar o DNS e só então fechar o repositório. Resolve mais, mas é uma troca de hospedagem de um domínio no ar.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">3. Plano pago do GitHub</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">Permite Pages com repositório privado, mas não muda o comportamento central: o Pages continuaria servindo os scripts no domínio. Sozinho, não resolve o achado.</p>
+          </div>
+        </div>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        A escolha foi fechar o problema concreto primeiro, que era a exposição no domínio, e deixar a migração de hospedagem como decisão separada, sem pressa.
+      </p>
+    </section>
+
+    <!-- 04 A CORREÇÃO -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">04</span>
+        <h2 class="text-xl font-bold text-white">A correção: uma regra de WAF</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Antes de bloquear, uma checagem: alguma página do site carrega arquivo desses caminhos? Bloquear algo que o site usa quebraria páginas no ar. A busca no HTML mostrou só links para o repositório no GitHub (instruções de <code class="text-amber-300 font-mono-code text-xs">git clone</code>), nunca para o próprio domínio. Com isso confirmado, a regra foi criada no painel do Cloudflare, em Security rules → Custom rules, com ação <strong class="text-white">Block</strong>:
+      </p>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-emerald-400/80 uppercase tracking-wider">Expressão da regra (caminhos genéricos)</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed">(<span class="text-cyan-400">starts_with</span>(http.request.uri.path, <span class="text-emerald-300">"/pipeline/"</span>)
+ <span class="text-amber-300">or</span> <span class="text-cyan-400">starts_with</span>(http.request.uri.path, <span class="text-emerald-300">"/scripts/"</span>)
+ <span class="text-amber-300">or</span> <span class="text-cyan-400">starts_with</span>(http.request.uri.path, <span class="text-emerald-300">"/workers/"</span>)
+ <span class="text-amber-300">or</span> http.request.uri.path <span class="text-amber-300">in</span> {<span class="text-emerald-300">"/wrangler.jsonc"</span> <span class="text-emerald-300">"/.assetsignore"</span> <span class="text-emerald-300">"/.gitignore"</span> <span class="text-emerald-300">"/.nojekyll"</span>})</pre>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        A regra ocupa 1 das 5 regras personalizadas do plano gratuito. Ela vale para todo o tráfego do domínio, inclusive o subdomínio <code class="text-amber-300 font-mono-code text-xs">www.</code> e o endereço padrão <code class="text-amber-300 font-mono-code text-xs">usuario.github.io/repo/</code>, que redireciona para o domínio próprio e cai no mesmo bloqueio.
+      </p>
+      <div class="rounded-xl border border-emerald-800/40 bg-emerald-950/20 overflow-hidden">
+        <div class="px-4 py-2 border-b border-emerald-800/40 text-[11px] font-mono-code text-emerald-400/90 uppercase tracking-wider">Resultado, verificado de fora</div>
+        <div class="divide-y divide-emerald-900/40 text-sm text-slate-300">
+          <div class="p-4">Todos os caminhos fora do site passaram a responder <strong class="text-white">403</strong>, inclusive via <code class="text-amber-300 font-mono-code text-xs">www.</code> e via o redirecionamento do <code class="text-amber-300 font-mono-code text-xs">github.io</code>.</div>
+          <div class="p-4">Home, páginas de projeto, cases, <code class="text-amber-300 font-mono-code text-xs">sitemap.xml</code> e CSS continuam respondendo <strong class="text-white">200</strong>. Nenhuma página quebrou.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 GITHUB PERFIL -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">05</span>
+        <h2 class="text-xl font-bold text-white">Aproveitando a revisão: o que um visitante vê no seu GitHub</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Na mesma revisão, a pergunta "isto está exposto?" foi feita também sobre os repositórios privados. O detalhe que importa: <strong class="text-white">olhar o próprio perfil logado não responde a pergunta</strong>. Logado, o GitHub mostra a visão de dono, com repositórios privados na lista e na atividade. A comparação certa é com uma consulta sem autenticação:
+      </p>
+      <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-hidden">
+        <div class="px-4 py-2 border-b border-slate-800 text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider">Dono logado × visitante sem login</div>
+        <pre class="px-4 py-3 text-xs font-mono-code text-slate-300 overflow-x-auto leading-relaxed">                               <span class="text-cyan-400">dono logado</span>          <span class="text-emerald-300">visitante</span>
+contagem de repositórios       todos                só os públicos
+"Created N repositories"       lista os privados    só os públicos
+URL de repositório privado     abre                 <span class="text-emerald-300">404</span> (nem confirma que existe)
+e-mail do perfil               aparece              <span class="text-emerald-300">oculto</span></pre>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        A opção "Private contributions", nas configurações do gráfico de contribuições, estava desligada. Assim, commits em repositórios privados nem entram como número no gráfico público. Mesmo ligada, ela mostraria só a contagem anônima, sem nome de repositório. Para ver o perfil como um estranho vê, abra uma janela anônima ou use <code class="text-amber-300 font-mono-code text-xs">curl</code> na API pública sem token.
+      </p>
+    </section>
+
+    <!-- 06 CHECKLIST -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">06</span>
+        <h2 class="text-xl font-bold text-white">Checklist para quem hospeda site estático a partir de um repositório</h2>
+      </div>
+      <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 overflow-hidden">
+        <div class="divide-y divide-slate-800/80">
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">1. Assuma que tudo no repositório vira URL</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">Publicar a partir de uma branch serve cada arquivo versionado. Teste de fora, com <code class="text-amber-300 font-mono-code text-xs">curl</code>, os caminhos de scripts, dados e configurações.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">2. Separe o que é site do que não é</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">O ideal é publicar só uma pasta de saída (<code class="text-amber-300 font-mono-code text-xs">/docs</code>, <code class="text-amber-300 font-mono-code text-xs">dist/</code>) ou fazer o deploy por workflow, enviando apenas os arquivos do site. Pipelines e automações podem morar em outro repositório.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">3. Sem mudar a estrutura agora? Bloqueie na borda</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">Se o domínio já passa por um proxy com WAF, uma regra por prefixo de caminho fecha a exposição em minutos. Antes, confirme que nenhuma página depende desses caminhos.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">4. Pasta nova, regra atualizada</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">O bloqueio por lista só cobre o que foi listado. Toda pasta nova que não seja site precisa entrar na expressão, ou volta a ser servida. É o ponto fraco dessa abordagem em relação à opção 2.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">5. Repositório privado não é proteção contra cópia</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">O conteúdo publicado é público por definição. Se a preocupação é reaproveitamento, o que protege é a licença (um <code class="text-amber-300 font-mono-code text-xs">LICENSE</code> com "todos os direitos reservados"), não a visibilidade do repositório.</p>
+          </div>
+          <div class="p-4 sm:p-5">
+            <span class="text-sm font-semibold text-white">6. Verifique exposição com os olhos de um estranho</span>
+            <p class="text-sm text-slate-400 leading-relaxed mt-1">Sessão logada engana. Use janela anônima, <code class="text-amber-300 font-mono-code text-xs">curl</code> sem cookies ou a API sem token para saber o que o público realmente vê.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 STATUS -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-emerald-500/60">
+        <span class="text-xs font-mono-code text-slate-500">07</span>
+        <h2 class="text-xl font-bold text-white">Status</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Exposição <strong class="text-white">bloqueada na borda e verificada de fora</strong>, sem nenhuma página do site quebrada. Nenhum segredo estava entre os arquivos expostos. O repositório segue público, porque parte dele é distribuída de propósito como código aberto. A migração para uma hospedagem que publique só a pasta do site fica como evolução futura, a ser decidida sem pressa.
+      </p>
+    </section>
+
+    <!-- 08 FONTES -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
+        <span class="text-xs font-mono-code text-slate-500">08</span>
+        <h2 class="text-xl font-bold text-white">Fontes</h2>
+      </div>
+      <ul class="text-sm text-slate-400 leading-relaxed space-y-2 max-w-2xl">
+        <li><a href="https://cwe.mitre.org/data/definitions/538.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">CWE-538: Insertion of Sensitive Information into Externally-Accessible File or Directory</a>.</li>
+        <li><a href="https://cwe.mitre.org/data/definitions/552.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">CWE-552: Files or Directories Accessible to External Parties</a>.</li>
+        <li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">GitHub Docs — Configuring a publishing source for your GitHub Pages site</a>.</li>
+        <li><a href="https://developers.cloudflare.com/waf/custom-rules/" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-300">Cloudflare Docs — WAF custom rules</a>.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-emerald-500/20 bg-[#04060a] py-12 mt-20 relative z-10 font-mono-code text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3 text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span>© <span id="ano">2026</span> Itiberê Paquier · itibere.tec.br</span>
+      </div>
+      <div class="flex items-center gap-6 text-slate-400">
+        <a href="../../" class="hover:text-amber-400 transition">Projetos</a>
+        <a href="../../sobre.html" class="hover:text-white transition">Sobre</a>
+        <a href="../../privacidade.html" class="hover:text-white transition">Privacidade</a>
+        <a href="mailto:itibere.paquier@gmail.com" class="hover:text-cyan-400 transition">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/ano.js" defer></script>
+</body>
+</html>
