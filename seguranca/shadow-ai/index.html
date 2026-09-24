@@ -76,6 +76,9 @@
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
         Uso de IA fora do inventário e das políticas da organização. Diferente do <em>shadow IT</em>, o dado sai no momento do uso e fica sujeito a retenção, registro e treino sob termos não aceitos pela organização.
       </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Aparece em quatro formas, da mais visível à mais difícil de detectar:
+      </p>
       <div class="grid sm:grid-cols-2 gap-3">
         <div class="rounded-xl border border-slate-800 bg-[#090e17] p-4 space-y-1">
           <div class="text-xs font-mono-code text-amber-400">conta pessoal</div>
@@ -102,6 +105,9 @@
         <span class="text-xs font-mono-code text-slate-500">02</span>
         <h2 class="text-xl font-bold text-white">Caminho típico do vazamento</h2>
       </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Sequência comum, da necessidade de trabalho ao incidente de dados. As duas primeiras etapas não geram risco por si; o dado sai na terceira.
+      </p>
       <ol class="grid sm:grid-cols-5 gap-2 text-sm">
         <li class="rounded-lg border border-slate-800 bg-[#090e17] p-3 text-slate-300"><span class="block text-[11px] font-mono-code text-slate-500">1 · prazo</span>Ferramenta aprovada lenta ou inadequada.</li>
         <li class="rounded-lg border border-slate-800 bg-[#090e17] p-3 text-slate-300"><span class="block text-[11px] font-mono-code text-slate-500">2 · conta pessoal</span>Plano gratuito, fora do SSO.</li>
@@ -120,7 +126,7 @@
         <p class="text-xs text-slate-500">Use como ordem de grandeza. Origem dos números nas fontes, ao final.</p>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        No Brasil, dado pessoal sem responsável é situação prevista na LGPD. Assim, a colagem de dado ignora a previsão dos arts. 39 e 46 e realiza transferência internacional de dados sem base definida (art. 33).
+        Enquadramento na LGPD: ao receber dado pessoal colado no prompt, o fornecedor da ferramenta passa a tratá-lo em nome da organização, na função de operador, sem contrato nem instrução documentada, o que contraria o art. 39 (o operador trata dados segundo as instruções do controlador). A organização deixa de garantir as medidas de segurança exigidas pelo art. 46. Como esses serviços costumam processar dados fora do país, há ainda transferência internacional de dados sem as hipóteses do art. 33.
       </p>
     </section>
 
@@ -131,7 +137,13 @@
         <h2 class="text-xl font-bold text-white">Onde procurar</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Descoberta precede política. Cinco das seis fontes já existem na telemetria da organização; falta consolidar.
+        Descoberta precede política: sem saber o que está em uso, não há o que priorizar nem governar. O resultado desta etapa é o inventário de uso de IA, base das seções seguintes.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Os sinais ficam espalhados em seis superfícies. Cinco já são monitoradas por alguma área da organização, mas raramente cruzadas entre si. A sexta, o registro com anistia, é uma janela curta, de cerca de duas semanas, em que cada área declara as ferramentas de IA em uso sem sofrer sanção. Tem custo zero e costuma ser a fonte mais produtiva: revela o uso real e as necessidades que a ferramenta oficial não atende.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        A tabela indica, para cada superfície, o que ela revela e qual área já tem acesso ao dado.
       </p>
       <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-x-auto">
         <table class="w-full text-sm text-left">
@@ -148,9 +160,6 @@
           </tbody>
         </table>
       </div>
-      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Registro com anistia: janela curta, de cerca de duas semanas, para cada área declarar as ferramentas de IA em uso, sem sanção. Custo zero e, em geral, a fonte mais produtiva: revela o uso real e as necessidades não atendidas pela ferramenta oficial.
-      </p>
     </section>
 
     <!-- 04 CONTROLES -->
@@ -160,8 +169,13 @@
         <h2 class="text-xl font-bold text-white">Controles e limitações</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Nenhum controle isolado garante cobertura. Cada um tem ponto cego conhecido.
+        Controle, aqui, é a medida que reduz o uso não autorizado ou o dano quando ele ocorre. A tabela lista seis, do mais estrutural ao mais comportamental, com o que cada um impede e onde deixa de funcionar. Nenhum controle isolado garante cobertura: cada um tem ponto cego conhecido.
       </p>
+      <dl class="rounded-xl border border-slate-700/60 bg-slate-900/30 p-4 grid gap-3 text-sm text-slate-400 leading-relaxed">
+        <div><dt class="inline font-semibold text-slate-200">SSO e restrição de tenant:</dt> <dd class="inline">login único com a identidade corporativa. A restrição de tenant faz o proxy ou o provedor de identidade aceitar apenas as contas corporativas de um serviço e barrar as contas pessoais do mesmo serviço.</dd></div>
+        <div><dt class="inline font-semibold text-slate-200">DLP (prevenção de perda de dados) no navegador:</dt> <dd class="inline">inspeciona o que é colado ou enviado a um site e bloqueia padrões definidos, como CPF e número de cartão.</dd></div>
+        <div><dt class="inline font-semibold text-slate-200">Recuperação (RAG):</dt> <dd class="inline">o modelo consulta a base interna no momento da pergunta, com as permissões de quem pergunta, em vez de o documento ser colado no prompt de um serviço externo.</dd></div>
+      </dl>
       <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-x-auto">
         <table class="w-full text-sm text-left">
           <thead class="text-[11px] font-mono-code uppercase tracking-wider text-amber-400/80 border-b border-slate-800">
@@ -193,7 +207,7 @@
       </p>
       <div class="rounded-xl border border-slate-700/60 bg-slate-900/30 p-4 text-sm text-slate-400 leading-relaxed">
         <span class="text-[11px] font-mono-code text-amber-400/80 uppercase tracking-wider block mb-2">Exigir em contrato</span>
-        Aviso prévio quando um recurso de IA for ativado ou o modelo de base mudar; lista de suboperadores de IA; proibição (ou opt-in explícito) de treino com dados da organização; prazo de retenção; e, na saída, atestado de exclusão de dados <em>e de embeddings</em>.
+        Aviso prévio quando um recurso de IA for ativado ou o modelo de base mudar; lista de suboperadores de IA; proibição (ou opt-in explícito) de treino com dados da organização; prazo de retenção; e, na saída, atestado de exclusão de dados <em>e de embeddings</em> (representações vetoriais do conteúdo, usadas em busca e RAG, que preservam informação do dado original).
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
         Quase metade das violações recentes envolve terceiros. Incidentes com alvo em IA partem, em boa parte, de APIs, plugins e configuração de nuvem no entorno do modelo.
@@ -207,7 +221,10 @@
         <h2 class="text-xl font-bold text-white">Validação contínua</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Modelo aprovado pode degradar sem falha visível nem alerta. Uso não autorizado sequer passou por validação.
+        Validação é a verificação de que um sistema de IA continua produzindo resultado aceitável. A aprovação vale para o modelo, os dados e o uso avaliados naquele momento, e os três mudam com o tempo: um modelo aprovado pode degradar sem falha visível nem alerta. Uso não autorizado sequer passou pela primeira validação.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Três frentes de monitoramento, cada uma com o que medir:
       </p>
       <div class="grid sm:grid-cols-3 gap-3 text-sm">
         <div class="rounded-xl border border-slate-800 bg-[#090e17] p-4 space-y-2">
@@ -227,7 +244,7 @@
         </div>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Revalidação por gatilho, além do calendário: troca do modelo de base, mudança relevante na entrada ou alta na taxa de correção humana reabrem a avaliação. A taxa de correção é o indicador antecedente. Injeção via conteúdo: ver <a href="../prompt-injection/" class="underline hover:text-amber-300">prompt injection</a>.
+        Revalidação por gatilho, além do calendário: troca do modelo de base, mudança relevante na entrada ou alta na taxa de correção humana reabrem a avaliação. A taxa de correção humana (percentual de saídas que uma pessoa precisou ajustar antes do uso) é o indicador antecedente: sobe antes que a degradação apareça em outros números. Injeção via conteúdo: ver <a href="../prompt-injection/" class="underline hover:text-amber-300">prompt injection</a>.
       </p>
     </section>
 
@@ -238,7 +255,7 @@
         <h2 class="text-xl font-bold text-white">Priorizar: risco contra valor</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Cada caso de uso do inventário recebe duas notas de 1 a 5, em uma página, com responsável nomeado. Critério comparável e repetível tem prioridade sobre precisão.
+        O inventário montado na descoberta (seção 03) traz mais casos de uso do que a equipe consegue avaliar em profundidade. Para ordenar o trabalho, cada caso recebe duas notas de 1 a 5, registradas em uma página, com responsável nomeado: exposição a risco e valor para o negócio. Critério comparável e repetível tem prioridade sobre precisão.
       </p>
       <div class="grid sm:grid-cols-2 gap-3 text-sm">
         <div class="rounded-xl border border-red-900/60 bg-red-950/10 p-4 space-y-2">
@@ -262,6 +279,9 @@
           </ul>
         </div>
       </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        O cruzamento das duas notas coloca o caso em um de quatro quadrantes, cada um com uma decisão padrão. Na decisão Governar, o uso é liberado como piloto: passa pelos pontos de aprovação da seção 08 (gates) e opera com humano no circuito, ou seja, uma pessoa revisa a saída antes que ela produza efeito.
+      </p>
       <div class="grid grid-cols-2 gap-2 text-sm">
         <div class="rounded-lg border border-emerald-800/60 bg-emerald-950/20 p-3"><span class="font-bold text-emerald-300">Liberar</span><span class="block text-xs text-slate-400">valor alto, risco baixo: controles padrão, via rápida</span></div>
         <div class="rounded-lg border border-amber-800/60 bg-amber-950/20 p-3"><span class="font-bold text-amber-300">Governar</span><span class="block text-xs text-slate-400">valor alto, risco alto: piloto com gates e humano no circuito</span></div>
@@ -274,10 +294,16 @@
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
         <span class="text-xs font-mono-code text-slate-500">08</span>
-        <h2 class="text-xl font-bold text-white">Gates com prazo publicado</h2>
+        <h2 class="text-xl font-bold text-white">Gates de aprovação com prazo publicado</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Demora na aprovação alimenta o uso não autorizado. Todo gate precisa de prazo de decisão publicado.
+        Gate é um ponto de verificação no ciclo de vida de um caso de uso de IA. A etapa seguinte só começa depois que a anterior cumpre critérios definidos e recebe decisão formal de um responsável. O modelo vem da gestão de projetos (<em>stage-gate</em>) e, aplicado a IA, cobre seis momentos: do pedido de uso à desativação da ferramenta.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Cada gate define três elementos: o que precisa ser apresentado para passar, quem decide e em quanto tempo. O prazo é o elemento que costuma faltar. Sem prazo, o pedido fica parado por semanas e a área que precisa da ferramenta passa a usar uma versão gratuita enquanto espera, recriando o uso não autorizado que o processo deveria evitar. Por isso o prazo de cada gate é publicado junto com a norma de uso.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Os seis gates, na ordem do ciclo de vida:
       </p>
       <div class="rounded-xl border border-slate-800 bg-[#090e17] overflow-x-auto">
         <table class="w-full text-sm text-left">
@@ -305,6 +331,9 @@
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
         Os frameworks de referência não falam em "shadow AI". Tratam do mesmo problema como <strong class="text-white">inventário</strong> e gestão de terceiros. Os controles abaixo servem para justificar o programa perante auditoria ou diretoria.
       </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Os três documentos são do NIST, o instituto de padrões dos EUA. O AI RMF é o framework de gestão de risco de IA, organizado em quatro funções: GOVERN (governança), MAP (contexto e mapeamento), MEASURE (medição) e MANAGE (tratamento). O AI 600-1 é um perfil do AI RMF para IA generativa. O IR 8596 aplica o Cybersecurity Framework (CSF 2.0) a sistemas de IA. Cada item citado abaixo é um controle ou subcategoria desses documentos.
+      </p>
       <div class="space-y-3 text-sm">
         <div class="rounded-xl border border-cyan-900/60 bg-cyan-950/10 p-4 space-y-1">
           <div class="text-xs font-mono-code text-cyan-400">AI RMF 1.0 · GOVERN 1.6</div>
@@ -331,10 +360,13 @@
         <h2 class="text-xl font-bold text-white">Contexto regulatório</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        EU AI Act: o Digital Omnibus adiou as obrigações de alto risco (anexo III para dez/2027 e anexo I para ago/2028), mas o dever de transparência do art. 50 vale desde ago/2026 e as multas não mudaram: até €35 milhões ou 7% do faturamento global para práticas proibidas. Orientação anterior ao Omnibus está desatualizada.
+        O EU AI Act, regulamento de IA da União Europeia, classifica sistemas por nível de risco e impõe obrigações proporcionais. Alcança organizações de fora da UE que ofereçam sistemas de IA no mercado europeu ou cujos resultados sejam usados lá. Os sistemas de alto risco estão em dois anexos: o anexo III lista usos em áreas como emprego, crédito, educação e serviços públicos; o anexo I cobre IA embutida em produtos já regulados, como máquinas e dispositivos médicos.
       </p>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        No Brasil, vale a <strong class="text-white">LGPD</strong>: operador sem contrato, transferência internacional sem base legal e ausência de medidas de segurança. NIST AI RMF e ISO/IEC 42001 estruturam o programa: um conjunto de controles, mapeado uma vez, usado como evidência para vários frameworks.
+        O Digital Omnibus, pacote de simplificação regulatória da Comissão Europeia, adiou as obrigações de alto risco: anexo III para dez/2027 e anexo I para ago/2028. O dever de transparência do art. 50 (informar quando a pessoa interage com IA e identificar conteúdo gerado por IA) vale desde ago/2026. As multas não mudaram: até €35 milhões ou 7% do faturamento global para práticas proibidas. Orientação anterior ao Omnibus está desatualizada.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        No Brasil, vale a <strong class="text-white">LGPD</strong>, nos três pontos da seção 02: operador sem contrato, transferência internacional sem base legal e ausência de medidas de segurança. Para estruturar o programa, o NIST AI RMF (seção 09) e a ISO/IEC 42001, norma de sistema de gestão de IA, permitem mapear um único conjunto de controles e usá-lo como evidência para vários frameworks.
       </p>
     </section>
 
@@ -345,7 +377,7 @@
         <h2 class="text-xl font-bold text-white">Primeiros 90 dias</h2>
       </div>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        Sem plataforma nova: responsável definido, prazo de decisão e telemetria existente.
+        Implantação em três fases de 30 dias, cada uma apoiada na anterior: enxergar o uso (seção 03), moldar regras e alternativa oficial (seções 04 e 07) e sustentar com gates e métricas (seções 06 e 08). Não depende de plataforma nova: exige responsável definido, prazo de decisão e a telemetria que já existe.
       </p>
       <div class="grid sm:grid-cols-3 gap-3 text-sm">
         <div class="rounded-xl border border-slate-800 bg-[#090e17] p-4 space-y-2">
@@ -378,10 +410,36 @@
       </div>
     </section>
 
-    <!-- 12 FONTES -->
+    <!-- 12 CONCLUSÃO -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-3 pl-3 border-l-2 border-emerald-500/60">
+        <span class="text-xs font-mono-code text-slate-500">12</span>
+        <h2 class="text-xl font-bold text-white">Conclusão</h2>
+      </div>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+        Shadow AI é sintoma de demanda não atendida. A IA generativa já faz parte do trabalho cotidiano, com ou sem aprovação formal, e o dado enviado a um serviço externo sai do alcance da organização no momento do envio. A questão central para a organização é saber onde o dado está sendo processado e sob quais termos. Sem inventário, resposta a incidente, auditoria e pedido de titular começam sem informação.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-3 text-sm">
+        <div class="rounded-xl border border-slate-800 bg-[#090e17] p-4 space-y-2">
+          <div class="text-[11px] font-mono-code uppercase tracking-wider text-amber-400">Uso corporativo</div>
+          <p class="text-slate-400 leading-relaxed">O programa se sustenta em três elementos: inventário atualizado, ferramenta oficial adequada e decisão com prazo. Proibição sem alternativa desloca o uso para dispositivos e contas fora dos controles. A responsabilidade perante titular, cliente e regulador permanece com a organização, inclusive quando a IA vem embutida em software contratado ou chega por um fornecedor de quarta parte.</p>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-[#090e17] p-4 space-y-2">
+          <div class="text-[11px] font-mono-code uppercase tracking-wider text-amber-400">Uso pessoal</div>
+          <p class="text-slate-400 leading-relaxed">As mesmas perguntas valem para o uso individual: o que o serviço faz com o conteúdo enviado, por quanto tempo guarda, se usa para treino e se há opção de recusa. Planos gratuitos costumam ter termos menos restritivos; em alguns serviços, o conteúdo pode ser usado para treino e lido por revisores humanos, sem opção de recusa. Documento de terceiros, como contrato de cliente, dado de colega ou informação do empregador, não deve ir para conta pessoal, mesmo em tarefa de trabalho feita fora do expediente.</p>
+        </div>
+      </div>
+      <div class="rounded-xl border border-cyan-900/60 bg-cyan-950/10 p-4 space-y-2 text-sm">
+        <div class="text-[11px] font-mono-code uppercase tracking-wider text-cyan-400">Reflexão sobre o futuro</div>
+        <p class="text-slate-300 leading-relaxed">A IA tende a se tornar recurso padrão de sistema operacional, navegador, suíte de escritório e aplicativos corporativos, ativado por atualização e sem pedido de instalação. Em paralelo, agentes passam a executar ações com credenciais próprias: enviar mensagens, alterar registros, chamar outros sistemas. Nesse cenário, a fronteira entre uso autorizado e não autorizado fica menos nítida, e o inventário tende a migrar de ferramentas para permissões: quais agentes e integrações agem em nome de quem, com acesso a quais dados.</p>
+        <p class="text-slate-300 leading-relaxed">Fica a questão para cada organização: processos de aprovação desenhados para ferramentas instaladas conseguem acompanhar recursos que chegam ativados e agentes que agem sem intervenção humana a cada passo?</p>
+      </div>
+    </section>
+
+    <!-- 13 FONTES -->
     <section class="space-y-4">
       <div class="flex items-center gap-3 pl-3 border-l-2 border-amber-500/60">
-        <span class="text-xs font-mono-code text-slate-500">12</span>
+        <span class="text-xs font-mono-code text-slate-500">13</span>
         <h2 class="text-xl font-bold text-white">Fontes</h2>
       </div>
       <ul class="text-sm text-slate-400 leading-relaxed space-y-2 max-w-2xl">
