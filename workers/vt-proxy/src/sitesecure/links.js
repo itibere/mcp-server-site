@@ -2,6 +2,8 @@
 // qual a reputacao de quem recebe o clique.
 import confiaveis from "./data/dominios_confiaveis.json";
 import { buscar, doh, DOH_FAMILY, dominioRaiz, hostDe } from "./util.js";
+import { identificarGoverno } from "./governo.js";
+import { consultarRadarLote, rotuloPosicao } from "./radar.js";
 
 const CONFIAVEIS = new Set(confiaveis.dominios);
 const ENCURTADORES = new Set([
@@ -27,8 +29,9 @@ export function destinoReal(href) {
   return href;
 }
 
-function classificarPorNome(raiz) {
-  if (CONFIAVEIS.has(raiz) || raiz.endsWith(".gov.br")) return { nivel: "bom", motivo: "destino de boa reputação" };
+export function classificarPorNome(raiz) {
+  if (identificarGoverno(raiz).governo) return { nivel: "bom", motivo: "domínio de governo" };
+  if (CONFIAVEIS.has(raiz)) return { nivel: "bom", motivo: "destino de boa reputação" };
   if (raiz.endsWith(".bet.br")) return { nivel: "medio", motivo: "aposta autorizada (.bet.br)" };
   if (APOSTA.test(raiz)) return { nivel: "baixo", motivo: "aposta fora de .bet.br (não autorizada no Brasil)" };
   if (ADULTO.test(raiz)) return { nivel: "baixo", motivo: "conteúdo adulto" };
@@ -55,7 +58,7 @@ async function expandir(orcamento, url) {
 // Recebe [{href, zona, anuncio}] e devolve um mapa raiz -> classificacao.
 // DoH "family" da Cloudflare bloqueia malware e adulto (responde 0.0.0.0):
 // e o filtro gratuito usado para dominios que nao batem em nenhuma lista.
-export async function classificarDestinos(orcamento, links, raizSite, maxFamily = 25) {
+export async function classificarDestinos(orcamento, env, links, raizSite, maxFamily = 18, maxRadar = 8) {
   const porRaiz = new Map();
   for (const l of links) {
     let destino = destinoReal(l.href);
@@ -99,6 +102,19 @@ export async function classificarDestinos(orcamento, links, raizSite, maxFamily 
   }));
   for (const item of pendentes) {
     if (!item.nivel) Object.assign(item, { nivel: "neutro", motivo: "não verificado (limite de consultas)" });
+  }
+
+  // Cloudflare Radar nos neutros restantes (anuncios primeiro): popular vira
+  // bom, categoria de aposta/adulto/malware vira baixo. Reduz falso positivo
+  // de "sem reputação conhecida" em dominio legitimo fora das listas.
+  const neutros = pendentes.filter((i) => i.nivel === "neutro");
+  const vagas = Math.min(maxRadar, Math.max(0, orcamento.max - orcamento.usado - 8));
+  const radar = await consultarRadarLote(orcamento, env, neutros.map((i) => i.raiz), vagas);
+  for (const item of neutros) {
+    const r = radar.get(item.raiz);
+    if (!r) continue;
+    if (r.categoriaRuim) Object.assign(item, { nivel: "baixo", motivo: `categoria "${r.categoriaRuim}" (Cloudflare Radar)` });
+    else if (r.estabelecido) Object.assign(item, { nivel: "bom", motivo: `domínio popular, ${rotuloPosicao(r.posicao)}` });
   }
   return itens.map((i) => ({ ...i, zonas: [...i.zonas] }));
 }

@@ -6,7 +6,10 @@ import { renderizar, coletarEstatico } from "./render.js";
 import { consultarRdap, consultarDns } from "./dominio.js";
 import { avaliarCabecalhos, redirecionaParaHttps } from "./hardening.js";
 import { consultarVirusTotal, consultarSafeBrowsing, consultarUrlhaus } from "./reputacao.js";
-import { classificarDestinos } from "./links.js";
+import { classificarDestinos, classificarPorNome } from "./links.js";
+import { identificarGoverno, imitaGoverno } from "./governo.js";
+import { consultarRadar } from "./radar.js";
+import { coletarExtras, avaliarBoasPraticas } from "./boaspraticas.js";
 import { detectarRedes, avaliarPropagandas } from "./propagandas.js";
 import { escolherCnpj, consultarCnpj, empresaCondiz } from "./empresa.js";
 import { identificarHost } from "./host.js";
@@ -69,15 +72,38 @@ async function executar(env, corpo, emitir) {
   const hostFinal = hostDe(coleta.urlFinal) || host;
   if (validarUrl(coleta.urlFinal).erro) return emitir({ etapa: "erro", erro: "redirecionou_para_destino_nao_permitido" });
   const raizFinal = dominioRaiz(hostFinal);
+  const governo = identificarGoverno(hostFinal);
+  const imitacao = imitaGoverno(hostFinal, raizFinal);
 
-  // 2. Hardening HTTP/TLS.
-  const { hardening, httpsRedirect } = await etapa(emitir, "hardening", async () => ({
-    hardening: avaliarCabecalhos(coleta.headers, coleta.urlFinal, coleta.tls),
-    httpsRedirect: await redirecionaParaHttps(orc, hostFinal),
-  }), { hardening: null, httpsRedirect: null });
+  // 2. Hardening HTTP/TLS, boas praticas extras (security.txt, HSTS preload),
+  // popularidade no Radar e, se redirecionou, o registro do dominio final.
+  const { hardening, httpsRedirect, extras, radarSite, rdapFinal } = await etapa(emitir, "hardening", async () => {
+    const [httpsRedirect, extras, radarSite, rdapFinal] = await Promise.all([
+      redirecionaParaHttps(orc, hostFinal),
+      coletarExtras(orc, hostFinal, raizFinal),
+      consultarRadar(orc, env, raizFinal).catch(() => null),
+      raizFinal !== raiz ? consultarRdap(orc, raizFinal).catch(() => null) : null,
+    ]);
+    return { hardening: avaliarCabecalhos(coleta.headers, coleta.urlFinal, coleta.tls), httpsRedirect, extras, radarSite, rdapFinal };
+  }, { hardening: null, httpsRedirect: null, extras: null, radarSite: null, rdapFinal: null });
+  // Dados do dominio que o visitante realmente ve (o final, apos redirecionar).
+  const rdapSite = rdapFinal?.encontrado ? rdapFinal : rdap;
+
+  // Redirecionar so e suspeito se o destino nao for da mesma empresa (mesmo
+  // CNPJ no registro.br), nem governo, nem dominio confiavel/popular.
+  let redirecionamento = null;
+  if (raizFinal !== raiz) {
+    const mesmaEmpresa = !!(rdap?.cnpjTitular && rdapFinal?.cnpjTitular && rdap.cnpjTitular.slice(0, 8) === rdapFinal.cnpjTitular.slice(0, 8));
+    const confiavel = classificarPorNome(raizFinal)?.nivel === "bom" || !!radarSite?.estabelecido;
+    redirecionamento = {
+      host: hostFinal,
+      suspeito: !mesmaEmpresa && !confiavel,
+      motivo: mesmaEmpresa ? "mesma empresa no registro.br" : confiavel ? "destino de boa reputação" : "",
+    };
+  }
 
   // 3. Links e propagandas.
-  const destinos = await etapa(emitir, "links", () => classificarDestinos(orc, coleta.links, raizFinal), []);
+  const destinos = await etapa(emitir, "links", () => classificarDestinos(orc, env, coleta.links, raizFinal), []);
   const propagandas = await etapa(emitir, "propagandas", async () =>
     avaliarPropagandas(detectarRedes(coleta.requisicoes, coleta.iframes), destinos, coleta.modo),
   { existe: false, verificavel: false, redes: { confiaveis: [], arriscadas: [] }, anunciantes: [] });
@@ -94,11 +120,11 @@ async function executar(env, corpo, emitir) {
   const gsbLinks = gsbMatches.filter((m) => !doSite(m));
 
   // 4. Empresa e host.
-  const cnpjInfo = escolherCnpj(coleta, rdap);
+  const cnpjInfo = governo.governo ? null : escolherCnpj(coleta, rdapSite);
   const [empresa, hostInfo] = await Promise.all([
     etapa(emitir, "empresa", () => (cnpjInfo ? consultarCnpj(orc, cnpjInfo.cnpj) : null), null),
     etapa(emitir, "host", () => identificarHost(orc, dnsHost.ips, coleta.headers),
-      { nome: "desconhecido", tier: "medio", plataformas: [] }),
+      { nome: "desconhecido", tier: "neutro", plataformas: [] }),
   ]);
 
   // 5. Pagamento, PIX e Reclame Aqui.
@@ -115,12 +141,13 @@ async function executar(env, corpo, emitir) {
     reclameAqui = await etapa(emitir, "reclameaqui", () => consultarReclameAqui(orc, termo), null);
   }
 
-  // 6. Nota.
+  // 6. Boas praticas e nota.
+  const boas = avaliarBoasPraticas({ coleta, hardening, dns, rdap: rdapSite, cnpjInfo, pagamento, extras, governo });
   const blocos = {
-    reputacaoDominio: notaReputacao({ rdap, vt, gsbSite, urlhaus, dns, hardening, httpsRedirect, empresa, pagamento, pix, reclameAqui }),
-    confiancaLinks: notaLinks({ destinos, gsbLinks, redirecionouPara: raizFinal !== raiz ? hostFinal : null }),
+    reputacaoDominio: notaReputacao({ rdap: rdapSite, vt, gsbSite, urlhaus, dns, hardening, httpsRedirect, empresa, pagamento, pix, reclameAqui, governo, imitacao, radarSite, boas, raiz: raizFinal }),
+    confiancaLinks: notaLinks({ destinos, gsbLinks, redirecionamento }),
     propagandas: notaPropagandas(propagandas),
-    headerFooter: notaHeaderFooter({ host: hostInfo, cnpjInfo, empresa, condiz: empresaCondiz(empresa, raizFinal, coleta), pagamento, destinos, coleta, rdap }),
+    headerFooter: notaHeaderFooter({ host: hostInfo, cnpjInfo, empresa, condiz: empresaCondiz(empresa, raizFinal, coleta), pagamento, destinos, coleta, rdap: rdapSite, governo, boas, raiz: raizFinal }),
   };
 
   await emitir({
@@ -134,11 +161,13 @@ async function executar(env, corpo, emitir) {
       nota: notaFinal(blocos),
       blocos,
       detalhes: {
-        dominio: { raiz: raizFinal, criadoEm: rdap?.criadoEm || vt?.criadoEm || null, dnssec: !!dns?.dnssec, spf: !!dns?.spf, dmarc: dns?.politicaDmarc || null },
+        dominio: { raiz: raizFinal, criadoEm: rdapSite?.criadoEm || vt?.criadoEm || null, dnssec: !!dns?.dnssec, spf: !!dns?.spf, dmarc: dns?.politicaDmarc || null, governo: governo.governo ? governo.esfera : null },
+        popularidade: radarSite?.disponivel ? { posicao: radarSite.posicao, categorias: radarSite.categorias } : null,
+        boasPraticas: boas,
         hardening,
         virustotal: vt?.conhecido ? { maliciosos: vt.maliciosos, suspeitos: vt.suspeitos, total: vt.total, vendors: vt.vendors, categorias: vt.categorias } : null,
         fontesIndisponiveis: [
-          !vt?.disponivel && "VirusTotal", !gsb?.disponivel && "Google Safe Browsing", !urlhaus?.disponivel && "URLhaus",
+          !vt?.disponivel && "VirusTotal", !gsb?.disponivel && "Google Safe Browsing", !urlhaus?.disponivel && "URLhaus", !radarSite?.disponivel && "Cloudflare Radar",
         ].filter(Boolean),
         empresa,
         host: hostInfo,

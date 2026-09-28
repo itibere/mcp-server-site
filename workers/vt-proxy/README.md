@@ -64,7 +64,9 @@ curl -X POST http://localhost:8787/hash -H "Content-Type: application/json" \
 ## Sitesecure (itibere.tec.br/sitesecure/)
 
 Verificador de sites. Código em `src/sitesecure/`; listas curadas e editáveis em `src/sitesecure/data/`
-(`dominios_confiaveis.json`, `redes_anuncio.json`, `hosts_tier.json`). Regras de nota em `src/sitesecure/nota.js`.
+(`dominios_confiaveis.json`, `redes_anuncio.json`, `hosts_tier.json`). Regras de nota em `src/sitesecure/nota.js`; governo/imitação em `governo.js`;
+boas práticas oficiais (Decreto 7.962, CDC, LGPD, NIST, CISA, OWASP, RFC 9116/8659) em `boaspraticas.js`;
+popularidade e categoria de conteúdo em `radar.js`.
 
 **Sempre** `npm run deploy` / `npm run dev` (ou `--config wrangler.toml`): o wrangler procura `wrangler.jsonc`
 subindo pastas antes do `wrangler.toml` local e, sem o `--config`, pega o do espelho na raiz do site.
@@ -73,6 +75,7 @@ Segredos opcionais (sem eles, a fonte aparece como indisponível no laudo):
 ```bash
 npx wrangler secret put GSB_API_KEY --config wrangler.toml       # Google Safe Browsing (console.cloud.google.com, API "Safe Browsing")
 npx wrangler secret put URLHAUS_AUTH_KEY --config wrangler.toml  # abuse.ch (auth.abuse.ch)
+npx wrangler secret put CF_RADAR_TOKEN --config wrangler.toml    # Cloudflare Radar: Custom Token, Account > Radar > Read
 ```
 
 Fontes gratuitas usadas: VirusTotal (a mesma `VT_API_KEY`, 1 consulta por análise), RDAP (registro.br / rdap.org /

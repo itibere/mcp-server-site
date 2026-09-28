@@ -46,7 +46,8 @@ export async function identificarHost(orcamento, ips, headers) {
     organizacao,
     plataformas: [...new Set(plataformas)].slice(0, 4),
     nome: escolhido?.nome || organizacao || "desconhecido",
-    tier: escolhido?.tier || "medio",
+    // Fora da lista curada = neutro: so hospedagem de ma fama derruba a nota.
+    tier: escolhido?.tier || "neutro",
     conhecido: !!escolhido,
   };
 }

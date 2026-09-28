@@ -1,5 +1,7 @@
 // Regras de nota. Cada bloco vira bom/medio/baixo com a lista de evidencias
 // que levou a isso. Ajuste os limites aqui, num lugar so.
+import { rotuloPosicao } from "./radar.js";
+
 const LIMITES = {
   dominioNovoDias: 30,
   dominioJovemDias: 365,
@@ -8,6 +10,8 @@ const LIMITES = {
   hardeningMinimo: 4, // de 6 itens
   certificadoVencendoDias: 7,
   mediosParaNotaMedia: 2,
+  boasPraticasAlivio: 0.6, // cumprindo 60%+ da goodlist, alerta leve nao derruba
+  consumidorFaltandoMedio: 2, // itens do Decreto 7.962/CDC faltando para virar Medio
 };
 
 const ROTULO_HARDENING = {
@@ -27,20 +31,32 @@ function novo(mediosParaMedio = 1) {
 export function notaReputacao(d) {
   const e = novo();
   const leves = []; // itens que so derrubam para medio se vierem 2 ou mais
-  const { rdap, vt, gsbSite, urlhaus, dns, hardening, httpsRedirect, empresa, pagamento, pix, reclameAqui } = d;
+  const { rdap, vt, gsbSite, urlhaus, dns, hardening, httpsRedirect, empresa, pagamento, pix, reclameAqui, governo, imitacao, radarSite, boas, raiz } = d;
+
+  if (governo?.governo) e.bom.push(`domínio de governo (${governo.esfera}): registro restrito a órgão público`);
+  if (radarSite?.estabelecido) e.bom.push(`domínio popular, ${rotuloPosicao(radarSite.posicao)}`);
 
   const idade = rdap?.idadeDias ?? (vt?.criadoEm ? Math.floor((Date.now() - Date.parse(vt.criadoEm)) / 86_400_000) : null);
   if (idade == null) leves.push("idade do domínio não informada pelo registro");
   else if (idade < LIMITES.dominioNovoDias && (hardening?.pontos ?? 0) < LIMITES.hardeningMinimo) e.baixo.push(`domínio criado há ${idade} dias e sem hardening`);
   else if (idade < LIMITES.dominioNovoDias) e.medio.push(`domínio criado há ${idade} dias`);
-  else if (idade < LIMITES.dominioJovemDias) e.medio.push(`domínio com menos de 1 ano (${idade} dias)`);
-  else e.bom.push(`domínio registrado há ${Math.floor(idade / 365)} ano(s)`);
+  else if (idade < LIMITES.dominioJovemDias && !radarSite?.estabelecido && !governo?.governo) e.medio.push(`domínio com menos de 1 ano (${idade} dias)`);
+  else e.bom.push(idade >= 365 ? `domínio registrado há ${Math.floor(idade / 365)} ano(s)` : `domínio registrado há ${idade} dias`);
+
+  if (imitacao) (idade != null && idade < LIMITES.dominioJovemDias ? e.baixo : e.medio).push(imitacao);
+
+  if (radarSite?.categoriaRuim) {
+    const cat = radarSite.categoriaRuim;
+    if (/gambling/i.test(cat) && !raiz.endsWith(".bet.br")) e.baixo.push(`site de apostas fora de .bet.br (não autorizado no Brasil), categoria "${cat}"`);
+    else if (/malware|phishing|command and control|cryptomining/i.test(cat)) e.baixo.push(`Cloudflare Radar classifica como "${cat}"`);
+    else e.medio.push(`Cloudflare Radar classifica como "${cat}"`);
+  }
 
   if (vt?.conhecido) {
     if (vt.maliciosos >= LIMITES.vtMaliciososBaixo) e.baixo.push(`${vt.maliciosos} engines do VirusTotal marcam como malicioso`);
     else if (vt.maliciosos || vt.suspeitos) e.medio.push(`${vt.maliciosos + vt.suspeitos} engine(s) do VirusTotal com alerta`);
     else e.bom.push(`${vt.total} engines do VirusTotal sem alerta`);
-  } else if (vt?.disponivel) leves.push("domínio desconhecido no VirusTotal");
+  } else if (vt?.disponivel && !radarSite?.estabelecido) leves.push("domínio desconhecido no VirusTotal");
 
   if (gsbSite?.length) e.baixo.push(`Google Safe Browsing marca ${gsbSite.length} endereço(s) deste site: ${[...new Set(gsbSite)].join(", ")}`);
   else if (gsbSite) e.bom.push("Google Safe Browsing sem alerta");
@@ -64,22 +80,30 @@ export function notaReputacao(d) {
       const txt = `Reclame Aqui: ${reclameAqui.status}${reclameAqui.nota != null ? ` (nota ${reclameAqui.nota})` : ""}`;
       (reclameAqui.nivel === "baixo" ? e.baixo : reclameAqui.nivel === "medio" ? e.medio : e.bom).push(txt);
     } else {
-      e.medio.push("site com pagamento e reputação no Reclame Aqui não confirmada automaticamente");
+      // O Reclame Aqui bloqueia leitura automatica quase sempre; penalizar
+      // isso rebaixaria toda loja. Fica o link para conferir.
+      e.obs.push("reputação no Reclame Aqui não lida automaticamente: confira pelo link nos detalhes");
     }
   }
 
-  if (leves.length >= 2) e.medio.push(...leves);
+  if (boas) e.bom.push(`boas práticas oficiais: ${boas.cumpridos} de ${boas.total}`);
+  const alivio = boas && boas.proporcao >= LIMITES.boasPraticasAlivio;
+  if (leves.length >= 2 && !alivio) e.medio.push(...leves);
   else e.obs.push(...leves);
+
+  // Governo com sinal de ameaca: provavel invasao, o alerta precisa dizer isso.
+  if (governo?.governo && e.baixo.length) e.baixo.unshift("site de governo com sinais de ameaça: possível invasão. Não informe dados e avise o órgão");
   return bloco(e);
 }
 
-export function notaLinks({ destinos, gsbLinks, redirecionouPara }) {
+export function notaLinks({ destinos, gsbLinks, redirecionamento }) {
   const e = novo();
   const naoAnuncio = destinos.filter((d) => !d.anuncio);
   const ruins = naoAnuncio.filter((d) => d.nivel === "baixo");
   for (const r of ruins.slice(0, 6)) e.baixo.push(`${r.raiz}: ${r.motivo}`);
   for (const m of (gsbLinks || []).slice(0, 6)) e.baixo.push(`Safe Browsing marca ${m.url} (${m.tipo})`);
-  if (redirecionouPara) e.medio.push(`o endereço informado redireciona para outro domínio: ${redirecionouPara}`);
+  if (redirecionamento?.suspeito) e.medio.push(`o endereço informado redireciona para outro domínio: ${redirecionamento.host}`);
+  else if (redirecionamento) e.obs.push(`redireciona para ${redirecionamento.host} (${redirecionamento.motivo})`);
   const encurtados = naoAnuncio.filter((d) => d.encurtado);
   if (encurtados.length) e.medio.push(`${encurtados.length} link(s) por encurtador (destino escondido)`);
   const medios = naoAnuncio.filter((d) => d.nivel === "medio");
@@ -105,17 +129,26 @@ export function notaPropagandas(p) {
   if (neutros.length) e.medio.push(`anúncios levam a sites sem reputação conhecida: ${neutros.slice(0, 5).map((x) => x.raiz).join(", ")}`);
   if (p.redes.confiaveis.length) e.bom.push(`redes de anúncio conhecidas: ${p.redes.confiaveis.join(", ")}`);
   const bons = p.anunciantes.filter((x) => x.nivel === "bom");
-  if (bons.length) e.bom.push(`anúncios levam a lojas de boa reputação: ${bons.slice(0, 5).map((x) => x.raiz).join(", ")}`);
+  if (bons.length) e.bom.push(`anúncios levam a destinos de boa reputação: ${bons.slice(0, 5).map((x) => x.raiz).join(", ")}`);
   return bloco(e);
 }
 
-export function notaHeaderFooter({ host, cnpjInfo, empresa, condiz, pagamento, destinos, coleta, rdap }) {
+export function notaHeaderFooter({ host, cnpjInfo, empresa, condiz, pagamento, destinos, coleta, rdap, governo, boas, raiz }) {
   const e = novo();
   const rotuloHost = `hospedado em ${host.nome}${host.organizacao && host.organizacao !== host.nome ? ` (${host.organizacao})` : ""}`;
-  (host.tier === "baixo" ? e.baixo : host.tier === "medio" ? e.medio : e.bom).push(rotuloHost);
+  if (host.tier === "baixo") e.baixo.push(rotuloHost);
+  else if (host.tier === "medio") e.medio.push(rotuloHost);
+  else if (host.tier === "neutro") e.obs.push(`${rotuloHost}: hospedagem fora da lista de referência`);
+  else e.bom.push(rotuloHost);
 
-  if (!cnpjInfo) (pagamento?.plataforma ? e.baixo : e.medio).push(pagamento?.plataforma ? "site com pagamento e sem CNPJ no rodapé" : "nenhum CNPJ encontrado no rodapé");
-  else if (empresa?.encontrado) {
+  if (governo?.governo) {
+    e.bom.push(`órgão público (${governo.esfera}): CNPJ de empresa não se aplica`);
+  } else if (!cnpjInfo) {
+    const loja = pagamento?.plataforma;
+    if (loja && raiz.endsWith(".br")) e.baixo.push("loja .br com pagamento e sem CNPJ no site (exigido pelo Decreto 7.962/2013)");
+    else if (loja) e.obs.push("site estrangeiro com pagamento: CNPJ não se aplica");
+    else if (raiz.endsWith(".br")) e.obs.push("nenhum CNPJ encontrado (exigido só de quem vende online)");
+  } else if (empresa?.encontrado) {
     if (empresa.ativa) e.bom.push(`CNPJ ${empresa.cnpj} ativo (${cnpjInfo.origem}): ${empresa.razaoSocial}`);
     if (empresa.idadeDias != null && empresa.idadeDias < LIMITES.empresaNovaDias) e.medio.push(`empresa aberta há ${empresa.idadeDias} dias`);
     if (condiz === false) (pagamento?.plataforma ? e.medio : e.obs).push(`razão social (${empresa.razaoSocial}) não aparece no nome do site`);
@@ -125,9 +158,15 @@ export function notaHeaderFooter({ host, cnpjInfo, empresa, condiz, pagamento, d
   if (cnpjInfo && rdap?.cnpjTitular && cnpjInfo.cnpj.slice(0, 8) !== rdap.cnpjTitular.slice(0, 8)) {
     e.medio.push("CNPJ do rodapé é diferente do titular do domínio no registro.br");
   }
+
+  // Informacoes obrigatorias para quem vende online (Decreto 7.962/2013, CDC art. 49).
+  const faltam = boas?.faltandoConsumidor || [];
+  if (faltam.length >= LIMITES.consumidorFaltandoMedio) e.medio.push(`faltam informações obrigatórias para loja online: ${faltam.join(", ")}`);
+  else if (faltam.length) e.obs.push(`falta: ${faltam.join(", ")}`);
+
   const ruinsMoldura = destinos.filter((d) => d.nivel === "baixo" && d.zonas.some((z) => z === "header" || z === "footer"));
   for (const r of ruinsMoldura.slice(0, 4)) e.baixo.push(`link no header/footer para ${r.raiz}: ${r.motivo}`);
-  if (!coleta.temFooter) e.medio.push("página sem rodapé identificável");
+  if (!coleta.temFooter) e.obs.push("página sem rodapé identificável");
   return bloco(e);
 }
 
