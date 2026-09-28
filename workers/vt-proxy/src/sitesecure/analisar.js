@@ -31,18 +31,25 @@ async function etapa(emitir, nome, fn, padrao = null) {
   }
 }
 
+// Link, PIX ou os dois. Com os dois, sai um laudo de cada (primeiro o do site,
+// depois o do PIX), dividindo o teto de 50 subrequests do plano gratuito.
 async function executar(env, corpo, emitir) {
-  // So o PIX, sem link: consulta propria (pixonly.js).
   const pixEntrada = typeof corpo?.pix === "string" ? corpo.pix.trim() : "";
+  const temUrl = !!(corpo?.url || "").trim();
   if (pixEntrada.length > 1024) return emitir({ etapa: "erro", erro: "pix_invalido", detalhe: "código longo demais" });
-  if (!(corpo?.url || "").trim() && pixEntrada) return executarPix(env, pixEntrada, emitir);
+  if (!temUrl && pixEntrada) return executarPix(env, pixEntrada, emitir, new Orcamento(20));
 
+  const orc = new Orcamento(pixEntrada ? 40 : 45);
+  await executarSite(env, corpo, emitir, orc);
+  if (pixEntrada) await executarPix(env, pixEntrada, emitir, new Orcamento(Math.max(4, 48 - orc.usado)));
+}
+
+async function executarSite(env, corpo, emitir, orc) {
   const v = validarUrl(corpo?.url);
   if (v.erro) return emitir({ etapa: "erro", erro: v.erro });
   const url = v.url;
   const host = url.hostname.toLowerCase();
   const raiz = dominioRaiz(host);
-  const orc = new Orcamento(45);
 
   const dnsHost = await resolverPublico(orc, host).catch(() => ({ erro: "dns_falhou" }));
   if (dnsHost.erro) return emitir({ etapa: "erro", erro: dnsHost.erro });

@@ -56,24 +56,24 @@
         </span>
         <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">Verifique se o site é seguro</h1>
         <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
-          Cole o link. A análise confere a idade e a reputação do domínio, para onde levam os links e as propagandas, a hospedagem, o CNPJ no rodapé e, em sites com pagamento, o PIX e o Reclame Aqui.
+          Cole o link do site ou um PIX copia-e-cola. Para o site, a análise confere a idade e a reputação do domínio, para onde levam os links e as propagandas, a hospedagem e o CNPJ no rodapé. Para o PIX, confere o código, quem recebe e a instituição de pagamento.
         </p>
       </div>
 
       <form id="form" class="relative z-10 space-y-4" novalidate>
-        <label for="url-input" class="sr-only">Link do site</label>
+        <label for="url-input" class="sr-only">Link do site ou PIX copia-e-cola</label>
         <div class="flex flex-col sm:flex-row gap-3">
-          <input id="url-input" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://loja-exemplo.com.br"
+          <input id="url-input" type="text" autocomplete="off" spellcheck="false" placeholder="https://loja-exemplo.com.br ou 00020126…"
             class="flex-1 min-w-0 rounded-lg bg-slate-900/70 border border-slate-700 px-4 py-3 text-sm font-mono-code text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500/60">
           <button type="submit" id="submit" class="px-6 py-3 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-sm font-semibold font-mono-code hover:bg-emerald-500/25 transition disabled:opacity-40 disabled:cursor-not-allowed">Verificar</button>
         </div>
         <details class="group">
-          <summary class="cursor-pointer text-xs font-mono-code text-slate-400 hover:text-emerald-300 select-none">+ Tenho um PIX copia-e-cola (dá para verificar só ele, sem o link)</summary>
+          <summary class="cursor-pointer text-xs font-mono-code text-slate-400 hover:text-emerald-300 select-none">+ Verificar o site e um PIX juntos</summary>
           <div class="mt-3 space-y-2">
             <label for="pix-input" class="sr-only">PIX copia-e-cola</label>
             <textarea id="pix-input" rows="3" spellcheck="false" placeholder="00020126...6304ABCD"
               class="w-full rounded-lg bg-slate-900/70 border border-slate-700 px-3 py-2 text-xs font-mono-code text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500/60 resize-none"></textarea>
-            <p class="text-[11px] text-slate-500">O código diz quem recebe o pagamento. Com o link, ele é comparado com o CNPJ e a razão social do site. Sem o link, a análise confere o código, o titular da chave e a instituição de pagamento no ranking do Banco Central. Não pague antes de ver o resultado.</p>
+            <p class="text-[11px] text-slate-500">Com o link no campo de cima e o PIX aqui, saem dois laudos: um do site e outro do PIX. O PIX também é comparado com o CNPJ do site. Não pague antes de ver o resultado.</p>
           </div>
         </details>
         <p id="form-erro" class="text-xs text-red-400 hidden" role="alert"></p>
@@ -94,21 +94,13 @@
     </section>
 
     <!-- LAUDO -->
-    <section id="view-laudo" class="hidden space-y-6">
-      <div class="rounded-2xl border border-slate-800 bg-[#090e17] p-6 sm:p-8 space-y-2">
-        <p class="text-xs font-mono-code text-slate-500">LAUDO</p>
-        <p id="laudo-alvo" class="font-mono-code text-sm text-cyan-400 break-all"></p>
-        <p id="laudo-titulo" class="text-sm text-slate-400"></p>
-      </div>
-
-      <div id="laudo-blocos" class="rounded-2xl border border-slate-800 bg-[#090e17] divide-y divide-slate-800"></div>
-
-      <div id="laudo-nota" class="rounded-2xl border p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-4"></div>
-
-      <div id="laudo-detalhes" class="rounded-2xl border border-slate-800 bg-[#090e17] p-6 sm:p-8 space-y-5 text-sm"></div>
+    <section id="view-laudo" class="hidden space-y-10">
+      <p id="laudo-aviso" class="hidden text-sm text-amber-300 rounded-xl border border-amber-500/40 bg-amber-950/30 p-4" role="alert"></p>
+      <!-- Um laudo por item analisado (site e/ou PIX), montados por sitesecure.js -->
+      <div id="laudos" class="space-y-12"></div>
 
       <div class="flex flex-wrap gap-3">
-        <button type="button" id="nova" class="px-4 py-2 rounded-lg border border-slate-700 text-xs font-mono-code text-slate-300 hover:border-emerald-500/60 hover:text-emerald-300 transition">Verificar outro site</button>
+        <button type="button" id="nova" class="px-4 py-2 rounded-lg border border-slate-700 text-xs font-mono-code text-slate-300 hover:border-emerald-500/60 hover:text-emerald-300 transition">Verificar outro</button>
       </div>
     </section>
 
