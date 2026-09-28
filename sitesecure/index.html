@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IJ Sitesecure — Verifique se o site é seguro</title>
+  <title>IJ Sitesecure — Verifique se o link é seguro</title>
   <meta name="description" content="Cole o link de um site e veja a reputação do domínio, a confiança dos links, as propagandas, o rodapé e a empresa por trás dele. Critérios alinhados ao NIST.">
 
   <!-- Tailwind CSS Standalone -->
@@ -22,7 +22,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
-  <meta property="og:title" content="IJ Sitesecure — Verifique se o site é seguro">
+  <meta property="og:title" content="IJ Sitesecure — Verifique se o link é seguro">
   <meta property="og:description" content="Reputação do domínio, confiança dos links, propagandas, rodapé e empresa por trás do site.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://itibere.tec.br/sitesecure/">
@@ -54,7 +54,7 @@
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           IJ SITESECURE
         </span>
-        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">Verifique se o site é seguro</h1>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">Verifique se o link é seguro</h1>
         <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
           Cole o link do site ou um PIX copia-e-cola. Para o site, a análise confere a idade e a reputação do domínio, para onde levam os links e as propagandas, a hospedagem e o CNPJ no rodapé. Para o PIX, confere o código, quem recebe e a instituição de pagamento.
         </p>
@@ -67,15 +67,6 @@
             class="flex-1 min-w-0 rounded-lg bg-slate-900/70 border border-slate-700 px-4 py-3 text-sm font-mono-code text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500/60">
           <button type="submit" id="submit" class="px-6 py-3 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-sm font-semibold font-mono-code hover:bg-emerald-500/25 transition disabled:opacity-40 disabled:cursor-not-allowed">Verificar</button>
         </div>
-        <details class="group">
-          <summary class="cursor-pointer text-xs font-mono-code text-slate-400 hover:text-emerald-300 select-none">+ Verificar o site e um PIX juntos</summary>
-          <div class="mt-3 space-y-2">
-            <label for="pix-input" class="sr-only">PIX copia-e-cola</label>
-            <textarea id="pix-input" rows="3" spellcheck="false" placeholder="00020126...6304ABCD"
-              class="w-full rounded-lg bg-slate-900/70 border border-slate-700 px-3 py-2 text-xs font-mono-code text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500/60 resize-none"></textarea>
-            <p class="text-[11px] text-slate-500">Com o link no campo de cima e o PIX aqui, saem dois laudos: um do site e outro do PIX. O PIX também é comparado com o CNPJ do site. Não pague antes de ver o resultado.</p>
-          </div>
-        </details>
         <p id="form-erro" class="text-xs text-red-400 hidden" role="alert"></p>
         <p class="text-[11px] text-slate-500 leading-relaxed">
           Ao enviar, você concorda com os <a href="../termos.html" class="underline hover:text-slate-300">Termos de Uso</a> e o <a href="../privacidade.html" class="underline hover:text-slate-300">Aviso de Privacidade</a>. O endereço é consultado em bases públicas de reputação (VirusTotal, Google Safe Browsing, URLhaus). Limite de 5 análises a cada 10 minutos.

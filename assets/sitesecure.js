@@ -387,16 +387,15 @@ async function analisar(url, pix) {
   erroForm(erros.map(mensagem).join(" ") || mensagem());
 }
 
-// O campo principal aceita link ou PIX: todo BR Code comeca com "000201".
+// Campo unico: link ou PIX. Todo BR Code comeca com "000201".
 const ehPix = (t) => /^000201/.test(t.replace(/\s+/g, ""));
 
 $("form").addEventListener("submit", (e) => {
   e.preventDefault();
   erroForm("");
-  const principal = $("url-input").value.trim();
-  const extra = $("pix-input").value.trim();
-  const url = principal && !ehPix(principal) ? principal : "";
-  const pix = principal && ehPix(principal) ? principal : extra;
+  const entrada = $("url-input").value.trim();
+  const url = entrada && !ehPix(entrada) ? entrada : "";
+  const pix = entrada && ehPix(entrada) ? entrada : "";
   if (!url && !pix) {
     erroForm("Cole o link do site (por exemplo https://loja-exemplo.com.br) ou um PIX copia-e-cola.");
     return;
@@ -410,7 +409,6 @@ $("form").addEventListener("submit", (e) => {
 
 $("nova").addEventListener("click", () => {
   $("url-input").value = "";
-  $("pix-input").value = "";
   mostrar("view-form");
   window.scrollTo({ top: 0, behavior: "smooth" });
   $("url-input").focus();
