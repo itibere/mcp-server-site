@@ -1,0 +1,16 @@
+{
+  "_sobre": "Redes de anúncio reconhecidas nas requisições da página. 'arriscadas' = redes de pop-under/adulto/apostas com histórico de malvertising. Curada e editável.",
+  "confiaveis": [
+    "googlesyndication.com", "doubleclick.net", "googleadservices.com", "adservice.google.com", "googletagservices.com",
+    "amazon-adsystem.com", "taboola.com", "outbrain.com", "criteo.com", "criteo.net", "adnxs.com", "rubiconproject.com",
+    "pubmatic.com", "openx.net", "smartadserver.com", "teads.tv", "media.net", "yieldmo.com", "sharethrough.com",
+    "3lift.com", "indexww.com", "casalemedia.com", "moatads.com", "adsrvr.org", "rtbhouse.com", "bing.com"
+  ],
+  "arriscadas": [
+    "popads.net", "popcash.net", "propellerads.com", "propellerclick.com", "adsterra.com", "adsterratech.com",
+    "exoclick.com", "exosrv.com", "trafficjunky.net", "trafficjunky.com", "juicyads.com", "hilltopads.net",
+    "clickadu.com", "admaven.com", "ad-maven.com", "monetag.com", "richads.com", "galaksion.com", "trafficstars.com",
+    "a-ads.com", "adcash.com", "evadav.com", "pushground.com", "zeropark.com", "onclickads.net", "revcontent.com",
+    "mgid.com", "adskeeper.com", "plugrush.com", "tsyndicate.com", "realsrv.com", "highperformanceformat.com"
+  ]
+}

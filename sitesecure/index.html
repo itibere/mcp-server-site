@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IJ Sitesecure — Verifique se o site é seguro</title>
+  <meta name="description" content="Cole o link de um site e veja a reputação do domínio, a confiança dos links, as propagandas, o rodapé e a empresa por trás dele. Critérios alinhados ao NIST.">
+
+  <!-- Tailwind CSS Standalone -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/sitesecure.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2305070c'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2310b981' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='17' font-weight='700' fill='%2310b981' text-anchor='middle'>&gt;_</text></svg>">
+
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <meta property="og:title" content="IJ Sitesecure — Verifique se o site é seguro">
+  <meta property="og:description" content="Reputação do domínio, confiança dos links, propagandas, rodapé e empresa por trás do site.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itibere.tec.br/sitesecure/">
+</head>
+<body class="bg-[#05070c] text-slate-100 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <div class="fixed inset-0 bg-grid-cyber pointer-events-none z-0 opacity-40"></div>
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+  <div class="fixed bottom-1/3 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+  <header class="sticky top-0 z-50 border-b border-emerald-500/20 bg-[#05070c]/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="../" class="flex items-center gap-2 text-sm font-mono-code group hover:no-underline">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]"></span>
+        <span class="text-emerald-400 font-semibold">itibere</span><span class="text-slate-500">@</span><span class="text-cyan-400">bsb-infra</span><span class="text-slate-500">:~#</span>
+        <span class="text-slate-300 group-hover:text-emerald-300 transition">sitesecure</span>
+        <span class="inline-block w-2 h-4 bg-emerald-400/80 animate-blink ml-0.5"></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-10">
+
+    <!-- HERO + FORM -->
+    <section id="view-form" class="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-[#0a0e1a] via-[#0d1424] to-[#0d1a1a] p-6 sm:p-10 relative overflow-hidden glow-emerald space-y-6">
+      <div class="absolute -right-16 -top-16 w-72 h-72 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 space-y-3">
+        <span class="px-3 py-1 rounded-full text-xs font-mono-code font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 inline-flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          IJ SITESECURE
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">Verifique se o site é seguro</h1>
+        <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+          Cole o link. A análise confere a idade e a reputação do domínio, para onde levam os links e as propagandas, a hospedagem, o CNPJ no rodapé e, em sites com pagamento, o PIX e o Reclame Aqui.
+        </p>
+      </div>
+
+      <form id="form" class="relative z-10 space-y-4" novalidate>
+        <label for="url-input" class="sr-only">Link do site</label>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input id="url-input" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://loja-exemplo.com.br"
+            class="flex-1 min-w-0 rounded-lg bg-slate-900/70 border border-slate-700 px-4 py-3 text-sm font-mono-code text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500/60">
+          <button type="submit" id="submit" class="px-6 py-3 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-sm font-semibold font-mono-code hover:bg-emerald-500/25 transition disabled:opacity-40 disabled:cursor-not-allowed">Verificar</button>
+        </div>
+        <details class="group">
+          <summary class="cursor-pointer text-xs font-mono-code text-slate-400 hover:text-emerald-300 select-none">+ Tenho o PIX copia-e-cola que o site gerou (opcional)</summary>
+          <div class="mt-3 space-y-2">
+            <label for="pix-input" class="sr-only">PIX copia-e-cola</label>
+            <textarea id="pix-input" rows="3" spellcheck="false" placeholder="00020126...6304ABCD"
+              class="w-full rounded-lg bg-slate-900/70 border border-slate-700 px-3 py-2 text-xs font-mono-code text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500/60 resize-none"></textarea>
+            <p class="text-[11px] text-slate-500">O código diz quem recebe o pagamento. Ele é comparado com o CNPJ e a razão social do site. Não pague antes de ver o resultado.</p>
+          </div>
+        </details>
+        <p id="form-erro" class="text-xs text-red-400 hidden" role="alert"></p>
+        <p class="text-[11px] text-slate-500 leading-relaxed">
+          Ao enviar, você concorda com os <a href="../termos.html" class="underline hover:text-slate-300">Termos de Uso</a> e o <a href="../privacidade.html" class="underline hover:text-slate-300">Aviso de Privacidade</a>. O endereço é consultado em bases públicas de reputação (VirusTotal, Google Safe Browsing, URLhaus). Limite de 5 análises a cada 10 minutos.
+        </p>
+      </form>
+    </section>
+
+    <!-- ANALISANDO -->
+    <section id="view-scan" class="hidden rounded-2xl border border-emerald-500/30 bg-[#05070c] p-6 sm:p-10 flex flex-col items-center gap-6" aria-live="polite">
+      <p class="scan-titulo font-mono-code text-emerald-300 font-bold tracking-[0.4em] text-lg sm:text-2xl">ANALISANDO<span class="animate-blink">_</span></p>
+      <div class="scan-gif">
+        <img src="../assets/hacker-scan.gif" alt="Animação de análise em andamento" width="300" height="300">
+      </div>
+      <p id="scan-alvo" class="font-mono-code text-xs text-cyan-400 break-all text-center"></p>
+      <ul id="scan-etapas" class="w-full max-w-md font-mono-code text-xs space-y-1.5"></ul>
+    </section>
+
+    <!-- LAUDO -->
+    <section id="view-laudo" class="hidden space-y-6">
+      <div class="rounded-2xl border border-slate-800 bg-[#090e17] p-6 sm:p-8 space-y-2">
+        <p class="text-xs font-mono-code text-slate-500">LAUDO</p>
+        <p id="laudo-alvo" class="font-mono-code text-sm text-cyan-400 break-all"></p>
+        <p id="laudo-titulo" class="text-sm text-slate-400"></p>
+      </div>
+
+      <div id="laudo-blocos" class="rounded-2xl border border-slate-800 bg-[#090e17] divide-y divide-slate-800"></div>
+
+      <div id="laudo-nota" class="rounded-2xl border p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-4"></div>
+
+      <div id="laudo-detalhes" class="rounded-2xl border border-slate-800 bg-[#090e17] p-6 sm:p-8 space-y-5 text-sm"></div>
+
+      <div class="flex flex-wrap gap-3">
+        <button type="button" id="nova" class="px-4 py-2 rounded-lg border border-slate-700 text-xs font-mono-code text-slate-300 hover:border-emerald-500/60 hover:text-emerald-300 transition">Verificar outro site</button>
+      </div>
+    </section>
+
+    <!-- METODOLOGIA -->
+    <section class="rounded-2xl border border-slate-800 bg-[#090e17] p-6 sm:p-8 space-y-4 text-sm text-slate-300 leading-relaxed">
+      <h2 class="text-lg font-bold text-white font-mono-code">Como a nota é calculada</h2>
+      <ul class="space-y-2 list-disc list-inside marker:text-emerald-500">
+        <li><strong class="text-slate-100">Reputação do Domínio:</strong> idade do registro, veredito dos fornecedores de segurança no VirusTotal (Fortinet, Sophos, Kaspersky, BitDefender e outros), Google Safe Browsing, URLhaus, HTTPS e cabeçalhos de segurança, SPF/DMARC. Em site com pagamento, entram o PIX e o Reclame Aqui.</li>
+        <li><strong class="text-slate-100">Confiança dos links:</strong> destino final de cada link externo, incluindo encurtadores. Apostas fora de <code class="text-emerald-300">.bet.br</code>, conteúdo adulto ou destino bloqueado por filtro de malware derrubam a nota.</li>
+        <li><strong class="text-slate-100">Existência de propagandas:</strong> redes de anúncio carregadas e para onde os anúncios levam. Anúncio para loja de boa reputação não pesa; para aposta, adulto ou rede de pop-up, pesa.</li>
+        <li><strong class="text-slate-100">Validação de header e footer:</strong> quem hospeda o site, CNPJ no rodapé, situação na Receita Federal e se a razão social bate com o site.</li>
+        <li><strong class="text-slate-100">Nota:</strong> qualquer bloco <span class="text-red-400">Baixo</span> deixa a nota Baixa; dois ou mais <span class="text-amber-300">Médio</span> deixam Média; o resto é <span class="text-emerald-300">Boa</span>.</li>
+      </ul>
+      <h3 class="text-sm font-bold text-white font-mono-code pt-2">Limitações</h3>
+      <ul class="space-y-1 list-disc list-inside marker:text-slate-600 text-slate-400 text-xs">
+        <li>Palo Alto Networks e Cisco Talos não têm consulta gratuita. Só aparecem quando estão entre os fornecedores do VirusTotal.</li>
+        <li>O Reclame Aqui bloqueia leitura automática com frequência. Quando isso acontece, o laudo traz o link para conferir.</li>
+        <li>PIX com chave aleatória não revela o titular (a base do Banco Central não é pública). Nesse caso só o nome do recebedor é comparado.</li>
+        <li>O navegador usado para ver as propagandas tem cota diária. Sem cota, a análise lê só o HTML e avisa.</li>
+        <li>Nota Boa não é garantia. Ela diz que nenhum sinal de risco foi encontrado nas fontes consultadas.</li>
+      </ul>
+      <h3 class="text-sm font-bold text-white font-mono-code pt-2">Fontes</h3>
+      <ul class="space-y-1 text-xs text-slate-400">
+        <li><a class="underline hover:text-slate-200" href="https://www.nist.gov/cyberframework" rel="noopener">NIST Cybersecurity Framework 2.0</a></li>
+        <li><a class="underline hover:text-slate-200" href="https://csrc.nist.gov/pubs/sp/800/52/r2/final" rel="noopener">NIST SP 800-52 Rev. 2 (TLS)</a></li>
+        <li><a class="underline hover:text-slate-200" href="https://csrc.nist.gov/pubs/sp/800/177/r1/final" rel="noopener">NIST SP 800-177 Rev. 1 (e-mail confiável: SPF, DMARC, DNSSEC)</a></li>
+        <li><a class="underline hover:text-slate-200" href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final" rel="noopener">NIST SP 800-53 Rev. 5 (SC-8, SC-23)</a></li>
+        <li><a class="underline hover:text-slate-200" href="https://www.bcb.gov.br/estabilidadefinanceira/pix" rel="noopener">Banco Central: Manual do BR Code (PIX)</a></li>
+        <li><a class="underline hover:text-slate-200" href="https://www.gov.br/fazenda/pt-br/composicao/orgaos/secretaria-de-premios-e-apostas" rel="noopener">Secretaria de Prêmios e Apostas (MF): apostas autorizadas em .bet.br</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-emerald-500/20 bg-[#04060a] py-12 mt-20 relative z-10 font-mono-code text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3 text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span>© <span id="ano">2026</span> Itiberê Paquier · itibere.tec.br</span>
+      </div>
+      <div class="flex items-center gap-6 text-slate-400">
+        <a href="../" class="hover:text-amber-400 transition">Projetos</a>
+        <a href="../sobre.html" class="hover:text-white transition">Sobre</a>
+        <a href="../termos.html" class="hover:text-white transition">Termos</a>
+        <a href="../privacidade.html" class="hover:text-white transition">Privacidade</a>
+        <a href="mailto:itibere.paquier@gmail.com" class="hover:text-cyan-400 transition">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/ano.js" defer></script>
+  <script src="../assets/sitesecure.js" defer></script>
+</body>
+</html>
