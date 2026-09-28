@@ -10,7 +10,7 @@ import { classificarDestinos, classificarPorNome } from "./links.js";
 import { identificarGoverno, imitaGoverno } from "./governo.js";
 import { consultarRadar } from "./radar.js";
 import { coletarExtras, avaliarBoasPraticas } from "./boaspraticas.js";
-import { detectarRedes, avaliarPropagandas } from "./propagandas.js";
+import { detectarRedes, avaliarPropagandas, idadeDosAnunciantes } from "./propagandas.js";
 import { escolherCnpj, consultarCnpj, empresaCondiz } from "./empresa.js";
 import { identificarHost } from "./host.js";
 import { detectarPagamento, lerBrCode, acharBrCodes, compararPix } from "./pagamento.js";
@@ -104,8 +104,10 @@ async function executar(env, corpo, emitir) {
 
   // 3. Links e propagandas.
   const destinos = await etapa(emitir, "links", () => classificarDestinos(orc, env, coleta.links, raizFinal), []);
-  const propagandas = await etapa(emitir, "propagandas", async () =>
-    avaliarPropagandas(detectarRedes(coleta.requisicoes, coleta.iframes), destinos, coleta.modo),
+  const propagandas = await etapa(emitir, "propagandas", async () => {
+    await idadeDosAnunciantes(orc, destinos, consultarRdap);
+    return avaliarPropagandas(detectarRedes(coleta.requisicoes, coleta.iframes), destinos, coleta.modo);
+  },
   { existe: false, verificavel: false, redes: { confiaveis: [], arriscadas: [] }, anunciantes: [] });
 
   // Links internos entram tambem: pagina limpa pode apontar para download

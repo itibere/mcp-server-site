@@ -26,6 +26,19 @@ export function detectarRedes(requisicoes, iframes) {
   return { confiaveis: [...confiaveis], arriscadas: [...arriscadas] };
 }
 
+// Anunciantes sem reputacao conhecida: so pesam se o dominio for novo, entao
+// a idade e buscada no RDAP (ate `max` dominios, 1 subrequest cada).
+export async function idadeDosAnunciantes(orcamento, destinos, consultarRdap, max = 5) {
+  const alvos = destinos
+    .filter((d) => d.anuncio && d.nivel === "neutro" && !CONFIAVEIS.has(d.raiz) && !ARRISCADAS.has(d.raiz))
+    .slice(0, max);
+  await Promise.all(alvos.map(async (d) => {
+    if (!orcamento.pode(2)) return;
+    const r = await consultarRdap(orcamento, d.raiz).catch(() => null);
+    d.idadeDias = r?.idadeDias ?? null;
+  }));
+}
+
 // destinos = saida de classificarDestinos; usa so os marcados como anuncio,
 // tirando as proprias redes (o clique passa por elas antes do anunciante).
 export function avaliarPropagandas(redesDetectadas, destinos, modo) {
@@ -37,7 +50,7 @@ export function avaliarPropagandas(redesDetectadas, destinos, modo) {
     existe,
     verificavel: modo === "navegador",
     redes: redesDetectadas,
-    anunciantes: anunciantes.slice(0, 15).map(({ raiz, nivel, motivo }) => ({ raiz, nivel, motivo })),
+    anunciantes: anunciantes.slice(0, 15).map(({ raiz, nivel, motivo, idadeDias }) => ({ raiz, nivel, motivo, idadeDias })),
     ruins: ruins.length,
     bons: bons.length,
   };
