@@ -82,8 +82,11 @@ async function executar(env, corpo, emitir) {
     avaliarPropagandas(detectarRedes(coleta.requisicoes, coleta.iframes), destinos, coleta.modo),
   { existe: false, verificavel: false, redes: { confiaveis: [], arriscadas: [] }, anunciantes: [] });
 
+  // Links internos entram tambem: pagina limpa pode apontar para download
+  // malicioso no proprio dominio. Continua uma chamada so (lote ate 500).
+  const internos = coleta.links.map((l) => l.href).filter((h) => dominioRaiz(hostDe(h) || "") === raizFinal).slice(0, 300);
   const gsb = await etapa(emitir, "safebrowsing", () => consultarSafeBrowsing(orc, env, [
-    url.toString(), coleta.urlFinal, ...destinos.flatMap((d) => d.exemplos),
+    url.toString(), coleta.urlFinal, ...destinos.flatMap((d) => d.exemplos), ...internos,
   ]), null);
   const gsbMatches = gsb?.matches || [];
   const doSite = (m) => [host, hostFinal].includes(hostDe(m.url));
