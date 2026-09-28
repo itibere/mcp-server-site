@@ -3,6 +3,7 @@ VT_API_KEY=cole_sua_chave_do_virustotal_aqui
 # Sitesecure (opcionais; sem chave, a fonte aparece como indisponivel no laudo)
 GSB_API_KEY=cole_sua_chave_do_google_safe_browsing
 URLHAUS_AUTH_KEY=cole_sua_chave_do_abuse_ch
+CF_RADAR_TOKEN=cole_seu_token_radar_read
 # Libera CORS do servidor local de teste do site
 DEV_ORIGIN=http://localhost:8000
 # Teste local sem Chrome (o Chrome do wrangler pode ser bloqueado por antivirus)

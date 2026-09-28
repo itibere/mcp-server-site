@@ -50,7 +50,7 @@ export async function doh(orcamento, nome, tipo, servidor = DOH) {
 // e os casos mais comuns; nao e a Public Suffix List inteira).
 const SUFIXOS_2 = new Set([
   "com.br", "net.br", "org.br", "gov.br", "edu.br", "art.br", "blog.br", "eco.br",
-  "ind.br", "inf.br", "jus.br", "leg.br", "mil.br", "mp.br", "bet.br", "app.br",
+  "ind.br", "inf.br", "jus.br", "leg.br", "mil.br", "mp.br", "def.br", "bet.br", "app.br",
   "dev.br", "log.br", "tec.br", "srv.br", "emp.br", "adv.br", "med.br", "eng.br",
   "co.uk", "org.uk", "com.au", "com.ar", "com.mx", "co.jp", "com.pt", "com.co",
   "github.io", "vercel.app", "netlify.app", "pages.dev", "workers.dev", "web.app",

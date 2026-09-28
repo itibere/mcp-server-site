@@ -159,6 +159,9 @@ function montarDetalhes(l) {
 
   const [sDom, dlDom] = secao("DOMÍNIO");
   linha(dlDom, "Domínio", d.dominio.raiz);
+  if (d.dominio.governo) linha(dlDom, "Órgão público", `${d.dominio.governo} (domínio de registro restrito a governo)`);
+  if (d.popularidade?.posicao) linha(dlDom, "Popularidade (Cloudflare Radar)", `top ${d.popularidade.posicao.toLocaleString("pt-BR")}`);
+  if (d.popularidade?.categorias?.length) linha(dlDom, "Categoria (Cloudflare Radar)", d.popularidade.categorias.join(", "));
   linha(dlDom, "Registrado em", dataBr(d.dominio.criadoEm));
   linha(dlDom, "Proteção de e-mail", `SPF ${d.dominio.spf ? "sim" : "não"} · DMARC ${d.dominio.dmarc || "ausente"} · DNSSEC ${d.dominio.dnssec ? "sim" : "não"}`);
   if (d.hardening) {
@@ -168,6 +171,23 @@ function montarDetalhes(l) {
     if (d.hardening.certificado) linha(dlDom, "Certificado TLS", `${d.hardening.certificado.emissor} · ${d.hardening.certificado.protocolo} · vence em ${d.hardening.certificado.diasParaVencer} dias`);
   }
   box.append(sDom);
+
+  if (d.boasPraticas?.total) {
+    const bp = d.boasPraticas;
+    const [s] = secao(`BOAS PRÁTICAS OFICIAIS: ${bp.cumpridos} DE ${bp.total}`);
+    const ul = el("ul", "space-y-1");
+    for (const i of bp.itens.filter((x) => x.ok !== null)) {
+      const li = el("li", "flex flex-wrap items-baseline gap-2 text-xs");
+      li.append(
+        el("span", i.ok ? "text-emerald-400 w-3" : "text-red-400 w-3", i.ok ? "✓" : "✗"),
+        el("span", i.ok ? "text-slate-200" : "text-slate-400", i.nome),
+        el("span", "text-slate-600 font-mono-code", i.fonte),
+      );
+      ul.append(li);
+    }
+    s.append(ul);
+    box.append(s);
+  }
 
   if (d.virustotal) {
     const [s, dl] = secao("FORNECEDORES DE SEGURANÇA (VIRUSTOTAL)");
