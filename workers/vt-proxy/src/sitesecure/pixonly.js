@@ -5,7 +5,7 @@ import { lerBrCode } from "./pagamento.js";
 import { consultarCnpj, formatarCnpj } from "./empresa.js";
 import { consultarRdap } from "./dominio.js";
 import { consultarSafeBrowsing } from "./reputacao.js";
-import { carregarRanking, identificarInstituicao, situacaoNoRanking } from "./bancocentral.js";
+import { carregarRanking, carregarParticipantes, identificarInstituicao, situacaoNoRanking, situacaoParticipante, participantePorCnpj } from "./bancocentral.js";
 import { identificarGoverno } from "./governo.js";
 import { Orcamento, dominioRaiz, nomeCombina } from "./util.js";
 
@@ -88,13 +88,26 @@ export async function executarPix(env, bruto, emitir, orc = new Orcamento(20)) {
   }
 
   // Instituicao de pagamento e ranking do Banco Central (so informa)
+  // e lista oficial de participantes do Pix (autorizacao do BC).
   const inst = identificarInstituicao(pix);
-  const ranking = await etapa(emitir, "pix-instituicao", () => (inst ? carregarRanking(orc) : null), null);
+  const chaveCnpj = pix.tipoChave === "cnpj" ? pix.chave.replace(/\D/g, "") : null;
+  const [ranking, participantes] = await etapa(emitir, "pix-instituicao", () => Promise.all([
+    inst ? carregarRanking(orc).catch(() => null) : null,
+    inst || chaveCnpj ? carregarParticipantes(orc).catch(() => null) : null,
+  ]), [null, null]);
   const bc = situacaoNoRanking(ranking, inst);
-  if (inst) bom.push(`instituição de pagamento: ${inst.nome} (identificada pelo ${inst.pelo})`);
-  else if (pix.dinamico && pix.pspUrl && !identificarGoverno(pix.pspUrl).governo) {
+  const part = situacaoParticipante(participantes, inst);
+  if (inst) {
+    bom.push(`instituição de pagamento: ${inst.nome} (identificada pelo ${inst.pelo})`);
+    if (part?.participante && part.autorizada) bom.push(`${inst.nome} consta na lista oficial de participantes do Pix, autorizada pelo Banco Central (lista de ${part.data})`);
+    else if (part && !part.participante) medio.push(`${inst.nome} não consta na lista oficial de participantes do Pix (lista de ${part.data}): o pagamento passa por outra instituição`);
+  } else if (pix.dinamico && pix.pspUrl && !identificarGoverno(pix.pspUrl).governo) {
     medio.push(`o QR dinâmico está hospedado em ${pix.pspUrl}, que não é de instituição de pagamento conhecida`);
   }
+  // Chave CNPJ de banco ou instituicao de pagamento: o dinheiro vai para a
+  // conta da propria instituicao (tipico de intermediador de pagamento).
+  const chaveDeInstituicao = participantePorCnpj(participantes, chaveCnpj);
+  if (chaveDeInstituicao) obs.push(`a chave é o CNPJ de ${chaveDeInstituicao.nome}, participante do Pix: o valor vai para a conta da instituição, que repassa ao lojista`);
   if (pix.recebedor && INTERMEDIADOR.test(pix.recebedor)) obs.push(`o recebedor é o intermediador (${pix.recebedor}), não identifica o lojista`);
 
   obs.push("antes de confirmar, confira no app do banco o nome e o documento de quem vai receber");
@@ -119,7 +132,7 @@ export async function executarPix(env, bruto, emitir, orc = new Orcamento(20)) {
           crcOk: pix.crcOk,
         },
         empresa: pix.tipoChave === "cnpj" ? empresa : null,
-        instituicao: inst ? { ...inst, ranking: bc } : null,
+        instituicao: inst ? { ...inst, ranking: bc, participante: part } : null,
         fontesIndisponiveis: [pix.dinamico && gsb && !gsb.disponivel && "Google Safe Browsing"].filter(Boolean),
         subrequests: orc.usado,
       },

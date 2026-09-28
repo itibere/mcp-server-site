@@ -305,6 +305,12 @@ function linhaInstituicao(dl, inst) {
     txt += ` · Banco Central, ${r.periodo}: ${idx}`;
   } else if (r) txt += ` · não consta no ranking do Banco Central (${r.periodo})`;
   linha(dl, "Instituição de pagamento", txt);
+  const p = inst.participante;
+  if (p) {
+    linha(dl, "Participante do Pix", p.participante
+      ? `sim: ${p.nome}${p.autorizada ? ", autorizada pelo Banco Central" : ""} (lista oficial de ${p.data})`
+      : `não consta na lista oficial de participantes (lista de ${p.data})`);
+  }
 }
 
 function montarDetalhesPix(box, l) {
