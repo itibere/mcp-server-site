@@ -45,7 +45,10 @@ const ERROS = {
   dns_falhou: "Não foi possível resolver o domínio agora. Tente de novo.",
   site_inacessivel: "O site não respondeu. Ele pode estar fora do ar ou bloqueando acesso automatizado.",
   redirecionou_para_destino_nao_permitido: "O site redireciona para um endereço interno ou IP. Isso por si só é suspeito.",
-  rate_limit_excedido: "Limite de 5 análises a cada 10 minutos atingido. Aguarde e tente de novo.",
+  rate_limit_excedido: "Limite de 5 análises a cada 10 minutos atingido.",
+  limite_diario: "Você atingiu o limite de 20 análises por dia.",
+  bloqueado: "Muitas tentativas acima do limite: acesso bloqueado temporariamente.",
+  teto_diario: "A ferramenta atingiu o limite de análises de hoje. Volte amanhã.",
   falha_interna: "Falha na análise. Tente de novo em instantes.",
   pix_invalido: "Esse texto não é um PIX copia-e-cola válido. Copie o código inteiro, que começa com 000201.",
 };
@@ -258,6 +261,7 @@ function montarDetalhes(box, l) {
   const notas = [];
   if (l.modo === "estatico") notas.push("Página lida sem navegador (HTML estático): anúncios injetados por JavaScript podem não ter sido vistos.");
   if (d.fontesIndisponiveis?.length) notas.push(`Fontes indisponíveis nesta análise: ${d.fontesIndisponiveis.join(", ")}.`);
+  if (l.doCache) notas.push("Resultado guardado de uma análise recente do mesmo item (até 1 hora); não gastou sua cota.");
   notas.push(`Analisado em ${new Date(l.analisadoEm).toLocaleString("pt-BR")}.`);
   box.append(listaItens(notas, "text-slate-500", "·"));
 }
@@ -298,6 +302,7 @@ function montarDetalhesPix(box, l) {
   const notas = [];
   if (d.fontesIndisponiveis?.length) notas.push(`Fontes indisponíveis nesta análise: ${d.fontesIndisponiveis.join(", ")}.`);
   notas.push("O ranking do Banco Central só informa: não altera a nota.");
+  if (l.doCache) notas.push("Resultado guardado de uma análise recente do mesmo item (até 1 hora); não gastou sua cota.");
   notas.push(`Analisado em ${new Date(l.analisadoEm).toLocaleString("pt-BR")}.`);
   box.append(listaItens(notas, "text-slate-500", "·"));
 }
@@ -361,17 +366,21 @@ async function analisar(url, pix) {
         if (!linhaTxt) continue;
         const ev = JSON.parse(linhaTxt);
         if (ev.etapa === "laudo") laudos.push(ev.laudo);
-        else if (ev.etapa === "erro") erros.push(ev.erro);
+        else if (ev.etapa === "erro") erros.push(ev);
+        else if (ev.etapa === "cache") document.querySelectorAll("#scan-etapas li").forEach((li) => marcarEtapa(li.dataset.etapa, "ok"));
         else marcarEtapa(ev.etapa, ev.status);
       }
     }
   } catch {
-    erros.push("falha_rede");
+    erros.push({ erro: "falha_rede" });
   } finally {
     $("submit").disabled = false;
   }
 
-  const mensagem = (e) => ERROS[e] || "Não foi possível concluir a análise. Verifique sua conexão e tente de novo.";
+  const mensagem = (e) => {
+    const base = ERROS[e?.erro] || "Não foi possível concluir a análise. Verifique sua conexão e tente de novo.";
+    return e?.tentarEm && e.erro !== "teto_diario" ? `${base} Tente de novo em ${tempo(e.tentarEm)}.` : base;
+  };
   if (laudos.length) {
     $("laudos").replaceChildren();
     for (const l of laudos) montarLaudo(l);
@@ -385,6 +394,12 @@ async function analisar(url, pix) {
   }
   mostrar("view-form");
   erroForm(erros.map(mensagem).join(" ") || mensagem());
+}
+
+function tempo(seg) {
+  if (seg < 90) return `${Math.max(1, Math.round(seg))} segundos`;
+  if (seg < 5400) return `${Math.round(seg / 60)} minutos`;
+  return `${Math.round(seg / 3600)} horas`;
 }
 
 // Campo unico: link ou PIX. Todo BR Code comeca com "000201".
