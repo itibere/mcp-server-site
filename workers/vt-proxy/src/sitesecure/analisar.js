@@ -123,7 +123,7 @@ async function executar(env, corpo, emitir) {
   const cnpjInfo = governo.governo ? null : escolherCnpj(coleta, rdapSite);
   const [empresa, hostInfo] = await Promise.all([
     etapa(emitir, "empresa", () => (cnpjInfo ? consultarCnpj(orc, cnpjInfo.cnpj) : null), null),
-    etapa(emitir, "host", () => identificarHost(orc, dnsHost.ips, coleta.headers),
+    etapa(emitir, "host", () => identificarHost(orc, env, dnsHost.ips, coleta.headers),
       { nome: "desconhecido", tier: "neutro", plataformas: [] }),
   ]);
 
