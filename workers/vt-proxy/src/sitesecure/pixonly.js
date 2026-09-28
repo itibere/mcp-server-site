@@ -32,8 +32,7 @@ async function etapa(emitir, nome, fn, padrao = null) {
   }
 }
 
-export async function executarPix(env, bruto, emitir) {
-  const orc = new Orcamento(20);
+export async function executarPix(env, bruto, emitir, orc = new Orcamento(20)) {
   const pix = lerBrCode(bruto);
   await emitir({ etapa: "pix-leitura", status: "ok" });
   if (!pix.valido) return emitir({ etapa: "erro", erro: "pix_invalido", detalhe: pix.motivo });

@@ -114,8 +114,7 @@ function listaItens(itens, classe, marcador) {
   return ul;
 }
 
-function montarBlocos(blocos, lista = BLOCOS) {
-  const box = $("laudo-blocos");
+function montarBlocos(box, blocos, lista = BLOCOS) {
   box.replaceChildren();
   for (const [chave, nome] of lista) {
     const b = blocos[chave];
@@ -133,8 +132,7 @@ function montarBlocos(blocos, lista = BLOCOS) {
   }
 }
 
-function montarNota(nota) {
-  const box = $("laudo-nota");
+function montarNota(box, nota) {
   box.className = `rounded-2xl border p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-4 nivel-${nota}`;
   box.replaceChildren();
   const esq = el("div", "flex items-center gap-3");
@@ -160,9 +158,8 @@ function dataBr(iso) {
   return Number.isNaN(t) ? null : new Date(t).toLocaleDateString("pt-BR");
 }
 
-function montarDetalhes(l) {
+function montarDetalhes(box, l) {
   const d = l.detalhes;
-  const box = $("laudo-detalhes");
   box.replaceChildren(el("h2", "text-base font-bold text-white font-mono-code", "Detalhes"));
 
   const [sDom, dlDom] = secao("DOMÍNIO");
@@ -276,9 +273,8 @@ function linhaInstituicao(dl, inst) {
   linha(dl, "Instituição de pagamento", txt);
 }
 
-function montarDetalhesPix(l) {
+function montarDetalhesPix(box, l) {
   const d = l.detalhes;
-  const box = $("laudo-detalhes");
   box.replaceChildren(el("h2", "text-base font-bold text-white font-mono-code", "Detalhes"));
   const [s, dl] = secao("CÓDIGO PIX");
   const p = d.pix;
@@ -306,34 +302,45 @@ function montarDetalhesPix(l) {
   box.append(listaItens(notas, "text-slate-500", "·"));
 }
 
+// Um cartao por laudo (site e/ou PIX), um abaixo do outro em #laudos.
+function criarCartao(rotulo, alvo, subtitulo) {
+  const raiz = el("article", "space-y-6");
+  const topo = el("div", "rounded-2xl border border-slate-800 bg-[#090e17] p-6 sm:p-8 space-y-2");
+  topo.append(
+    el("p", "text-xs font-mono-code text-slate-500", rotulo),
+    el("p", "font-mono-code text-sm text-cyan-400 break-all", alvo),
+  );
+  if (subtitulo) topo.append(el("p", "text-sm text-slate-400", subtitulo));
+  const blocos = el("div", "rounded-2xl border border-slate-800 bg-[#090e17] divide-y divide-slate-800");
+  const nota = el("div");
+  const detalhes = el("div", "rounded-2xl border border-slate-800 bg-[#090e17] p-6 sm:p-8 space-y-5 text-sm");
+  raiz.append(topo, blocos, nota, detalhes);
+  $("laudos").append(raiz);
+  return { blocos, nota, detalhes };
+}
+
 function montarLaudo(l) {
   if (l.tipo === "pix") {
-    $("laudo-alvo").textContent = "PIX copia-e-cola";
-    $("laudo-titulo").textContent = l.detalhes.pix.recebedor ? `Recebedor: ${l.detalhes.pix.recebedor}` : "";
-    montarBlocos(l.blocos, [["pix", "Validação do PIX"]]);
-    montarNota(l.nota);
-    montarDetalhesPix(l);
-    mostrar("view-laudo");
-    $("view-laudo").scrollIntoView({ behavior: "smooth", block: "start" });
+    const c = criarCartao("LAUDO DO PIX", "PIX copia-e-cola", l.detalhes.pix.recebedor ? `Recebedor: ${l.detalhes.pix.recebedor}` : "");
+    montarBlocos(c.blocos, l.blocos, [["pix", "Validação do PIX"]]);
+    montarNota(c.nota, l.nota);
+    montarDetalhesPix(c.detalhes, l);
     return;
   }
-  $("laudo-alvo").textContent = l.urlFinal !== l.url ? `${l.url} → ${l.urlFinal}` : l.url;
-  $("laudo-titulo").textContent = l.titulo || "";
-  montarBlocos(l.blocos);
-  montarNota(l.nota);
-  montarDetalhes(l);
-  mostrar("view-laudo");
-  $("view-laudo").scrollIntoView({ behavior: "smooth", block: "start" });
+  const c = criarCartao("LAUDO DO SITE", l.urlFinal !== l.url ? `${l.url} → ${l.urlFinal}` : l.url, l.titulo || "");
+  montarBlocos(c.blocos, l.blocos);
+  montarNota(c.nota, l.nota);
+  montarDetalhes(c.detalhes, l);
 }
 
 // ---------- ENVIO ----------
 async function analisar(url, pix) {
-  montarEtapas(url ? ETAPAS : ETAPAS_PIX);
-  $("scan-alvo").textContent = url || "PIX copia-e-cola";
+  montarEtapas([...(url ? ETAPAS : []), ...(pix ? ETAPAS_PIX : [])]);
+  $("scan-alvo").textContent = [url, pix && "PIX copia-e-cola"].filter(Boolean).join(" + ");
   mostrar("view-scan");
   $("submit").disabled = true;
-  let laudo = null;
-  let erro = null;
+  const laudos = [];
+  const erros = [];
   try {
     const res = await fetch(`${API_BASE}/sitesecure/analisar`, {
       method: "POST",
@@ -353,37 +360,49 @@ async function analisar(url, pix) {
         buffer = buffer.slice(i + 1);
         if (!linhaTxt) continue;
         const ev = JSON.parse(linhaTxt);
-        if (ev.etapa === "laudo") laudo = ev.laudo;
-        else if (ev.etapa === "erro") erro = ev.erro;
+        if (ev.etapa === "laudo") laudos.push(ev.laudo);
+        else if (ev.etapa === "erro") erros.push(ev.erro);
         else marcarEtapa(ev.etapa, ev.status);
       }
     }
   } catch {
-    erro = "falha_rede";
+    erros.push("falha_rede");
   } finally {
     $("submit").disabled = false;
   }
 
-  if (laudo) {
-    montarLaudo(laudo);
+  const mensagem = (e) => ERROS[e] || "Não foi possível concluir a análise. Verifique sua conexão e tente de novo.";
+  if (laudos.length) {
+    $("laudos").replaceChildren();
+    for (const l of laudos) montarLaudo(l);
+    // Com site + PIX, um pode falhar e o outro sair: o aviso diz qual faltou.
+    const aviso = $("laudo-aviso");
+    aviso.textContent = erros.length ? erros.map(mensagem).join(" ") : "";
+    aviso.classList.toggle("hidden", !erros.length);
+    mostrar("view-laudo");
+    $("view-laudo").scrollIntoView({ behavior: "smooth", block: "start" });
     return;
   }
   mostrar("view-form");
-  erroForm(ERROS[erro] || "Não foi possível concluir a análise. Verifique sua conexão e tente de novo.");
+  erroForm(erros.map(mensagem).join(" ") || mensagem());
 }
+
+// O campo principal aceita link ou PIX: todo BR Code comeca com "000201".
+const ehPix = (t) => /^000201/.test(t.replace(/\s+/g, ""));
 
 $("form").addEventListener("submit", (e) => {
   e.preventDefault();
   erroForm("");
-  const url = $("url-input").value.trim();
-  const pix = $("pix-input").value.trim();
-  // Sem link, vale a consulta so do PIX.
-  if (!url && pix) {
-    analisar("", pix);
+  const principal = $("url-input").value.trim();
+  const extra = $("pix-input").value.trim();
+  const url = principal && !ehPix(principal) ? principal : "";
+  const pix = principal && ehPix(principal) ? principal : extra;
+  if (!url && !pix) {
+    erroForm("Cole o link do site (por exemplo https://loja-exemplo.com.br) ou um PIX copia-e-cola.");
     return;
   }
-  if (!url || !/\./.test(url)) {
-    erroForm("Cole o link do site (por exemplo https://loja-exemplo.com.br) ou só o PIX copia-e-cola.");
+  if (url && !/\./.test(url)) {
+    erroForm("Esse link não parece um endereço de site. Exemplo: https://loja-exemplo.com.br");
     return;
   }
   analisar(url, pix);
