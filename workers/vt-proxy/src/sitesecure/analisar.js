@@ -11,6 +11,7 @@ import { identificarGoverno, imitaGoverno } from "./governo.js";
 import { consultarRadar } from "./radar.js";
 import { coletarExtras, avaliarBoasPraticas } from "./boaspraticas.js";
 import { executarPix } from "./pixonly.js";
+import { guarda, chaveCache } from "./guarda.js";
 import { carregarRanking, identificarInstituicao, situacaoNoRanking } from "./bancocentral.js";
 import { detectarRedes, avaliarPropagandas, idadeDosAnunciantes } from "./propagandas.js";
 import { escolherCnpj, consultarCnpj, empresaCondiz } from "./empresa.js";
@@ -39,9 +40,11 @@ async function executar(env, corpo, emitir) {
   if (pixEntrada.length > 1024) return emitir({ etapa: "erro", erro: "pix_invalido", detalhe: "código longo demais" });
   if (!temUrl && pixEntrada) return executarPix(env, pixEntrada, emitir, new Orcamento(20));
 
-  const orc = new Orcamento(pixEntrada ? 40 : 45);
+  // Teto de 50 subrequests do plano gratuito: sobram ~5 para a guarda
+  // (Durable Objects: estado do IP, cache, limites e gravacao do cache).
+  const orc = new Orcamento(pixEntrada ? 36 : 42);
   await executarSite(env, corpo, emitir, orc);
-  if (pixEntrada) await executarPix(env, pixEntrada, emitir, new Orcamento(Math.max(4, 48 - orc.usado)));
+  if (pixEntrada) await executarPix(env, pixEntrada, emitir, new Orcamento(Math.max(4, 44 - orc.usado)));
 }
 
 async function executarSite(env, corpo, emitir, orc) {
@@ -199,16 +202,46 @@ async function executarSite(env, corpo, emitir, orc) {
   });
 }
 
-export function handleAnalisar(request, env, ctx, cors) {
+const NDJSON = { "Content-Type": "application/x-ndjson; charset=utf-8", "Cache-Control": "no-store" };
+
+// Ordem da guarda: IP bloqueado? -> laudo em cache (nao gasta cota) ->
+// limite do IP (janela deslizante + diario) -> teto geral do dia -> analise.
+export async function handleAnalisar(request, env, ctx, cors, ip) {
+  const corpo = await request.json().catch(() => null);
+  const recusa = (erro, tentarEm, status) =>
+    new Response(JSON.stringify({ etapa: "erro", erro, tentarEm }) + "\n", { status, headers: { ...NDJSON, ...cors } });
+
+  let chave = null;
+  if (env.SITESECURE_DO) {
+    const estado = await guarda.estadoIp(env, ip);
+    if (estado.bloqueado) return recusa("bloqueado", estado.tentarEm, 429);
+
+    chave = await chaveCache(corpo?.url, corpo?.pix);
+    const cache = await guarda.lerCache(env, chave);
+    if (cache) {
+      const linhas = cache.eventos.map((ev) => JSON.stringify(ev.etapa === "laudo" ? { ...ev, laudo: { ...ev.laudo, doCache: cache.em } } : ev));
+      return new Response(`${JSON.stringify({ etapa: "cache", em: cache.em })}\n${linhas.join("\n")}\n`, { headers: { ...NDJSON, ...cors } });
+    }
+
+    const ipOk = await guarda.consumirIp(env, ip);
+    if (!ipOk.ok) return recusa(ipOk.motivo, ipOk.tentarEm, 429);
+    const globalOk = await guarda.consumirGlobal(env);
+    if (!globalOk.ok) return recusa(globalOk.motivo, globalOk.tentarEm, 503);
+  }
+
   const { readable, writable } = new TransformStream();
   const escritor = writable.getWriter();
   const enc = new TextEncoder();
-  const emitir = (obj) => escritor.write(enc.encode(JSON.stringify(obj) + "\n"));
+  const finais = []; // laudos e erros, guardados no cache se houver laudo
+  const emitir = (obj) => {
+    if (obj.etapa === "laudo" || obj.etapa === "erro") finais.push(obj);
+    return escritor.write(enc.encode(JSON.stringify(obj) + "\n"));
+  };
 
   const trabalho = (async () => {
     try {
-      const corpo = await request.json().catch(() => null);
       await executar(env, corpo, emitir);
+      if (chave && finais.some((e) => e.etapa === "laudo")) await guarda.gravarCache(env, chave, finais).catch(() => {});
     } catch (err) {
       await emitir({ etapa: "erro", erro: "falha_interna", detalhe: String(err?.message || err).slice(0, 120) }).catch(() => {});
     } finally {
@@ -217,7 +250,5 @@ export function handleAnalisar(request, env, ctx, cors) {
   })();
   ctx.waitUntil(trabalho);
 
-  return new Response(readable, {
-    headers: { "Content-Type": "application/x-ndjson; charset=utf-8", "Cache-Control": "no-store", ...cors },
-  });
+  return new Response(readable, { headers: { ...NDJSON, ...cors } });
 }

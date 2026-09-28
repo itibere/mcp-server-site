@@ -26,6 +26,15 @@ class_name = "RateLimiterDO"
 tag = "v1"
 new_sqlite_classes = ["RateLimiterDO"]
 
+# Guarda do sitesecure (limites por IP, bloqueio, teto diario, cache de laudos).
+[[durable_objects.bindings]]
+name = "SITESECURE_DO"
+class_name = "SitesecureDO"
+
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["SitesecureDO"]
+
 # Cloudflare Browser Rendering (sitesecure). Free: 10 min de navegador/dia,
 # 3 navegadores simultaneos. Sem cota, a analise cai no HTML estatico.
 [browser]

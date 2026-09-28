@@ -3,10 +3,9 @@ const VT_BASE = "https://www.virustotal.com/api/v3";
 const HASH_RE = /^[a-fA-F0-9]{32}$|^[a-fA-F0-9]{40}$|^[a-fA-F0-9]{64}$|^[a-fA-F0-9]{128}$/;
 
 import { handleAnalisar } from "./sitesecure/analisar.js";
+export { SitesecureDO } from "./sitesecure/guarda.js";
 
 const RATE_LIMIT = 10; // requisicoes
-const SITESECURE_LIMITE = 5; // analises
-const SITESECURE_JANELA_MS = 10 * 60_000; // por 10 min
 const RATE_WINDOW_MS = 60_000; // por janela fixa de 60s
 
 // Rate limit via Durable Object, por IP (mesmo padrao do worker rag-licitacoes,
@@ -261,17 +260,11 @@ export default {
     const ip = request.headers.get("CF-Connecting-IP") || "sem-ip";
     const url = new URL(request.url);
 
-    // Sitesecure: limite proprio e mais baixo (cada analise gasta navegador,
-    // VirusTotal e ~40 subrequests), separado do limite de /hash e /url.
+    // Sitesecure: guarda propria (sitesecure/guarda.js) com janela deslizante,
+    // limite diario, bloqueio progressivo, teto geral e cache; separada do
+    // limite de /hash e /url.
     if (request.method === "POST" && url.pathname === "/sitesecure/analisar") {
-      const cors = corsHeaders(request, env);
-      if (!(await checarLimite(env, `sitesecure:${ip}`, SITESECURE_LIMITE, SITESECURE_JANELA_MS))) {
-        return new Response(JSON.stringify({ etapa: "erro", erro: "rate_limit_excedido" }) + "\n", {
-          status: 429,
-          headers: { "Content-Type": "application/x-ndjson", ...cors },
-        });
-      }
-      return handleAnalisar(request, env, ctx, cors);
+      return handleAnalisar(request, env, ctx, corsHeaders(request, env), ip);
     }
 
     const dentroDoLimite = await checarLimite(env, ip);
