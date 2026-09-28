@@ -1,7 +1,7 @@
 const anoEl = document.getElementById('ano');
 if (anoEl) anoEl.textContent = new Date().getFullYear();
 
-const API_BASE = "https://vt-proxy.itibere-paquier.workers.dev";
+const API_BASE = "https://api.itibere.tec.br";
 
 const HASH_RE = /^[a-fA-F0-9]{32}$|^[a-fA-F0-9]{40}$|^[a-fA-F0-9]{64}$|^[a-fA-F0-9]{128}$/;
 

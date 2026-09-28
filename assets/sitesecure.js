@@ -2,7 +2,7 @@
 // e monta o laudo. Todo texto vindo da análise entra via textContent.
 const API_BASE = ["localhost", "127.0.0.1"].includes(location.hostname)
   ? "http://127.0.0.1:8799"
-  : "https://vt-proxy.itibere-paquier.workers.dev";
+  : "https://api.itibere.tec.br";
 
 const ETAPAS = [
   ["dominio", "Idade e registro do domínio"],
