@@ -35,6 +35,15 @@ class_name = "SitesecureDO"
 tag = "v2"
 new_sqlite_classes = ["SitesecureDO"]
 
+# Turnstile do sitesecure: "observar" registra no log sem bloquear; trocar
+# para "exigir" so depois de validar os logs (e com a CSP ja liberando o widget).
+[vars]
+TURNSTILE_MODO = "observar"
+
+# Workers Logs (plano gratuito): onde aparecem os registros do Turnstile.
+[observability]
+enabled = true
+
 # Cloudflare Browser Rendering (sitesecure). Free: 10 min de navegador/dia,
 # 3 navegadores simultaneos. Sem cota, a analise cai no HTML estatico.
 [browser]

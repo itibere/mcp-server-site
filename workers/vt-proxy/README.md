@@ -86,3 +86,15 @@ sem cota, a análise lê só o HTML estático.
 Teste local sem Chrome (o Chrome baixado pelo wrangler pode ser barrado pelo antivírus): `SEM_NAVEGADOR=1` e
 `DEV_ORIGIN=http://localhost:8000` no `.dev.vars`, `npx wrangler dev --config wrangler.toml --port 8799` e
 `python -m http.server 8000` na raiz do site; a página usa `http://127.0.0.1:8799` quando aberta em localhost.
+
+### Guarda contra excesso de consultas (`src/sitesecure/guarda.js`)
+
+Durable Object `SitesecureDO` (migração `v2`). Por IP: janela deslizante de 5 análises em quaisquer 10 min e 20 por dia; 3 recusas no dia bloqueiam o IP por 1 h e 6 recusas por 24 h. Teto geral de 150 análises por dia. A mesma entrada em até 1 h devolve o laudo guardado, sem gastar cota. Estado de IP apagado 48 h depois do último uso; o IP não é gravado. Limites no objeto `LIMITES_SITESECURE`.
+
+### Turnstile (`src/sitesecure/turnstile.js`)
+
+Site key em `assets/sitesecure.js`; segredo em `npx wrangler secret put TURNSTILE_SECRET --config wrangler.toml`. `TURNSTILE_MODO` no `wrangler.toml`: `observar` registra o resultado em Workers Logs sem bloquear; `exigir` recusa análise sem token válido. Antes de `exigir`, a CSP do site precisa liberar `https://challenges.cloudflare.com` em `script-src` e `frame-src`.
+
+### Consulta de PIX (`src/sitesecure/pixonly.js`, `bancocentral.js`)
+
+`POST /sitesecure/analisar` com `{ pix }` analisa só o PIX copia-e-cola: CRC, titular da chave, endereço do QR dinâmico e instituição de pagamento no ranking de reclamações do Banco Central (só informativo).
