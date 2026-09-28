@@ -71,13 +71,58 @@ export async function carregarRanking(orcamento) {
   return dados;
 }
 
+// Lista oficial de participantes do Pix (Banco Central), publicada em dias
+// uteis como lista-participantes-instituicoes-em-adesao-pix-AAAAMMDD.csv.
+// Procura o arquivo de hoje e volta ate 6 dias (fim de semana e feriado).
+const PARTICIPANTES = "https://www.bcb.gov.br/content/estabilidadefinanceira/participantes_pix/lista-participantes-instituicoes-em-adesao-pix-";
+let cacheParticipantes = null;
+
+function diaBR(ms) {
+  return new Date(ms - 3 * 3600_000).toISOString().slice(0, 10);
+}
+
+export async function carregarParticipantes(orcamento) {
+  if (cacheParticipantes && Date.now() - cacheParticipantes.em < CACHE_MS) return cacheParticipantes.dados;
+  for (let atras = 0; atras < 7; atras++) {
+    if (!orcamento.pode()) return null;
+    const dia = diaBR(Date.now() - atras * 86_400_000);
+    const res = await buscar(orcamento, `${PARTICIPANTES}${dia.replace(/-/g, "")}.csv`, {}, 10_000).catch(() => null);
+    if (!res?.ok || /html/i.test(res.headers.get("content-type") || "")) continue;
+    const linhas = decodificar(await res.arrayBuffer()).split(/\r?\n/).slice(2).filter(Boolean);
+    const porCnpj = new Map();
+    for (const l of linhas) {
+      const c = l.split(";");
+      const cnpj = (c[3] || "").replace(/\D/g, "");
+      if (cnpj.length === 14) porCnpj.set(cnpj, { nome: c[1].trim(), tipo: (c[4] || "").trim(), autorizada: /sim/i.test(c[5] || "") });
+    }
+    if (!porCnpj.size) continue;
+    const dados = { data: dia.split("-").reverse().join("/"), porCnpj };
+    cacheParticipantes = { em: Date.now(), dados };
+    return dados;
+  }
+  return null;
+}
+
+// Instituicao identificada no PIX -> esta na lista oficial de participantes?
+export function situacaoParticipante(lista, inst) {
+  if (!lista || !inst) return null;
+  const p = inst.cnpjPix ? lista.porCnpj.get(inst.cnpjPix) : null;
+  return p ? { participante: true, nome: p.nome, autorizada: p.autorizada, data: lista.data } : { participante: false, data: lista.data };
+}
+
+// A chave CNPJ do PIX e de uma instituicao participante (banco ou IP)?
+export function participantePorCnpj(lista, cnpj) {
+  const p = lista?.porCnpj.get(String(cnpj || "").replace(/\D/g, ""));
+  return p ? { ...p, data: lista.data } : null;
+}
+
 // Instituicao de pagamento a partir do endereco do QR dinamico e do nome do
 // recebedor (quando o recebedor e o proprio intermediador).
 export function identificarInstituicao(pix) {
   const alvos = [pix?.pspUrl ? hostDe(`https://${pix.pspUrl}`) || pix.pspUrl : null, pix?.recebedor].filter(Boolean);
   for (const alvo of alvos) {
     const p = PSPS.find((x) => x.re.test(alvo));
-    if (p) return { nome: p.nome, bcb: p.bcb, pelo: alvo === pix?.recebedor ? "nome do recebedor" : "endereço do QR dinâmico" };
+    if (p) return { nome: p.nome, bcb: p.bcb, cnpjPix: p.cnpjPix || null, pelo: alvo === pix?.recebedor ? "nome do recebedor" : "endereço do QR dinâmico" };
   }
   return null;
 }

@@ -13,7 +13,7 @@ import { coletarExtras, avaliarBoasPraticas } from "./boaspraticas.js";
 import { executarPix } from "./pixonly.js";
 import { guarda, chaveCache } from "./guarda.js";
 import { conferirTurnstile } from "./turnstile.js";
-import { carregarRanking, identificarInstituicao, situacaoNoRanking } from "./bancocentral.js";
+import { carregarRanking, carregarParticipantes, identificarInstituicao, situacaoNoRanking, situacaoParticipante } from "./bancocentral.js";
 import { detectarRedes, avaliarPropagandas, idadeDosAnunciantes } from "./propagandas.js";
 import { escolherCnpj, consultarCnpj, empresaCondiz } from "./empresa.js";
 import { identificarHost } from "./host.js";
@@ -156,6 +156,7 @@ async function executarSite(env, corpo, emitir, orc) {
   // Instituicao que recebe o PIX e sua posicao no ranking do BC (so informa).
   const instPix = pixLido?.valido ? identificarInstituicao(pixLido) : null;
   const bcPix = instPix ? situacaoNoRanking(await carregarRanking(orc).catch(() => null), instPix) : null;
+  const partPix = instPix ? situacaoParticipante(await carregarParticipantes(orc).catch(() => null), instPix) : null;
   await emitir({ etapa: "pagamento", status: "ok" });
 
   let reclameAqui = null;
@@ -194,7 +195,7 @@ async function executarSite(env, corpo, emitir, orc) {
         ].filter(Boolean),
         empresa,
         host: hostInfo,
-        pagamento: { ...pagamento, pix: pix ? { ...pix, origem: corpo?.pix ? "informado" : "encontrado na página", instituicao: instPix ? { ...instPix, ranking: bcPix } : null } : null, pixInvalido: pixLido && !pixLido.valido ? pixLido.motivo : null },
+        pagamento: { ...pagamento, pix: pix ? { ...pix, origem: corpo?.pix ? "informado" : "encontrado na página", instituicao: instPix ? { ...instPix, ranking: bcPix, participante: partPix } : null } : null, pixInvalido: pixLido && !pixLido.valido ? pixLido.motivo : null },
         reclameAqui,
         destinos: destinos.slice(0, 40).map(({ raiz: r, nivel, motivo, anuncio, zonas }) => ({ raiz: r, nivel, motivo, anuncio, zonas })),
         subrequests: orc.usado,
