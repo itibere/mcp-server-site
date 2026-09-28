@@ -136,6 +136,21 @@ function marcarEtapa(id, status) {
   li.firstChild.textContent = ok ? "✓" : "!";
 }
 
+// Ritmo da tela ANALISANDO: o PIX responde em menos de 1 s e a tela passava
+// rapido demais. As etapas sao marcadas em fila, com intervalo minimo, e o
+// laudo so aparece depois de um tempo minimo na tela.
+const RITMO = {
+  pix: { intervalo: 1800, minimo: 8000 },
+  site: { intervalo: 400, minimo: 3000 },
+  cache: { intervalo: 600, minimo: 4000 },
+};
+const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
+let filaEtapas = Promise.resolve();
+
+function marcarComRitmo(id, status, intervalo) {
+  filaEtapas = filaEtapas.then(() => esperar(intervalo)).then(() => marcarEtapa(id, status));
+}
+
 // ---------- LAUDO ----------
 function listaItens(itens, classe, marcador) {
   const ul = el("ul", "space-y-1 text-xs sm:text-sm");
@@ -289,8 +304,6 @@ function montarDetalhes(box, l) {
   }
 
   const notas = [];
-  if (l.modo === "estatico") notas.push("Página lida sem navegador (HTML estático): anúncios injetados por JavaScript podem não ter sido vistos.");
-  if (d.fontesIndisponiveis?.length) notas.push(`Fontes indisponíveis nesta análise: ${d.fontesIndisponiveis.join(", ")}.`);
   if (l.doCache) notas.push("Resultado guardado de uma análise recente do mesmo item (até 1 hora); não gastou sua cota.");
   notas.push(`Analisado em ${new Date(l.analisadoEm).toLocaleString("pt-BR")}.`);
   box.append(listaItens(notas, "text-slate-500", "·"));
@@ -336,8 +349,6 @@ function montarDetalhesPix(box, l) {
     box.append(s2);
   }
   const notas = [];
-  if (d.fontesIndisponiveis?.length) notas.push(`Fontes indisponíveis nesta análise: ${d.fontesIndisponiveis.join(", ")}.`);
-  notas.push("O ranking do Banco Central só informa: não altera a nota.");
   if (l.doCache) notas.push("Resultado guardado de uma análise recente do mesmo item (até 1 hora); não gastou sua cota.");
   notas.push(`Analisado em ${new Date(l.analisadoEm).toLocaleString("pt-BR")}.`);
   box.append(listaItens(notas, "text-slate-500", "·"));
@@ -382,6 +393,9 @@ async function analisar(url, pix) {
   $("submit").disabled = true;
   const laudos = [];
   const erros = [];
+  const inicio = Date.now();
+  let ritmo = url ? RITMO.site : RITMO.pix;
+  filaEtapas = Promise.resolve();
   try {
     const res = await fetch(`${API_BASE}/sitesecure/analisar`, {
       method: "POST",
@@ -403,8 +417,10 @@ async function analisar(url, pix) {
         const ev = JSON.parse(linhaTxt);
         if (ev.etapa === "laudo") laudos.push(ev.laudo);
         else if (ev.etapa === "erro") erros.push(ev);
-        else if (ev.etapa === "cache") document.querySelectorAll("#scan-etapas li").forEach((li) => marcarEtapa(li.dataset.etapa, "ok"));
-        else marcarEtapa(ev.etapa, ev.status);
+        else if (ev.etapa === "cache") {
+          ritmo = url ? RITMO.cache : RITMO.pix;
+          document.querySelectorAll("#scan-etapas li").forEach((li) => marcarComRitmo(li.dataset.etapa, "ok", ritmo.intervalo));
+        } else marcarComRitmo(ev.etapa, ev.status, ritmo.intervalo);
       }
     }
   } catch {
@@ -419,6 +435,8 @@ async function analisar(url, pix) {
     return e?.tentarEm && e.erro !== "teto_diario" ? `${base} Tente de novo em ${tempo(e.tentarEm)}.` : base;
   };
   if (laudos.length) {
+    await filaEtapas;
+    await esperar(Math.max(0, ritmo.minimo - (Date.now() - inicio)));
     $("laudos").replaceChildren();
     for (const l of laudos) montarLaudo(l);
     // Com site + PIX, um pode falhar e o outro sair: o aviso diz qual faltou.

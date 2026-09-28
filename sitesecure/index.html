@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="../assets/style.css">
   <!-- ?v= muda a cada publicacao de sitesecure.css/js: sem isso o navegador
        pode seguir com a versao antiga em cache (visto com o Turnstile). -->
-  <link rel="stylesheet" href="../assets/sitesecure.css?v=20260928-3">
+  <link rel="stylesheet" href="../assets/sitesecure.css?v=20260928-4">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2305070c'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2310b981' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='17' font-weight='700' fill='%2310b981' text-anchor='middle'>&gt;_</text></svg>">
 
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -109,7 +109,7 @@
         <li><strong class="text-slate-100">Validação de header e footer:</strong> quem hospeda o site, CNPJ no rodapé, situação na Receita Federal e se a razão social bate com o site.</li>
         <li><strong class="text-slate-100">Boas práticas oficiais:</strong> itens da Lei do E-commerce, do CDC, da LGPD, do NIST, da CISA e do OWASP que o site cumpre. Contam a favor e aliviam alertas leves, mas nunca anulam sinal de ameaça.</li>
         <li><strong class="text-slate-100">Governo:</strong> domínios <code class="text-emerald-300">.gov.br</code>, <code class="text-emerald-300">.jus.br</code>, <code class="text-emerald-300">.leg.br</code>, <code class="text-emerald-300">.mp.br</code>, <code class="text-emerald-300">.mil.br</code> e <code class="text-emerald-300">.def.br</code> só podem ser registrados por órgão público. A identidade é confirmada, mas as checagens de ameaça continuam: site de governo invadido recebe nota Baixa. Endereço que imita serviço público sem ser governo também.</li>
-        <li><strong class="text-slate-100">PIX copia-e-cola:</strong> dígito de controle do código, titular da chave (CNPJ na Receita Federal; CPF indica pessoa física), endereço do QR dinâmico e instituição de pagamento no ranking de reclamações do Banco Central. O ranking só informa e não altera a nota.</li>
+        <li><strong class="text-slate-100">PIX copia-e-cola:</strong> dígito de controle do código, titular da chave (CNPJ na Receita Federal; CPF indica pessoa física), endereço do QR dinâmico e instituição de pagamento, conferida na lista oficial de participantes do Pix do Banco Central. Instituição fora da lista pesa na nota. O ranking de reclamações do Banco Central aparece nos detalhes como observação e não altera a nota.</li>
         <li><strong class="text-slate-100">Nota:</strong> qualquer bloco <span class="text-red-400">Baixo</span> deixa a nota Baixa; dois ou mais <span class="text-amber-300">Médio</span> deixam Média; o resto é <span class="text-emerald-300">Boa</span>.</li>
       </ul>
       <h3 class="text-sm font-bold text-white font-mono-code pt-2">Limitações</h3>
@@ -159,6 +159,6 @@
 
   <script src="../assets/ano.js" defer></script>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
-  <script src="../assets/sitesecure.js?v=20260928-3" defer></script>
+  <script src="../assets/sitesecure.js?v=20260928-4" defer></script>
 </body>
 </html>
