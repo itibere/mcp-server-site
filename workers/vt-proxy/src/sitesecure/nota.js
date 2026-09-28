@@ -125,8 +125,14 @@ export function notaPropagandas(p) {
   }
   if (p.redes.arriscadas.length) e.baixo.push(`redes de anúncio com histórico de malvertising/adulto: ${p.redes.arriscadas.join(", ")}`);
   for (const a of p.anunciantes.filter((x) => x.nivel === "baixo").slice(0, 6)) e.baixo.push(`anúncio leva a ${a.raiz}: ${a.motivo}`);
-  const neutros = p.anunciantes.filter((x) => x.nivel === "neutro" || x.nivel === "medio");
-  if (neutros.length) e.medio.push(`anúncios levam a sites sem reputação conhecida: ${neutros.slice(0, 5).map((x) => x.raiz).join(", ")}`);
+  // Anunciante sem reputacao conhecida so pesa com dominio de menos de 1 ano;
+  // idade desconhecida ou mais antiga vira observacao.
+  for (const m of p.anunciantes.filter((x) => x.nivel === "medio").slice(0, 3)) e.medio.push(`anúncio leva a ${m.raiz}: ${m.motivo}`);
+  const neutros = p.anunciantes.filter((x) => x.nivel === "neutro");
+  const novos = neutros.filter((x) => x.idadeDias != null && x.idadeDias < LIMITES.dominioJovemDias);
+  const resto = neutros.filter((x) => !novos.includes(x));
+  if (novos.length) e.medio.push(`anúncios levam a domínios com menos de 1 ano: ${novos.slice(0, 5).map((x) => `${x.raiz} (${x.idadeDias} dias)`).join(", ")}`);
+  if (resto.length) e.obs.push(`anunciantes fora das listas de reputação, domínios com 1 ano ou mais ou sem data: ${resto.slice(0, 5).map((x) => x.raiz).join(", ")}`);
   if (p.redes.confiaveis.length) e.bom.push(`redes de anúncio conhecidas: ${p.redes.confiaveis.join(", ")}`);
   const bons = p.anunciantes.filter((x) => x.nivel === "bom");
   if (bons.length) e.bom.push(`anúncios levam a destinos de boa reputação: ${bons.slice(0, 5).map((x) => x.raiz).join(", ")}`);
