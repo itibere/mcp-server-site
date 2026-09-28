@@ -10,6 +10,8 @@ import { classificarDestinos, classificarPorNome } from "./links.js";
 import { identificarGoverno, imitaGoverno } from "./governo.js";
 import { consultarRadar } from "./radar.js";
 import { coletarExtras, avaliarBoasPraticas } from "./boaspraticas.js";
+import { executarPix } from "./pixonly.js";
+import { carregarRanking, identificarInstituicao, situacaoNoRanking } from "./bancocentral.js";
 import { detectarRedes, avaliarPropagandas, idadeDosAnunciantes } from "./propagandas.js";
 import { escolherCnpj, consultarCnpj, empresaCondiz } from "./empresa.js";
 import { identificarHost } from "./host.js";
@@ -30,6 +32,11 @@ async function etapa(emitir, nome, fn, padrao = null) {
 }
 
 async function executar(env, corpo, emitir) {
+  // So o PIX, sem link: consulta propria (pixonly.js).
+  const pixEntrada = typeof corpo?.pix === "string" ? corpo.pix.trim() : "";
+  if (pixEntrada.length > 1024) return emitir({ etapa: "erro", erro: "pix_invalido", detalhe: "código longo demais" });
+  if (!(corpo?.url || "").trim() && pixEntrada) return executarPix(env, pixEntrada, emitir);
+
   const v = validarUrl(corpo?.url);
   if (v.erro) return emitir({ etapa: "erro", erro: v.erro });
   const url = v.url;
@@ -135,6 +142,9 @@ async function executar(env, corpo, emitir) {
   const pixLido = pixBruto ? lerBrCode(pixBruto) : null;
   const pix = pixLido ? compararPix(pixLido, cnpjInfo?.cnpj || null, empresa) : null;
   if (pixLido?.valido) pagamento.plataforma = true;
+  // Instituicao que recebe o PIX e sua posicao no ranking do BC (so informa).
+  const instPix = pixLido?.valido ? identificarInstituicao(pixLido) : null;
+  const bcPix = instPix ? situacaoNoRanking(await carregarRanking(orc).catch(() => null), instPix) : null;
   await emitir({ etapa: "pagamento", status: "ok" });
 
   let reclameAqui = null;
@@ -173,7 +183,7 @@ async function executar(env, corpo, emitir) {
         ].filter(Boolean),
         empresa,
         host: hostInfo,
-        pagamento: { ...pagamento, pix: pix ? { ...pix, origem: corpo?.pix ? "informado" : "encontrado na página" } : null, pixInvalido: pixLido && !pixLido.valido ? pixLido.motivo : null },
+        pagamento: { ...pagamento, pix: pix ? { ...pix, origem: corpo?.pix ? "informado" : "encontrado na página", instituicao: instPix ? { ...instPix, ranking: bcPix } : null } : null, pixInvalido: pixLido && !pixLido.valido ? pixLido.motivo : null },
         reclameAqui,
         destinos: destinos.slice(0, 40).map(({ raiz: r, nivel, motivo, anuncio, zonas }) => ({ raiz: r, nivel, motivo, anuncio, zonas })),
         subrequests: orc.usado,

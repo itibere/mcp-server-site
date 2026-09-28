@@ -47,6 +47,7 @@ const ERROS = {
   redirecionou_para_destino_nao_permitido: "O site redireciona para um endereço interno ou IP. Isso por si só é suspeito.",
   rate_limit_excedido: "Limite de 5 análises a cada 10 minutos atingido. Aguarde e tente de novo.",
   falha_interna: "Falha na análise. Tente de novo em instantes.",
+  pix_invalido: "Esse texto não é um PIX copia-e-cola válido. Copie o código inteiro, que começa com 000201.",
 };
 
 const $ = (id) => document.getElementById(id);
@@ -76,10 +77,17 @@ function erroForm(msg) {
 }
 
 // ---------- ETAPAS ----------
-function montarEtapas() {
+const ETAPAS_PIX = [
+  ["pix-leitura", "Leitura do código PIX"],
+  ["pix-titular", "Titular da chave"],
+  ["pix-reputacao", "Endereço do QR dinâmico"],
+  ["pix-instituicao", "Instituição de pagamento (Banco Central)"],
+];
+
+function montarEtapas(lista = ETAPAS) {
   const ul = $("scan-etapas");
   ul.replaceChildren();
-  for (const [id, nome] of ETAPAS) {
+  for (const [id, nome] of lista) {
     const li = el("li", "flex items-center gap-2 text-slate-500");
     li.dataset.etapa = id;
     li.append(el("span", "w-4 text-center", "·"), el("span", null, nome));
@@ -106,10 +114,10 @@ function listaItens(itens, classe, marcador) {
   return ul;
 }
 
-function montarBlocos(blocos) {
+function montarBlocos(blocos, lista = BLOCOS) {
   const box = $("laudo-blocos");
   box.replaceChildren();
-  for (const [chave, nome] of BLOCOS) {
+  for (const [chave, nome] of lista) {
     const b = blocos[chave];
     const det = el("details", "group p-5 sm:p-6");
     const sum = el("summary", "flex items-center justify-between gap-3 cursor-pointer list-none");
@@ -218,6 +226,7 @@ function montarDetalhes(l) {
       linha(dl, `PIX (${d.pagamento.pix.origem})`, `recebedor ${d.pagamento.pix.recebedor || "?"}${d.pagamento.pix.cidade ? `, ${d.pagamento.pix.cidade}` : ""} · chave ${d.pagamento.pix.tipoChave}`);
       for (const a of d.pagamento.pix.achados) linha(dl, "", a);
     }
+    if (d.pagamento.pix?.instituicao) linhaInstituicao(dl, d.pagamento.pix.instituicao);
     if (d.pagamento.pixInvalido) linha(dl, "PIX informado", d.pagamento.pixInvalido);
     if (d.reclameAqui) {
       const ra = d.reclameAqui;
@@ -256,7 +265,58 @@ function montarDetalhes(l) {
   box.append(listaItens(notas, "text-slate-500", "·"));
 }
 
+// Instituicao de pagamento + ranking de reclamacoes do Banco Central.
+function linhaInstituicao(dl, inst) {
+  const r = inst.ranking;
+  let txt = `${inst.nome} (pelo ${inst.pelo})`;
+  if (r?.encontrada) {
+    const idx = r.indice != null ? `índice ${r.indice.toLocaleString("pt-BR")} reclamações procedentes por milhão de clientes, ${r.faixa}` : r.faixa;
+    txt += ` · Banco Central, ${r.periodo}: ${idx}`;
+  } else if (r) txt += ` · não consta no ranking do Banco Central (${r.periodo})`;
+  linha(dl, "Instituição de pagamento", txt);
+}
+
+function montarDetalhesPix(l) {
+  const d = l.detalhes;
+  const box = $("laudo-detalhes");
+  box.replaceChildren(el("h2", "text-base font-bold text-white font-mono-code", "Detalhes"));
+  const [s, dl] = secao("CÓDIGO PIX");
+  const p = d.pix;
+  const nomesChave = { cnpj: "CNPJ", cpf: "CPF", email: "e-mail", telefone: "telefone", aleatoria: "chave aleatória", desconhecida: "não identificada" };
+  linha(dl, "Recebedor", `${p.recebedor || "?"}${p.cidade ? ` · ${p.cidade}` : ""}`);
+  linha(dl, "Chave", p.tipoChave ? `${nomesChave[p.tipoChave] || p.tipoChave}${p.chave ? `: ${p.chave}` : ""}` : "não vem no código (QR dinâmico: fica no servidor da instituição)");
+  if (p.valor) linha(dl, "Valor", `R$ ${Number(p.valor).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}`);
+  linha(dl, "Tipo de QR", p.dinamico ? `dinâmico, gerado em ${p.enderecoQr || "?"}` : "estático");
+  linha(dl, "Dígito de controle (CRC)", p.crcOk ? "confere" : "não confere");
+  if (d.instituicao) linhaInstituicao(dl, d.instituicao);
+  box.append(s);
+  if (d.empresa?.encontrado) {
+    const [s2, dl2] = secao("TITULAR DA CHAVE (RECEITA FEDERAL)");
+    linha(dl2, "CNPJ", `${d.empresa.cnpj} · ${d.empresa.situacao}`);
+    linha(dl2, "Razão social", d.empresa.razaoSocial);
+    linha(dl2, "Nome fantasia", d.empresa.nomeFantasia);
+    linha(dl2, "Abertura", dataBr(d.empresa.abertura));
+    linha(dl2, "Município", d.empresa.municipio);
+    box.append(s2);
+  }
+  const notas = [];
+  if (d.fontesIndisponiveis?.length) notas.push(`Fontes indisponíveis nesta análise: ${d.fontesIndisponiveis.join(", ")}.`);
+  notas.push("O ranking do Banco Central só informa: não altera a nota.");
+  notas.push(`Analisado em ${new Date(l.analisadoEm).toLocaleString("pt-BR")}.`);
+  box.append(listaItens(notas, "text-slate-500", "·"));
+}
+
 function montarLaudo(l) {
+  if (l.tipo === "pix") {
+    $("laudo-alvo").textContent = "PIX copia-e-cola";
+    $("laudo-titulo").textContent = l.detalhes.pix.recebedor ? `Recebedor: ${l.detalhes.pix.recebedor}` : "";
+    montarBlocos(l.blocos, [["pix", "Validação do PIX"]]);
+    montarNota(l.nota);
+    montarDetalhesPix(l);
+    mostrar("view-laudo");
+    $("view-laudo").scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
   $("laudo-alvo").textContent = l.urlFinal !== l.url ? `${l.url} → ${l.urlFinal}` : l.url;
   $("laudo-titulo").textContent = l.titulo || "";
   montarBlocos(l.blocos);
@@ -268,8 +328,8 @@ function montarLaudo(l) {
 
 // ---------- ENVIO ----------
 async function analisar(url, pix) {
-  montarEtapas();
-  $("scan-alvo").textContent = url;
+  montarEtapas(url ? ETAPAS : ETAPAS_PIX);
+  $("scan-alvo").textContent = url || "PIX copia-e-cola";
   mostrar("view-scan");
   $("submit").disabled = true;
   let laudo = null;
@@ -316,11 +376,17 @@ $("form").addEventListener("submit", (e) => {
   e.preventDefault();
   erroForm("");
   const url = $("url-input").value.trim();
-  if (!url || !/\./.test(url)) {
-    erroForm("Cole o link do site, por exemplo https://loja-exemplo.com.br");
+  const pix = $("pix-input").value.trim();
+  // Sem link, vale a consulta so do PIX.
+  if (!url && pix) {
+    analisar("", pix);
     return;
   }
-  analisar(url, $("pix-input").value.trim());
+  if (!url || !/\./.test(url)) {
+    erroForm("Cole o link do site (por exemplo https://loja-exemplo.com.br) ou só o PIX copia-e-cola.");
+    return;
+  }
+  analisar(url, pix);
 });
 
 $("nova").addEventListener("click", () => {
