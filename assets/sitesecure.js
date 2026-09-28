@@ -97,7 +97,9 @@ function selo(nivel, texto) {
 }
 
 // O formulario continua visivel acima do laudo, para analisar outro site.
-const VISIVEIS = { "view-form": ["view-form"], "view-scan": ["view-scan"], "view-laudo": ["view-form", "view-laudo"] };
+// Depois do laudo o formulario some; volta com "Fazer outra consulta" ou com
+// o voltar do navegador (o laudo entra no historico da pagina).
+const VISIVEIS = { "view-form": ["view-form"], "view-scan": ["view-scan"], "view-laudo": ["view-laudo"] };
 
 function mostrar(view) {
   for (const v of ["view-form", "view-scan", "view-laudo"]) $(v).classList.toggle("hidden", !VISIVEIS[view].includes(v));
@@ -139,10 +141,13 @@ function marcarEtapa(id, status) {
 // Ritmo da tela ANALISANDO: o PIX responde em menos de 1 s e a tela passava
 // rapido demais. As etapas sao marcadas em fila, com intervalo minimo, e o
 // laudo so aparece depois de um tempo minimo na tela.
+// A tela ANALISANDO (GIF + mensagem) fica no minimo 7 s em qualquer caso:
+// site, PIX, resultado do cache ou erro.
+const TELA_MINIMA_MS = 7000;
 const RITMO = {
-  pix: { intervalo: 1800, minimo: 8000 },
-  site: { intervalo: 400, minimo: 3000 },
-  cache: { intervalo: 600, minimo: 4000 },
+  pix: { intervalo: 1600, minimo: TELA_MINIMA_MS },
+  site: { intervalo: 400, minimo: TELA_MINIMA_MS },
+  cache: { intervalo: 700, minimo: TELA_MINIMA_MS },
 };
 const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
 let filaEtapas = Promise.resolve();
@@ -434,9 +439,9 @@ async function analisar(url, pix) {
     const base = ERROS[e?.erro] || "Não foi possível concluir a análise. Verifique sua conexão e tente de novo.";
     return e?.tentarEm && e.erro !== "teto_diario" ? `${base} Tente de novo em ${tempo(e.tentarEm)}.` : base;
   };
+  await filaEtapas;
+  await esperar(Math.max(0, TELA_MINIMA_MS - (Date.now() - inicio)));
   if (laudos.length) {
-    await filaEtapas;
-    await esperar(Math.max(0, ritmo.minimo - (Date.now() - inicio)));
     $("laudos").replaceChildren();
     for (const l of laudos) montarLaudo(l);
     // Com site + PIX, um pode falhar e o outro sair: o aviso diz qual faltou.
@@ -444,7 +449,8 @@ async function analisar(url, pix) {
     aviso.textContent = erros.length ? erros.map(mensagem).join(" ") : "";
     aviso.classList.toggle("hidden", !erros.length);
     mostrar("view-laudo");
-    $("view-laudo").scrollIntoView({ behavior: "smooth", block: "start" });
+    history.pushState({ tela: "laudo" }, "", "#resultado");
+    window.scrollTo({ top: 0 });
     return;
   }
   mostrar("view-form");
@@ -477,9 +483,25 @@ $("form").addEventListener("submit", (e) => {
   analisar(url, pix);
 });
 
-$("nova").addEventListener("click", () => {
+function voltarAoFormulario() {
   $("url-input").value = "";
+  erroForm("");
   mostrar("view-form");
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0 });
   $("url-input").focus();
+}
+
+// "Fazer outra consulta" volta pelo historico, para o voltar do navegador
+// continuar coerente depois.
+$("nova").addEventListener("click", () => {
+  if (history.state?.tela === "laudo") history.back();
+  else voltarAoFormulario();
 });
+
+window.addEventListener("popstate", (e) => {
+  if (e.state?.tela !== "laudo") voltarAoFormulario();
+  else if ($("laudos").children.length) mostrar("view-laudo"); // "avancar" do navegador
+});
+
+// Recarregar a pagina em #resultado nao tem laudo para mostrar: volta ao formulario.
+if (location.hash === "#resultado") history.replaceState(null, "", location.pathname + location.search);
