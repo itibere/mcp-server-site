@@ -29,6 +29,12 @@
   from { background-position: 0 100%; }
   to { background-position: 0 -120%; }
 }
+/* O círculo decorativo do topo passa 64 px da borda; com overflow hidden,
+   o foco num campo rolava o bloco para o lado. clip não deixa rolar. */
+#view-form {
+  overflow: clip;
+}
+
 .scan-titulo {
   text-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
 }

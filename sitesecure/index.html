@@ -68,12 +68,12 @@
           <button type="submit" id="submit" class="px-6 py-3 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-sm font-semibold font-mono-code hover:bg-emerald-500/25 transition disabled:opacity-40 disabled:cursor-not-allowed">Verificar</button>
         </div>
         <details class="group">
-          <summary class="cursor-pointer text-xs font-mono-code text-slate-400 hover:text-emerald-300 select-none">+ Tenho o PIX copia-e-cola que o site gerou (opcional)</summary>
+          <summary class="cursor-pointer text-xs font-mono-code text-slate-400 hover:text-emerald-300 select-none">+ Tenho um PIX copia-e-cola (dá para verificar só ele, sem o link)</summary>
           <div class="mt-3 space-y-2">
             <label for="pix-input" class="sr-only">PIX copia-e-cola</label>
             <textarea id="pix-input" rows="3" spellcheck="false" placeholder="00020126...6304ABCD"
               class="w-full rounded-lg bg-slate-900/70 border border-slate-700 px-3 py-2 text-xs font-mono-code text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500/60 resize-none"></textarea>
-            <p class="text-[11px] text-slate-500">O código diz quem recebe o pagamento. Ele é comparado com o CNPJ e a razão social do site. Não pague antes de ver o resultado.</p>
+            <p class="text-[11px] text-slate-500">O código diz quem recebe o pagamento. Com o link, ele é comparado com o CNPJ e a razão social do site. Sem o link, a análise confere o código, o titular da chave e a instituição de pagamento no ranking do Banco Central. Não pague antes de ver o resultado.</p>
           </div>
         </details>
         <p id="form-erro" class="text-xs text-red-400 hidden" role="alert"></p>
@@ -146,6 +146,7 @@
         <li><a class="underline hover:text-slate-200" href="https://www.rfc-editor.org/rfc/rfc9116" rel="noopener">RFC 9116 (security.txt)</a> e <a class="underline hover:text-slate-200" href="https://www.rfc-editor.org/rfc/rfc8659" rel="noopener">RFC 8659 (CAA)</a></li>
         <li><a class="underline hover:text-slate-200" href="https://radar.cloudflare.com/domains" rel="noopener">Cloudflare Radar: ranking de domínios</a></li>
         <li><a class="underline hover:text-slate-200" href="https://www.bcb.gov.br/estabilidadefinanceira/pix" rel="noopener">Banco Central: Manual do BR Code (PIX)</a></li>
+        <li><a class="underline hover:text-slate-200" href="https://dadosabertos.bcb.gov.br/dataset/ranking-de-instituicoes-por-indice-de-reclamacoes" rel="noopener">Banco Central: ranking de instituições por índice de reclamações</a></li>
         <li><a class="underline hover:text-slate-200" href="https://www.gov.br/fazenda/pt-br/composicao/orgaos/secretaria-de-premios-e-apostas" rel="noopener">Secretaria de Prêmios e Apostas (MF): apostas autorizadas em .bet.br</a></li>
       </ul>
     </section>
