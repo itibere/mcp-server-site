@@ -42,7 +42,7 @@ export function notaReputacao(d) {
     else e.bom.push(`${vt.total} engines do VirusTotal sem alerta`);
   } else if (vt?.disponivel) leves.push("domínio desconhecido no VirusTotal");
 
-  if (gsbSite?.length) e.baixo.push(`Google Safe Browsing: ${gsbSite.join(", ")}`);
+  if (gsbSite?.length) e.baixo.push(`Google Safe Browsing marca ${gsbSite.length} endereço(s) deste site: ${[...new Set(gsbSite)].join(", ")}`);
   else if (gsbSite) e.bom.push("Google Safe Browsing sem alerta");
   if (urlhaus?.listado && urlhaus.online) e.baixo.push(`URLhaus: ${urlhaus.online} URL(s) de malware ativas neste host`);
   else if (urlhaus?.listado) leves.push("URLhaus: histórico de malware neste host (hoje offline)");
