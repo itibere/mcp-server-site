@@ -2,7 +2,11 @@ const ALLOWED_ORIGINS = ["https://itibere.tec.br", "https://itibere.github.io"];
 const VT_BASE = "https://www.virustotal.com/api/v3";
 const HASH_RE = /^[a-fA-F0-9]{32}$|^[a-fA-F0-9]{40}$|^[a-fA-F0-9]{64}$|^[a-fA-F0-9]{128}$/;
 
+import { handleAnalisar } from "./sitesecure/analisar.js";
+
 const RATE_LIMIT = 10; // requisicoes
+const SITESECURE_LIMITE = 5; // analises
+const SITESECURE_JANELA_MS = 10 * 60_000; // por 10 min
 const RATE_WINDOW_MS = 60_000; // por janela fixa de 60s
 
 // Rate limit via Durable Object, por IP (mesmo padrao do worker rag-licitacoes,
@@ -15,13 +19,18 @@ class RateLimiterDO {
     this.state = state;
   }
 
-  async fetch() {
+  async fetch(request) {
+    // Limite e janela opcionais na query (o sitesecure usa um limite proprio);
+    // sem parametros, vale o limite padrao de /hash e /url.
+    const q = new URL(request.url).searchParams;
+    const limite = Number(q.get("limite")) || RATE_LIMIT;
+    const janelaMs = Number(q.get("janela")) || RATE_WINDOW_MS;
     const agora = Date.now();
-    const janela = Math.floor(agora / RATE_WINDOW_MS);
+    const janela = Math.floor(agora / janelaMs);
     const registro = (await this.state.storage.get("contador")) || { janela: -1, contagem: 0 };
     const contagemAtual = registro.janela === janela ? registro.contagem : 0;
 
-    if (contagemAtual >= RATE_LIMIT) {
+    if (contagemAtual >= limite) {
       return new Response(JSON.stringify({ success: false }), {
         headers: { "Content-Type": "application/json" },
       });
@@ -36,22 +45,25 @@ class RateLimiterDO {
 
 export { RateLimiterDO };
 
-async function checarLimite(env, ip) {
+async function checarLimite(env, chave, limite, janelaMs) {
   if (!env.RATE_LIMITER_DO) return true; // fail-open se o binding faltar
-  const id = env.RATE_LIMITER_DO.idFromName(ip);
+  const id = env.RATE_LIMITER_DO.idFromName(chave);
   const stub = env.RATE_LIMITER_DO.get(id);
-  const resp = await stub.fetch("https://rate-limiter/check");
+  const params = limite ? `?limite=${limite}&janela=${janelaMs}` : "";
+  const resp = await stub.fetch(`https://rate-limiter/check${params}`);
   const { success } = await resp.json();
   return success;
 }
 
-function corsHeaders(request) {
+function corsHeaders(request, env) {
   const origin = request.headers.get("Origin");
+  // DEV_ORIGIN (so no .dev.vars) libera o http.server local nos testes.
+  const permitidas = env?.DEV_ORIGIN ? [...ALLOWED_ORIGINS, env.DEV_ORIGIN] : ALLOWED_ORIGINS;
   const headers = {
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
   };
-  if (origin && ALLOWED_ORIGINS.includes(origin)) {
+  if (origin && permitidas.includes(origin)) {
     headers["Access-Control-Allow-Origin"] = origin;
   }
   return headers;
@@ -241,18 +253,31 @@ async function handleUrlPoll(request, env, analysisId) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     if (request.method === "OPTIONS") {
-      return new Response(null, { status: 204, headers: corsHeaders(request) });
+      return new Response(null, { status: 204, headers: corsHeaders(request, env) });
     }
 
     const ip = request.headers.get("CF-Connecting-IP") || "sem-ip";
+    const url = new URL(request.url);
+
+    // Sitesecure: limite proprio e mais baixo (cada analise gasta navegador,
+    // VirusTotal e ~40 subrequests), separado do limite de /hash e /url.
+    if (request.method === "POST" && url.pathname === "/sitesecure/analisar") {
+      const cors = corsHeaders(request, env);
+      if (!(await checarLimite(env, `sitesecure:${ip}`, SITESECURE_LIMITE, SITESECURE_JANELA_MS))) {
+        return new Response(JSON.stringify({ etapa: "erro", erro: "rate_limit_excedido" }) + "\n", {
+          status: 429,
+          headers: { "Content-Type": "application/x-ndjson", ...cors },
+        });
+      }
+      return handleAnalisar(request, env, ctx, cors);
+    }
+
     const dentroDoLimite = await checarLimite(env, ip);
     if (!dentroDoLimite) {
       return json(request, { error: "rate_limit_excedido" }, 429);
     }
-
-    const url = new URL(request.url);
 
     if (request.method === "POST" && url.pathname === "/hash") {
       return handleHash(request, env);

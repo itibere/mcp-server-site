@@ -1,6 +1,8 @@
 name = "vt-proxy"
 main = "src/index.js"
 compatibility_date = "2026-09-01"
+# nodejs_compat: exigido pelo @cloudflare/puppeteer (sitesecure).
+compatibility_flags = ["nodejs_compat"]
 
 # Rate limit por IP via Durable Object -- mesmo padrao do worker rag-licitacoes
 # (rag-portarias/portarias/worker/wrangler.toml). new_sqlite_classes (nao o
@@ -12,3 +14,8 @@ class_name = "RateLimiterDO"
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["RateLimiterDO"]
+
+# Cloudflare Browser Rendering (sitesecure). Free: 10 min de navegador/dia,
+# 3 navegadores simultaneos. Sem cota, a analise cai no HTML estatico.
+[browser]
+binding = "BROWSER"

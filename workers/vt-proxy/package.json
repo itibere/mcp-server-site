@@ -2,10 +2,13 @@
   "name": "vt-proxy",
   "private": true,
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy"
+    "dev": "wrangler dev --config wrangler.toml --remote",
+    "deploy": "wrangler deploy --config wrangler.toml"
   },
   "devDependencies": {
-    "wrangler": "^4.0.0"
+    "wrangler": "^4.142.0"
+  },
+  "dependencies": {
+    "@cloudflare/puppeteer": "^1.4.0"
   }
 }
