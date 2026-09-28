@@ -35,8 +35,10 @@ navegador nem no repo) e resolve CORS pra `itibere.tec.br` conseguir chamar a VT
    npm run deploy
    ```
    Anota a URL que aparece no final, algo como
-   `https://vt-proxy.<seu-subdominio>.workers.dev` — essa URL precisa entrar como
-   `API_BASE` no arquivo `seguranca/checagem-hash-link/index.html`.
+   `https://vt-proxy.<seu-subdominio>.workers.dev` e o domínio próprio `https://api.itibere.tec.br`
+   (Custom Domain em `wrangler.toml`). O front (`assets/checagem-hash-link.js` e `assets/sitesecure.js`)
+   usa o domínio próprio como `API_BASE`: firewalls corporativos (FortiGuard, categoria "Web Hosting")
+   bloqueiam `*.workers.dev`. O `workers.dev` segue ligado (`workers_dev = true`) só por compatibilidade.
 
 ## Testar localmente antes do deploy
 

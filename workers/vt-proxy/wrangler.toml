@@ -4,6 +4,17 @@ compatibility_date = "2026-09-01"
 # nodejs_compat: exigido pelo @cloudflare/puppeteer (sitesecure).
 compatibility_flags = ["nodejs_compat"]
 
+# Com routes, o wrangler desliga o workers.dev por padrao. Manter ligado para
+# nao quebrar paginas/caches que ainda chamam o endereco antigo. (Precisa ficar
+# antes de qualquer [tabela] do TOML, senao vira campo dela.)
+workers_dev = true
+
+# Dominio proprio: firewalls corporativos (FortiGuard categoria "Web Hosting")
+# bloqueiam *.workers.dev. Mesmo esquema do mandinha-juris; sem "/*" no pattern.
+[[routes]]
+pattern = "api.itibere.tec.br"
+custom_domain = true
+
 # Rate limit por IP via Durable Object -- mesmo padrao do worker rag-licitacoes
 # (rag-portarias/portarias/worker/wrangler.toml). new_sqlite_classes (nao o
 # storage key-value legado) para caber no Workers Free plan.
