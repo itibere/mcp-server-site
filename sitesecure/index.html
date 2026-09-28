@@ -67,6 +67,8 @@
             class="flex-1 min-w-0 rounded-lg bg-slate-900/70 border border-slate-700 px-4 py-3 text-sm font-mono-code text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500/60">
           <button type="submit" id="submit" class="px-6 py-3 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-sm font-semibold font-mono-code hover:bg-emerald-500/25 transition disabled:opacity-40 disabled:cursor-not-allowed">Verificar</button>
         </div>
+        <!-- Cloudflare Turnstile (anti-robô), renderizado por sitesecure.js -->
+        <div id="caixa-turnstile" class="min-h-[65px]"></div>
         <p id="form-erro" class="text-xs text-red-400 hidden" role="alert"></p>
         <p class="text-[11px] text-slate-500 leading-relaxed">
           Ao enviar, você concorda com os <a href="../termos.html" class="underline hover:text-slate-300">Termos de Uso</a> e o <a href="../privacidade.html" class="underline hover:text-slate-300">Aviso de Privacidade</a>. O endereço é consultado em bases públicas de reputação (VirusTotal, Google Safe Browsing, URLhaus). Limite de 5 análises a cada 10 minutos e 20 por dia; o mesmo link ou PIX consultado de novo em até 1 hora mostra o resultado guardado.
@@ -105,6 +107,7 @@
         <li><strong class="text-slate-100">Validação de header e footer:</strong> quem hospeda o site, CNPJ no rodapé, situação na Receita Federal e se a razão social bate com o site.</li>
         <li><strong class="text-slate-100">Boas práticas oficiais:</strong> itens da Lei do E-commerce, do CDC, da LGPD, do NIST, da CISA e do OWASP que o site cumpre. Contam a favor e aliviam alertas leves, mas nunca anulam sinal de ameaça.</li>
         <li><strong class="text-slate-100">Governo:</strong> domínios <code class="text-emerald-300">.gov.br</code>, <code class="text-emerald-300">.jus.br</code>, <code class="text-emerald-300">.leg.br</code>, <code class="text-emerald-300">.mp.br</code>, <code class="text-emerald-300">.mil.br</code> e <code class="text-emerald-300">.def.br</code> só podem ser registrados por órgão público. A identidade é confirmada, mas as checagens de ameaça continuam: site de governo invadido recebe nota Baixa. Endereço que imita serviço público sem ser governo também.</li>
+        <li><strong class="text-slate-100">PIX copia-e-cola:</strong> dígito de controle do código, titular da chave (CNPJ na Receita Federal; CPF indica pessoa física), endereço do QR dinâmico e instituição de pagamento no ranking de reclamações do Banco Central. O ranking só informa e não altera a nota.</li>
         <li><strong class="text-slate-100">Nota:</strong> qualquer bloco <span class="text-red-400">Baixo</span> deixa a nota Baixa; dois ou mais <span class="text-amber-300">Médio</span> deixam Média; o resto é <span class="text-emerald-300">Boa</span>.</li>
       </ul>
       <h3 class="text-sm font-bold text-white font-mono-code pt-2">Limitações</h3>
@@ -153,6 +156,7 @@
   </footer>
 
   <script src="../assets/ano.js" defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
   <script src="../assets/sitesecure.js" defer></script>
 </body>
 </html>

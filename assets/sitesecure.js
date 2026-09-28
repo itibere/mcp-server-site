@@ -1,8 +1,37 @@
 // IJ Sitesecure: envia o link ao worker, anima as etapas pelo stream NDJSON
 // e monta o laudo. Todo texto vindo da análise entra via textContent.
-const API_BASE = ["localhost", "127.0.0.1"].includes(location.hostname)
-  ? "http://127.0.0.1:8799"
-  : "https://api.itibere.tec.br";
+const LOCAL = ["localhost", "127.0.0.1"].includes(location.hostname);
+const API_BASE = LOCAL ? "http://127.0.0.1:8799" : "https://api.itibere.tec.br";
+
+// Cloudflare Turnstile. Em localhost, a chave de teste da Cloudflare (sempre passa).
+// Se o script nao carregar (CSP, bloqueador), a pagina segue sem token; quem
+// decide recusar e o worker, conforme TURNSTILE_MODO.
+const TURNSTILE_SITEKEY = LOCAL ? "1x00000000000000000000AA" : "0x4AAAAAAFHu40JzGk0ox6vd";
+let turnstileId = null;
+
+// O id da caixa nao pode ser "turnstile": elemento com id vira window.<id> e
+// esconderia a API da Cloudflare.
+(function iniciarTurnstile(tentativas = 0) {
+  if (typeof window.turnstile?.render === "function" && document.getElementById("caixa-turnstile")) {
+    turnstileId = window.turnstile.render("#caixa-turnstile", { sitekey: TURNSTILE_SITEKEY, theme: "dark", size: "flexible", action: "analisar", language: "pt-br" });
+  } else if (tentativas < 40) {
+    setTimeout(() => iniciarTurnstile(tentativas + 1), 250);
+  }
+})();
+
+function tokenTurnstile() {
+  try {
+    return turnstileId != null ? window.turnstile.getResponse(turnstileId) || "" : "";
+  } catch {
+    return "";
+  }
+}
+
+function renovarTurnstile() {
+  try {
+    if (turnstileId != null) window.turnstile.reset(turnstileId);
+  } catch { /* widget ausente */ }
+}
 
 const ETAPAS = [
   ["dominio", "Idade e registro do domínio"],
@@ -49,6 +78,7 @@ const ERROS = {
   limite_diario: "Você atingiu o limite de 20 análises por dia.",
   bloqueado: "Muitas tentativas acima do limite: acesso bloqueado temporariamente.",
   teto_diario: "A ferramenta atingiu o limite de análises de hoje. Volte amanhã.",
+  verificacao_humana: "Não foi possível confirmar que o acesso é de uma pessoa. Aguarde a verificação abaixo do campo terminar e tente de novo.",
   falha_interna: "Falha na análise. Tente de novo em instantes.",
   pix_invalido: "Esse texto não é um PIX copia-e-cola válido. Copie o código inteiro, que começa com 000201.",
 };
@@ -350,7 +380,7 @@ async function analisar(url, pix) {
     const res = await fetch(`${API_BASE}/sitesecure/analisar`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ url, pix: pix || undefined }),
+      body: JSON.stringify({ url, pix: pix || undefined, turnstile: tokenTurnstile() || undefined }),
     });
     const leitor = res.body.getReader();
     const dec = new TextDecoder();
@@ -375,6 +405,7 @@ async function analisar(url, pix) {
     erros.push({ erro: "falha_rede" });
   } finally {
     $("submit").disabled = false;
+    renovarTurnstile(); // o token vale uma vez so
   }
 
   const mensagem = (e) => {

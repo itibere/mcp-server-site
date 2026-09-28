@@ -12,6 +12,7 @@ import { consultarRadar } from "./radar.js";
 import { coletarExtras, avaliarBoasPraticas } from "./boaspraticas.js";
 import { executarPix } from "./pixonly.js";
 import { guarda, chaveCache } from "./guarda.js";
+import { conferirTurnstile } from "./turnstile.js";
 import { carregarRanking, identificarInstituicao, situacaoNoRanking } from "./bancocentral.js";
 import { detectarRedes, avaliarPropagandas, idadeDosAnunciantes } from "./propagandas.js";
 import { escolherCnpj, consultarCnpj, empresaCondiz } from "./empresa.js";
@@ -215,7 +216,15 @@ export async function handleAnalisar(request, env, ctx, cors, ip) {
   if (env.SITESECURE_DO) {
     const estado = await guarda.estadoIp(env, ip);
     if (estado.bloqueado) return recusa("bloqueado", estado.tentarEm, 429);
+  }
 
+  // Turnstile antes de qualquer cota. No modo "observar" so registra no log
+  // (sem IP nem entrada): contagem de quem passaria e de quem falharia.
+  const ts = await conferirTurnstile(env, corpo?.turnstile, ip);
+  console.log(JSON.stringify({ evento: "turnstile", modo: ts.modo, resultado: ts.resultado, bloqueou: !ts.ok }));
+  if (!ts.ok) return recusa("verificacao_humana", 0, 403);
+
+  if (env.SITESECURE_DO) {
     chave = await chaveCache(corpo?.url, corpo?.pix);
     const cache = await guarda.lerCache(env, chave);
     if (cache) {

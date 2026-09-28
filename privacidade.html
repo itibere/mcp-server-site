@@ -75,11 +75,31 @@
       <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Exceção: ferramenta de verificação de hash e links</h2>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
         A <a href="seguranca/checagem-hash-link/" class="underline">ferramenta de verificação de hash e links</a>
-        é a única parte deste site com backend próprio (um proxy em Cloudflare Workers).
+        usa um backend próprio (um proxy em Cloudflare Workers), o mesmo do verificador descrito abaixo.
         O hash (calculado no seu navegador — o arquivo em si nunca é enviado) ou a URL
         que você informar é repassado ao <a href="https://www.virustotal.com" target="_blank" rel="noopener noreferrer" class="underline">VirusTotal</a>
         pra consulta. Esse proxy não grava log nem guarda essas consultas em banco
         próprio — só repassa e devolve o resultado. Veja também os <a href="termos.html" class="underline">Termos de Uso</a>.
+      </p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Exceção: verificador de links e PIX (IJ Sitesecure)</h2>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        O <a href="sitesecure/" class="underline">verificador</a> recebe o link ou o PIX copia-e-cola que você colar.
+        O domínio e os endereços do site são consultados no VirusTotal, no Google Safe Browsing, no URLhaus, no Cloudflare Radar
+        e nos registros públicos de domínio (RDAP). O CNPJ é consultado na BrasilAPI ou no CNPJ.ws, e a instituição que recebe o PIX
+        no ranking público do Banco Central. O site analisado é aberto por um navegador da Cloudflare, não pelo seu.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        O laudo fica guardado por até 1 hora, para que a mesma consulta não seja refeita; a chave desse registro é um código (hash)
+        da entrada, e no laudo a chave PIX de CPF, e-mail ou telefone aparece mascarada. Para limitar o uso, o worker mantém contadores
+        por endereço de IP; o IP não é gravado (o contador é identificado por um código derivado dele) e os contadores são apagados
+        48 horas depois do último uso.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        Para barrar robôs, a página usa o <a href="https://www.cloudflare.com/pt-br/application-services/products/turnstile/" target="_blank" rel="noopener noreferrer" class="underline">Cloudflare Turnstile</a>,
+        que verifica o navegador sem cookies de rastreamento.
       </p>
     </section>
 
