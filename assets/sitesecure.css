@@ -1,7 +1,7 @@
 /* IJ Sitesecure: GIF de análise fundido ao fundo da página. */
 .scan-gif {
   position: relative;
-  width: min(300px, 80vw);
+  width: min(360px, 85vw);
   aspect-ratio: 1;
 }
 .scan-gif img {
@@ -10,9 +10,9 @@
   display: block;
   border-radius: 9999px;
   mix-blend-mode: screen;
-  -webkit-mask-image: radial-gradient(circle at center, #000 62%, transparent 76%);
-  mask-image: radial-gradient(circle at center, #000 62%, transparent 76%);
-  filter: saturate(1.15) drop-shadow(0 0 24px rgba(16, 185, 129, 0.35));
+  -webkit-mask-image: radial-gradient(circle at center, #000 70%, transparent 84%);
+  mask-image: radial-gradient(circle at center, #000 70%, transparent 84%);
+  filter: drop-shadow(0 0 28px rgba(16, 185, 129, 0.45));
 }
 .scan-gif::after {
   /* feixe de varredura descendo sobre o GIF */
