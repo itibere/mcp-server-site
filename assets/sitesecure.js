@@ -48,10 +48,10 @@ const ETAPAS = [
 ];
 
 const BLOCOS = [
-  ["reputacaoDominio", "Reputação do Domínio"],
-  ["confiancaLinks", "Confiança dos links"],
-  ["propagandas", "Existência de propagandas"],
-  ["headerFooter", "Validação de header e footer"],
+  ["reputacaoDominio", "Reputação do domínio"],
+  ["confiancaLinks", "Destino dos links"],
+  ["propagandas", "Segurança dos anúncios"],
+  ["headerFooter", "Identificação do responsável"],
 ];
 
 const ROTULO = { bom: "Bom", medio: "Médio", baixo: "Baixo", na: "Não verificado" };
