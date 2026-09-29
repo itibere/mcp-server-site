@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IJ Sitesecure — Verifique se o link é seguro</title>
-  <meta name="description" content="Cole o link de um site e veja a reputação do domínio, a confiança dos links, as propagandas, o rodapé e a empresa por trás dele. Critérios alinhados ao NIST.">
+  <meta name="description" content="Cole o link de um site e veja a reputação do domínio, o destino dos links, a segurança dos anúncios e a empresa por trás dele. Critérios alinhados ao NIST.">
 
   <!-- Tailwind CSS Standalone -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -25,7 +25,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
   <meta property="og:title" content="IJ Sitesecure — Verifique se o link é seguro">
-  <meta property="og:description" content="Reputação do domínio, confiança dos links, propagandas, rodapé e empresa por trás do site.">
+  <meta property="og:description" content="Reputação do domínio, destino dos links, segurança dos anúncios e empresa por trás do site.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://itibere.tec.br/sitesecure/">
 </head>
@@ -103,10 +103,10 @@
     <section class="rounded-2xl border border-slate-800 bg-[#090e17] p-6 sm:p-8 space-y-4 text-sm text-slate-300 leading-relaxed">
       <h2 class="text-lg font-bold text-white font-mono-code">Como a nota é calculada</h2>
       <ul class="space-y-2 list-disc list-inside marker:text-emerald-500">
-        <li><strong class="text-slate-100">Reputação do Domínio:</strong> idade do registro, veredito dos fornecedores de segurança no VirusTotal (Fortinet, Sophos, Kaspersky, BitDefender e outros), Google Safe Browsing, URLhaus, HTTPS e cabeçalhos de segurança, SPF/DMARC. Em site com pagamento, entram o PIX e o Reclame Aqui.</li>
-        <li><strong class="text-slate-100">Confiança dos links:</strong> destino final de cada link externo, incluindo encurtadores. Apostas fora de <code class="text-emerald-300">.bet.br</code>, conteúdo adulto ou destino bloqueado por filtro de malware derrubam a nota.</li>
-        <li><strong class="text-slate-100">Existência de propagandas:</strong> redes de anúncio carregadas e para onde os anúncios levam. Anúncio para loja de boa reputação não pesa; para aposta, adulto ou rede de pop-up, pesa.</li>
-        <li><strong class="text-slate-100">Validação de header e footer:</strong> quem hospeda o site, CNPJ no rodapé, situação na Receita Federal e se a razão social bate com o site.</li>
+        <li><strong class="text-slate-100">Reputação do domínio:</strong> idade do registro, veredito dos fornecedores de segurança no VirusTotal (Fortinet, Sophos, Kaspersky, BitDefender e outros), Google Safe Browsing, URLhaus, HTTPS e cabeçalhos de segurança, SPF/DMARC. Em site com pagamento, entram o PIX e o Reclame Aqui.</li>
+        <li><strong class="text-slate-100">Destino dos links:</strong> destino final de cada link externo, incluindo encurtadores. Apostas fora de <code class="text-emerald-300">.bet.br</code>, conteúdo adulto ou destino bloqueado por filtro de malware derrubam a nota.</li>
+        <li><strong class="text-slate-100">Segurança dos anúncios:</strong> redes de anúncio carregadas e para onde os anúncios levam. Anúncio para loja de boa reputação não pesa; para aposta, adulto ou rede de pop-up, pesa.</li>
+        <li><strong class="text-slate-100">Identificação do responsável:</strong> quem hospeda o site, CNPJ no rodapé, situação na Receita Federal e se a razão social bate com o site.</li>
         <li><strong class="text-slate-100">Boas práticas oficiais:</strong> itens da Lei do E-commerce, do CDC, da LGPD, do NIST, da CISA e do OWASP que o site cumpre. Contam a favor e aliviam alertas leves, mas nunca anulam sinal de ameaça.</li>
         <li><strong class="text-slate-100">Governo:</strong> domínios <code class="text-emerald-300">.gov.br</code>, <code class="text-emerald-300">.jus.br</code>, <code class="text-emerald-300">.leg.br</code>, <code class="text-emerald-300">.mp.br</code>, <code class="text-emerald-300">.mil.br</code> e <code class="text-emerald-300">.def.br</code> só podem ser registrados por órgão público. A identidade é confirmada, mas as checagens de ameaça continuam: site de governo invadido recebe nota Baixa. Endereço que imita serviço público sem ser governo também.</li>
         <li><strong class="text-slate-100">PIX copia-e-cola:</strong> dígito de controle do código, titular da chave (CNPJ na Receita Federal; CPF indica pessoa física), endereço do QR dinâmico e instituição de pagamento, conferida na lista oficial de participantes do Pix do Banco Central. Instituição fora da lista pesa na nota. O ranking de reclamações do Banco Central aparece nos detalhes como observação e não altera a nota.</li>
