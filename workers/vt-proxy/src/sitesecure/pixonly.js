@@ -114,7 +114,7 @@ export async function executarPix(env, bruto, emitir, orc = new Orcamento(20)) {
     obs.push(`a chave é um e-mail do domínio ${empresa.raiz}, registrado há ${Math.floor(empresa.idadeDias / 365)} ano(s): isso não identifica quem é o titular nem a instituição que guarda a conta`);
   }
   if (!inst && pix.tipoChave !== "cnpj") {
-    obs.push("não foi possível identificar a instituição nem o titular da chave: este laudo confirma só que o código está íntegro");
+    obs.push(`não foi possível identificar a instituição nem o titular da chave${pix.crcOk ? ": este laudo confirma só que o código está íntegro" : ""}`);
   }
   obs.push("antes de confirmar, confira no app do banco o nome e o documento de quem vai receber");
 
