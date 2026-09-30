@@ -34,10 +34,10 @@ class_name = "SitesecureDO"
 tag = "v2"
 new_sqlite_classes = ["SitesecureDO"]
 
-# Turnstile do sitesecure: "observar" registra no log sem bloquear; trocar
-# para "exigir" so depois de validar os logs (e com a CSP ja liberando o widget).
+# Turnstile do sitesecure: "observar" registra no log sem bloquear; "exigir"
+# recusa a analise sem token valido (a CSP ja libera o widget).
 [vars]
-TURNSTILE_MODO = "observar"
+TURNSTILE_MODO = "exigir"
 
 # Workers Logs (plano gratuito): onde aparecem os registros do Turnstile.
 [observability]
