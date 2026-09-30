@@ -185,12 +185,18 @@ function montarBlocos(box, blocos, lista = BLOCOS) {
   }
 }
 
-function montarNota(box, nota) {
+const FRASE_NOTA_PIX = {
+  bom: "Nenhum sinal de risco no código. Confira o nome e o documento de quem recebe no app do banco antes de pagar.",
+  medio: "Há pontos de atenção. Confira os detalhes antes de pagar.",
+  baixo: "Sinais de risco encontrados. Não pague por este código.",
+};
+
+function montarNota(box, nota, frases = FRASE_NOTA) {
   box.className = `rounded-2xl border p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-4 nivel-${nota}`;
   box.replaceChildren();
   const esq = el("div", "flex items-center gap-3");
   esq.append(el("span", "font-mono-code text-sm text-slate-300", "Nota:"), el("span", "text-3xl sm:text-4xl font-extrabold", ROTULO_NOTA[nota]));
-  box.append(esq, el("p", "text-sm text-slate-200 sm:ml-4", FRASE_NOTA[nota]));
+  box.append(esq, el("p", "text-sm text-slate-200 sm:ml-4", frases[nota]));
 }
 
 function linha(dl, rotulo, valor) {
@@ -418,7 +424,7 @@ function montarLaudo(l) {
   if (l.tipo === "pix") {
     const c = criarCartao("LAUDO DO PIX", "PIX copia-e-cola", l.detalhes.pix.recebedor ? `Recebedor: ${l.detalhes.pix.recebedor}` : "");
     montarBlocos(c.blocos, l.blocos, [["pix", "Validação do PIX"]]);
-    montarNota(c.nota, l.nota);
+    montarNota(c.nota, l.nota, FRASE_NOTA_PIX);
     montarDetalhesPix(c.detalhes, l);
     return;
   }

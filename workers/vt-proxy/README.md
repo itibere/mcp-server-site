@@ -336,7 +336,8 @@ A nota tem quatro blocos. Cada um vira **baixo** se tiver qualquer evidência gr
 
 **Segurança dos anúncios** (`propagandas`)
 
-- Não avaliado (`na`): navegador indisponível e nenhuma propaganda encontrada. Esse bloco é ignorado na nota final.
+- Não avaliado (`na`): navegador indisponível e nenhuma propaganda encontrada, ou site que respondeu com uma tela de verificação anti-robô. Esse bloco é ignorado na nota final.
+- Sem navegador, mas com anúncios no HTML: o nível é calculado sobre esses anúncios e o bloco recebe a observação de que os anúncios carregados por JavaScript não foram vistos.
 - Baixo: rede de anúncio arriscada; anunciante de nível baixo.
 - Médio: anunciante de nível médio; anunciante sem reputação conhecida **e** com domínio de menos de 1 ano. Anunciante sem reputação com 1 ano ou mais, ou sem data, vira só observação.
 
@@ -376,7 +377,7 @@ Uma ferramenta que faz o servidor acessar endereços informados por terceiros e 
 npm test
 ```
 
-O arquivo `test/nota.test.js` usa o executor nativo do Node (`node:test`) e testa as regras de `nota.js` com dados fixos, sem rede e sem gastar cota. Cada cenário monta as evidências que o `analisar.js` coletaria para um tipo de site e confere as notas de cada bloco e a final. Os 23 cenários cobrem: loja grande em ordem, site de governo limpo e com sinal de ameaça, Safe Browsing e VirusTotal, domínio novo e domínio popular, ausência de HTTPS, certificado vencendo, alertas leves com e sem alívio, apostas dentro e fora de `.bet.br`, imitação de serviço público, CNPJ ausente e inexistente, hospedagem, anunciantes e redes arriscadas, encurtadores, redirecionamentos e a agregação da nota final.
+O arquivo `test/nota.test.js` usa o executor nativo do Node (`node:test`) e testa as regras de `nota.js` com dados fixos, sem rede e sem gastar cota. Cada cenário monta as evidências que o `analisar.js` coletaria para um tipo de site e confere as notas de cada bloco e a final. São 31 testes em dois arquivos: `nota.test.js` (regras de nota) e `util.test.js` (domínio raiz, plataformas de subdomínio livre e detecção de tela anti-robô). Os cenários de nota cobrem: loja grande em ordem, site de governo limpo e com sinal de ameaça, Safe Browsing e VirusTotal, domínio novo e domínio popular, ausência de HTTPS, certificado vencendo, alertas leves com e sem alívio, apostas dentro e fora de `.bet.br`, imitação de serviço público, CNPJ ausente e inexistente, hospedagem, anunciantes e redes arriscadas, encurtadores, redirecionamentos e a agregação da nota final.
 
 Esses testes protegem as regras contra regressão quando um limite é ajustado. Eles não descobrem problemas de coleta, por isso há a validação da próxima seção.
 
@@ -391,9 +392,9 @@ O roteiro usa 8 análises, para caber nos limites do plano gratuito (20 por dia 
 | 3 | `testsafebrowsing.appspot.com` | Baixo | Google Safe Browsing | Baixo, como esperado. Safe Browsing marcou 4 endereços do site (`SOCIAL_ENGINEERING`, `MALWARE`, `UNWANTED_SOFTWARE`); hardening 1/6 e `http://` sem redirecionar geraram alertas leves. A validação mostrou um defeito: o domínio raiz saiu como `appspot.com` e o site herdou popularidade, idade de 21 anos e VirusTotal limpo da plataforma. Correção em duas partes: plataformas de subdomínio livre entraram na lista de sufixos, e a data de criação (RDAP e VirusTotal) é ignorada para subdomínio de plataforma. Depois da primeira parte, o VirusTotal passou a mostrar os sinais reais do subdomínio (3 engines maliciosos, 1 suspeito) |
 | 4 | `tecmundo.com.br` | Bom ou médio | peso dos anúncios | Bom nos quatro blocos e na nota final. O endereço redirecionou para `estadao.com.br/tecmundo`, e o laudo avaliou o domínio de destino (popular, empresa `S/A O ESTADO DE S.PAULO` com CNPJ ativo). A coleta caiu no HTML estático (sem dados de TLS), então o bloco de anúncios só avaliou o que estava no HTML. Passou a constar uma observação sobre isso no bloco |
 | 5 | `epocacosmeticos.com.br` (escolhida como loja `.br`; na prática é uma loja grande, popular no Radar) | Médio (esperado para loja pequena) | caso de reputação limitada | Bom, mas o laudo era enganoso: o site respondeu com uma verificação anti-robô (`/az-request-verify`, widget altcha) e a coleta avaliou a tela de verificação, com 1 link e sem rodapé. A nota refletia só os sinais do domínio (popular, 26 anos, CNPJ ativo, VirusTotal 0 de 91). Correção: a tela de verificação passou a ser detectada e os blocos de links e anúncios ficam "não verificados", fora da nota final. Falta uma loja realmente pequena para testar o Médio |
-| 6 | domínio com menos de 1 ano | Médio | regra de idade | a preencher |
+| 6 | domínio com menos de 1 ano | Médio | regra de idade | não executado; a regra é coberta pelos testes automatizados (seção 8.1) |
 | 7 | PIX copia e cola de uma compra real (QR estático, chave e-mail) | Bom | leitura, CRC, instituição | Bom. CRC confere, chave do tipo e-mail e QR estático. O laudo confirmou só a integridade do código: sem endereço de QR e sem CNPJ, a instituição e o titular não puderam ser identificados. Passou a constar essa observação no laudo. A comparação do endereço do QR com a lista de instituições passou a usar o domínio raiz, para que um subdomínio com o nome de um banco não seja aceito como o banco |
-| 8 | mesmo PIX com a chave alterada | Baixo ou médio | CRC e participante | a preencher |
+| 8 | mesmo PIX com um caractere da chave alterado | Baixo (CRC deve falhar) | integridade do código | Baixo, como esperado: "código alterado ou incompleto: o dígito de controle (CRC) não confere". A validação mostrou duas falhas de texto, corrigidas: o laudo dizia também que "confirma só que o código está íntegro", o que contradizia o alerta, e a frase da nota falava em "neste site" num laudo de PIX |
 
 ---
 
@@ -406,7 +407,13 @@ O roteiro usa 8 análises, para caber nos limites do plano gratuito (20 por dia 
 - **Cota do navegador.** Com 10 minutos por dia, as análises seguintes usam o HTML estático, que não vê anúncios carregados por JavaScript nem dados de TLS. O laudo indica o modo usado.
 - **PIX dinâmico.** O endereço do QR devolve uma assinatura (JWS) que contém a chave Pix. A validação dessa assinatura não foi implementada: o manual de segurança do Pix com as regras dos campos `jku` e `x5t` não estava disponível para consulta, e faltou um QR dinâmico real para testar.
 - **Listas curadas** (`data/*.json`) são mantidas à mão e podem ficar desatualizadas.
-- **Sites com proteção anti-bot** podem bloquear o navegador remoto, e a análise cai no HTML estático ou falha com `site_inacessivel`.
+- **Sites com proteção anti-bot** podem bloquear o navegador remoto, e a análise cai no HTML estático ou falha com `site_inacessivel`. Quando o site responde com uma tela de verificação (por exemplo, a da Azion ou da Cloudflare), a ferramenta reconhece a tela pela URL, pelo título ou por uma página quase vazia que só carrega um captcha, e marca links e anúncios como "não verificado". A nota final continua usando os sinais do domínio, que não dependem da página.
+- **Anúncios**: a marcação de um link como anúncio vem de termos como `banner` e `sponsor` na classe ou no id dos elementos ao redor. Banners institucionais do próprio site podem ser marcados como anúncio. Isso só altera a nota quando o destino é um domínio novo e sem reputação.
+- **Domínio raiz de `gov.br`** aparece como `www.gov.br`, porque `gov.br` está na lista de sufixos.
+- **Subdomínio de plataforma** (`appspot.com`, `myshopify.com`, `github.io` e outras da lista): a data de criação e o titular do registro são ignorados, porque são da plataforma. SPF e DMARC continuam sendo lidos, mas também são da plataforma.
+- **Emissor do certificado**: o navegador remoto devolve o campo vazio e o laudo mostra só protocolo e validade.
+- **Instituição de pagamento do PIX**: a identificação usa uma lista de nomes e compara o domínio raiz do endereço do QR dinâmico. Um domínio de golpe que contenha o nome da instituição (por exemplo, `mercadopago-pagamentos.xyz`) ainda pode ser aceito. Resolver isso exige uma lista de domínios oficiais por instituição.
+- **PIX estático com chave e-mail, telefone ou aleatória**: não há como consultar o titular. O laudo confirma a integridade do código e informa que o titular não foi identificado.
 - **Cache de 1 hora** pode mostrar um laudo que já não reflete o estado atual do site.
 
 ---
