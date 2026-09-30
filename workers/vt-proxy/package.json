@@ -1,6 +1,7 @@
 {
   "name": "vt-proxy",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "wrangler dev --config wrangler.toml --remote",
     "deploy": "wrangler deploy --config wrangler.toml",
