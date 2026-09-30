@@ -365,9 +365,15 @@ function montarDetalhesPix(box, l) {
 
 // Copia o texto do laudo como aparece na tela, sem o rotulo do proprio botao.
 async function copiarLaudo(raiz, botao) {
+  // Blocos "bons" ficam recolhidos (<details>) e o innerText ignora o que esta
+  // recolhido: abre todos so durante a leitura e devolve o estado original.
+  const blocos = [...raiz.querySelectorAll("details")];
+  const abertos = blocos.map((d) => d.open);
+  blocos.forEach((d) => { d.open = true; });
   botao.hidden = true;
   const texto = raiz.innerText.trim();
   botao.hidden = false;
+  blocos.forEach((d, i) => { d.open = abertos[i]; });
   let ok = false;
   try {
     await navigator.clipboard.writeText(texto);

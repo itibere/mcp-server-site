@@ -388,8 +388,8 @@ O roteiro usa 8 análises, para caber nos limites do plano gratuito (20 por dia 
 |---|---|---|---|---|
 | 1 | `kabum.com.br` | Bom | loja grande, controle | Bom nos quatro blocos e na nota final. Navegador, popularidade no top 10.000, VirusTotal 0 de 91, CNPJ ativo, hardening 4/6, boas práticas 7 de 14 |
 | 2 | `gov.br` | Bom | selo de governo, sem CNPJ de empresa | Bom nos quatro blocos e na nota final. Selo de órgão público (Poder Executivo), hardening 6/6, DNSSEC sim, boas práticas 9 de 14, CNPJ não consultado (governo) |
-| 3 | `testsafebrowsing.appspot.com` | Baixo | Google Safe Browsing | a preencher |
-| 4 | `tecmundo.com.br` | Bom ou médio | peso dos anúncios | a preencher |
+| 3 | `testsafebrowsing.appspot.com` | Baixo | Google Safe Browsing | Baixo, como esperado. Safe Browsing marcou 4 endereços do site (`SOCIAL_ENGINEERING`, `MALWARE`, `UNWANTED_SOFTWARE`); hardening 1/6 e `http://` sem redirecionar geraram alertas leves. A validação mostrou um defeito: o domínio raiz saiu como `appspot.com` e o site herdou popularidade, idade de 21 anos e VirusTotal limpo da plataforma. Correção em duas partes: plataformas de subdomínio livre entraram na lista de sufixos, e a data de criação (RDAP e VirusTotal) é ignorada para subdomínio de plataforma. Depois da primeira parte, o VirusTotal passou a mostrar os sinais reais do subdomínio (3 engines maliciosos, 1 suspeito) |
+| 4 | `tecmundo.com.br` | Bom ou médio | peso dos anúncios | Bom nos quatro blocos e na nota final. O endereço redirecionou para `estadao.com.br/tecmundo`, e o laudo avaliou o domínio de destino (popular, empresa `S/A O ESTADO DE S.PAULO` com CNPJ ativo). A coleta caiu no HTML estático (sem dados de TLS), então o bloco de anúncios só avaliou o que estava no HTML. Passou a constar uma observação sobre isso no bloco |
 | 5 | loja pequena `.br` | Médio | caso de reputação limitada | a preencher |
 | 6 | domínio com menos de 1 ano | Médio | regra de idade | a preencher |
 | 7 | PIX copia e cola gerado pelo autor | Bom | leitura, CRC, instituição | a preencher |

@@ -119,6 +119,9 @@ export function notaPropagandas(p) {
     return { nivel: "na", alertas: ["navegador indisponível agora (cota diária ou tempo esgotado): anúncios carregados por JavaScript não foram verificados"], positivos: [], observacoes: [] };
   }
   const e = novo();
+  // Sem navegador so aparecem os anuncios que ja estao no HTML: o resto e
+  // carregado por JavaScript. O nivel do bloco vale so para esses.
+  if (!p.verificavel) e.obs.push("coleta sem navegador: só os anúncios presentes no HTML foram avaliados");
   if (!p.existe) {
     e.bom.push("nenhuma propaganda encontrada");
     return bloco(e);
