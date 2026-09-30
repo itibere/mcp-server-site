@@ -84,6 +84,22 @@ export function ehPlataforma(raiz) {
   return partes.length >= 3 && SET_PLATAFORMAS.has(partes.slice(-2).join("."));
 }
 
+// A pagina que o navegador viu e uma verificacao anti-robo (Cloudflare, Azion,
+// captcha...) e nao o site? Nesse caso links e anuncios lidos sao da tela de
+// verificacao, e a nota desses blocos nao vale.
+const URL_DESAFIO = /az-request-verify|\/cdn-cgi\/(challenge-platform|l\/chk_)|__cf_chl|\/captcha|\/challenge|sgcaptcha|px-captcha|_incapsula_resource/i;
+const TITULO_DESAFIO = /just a moment|um momento|attention required|are you (a )?human|verifying you are human|checking your browser|verificando (se )?(voc[eê]|seu)|access denied|acesso negado/i;
+const SCRIPT_DESAFIO = /altcha|hcaptcha\.com|recaptcha|challenges\.cloudflare\.com|geetest|funcaptcha|arkoselabs/i;
+
+export function detectarDesafio(coleta) {
+  if (URL_DESAFIO.test(coleta.urlFinal || "")) return true;
+  if (TITULO_DESAFIO.test(coleta.titulo || "")) return true;
+  // Pagina quase vazia que so carrega um captcha. Site real com reCAPTCHA no
+  // login tem muitos links e texto, por isso nao entra aqui.
+  const vazia = (coleta.links || []).length < 3 && (coleta.texto || "").length < 800;
+  return vazia && (coleta.requisicoes || []).some((u) => SCRIPT_DESAFIO.test(u));
+}
+
 export function hostDe(url) {
   try {
     return new URL(url).hostname.toLowerCase();

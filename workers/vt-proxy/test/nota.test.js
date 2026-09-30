@@ -206,3 +206,12 @@ test("propagandas sem navegador: avalia o que há no HTML e avisa que o resto n�
   assert.equal(p.nivel, "bom");
   assert.ok(p.observacoes.some((o) => o.includes("sem navegador")));
 });
+
+import { notaSemConteudo } from "../src/sitesecure/nota.js";
+
+test("bloco sem conteúdo (verificação anti-robô) fica 'na' e não entra na nota final", () => {
+  const b = notaSemConteudo("verificação anti-robô");
+  assert.equal(b.nivel, "na");
+  assert.equal(notaFinal({ rep: { nivel: "bom" }, links: b, ads: b, hf: { nivel: "bom" } }), "bom");
+  assert.equal(notaFinal({ rep: { nivel: "baixo" }, links: b }), "baixo");
+});

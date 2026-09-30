@@ -19,8 +19,10 @@ import { escolherCnpj, consultarCnpj, empresaCondiz } from "./empresa.js";
 import { identificarHost } from "./host.js";
 import { detectarPagamento, lerBrCode, acharBrCodes, compararPix } from "./pagamento.js";
 import { consultarReclameAqui } from "./reclameaqui.js";
-import { notaReputacao, notaLinks, notaPropagandas, notaHeaderFooter, notaFinal } from "./nota.js";
-import { Orcamento, dominioRaiz, ehPlataforma, hostDe, tokensNome } from "./util.js";
+import { notaReputacao, notaLinks, notaPropagandas, notaHeaderFooter, notaSemConteudo, notaFinal } from "./nota.js";
+import { Orcamento, dominioRaiz, ehPlataforma, detectarDesafio, hostDe, tokensNome } from "./util.js";
+
+const MSG_DESAFIO = "o site respondeu com uma verificação anti-robô: links e anúncios da página real não foram vistos. Abra o site no navegador e refaça a análise depois";
 
 async function etapa(emitir, nome, fn, padrao = null) {
   try {
@@ -94,6 +96,7 @@ async function executarSite(env, corpo, emitir, orc) {
   // que o VirusTotal e o RDAP devolvem e a da plataforma, nao a do site.
   const plataforma = ehPlataforma(raizFinal);
   const vt = plataforma && vtBruto ? { ...vtBruto, criadoEm: null } : vtBruto;
+  const desafio = detectarDesafio(coleta);
   const governo = identificarGoverno(hostFinal);
   const imitacao = imitaGoverno(hostFinal, raizFinal);
 
@@ -173,8 +176,8 @@ async function executarSite(env, corpo, emitir, orc) {
   const boas = avaliarBoasPraticas({ coleta, hardening, dns, rdap: rdapSite, cnpjInfo, pagamento, extras, governo });
   const blocos = {
     reputacaoDominio: notaReputacao({ rdap: rdapSite, vt, gsbSite, urlhaus, dns, hardening, httpsRedirect, empresa, pagamento, pix, reclameAqui, governo, imitacao, radarSite, boas, raiz: raizFinal }),
-    confiancaLinks: notaLinks({ destinos, gsbLinks, redirecionamento }),
-    propagandas: notaPropagandas(propagandas),
+    confiancaLinks: desafio ? notaSemConteudo(MSG_DESAFIO) : notaLinks({ destinos, gsbLinks, redirecionamento }),
+    propagandas: desafio ? notaSemConteudo(MSG_DESAFIO) : notaPropagandas(propagandas),
     headerFooter: notaHeaderFooter({ host: hostInfo, cnpjInfo, empresa, condiz: empresaCondiz(empresa, raizFinal, coleta), pagamento, destinos, coleta, rdap: rdapSite, governo, boas, raiz: raizFinal }),
   };
 
