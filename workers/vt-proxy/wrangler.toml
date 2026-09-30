@@ -4,10 +4,9 @@ compatibility_date = "2026-09-01"
 # nodejs_compat: exigido pelo @cloudflare/puppeteer (sitesecure).
 compatibility_flags = ["nodejs_compat"]
 
-# Com routes, o wrangler desliga o workers.dev por padrao. Manter ligado para
-# nao quebrar paginas/caches que ainda chamam o endereco antigo. (Precisa ficar
-# antes de qualquer [tabela] do TOML, senao vira campo dela.)
-workers_dev = true
+# workers.dev desligado: o worker responde so em api.itibere.tec.br. (Precisa
+# ficar antes de qualquer [tabela] do TOML, senao vira campo dela.)
+workers_dev = false
 
 # Dominio proprio: firewalls corporativos (FortiGuard categoria "Web Hosting")
 # bloqueiam *.workers.dev. Mesmo esquema do mandinha-juris; sem "/*" no pattern.
