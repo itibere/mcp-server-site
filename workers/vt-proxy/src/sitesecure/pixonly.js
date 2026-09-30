@@ -110,6 +110,12 @@ export async function executarPix(env, bruto, emitir, orc = new Orcamento(20)) {
   if (chaveDeInstituicao) obs.push(`a chave é o CNPJ de ${chaveDeInstituicao.nome}, participante do Pix: o valor vai para a conta da instituição, que repassa ao lojista`);
   if (pix.recebedor && INTERMEDIADOR.test(pix.recebedor)) obs.push(`o recebedor é o intermediador (${pix.recebedor}), não identifica o lojista`);
 
+  if (pix.tipoChave === "email" && empresa?.idadeDias >= 365) {
+    obs.push(`a chave é um e-mail do domínio ${empresa.raiz}, registrado há ${Math.floor(empresa.idadeDias / 365)} ano(s): isso não identifica quem é o titular nem a instituição que guarda a conta`);
+  }
+  if (!inst && pix.tipoChave !== "cnpj") {
+    obs.push("não foi possível identificar a instituição nem o titular da chave: este laudo confirma só que o código está íntegro");
+  }
   obs.push("antes de confirmar, confira no app do banco o nome e o documento de quem vai receber");
 
   const nivel = baixo.length ? "baixo" : medio.length ? "medio" : "bom";

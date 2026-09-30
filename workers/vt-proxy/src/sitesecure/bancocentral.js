@@ -4,7 +4,7 @@
 // grande e legitima tambem tem indice alto.
 // Fonte: https://dadosabertos.bcb.gov.br/dataset/ranking-de-instituicoes-por-indice-de-reclamacoes
 import psps from "./data/psp_bcb.json";
-import { buscar, buscarJson, hostDe } from "./util.js";
+import { buscar, buscarJson, dominioRaiz, hostDe } from "./util.js";
 
 const BASE = "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking";
 const PSPS = psps.instituicoes.map((p) => ({ ...p, re: new RegExp(p.padrao, "i") }));
@@ -119,7 +119,10 @@ export function participantePorCnpj(lista, cnpj) {
 // Instituicao de pagamento a partir do endereco do QR dinamico e do nome do
 // recebedor (quando o recebedor e o proprio intermediador).
 export function identificarInstituicao(pix) {
-  const alvos = [pix?.pspUrl ? hostDe(`https://${pix.pspUrl}`) || pix.pspUrl : null, pix?.recebedor].filter(Boolean);
+  // O endereco do QR e comparado pelo dominio raiz: "mercadopago.golpe.com"
+  // tem o nome da instituicao so no subdominio e nao pode passar por ela.
+  const host = pix?.pspUrl ? hostDe(`https://${pix.pspUrl}`) || pix.pspUrl : null;
+  const alvos = [host ? dominioRaiz(host) : null, pix?.recebedor].filter(Boolean);
   for (const alvo of alvos) {
     const p = PSPS.find((x) => x.re.test(alvo));
     if (p) return { nome: p.nome, bcb: p.bcb, cnpjPix: p.cnpjPix || null, pelo: alvo === pix?.recebedor ? "nome do recebedor" : "endereço do QR dinâmico" };
