@@ -24,7 +24,7 @@ O worker responde em `https://api.itibere.tec.br` (Custom Domain). O endereço `
 
 ## 1. Objetivo e escopo
 
-Este projeto é o trabalho prático de conclusão do curso de Computação Forense e Segurança da Informação do Instituto de Pós-Graduação (IPOG). Autor: Itiberê Paquier. O trabalho é individual, sem orientador, e é o projeto principal do portfólio profissional entregue no mesmo curso. A ferramenta está publicada em itibere.tec.br/sitesecure.
+Este projeto é o trabalho prático de conclusão do curso de Computação Forense e Segurança da Informação do Instituto de Pós-Graduação (IPOG). O trabalho é individual, sem orientador, e é o projeto principal do portfólio profissional entregue no mesmo curso. A ferramenta está publicada em itibere.tec.br/sitesecure.
 
 Golpes por link falso e por PIX adulterado dependem de o usuário não ter como conferir rapidamente quem está do outro lado. O público-alvo é a pessoa que, antes de pagar ou de informar dados, quer conferir um link ou um código PIX copia e cola. O Sitesecure reúne, em uma consulta só, verificações que normalmente exigem vários sites: reputação em bases de ameaça, idade e titularidade do domínio, configuração de segurança do servidor, destino dos links e dos anúncios, existência da empresa na Receita Federal e integridade do código PIX.
 
