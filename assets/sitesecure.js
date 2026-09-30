@@ -226,7 +226,11 @@ function montarDetalhes(box, l) {
     const nomes = { https: "HTTPS", hsts: "HSTS", csp: "CSP", antiClickjacking: "anti-clickjacking", nosniff: "X-Content-Type-Options", referrerPolicy: "Referrer-Policy" };
     const faltam = d.hardening.faltando.length ? ` (faltam: ${d.hardening.faltando.map((k) => nomes[k] || k).join(", ")})` : "";
     linha(dlDom, "Cabeçalhos de segurança", `${d.hardening.pontos}/${d.hardening.total}${faltam}`);
-    if (d.hardening.certificado) linha(dlDom, "Certificado TLS", `${d.hardening.certificado.emissor} · ${d.hardening.certificado.protocolo} · vence em ${d.hardening.certificado.diasParaVencer} dias`);
+    // O navegador remoto costuma devolver o emissor vazio: so entra na linha se vier.
+    if (d.hardening.certificado) {
+      const c = d.hardening.certificado;
+      linha(dlDom, "Certificado TLS", [c.emissor, c.protocolo, `vence em ${c.diasParaVencer} dias`].filter(Boolean).join(" · "));
+    }
   }
   box.append(sDom);
 
