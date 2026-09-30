@@ -20,7 +20,7 @@ import { identificarHost } from "./host.js";
 import { detectarPagamento, lerBrCode, acharBrCodes, compararPix } from "./pagamento.js";
 import { consultarReclameAqui } from "./reclameaqui.js";
 import { notaReputacao, notaLinks, notaPropagandas, notaHeaderFooter, notaFinal } from "./nota.js";
-import { Orcamento, dominioRaiz, hostDe, tokensNome } from "./util.js";
+import { Orcamento, dominioRaiz, ehPlataforma, hostDe, tokensNome } from "./util.js";
 
 async function etapa(emitir, nome, fn, padrao = null) {
   try {
@@ -83,13 +83,17 @@ async function executarSite(env, corpo, emitir, orc) {
     return { vt, urlhaus };
   }, { vt: null, urlhaus: null });
 
-  const [{ rdap, dns }, coleta, { vt, urlhaus }] = await Promise.all([pDominio, pPagina, pReputacao]);
+  const [{ rdap, dns }, coleta, { vt: vtBruto, urlhaus }] = await Promise.all([pDominio, pPagina, pReputacao]);
   if (!coleta) return emitir({ etapa: "erro", erro: "site_inacessivel" });
 
   // Redirecionou para outro host? Nao seguir se o destino for IP/privado.
   const hostFinal = hostDe(coleta.urlFinal) || host;
   if (validarUrl(coleta.urlFinal).erro) return emitir({ etapa: "erro", erro: "redirecionou_para_destino_nao_permitido" });
   const raizFinal = dominioRaiz(hostFinal);
+  // Subdominio de plataforma (appspot.com, myshopify.com...): a data de criacao
+  // que o VirusTotal e o RDAP devolvem e a da plataforma, nao a do site.
+  const plataforma = ehPlataforma(raizFinal);
+  const vt = plataforma && vtBruto ? { ...vtBruto, criadoEm: null } : vtBruto;
   const governo = identificarGoverno(hostFinal);
   const imitacao = imitaGoverno(hostFinal, raizFinal);
 
@@ -105,7 +109,7 @@ async function executarSite(env, corpo, emitir, orc) {
     return { hardening: avaliarCabecalhos(coleta.headers, coleta.urlFinal, coleta.tls), httpsRedirect, extras, radarSite, rdapFinal };
   }, { hardening: null, httpsRedirect: null, extras: null, radarSite: null, rdapFinal: null });
   // Dados do dominio que o visitante realmente ve (o final, apos redirecionar).
-  const rdapSite = rdapFinal?.encontrado ? rdapFinal : rdap;
+  const rdapSite = plataforma ? { encontrado: false } : rdapFinal?.encontrado ? rdapFinal : rdap;
 
   // Redirecionar so e suspeito se o destino nao for da mesma empresa (mesmo
   // CNPJ no registro.br), nem governo, nem dominio confiavel/popular.

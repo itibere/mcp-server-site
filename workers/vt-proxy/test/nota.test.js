@@ -200,3 +200,9 @@ test("redirecionamento suspeito para outro domínio: médio; explicado: só obse
   const ok = notaLinks({ destinos: [], gsbLinks: [], redirecionamento: { suspeito: false, host: "www.loja.com", motivo: "mesma empresa" } });
   assert.equal(ok.nivel, "bom");
 });
+
+test("propagandas sem navegador: avalia o que há no HTML e avisa que o resto não foi visto", () => {
+  const p = notaPropagandas({ existe: true, verificavel: false, redes: { arriscadas: [], confiaveis: ["google"] }, anunciantes: [] });
+  assert.equal(p.nivel, "bom");
+  assert.ok(p.observacoes.some((o) => o.includes("sem navegador")));
+});

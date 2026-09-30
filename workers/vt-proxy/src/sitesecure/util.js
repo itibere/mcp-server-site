@@ -48,16 +48,27 @@ export async function doh(orcamento, nome, tipo, servidor = DOH) {
 
 // Segundo nivel usados como sufixo publico (lista curta, suficiente para BR
 // e os casos mais comuns; nao e a Public Suffix List inteira).
-const SUFIXOS_2 = new Set([
+const SUFIXOS_REGISTRO = [
   "com.br", "net.br", "org.br", "gov.br", "edu.br", "art.br", "blog.br", "eco.br",
   "ind.br", "inf.br", "jus.br", "leg.br", "mil.br", "mp.br", "def.br", "bet.br", "app.br",
   "dev.br", "log.br", "tec.br", "srv.br", "emp.br", "adv.br", "med.br", "eng.br",
   "co.uk", "org.uk", "com.au", "com.ar", "com.mx", "co.jp", "com.pt", "com.co",
+];
+
+// Plataformas onde qualquer pessoa cria um subdominio. O subdominio e a raiz, e
+// os dados da plataforma (idade do registro, popularidade, reputacao no
+// VirusTotal) nao dizem nada sobre quem hospeda ali.
+const PLATAFORMAS = [
   "github.io", "vercel.app", "netlify.app", "pages.dev", "workers.dev", "web.app",
   "firebaseapp.com", "herokuapp.com", "blogspot.com", "wixsite.com", "weebly.com",
   "000webhostapp.com", "glitch.me", "onrender.com", "fly.dev", "repl.co", "ngrok.io",
   "ngrok-free.app", "godaddysites.com", "square.site", "carrd.co", "wordpress.com",
-]);
+  "appspot.com", "run.app", "cloudfunctions.net", "azurewebsites.net", "gitlab.io",
+  "myshopify.com", "webflow.io", "surge.sh", "pythonanywhere.com", "r2.dev",
+];
+
+const SUFIXOS_2 = new Set([...SUFIXOS_REGISTRO, ...PLATAFORMAS]);
+const SET_PLATAFORMAS = new Set(PLATAFORMAS);
 
 export function dominioRaiz(host) {
   const partes = host.toLowerCase().replace(/\.$/, "").split(".");
@@ -65,6 +76,12 @@ export function dominioRaiz(host) {
   const ultimos2 = partes.slice(-2).join(".");
   if (SUFIXOS_2.has(ultimos2)) return partes.slice(-3).join(".");
   return ultimos2;
+}
+
+// A raiz e um subdominio de plataforma (ex.: loja.myshopify.com)?
+export function ehPlataforma(raiz) {
+  const partes = raiz.toLowerCase().split(".");
+  return partes.length >= 3 && SET_PLATAFORMAS.has(partes.slice(-2).join("."));
 }
 
 export function hostDe(url) {
