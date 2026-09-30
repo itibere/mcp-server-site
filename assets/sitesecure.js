@@ -359,6 +359,30 @@ function montarDetalhesPix(box, l) {
   box.append(listaItens(notas, "text-slate-500", "·"));
 }
 
+// Copia o texto do laudo como aparece na tela, sem o rotulo do proprio botao.
+async function copiarLaudo(raiz, botao) {
+  botao.hidden = true;
+  const texto = raiz.innerText.trim();
+  botao.hidden = false;
+  let ok = false;
+  try {
+    await navigator.clipboard.writeText(texto);
+    ok = true;
+  } catch {
+    // Sem permissao da Clipboard API (ou contexto sem HTTPS): tenta pelo metodo antigo.
+    const area = el("textarea");
+    area.value = texto;
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.append(area);
+    area.select();
+    try { ok = document.execCommand("copy"); } catch { /* sem suporte */ }
+    area.remove();
+  }
+  botao.textContent = ok ? "Copiado" : "Não foi possível copiar";
+  setTimeout(() => { botao.textContent = "Copiar laudo"; }, 2000);
+}
+
 // Um cartao por laudo (site e/ou PIX), um abaixo do outro em #laudos.
 function criarCartao(rotulo, alvo, subtitulo) {
   const raiz = el("article", "space-y-6");
@@ -368,6 +392,10 @@ function criarCartao(rotulo, alvo, subtitulo) {
     el("p", "font-mono-code text-sm text-cyan-400 break-all", alvo),
   );
   if (subtitulo) topo.append(el("p", "text-sm text-slate-400", subtitulo));
+  const copiar = el("button", "px-3 py-1.5 rounded-lg border border-slate-700 text-xs font-mono-code text-slate-300 hover:border-emerald-500/60 hover:text-emerald-300 transition", "Copiar laudo");
+  copiar.type = "button";
+  copiar.addEventListener("click", () => copiarLaudo(raiz, copiar));
+  topo.append(copiar);
   const blocos = el("div", "rounded-2xl border border-slate-800 bg-[#090e17] divide-y divide-slate-800");
   const nota = el("div");
   const detalhes = el("div", "rounded-2xl border border-slate-800 bg-[#090e17] p-6 sm:p-8 space-y-5 text-sm");
