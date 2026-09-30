@@ -96,6 +96,12 @@ export function notaReputacao(d) {
   return bloco(e);
 }
 
+// Bloco que nao pode ser avaliado (ex.: o site respondeu com verificacao anti-robo).
+// Fica fora da nota final, como o bloco de anuncios sem navegador.
+export function notaSemConteudo(motivo) {
+  return { nivel: "na", alertas: [motivo], positivos: [], observacoes: [] };
+}
+
 export function notaLinks({ destinos, gsbLinks, redirecionamento }) {
   const e = novo();
   const naoAnuncio = destinos.filter((d) => !d.anuncio);

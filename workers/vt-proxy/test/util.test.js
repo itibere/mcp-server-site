@@ -27,3 +27,19 @@ test("plataformas de subdomínio livre: o subdomínio é a raiz", () => {
 test("ponto final e caixa alta são ignorados", () => {
   assert.equal(dominioRaiz("WWW.Kabum.com.br."), "kabum.com.br");
 });
+
+import { detectarDesafio } from "../src/sitesecure/util.js";
+
+test("detectarDesafio: tela de verificação anti-robô", () => {
+  const epoca = { urlFinal: "https://www.exemplo.com.br/az-request-verify?url=https%3A%2F%2Fwww.exemplo.com.br%2F", titulo: "", links: [], texto: "", requisicoes: [] };
+  assert.equal(detectarDesafio(epoca), true);
+  assert.equal(detectarDesafio({ urlFinal: "https://x.com/", titulo: "Just a moment...", links: [], texto: "", requisicoes: [] }), true);
+  const soCaptcha = { urlFinal: "https://x.com/", titulo: "", links: [{}], texto: "verifique", requisicoes: ["https://cdn.altcha.org/x.js"] };
+  assert.equal(detectarDesafio(soCaptcha), true);
+});
+
+test("detectarDesafio: site real com reCAPTCHA no login não é desafio", () => {
+  const links = Array.from({ length: 40 }, () => ({}));
+  const site = { urlFinal: "https://loja.com.br/", titulo: "Loja", links, texto: "x".repeat(5000), requisicoes: ["https://www.google.com/recaptcha/api.js"] };
+  assert.equal(detectarDesafio(site), false);
+});
