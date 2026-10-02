@@ -15,10 +15,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Global Styles -->
-  <link rel="stylesheet" href="../assets/style.css">
-  <!-- ?v= muda a cada publicacao de sitesecure.css/js: sem isso o navegador
-       pode seguir com a versao antiga em cache (visto com o Turnstile). -->
-  <link rel="stylesheet" href="../assets/sitesecure.css?v=20260930-4">
+  <link rel="stylesheet" href="../assets/style.css?v=35cbd887">
+  <!-- ?v= = hash do arquivo, gravado por scripts/versionar_assets.py: sem isso o
+       navegador pode seguir com a versao antiga em cache (visto com o Turnstile). -->
+  <link rel="stylesheet" href="../assets/sitesecure.css?v=197de3ad">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2305070c'/><rect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2310b981' stroke-width='2'/><text x='16' y='22' font-family='monospace' font-size='17' font-weight='700' fill='%2310b981' text-anchor='middle'>&gt;_</text></svg>">
 
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -82,7 +82,7 @@
     <section id="view-scan" class="hidden rounded-2xl border border-emerald-500/30 bg-[#05070c] p-6 sm:p-10 flex flex-col items-center gap-6" aria-live="polite">
       <p class="scan-titulo font-mono-code text-emerald-300 font-bold tracking-[0.4em] text-lg sm:text-2xl">ANALISANDO<span class="animate-blink">_</span></p>
       <div class="scan-gif">
-        <img src="../assets/hacker-scan.gif?v=4" alt="Animação de análise em andamento" width="300" height="300">
+        <img src="../assets/hacker-scan.gif?v=a99b7a77" alt="Animação de análise em andamento" width="300" height="300">
       </div>
       <p id="scan-alvo" class="font-mono-code text-xs text-cyan-400 break-all text-center"></p>
       <ul id="scan-etapas" class="w-full max-w-md font-mono-code text-xs space-y-1.5"></ul>
@@ -157,8 +157,8 @@
     </div>
   </footer>
 
-  <script src="../assets/ano.js" defer></script>
+  <script src="../assets/ano.js?v=4a50d482" defer></script>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
-  <script src="../assets/sitesecure.js?v=20260930-4" defer></script>
+  <script src="../assets/sitesecure.js?v=98d496fd" defer></script>
 </body>
 </html>
