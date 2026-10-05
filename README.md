@@ -11,19 +11,18 @@ assets/style.css                 tokens e componentes compartilhados
 assets/dashboard.css             componentes do painel
 projetos/pncp/vencendo/          monitor de contratos de TIC vencendo (6-12 meses)
 projetos/pncp/vencendo/dados.json dados que o painel lê (gerado, versionado)
-pncp-tic/                        coletor + validador do pipeline atual (ver pncp-tic/README.md)
 scripts/montar_vencendo.py       transforma o resultado julgado no contrato de dados do painel
 CNAME                             domínio do GitHub Pages
 ```
 
 ## Como o painel se atualiza
 
-O site não roda nada em servidor. O pipeline em `pncp-tic/` (coletor via
-`/api/search/` do PNCP + julgamento de classificação TIC) roda localmente e
+O site não roda nada em servidor. O pipeline de coleta (coletor via
+`/api/search/` do PNCP + julgamento de classificação TIC) roda localmente, em repositório privado separado, e
 `scripts/montar_vencendo.py` escreve `projetos/pncp/vencendo/dados.json`;
 o `git push` desse arquivo é o deploy. A página lê o JSON no navegador e
 calcula os agregados ali mesmo, para que os filtros e os gráficos nunca
-discordem entre si. Detalhes do pipeline em `pncp-tic/README.md`.
+discordem entre si.
 
 Consequência prática: nenhuma porta aberta, nenhum serviço exposto, nenhum
 token em produção. O site continua no ar com o último dado coletado — e a

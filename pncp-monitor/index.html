@@ -104,7 +104,7 @@
       <!-- Action Buttons -->
       <div class="flex flex-wrap items-center gap-3 pt-2">
         <a href="#mcp-pncp" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-xs sm:text-sm font-mono-code transition shadow-[0_0_25px_rgba(6,182,212,0.35)] flex items-center gap-2">
-          <span>⚙️</span> Configurar MCP
+          <span>⚙️</span> Sobre o MCP
         </a>
         <a href="../projetos/pncp/vencendo/" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs sm:text-sm font-mono-code transition shadow-[0_0_25px_rgba(139,92,246,0.35)] flex items-center gap-2">
           <span>📊</span> Abrir Dashboard
@@ -140,28 +140,26 @@
             <span class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-lg">⚙️</span>
             <h3 class="text-lg font-bold text-white font-mono-code">MCP-CONFIG</h3>
           </div>
-          <p class="text-xs text-slate-400">Passo a passo até colocar em produção no seu cliente de IA.</p>
-          <ol class="space-y-3 text-xs text-slate-300">
+          <p class="text-xs text-slate-400">Roda localmente, por stdio, no cliente de IA. Python com <code class="text-cyan-300 font-mono-code">mcp</code> e <code class="text-cyan-300 font-mono-code">requests</code>.</p>
+          <ul class="space-y-3 text-xs text-slate-300">
             <li class="flex gap-2">
-              <span class="text-cyan-400 font-mono-code font-bold shrink-0">1.</span>
-              <code class="text-cyan-300 font-mono-code break-all">git clone https://github.com/itibere/mcp-server-site.git</code>
+              <span class="text-cyan-400 font-mono-code font-bold shrink-0">›</span>
+              <span><code class="text-cyan-300 font-mono-code">contratos_vencendo</code> e <code class="text-cyan-300 font-mono-code">contratacoes_publicadas</code>: consulta direta por órgão, janela e UF</span>
             </li>
             <li class="flex gap-2">
-              <span class="text-cyan-400 font-mono-code font-bold shrink-0">2.</span>
-              <code class="text-cyan-300 font-mono-code break-all">pip install mcp requests</code>
+              <span class="text-cyan-400 font-mono-code font-bold shrink-0">›</span>
+              <span><code class="text-cyan-300 font-mono-code">catalogo_*</code>: monta o catálogo de órgãos a partir das contratações publicadas</span>
             </li>
             <li class="flex gap-2">
-              <span class="text-cyan-400 font-mono-code font-bold shrink-0">3.</span>
-              <span>copie <code class="text-cyan-300 font-mono-code">pncp-tic/claude_desktop_config.example.json</code> pro config do seu cliente, ajustando o caminho absoluto pro <code class="text-cyan-300 font-mono-code">mcp_server.py</code></span>
+              <span class="text-cyan-400 font-mono-code font-bold shrink-0">›</span>
+              <span><code class="text-cyan-300 font-mono-code">varredura_tic_*</code>: varredura em segundo plano, com status e erros por página</span>
             </li>
             <li class="flex gap-2">
-              <span class="text-cyan-400 font-mono-code font-bold shrink-0">4.</span>
-              <span>reinicie o cliente — pergunte sobre contratos de TIC vencendo</span>
+              <span class="text-cyan-400 font-mono-code font-bold shrink-0">›</span>
+              <span><code class="text-cyan-300 font-mono-code">saude_pncp</code> e <code class="text-cyan-300 font-mono-code">sondar_volume</code>: testam o portal e dimensionam a busca antes de rodar</span>
             </li>
-          </ol>
-          <a href="https://github.com/itibere/mcp-server-site/tree/main/pncp-tic" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-600/20 hover:bg-cyan-600/40 text-cyan-300 border border-cyan-500/40 text-xs font-mono-code font-semibold transition">
-            Ver instruções completas →
-          </a>
+          </ul>
+          <p class="text-xs text-slate-500">O código do servidor fica em repositório privado.</p>
         </div>
 
         <!-- Rectangle 2: Dashboard -->

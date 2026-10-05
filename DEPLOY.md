@@ -101,8 +101,8 @@ espere — não é erro.
 
 Qualquer mudança é `git push`. O Pages republica em cerca de um minuto.
 
-Para atualizar os dados do painel, rode o pipeline em `pncp-tic/` (ver
-`pncp-tic/README.md`) e finalize com `scripts/montar_vencendo.py`, depois
+Para atualizar os dados do painel, rode o pipeline de coleta (repositório privado
+separado) e finalize com `scripts/montar_vencendo.py`, depois
 `git push` de `projetos/pncp/vencendo/dados.json`.
 
 ---
