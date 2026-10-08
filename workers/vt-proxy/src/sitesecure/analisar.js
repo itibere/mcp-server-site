@@ -19,6 +19,7 @@ import { escolherCnpj, consultarCnpj, empresaCondiz } from "./empresa.js";
 import { identificarHost } from "./host.js";
 import { detectarPagamento, lerBrCode, acharBrCodes, compararPix } from "./pagamento.js";
 import { consultarReclameAqui } from "./reclameaqui.js";
+import { registrarConsulta } from "./historico.js";
 import { notaReputacao, notaLinks, notaPropagandas, notaHeaderFooter, notaSemConteudo, notaFinal } from "./nota.js";
 import { Orcamento, dominioRaiz, ehPlataforma, detectarDesafio, hostDe, tokensNome } from "./util.js";
 
@@ -236,6 +237,8 @@ export async function handleAnalisar(request, env, ctx, cors, ip) {
     chave = await chaveCache(corpo?.url, corpo?.pix);
     const cache = await guarda.lerCache(env, chave);
     if (cache) {
+      const laudoCache = cache.eventos.find((ev) => ev.etapa === "laudo")?.laudo;
+      if (laudoCache) ctx.waitUntil(registrarConsulta(env, laudoCache, { cache: true }));
       const linhas = cache.eventos.map((ev) => JSON.stringify(ev.etapa === "laudo" ? { ...ev, laudo: { ...ev.laudo, doCache: cache.em } } : ev));
       return new Response(`${JSON.stringify({ etapa: "cache", em: cache.em })}\n${linhas.join("\n")}\n`, { headers: { ...NDJSON, ...cors } });
     }
@@ -259,6 +262,8 @@ export async function handleAnalisar(request, env, ctx, cors, ip) {
     try {
       await executar(env, corpo, emitir);
       if (chave && finais.some((e) => e.etapa === "laudo")) await guarda.gravarCache(env, chave, finais).catch(() => {});
+      const laudo = finais.find((e) => e.etapa === "laudo")?.laudo;
+      if (laudo) await registrarConsulta(env, laudo);
     } catch (err) {
       await emitir({ etapa: "erro", erro: "falha_interna", detalhe: String(err?.message || err).slice(0, 120) }).catch(() => {});
     } finally {

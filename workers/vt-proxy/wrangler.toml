@@ -47,3 +47,11 @@ enabled = true
 # 3 navegadores simultaneos. Sem cota, a analise cai no HTML estatico.
 [browser]
 binding = "BROWSER"
+
+# Historico das consultas do sitesecure (src/sitesecure/historico.js): data, tipo,
+# dominio, instituicao do PIX e nota. Sem IP, sem URL completa, sem chave PIX.
+[[d1_databases]]
+binding = "HISTORICO"
+database_name = "sitesecure-historico"
+database_id = "7328547b-0215-4a2d-9da9-2a6ba0fec1e2"
+migrations_dir = "migrations"

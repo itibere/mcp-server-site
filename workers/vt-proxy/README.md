@@ -367,6 +367,12 @@ Uma ferramenta que faz o servidor acessar endereços informados por terceiros e 
 - **Cache de 1 hora** por entrada. O nome do objeto é derivado do IP pelo próprio Cloudflare e o IP não é gravado. O estado de cada IP é apagado 48 horas depois do último uso.
 - **Chaves de API** ficam em segredos do Worker. O front nunca as recebe.
 - **Chave PIX mascarada** no laudo (CPF, e-mail e telefone).
+- **Histórico de consultas** (`historico.js`, banco D1 `sitesecure-historico`, binding `HISTORICO`, tabela criada por `migrations/0001_historico.sql`): uma linha por consulta, inclusive as servidas do cache (`cache = 1`), com data, tipo (`site` ou `pix`), domínio raiz, instituição que recebe o PIX e nota. Não grava IP, URL completa, chave PIX nem nome do recebedor. Falha no histórico não derruba a análise. Consulta:
+
+  ```bash
+  npx wrangler d1 execute sitesecure-historico --remote --config wrangler.toml \
+    --command "SELECT em, tipo, dominio, instituicao, nota, cache FROM consultas ORDER BY em DESC LIMIT 50"
+  ```
 - **Content-Security-Policy** do site restringe as conexões do front a `api.itibere.tec.br`.
 
 ---
@@ -379,7 +385,7 @@ Uma ferramenta que faz o servidor acessar endereços informados por terceiros e 
 npm test
 ```
 
-O arquivo `test/nota.test.js` usa o executor nativo do Node (`node:test`) e testa as regras de `nota.js` com dados fixos, sem rede e sem gastar cota. Cada cenário monta as evidências que o `analisar.js` coletaria para um tipo de site e confere as notas de cada bloco e a final. São 31 testes em dois arquivos: `nota.test.js` (regras de nota) e `util.test.js` (domínio raiz, plataformas de subdomínio livre e detecção de tela anti-robô). Os cenários de nota cobrem: loja grande em ordem, site de governo limpo e com sinal de ameaça, Safe Browsing e VirusTotal, domínio novo e domínio popular, ausência de HTTPS, certificado vencendo, alertas leves com e sem alívio, apostas dentro e fora de `.bet.br`, imitação de serviço público, CNPJ ausente e inexistente, hospedagem, anunciantes e redes arriscadas, encurtadores, redirecionamentos e a agregação da nota final.
+O arquivo `test/nota.test.js` usa o executor nativo do Node (`node:test`) e testa as regras de `nota.js` com dados fixos, sem rede e sem gastar cota. Cada cenário monta as evidências que o `analisar.js` coletaria para um tipo de site e confere as notas de cada bloco e a final. São 37 testes em três arquivos: `nota.test.js` (regras de nota), `util.test.js` (domínio raiz, plataformas de subdomínio livre e detecção de tela anti-robô) e `historico.test.js` (o que entra e o que nunca entra no histórico de consultas). Os cenários de nota cobrem: loja grande em ordem, site de governo limpo e com sinal de ameaça, Safe Browsing e VirusTotal, domínio novo e domínio popular, ausência de HTTPS, certificado vencendo, alertas leves com e sem alívio, apostas dentro e fora de `.bet.br`, imitação de serviço público, CNPJ ausente e inexistente, hospedagem, anunciantes e redes arriscadas, encurtadores, redirecionamentos e a agregação da nota final.
 
 Esses testes protegem as regras contra regressão quando um limite é ajustado. Eles não descobrem problemas de coleta, por isso há a validação da próxima seção.
 
