@@ -54,6 +54,11 @@ credentials.*
 scratch/
 tmp/
 
+# Pipeline do PNCP: repositorio privado separado (itibere/pncp-tic), por vezes
+# clonado aqui como subdiretorio soh para preservar os caminhos relativos dos
+# scripts (../scripts/montar_vencendo.py). Nunca deve ser versionado aqui.
+pncp-tic/
+
 # IDEs & Editores
 .vscode/
 !.vscode/settings.json
