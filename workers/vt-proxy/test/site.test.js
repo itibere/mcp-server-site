@@ -216,13 +216,45 @@ test("log de falha nao carrega a URL consultada", async (t) => {
   assert.ok(!logs.join("\n").includes("52998224725"));
 });
 
-test("Turnstile recusado conta como recusa e leva ao bloqueio do IP", async (t) => {
-  simularRede(t, semRede);
-  const env = { SITESECURE_DO: bindingSitesecure(), TURNSTILE_SECRET: "s", TURNSTILE_MODO: "exigir" };
-  for (let i = 0; i < 3; i++) assert.equal((await handleAnalisar(pedido({ url: "https://loja.com.br/" }), env, contexto(), {}, IP)).status, 403);
-  const bloqueado = await handleAnalisar(pedido({ url: "https://loja.com.br/" }), env, contexto(), {}, IP);
+const siteverify = (corpo) => (url) => (url.includes("challenges.cloudflare.com") ? Response.json(corpo) : semRede());
+const ENV_TS = { TURNSTILE_SECRET: "s", TURNSTILE_MODO: "exigir" };
+const corpoTs = (turnstile) => ({ url: "https://loja.com.br/", turnstile });
+
+test("Turnstile: so token rejeitado de fato pelo siteverify conta como recusa e bloqueia o IP", async (t) => {
+  simularRede(t, siteverify({ success: false, "error-codes": ["invalid-input-response"] }));
+  const env = { SITESECURE_DO: bindingSitesecure(), ...ENV_TS };
+  for (let i = 0; i < 3; i++) assert.equal((await handleAnalisar(pedido(corpoTs("token-lixo")), env, contexto(), {}, IP)).status, 403);
+  const bloqueado = await handleAnalisar(pedido(corpoTs("token-lixo")), env, contexto(), {}, IP);
   assert.equal(bloqueado.status, 429);
   assert.equal((await eventos(bloqueado))[0].erro, "bloqueado");
+});
+
+test("Turnstile: token ausente, expirado, falta de segredo e siteverify fora do ar nao bloqueiam o IP", async (t) => {
+  const env = { SITESECURE_DO: bindingSitesecure(), ...ENV_TS };
+  const silencio = console.error;
+  console.error = () => {};
+  t.after(() => { console.error = silencio; });
+  simularRede(t, semRede);
+  for (let i = 0; i < 8; i++) assert.equal((await handleAnalisar(pedido({ url: "https://loja.com.br/" }), env, contexto(), {}, IP)).status, 403, "sem token");
+  simularRede(t, siteverify({ success: false, "error-codes": ["timeout-or-duplicate"] }));
+  for (let i = 0; i < 8; i++) assert.equal((await handleAnalisar(pedido(corpoTs("expirado")), env, contexto(), {}, IP)).status, 403, "expirado");
+  for (let i = 0; i < 8; i++) assert.equal((await handleAnalisar(pedido({ url: "https://loja.com.br/" }), { SITESECURE_DO: env.SITESECURE_DO, TURNSTILE_MODO: "exigir" }, contexto(), {}, IP)).status, 403, "sem segredo");
+  assert.equal(env.SITESECURE_DO.objetos.get(`ip:${IP}`)?.armazenamento.dados.get("recusas"), undefined, "nenhuma recusa registrada");
+});
+
+test("Turnstile: siteverify fora do ar recusa com 503 no modo exigir e libera no observar", async (t) => {
+  const silencio = console.error;
+  console.error = () => {};
+  t.after(() => { console.error = silencio; });
+  simularRede(t, (url) => { if (url.includes("challenges.cloudflare.com")) throw new Error("rede"); return semRede(); });
+  const exigir = await handleAnalisar(pedido(corpoTs("tk")), { SITESECURE_DO: bindingSitesecure(), ...ENV_TS }, contexto(), {}, IP);
+  assert.equal(exigir.status, 503);
+  const ev = (await eventos(exigir))[0];
+  assert.equal(ev.erro, "verificacao_indisponivel");
+  const observar = await handleAnalisar(pedido(corpoTs("tk")), { SITESECURE_DO: bindingSitesecure(), TURNSTILE_SECRET: "s" }, contexto(), {}, IP);
+  assert.notEqual(observar.status, 503);
+  assert.notEqual(observar.status, 403);
+  await observar.text();
 });
 
 test("Turnstile sem segredo: modo exigir recusa e registra erro", async (t) => {

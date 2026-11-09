@@ -9,8 +9,9 @@ import { hostDe, resumoErro } from "./util.js";
 import { ROTULO_INCOMPLETA } from "./nota.js";
 
 const RETENCAO_MESES = 12;
-const LOTE_LIMPEZA = 5000;
-const MAX_LOTES = 10;
+// 3 escritas por linha apagada (tabela e 2 indices): 8 x 2000 x 3 = 48 mil, abaixo das 100 mil/dia do D1 gratuito.
+const LOTE_LIMPEZA = 2000;
+const MAX_LOTES = 8;
 const HORA = 3600_000;
 
 export function diaBR(agora = Date.now()) {
@@ -62,7 +63,7 @@ export async function registrarConsulta(env, laudo, opcoes) {
     ).bind(diaBR(), l.tipo, l.dominio, l.instituicao, l.nota, l.cache).run();
   } catch (err) {
     // Historico nunca derruba a analise.
-    console.log(JSON.stringify({ evento: "historico_falhou", erro: String(err?.message || err).slice(0, 120) }));
+    console.log(JSON.stringify({ evento: "historico_falhou", ...resumoErro(err) }));
   }
 }
 

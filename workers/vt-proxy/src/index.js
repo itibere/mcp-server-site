@@ -12,15 +12,21 @@ export { SitesecureDO } from "./sitesecure/guarda.js";
 const RATE_LIMIT = 10; // requisicoes
 const RATE_WINDOW_MS = 60_000; // por janela fixa de 60s
 const DIA_MS = 86_400_000;
-// Cota do VirusTotal (500/dia, 4/min) dividida com o Site Secure (1 consulta por
-// analise, ate 150/dia). /hash gasta 1 chamada; POST /url e o poll gastam ate 2.
-// Por IP: 20 por dia com Turnstile exigido, 10 sem ele (modo observar) e 60 polls.
+// Cota do VirusTotal: 500 chamadas por dia e 4 por minuto, divididas com o Site
+// Secure (1 chamada por analise). Os tetos abaixo contam CHAMADAS ao VirusTotal:
+// /hash gasta 1; POST /url gasta 1 (2 se a URL ainda nao era conhecida); cada
+// consulta de andamento que chega ao VirusTotal gasta 1 (2 quando a analise
+// termina). Uma analise de URL custa de 3 a 4 chamadas, entao 360 cabem ~100.
+// Por IP: 20 consultas por dia com Turnstile exigido, 10 sem ele (observar).
 const VT_LIMITE_DIA_IP = { exigir: 20, observar: 10 };
-const VT_LIMITE_POLL_DIA_IP = 60;
-// Tetos diarios por rota (um ataque a uma nao derruba as outras) e um teto
-// combinado: no pior caso 175 x 2 = 350 chamadas, sobrando 150 para o Site Secure.
-const VT_TETOS = { hash: 100, url: 100, poll: 120 };
-const VT_TETO_TOTAL = 175;
+const VT_TETOS = { hash: 60, url: 360 };
+const VT_TETO_TOTAL = 420;
+// Consulta de andamento so vale para o id emitido ao proprio IP, por 15 min, no
+// maximo 30 consultas por id; so uma a cada 25 s chega ao VirusTotal (no maximo 8).
+const ID_VALIDADE_MS = 15 * 60_000;
+const ID_MAX_CONSULTAS = 30;
+const ID_MAX_CHAMADAS_VT = 8;
+const ID_INTERVALO_VT_MS = 25_000;
 
 // Rate limit via Durable Object, por IP (mesmo padrao do worker rag-licitacoes,
 // ver rag-portarias/portarias/worker/src/index.js): instancia unica autoritativa
@@ -33,39 +39,86 @@ class RateLimiterDO {
   }
 
   async fetch(request) {
-    // Limite e janela opcionais na query (o sitesecure usa um limite proprio);
+    const u = new URL(request.url);
+    if (u.pathname.startsWith("/id/")) return this.fetchId(u);
+    // Limite, janela e peso opcionais na query (o sitesecure usa um limite proprio);
     // sem parametros, vale o limite padrao de /hash e /url.
-    const q = new URL(request.url).searchParams;
+    const q = u.searchParams;
     const limite = Number(q.get("limite")) || RATE_LIMIT;
     const janelaMs = Number(q.get("janela")) || RATE_WINDOW_MS;
+    const peso = Number(q.get("peso")) || 1;
     const agora = Date.now();
     const janela = Math.floor(agora / janelaMs);
     const registro = (await this.state.storage.get("contador")) || { janela: -1, contagem: 0 };
     const contagemAtual = registro.janela === janela ? registro.contagem : 0;
 
-    if (contagemAtual >= limite) {
-      return new Response(JSON.stringify({ success: false }), {
-        headers: { "Content-Type": "application/json" },
-      });
+    if (u.pathname === "/estornar") {
+      if (registro.janela === janela) await this.state.storage.put("contador", { janela, contagem: Math.max(0, contagemAtual - peso) });
+      return resposta({ success: true });
     }
 
-    await this.state.storage.put("contador", { janela, contagem: contagemAtual + 1 });
-    return new Response(JSON.stringify({ success: true }), {
-      headers: { "Content-Type": "application/json" },
-    });
+    if (contagemAtual + peso > limite) return resposta({ success: false });
+
+    await this.state.storage.put("contador", { janela, contagem: contagemAtual + peso });
+    return resposta({ success: true });
+  }
+
+  async fetchId(u) {
+    const s = this.state.storage;
+    const agora = Date.now();
+    const ip = u.searchParams.get("ip");
+    if (u.pathname === "/id/registrar") {
+      await s.put("id", { ip, n: 0, vt: 0, ultima: agora, criado: agora });
+      await s.setAlarm(agora + ID_VALIDADE_MS);
+      return resposta({ ok: true });
+    }
+    const reg = await s.get("id");
+    if (!reg || reg.ip !== ip || agora - reg.criado > ID_VALIDADE_MS) return resposta({ ok: false, motivo: "desconhecido" });
+    if (reg.n >= ID_MAX_CONSULTAS || reg.vt >= ID_MAX_CHAMADAS_VT) return resposta({ ok: false, motivo: "limite" });
+    reg.n += 1;
+    const chamarVt = agora - reg.ultima >= ID_INTERVALO_VT_MS;
+    if (chamarVt) {
+      reg.vt += 1;
+      reg.ultima = agora;
+    }
+    await s.put("id", reg);
+    return resposta({ ok: true, chamarVt });
+  }
+
+  async alarm() {
+    await this.state.storage.deleteAll();
   }
 }
 
+const resposta = (obj) => new Response(JSON.stringify(obj), { headers: { "Content-Type": "application/json" } });
+
 export { RateLimiterDO };
 
-async function checarLimite(env, chave, limite, janelaMs) {
+async function checarLimite(env, chave, limite, janelaMs, peso = 1) {
   if (!env.RATE_LIMITER_DO) return true; // fail-open se o binding faltar
   const id = env.RATE_LIMITER_DO.idFromName(chave);
   const stub = env.RATE_LIMITER_DO.get(id);
-  const params = limite ? `?limite=${limite}&janela=${janelaMs}` : "";
+  const params = limite ? `?limite=${limite}&janela=${janelaMs}&peso=${peso}` : "";
   const resp = await stub.fetch(`https://rate-limiter/check${params}`);
   const { success } = await resp.json();
   return success;
+}
+
+async function estornarLimite(env, chave, janelaMs, peso = 1) {
+  if (!env.RATE_LIMITER_DO) return;
+  const stub = env.RATE_LIMITER_DO.get(env.RATE_LIMITER_DO.idFromName(chave));
+  await stub.fetch(`https://rate-limiter/estornar?janela=${janelaMs}&peso=${peso}`).catch(() => {});
+}
+
+async function chamarId(env, idAnalise, caminho, ipHash) {
+  const stub = env.RATE_LIMITER_DO.get(env.RATE_LIMITER_DO.idFromName(`vt-id:${idAnalise}`));
+  const resp = await stub.fetch(`https://rate-limiter${caminho}?ip=${encodeURIComponent(ipHash)}`);
+  return resp.json();
+}
+
+async function hashDoIp(ip) {
+  const dig = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(ip));
+  return [...new Uint8Array(dig)].slice(0, 12).map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
 function corsHeaders(request, env) {
@@ -174,12 +227,36 @@ function validarUrlVt(corpo) {
   }
 }
 
-async function cobrarVt(env, ip, rota, limiteIp, chaveIp) {
-  if (!(await checarLimite(env, chaveIp, limiteIp, DIA_MS))) return { erro: "limite_diario", status: 429 };
-  if (!(await checarLimite(env, `vt-teto-dia:${rota}`, VT_TETOS[rota], DIA_MS))) return { erro: "teto_diario", status: 503 };
-  if (!(await checarLimite(env, "vt-teto-total-dia", VT_TETO_TOTAL, DIA_MS))) return { erro: "teto_diario", status: 503 };
+// Cobra, nesta ordem, o IP, o teto da rota e o teto combinado. Se uma cobranca
+// for recusada, as anteriores sao devolvidas: recusa nao gasta cota de ninguem.
+async function cobrarVt(env, cobrancas) {
+  const feitas = [];
+  const devolver = () => Promise.all(feitas.map((f) => estornarLimite(env, f.chave, DIA_MS, f.peso || 1)));
+  try {
+    for (const c of cobrancas) {
+      if (!(await checarLimite(env, c.chave, c.limite, DIA_MS, c.peso || 1))) {
+        await devolver();
+        return c.recusa;
+      }
+      feitas.push(c);
+    }
+  } catch (err) {
+    await devolver();
+    throw err;
+  }
   return null;
 }
+
+const RECUSA_IP = { erro: "limite_diario", status: 429 };
+const RECUSA_TETO = { erro: "teto_diario", status: 503 };
+
+const cobrancaDaRota = (rota, peso) => [
+  { chave: `vt-teto-dia:${rota}`, limite: VT_TETOS[rota], peso, recusa: RECUSA_TETO },
+  { chave: "vt-teto-total-dia", limite: VT_TETO_TOTAL, peso, recusa: RECUSA_TETO },
+];
+
+// Chamada extra ao VirusTotal no meio de uma requisicao ja cobrada.
+const gastarVt = (env, rota) => cobrarVt(env, cobrancaDaRota(rota, 1)).catch(() => RECUSA_TETO);
 
 async function handleHash(request, env, hash) {
   const res = await vtFetch(`/files/${hash}`, env.VT_API_KEY);
@@ -205,7 +282,7 @@ async function handleHash(request, env, hash) {
   });
 }
 
-async function handleUrlSubmit(request, env, parsed) {
+async function handleUrlSubmit(request, env, parsed, { gastar, registrarId }) {
   const urlId = urlIdFor(parsed.toString());
   const existing = await vtFetch(`/urls/${urlId}`, env.VT_API_KEY);
   if (existing.status === 429) {
@@ -224,6 +301,8 @@ async function handleUrlSubmit(request, env, parsed) {
     });
   }
 
+  const recusa = await gastar();
+  if (recusa) return json(request, { error: recusa.erro }, recusa.status);
   const submit = await vtFetch(`/urls`, env.VT_API_KEY, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -236,10 +315,12 @@ async function handleUrlSubmit(request, env, parsed) {
     return json(request, { error: "erro_virustotal" }, 502);
   }
   const submitData = await submit.json();
-  return json(request, { queued: true, analysis_id: submitData.data?.id });
+  const analysisId = submitData.data?.id;
+  if (typeof analysisId === "string") await registrarId(analysisId);
+  return json(request, { queued: true, analysis_id: analysisId });
 }
 
-async function handleUrlPoll(request, env, analysisId) {
+async function handleUrlPoll(request, env, analysisId, gastar) {
   const res = await vtFetch(`/analyses/${analysisId}`, env.VT_API_KEY);
   if (res.status === 429) {
     return json(request, { error: "quota_excedida" }, 503);
@@ -259,8 +340,8 @@ async function handleUrlPoll(request, env, analysisId) {
     return json(request, { done: true, status, message: MESSAGES.url[status], resumo: resumoFrom(attrs?.stats) });
   }
 
-  const report = await vtFetch(`/urls/${urlId}`, env.VT_API_KEY);
-  if (!report.ok) {
+  const report = (await gastar()) ? null : await vtFetch(`/urls/${urlId}`, env.VT_API_KEY);
+  if (!report?.ok) {
     const status = normalize(attrs?.stats);
     return json(request, { done: true, status, message: MESSAGES.url[status], resumo: resumoFrom(attrs?.stats) });
   }
@@ -310,27 +391,48 @@ export default {
       const entrada = ehHash ? validarHash(lido.corpo) : validarUrlVt(lido.corpo);
       if (entrada.erro) return json(request, { error: entrada.erro }, 400);
 
-      const ts = await conferirTurnstile(env, lido.corpo?.turnstile, ipBruto, env.TURNSTILE_VT_MODO || "observar");
+      const ts = await conferirTurnstile(env, lido.corpo?.turnstile, ipBruto, env.TURNSTILE_VT_MODO || "observar", "vt");
       console.log(JSON.stringify({ evento: "turnstile_vt", modo: ts.modo, resultado: ts.resultado, bloqueou: !ts.ok }));
+      if (ts.indisponivel) return json(request, { error: "verificacao_indisponivel" }, 503);
       if (!ts.ok) return json(request, { error: "verificacao_humana" }, 403);
 
+      const rota = ehHash ? "hash" : "url";
       try {
-        const recusa = await cobrarVt(env, ip, ehHash ? "hash" : "url", VT_LIMITE_DIA_IP[ts.modo], `vt-dia:${ip}`);
+        const recusa = await cobrarVt(env, [
+          { chave: `vt-dia:${ip}`, limite: VT_LIMITE_DIA_IP[ts.modo], recusa: RECUSA_IP },
+          ...cobrancaDaRota(rota, 1),
+        ]);
         if (recusa) return json(request, { error: recusa.erro }, recusa.status);
       } catch {
         return json(request, { error: "servico_indisponivel" }, 503);
       }
-      return ehHash ? handleHash(request, env, entrada.hash) : handleUrlSubmit(request, env, entrada.parsed);
+      if (ehHash) return handleHash(request, env, entrada.hash);
+      return handleUrlSubmit(request, env, entrada.parsed, {
+        gastar: () => gastarVt(env, "url"),
+        registrarId: async (id) => {
+          if (!env.RATE_LIMITER_DO) return;
+          await chamarId(env, id, "/id/registrar", await hashDoIp(ip)).catch(() => {});
+        },
+      });
     }
     const pollMatch = url.pathname.match(/^\/url\/([A-Za-z0-9_=-]{1,200})$/);
     if (request.method === "GET" && pollMatch) {
       try {
-        const recusa = await cobrarVt(env, ip, "poll", VT_LIMITE_POLL_DIA_IP, `vt-poll-dia:${ip}`);
+        if (env.RATE_LIMITER_DO) {
+          const consulta = await chamarId(env, pollMatch[1], "/id/consultar", await hashDoIp(ip));
+          if (!consulta.ok) {
+            return consulta.motivo === "limite"
+              ? json(request, { error: "limite_consultas" }, 429)
+              : json(request, { error: "not_found" }, 404);
+          }
+          if (!consulta.chamarVt) return json(request, { done: false });
+        }
+        const recusa = await gastarVt(env, "url");
         if (recusa) return json(request, { error: recusa.erro }, recusa.status);
       } catch {
         return json(request, { error: "servico_indisponivel" }, 503);
       }
-      return handleUrlPoll(request, env, pollMatch[1]);
+      return handleUrlPoll(request, env, pollMatch[1], () => gastarVt(env, "url"));
     }
 
     return json(request, { error: "not_found" }, 404);

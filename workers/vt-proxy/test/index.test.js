@@ -74,7 +74,7 @@ test("/hash e /url: teto diario geral", async (t) => {
   const limitador = bindingLimitador();
   const env = { RATE_LIMITER_DO: limitador };
   limitador.get("vt-teto-dia:hash");
-  limitador.objetos.get("vt-teto-dia:hash").armazenamento.dados.set("contador", { janela: Math.floor(Date.now() / 86_400_000), contagem: 100 });
+  limitador.objetos.get("vt-teto-dia:hash").armazenamento.dados.set("contador", { janela: Math.floor(Date.now() / 86_400_000), contagem: 60 });
   const r = await chamar("/hash", { hash: HASH }, env);
   assert.equal(r.status, 503);
   assert.equal((await r.json()).error, "teto_diario");
@@ -87,50 +87,122 @@ function relogio(t) {
   const original = Date.now;
   Date.now = () => agora;
   t.after(() => { Date.now = original; });
-  return () => { agora += 61_000; };
+  return (ms = 61_000) => { agora += ms; };
 }
 
 const contagem = (limitador, chave) => limitador.objetos.get(chave)?.armazenamento.dados.get("contador")?.contagem ?? 0;
 
-test("GET /url/:id: limite diario proprio; um IP sozinho nao esgota a cota combinada do VirusTotal", async (t) => {
-  simularRede(t, (url) => (url.includes("virustotal.com") ? new Response("{}", { status: 404 }) : semRede()));
+function virusTotal() {
+  const estado = { n: 0, chamadas: [] };
+  const resolver = (url, init) => {
+    estado.chamadas.push(`${init?.method || "GET"} ${new URL(url).pathname}`);
+    const caminho = new URL(url).pathname;
+    if (!url.includes("virustotal.com")) return semRede();
+    if (init?.method === "POST" && caminho === "/api/v3/urls") return Response.json({ data: { id: `u-${++estado.n}-1` } });
+    if (caminho.startsWith("/api/v3/analyses/")) return Response.json({ data: { attributes: { status: "queued" } } });
+    return new Response("{}", { status: 404 });
+  };
+  return { estado, resolver };
+}
+
+const POLL = (id) => `/url/${id}`;
+
+test("GET /url/:id: id inventado e recusado sem chamar o VirusTotal nem gastar teto", async (t) => {
+  const rede = simularRede(t, semRede);
+  const limitador = bindingLimitador();
+  const r = await chamar(POLL("u-inventado-1"), null, { RATE_LIMITER_DO: limitador }, { metodo: "GET" });
+  assert.equal(r.status, 404);
+  assert.equal(rede.length, 0);
+  assert.equal(contagem(limitador, "vt-teto-dia:url"), 0);
+  assert.equal(contagem(limitador, "vt-teto-total-dia"), 0);
+});
+
+test("GET /url/:id: so o IP que recebeu o id consulta; a chamada ao VirusTotal sai a cada 25 s", async (t) => {
+  const vt = virusTotal();
+  simularRede(t, vt.resolver);
   const avancar = relogio(t);
   const limitador = bindingLimitador();
   const env = { RATE_LIMITER_DO: limitador };
-  for (let i = 0; i < 10; i++) {
-    assert.equal((await chamar("/url", { url: `https://exemplo.com.br/${i}` }, env)).status, 502, `POST ${i + 1}`);
-    if (i % 5 === 4) avancar();
-  }
-  assert.equal((await chamar("/url", { url: "https://exemplo.com.br/x" }, env)).status, 429, "11o POST do dia");
-  avancar();
-  for (let i = 0; i < 60; i++) {
-    assert.equal((await chamar("/url/abc123", null, env, { metodo: "GET" })).status, 502, `poll ${i + 1}`);
-    if (i % 8 === 7) avancar();
-  }
-  avancar();
-  const r = await chamar("/url/abc123", null, env, { metodo: "GET" });
-  assert.equal(r.status, 429);
-  assert.equal((await r.json()).error, "limite_diario");
-  assert.equal(contagem(limitador, "vt-teto-total-dia"), 70, "POST + poll de um IP so: 70 de 175");
+  const sub = await chamar("/url", { url: "https://exemplo.com.br/a" }, env);
+  assert.equal((await sub.json()).analysis_id, "u-1-1");
+  assert.equal(contagem(limitador, "vt-teto-total-dia"), 2, "POST gasta 1 de consulta e 1 de envio");
+
+  const outroIp = await chamar(POLL("u-1-1"), null, env, { metodo: "GET", headers: { "CF-Connecting-IP": "198.51.100.7" } });
+  assert.equal(outroIp.status, 404, "id emitido a outro IP");
+
+  const antes = vt.estado.chamadas.length;
+  const cedo = await chamar(POLL("u-1-1"), null, env, { metodo: "GET" });
+  assert.deepEqual(await cedo.json(), { done: false });
+  assert.equal(vt.estado.chamadas.length, antes, "consulta antes de 25 s nao chega ao VirusTotal");
+
+  avancar(26_000);
+  const r = await chamar(POLL("u-1-1"), null, env, { metodo: "GET" });
+  assert.deepEqual(await r.json(), { done: false });
+  assert.equal(vt.estado.chamadas.length, antes + 1);
+  assert.equal(contagem(limitador, "vt-teto-total-dia"), 3);
 });
 
-test("GET /url/:id: teto de polls e teto combinado protegem a cota", async (t) => {
+test("GET /url/:id: no maximo 8 chamadas ao VirusTotal e 30 consultas por id", async (t) => {
+  const vt = virusTotal();
+  simularRede(t, vt.resolver);
+  const avancar = relogio(t);
+  const env = { RATE_LIMITER_DO: bindingLimitador() };
+  await chamar("/url", { url: "https://exemplo.com.br/a" }, env);
+  let chamadasVt = 0;
+  let ultimo;
+  for (let i = 0; i < 12; i++) {
+    avancar(26_000);
+    const antes = vt.estado.chamadas.length;
+    ultimo = await chamar(POLL("u-1-1"), null, env, { metodo: "GET" });
+    chamadasVt += vt.estado.chamadas.length - antes;
+    if (ultimo.status !== 200) break;
+  }
+  assert.equal(chamadasVt, 8);
+  assert.equal(ultimo.status, 429);
+  assert.equal((await ultimo.json()).error, "limite_consultas");
+});
+
+test("um IP sozinho nao esgota a cota combinada: 10 envios com todas as consultas gastam menos de 1/3 do teto", async (t) => {
+  const vt = virusTotal();
+  simularRede(t, vt.resolver);
+  const avancar = relogio(t);
+  const limitador = bindingLimitador();
+  const env = { RATE_LIMITER_DO: limitador };
+  for (let i = 1; i <= 10; i++) {
+    assert.equal((await chamar("/url", { url: `https://exemplo.com.br/${i}` }, env)).status, 200);
+    for (let k = 0; k < 10; k++) {
+      avancar(26_000);
+      await chamar(POLL(`u-${i}-1`), null, env, { metodo: "GET" });
+    }
+  }
+  assert.equal((await chamar("/url", { url: "https://exemplo.com.br/x" }, env)).status, 429, "11o envio do dia");
+  assert.ok(contagem(limitador, "vt-teto-total-dia") <= 10 * (2 + 8), "no maximo 100 de 420");
+});
+
+test("cobranca: recusa pelo teto combinado devolve o limite do IP e o teto da rota", async (t) => {
   const rede = simularRede(t, semRede);
   const limitador = bindingLimitador();
   const env = { RATE_LIMITER_DO: limitador };
-  const janela = Math.floor(Date.now() / 86_400_000);
-  const encher = (chave, n) => {
-    limitador.get(chave);
-    limitador.objetos.get(chave).armazenamento.dados.set("contador", { janela, contagem: n });
-  };
-  encher("vt-teto-dia:poll", 120);
-  const r = await chamar("/url/abc123", null, env, { metodo: "GET" });
+  limitador.get("vt-teto-total-dia");
+  limitador.objetos.get("vt-teto-total-dia").armazenamento.dados.set("contador", { janela: Math.floor(Date.now() / 86_400_000), contagem: 420 });
+  const r = await chamar("/hash", { hash: HASH }, env);
   assert.equal(r.status, 503);
   assert.equal((await r.json()).error, "teto_diario");
-  encher("vt-teto-total-dia", 175);
-  const hash = await chamar("/hash", { hash: HASH }, env);
-  assert.equal(hash.status, 503);
-  assert.equal(rede.length, 0, "recusado sem chamar o VirusTotal");
+  assert.equal(diaDoIp(limitador), 0, "limite diario do IP intacto");
+  assert.equal(contagem(limitador, "vt-teto-dia:hash"), 0, "teto da rota intacto");
+  assert.equal(contagem(limitador, "vt-teto-total-dia"), 420);
+  assert.equal(rede.length, 0);
+});
+
+test("cobranca: recusa pelo teto da rota devolve o limite do IP", async (t) => {
+  simularRede(t, semRede);
+  const limitador = bindingLimitador();
+  limitador.get("vt-teto-dia:hash");
+  limitador.objetos.get("vt-teto-dia:hash").armazenamento.dados.set("contador", { janela: Math.floor(Date.now() / 86_400_000), contagem: 60 });
+  const r = await chamar("/hash", { hash: HASH }, { RATE_LIMITER_DO: limitador });
+  assert.equal(r.status, 503);
+  assert.equal(diaDoIp(limitador), 0);
+  assert.equal(contagem(limitador, "vt-teto-total-dia"), 0);
 });
 
 test("/hash: Turnstile no modo exigir recusa sem token e aceita o modo observar", async (t) => {

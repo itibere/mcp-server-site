@@ -42,7 +42,7 @@ test("coletarEstatico: laco de redirecionamentos para", async (t) => {
 
 import { renderizar } from "../src/sitesecure/render.js";
 
-function navegadorFalso({ navegacoes = ["https://loja.com.br/"], subrecursos = [] } = {}) {
+function navegadorFalso({ navegacoes = ["https://loja.com.br/"], subrecursos = [], navegarDepois = null } = {}) {
   const estado = { fechado: false, continuadas: [], abortadas: [] };
   const principal = {};
   const filhos = {};
@@ -54,7 +54,14 @@ function navegadorFalso({ navegacoes = ["https://loja.com.br/"], subrecursos = [
     setRequestInterception: async (v) => { estado.interceptando = v; },
     on(ev, fn) { if (ev === "request") this.handlers.push(fn); },
     url: () => navegacoes.at(-1),
-    evaluate: async () => ({ titulo: "Loja", links: [], iframes: [], cartao: false, texto: "oi", headerTexto: "", footerTexto: "", temHeader: false, temFooter: false }),
+    async evaluate() {
+      if (navegarDepois) {
+        const req = { url: () => navegarDepois, isNavigationRequest: () => true, frame: () => principal, continue: async () => {}, abort: async () => { estado.abortadas.push(navegarDepois); } };
+        this.handlers.forEach((h) => h(req));
+        await new Promise((r) => setTimeout(r, 5));
+      }
+      return { titulo: "Loja", links: [], iframes: [], cartao: false, texto: "oi", headerTexto: "", footerTexto: "", temHeader: false, temFooter: false };
+    },
     async goto() {
       const pedidos = [...navegacoes.map((u) => ({ u, nav: true })), ...subrecursos.map((u) => ({ u, nav: false }))];
       for (const { u, nav } of pedidos) {
@@ -118,4 +125,37 @@ test("renderizar: cadeia de navegacoes longa demais e abortada", async (t) => {
   const navegacoes = Array.from({ length: 8 }, () => "https://loja.com.br/");
   const { puppeteer } = navegadorFalso({ navegacoes });
   await assert.rejects(renderizar({ BROWSER: {} }, "https://loja.com.br/", opcoes(puppeteer)), (e) => e.message === "redirecionamentos_demais");
+});
+
+test("renderizar: a primeira navegacao nao gasta DNS; o orcamento proprio do navegador nao toca o da analise", async (t) => {
+  const chamadas = simularRede(t, REDE);
+  const { puppeteer } = navegadorFalso();
+  await renderizar({ BROWSER: {} }, "https://loja.com.br/", opcoes(puppeteer));
+  assert.equal(chamadas.length, 0);
+});
+
+test("renderizar: DNS que falha ou orcamento esgotado na navegacao vira falha do navegador, nao destino proibido", async (t) => {
+  simularRede(t, REDE);
+  const navegacoes = ["https://loja.com.br/", "https://novo.exemplo.com.br/"];
+  const semOrcamento = navegadorFalso({ navegacoes });
+  await assert.rejects(
+    renderizar({ BROWSER: {} }, "https://loja.com.br/", opcoes(semOrcamento.puppeteer, { orcamento: new Orcamento(0) })),
+    (e) => !e.destinoProibido,
+  );
+  simularRede(t, (url) => (url.includes("cloudflare-dns.com") ? new Response("", { status: 500 }) : REDE(url)));
+  const dnsCaido = navegadorFalso({ navegacoes });
+  await assert.rejects(
+    renderizar({ BROWSER: {} }, "https://loja.com.br/", opcoes(dnsCaido.puppeteer)),
+    (e) => !e.destinoProibido,
+  );
+  assert.equal(dnsCaido.estado.fechado, true);
+});
+
+test("renderizar: navegacao proibida feita depois do load (script) tambem falha a coleta", async (t) => {
+  simularRede(t, REDE);
+  const { puppeteer } = navegadorFalso({ navegarDepois: "https://interno.exemplo.com.br/x" });
+  await assert.rejects(
+    renderizar({ BROWSER: {} }, "https://loja.com.br/", opcoes(puppeteer)),
+    (e) => e.destinoProibido === true && e.message === "ip_privado",
+  );
 });

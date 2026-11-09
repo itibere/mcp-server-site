@@ -26,6 +26,8 @@ import { Orcamento, dominioRaiz, ehPlataforma, detectarDesafio, hostDe, tokensNo
 const MSG_DESAFIO = "o site respondeu com uma verificação anti-robô: links e anúncios da página real não foram vistos. Abra o site no navegador e refaça a análise depois";
 
 const LIMITE_CORPO = 4096;
+// Subrequests proprios da conferencia de DNS das navegacoes do navegador (fora do orcamento da analise).
+const NAVEGADOR_SUBREQUESTS = 10;
 
 // Valida a entrada inteira antes de qualquer cota ou consulta externa.
 export function validarEntrada(corpo) {
@@ -106,7 +108,7 @@ async function executarSite(env, corpo, emitir, orc) {
       if (!env.BROWSER || env.SEM_NAVEGADOR) throw new Error("sem_navegador");
       // Teto de 45 s: navegador preso (fila, site pesado) nao pode travar a analise.
       return await Promise.race([
-        renderizar(env, url.toString(), { orcamento: orc, vistos }),
+        renderizar(env, url.toString(), { orcamento: new Orcamento(NAVEGADOR_SUBREQUESTS), vistos }),
         new Promise((_, rej) => setTimeout(() => rej(new Error("navegador_timeout")), 45_000)),
       ]);
     } catch (erroNavegador) {
@@ -340,8 +342,9 @@ export async function handleAnalisar(request, env, ctx, cors, ip, ipBruto = ip) 
   // quem passaria e de quem falharia.
   const ts = await conferirTurnstile(env, corpo.turnstile, ipBruto);
   console.log(JSON.stringify({ evento: "turnstile", modo: ts.modo, resultado: ts.resultado, bloqueou: !ts.ok }));
+  if (ts.indisponivel) return recusa("verificacao_indisponivel", 60, 503);
   if (!ts.ok) {
-    if (comGuarda) await tentar(() => guarda.registrarRecusa(env, ip), null);
+    if (comGuarda && ts.conta) await tentar(() => guarda.registrarRecusa(env, ip), null);
     return recusa("verificacao_humana", 0, 403);
   }
 

@@ -100,19 +100,19 @@ function capturarLog(t) {
   return logs;
 }
 
-test("limparHistorico: apaga em lotes de 5000 com id IN (SELECT ... LIMIT) ate o lote vir incompleto", async () => {
-  const banco = d1([5000, 5000, 120]);
+test("limparHistorico: apaga em lotes de 2000 com id IN (SELECT ... LIMIT) ate o lote vir incompleto", async () => {
+  const banco = d1([2000, 2000, 120]);
   await limparHistorico({ HISTORICO: banco }, Date.parse("2026-11-09T15:00:00Z"));
   assert.equal(banco.chamadas.length, 3);
   assert.equal(banco.chamadas[0].sql, "DELETE FROM consultas WHERE id IN (SELECT id FROM consultas WHERE em < ? ORDER BY em LIMIT ?)");
-  assert.deepEqual(banco.chamadas[0].args, ["2025-11-09", 5000]);
+  assert.deepEqual(banco.chamadas[0].args, ["2025-11-09", 2000]);
 });
 
-test("limparHistorico: no maximo 10 lotes por execucao, e avisa no log", async (t) => {
+test("limparHistorico: no maximo 8 lotes por execucao, e avisa no log", async (t) => {
   const logs = capturarLog(t);
-  const banco = d1([5000]);
+  const banco = d1([2000]);
   await limparHistorico({ HISTORICO: banco });
-  assert.equal(banco.chamadas.length, 10);
+  assert.equal(banco.chamadas.length, 8);
   assert.ok(logs.some((l) => l.includes("limpeza_historico_parcial")));
 });
 

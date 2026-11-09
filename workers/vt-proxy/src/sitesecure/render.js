@@ -79,16 +79,24 @@ const SEM_REDE = /^(about|data|blob):/i;
 // principal (inclusive cada redirecionamento) tem o host resolvido e conferido
 // antes de sair. Subrecursos e frames filhos so passam pela checagem de sintaxe:
 // resolver cada host de anuncio gastaria os subrequests da analise.
+// A primeira navegacao nao e resolvida de novo (a analise acabou de resolver o
+// host); as seguintes usam o orcamento proprio do navegador. Falha de DNS ou fim
+// desse orcamento e falha do navegador (a coleta cai no HTML estatico), nao
+// destino proibido.
 async function filtrarRequisicao(req, page, orcamento, vistos, bloqueio) {
   const alvo = req.url();
   if (SEM_REDE.test(alvo)) return req.continue();
+  const principal = req.isNavigationRequest() && req.frame() === page.mainFrame();
   let motivo = validarUrl(alvo).erro;
-  if (!motivo && req.isNavigationRequest() && req.frame() === page.mainFrame()) {
-    if (++bloqueio.navegacoes > MAX_NAVEGACOES) motivo = "redirecionamentos_demais";
-    else motivo = (await verificarDestinos(orcamento, vistos, [alvo], { revalidarUltimo: true }).catch(() => ({ erro: "dns_falhou" }))).erro;
+  if (!motivo && principal && ++bloqueio.navegacoes > 1) {
+    if (bloqueio.navegacoes > MAX_NAVEGACOES) motivo = "redirecionamentos_demais";
+    else motivo = (await verificarDestinos(orcamento, vistos, [alvo]).catch(() => ({ erro: "dns_falhou" }))).erro;
   }
   if (!motivo) return req.continue();
-  if (req.isNavigationRequest() && req.frame() === page.mainFrame()) bloqueio.motivo ||= motivo;
+  if (principal) {
+    if (motivo === "dns_falhou") bloqueio.infra = true;
+    else bloqueio.motivo ||= motivo;
+  }
   return req.abort("blockedbyclient");
 }
 
@@ -109,17 +117,23 @@ export async function renderizar(env, url, { orcamento, vistos, puppeteer: injet
     page.on("request", (r) => {
       if (requisicoes.size < MAX_REQS) requisicoes.add(r.url());
     });
+    const conferirBloqueio = () => {
+      if (bloqueio.motivo) throw Object.assign(new Error(bloqueio.motivo), { destinoProibido: true });
+    };
     let resp;
     try {
       resp = await page.goto(url, { waitUntil: "networkidle2", timeout: 25_000 });
     } catch (err) {
-      if (bloqueio.motivo) throw Object.assign(new Error(bloqueio.motivo), { destinoProibido: true });
+      conferirBloqueio();
       throw err;
     }
-    if (bloqueio.motivo) throw Object.assign(new Error(bloqueio.motivo), { destinoProibido: true });
+    conferirBloqueio();
+    if (bloqueio.infra) throw new Error("navegador_sem_conferencia_de_dns");
     // Anuncios costumam chegar depois do load.
     await new Promise((r) => setTimeout(r, esperaMs));
+    conferirBloqueio();
     const dados = await page.evaluate(extrairNaPagina);
+    conferirBloqueio();
     dados.links.push(...(await linksDosFrames(page)));
     const seg = resp?.securityDetails();
     return {
