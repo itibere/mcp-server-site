@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Termos de Uso — Itiberê Paquier</title>
-  <meta name="description" content="Termos de uso de itibere.tec.br, incluindo a ferramenta de verificação de hash e links.">
+  <meta name="description" content="Termos de uso de itibere.tec.br, incluindo a verificação de hash e links e o verificador de links e PIX (IJ Site Secure).">
 
   <!-- Tailwind CSS Standalone -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,7 +22,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
   <meta property="og:title" content="Termos de Uso — Itiberê Paquier">
-  <meta property="og:description" content="Termos de uso de itibere.tec.br, incluindo a ferramenta de verificação de hash e links.">
+  <meta property="og:description" content="Termos de uso de itibere.tec.br, incluindo a verificação de hash e links e o verificador de links e PIX (IJ Site Secure).">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://itibere.tec.br/termos.html">
 </head>
@@ -53,7 +53,7 @@
           ITIBERE.TEC.BR / TERMOS DE USO
         </span>
         <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">Termos de Uso</h1>
-        <p class="text-xs text-slate-500 font-mono-code">Última atualização: 2026-09-10</p>
+        <p class="text-xs text-slate-500 font-mono-code">Última atualização: 2026-11-09</p>
       </div>
     </section>
 
@@ -72,9 +72,9 @@
         A ferramenta de <a href="seguranca/checagem-hash-link/" class="underline">verificação de hash e links</a>
         consulta a base pública do <a href="https://www.virustotal.com" target="_blank" rel="noopener noreferrer" class="underline">VirusTotal</a>
         através de um proxy próprio. O hash (calculado no seu navegador, sem envio do
-        arquivo) ou a URL informada é repassado ao VirusTotal para análise — este site
-        não armazena esses dados em nenhum banco ou log próprio, apenas repassa a
-        consulta e devolve o resultado.
+        arquivo) ou a URL informada é repassado ao VirusTotal para análise. O que o
+        proxy guarda de cada consulta está descrito na
+        <a href="privacidade.html" class="underline">Política de Privacidade</a>.
       </p>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
         O resultado é uma interpretação automática e simplificada do relatório do
@@ -91,11 +91,28 @@
     </section>
 
     <section class="space-y-4">
+      <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Verificador de links e PIX (IJ Site Secure)</h2>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        O <a href="sitesecure/" class="underline">IJ Site Secure</a> analisa um link ou um PIX copia-e-cola que você informar e devolve um laudo com uma nota: <strong class="text-white">Parece segura</strong>, <strong class="text-white">Atenção</strong>, <strong class="text-white">Risco alto</strong> ou <strong class="text-white">Análise incompleta</strong> (quando alguma fonte consultada ficou fora do ar).
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        O laudo é <strong class="text-white">apenas informativo</strong>. Ele é gerado automaticamente, sem revisão humana, a partir de fontes públicas e de terceiros (como VirusTotal, Google Safe Browsing, URLhaus, Cloudflare Radar, registros públicos de domínio, dados públicos de CNPJ e o ranking do Banco Central). <strong class="text-white">Não há garantia</strong> de que um site com nota "Parece segura" seja confiável, nem de que um site com nota "Risco alto" seja fraudulento. Não é consultoria de segurança, parecer jurídico nem recomendação de pagar ou deixar de pagar. A decisão de clicar, comprar ou pagar é sua, e não nos responsabilizamos por perdas decorrentes dela.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        O verificador abre o site informado em um navegador remoto da Cloudflare para ler a página. Não informe links que exijam login ou que contenham códigos pessoais ou de acesso na própria URL, nem um PIX que você não queira compartilhar com as fontes consultadas.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        <strong class="text-white">Este laudo está errado?</strong> Se você é responsável por um site ou por uma chave PIX e discorda da nota, escreva para <a href="mailto:itibere.paquier@gmail.com" class="underline">itibere.paquier@gmail.com</a> com o endereço consultado e o motivo. Cada pedido é analisado manualmente e, quando houver erro, o critério é corrigido.
+      </p>
+    </section>
+
+    <section class="space-y-4">
       <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Limite de uso</h2>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        A ferramenta usa uma chave gratuita da API do VirusTotal, com cota diária
-        limitada. Em caso de cota esgotada, a ferramenta informa o ocorrido e pede pra
-        tentar novamente mais tarde.
+        A ferramenta usa chaves gratuitas das APIs consultadas, com cota diária limitada. Em caso de cota esgotada, a ferramenta informa o ocorrido e pede para tentar novamente mais tarde.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        O verificador de links e PIX tem limite de análises por pessoa e por dia, e um teto diário geral. Uso automatizado em volume, tentativa de burlar os limites ou uso para atacar terceiros pode levar ao bloqueio do acesso. Os serviços são oferecidos sem garantia de disponibilidade.
       </p>
     </section>
 

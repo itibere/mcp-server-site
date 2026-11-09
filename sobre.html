@@ -67,6 +67,7 @@
       <h2 class="text-lg font-bold text-emerald-300 font-mono-code">O que tem aqui</h2>
       <ul class="text-sm sm:text-base text-slate-300 leading-relaxed space-y-2 list-disc list-inside">
         <li><strong class="text-white">MCP-PNCP</strong> — monitor de contratações públicas de TIC coletadas via API pública do Portal Nacional de Contratações Públicas (PNCP), com um servidor MCP para consulta via Claude e outros assistentes de IA.</li>
+        <li><strong class="text-white"><a href="sitesecure/" class="underline">IJ Site Secure</a></strong> — verificador gratuito de links e PIX copia-e-cola: reputação do domínio, destino dos links e empresa por trás, antes de clicar ou pagar.</li>
         <li><strong class="text-white">RAG-Licitações</strong> — busca semântica sobre normativos de contratação pública (Lei 14.133/2021, Lei 13.303/2016, Portaria SGD/MGI 1.070/2023). Em construção.</li>
       </ul>
     </section>
@@ -74,7 +75,7 @@
     <section class="space-y-4">
       <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Como é construído</h2>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        Site 100% estático, hospedado no <strong class="text-white">GitHub Pages</strong>, sem backend próprio, sem analytics, sem cookies e sem rastreamento de qualquer tipo — ver <a href="privacidade.html" class="underline">Política de Privacidade</a>. Os dados exibidos vêm exclusivamente de fontes públicas oficiais (API do PNCP), amparados pela Lei de Acesso à Informação.
+        Páginas estáticas hospedadas no <strong class="text-white">GitHub Pages</strong>, sem analytics e sem cookies. O <a href="sitesecure/" class="underline">IJ Site Secure</a> e a verificação de hash e links usam um backend próprio em Cloudflare Workers, que guarda um histórico anônimo de consultas — ver <a href="privacidade.html" class="underline">Política de Privacidade</a>. Os dados dos dashboards vêm de fontes públicas oficiais (API do PNCP), amparados pela Lei de Acesso à Informação.
       </p>
     </section>
 
@@ -103,6 +104,7 @@
       <div class="flex items-center gap-6 text-slate-400">
         <a href="pncp-monitor/" class="hover:text-purple-400 transition">MCP-PNCP</a>
         <a href="rag-licitacoes/" class="hover:text-emerald-400 transition">RAG-Licitações</a>
+        <a href="sitesecure/" class="hover:text-emerald-400 transition">Site Secure</a>
         <a href="sobre.html" class="hover:text-white transition">Sobre</a>
         <a href="privacidade.html" class="hover:text-white transition">Privacidade</a>
         <a href="mailto:itibere.paquier@gmail.com" class="hover:text-cyan-400 transition">E-mail</a>

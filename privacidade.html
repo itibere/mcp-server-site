@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacidade — Itiberê Paquier</title>
-  <meta name="description" content="Política de privacidade de itibere.tec.br: nenhuma coleta de dados, sem cookies, sem analytics.">
+  <meta name="description" content="Política de privacidade de itibere.tec.br: o que é e o que não é guardado, sem cookies, sem analytics.">
 
   <!-- Tailwind CSS Standalone -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,7 +22,7 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
   <meta property="og:title" content="Privacidade — Itiberê Paquier">
-  <meta property="og:description" content="Política de privacidade de itibere.tec.br: nenhuma coleta de dados, sem cookies, sem analytics.">
+  <meta property="og:description" content="Política de privacidade de itibere.tec.br: o que é e o que não é guardado, sem cookies, sem analytics.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://itibere.tec.br/privacidade.html">
 </head>
@@ -53,14 +53,20 @@
           ITIBERE.TEC.BR / PRIVACIDADE
         </span>
         <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">Política de Privacidade</h1>
-        <p class="text-xs text-slate-500 font-mono-code">Última atualização: 2026-10-08</p>
+        <p class="text-xs text-slate-500 font-mono-code">Última atualização: 2026-11-09</p>
       </div>
     </section>
 
     <section class="space-y-4">
-      <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Coleta de dados</h2>
+      <h2 class="text-lg font-bold text-emerald-300 font-mono-code">Resumo: o que é guardado e o que não é</h2>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        Este site <strong class="text-white">não coleta dados pessoais</strong> de quem visita. Não há cookies, não há scripts de analytics, não há rastreadores de terceiros e não há formulários que capturem informação do visitante. É um site estático: HTML, CSS e JavaScript servidos diretamente, sem backend próprio processando requisições.
+        As páginas do site não usam cookies, analytics nem rastreadores de terceiros, e não têm cadastro. Os dashboards e páginas informativas são estáticos. <strong class="text-white">A exceção são as ferramentas que usam o backend próprio</strong> (verificação de hash e links e IJ Site Secure), descritas abaixo.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        <strong class="text-white">O que é guardado</strong> pelo verificador IJ Site Secure: (1) um histórico anônimo de consultas, no banco D1 da Cloudflare, mantido por até 12 meses, com a data de cada consulta (apenas o dia), o tipo (site ou PIX), o domínio consultado, a instituição que recebe o PIX e a nota do laudo; (2) o laudo de cada consulta, por 1 hora, para não refazer a mesma análise; (3) os registros técnicos (Workers Logs) da plataforma Cloudflare, ligados no backend.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        <strong class="text-white">O que não é guardado no histórico</strong>: endereço IP, endereço completo (URL) e chave PIX ou nome de quem recebe.
       </p>
     </section>
 
@@ -78,8 +84,7 @@
         usa um backend próprio (um proxy em Cloudflare Workers), o mesmo do verificador descrito abaixo.
         O hash (calculado no seu navegador — o arquivo em si nunca é enviado) ou a URL
         que você informar é repassado ao <a href="https://www.virustotal.com" target="_blank" rel="noopener noreferrer" class="underline">VirusTotal</a>
-        pra consulta. Esse proxy não grava log nem guarda essas consultas em banco
-        próprio — só repassa e devolve o resultado. Veja também os <a href="termos.html" class="underline">Termos de Uso</a>.
+        pra consulta. Esse proxy não guarda essas consultas em banco próprio: só repassa e devolve o resultado. Ele roda na Cloudflare, cujos registros técnicos (Workers Logs) estão ligados e são descritos abaixo. Veja também os <a href="termos.html" class="underline">Termos de Uso</a>.
       </p>
     </section>
 
@@ -93,14 +98,18 @@
       </p>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
         O laudo fica guardado por até 1 hora, para que a mesma consulta não seja refeita; a chave desse registro é um código (hash)
-        da entrada, e no laudo a chave PIX de CPF, e-mail ou telefone aparece mascarada. Para limitar o uso, o worker mantém contadores
+        da entrada, mas o conteúdo do laudo guardado inclui o endereço analisado e as informações exibidas nele. No laudo, a chave PIX de CPF, e-mail ou telefone aparece mascarada. Para limitar o uso, o worker mantém contadores
         por endereço de IP; o IP não é gravado (o contador é identificado por um código derivado dele) e os contadores são apagados
         48 horas depois do último uso.
       </p>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-        Para acompanhar o uso da ferramenta, cada consulta gera um registro com a data, o tipo (site ou PIX), o domínio consultado
+        Para acompanhar o uso da ferramenta, cada consulta gera um registro anônimo no histórico com a data, o tipo (site ou PIX), o domínio consultado
         (sem o restante do endereço), a instituição que recebe o PIX e a nota do laudo. Esse registro não guarda IP, endereço completo,
-        chave PIX nem nome de quem recebe o pagamento.
+        chave PIX nem nome de quem recebe o pagamento. O histórico é mantido por até 12 meses e depois apagado, e a data é registrada apenas por dia, sem horário.
+      </p>
+      <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+        O backend roda na Cloudflare, que mantém Workers Logs com registros técnicos das requisições por um prazo curto, definido pela própria Cloudflare. O código do worker registra ali apenas o resultado da verificação do Turnstile (sem IP) e falhas de gravação do histórico; metadados da requisição que a plataforma acrescente aos registros seguem a <a href="https://www.cloudflare.com/pt-br/privacypolicy/" target="_blank" rel="noopener noreferrer" class="underline">política de privacidade da Cloudflare</a>.
+        Se você discorda de um laudo, veja o canal de contestação nos <a href="termos.html" class="underline">Termos de Uso</a>.
       </p>
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
         Para barrar robôs, a página usa o <a href="https://www.cloudflare.com/pt-br/application-services/products/turnstile/" target="_blank" rel="noopener noreferrer" class="underline">Cloudflare Turnstile</a>,
