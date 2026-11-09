@@ -1,23 +1,28 @@
 // Plataforma de pagamento e PIX: o BR Code (EMV/Bacen) diz quem recebe o
 // dinheiro; comparamos com a empresa que o site diz ser.
 import { cnpjValido, formatarCnpj } from "./empresa.js";
-import { hostDe, nomeCombina } from "./util.js";
+import { casaDominio, hostDe, nomeCombina } from "./util.js";
 
 const GATEWAYS = [
-  ["mercadopago", "Mercado Pago"], ["mercadolibre", "Mercado Pago"], ["pagseguro", "PagSeguro/PagBank"],
-  ["pagbank", "PagSeguro/PagBank"], ["stripe", "Stripe"], ["pagar.me", "Pagar.me"], ["pagarme", "Pagar.me"],
-  ["asaas", "Asaas"], ["cielo", "Cielo"], ["getnet", "Getnet"], ["adyen", "Adyen"], ["paypal", "PayPal"],
-  ["iugu", "Iugu"], ["efipay", "Efí"], ["gerencianet", "Efí"], ["appmax", "Appmax"], ["yampi", "Yampi"],
-  ["vindi", "Vindi"], ["braintree", "Braintree"], ["rede.com.br", "Rede"], ["stone.com.br", "Stone"],
-  ["picpay", "PicPay"], ["hotmart", "Hotmart"], ["kiwify", "Kiwify"], ["eduzz", "Eduzz"],
-  ["monetizze", "Monetizze"], ["openpix", "OpenPix"], ["woovi", "Woovi"],
+  ["mercadopago.com", "Mercado Pago"], ["mercadopago.com.br", "Mercado Pago"], ["mercadolibre.com", "Mercado Pago"],
+  ["pagseguro.uol.com.br", "PagSeguro/PagBank"], ["pagseguro.com.br", "PagSeguro/PagBank"], ["pagbank.com.br", "PagSeguro/PagBank"],
+  ["stripe.com", "Stripe"], ["stripe.network", "Stripe"], ["pagar.me", "Pagar.me"], ["asaas.com", "Asaas"],
+  ["cielo.com.br", "Cielo"], ["getnet.com.br", "Getnet"], ["adyen.com", "Adyen"], ["paypal.com", "PayPal"], ["paypal.com.br", "PayPal"],
+  ["iugu.com", "Iugu"], ["efipay.com.br", "Efí"], ["gerencianet.com.br", "Efí"], ["appmax.com.br", "Appmax"], ["yampi.com.br", "Yampi"],
+  ["vindi.com.br", "Vindi"], ["braintreegateway.com", "Braintree"], ["braintree-api.com", "Braintree"],
+  ["rede.com.br", "Rede"], ["userede.com.br", "Rede"], ["stone.com.br", "Stone"],
+  ["picpay.com", "PicPay"], ["hotmart.com", "Hotmart"], ["kiwify.com.br", "Kiwify"], ["eduzz.com", "Eduzz"],
+  ["monetizze.com.br", "Monetizze"], ["openpix.com.br", "OpenPix"], ["woovi.com", "Woovi"],
 ];
+
+// Nomes de intermediadores de pagamento no campo "recebedor" do BR Code.
+export const INTERMEDIADOR = /\b(mercado ?pago|pagseguro|pagbank|asaas|pagar\.?me|picpay|efi|gerencianet|iugu|stone|cielo|getnet|openpix|woovi|appmax|hotmart|kiwify|eduzz|infinitepay|cloudwalk)\b/i;
 
 export function detectarPagamento(coleta) {
   const achados = new Set();
   for (const url of coleta.requisicoes) {
     const host = hostDe(url) || "";
-    for (const [chave, nome] of GATEWAYS) if (host.includes(chave)) achados.add(nome);
+    for (const [dominio, nome] of GATEWAYS) if (casaDominio(host, dominio)) achados.add(nome);
   }
   // Citar "PIX" no texto nao faz do site uma plataforma de pagamento (portal
   // de noticia fala de PIX); conta so gateway carregado, form de cartao ou
@@ -27,7 +32,7 @@ export function detectarPagamento(coleta) {
 }
 
 // CRC16-CCITT (poly 0x1021, init 0xFFFF), exigido pelo manual do BR Code.
-function crc16(texto) {
+export function crc16(texto) {
   let crc = 0xffff;
   for (let i = 0; i < texto.length; i++) {
     crc ^= texto.charCodeAt(i) << 8;
@@ -36,20 +41,21 @@ function crc16(texto) {
   return crc.toString(16).toUpperCase().padStart(4, "0");
 }
 
-function tlv(s) {
+export function tlv(s) {
   const campos = {};
   let i = 0;
   while (i + 4 <= s.length) {
     const id = s.slice(i, i + 2);
-    const tam = Number(s.slice(i + 2, i + 4));
-    if (Number.isNaN(tam)) break;
+    const tamTxt = s.slice(i + 2, i + 4);
+    if (!/^\d{2}$/.test(tamTxt)) break;
+    const tam = Number(tamTxt);
     campos[id] = s.slice(i + 4, i + 4 + tam);
     i += 4 + tam;
   }
   return campos;
 }
 
-function tipoChave(chave) {
+export function tipoChave(chave) {
   const d = chave.replace(/\D/g, "");
   if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(chave)) return "aleatoria";
   if (chave.includes("@")) return "email";
@@ -114,8 +120,7 @@ export function compararPix(pix, cnpjSite, empresa) {
   } else if (pix.tipoChave === "aleatoria" || pix.dinamico) {
     achados.push("chave aleatória/dinâmica: o titular não é público (DICT do Bacen), comparado só o nome do recebedor");
   }
-  const intermediador = /mercado ?pago|pagseguro|pagbank|asaas|pagar\.?me|picpay|efi |gerencianet|iugu|stone|cielo|getnet|openpix|woovi|appmax|hotmart|kiwify|eduzz/i;
-  if (pix.recebedor && intermediador.test(pix.recebedor)) {
+  if (pix.recebedor && INTERMEDIADOR.test(pix.recebedor)) {
     if (nivel === "bom") nivel = "medio";
     achados.push(`recebedor é o intermediador de pagamento (${pix.recebedor}), não identifica o lojista`);
   } else if (pix.recebedor && empresa?.encontrado) {

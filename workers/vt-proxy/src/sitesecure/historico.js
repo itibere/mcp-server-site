@@ -2,8 +2,26 @@
 // Grava so o necessario para saber o que foi consultado: data, tipo, dominio
 // (nunca a URL completa, que pode trazer codigo pessoal na query), instituicao
 // que recebe o PIX (nunca a chave nem o recebedor) e a nota do laudo.
-// Nenhum IP. Sem o binding (dev local, testes), nao faz nada.
+// Nenhum IP. A data e so o dia (Brasilia), sem hora. Linhas com mais de 12 meses
+// sao apagadas por limparHistorico (cron diario, ver wrangler.toml).
+// Sem o binding (dev local, testes), nao faz nada.
 import { hostDe } from "./util.js";
+import { ROTULO_INCOMPLETA } from "./nota.js";
+
+const RETENCAO_MESES = 12;
+const HORA = 3600_000;
+
+export function diaBR(agora = Date.now()) {
+  return new Date(agora - 3 * HORA).toISOString().slice(0, 10);
+}
+
+export function diaLimiteRetencao(agora = Date.now()) {
+  const d = new Date(agora - 3 * HORA);
+  d.setUTCMonth(d.getUTCMonth() - RETENCAO_MESES);
+  return d.toISOString().slice(0, 10);
+}
+
+const notaDoLaudo = (laudo) => (laudo.notaRotulo === ROTULO_INCOMPLETA ? "incompleta" : laudo.nota);
 
 // Linha do historico a partir do laudo; null se nao houver o que gravar.
 export function linhaHistorico(laudo, { cache = false } = {}) {
@@ -13,7 +31,7 @@ export function linhaHistorico(laudo, { cache = false } = {}) {
       tipo: "pix",
       dominio: null,
       instituicao: laudo.detalhes?.instituicao?.nome || null,
-      nota: laudo.nota,
+      nota: notaDoLaudo(laudo),
       cache: cache ? 1 : 0,
     };
   }
@@ -23,7 +41,7 @@ export function linhaHistorico(laudo, { cache = false } = {}) {
     tipo: "site",
     dominio: String(dominio).toLowerCase().slice(0, 253),
     instituicao: laudo.detalhes?.pagamento?.pix?.instituicao?.nome || null,
-    nota: laudo.nota,
+    nota: notaDoLaudo(laudo),
     cache: cache ? 1 : 0,
   };
 }
@@ -35,9 +53,19 @@ export async function registrarConsulta(env, laudo, opcoes) {
   try {
     await env.HISTORICO.prepare(
       "INSERT INTO consultas (em, tipo, dominio, instituicao, nota, cache) VALUES (?, ?, ?, ?, ?, ?)",
-    ).bind(new Date().toISOString(), l.tipo, l.dominio, l.instituicao, l.nota, l.cache).run();
+    ).bind(diaBR(), l.tipo, l.dominio, l.instituicao, l.nota, l.cache).run();
   } catch (err) {
     // Historico nunca derruba a analise.
     console.log(JSON.stringify({ evento: "historico_falhou", erro: String(err?.message || err).slice(0, 120) }));
+  }
+}
+
+// Apaga o que passou da retencao. Chamada pelo cron diario.
+export async function limparHistorico(env, agora = Date.now()) {
+  if (!env.HISTORICO) return;
+  try {
+    await env.HISTORICO.prepare("DELETE FROM consultas WHERE em < ?").bind(diaLimiteRetencao(agora)).run();
+  } catch (err) {
+    console.log(JSON.stringify({ evento: "limpeza_historico_falhou", erro: String(err?.message || err).slice(0, 120) }));
   }
 }

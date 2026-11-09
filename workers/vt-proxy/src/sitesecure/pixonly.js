@@ -1,35 +1,23 @@
 // Consulta so do PIX copia-e-cola, sem o link do site.
 // Le o BR Code, confere o titular da chave (quando e CNPJ), a reputacao do
 // endereco do QR dinamico e a instituicao de pagamento no ranking do BC.
-import { lerBrCode } from "./pagamento.js";
+import { lerBrCode, INTERMEDIADOR } from "./pagamento.js";
 import { consultarCnpj, formatarCnpj } from "./empresa.js";
 import { consultarRdap } from "./dominio.js";
 import { consultarSafeBrowsing } from "./reputacao.js";
 import { carregarRanking, carregarParticipantes, identificarInstituicao, situacaoNoRanking, situacaoParticipante, participantePorCnpj } from "./bancocentral.js";
 import { identificarGoverno } from "./governo.js";
-import { Orcamento, dominioRaiz, nomeCombina } from "./util.js";
-
-const INTERMEDIADOR = /mercado ?pago|pagseguro|pagbank|asaas|pagar\.?me|picpay|\befi\b|gerencianet|iugu|stone|cielo|getnet|openpix|woovi|appmax|hotmart|kiwify|eduzz|infinitepay|cloudwalk/i;
+import { resultadoNota } from "./nota.js";
+import { Orcamento, dominioRaiz, nomeCombina, etapa } from "./util.js";
 
 // A chave aparece mascarada no laudo: CPF e e-mail sao dado pessoal.
-function mascarar(chave, tipo) {
+export function mascarar(chave, tipo) {
   if (!chave) return null;
   if (tipo === "cpf") return `***.${chave.replace(/\D/g, "").slice(3, 6)}.${chave.replace(/\D/g, "").slice(6, 9)}-**`;
   if (tipo === "email") return chave.replace(/^(.)[^@]*(@.*)$/, "$1***$2");
   if (tipo === "telefone") return chave.replace(/^(\+55\d{2})\d+(\d{4})$/, "$1*****$2");
   if (tipo === "cnpj") return formatarCnpj(chave.replace(/\D/g, ""));
-  return chave;
-}
-
-async function etapa(emitir, nome, fn, padrao = null) {
-  try {
-    const r = await fn();
-    await emitir({ etapa: nome, status: "ok" });
-    return r;
-  } catch (err) {
-    await emitir({ etapa: nome, status: "falhou", motivo: String(err?.message || err).slice(0, 120) });
-    return padrao;
-  }
+  return chave.length > 8 ? `${chave.slice(0, 4)}…${chave.slice(-4)}` : "****";
 }
 
 export async function executarPix(env, bruto, emitir, orc = new Orcamento(20)) {
@@ -119,12 +107,15 @@ export async function executarPix(env, bruto, emitir, orc = new Orcamento(20)) {
   obs.push("antes de confirmar, confira no app do banco o nome e o documento de quem vai receber");
 
   const nivel = baixo.length ? "baixo" : medio.length ? "medio" : "bom";
+  const fontesIndisponiveis = pix.dinamico && pix.pspUrl && !gsb?.disponivel ? ["Google Safe Browsing"] : [];
+  const resultado = resultadoNota(nivel, fontesIndisponiveis);
+  if (fontesIndisponiveis.length) obs.unshift(`análise parcial: ${fontesIndisponiveis.join(", ")} não respondeu agora`);
   await emitir({
     etapa: "laudo",
     laudo: {
       tipo: "pix",
       analisadoEm: new Date().toISOString(),
-      nota: nivel,
+      ...resultado,
       blocos: { pix: { nivel, alertas: [...baixo, ...medio], positivos: bom, observacoes: obs } },
       detalhes: {
         pix: {
@@ -139,7 +130,7 @@ export async function executarPix(env, bruto, emitir, orc = new Orcamento(20)) {
         },
         empresa: pix.tipoChave === "cnpj" ? empresa : null,
         instituicao: inst ? { ...inst, ranking: bc, participante: part } : null,
-        fontesIndisponiveis: [pix.dinamico && gsb && !gsb.disponivel && "Google Safe Browsing"].filter(Boolean),
+        fontesIndisponiveis,
         subrequests: orc.usado,
       },
     },

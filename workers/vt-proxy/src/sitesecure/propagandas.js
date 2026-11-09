@@ -1,6 +1,6 @@
 // Existencia de propagandas: quais redes de anuncio a pagina carrega e para
 // onde os anuncios levam.
-import redes from "./data/redes_anuncio.json";
+import redes from "./data/redes_anuncio.json" with { type: "json" };
 import { dominioRaiz, hostDe } from "./util.js";
 
 const CONFIAVEIS = new Set(redes.confiaveis);

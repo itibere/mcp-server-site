@@ -3,10 +3,17 @@ const VT_BASE = "https://www.virustotal.com/api/v3";
 const HASH_RE = /^[a-fA-F0-9]{32}$|^[a-fA-F0-9]{40}$|^[a-fA-F0-9]{64}$|^[a-fA-F0-9]{128}$/;
 
 import { handleAnalisar } from "./sitesecure/analisar.js";
+import { agruparIp } from "./sitesecure/guarda.js";
+import { conferirTurnstile } from "./sitesecure/turnstile.js";
+import { limparHistorico } from "./sitesecure/historico.js";
+import { lerJsonLimitado } from "./sitesecure/util.js";
 export { SitesecureDO } from "./sitesecure/guarda.js";
 
 const RATE_LIMIT = 10; // requisicoes
 const RATE_WINDOW_MS = 60_000; // por janela fixa de 60s
+const DIA_MS = 86_400_000;
+const VT_LIMITE_DIA_IP = 20; // /hash e /url: mesmo limite diario por IP do sitesecure
+const VT_TETO_DIA = 150; // e mesmo teto diario geral
 
 // Rate limit via Durable Object, por IP (mesmo padrao do worker rag-licitacoes,
 // ver rag-portarias/portarias/worker/src/index.js): instancia unica autoritativa
@@ -143,12 +150,24 @@ async function vtFetch(path, apiKey, init = {}) {
   });
 }
 
-async function handleHash(request, env) {
-  const { hash } = await request.json().catch(() => ({}));
-  if (typeof hash !== "string" || !HASH_RE.test(hash)) {
-    return json(request, { error: "hash_invalido" }, 400);
-  }
+function validarHash(corpo) {
+  const hash = corpo?.hash;
+  return typeof hash === "string" && HASH_RE.test(hash) ? { hash } : { erro: "hash_invalido" };
+}
 
+function validarUrlVt(corpo) {
+  const bruta = corpo?.url;
+  if (typeof bruta !== "string" || bruta.length > 2048) return { erro: "url_invalida" };
+  try {
+    const parsed = new URL(bruta);
+    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return { erro: "url_invalida" };
+    return { parsed };
+  } catch {
+    return { erro: "url_invalida" };
+  }
+}
+
+async function handleHash(request, env, hash) {
   const res = await vtFetch(`/files/${hash}`, env.VT_API_KEY);
   if (res.status === 404) {
     return json(request, { found: false });
@@ -172,15 +191,7 @@ async function handleHash(request, env) {
   });
 }
 
-async function handleUrlSubmit(request, env) {
-  const { url } = await request.json().catch(() => ({}));
-  let parsed;
-  try {
-    parsed = new URL(url);
-  } catch {
-    return json(request, { error: "url_invalida" }, 400);
-  }
-
+async function handleUrlSubmit(request, env, parsed) {
   const urlId = urlIdFor(parsed.toString());
   const existing = await vtFetch(`/urls/${urlId}`, env.VT_API_KEY);
   if (existing.status === 429) {
@@ -257,32 +268,59 @@ export default {
       return new Response(null, { status: 204, headers: corsHeaders(request, env) });
     }
 
-    const ip = request.headers.get("CF-Connecting-IP") || "sem-ip";
+    const ipBruto = request.headers.get("CF-Connecting-IP") || "";
+    const ip = agruparIp(ipBruto);
     const url = new URL(request.url);
 
     // Sitesecure: guarda propria (sitesecure/guarda.js) com janela deslizante,
     // limite diario, bloqueio progressivo, teto geral e cache; separada do
     // limite de /hash e /url.
     if (request.method === "POST" && url.pathname === "/sitesecure/analisar") {
-      return handleAnalisar(request, env, ctx, corsHeaders(request, env), ip);
+      return handleAnalisar(request, env, ctx, corsHeaders(request, env), ip, ipBruto);
     }
 
-    const dentroDoLimite = await checarLimite(env, ip);
-    if (!dentroDoLimite) {
-      return json(request, { error: "rate_limit_excedido" }, 429);
+    try {
+      if (!(await checarLimite(env, ip))) {
+        return json(request, { error: "rate_limit_excedido" }, 429);
+      }
+    } catch {
+      return json(request, { error: "servico_indisponivel" }, 503);
     }
 
-    if (request.method === "POST" && url.pathname === "/hash") {
-      return handleHash(request, env);
+    const ehHash = request.method === "POST" && url.pathname === "/hash";
+    const ehUrl = request.method === "POST" && url.pathname === "/url";
+    if (ehHash || ehUrl) {
+      // Entrada valida e Turnstile antes de cobrar o limite diario e o teto.
+      const lido = await lerJsonLimitado(request);
+      if (lido.erro) return json(request, { error: lido.erro }, lido.status);
+      const entrada = ehHash ? validarHash(lido.corpo) : validarUrlVt(lido.corpo);
+      if (entrada.erro) return json(request, { error: entrada.erro }, 400);
+
+      const ts = await conferirTurnstile(env, lido.corpo?.turnstile, ipBruto, env.TURNSTILE_VT_MODO || "observar");
+      console.log(JSON.stringify({ evento: "turnstile_vt", modo: ts.modo, resultado: ts.resultado, bloqueou: !ts.ok }));
+      if (!ts.ok) return json(request, { error: "verificacao_humana" }, 403);
+
+      try {
+        if (!(await checarLimite(env, `vt-dia:${ip}`, VT_LIMITE_DIA_IP, DIA_MS))) {
+          return json(request, { error: "limite_diario" }, 429);
+        }
+        if (!(await checarLimite(env, "vt-teto-dia", VT_TETO_DIA, DIA_MS))) {
+          return json(request, { error: "teto_diario" }, 503);
+        }
+      } catch {
+        return json(request, { error: "servico_indisponivel" }, 503);
+      }
+      return ehHash ? handleHash(request, env, entrada.hash) : handleUrlSubmit(request, env, entrada.parsed);
     }
-    if (request.method === "POST" && url.pathname === "/url") {
-      return handleUrlSubmit(request, env);
-    }
-    const pollMatch = url.pathname.match(/^\/url\/(.+)$/);
+    const pollMatch = url.pathname.match(/^\/url\/([A-Za-z0-9_=-]{1,200})$/);
     if (request.method === "GET" && pollMatch) {
       return handleUrlPoll(request, env, pollMatch[1]);
     }
 
     return json(request, { error: "not_found" }, 404);
+  },
+
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(limparHistorico(env));
   },
 };

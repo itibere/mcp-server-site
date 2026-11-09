@@ -38,6 +38,9 @@ new_sqlite_classes = ["SitesecureDO"]
 # recusa a analise sem token valido (a CSP ja libera o widget).
 [vars]
 TURNSTILE_MODO = "exigir"
+# /hash e /url (checagem-hash-link.js ainda nao envia token): mudar para "exigir" depois que o front
+# enviar o campo turnstile; ate la, so registra no log. O limite diario ja vale.
+TURNSTILE_VT_MODO = "observar"
 
 # Workers Logs (plano gratuito): onde aparecem os registros do Turnstile.
 [observability]
@@ -55,3 +58,8 @@ binding = "HISTORICO"
 database_name = "sitesecure-historico"
 database_id = "7328547b-0215-4a2d-9da9-2a6ba0fec1e2"
 migrations_dir = "migrations"
+
+# Limpeza diaria do historico (src/sitesecure/historico.js, limparHistorico): apaga
+# consultas com mais de 12 meses. 05:17 UTC.
+[triggers]
+crons = ["17 5 * * *"]

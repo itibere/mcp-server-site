@@ -3,7 +3,7 @@
 // ela aparece no ranking. So informa: nao mexe na nota, porque instituicao
 // grande e legitima tambem tem indice alto.
 // Fonte: https://dadosabertos.bcb.gov.br/dataset/ranking-de-instituicoes-por-indice-de-reclamacoes
-import psps from "./data/psp_bcb.json";
+import psps from "./data/psp_bcb.json" with { type: "json" };
 import { buscar, buscarJson, dominioRaiz, hostDe } from "./util.js";
 
 const BASE = "https://www3.bcb.gov.br/rdrweb/rest/ext/ranking";

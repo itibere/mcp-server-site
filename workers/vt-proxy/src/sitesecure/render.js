@@ -1,10 +1,11 @@
 // Coleta da pagina: navegador headless (Cloudflare Browser Rendering) e, se a
 // cota diaria do navegador acabar, fallback para o HTML estatico.
-import puppeteer from "@cloudflare/puppeteer";
 import { buscar } from "./util.js";
+import { verificarDestinos } from "./guard.js";
 
 const MAX_REQS = 400;
 const MAX_TEXTO = 60_000;
+const MAX_SALTOS = 5;
 
 // Roda dentro da pagina. Nao pode referenciar nada de fora desta funcao.
 function extrairNaPagina() {
@@ -71,6 +72,7 @@ async function linksDosFrames(page) {
 }
 
 export async function renderizar(env, url) {
+  const { default: puppeteer } = await import("@cloudflare/puppeteer");
   const browser = await puppeteer.launch(env.BROWSER);
   try {
     const page = await browser.newPage();
@@ -102,11 +104,24 @@ export async function renderizar(env, url) {
 }
 
 // Fallback sem navegador: so HTML estatico. Nao ve anuncio injetado por JS.
-export async function coletarEstatico(orcamento, url) {
-  const res = await buscar(orcamento, url, {
-    redirect: "follow",
-    headers: { "User-Agent": "Mozilla/5.0 (compatible; IJ-Sitesecure/1.0; +https://itibere.tec.br/sitesecure/)" },
-  }, 12_000);
+export async function coletarEstatico(orcamento, url, vistos = new Set()) {
+  const saltos = [];
+  let atual = url;
+  let res;
+  for (;;) {
+    res = await buscar(orcamento, atual, {
+      redirect: "manual",
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; IJ-Sitesecure/1.0; +https://itibere.tec.br/sitesecure/)" },
+    }, 12_000);
+    const destino = res.headers.get("location");
+    if (res.status < 300 || res.status >= 400 || !destino) break;
+    if (saltos.length >= MAX_SALTOS) throw new Error("redirecionamentos_demais");
+    saltos.push(atual);
+    atual = new URL(destino, atual).toString();
+    const ok = await verificarDestinos(orcamento, vistos, [atual]);
+    if (ok.erro) throw Object.assign(new Error(ok.erro), { destinoProibido: true });
+  }
+  const urlFinal = atual;
   const headers = Object.fromEntries(res.headers);
   const links = [];
   const iframes = [];
@@ -133,13 +148,13 @@ export async function coletarEstatico(orcamento, url) {
       element(el) {
         if (links.length >= 600) return;
         try {
-          const href = new URL(el.getAttribute("href"), res.url).toString();
+          const href = new URL(el.getAttribute("href"), urlFinal).toString();
           if (/^https?:/i.test(href)) links.push({ href, texto: "", zona, anuncio: false });
         } catch { /* href invalido */ }
       },
     })
-    .on("iframe[src]", { element(el) { try { iframes.push(new URL(el.getAttribute("src"), res.url).toString()); } catch { /* */ } } })
-    .on("script[src]", { element(el) { try { scripts.push(new URL(el.getAttribute("src"), res.url).toString()); } catch { /* */ } } })
+    .on("iframe[src]", { element(el) { try { iframes.push(new URL(el.getAttribute("src"), urlFinal).toString()); } catch { /* */ } } })
+    .on("script[src]", { element(el) { try { scripts.push(new URL(el.getAttribute("src"), urlFinal).toString()); } catch { /* */ } } })
     .transform(res);
 
   // Le no maximo ~1,5 MB (o suficiente para achar CNPJ/BR Code no texto).
@@ -156,10 +171,10 @@ export async function coletarEstatico(orcamento, url) {
 
   return {
     modo: "estatico",
-    urlFinal: res.url,
+    urlFinal,
     status: res.status,
     headers,
-    redirecionamentos: res.redirected ? [url] : [],
+    redirecionamentos: saltos,
     tls: null,
     requisicoes: [...scripts, ...iframes],
     titulo: (html.match(/<title[^>]*>([^<]*)/i)?.[1] || "").trim(),

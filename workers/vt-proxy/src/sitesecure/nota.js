@@ -58,6 +58,9 @@ export function notaReputacao(d) {
     else e.bom.push(`${vt.total} engines do VirusTotal sem alerta`);
   } else if (vt?.disponivel && !radarSite?.estabelecido) leves.push("domínio desconhecido no VirusTotal");
 
+  const semFonte = [!vt?.disponivel && "VirusTotal", gsbSite == null && "Google Safe Browsing", !urlhaus?.disponivel && "URLhaus"].filter(Boolean);
+  if (semFonte.length) e.obs.push(`análise parcial: ${semFonte.join(", ")} não respondeu agora, então a ausência de alerta nessas fontes não significa que o site seja seguro`);
+
   if (gsbSite?.length) e.baixo.push(`Google Safe Browsing marca ${gsbSite.length} endereço(s) deste site: ${[...new Set(gsbSite)].join(", ")}`);
   else if (gsbSite) e.bom.push("Google Safe Browsing sem alerta");
   if (urlhaus?.listado && urlhaus.online) e.baixo.push(`URLhaus: ${urlhaus.online} URL(s) de malware ativas neste host`);
@@ -190,4 +193,26 @@ export function notaFinal(blocos) {
   if (niveis.includes("baixo")) return "baixo";
   if (niveis.filter((n) => n === "medio").length >= LIMITES.mediosParaNotaMedia) return "medio";
   return "bom";
+}
+
+export const ROTULO_INCOMPLETA = "Análise incompleta";
+const ROTULO_NOTA = { bom: "Parece segura", medio: "Atenção", baixo: "Risco alto", incompleta: ROTULO_INCOMPLETA };
+
+// Fontes de ameaça que precisam ter respondido para a nota poder dizer "segura".
+export function fontesEssenciaisIndisponiveis({ vt, gsb, urlhaus }) {
+  return [!vt?.disponivel && "VirusTotal", !gsb?.disponivel && "Google Safe Browsing", !urlhaus?.disponivel && "URLhaus"].filter(Boolean);
+}
+
+// Nota exibida. Com fonte essencial fora do ar, "bom" nunca sai: o campo `nota`
+// (que o front ja usa) vira "medio" e o rotulo diz "Análise incompleta".
+export function resultadoNota(nota, fontesIndisponiveis) {
+  const incompleta = fontesIndisponiveis.length > 0;
+  const semAlerta = nota === "bom";
+  const final = incompleta && semAlerta ? "medio" : nota;
+  return {
+    nota: final,
+    notaRotulo: incompleta && semAlerta ? ROTULO_NOTA.incompleta : ROTULO_NOTA[final],
+    analiseIncompleta: incompleta,
+    fontesIndisponiveis,
+  };
 }

@@ -100,6 +100,54 @@ export function detectarDesafio(coleta) {
   return vazia && (coleta.requisicoes || []).some((u) => SCRIPT_DESAFIO.test(u));
 }
 
+// Le o corpo JSON de uma requisicao sem aceitar mais que `max` bytes.
+export async function lerJsonLimitado(request, max = 4096) {
+  const declarado = Number(request.headers.get("Content-Length"));
+  if (declarado > max) return { erro: "corpo_grande", status: 413 };
+  if (!request.body) return { erro: "corpo_invalido", status: 400 };
+  const leitor = request.body.getReader();
+  const pedacos = [];
+  let total = 0;
+  for (;;) {
+    const { done, value } = await leitor.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > max) {
+      leitor.cancel().catch(() => {});
+      return { erro: "corpo_grande", status: 413 };
+    }
+    pedacos.push(value);
+  }
+  try {
+    return { corpo: JSON.parse(await new Blob(pedacos).text()) };
+  } catch {
+    return { erro: "corpo_invalido", status: 400 };
+  }
+}
+
+// O host e o proprio dominio ou um subdominio dele (rotulos inteiros, nunca trecho).
+export function casaDominio(host, dominio) {
+  const h = (host || "").toLowerCase().replace(/\.$/, "");
+  return h === dominio || h.endsWith("." + dominio);
+}
+
+// Executa uma etapa e avisa o cliente. Falha de escrita (cliente que saiu) nao
+// descarta o resultado; a mensagem de erro fica no log, nunca na resposta.
+export async function etapa(emitir, nome, fn, padrao = null) {
+  let resultado = padrao;
+  let evento = { etapa: nome, status: "ok" };
+  try {
+    resultado = await fn();
+  } catch (err) {
+    console.log(JSON.stringify({ evento: "etapa_falhou", etapa: nome, erro: String(err?.message || err).slice(0, 120) }));
+    evento = { etapa: nome, status: "falhou", motivo: err instanceof SemCota ? "sem_cota" : "falhou" };
+  }
+  try {
+    await emitir(evento);
+  } catch { /* cliente desconectou */ }
+  return resultado;
+}
+
 export function hostDe(url) {
   try {
     return new URL(url).hostname.toLowerCase();

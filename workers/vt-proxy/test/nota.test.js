@@ -6,7 +6,7 @@
 // proposito, ajuste o cenario junto: o teste documenta a decisao.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { notaReputacao, notaLinks, notaPropagandas, notaHeaderFooter, notaFinal } from "../src/sitesecure/nota.js";
+import { notaReputacao, notaLinks, notaPropagandas, notaHeaderFooter, notaFinal, resultadoNota, fontesEssenciaisIndisponiveis } from "../src/sitesecure/nota.js";
 
 const HARDENING_BOM = { itens: { https: true }, pontos: 5, faltando: ["csp"], certificado: { diasParaVencer: 90 } };
 const HARDENING_FRACO = { itens: { https: true }, pontos: 2, faltando: ["csp", "hsts", "nosniff", "referrerPolicy"], certificado: { diasParaVencer: 90 } };
@@ -18,7 +18,7 @@ function lojaBoa(sobre = {}) {
   return {
     rep: {
       rdap: { idadeDias: 4000 }, vt: { disponivel: true, conhecido: true, maliciosos: 0, suspeitos: 0, total: 70 },
-      gsbSite: [], urlhaus: { listado: false }, dns: { politicaDmarc: "reject", spfRestritivo: true },
+      gsbSite: [], urlhaus: { disponivel: true, listado: false }, dns: { politicaDmarc: "reject", spfRestritivo: true },
       hardening: HARDENING_BOM, httpsRedirect: true,
       empresa: { encontrado: true, ativa: true, cnpj: "00.000.000/0001-00", razaoSocial: "Loja Exemplo SA", idadeDias: 8000 },
       pagamento: { plataforma: "checkout" }, pix: null, reclameAqui: { verificado: false },
@@ -214,4 +214,48 @@ test("bloco sem conteúdo (verificação anti-robô) fica 'na' e não entra na n
   assert.equal(b.nivel, "na");
   assert.equal(notaFinal({ rep: { nivel: "bom" }, links: b, ads: b, hf: { nivel: "bom" } }), "bom");
   assert.equal(notaFinal({ rep: { nivel: "baixo" }, links: b }), "baixo");
+});
+
+test("fonte de ameaca indisponivel: o bloco avisa que a analise e parcial", () => {
+  const completo = notaReputacao(lojaBoa().rep);
+  assert.ok(!completo.observacoes.some((o) => o.includes("análise parcial")));
+  const parcial = notaReputacao({ ...lojaBoa().rep, gsbSite: null, vt: { disponivel: false }, urlhaus: { disponivel: false } });
+  const aviso = parcial.observacoes.find((o) => o.includes("análise parcial"));
+  assert.ok(aviso.includes("VirusTotal") && aviso.includes("Google Safe Browsing") && aviso.includes("URLhaus"));
+});
+
+test("fontesEssenciaisIndisponiveis: so VirusTotal, Safe Browsing e URLhaus contam", () => {
+  const ok = { vt: { disponivel: true }, gsb: { disponivel: true }, urlhaus: { disponivel: true } };
+  assert.deepEqual(fontesEssenciaisIndisponiveis(ok), []);
+  assert.deepEqual(fontesEssenciaisIndisponiveis({ ...ok, gsb: { disponivel: false, motivo: "sem_chave" } }), ["Google Safe Browsing"]);
+  assert.deepEqual(fontesEssenciaisIndisponiveis({ vt: null, gsb: null, urlhaus: null }), ["VirusTotal", "Google Safe Browsing", "URLhaus"]);
+  assert.deepEqual(fontesEssenciaisIndisponiveis({ ...ok, urlhaus: null }), ["URLhaus"]);
+});
+
+test("resultadoNota: tudo respondeu e sem alerta = Parece segura", () => {
+  assert.deepEqual(resultadoNota("bom", []), { nota: "bom", notaRotulo: "Parece segura", analiseIncompleta: false, fontesIndisponiveis: [] });
+});
+
+test("resultadoNota: fonte indisponivel nunca vira 'Parece segura'", () => {
+  for (const fontes of [["Google Safe Browsing"], ["VirusTotal"], ["URLhaus"], ["VirusTotal", "URLhaus"]]) {
+    const r = resultadoNota("bom", fontes);
+    assert.equal(r.notaRotulo, "Análise incompleta");
+    assert.equal(r.analiseIncompleta, true);
+    assert.deepEqual(r.fontesIndisponiveis, fontes);
+    assert.notEqual(r.nota, "bom", "o campo que o front ja usa tambem sai de 'bom'");
+  }
+});
+
+test("resultadoNota: alerta real continua aparecendo mesmo com fonte fora do ar", () => {
+  const baixo = resultadoNota("baixo", ["VirusTotal"]);
+  assert.equal(baixo.nota, "baixo");
+  assert.equal(baixo.notaRotulo, "Risco alto");
+  assert.equal(baixo.analiseIncompleta, true);
+  const medio = resultadoNota("medio", ["URLhaus"]);
+  assert.equal(medio.notaRotulo, "Atenção");
+});
+
+test("rotulos de exibicao: Atenção e Risco alto", () => {
+  assert.equal(resultadoNota("medio", []).notaRotulo, "Atenção");
+  assert.equal(resultadoNota("baixo", []).notaRotulo, "Risco alto");
 });

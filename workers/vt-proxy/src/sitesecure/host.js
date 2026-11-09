@@ -1,6 +1,6 @@
 // Origem do host: organizacao dona do IP (RDAP de IP) e dicas de cabecalho,
 // classificadas pela lista curada data/hosts_tier.json.
-import tabela from "./data/hosts_tier.json";
+import tabela from "./data/hosts_tier.json" with { type: "json" };
 import { buscarJson } from "./util.js";
 
 const HOSTS = tabela.hosts.map((h) => ({ ...h, re: new RegExp(h.padrao, "i") }));

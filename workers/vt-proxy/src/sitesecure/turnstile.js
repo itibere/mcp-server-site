@@ -6,8 +6,8 @@
 const SITEVERIFY = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const HOSTS_PERMITIDOS = ["itibere.tec.br", "localhost", "127.0.0.1"];
 
-export async function conferirTurnstile(env, token, ip) {
-  const modo = env.TURNSTILE_MODO === "exigir" ? "exigir" : "observar";
+export async function conferirTurnstile(env, token, ip, modoConfigurado = env.TURNSTILE_MODO) {
+  const modo = modoConfigurado === "exigir" ? "exigir" : "observar";
   if (!env.TURNSTILE_SECRET) return { ok: true, modo, resultado: "sem_segredo" };
   if (!token || typeof token !== "string" || token.length > 2048) return decidir(modo, "sem_token");
 

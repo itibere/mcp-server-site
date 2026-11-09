@@ -6,6 +6,8 @@
 // O nome do objeto e derivado do IP pelo proprio Cloudflare (idFromName); o IP
 // nao e gravado no armazenamento. Todo estado se apaga sozinho (alarm).
 
+import { expandirIpv6 } from "./guard.js";
+
 export const LIMITES_SITESECURE = {
   porJanela: 5,
   janelaMs: 10 * 60_000, // janela deslizante: 5 analises em quaisquer 10 min
@@ -100,6 +102,16 @@ export class SitesecureDO {
       return json({ ok: true, usadasHoje: d.n });
     }
 
+    if (u.pathname === "/global/estornar") {
+      const dia = diaBR(agora);
+      const d = (await s.get("dia")) || { dia, n: 0 };
+      if (d.dia === dia && d.n > 0) {
+        d.n -= 1;
+        await s.put("dia", d);
+      }
+      return json({ ok: true });
+    }
+
     if (u.pathname === "/cache/get") {
       const c = await s.get("c");
       return json(c && agora - c.em < L.cacheMs ? c : null);
@@ -121,24 +133,60 @@ export class SitesecureDO {
   }
 }
 
+// Falha do Durable Object (limite da conta, reinicio) vira um erro fixo: a
+// mensagem interna nao sai para o cliente.
 async function chamar(env, nome, caminho, init) {
-  const stub = env.SITESECURE_DO.get(env.SITESECURE_DO.idFromName(nome));
-  const res = await stub.fetch(`https://sitesecure${caminho}`, init);
-  return res.json();
+  try {
+    const stub = env.SITESECURE_DO.get(env.SITESECURE_DO.idFromName(nome));
+    const res = await stub.fetch(`https://sitesecure${caminho}`, init);
+    return await res.json();
+  } catch (err) {
+    console.log(JSON.stringify({ evento: "guarda_falhou", caminho, erro: String(err?.message || err).slice(0, 120) }));
+    throw new Error("guarda_indisponivel");
+  }
 }
 
 export const guarda = {
   estadoIp: (env, ip) => chamar(env, `ip:${ip}`, "/ip/estado"),
   consumirIp: (env, ip) => chamar(env, `ip:${ip}`, "/ip/consumir"),
   consumirGlobal: (env) => chamar(env, "global", "/global/consumir"),
+  estornarGlobal: (env) => chamar(env, "global", "/global/estornar"),
   lerCache: (env, chave) => chamar(env, `cache:${chave}`, "/cache/get"),
   gravarCache: (env, chave, eventos) => chamar(env, `cache:${chave}`, "/cache/put", { method: "POST", body: JSON.stringify(eventos) }),
 };
 
-// Chave do cache: hash SHA-256 da entrada normalizada. O PIX nao fica guardado
-// em claro nem no nome do objeto.
+// IPv6 de um mesmo /64 (a faixa de uma casa ou de um servidor) conta como um IP
+// so; IPv4 mapeado em IPv6 vira o proprio IPv4.
+export function agruparIp(ip) {
+  if (!ip) return "sem-ip";
+  if (!ip.includes(":")) return ip;
+  const g = expandirIpv6(ip);
+  if (!g) return "sem-ip";
+  if (g.slice(0, 5).every((x) => x === 0) && g[5] === 0xffff) return `${g[6] >> 8}.${g[6] & 255}.${g[7] >> 8}.${g[7] & 255}`;
+  return `v6:${g.slice(0, 4).map((x) => x.toString(16)).join(":")}`;
+}
+
+// Chave do cache: hash SHA-256 da entrada ja normalizada (URL de validarUrl).
+// A entrada nao fica guardada em claro nem no nome do objeto.
 export async function chaveCache(url, pix) {
-  const base = JSON.stringify({ url: (url || "").trim().toLowerCase().replace(/\/+$/, ""), pix: (pix || "").replace(/\s+/g, "") });
+  const base = JSON.stringify({ url: url || "", pix: (pix || "").replace(/\s+/g, "") });
   const dig = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(base));
   return [...new Uint8Array(dig)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+// O cache guarda o laudo sem dado da entrada (URL com query, nome/cidade do
+// recebedor do PIX): cada trecho vira um marcador e volta na leitura, a partir
+// da propria requisicao (a chave do cache e o hash dessa mesma entrada).
+const trechoJson = (s) => JSON.stringify(s).slice(1, -1);
+
+export function ocultarSegredos(eventos, segredos) {
+  let txt = JSON.stringify(eventos);
+  segredos.forEach((s, i) => { txt = txt.split(trechoJson(s)).join(`⟦${i}⟧`); });
+  return JSON.parse(txt);
+}
+
+export function restaurarSegredos(eventos, segredos) {
+  let txt = JSON.stringify(eventos);
+  segredos.forEach((s, i) => { txt = txt.split(`⟦${i}⟧`).join(trechoJson(s)); });
+  return JSON.parse(txt);
 }

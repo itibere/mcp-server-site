@@ -1,7 +1,7 @@
 // Classificacao dos destinos dos links (e dos anuncios): para onde levam e
 // qual a reputacao de quem recebe o clique.
-import confiaveis from "./data/dominios_confiaveis.json";
-import { buscar, doh, DOH_FAMILY, dominioRaiz, hostDe } from "./util.js";
+import confiaveis from "./data/dominios_confiaveis.json" with { type: "json" };
+import { buscar, casaDominio, doh, DOH_FAMILY, dominioRaiz, hostDe } from "./util.js";
 import { identificarGoverno } from "./governo.js";
 import { consultarRadarLote, rotuloPosicao } from "./radar.js";
 
@@ -12,29 +12,51 @@ const ENCURTADORES = new Set([
 ]);
 // Desde 01/2025 aposta de quota fixa legal no Brasil opera em .bet.br
 // (Portaria SPA/MF 1.330/2024). Aposta fora de .bet.br = nao autorizada.
-const APOSTA = /(^|[.-])bets?([.-]|\d|$)|\dbet|bet\d|aposta|cassino|casino|slots?[.-]|tigrinho|fortune-?tiger|roleta|bingo|poker|jackpot/i;
-const ADULTO = /porn|xxx|xvideos|xnxx|xhamster|onlyfans|privacy\.com\.br|camgirl|chaturbate|(^|[.-])sex|sexo|hentai|nsfw|brazzers|redtube|youporn|stripchat|bongacams/i;
+// Comparacao por palavra inteira (trechos separados por "." ou "-", sem os
+// numeros das pontas): "sexta" e "apostila" nao casam.
+const PALAVRAS_APOSTA = new Set(["bet", "bets", "aposta", "apostas", "cassino", "casino", "slot", "slots", "tigrinho", "roleta", "bingo", "poker", "jackpot"]);
+const PALAVRAS_ADULTO = new Set([
+  "porn", "porno", "pornhub", "xxx", "xvideos", "xnxx", "xhamster", "onlyfans", "camgirl", "chaturbate",
+  "sex", "sexo", "hentai", "nsfw", "brazzers", "redtube", "youporn", "stripchat", "bongacams",
+]);
+const ADULTO_DOMINIOS = ["privacy.com.br"];
 
-// Links de clique de anuncio escondem o destino real num parametro.
+function palavras(raiz) {
+  return raiz.toLowerCase().split(/[.-]/).map((p) => p.replace(/^\d+|\d+$/g, "")).filter(Boolean);
+}
+const temPalavra = (raiz, conjunto) => palavras(raiz).some((p) => conjunto.has(p));
+const ehApostaPorNome = (raiz) => temPalavra(raiz, PALAVRAS_APOSTA) || /(^|\.)fortune-?tiger([.-]|\d|$)/i.test(raiz);
+const ehAdultoPorNome = (raiz) => temPalavra(raiz, PALAVRAS_ADULTO) || ADULTO_DOMINIOS.some((d) => casaDominio(raiz, d));
+
+// Links de clique de anuncio escondem o destino num parametro. So vale para
+// hosts conhecidos de redirecionamento; em qualquer outro link o destino real
+// e o proprio host do href (um parametro ?url= nao esconde o link).
 const PARAMS_DESTINO = ["adurl", "url", "u", "dest", "destination", "redirect", "redir", "target", "to", "r"];
+const REDIRECIONADORES = ["googleadservices.com", "doubleclick.net", "googlesyndication.com", "l.facebook.com", "lm.facebook.com", "l.instagram.com"];
 
-export function destinoReal(href) {
+// Destinos de um link: o proprio href; em redirecionador conhecido de anuncio
+// (que so repassa o clique), o endereco do parametro no lugar dele.
+export function destinosDoLink(href) {
   try {
     const u = new URL(href);
-    for (const p of PARAMS_DESTINO) {
-      const v = u.searchParams.get(p);
-      if (v && /^https?:\/\//i.test(v)) return v;
+    const redireciona = REDIRECIONADORES.some((d) => casaDominio(u.hostname, d))
+      || (casaDominio(u.hostname, "google.com") && /^\/(aclk|pagead)/.test(u.pathname));
+    if (redireciona) {
+      for (const p of PARAMS_DESTINO) {
+        const v = u.searchParams.get(p);
+        if (v && /^https?:\/\//i.test(v)) return [v];
+      }
     }
-  } catch { /* */ }
-  return href;
+  } catch { /* href invalido */ }
+  return [href];
 }
 
 export function classificarPorNome(raiz) {
   if (identificarGoverno(raiz).governo) return { nivel: "bom", motivo: "domínio de governo" };
   if (CONFIAVEIS.has(raiz)) return { nivel: "bom", motivo: "destino de boa reputação" };
   if (raiz.endsWith(".bet.br")) return { nivel: "medio", motivo: "aposta autorizada (.bet.br)" };
-  if (APOSTA.test(raiz)) return { nivel: "baixo", motivo: "aposta fora de .bet.br (não autorizada no Brasil)" };
-  if (ADULTO.test(raiz)) return { nivel: "baixo", motivo: "conteúdo adulto" };
+  if (ehApostaPorNome(raiz)) return { nivel: "baixo", motivo: "aposta fora de .bet.br (não autorizada no Brasil)" };
+  if (ehAdultoPorNome(raiz)) return { nivel: "baixo", motivo: "conteúdo adulto" };
   return null;
 }
 
@@ -61,22 +83,24 @@ async function expandir(orcamento, url) {
 export async function classificarDestinos(orcamento, env, links, raizSite, maxFamily = 18, maxRadar = 8) {
   const porRaiz = new Map();
   for (const l of links) {
-    let destino = destinoReal(l.href);
-    const host = hostDe(destino);
-    if (!host) continue;
-    if (ENCURTADORES.has(host) && porRaiz.size < 200) {
-      destino = await expandir(orcamento, destino);
+    for (const bruto of destinosDoLink(l.href)) {
+      let destino = bruto;
+      const host = hostDe(destino);
+      if (!host) continue;
+      if (ENCURTADORES.has(host) && porRaiz.size < 200) {
+        destino = await expandir(orcamento, destino);
+      }
+      const hostFinal = hostDe(destino);
+      if (!hostFinal) continue;
+      const raiz = dominioRaiz(hostFinal);
+      if (raiz === raizSite) continue;
+      const item = porRaiz.get(raiz) || { raiz, exemplos: [], zonas: new Set(), anuncio: false, encurtado: false };
+      if (item.exemplos.length < 2) item.exemplos.push(destino.slice(0, 200));
+      item.zonas.add(l.zona);
+      item.anuncio ||= !!l.anuncio;
+      item.encurtado ||= ENCURTADORES.has(host);
+      porRaiz.set(raiz, item);
     }
-    const hostFinal = hostDe(destino);
-    if (!hostFinal) continue;
-    const raiz = dominioRaiz(hostFinal);
-    if (raiz === raizSite) continue;
-    const item = porRaiz.get(raiz) || { raiz, exemplos: [], zonas: new Set(), anuncio: false, encurtado: false };
-    if (item.exemplos.length < 2) item.exemplos.push(destino.slice(0, 200));
-    item.zonas.add(l.zona);
-    item.anuncio ||= !!l.anuncio;
-    item.encurtado ||= ENCURTADORES.has(host);
-    porRaiz.set(raiz, item);
   }
 
   const itens = [...porRaiz.values()];

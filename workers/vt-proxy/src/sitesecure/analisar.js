@@ -1,7 +1,7 @@
 // POST /sitesecure/analisar {url, pix?}
 // Resposta em NDJSON: um evento {etapa, status, ...} por etapa concluida, para
 // o frontend animar o progresso; o ultimo evento e {etapa:"laudo", laudo}.
-import { validarUrl, resolverPublico } from "./guard.js";
+import { validarUrl, resolverPublico, verificarDestinos } from "./guard.js";
 import { renderizar, coletarEstatico } from "./render.js";
 import { consultarRdap, consultarDns } from "./dominio.js";
 import { avaliarCabecalhos, redirecionaParaHttps } from "./hardening.js";
@@ -11,7 +11,7 @@ import { identificarGoverno, imitaGoverno } from "./governo.js";
 import { consultarRadar } from "./radar.js";
 import { coletarExtras, avaliarBoasPraticas } from "./boaspraticas.js";
 import { executarPix } from "./pixonly.js";
-import { guarda, chaveCache } from "./guarda.js";
+import { guarda, chaveCache, ocultarSegredos, restaurarSegredos } from "./guarda.js";
 import { conferirTurnstile } from "./turnstile.js";
 import { carregarRanking, carregarParticipantes, identificarInstituicao, situacaoNoRanking, situacaoParticipante } from "./bancocentral.js";
 import { detectarRedes, avaliarPropagandas, idadeDosAnunciantes } from "./propagandas.js";
@@ -20,20 +20,34 @@ import { identificarHost } from "./host.js";
 import { detectarPagamento, lerBrCode, acharBrCodes, compararPix } from "./pagamento.js";
 import { consultarReclameAqui } from "./reclameaqui.js";
 import { registrarConsulta } from "./historico.js";
-import { notaReputacao, notaLinks, notaPropagandas, notaHeaderFooter, notaSemConteudo, notaFinal } from "./nota.js";
-import { Orcamento, dominioRaiz, ehPlataforma, detectarDesafio, hostDe, tokensNome } from "./util.js";
+import { notaReputacao, notaLinks, notaPropagandas, notaHeaderFooter, notaSemConteudo, notaFinal, resultadoNota, fontesEssenciaisIndisponiveis } from "./nota.js";
+import { Orcamento, dominioRaiz, ehPlataforma, detectarDesafio, hostDe, tokensNome, etapa, lerJsonLimitado } from "./util.js";
 
 const MSG_DESAFIO = "o site respondeu com uma verificação anti-robô: links e anúncios da página real não foram vistos. Abra o site no navegador e refaça a análise depois";
 
-async function etapa(emitir, nome, fn, padrao = null) {
-  try {
-    const r = await fn();
-    await emitir({ etapa: nome, status: "ok" });
-    return r;
-  } catch (err) {
-    await emitir({ etapa: nome, status: "falhou", motivo: String(err?.message || err).slice(0, 120) });
-    return padrao;
+const LIMITE_CORPO = 4096;
+
+// Valida a entrada inteira antes de qualquer cota ou consulta externa.
+export function validarEntrada(corpo) {
+  if (!corpo || typeof corpo !== "object" || Array.isArray(corpo)) return { erro: "corpo_invalido" };
+  if (corpo.url != null && typeof corpo.url !== "string") return { erro: "url_invalida" };
+  if (corpo.pix != null && typeof corpo.pix !== "string") return { erro: "pix_invalido" };
+  const urlTxt = (corpo.url || "").trim();
+  const pix = (corpo.pix || "").trim();
+  if (pix.length > 1024) return { erro: "pix_invalido", detalhe: "código longo demais" };
+  if (!urlTxt && !pix) return { erro: "url_invalida" };
+  let url = null;
+  let brCode = null;
+  if (urlTxt) {
+    const v = validarUrl(urlTxt);
+    if (v.erro) return { erro: v.erro };
+    url = v.url;
   }
+  if (pix) {
+    brCode = lerBrCode(pix);
+    if (!brCode.valido) return { erro: "pix_invalido", detalhe: brCode.motivo };
+  }
+  return { url, pix: pix || null, brCode };
 }
 
 // Link, PIX ou os dois. Com os dois, sai um laudo de cada (primeiro o do site,
@@ -41,7 +55,6 @@ async function etapa(emitir, nome, fn, padrao = null) {
 async function executar(env, corpo, emitir) {
   const pixEntrada = typeof corpo?.pix === "string" ? corpo.pix.trim() : "";
   const temUrl = !!(corpo?.url || "").trim();
-  if (pixEntrada.length > 1024) return emitir({ etapa: "erro", erro: "pix_invalido", detalhe: "código longo demais" });
   if (!temUrl && pixEntrada) return executarPix(env, pixEntrada, emitir, new Orcamento(20));
 
   // Teto de 50 subrequests do plano gratuito: sobram ~5 para a guarda
@@ -60,6 +73,8 @@ async function executarSite(env, corpo, emitir, orc) {
 
   const dnsHost = await resolverPublico(orc, host).catch(() => ({ erro: "dns_falhou" }));
   if (dnsHost.erro) return emitir({ etapa: "erro", erro: dnsHost.erro });
+  const vistos = new Set([host]);
+  let destinoProibido = false;
 
   // 1. Dominio (RDAP + DNS) em paralelo com a renderizacao, que e a parte lenta.
   const pDominio = etapa(emitir, "dominio", async () => {
@@ -77,7 +92,12 @@ async function executarSite(env, corpo, emitir, orc) {
         new Promise((_, rej) => setTimeout(() => rej(new Error("navegador_timeout")), 45_000)),
       ]);
     } catch {
-      return await coletarEstatico(orc, url.toString());
+      try {
+        return await coletarEstatico(orc, url.toString(), vistos);
+      } catch (err) {
+        if (err?.destinoProibido) destinoProibido = true;
+        throw err;
+      }
     }
   });
 
@@ -87,11 +107,14 @@ async function executarSite(env, corpo, emitir, orc) {
   }, { vt: null, urlhaus: null });
 
   const [{ rdap, dns }, coleta, { vt: vtBruto, urlhaus }] = await Promise.all([pDominio, pPagina, pReputacao]);
+  if (destinoProibido) return emitir({ etapa: "erro", erro: "redirecionou_para_destino_nao_permitido" });
   if (!coleta) return emitir({ etapa: "erro", erro: "site_inacessivel" });
 
-  // Redirecionou para outro host? Nao seguir se o destino for IP/privado.
+  // Redirecionou para outro host? Cada salto e o destino final passam pela
+  // mesma checagem de sintaxe e de DNS (A e AAAA) do endereco informado.
   const hostFinal = hostDe(coleta.urlFinal) || host;
-  if (validarUrl(coleta.urlFinal).erro) return emitir({ etapa: "erro", erro: "redirecionou_para_destino_nao_permitido" });
+  const saltos = await verificarDestinos(orc, vistos, [...(coleta.redirecionamentos || []), coleta.urlFinal]).catch(() => ({ erro: "dns_falhou" }));
+  if (saltos.erro) return emitir({ etapa: "erro", erro: "redirecionou_para_destino_nao_permitido" });
   const raizFinal = dominioRaiz(hostFinal);
   // Subdominio de plataforma (appspot.com, myshopify.com...): a data de criacao
   // que o VirusTotal e o RDAP devolvem e a da plataforma, nao a do site.
@@ -182,6 +205,7 @@ async function executarSite(env, corpo, emitir, orc) {
     headerFooter: notaHeaderFooter({ host: hostInfo, cnpjInfo, empresa, condiz: empresaCondiz(empresa, raizFinal, coleta), pagamento, destinos, coleta, rdap: rdapSite, governo, boas, raiz: raizFinal }),
   };
 
+  const fontesIndisponiveis = fontesEssenciaisIndisponiveis({ vt, gsb, urlhaus });
   await emitir({
     etapa: "laudo",
     laudo: {
@@ -190,7 +214,7 @@ async function executarSite(env, corpo, emitir, orc) {
       titulo: coleta.titulo.slice(0, 120),
       modo: coleta.modo,
       analisadoEm: new Date().toISOString(),
-      nota: notaFinal(blocos),
+      ...resultadoNota(notaFinal(blocos), fontesIndisponiveis),
       blocos,
       detalhes: {
         dominio: { raiz: raizFinal, criadoEm: rdapSite?.criadoEm || vt?.criadoEm || null, dnssec: !!dns?.dnssec, spf: !!dns?.spf, dmarc: dns?.politicaDmarc || null, governo: governo.governo ? governo.esfera : null },
@@ -198,9 +222,7 @@ async function executarSite(env, corpo, emitir, orc) {
         boasPraticas: boas,
         hardening,
         virustotal: vt?.conhecido ? { maliciosos: vt.maliciosos, suspeitos: vt.suspeitos, total: vt.total, vendors: vt.vendors, categorias: vt.categorias } : null,
-        fontesIndisponiveis: [
-          !vt?.disponivel && "VirusTotal", !gsb?.disponivel && "Google Safe Browsing", !urlhaus?.disponivel && "URLhaus", !radarSite?.disponivel && "Cloudflare Radar",
-        ].filter(Boolean),
+        fontesIndisponiveis: [...fontesIndisponiveis, !radarSite?.disponivel && "Cloudflare Radar"].filter(Boolean),
         empresa,
         host: hostInfo,
         pagamento: { ...pagamento, pix: pix ? { ...pix, origem: corpo?.pix ? "informado" : "encontrado na página", instituicao: instPix ? { ...instPix, ranking: bcPix, participante: partPix } : null } : null, pixInvalido: pixLido && !pixLido.valido ? pixLido.motivo : null },
@@ -214,61 +236,111 @@ async function executarSite(env, corpo, emitir, orc) {
 
 const NDJSON = { "Content-Type": "application/x-ndjson; charset=utf-8", "Cache-Control": "no-store" };
 
-// Ordem da guarda: IP bloqueado? -> laudo em cache (nao gasta cota) ->
-// limite do IP (janela deslizante + diario) -> teto geral do dia -> analise.
-export async function handleAnalisar(request, env, ctx, cors, ip) {
-  const corpo = await request.json().catch(() => null);
+// O que o cache nao pode guardar em claro: a URL informada (com query) e o
+// recebedor, a cidade e o valor do PIX.
+function segredosDaEntrada(entrada) {
+  const { url, brCode } = entrada;
+  return [url?.toString(), url && url.search.length > 3 ? url.search : null, brCode?.recebedor, brCode?.cidade].filter(Boolean);
+}
+
+function limparParaCache(eventos, entrada) {
+  const copia = ocultarSegredos(eventos, segredosDaEntrada(entrada));
+  for (const ev of copia) if (ev.laudo?.detalhes?.pix) ev.laudo.detalhes.pix.valor = null;
+  return copia;
+}
+
+function restaurarDoCache(eventos, entrada) {
+  const copia = restaurarSegredos(eventos, segredosDaEntrada(entrada));
+  for (const ev of copia) if (ev.laudo?.detalhes?.pix) ev.laudo.detalhes.pix.valor = entrada.brCode?.valor ?? null;
+  return copia;
+}
+
+const laudosDe = (eventos) => eventos.filter((e) => e.etapa === "laudo").map((e) => e.laudo);
+
+// Ordem: corpo e entrada validos (sem gastar cota) -> IP bloqueado? -> Turnstile
+// -> laudo em cache (nao gasta cota) -> limite do IP (janela deslizante +
+// diario) -> teto geral do dia -> analise. Sem laudo no fim, o teto do dia e
+// devolvido: ele so cai com analises concluidas.
+export async function handleAnalisar(request, env, ctx, cors, ip, ipBruto = ip) {
   const recusa = (erro, tentarEm, status) =>
     new Response(JSON.stringify({ etapa: "erro", erro, tentarEm }) + "\n", { status, headers: { ...NDJSON, ...cors } });
 
+  const lido = await lerJsonLimitado(request, LIMITE_CORPO);
+  if (lido.erro) return recusa(lido.erro, 0, lido.status);
+  const corpo = lido.corpo;
+  const entrada = validarEntrada(corpo);
+  if (entrada.erro) return recusa(entrada.erro, 0, 400);
+
+  const comGuarda = !!env.SITESECURE_DO;
+  const tentar = async (fn, padrao) => {
+    try {
+      return await fn();
+    } catch {
+      return padrao;
+    }
+  };
+
   let chave = null;
-  if (env.SITESECURE_DO) {
-    const estado = await guarda.estadoIp(env, ip);
+  if (comGuarda) {
+    const estado = await tentar(() => guarda.estadoIp(env, ip), { bloqueado: false });
     if (estado.bloqueado) return recusa("bloqueado", estado.tentarEm, 429);
   }
 
-  // Turnstile antes de qualquer cota. No modo "observar" so registra no log
-  // (sem IP nem entrada): contagem de quem passaria e de quem falharia.
-  const ts = await conferirTurnstile(env, corpo?.turnstile, ip);
+  // No modo "observar" so registra no log (sem IP nem entrada): contagem de
+  // quem passaria e de quem falharia.
+  const ts = await conferirTurnstile(env, corpo.turnstile, ipBruto);
   console.log(JSON.stringify({ evento: "turnstile", modo: ts.modo, resultado: ts.resultado, bloqueou: !ts.ok }));
   if (!ts.ok) return recusa("verificacao_humana", 0, 403);
 
-  if (env.SITESECURE_DO) {
-    chave = await chaveCache(corpo?.url, corpo?.pix);
-    const cache = await guarda.lerCache(env, chave);
+  let consumiuGlobal = false;
+  if (comGuarda) {
+    chave = await chaveCache(entrada.url?.toString(), entrada.pix);
+    const cache = await tentar(() => guarda.lerCache(env, chave), null);
     if (cache) {
-      const laudoCache = cache.eventos.find((ev) => ev.etapa === "laudo")?.laudo;
-      if (laudoCache) ctx.waitUntil(registrarConsulta(env, laudoCache, { cache: true }));
-      const linhas = cache.eventos.map((ev) => JSON.stringify(ev.etapa === "laudo" ? { ...ev, laudo: { ...ev.laudo, doCache: cache.em } } : ev));
-      return new Response(`${JSON.stringify({ etapa: "cache", em: cache.em })}\n${linhas.join("\n")}\n`, { headers: { ...NDJSON, ...cors } });
+      const eventos = restaurarDoCache(cache.eventos, entrada);
+      const laudos = laudosDe(eventos);
+      ctx.waitUntil(Promise.all(laudos.map((l) => registrarConsulta(env, l, { cache: true }))));
+      const linhas = eventos.map((ev) => JSON.stringify(ev.etapa === "laudo" ? { ...ev, laudo: { ...ev.laudo, doCache: cache.em } } : ev));
+      return new Response(`${JSON.stringify({ etapa: "cache", em: cache.em })}
+${linhas.join("\n")}\n`, { headers: { ...NDJSON, ...cors } });
     }
 
-    const ipOk = await guarda.consumirIp(env, ip);
-    if (!ipOk.ok) return recusa(ipOk.motivo, ipOk.tentarEm, 429);
-    const globalOk = await guarda.consumirGlobal(env);
-    if (!globalOk.ok) return recusa(globalOk.motivo, globalOk.tentarEm, 503);
+    try {
+      const ipOk = await guarda.consumirIp(env, ip);
+      if (!ipOk.ok) return recusa(ipOk.motivo, ipOk.tentarEm, 429);
+      const globalOk = await guarda.consumirGlobal(env);
+      if (!globalOk.ok) return recusa(globalOk.motivo, globalOk.tentarEm, 503);
+      consumiuGlobal = true;
+    } catch {
+      return recusa("servico_indisponivel", 60, 503);
+    }
   }
 
   const { readable, writable } = new TransformStream();
   const escritor = writable.getWriter();
   const enc = new TextEncoder();
-  const finais = []; // laudos e erros, guardados no cache se houver laudo
-  const emitir = (obj) => {
+  const finais = []; // laudos e erros, guardados no cache se so houver laudos
+  const emitir = async (obj) => {
     if (obj.etapa === "laudo" || obj.etapa === "erro") finais.push(obj);
-    return escritor.write(enc.encode(JSON.stringify(obj) + "\n"));
+    try {
+      await escritor.write(enc.encode(JSON.stringify(obj) + "\n"));
+    } catch { /* cliente desconectou: a analise termina e vai para o cache */ }
   };
 
   const trabalho = (async () => {
     try {
       await executar(env, corpo, emitir);
-      if (chave && finais.some((e) => e.etapa === "laudo")) await guarda.gravarCache(env, chave, finais).catch(() => {});
-      const laudo = finais.find((e) => e.etapa === "laudo")?.laudo;
-      if (laudo) await registrarConsulta(env, laudo);
     } catch (err) {
-      await emitir({ etapa: "erro", erro: "falha_interna", detalhe: String(err?.message || err).slice(0, 120) }).catch(() => {});
-    } finally {
-      await escritor.close().catch(() => {});
+      console.log(JSON.stringify({ evento: "analise_falhou", erro: String(err?.message || err).slice(0, 120) }));
+      await emitir({ etapa: "erro", erro: "falha_interna" }).catch(() => {});
     }
+    const laudos = laudosDe(finais);
+    if (!laudos.length && consumiuGlobal) await tentar(() => guarda.estornarGlobal(env), null);
+    if (chave && laudos.length && finais.every((e) => e.etapa === "laudo")) {
+      await tentar(() => guarda.gravarCache(env, chave, limparParaCache(finais, entrada)), null);
+    }
+    for (const laudo of laudos) await registrarConsulta(env, laudo);
+    await escritor.close().catch(() => {});
   })();
   ctx.waitUntil(trabalho);
 
