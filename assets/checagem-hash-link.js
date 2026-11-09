@@ -43,12 +43,15 @@ const ERROS = {
   rate_limit_excedido: 'Muitas consultas em pouco tempo. Aguarde um minuto e tente de novo.',
   limite_diario: 'Você já usou todas as consultas de hoje. Volte amanhã.',
   teto_diario: 'A ferramenta atingiu o limite de consultas de hoje. Volte amanhã.',
+  verificacao_indisponivel: 'A verificação de segurança está fora do ar no momento. Tente de novo em alguns minutos.',
   servico_indisponivel: 'O serviço está temporariamente indisponível. Tente de novo em alguns minutos.',
   corpo_grande: 'O texto enviado é grande demais. Cole só o hash ou o link.',
   corpo_invalido: 'Não foi possível ler o que foi enviado. Recarregue a página e tente de novo.',
   hash_invalido: 'Isso não parece um hash MD5, SHA-1, SHA-256 ou SHA-512 válido.',
   url_invalida: 'Esse link não é válido. Cole o endereço completo, começando com https://',
 };
+const MSG_ACOMPANHAMENTO = 'O link foi enviado para análise, mas não foi possível acompanhar o resultado agora. Tente novamente mais tarde, sem reenviar de imediato: o mesmo link pode ser consultado de novo e o resultado costuma estar pronto.';
+const ERROS_ACOMPANHAMENTO = new Set(['not_found', 'limite_consultas', 'limite_diario', 'teto_diario', 'servico_indisponivel']);
 const ERRO_PADRAO = 'Não foi possível completar a consulta agora. Tente novamente mais tarde.';
 const ERRO_POR_STATUS = { 400: 'corpo_invalido', 403: 'verificacao_humana', 413: 'corpo_grande', 429: 'rate_limit_excedido', 503: 'servico_indisponivel' };
 
@@ -270,7 +273,7 @@ async function pollUrlAnalysis(analysisId, attempt) {
       return;
     }
     if (data.error) {
-      showResult('erro', mensagemErro(data.error));
+      showResult('erro', ERROS_ACOMPANHAMENTO.has(data.error) ? MSG_ACOMPANHAMENTO : mensagemErro(data.error));
       return;
     }
     if (data.done) {
