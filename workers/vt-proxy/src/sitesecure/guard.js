@@ -93,15 +93,19 @@ export async function resolverPublico(orcamento, host) {
 }
 
 // Confere o host de cada URL (sintaxe e DNS). `vistos` guarda os hosts ja
-// resolvidos e publicos, para nao consultar o mesmo host duas vezes.
-export async function verificarDestinos(orcamento, vistos, urls) {
+// resolvidos e publicos, para nao consultar o mesmo host duas vezes. Com
+// `revalidarUltimo`, o host da ultima URL e resolvido de novo mesmo que ja
+// esteja em `vistos`: o destino final que o navegador realmente alcancou nao
+// pode confiar numa resolucao antiga (DNS rebinding).
+export async function verificarDestinos(orcamento, vistos, urls, { revalidarUltimo = false } = {}) {
   let novos = 0;
-  for (const bruta of urls) {
+  for (const [i, bruta] of urls.entries()) {
     const v = validarUrl(bruta);
     if (v.erro) return { erro: v.erro };
     const host = v.url.hostname;
-    if (vistos.has(host)) continue;
-    if (++novos > MAX_SALTOS_NOVOS) return { erro: "redirecionamentos_demais" };
+    const revalida = revalidarUltimo && i === urls.length - 1;
+    if (vistos.has(host) && !revalida) continue;
+    if (!vistos.has(host) && ++novos > MAX_SALTOS_NOVOS) return { erro: "redirecionamentos_demais" };
     const r = await resolverPublico(orcamento, host).catch(() => ({ erro: "dns_falhou" }));
     if (r.erro) return { erro: r.erro };
     vistos.add(host);

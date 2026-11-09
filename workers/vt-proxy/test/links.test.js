@@ -9,11 +9,11 @@ test("adulto: palavra inteira casa, sexta e sextante nao", () => {
   assert.equal(classificarPorNome("sextante.com.br"), null);
   assert.equal(classificarPorNome("sexologia.com.br"), null);
   assert.equal(classificarPorNome("essex.com.br"), null);
-  assert.equal(classificarPorNome("sex.com")?.nivel, "baixo");
-  assert.equal(classificarPorNome("sexo-online.com.br")?.motivo, "conteúdo adulto");
-  assert.equal(classificarPorNome("xvideos.com")?.nivel, "baixo");
-  assert.equal(classificarPorNome("xxx1.com")?.nivel, "baixo");
-  assert.equal(classificarPorNome("privacy.com.br")?.nivel, "baixo");
+  assert.equal(classificarPorNome("sex.com")?.nivel, "medio");
+  assert.equal(classificarPorNome("sexo-online.com.br")?.motivo, "possível conteúdo adulto (pelo nome do domínio)");
+  assert.equal(classificarPorNome("xvideos.com")?.nivel, "medio");
+  assert.equal(classificarPorNome("xxx1.com")?.nivel, "medio");
+  assert.equal(classificarPorNome("privacy.com.br")?.nivel, "medio");
   assert.equal(classificarPorNome("meuprivacy.com.br"), null);
 });
 
@@ -23,11 +23,11 @@ test("aposta: palavra inteira casa, apostila e nomes comuns nao", () => {
   assert.equal(classificarPorNome("pokerface.com.br"), null);
   assert.equal(classificarPorNome("alphabet.com"), null);
   assert.equal(classificarPorNome("slotmachine.com"), null);
-  assert.equal(classificarPorNome("apostas.com")?.nivel, "baixo");
-  assert.equal(classificarPorNome("bet365.com")?.nivel, "baixo");
-  assert.equal(classificarPorNome("7bet.com")?.nivel, "baixo");
-  assert.equal(classificarPorNome("fortune-tiger.com")?.nivel, "baixo");
-  assert.equal(classificarPorNome("cassino-brasil.com")?.nivel, "baixo");
+  assert.equal(classificarPorNome("apostas.com")?.nivel, "medio");
+  assert.equal(classificarPorNome("bet365.com")?.nivel, "medio");
+  assert.equal(classificarPorNome("7bet.com")?.nivel, "medio");
+  assert.equal(classificarPorNome("fortune-tiger.com")?.nivel, "medio");
+  assert.equal(classificarPorNome("cassino-brasil.com")?.nivel, "medio");
   assert.equal(classificarPorNome("exemplo.bet.br")?.nivel, "medio");
 });
 
@@ -62,7 +62,22 @@ test("classificarDestinos: sexta.com.br e milestone.com.br nao sao rebaixados po
   const links = ["https://sexta.com.br/x", "https://milestone.com.br/y", "https://sex.com/z"].map((href) => ({ href, zona: "corpo", anuncio: false }));
   const itens = await classificarDestinos(new Orcamento(0), {}, links, "loja.com.br");
   const nivel = (r) => itens.find((i) => i.raiz === r).nivel;
-  assert.equal(nivel("sex.com"), "baixo");
+  assert.equal(nivel("sex.com"), "medio");
   assert.equal(nivel("sexta.com.br"), "neutro");
   assert.equal(nivel("milestone.com.br"), "neutro");
+});
+
+test("classificarDestinos: nome suspeito fica em medio e so a categoria do Radar o leva a baixo", async (t) => {
+  simularRede(t, (url) => {
+    const dominio = decodeURIComponent(url.split("/domain/")[1] || "");
+    const categorias = { "cassino-brasil.com": ["Gambling"], "casino-estoril.pt": ["Travel"] }[dominio] || [];
+    return Response.json({ success: true, result: { details_0: { rank: 5000, categories: categorias.map((name) => ({ name })) } } });
+  });
+  const links = ["https://cassino-brasil.com/", "https://casino-estoril.pt/", "https://sex-education.com/"].map((href) => ({ href, zona: "corpo", anuncio: false }));
+  const itens = await classificarDestinos(new Orcamento(40), { CF_RADAR_TOKEN: "t" }, links, "loja.com.br");
+  const item = (r) => itens.find((i) => i.raiz === r);
+  assert.equal(item("cassino-brasil.com").nivel, "baixo");
+  assert.match(item("cassino-brasil.com").motivo, /Gambling/);
+  assert.equal(item("casino-estoril.pt").nivel, "medio");
+  assert.equal(item("sex-education.com").nivel, "medio");
 });

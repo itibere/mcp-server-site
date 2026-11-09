@@ -19,6 +19,8 @@ const PALAVRAS_ADULTO = new Set([
   "porn", "porno", "pornhub", "xxx", "xvideos", "xnxx", "xhamster", "onlyfans", "camgirl", "chaturbate",
   "sex", "sexo", "hentai", "nsfw", "brazzers", "redtube", "youporn", "stripchat", "bongacams",
 ]);
+// O nome so levanta suspeita ("medio"); so a categoria do Cloudflare Radar a confirma ("baixo").
+const CATEGORIA_CONFIRMA = { aposta: /gambling/i, adulto: /adult|pornography|nudity/i };
 const ADULTO_DOMINIOS = ["privacy.com.br"];
 
 function palavras(raiz) {
@@ -55,8 +57,8 @@ export function classificarPorNome(raiz) {
   if (identificarGoverno(raiz).governo) return { nivel: "bom", motivo: "domínio de governo" };
   if (CONFIAVEIS.has(raiz)) return { nivel: "bom", motivo: "destino de boa reputação" };
   if (raiz.endsWith(".bet.br")) return { nivel: "medio", motivo: "aposta autorizada (.bet.br)" };
-  if (ehApostaPorNome(raiz)) return { nivel: "baixo", motivo: "aposta fora de .bet.br (não autorizada no Brasil)" };
-  if (ehAdultoPorNome(raiz)) return { nivel: "baixo", motivo: "conteúdo adulto" };
+  if (ehApostaPorNome(raiz)) return { nivel: "medio", motivo: "possível aposta fora de .bet.br (pelo nome do domínio)", suspeitaNome: "aposta" };
+  if (ehAdultoPorNome(raiz)) return { nivel: "medio", motivo: "possível conteúdo adulto (pelo nome do domínio)", suspeitaNome: "adulto" };
   return null;
 }
 
@@ -131,13 +133,16 @@ export async function classificarDestinos(orcamento, env, links, raizSite, maxFa
   // Cloudflare Radar nos neutros restantes (anuncios primeiro): popular vira
   // bom, categoria de aposta/adulto/malware vira baixo. Reduz falso positivo
   // de "sem reputação conhecida" em dominio legitimo fora das listas.
-  const neutros = pendentes.filter((i) => i.nivel === "neutro");
+  const neutros = [...itens.filter((i) => i.suspeitaNome), ...pendentes.filter((i) => i.nivel === "neutro")];
   const vagas = Math.min(maxRadar, Math.max(0, orcamento.max - orcamento.usado - 8));
   const radar = await consultarRadarLote(orcamento, env, neutros.map((i) => i.raiz), vagas);
   for (const item of neutros) {
     const r = radar.get(item.raiz);
     if (!r) continue;
-    if (r.categoriaRuim) Object.assign(item, { nivel: "baixo", motivo: `categoria "${r.categoriaRuim}" (Cloudflare Radar)` });
+    if (item.suspeitaNome) {
+      const confirmada = (r.categorias || []).find((c) => CATEGORIA_CONFIRMA[item.suspeitaNome].test(c));
+      if (confirmada) Object.assign(item, { nivel: "baixo", motivo: `categoria "${confirmada}" (Cloudflare Radar)` });
+    } else if (r.categoriaRuim) Object.assign(item, { nivel: "baixo", motivo: `categoria "${r.categoriaRuim}" (Cloudflare Radar)` });
     else if (r.estabelecido) Object.assign(item, { nivel: "bom", motivo: `domínio popular, ${rotuloPosicao(r.posicao)}` });
   }
   return itens.map((i) => ({ ...i, zonas: [...i.zonas] }));

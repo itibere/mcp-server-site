@@ -13,10 +13,13 @@ const GATEWAYS = [
   ["rede.com.br", "Rede"], ["userede.com.br", "Rede"], ["stone.com.br", "Stone"],
   ["picpay.com", "PicPay"], ["hotmart.com", "Hotmart"], ["kiwify.com.br", "Kiwify"], ["eduzz.com", "Eduzz"],
   ["monetizze.com.br", "Monetizze"], ["openpix.com.br", "OpenPix"], ["woovi.com", "Woovi"],
+  ["sejaefi.com.br", "Efí"], ["paghiper.com", "PagHiper"], ["ebanx.com", "Ebanx"], ["yapay.com.br", "Yapay"],
+  ["zoop.com.br", "Zoop"], ["sumup.com", "SumUp"], ["infinitepay.io", "InfinitePay"], ["mpago.la", "Mercado Pago"],
+  ["mlstatic.com", "Mercado Pago"], ["moip.com.br", "Moip"], ["braspag.com.br", "Braspag"],
 ];
 
 // Nomes de intermediadores de pagamento no campo "recebedor" do BR Code.
-export const INTERMEDIADOR = /\b(mercado ?pago|pagseguro|pagbank|asaas|pagar\.?me|picpay|efi|gerencianet|iugu|stone|cielo|getnet|openpix|woovi|appmax|hotmart|kiwify|eduzz|infinitepay|cloudwalk)\b/i;
+export const INTERMEDIADOR = /\b(mercado ?pago|pagseguro|pagbank|asaas|pagar\.?me|picpay|efi|gerencianet|iugu|stone|cielo|getnet|openpix|woovi|appmax|hotmart|kiwify|eduzz|infinitepay|cloudwalk|ebanx|paghiper|yapay|zoop|sumup|moip|braspag)\b/i;
 
 export function detectarPagamento(coleta) {
   const achados = new Set();

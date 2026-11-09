@@ -93,7 +93,7 @@ Rodar você mesmo, fora do Claude Code, porque o login é interativo.
    npx wrangler secret put CF_RADAR_TOKEN --config wrangler.toml      # Radar: Account > Radar > Read
    npx wrangler secret put TURNSTILE_SECRET --config wrangler.toml
    ```
-   Só a `VT_API_KEY` é obrigatória. Sem as outras, a fonte correspondente aparece como indisponível no laudo e a análise continua.
+   Obrigatórias em produção: `VT_API_KEY`, `GSB_API_KEY` e `URLHAUS_AUTH_KEY`. Sem qualquer uma delas, a fonte aparece como indisponível e **todo laudo de site sai como "Análise incompleta"** (a nota nunca chega a "Parece segura" com fonte de ameaça fora do ar). `CF_RADAR_TOKEN` é opcional (popularidade e categoria). `TURNSTILE_SECRET` é obrigatória enquanto `TURNSTILE_MODO = "exigir"`: sem ela toda análise é recusada com `verificacao_humana` e o worker registra o erro `turnstile_sem_segredo` no log. No modo `observar`, a falta do segredo passa sem conferir, também com esse registro.
 5. Deploy:
    ```bash
    npm run deploy
@@ -122,7 +122,9 @@ Sem Chrome (o baixado pelo wrangler pode ser barrado por antivírus), use `SEM_N
 - `POST /sitesecure/analisar` `{ url?, pix?, turnstile }` devolve NDJSON com um evento por etapa e, no fim, `{etapa:"laudo", laudo}` ou `{etapa:"erro", erro}`.
   - Recusas de entrada e de acesso vêm com o status HTTP real (400 `corpo_invalido`, `url_invalida`, `pix_invalido`; 403 `verificacao_humana`; 413 `corpo_grande`; 429 `rate_limit_excedido`, `limite_diario`, `bloqueado`; 503 `teto_diario`, `servico_indisponivel`) e corpo `{etapa:"erro", erro, tentarEm}`. O front lê o status e, quando o corpo não é JSON, usa o status para escolher a mensagem.
   - O laudo traz `notaRotulo` ("Parece segura", "Atenção", "Risco alto", "Análise incompleta"), `analiseIncompleta` e `fontesIndisponiveis`. O cache devolve só laudos, sem eventos de erro.
-- `POST /hash` e `POST /url` aceitam `turnstile` no corpo. O modo é `TURNSTILE_VT_MODO` (hoje `observar`: confere e registra, não bloqueia). Erros em `{ error }` com status HTTP: 400, 403 `verificacao_humana`, 413, 429 `rate_limit_excedido` ou `limite_diario`, 503 `teto_diario`, `servico_indisponivel` ou `quota_excedida`. A consulta de andamento `GET /url/:id` conta no mesmo limite por minuto, e por isso o front consulta a cada 6 s.
+- `POST /hash` e `POST /url` aceitam `turnstile` no corpo. O modo é `TURNSTILE_VT_MODO` (hoje `observar`: confere e registra, não bloqueia). Erros em `{ error }` com status HTTP: 400, 403 `verificacao_humana`, 413, 429 `rate_limit_excedido` ou `limite_diario`, 503 `teto_diario`, `servico_indisponivel` ou `quota_excedida`.
+  - Proteção da cota do VirusTotal (500 por dia, compartilhada com o Site Secure): 10 consultas por dia por IP no modo `observar` (20 no `exigir`), tetos diários separados por rota (100 para `/hash`, 100 para `POST /url`, 120 para o poll) e um teto combinado de 175 requisições por dia, somando as três rotas (no pior caso 350 chamadas ao VirusTotal, sobrando 150 para o Site Secure).
+  - `GET /url/:id` (poll) conta no limite de 10 por minuto, tem limite diário próprio de 60 por IP e entra nos tetos de poll e combinado. O front consulta a cada 6 s.
 
 ---
 
@@ -135,10 +137,10 @@ A ordem abaixo é a do código em `analisar.js`. Cada etapa emite um evento de p
 Antes de qualquer análise, o worker decide se aceita o pedido. A ordem importa, porque cada passo protege a cota do seguinte.
 
 1. **IP bloqueado?** Um IP que já foi recusado várias vezes recebe `429` sem custo.
-2. **Turnstile.** O front envia um token do widget invisível da Cloudflare, e o worker o valida no `siteverify`. Sem token válido, a resposta é `403` com `verificacao_humana`. O modo `exigir` está ativo (variável `TURNSTILE_MODO`).
+2. **Turnstile.** O front envia um token do widget invisível da Cloudflare, e o worker o valida no `siteverify`. Sem token válido, a resposta é `403` com `verificacao_humana` e a falha conta como recusa do IP (3 recusas no dia bloqueiam por 1 hora). O modo `exigir` está ativo (variável `TURNSTILE_MODO`). Sem `TURNSTILE_SECRET`, o modo `exigir` recusa tudo.
 3. **Cache.** Se a mesma entrada foi analisada na última hora, devolve o laudo guardado, sem gastar cota. O laudo volta marcado com o horário original (`doCache`).
 4. **Limite do IP.** Janela deslizante de 5 análises em 10 minutos e 20 por dia.
-5. **Teto geral.** No máximo 150 análises por dia, somando todos os IPs.
+5. **Teto geral.** No máximo 150 análises por dia, somando todos os IPs. A vaga só é devolvida quando a análise falha na resolução inicial do nome (`dominio_nao_resolve`, `ip_privado`, `dns_falhou`), antes de qualquer consulta cara. Falha depois de gastar navegador, VirusTotal ou URLhaus (site inacessível, redirecionamento proibido, erro interno) continua contando, para que um site feito para falhar não fique fora do teto.
 
 Detalhes na seção 7.
 
@@ -153,7 +155,17 @@ Detalhes na seção 7.
 - Recusa sufixos internos: `localhost`, `local`, `internal`, `intranet`, `lan`, `home`, `corp`, `localdomain`, `arpa`, `test`, `invalid` e `example`.
 - Limite de 2048 caracteres; o fragmento (`#...`) é removido.
 
-Depois, o nome é resolvido por DNS-over-HTTPS e a análise é recusada se qualquer endereço A cair em faixa privada ou reservada (10.0.0.0/8, 127.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 169.254.0.0/16, 100.64.0.0/10, 192.0.0.0/24, 198.18.0.0/15, 0.0.0.0/8 e multicast). Se o site redirecionar para um destino assim, a análise também é interrompida. O bit AD da resposta indica se o domínio tem DNSSEC validado.
+Depois, o nome é resolvido por DNS-over-HTTPS (registros A e AAAA) e a análise é recusada se qualquer endereço cair em faixa privada ou reservada (IPv4: 10.0.0.0/8, 127.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 169.254.0.0/16, 100.64.0.0/10, 192.0.0.0/24, 198.18.0.0/15, 0.0.0.0/8, documentação e multicast; IPv6: loopback, `fc00::/7`, `fe80::/10`, multicast, IPv4 mapeado, 6to4, NAT64, Teredo e documentação). Falha do DNS-over-HTTPS recusa a análise (`dns_falhou`). O bit AD da resposta indica se o domínio tem DNSSEC validado.
+
+O mesmo vale depois da coleta, com estes limites:
+
+- **Navegador:** toda requisição passa por interceptação. Endereço IP literal, nome interno, porta fora de 80/443 e protocolo que não seja http(s) são abortados. Toda navegação do frame principal, inclusive cada redirecionamento (no máximo 6), tem o host resolvido e conferido antes de sair. Subrecursos e iframes de hosts comuns só passam pela checagem de sintaxe: resolver o DNS de cada host de anúncio gastaria o limite de 50 subrequests da análise.
+- **HTML estático (fallback):** `redirect: "manual"`, com cada salto conferido (sintaxe e DNS) antes de ser buscado.
+- **Destino final:** o host da URL final é resolvido de novo mesmo que já tenha sido visto, para pegar DNS rebinding entre a primeira resolução e a navegação.
+- **`security.txt`:** até 3 redirecionamentos, cada destino conferido antes de buscar. A checagem de `http://` para `https://` não segue o redirecionamento.
+- **Códigos de erro:** destino proibido vira `redirecionou_para_destino_nao_permitido`; DNS que falha ou não resolve no destino do redirecionamento vira `redirecionamento_dns_falhou`; cadeia longa vira `redirecionamentos_demais`.
+
+**Risco residual:** a resolução do navegador e a do DNS-over-HTTPS são independentes, então um nome com TTL zero ainda pode devolver endereços diferentes a cada consulta; a checagem final e a interceptação de navegação reduzem a janela, mas não a eliminam para subrecursos e frames filhos. O egress do Worker e do Browser Rendering é a rede da Cloudflare, sem acesso à rede interna do dono.
 
 ### 4.3 Coleta em paralelo
 
@@ -363,19 +375,20 @@ A nota tem quatro blocos. Cada um vira **baixo** se tiver qualquer evidência gr
 
 Uma ferramenta que faz o servidor acessar endereços informados por terceiros e consome cotas gratuitas precisa se proteger de abuso.
 
-- **Anti-SSRF** (seção 4.2): só sites públicos; faixas privadas recusadas antes e depois de redirecionamentos.
-- **Turnstile** (`turnstile.js`): valida o token do widget invisível da Cloudflare. Se o `siteverify` da Cloudflare estiver fora do ar, o pedido passa (a ferramenta não pode cair por falha de terceiro). No modo `observar`, só registra o resultado nos logs; no modo `exigir`, recusa.
+- **Anti-SSRF** (seção 4.2): só sites públicos; faixas privadas recusadas na entrada, nos saltos de redirecionamento e no destino final (A e AAAA), com interceptação das requisições do navegador. Risco residual descrito na seção 4.2.
+- **Turnstile** (`turnstile.js`): valida o token do widget invisível da Cloudflare. Se o `siteverify` da Cloudflare estiver fora do ar, o pedido passa (a ferramenta não pode cair por falha de terceiro). No modo `observar`, só registra o resultado nos logs; no modo `exigir`, recusa, e a recusa conta no bloqueio progressivo do IP. Sem `TURNSTILE_SECRET`, o modo `exigir` recusa tudo e registra `turnstile_sem_segredo`.
 - **Guarda por IP** (`guarda.js`, Durable Object `SitesecureDO`, SQLite): 5 análises em qualquer janela de 10 minutos, 20 por dia (dia civil de Brasília). Três recusas no dia bloqueiam o IP por 1 hora, e seis por 24 horas.
-- **Teto geral:** 150 análises por dia.
-- **Cache de 1 hora** por entrada. O nome do objeto é derivado do IP pelo próprio Cloudflare e o IP não é gravado. O estado de cada IP é apagado 48 horas depois do último uso.
+- **Teto geral:** 150 análises por dia (regra de devolução na seção 4.1).
+- **Cache de 1 hora** por entrada, só de laudos completos. Laudo "Análise incompleta" (fonte de ameaça fora do ar) não é guardado, para uma falha passageira não ficar congelada. O laudo guardado não tem a URL com caminho e query (fica só `https://host/`), o recebedor, a cidade nem o valor do PIX: os campos de URL e valor são removidos pela estrutura e os demais textos têm esses trechos trocados por marcadores, restaurados a partir da própria requisição. Se a restauração falhar, a análise é refeita. Numa consulta vinda do cache, a URL final de um redirecionamento para outro domínio volta só como `https://host/`. O nome do objeto é derivado do IP pelo próprio Cloudflare e o IP não é gravado. O estado de cada IP é apagado 48 horas depois do último uso.
 - **Chaves de API** ficam em segredos do Worker. O front nunca as recebe.
 - **Chave PIX mascarada** no laudo (CPF, e-mail e telefone).
 - **Histórico de consultas** (`historico.js`, banco D1 `sitesecure-historico`, binding `HISTORICO`, tabela criada por `migrations/0001_historico.sql`): uma linha por consulta, inclusive as servidas do cache (`cache = 1`), com data, tipo (`site` ou `pix`), domínio raiz, instituição que recebe o PIX e nota. Não grava IP, URL completa, chave PIX nem nome do recebedor. Falha no histórico não derruba a análise. Consulta:
 
   ```bash
   npx wrangler d1 execute sitesecure-historico --remote --config wrangler.toml \
-    --command "SELECT em, tipo, dominio, instituicao, nota, cache FROM consultas ORDER BY em DESC LIMIT 50"
+    --command "SELECT em, tipo, dominio, instituicao, nota, cache FROM consultas ORDER BY em DESC, id DESC LIMIT 50"
   ```
+- **Retenção do histórico:** o cron diário (05:17 UTC) apaga o que tem mais de 12 meses, em lotes de 5000 linhas (`DELETE ... WHERE id IN (SELECT id ... LIMIT 5000)`), no máximo 10 lotes por execução; o resto sai no dia seguinte. Falha da limpeza vira o log `limpeza_historico_falhou` e o cron aparece como falho no painel. Linhas com `em` fora do formato `AAAA-MM-DD` nunca são apagadas (letras ordenam depois dos dígitos); a conferência é `SELECT count(*) FROM consultas WHERE em NOT GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'`.
 - **Content-Security-Policy** do site restringe as conexões do front a `api.itibere.tec.br`.
 
 ---
@@ -388,7 +401,7 @@ Uma ferramenta que faz o servidor acessar endereços informados por terceiros e 
 npm test
 ```
 
-O arquivo `test/nota.test.js` usa o executor nativo do Node (`node:test`) e testa as regras de `nota.js` com dados fixos, sem rede e sem gastar cota. Cada cenário monta as evidências que o `analisar.js` coletaria para um tipo de site e confere as notas de cada bloco e a final. São 37 testes em três arquivos: `nota.test.js` (regras de nota), `util.test.js` (domínio raiz, plataformas de subdomínio livre e detecção de tela anti-robô) e `historico.test.js` (o que entra e o que nunca entra no histórico de consultas). Os cenários de nota cobrem: loja grande em ordem, site de governo limpo e com sinal de ameaça, Safe Browsing e VirusTotal, domínio novo e domínio popular, ausência de HTTPS, certificado vencendo, alertas leves com e sem alívio, apostas dentro e fora de `.bet.br`, imitação de serviço público, CNPJ ausente e inexistente, hospedagem, anunciantes e redes arriscadas, encurtadores, redirecionamentos e a agregação da nota final.
+O arquivo `test/nota.test.js` usa o executor nativo do Node (`node:test`) e testa as regras de `nota.js` com dados fixos, sem rede e sem gastar cota. Cada cenário monta as evidências que o `analisar.js` coletaria para um tipo de site e confere as notas de cada bloco e a final. Os arquivos em `test/` cobrem as regras de nota, a guarda anti-SSRF, a guarda por IP e o cache, o PIX, a coleta (navegador simulado e HTML estático), o histórico, os limites de `/hash` e `/url` e laudos de site de ponta a ponta com a rede simulada. Rode `npm test` para a contagem atual. Os cenários de nota cobrem: loja grande em ordem, site de governo limpo e com sinal de ameaça, Safe Browsing e VirusTotal, domínio novo e domínio popular, ausência de HTTPS, certificado vencendo, alertas leves com e sem alívio, apostas dentro e fora de `.bet.br`, imitação de serviço público, CNPJ ausente e inexistente, hospedagem, anunciantes e redes arriscadas, encurtadores, redirecionamentos e a agregação da nota final.
 
 Esses testes protegem as regras contra regressão quando um limite é ajustado. Eles não descobrem problemas de coleta, por isso há a validação da próxima seção.
 
@@ -414,7 +427,7 @@ O roteiro usa 8 análises, para caber nos limites do plano gratuito (20 por dia 
 ## 9. Limitações conhecidas
 
 - **A nota é indicativa.** Um site legítimo pode receber nota média por ter pouca reputação pública, e um site fraudulento novo e bem configurado pode não ser detectado. Não há análise do conteúdo textual da página nem aprendizado de máquina.
-- **Só endereços IPv4** são verificados na resolução do nome. Registros AAAA não passam pela checagem de faixa privada.
+- **DNS rebinding e subrecursos do navegador.** A checagem de DNS é feita pelo worker por DNS-over-HTTPS, e o navegador resolve por conta própria. O host final é resolvido de novo e as navegações do frame principal são conferidas, mas subrecursos e iframes de hosts comuns não têm o DNS conferido (só a sintaxe). Detalhes e mitigante na seção 4.2.
 - **Sufixos públicos.** O domínio raiz é calculado com uma lista curta de sufixos de segundo nível (`com.br`, `co.uk` e semelhantes), não com a Public Suffix List completa.
 - **Reclame Aqui** bloqueia acesso automatizado e não tem API pública. A reputação nele fica como observação com link para conferir. A base do consumidor.gov.br e do Sindec aponta para um host que não resolve no DNS público e o site tem WAF que recusa acesso automatizado; por isso não foram usados.
 - **Cota do navegador.** Com 10 minutos por dia, as análises seguintes usam o HTML estático, que não vê anúncios carregados por JavaScript nem dados de TLS. O laudo indica o modo usado.

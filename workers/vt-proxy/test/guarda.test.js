@@ -159,3 +159,17 @@ test("guarda: IPs diferentes usam objetos diferentes", async () => {
   await guarda.consumirIp(env, "2.2.2.2");
   assert.deepEqual([...b.objetos.keys()].sort(), ["ip:1.1.1.1", "ip:2.2.2.2"]);
 });
+
+test("ocultarSegredos: texto curto, numero, chave e marcador literal nao quebram a ida e volta", () => {
+  const eventos = [{ etapa: "laudo", laudo: { nota: 0, ok: true, titulo: "Loja ⟦2⟧ 0; 0", recebedor: "0", textos: ["R$ 10,00", "SP", "MARIA SOUZA e MARIA SOUZA"] } }];
+  const segredos = ["0", "SP", "MARIA SOUZA", "?token=1"];
+  const oculto = ocultarSegredos(eventos, segredos);
+  assert.equal(oculto[0].laudo.nota, 0);
+  assert.equal(oculto[0].laudo.ok, true);
+  assert.ok(!JSON.stringify(oculto).includes("MARIA"));
+  assert.deepEqual(restaurarSegredos(oculto, segredos), eventos);
+});
+
+test("restaurarSegredos: marcador de segredo inexistente lanca erro em vez de devolver lixo", () => {
+  assert.throws(() => restaurarSegredos([{ a: "9;" }], ["MARIA SOUZA"]));
+});

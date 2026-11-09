@@ -23,6 +23,13 @@ export class SemCota extends Error {
   }
 }
 
+// Para o log: so o tipo do erro e, se for um codigo nosso, o codigo. A mensagem
+// de erros de rede e do navegador pode trazer a URL consultada.
+export function resumoErro(err) {
+  const codigo = /^[a-z_]{1,40}$/.test(err?.message) ? err.message : undefined;
+  return { tipo: String(err?.name || "Error").slice(0, 40), codigo };
+}
+
 // fetch do Worker nao manda User-Agent; varias APIs publicas recusam (403/429).
 const UA = "Mozilla/5.0 (compatible; IJ-Sitesecure/1.0; +https://itibere.tec.br/sitesecure/)";
 
@@ -132,14 +139,14 @@ export function casaDominio(host, dominio) {
 }
 
 // Executa uma etapa e avisa o cliente. Falha de escrita (cliente que saiu) nao
-// descarta o resultado; a mensagem de erro fica no log, nunca na resposta.
+// descarta o resultado; so o tipo do erro fica no log, nunca a mensagem nem a resposta.
 export async function etapa(emitir, nome, fn, padrao = null) {
   let resultado = padrao;
   let evento = { etapa: nome, status: "ok" };
   try {
     resultado = await fn();
   } catch (err) {
-    console.log(JSON.stringify({ evento: "etapa_falhou", etapa: nome, erro: String(err?.message || err).slice(0, 120) }));
+    console.log(JSON.stringify({ evento: "etapa_falhou", etapa: nome, ...resumoErro(err) }));
     evento = { etapa: nome, status: "falhou", motivo: err instanceof SemCota ? "sem_cota" : "falhou" };
   }
   try {

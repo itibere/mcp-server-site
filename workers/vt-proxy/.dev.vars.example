@@ -1,6 +1,7 @@
 VT_API_KEY=cole_sua_chave_do_virustotal_aqui
 
-# Sitesecure (opcionais; sem chave, a fonte aparece como indisponivel no laudo)
+# Sitesecure: GSB_API_KEY e URLHAUS_AUTH_KEY sao necessarias para laudo completo; sem elas
+# todo laudo de site sai como "Analise incompleta". CF_RADAR_TOKEN e opcional.
 GSB_API_KEY=cole_sua_chave_do_google_safe_browsing
 URLHAUS_AUTH_KEY=cole_sua_chave_do_abuse_ch
 CF_RADAR_TOKEN=cole_seu_token_radar_read
@@ -9,5 +10,6 @@ DEV_ORIGIN=http://localhost:8000
 # Teste local sem Chrome (o Chrome do wrangler pode ser bloqueado por antivirus)
 # SEM_NAVEGADOR=1
 # Turnstile: chave secreta de teste da Cloudflare (sempre passa); em producao use wrangler secret put.
+# Com TURNSTILE_MODO = "exigir" (wrangler.toml), sem esta chave toda analise e recusada.
 # O front local usa a chave publica de teste 1x00000000000000000000AA (sitesecure e checagem de hash/link).
 TURNSTILE_SECRET=1x0000000000000000000000000000000AA

@@ -7,6 +7,7 @@
 // nao e gravado no armazenamento. Todo estado se apaga sozinho (alarm).
 
 import { expandirIpv6 } from "./guard.js";
+import { resumoErro } from "./util.js";
 
 export const LIMITES_SITESECURE = {
   porJanela: 5,
@@ -74,13 +75,7 @@ export class SitesecureDO {
       }
 
       if (motivo) {
-        let rec = (await s.get("recusas")) || { dia, n: 0 };
-        if (rec.dia !== dia) rec = { dia, n: 0 };
-        rec.n += 1;
-        const extra = {};
-        if (rec.n >= L.recusasParaBloqueio24h) extra.bloqueioAte = agora + 24 * HORA;
-        else if (rec.n >= L.recusasParaBloqueio1h) extra.bloqueioAte = agora + HORA;
-        await s.put({ recusas: rec, ...extra });
+        const extra = await this.registrarRecusa(dia, agora);
         if (extra.bloqueioAte) return json({ ok: false, motivo: "bloqueado", tentarEm: Math.ceil((extra.bloqueioAte - agora) / 1000) });
         return json({ ok: false, motivo, tentarEm });
       }
@@ -90,6 +85,11 @@ export class SitesecureDO {
       await s.put({ log, dia: d });
       await s.setAlarm(agora + L.ipApagarMs);
       return json({ ok: true, restantesHoje: L.porDia - d.n });
+    }
+
+    if (u.pathname === "/ip/recusar") {
+      const extra = await this.registrarRecusa(diaBR(agora), agora);
+      return json({ ok: true, bloqueado: !!extra.bloqueioAte });
     }
 
     if (u.pathname === "/global/consumir") {
@@ -127,6 +127,20 @@ export class SitesecureDO {
     return new Response("not found", { status: 404 });
   }
 
+  async registrarRecusa(dia, agora) {
+    const s = this.state.storage;
+    const L = LIMITES_SITESECURE;
+    let rec = (await s.get("recusas")) || { dia, n: 0 };
+    if (rec.dia !== dia) rec = { dia, n: 0 };
+    rec.n += 1;
+    const extra = {};
+    if (rec.n >= L.recusasParaBloqueio24h) extra.bloqueioAte = agora + 24 * HORA;
+    else if (rec.n >= L.recusasParaBloqueio1h) extra.bloqueioAte = agora + HORA;
+    await s.put({ recusas: rec, ...extra });
+    await s.setAlarm(agora + L.ipApagarMs);
+    return extra;
+  }
+
   // Alarme = fim da validade: apaga tudo deste objeto (cache ou estado do IP).
   async alarm() {
     await this.state.storage.deleteAll();
@@ -141,7 +155,7 @@ async function chamar(env, nome, caminho, init) {
     const res = await stub.fetch(`https://sitesecure${caminho}`, init);
     return await res.json();
   } catch (err) {
-    console.log(JSON.stringify({ evento: "guarda_falhou", caminho, erro: String(err?.message || err).slice(0, 120) }));
+    console.log(JSON.stringify({ evento: "guarda_falhou", caminho, ...resumoErro(err) }));
     throw new Error("guarda_indisponivel");
   }
 }
@@ -149,6 +163,7 @@ async function chamar(env, nome, caminho, init) {
 export const guarda = {
   estadoIp: (env, ip) => chamar(env, `ip:${ip}`, "/ip/estado"),
   consumirIp: (env, ip) => chamar(env, `ip:${ip}`, "/ip/consumir"),
+  registrarRecusa: (env, ip) => chamar(env, `ip:${ip}`, "/ip/recusar"),
   consumirGlobal: (env) => chamar(env, "global", "/global/consumir"),
   estornarGlobal: (env) => chamar(env, "global", "/global/estornar"),
   lerCache: (env, chave) => chamar(env, `cache:${chave}`, "/cache/get"),
@@ -174,19 +189,48 @@ export async function chaveCache(url, pix) {
   return [...new Uint8Array(dig)].map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-// O cache guarda o laudo sem dado da entrada (URL com query, nome/cidade do
-// recebedor do PIX): cada trecho vira um marcador e volta na leitura, a partir
-// da propria requisicao (a chave do cache e o hash dessa mesma entrada).
-const trechoJson = (s) => JSON.stringify(s).slice(1, -1);
+// O cache guarda o laudo sem dado da entrada (caminho e query da URL, nome e
+// cidade do recebedor do PIX): em cada texto do laudo (so nos valores, nunca em
+// chaves, numeros ou na estrutura) o trecho vira um marcador, e volta na leitura
+// a partir da propria requisicao (a chave do cache e o hash dessa entrada).
+// O marcador usa um caractere reservado; o caractere literal e dobrado, para a
+// volta ser exata mesmo que o texto da pagina o contenha.
+const MARCA = String.fromCharCode(0xe000);
+const MIN_SEGREDO = 3;
+
+function mapearTextos(valor, fn) {
+  if (typeof valor === "string") return fn(valor);
+  if (Array.isArray(valor)) return valor.map((v) => mapearTextos(v, fn));
+  if (valor && typeof valor === "object") return Object.fromEntries(Object.entries(valor).map(([k, v]) => [k, mapearTextos(v, fn)]));
+  return valor;
+}
+
+const escaparRegex = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 export function ocultarSegredos(eventos, segredos) {
-  let txt = JSON.stringify(eventos);
-  segredos.forEach((s, i) => { txt = txt.split(trechoJson(s)).join(`⟦${i}⟧`); });
-  return JSON.parse(txt);
+  const lista = segredos.filter((s) => typeof s === "string" && s.length >= MIN_SEGREDO);
+  const dobrar = (t) => t.split(MARCA).join(MARCA + MARCA);
+  if (!lista.length) return mapearTextos(eventos, dobrar);
+  const ordem = [...lista].sort((a, b) => b.length - a.length);
+  const re = new RegExp(ordem.map(escaparRegex).join("|"), "g");
+  return mapearTextos(eventos, (texto) => {
+    let saida = "";
+    let fim = 0;
+    for (const m of texto.matchAll(re)) {
+      saida += dobrar(texto.slice(fim, m.index)) + `${MARCA}${lista.indexOf(m[0])};`;
+      fim = m.index + m[0].length;
+    }
+    return saida + dobrar(texto.slice(fim));
+  });
 }
 
 export function restaurarSegredos(eventos, segredos) {
-  let txt = JSON.stringify(eventos);
-  segredos.forEach((s, i) => { txt = txt.split(`⟦${i}⟧`).join(trechoJson(s)); });
-  return JSON.parse(txt);
+  const lista = segredos.filter((s) => typeof s === "string" && s.length >= MIN_SEGREDO);
+  const re = new RegExp(`${MARCA}(${MARCA}|\\d+;)`, "g");
+  return mapearTextos(eventos, (texto) => texto.replace(re, (_, g) => {
+    if (g === MARCA) return MARCA;
+    const s = lista[parseInt(g, 10)];
+    if (s === undefined) throw new Error("marcador_invalido");
+    return s;
+  }));
 }

@@ -52,7 +52,7 @@ test("/hash e /url: corpo acima de 4 KB e JSON invalido sao recusados sem rede",
   assert.equal(rede.length, 0);
 });
 
-test("/hash e /url: limite diario de 20 por IP", async (t) => {
+test("/hash e /url: limite diario de 10 por IP sem Turnstile (modo observar)", async (t) => {
   simularRede(t, vt);
   const limitador = bindingLimitador();
   const env = { RATE_LIMITER_DO: limitador };
@@ -60,7 +60,7 @@ test("/hash e /url: limite diario de 20 por IP", async (t) => {
   const original = Date.now;
   Date.now = () => agora;
   t.after(() => { Date.now = original; });
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 10; i++) {
     assert.equal((await chamar("/hash", { hash: HASH }, env)).status, 200, `consulta ${i + 1}`);
     if (i % 5 === 4) agora += 61_000;
   }
@@ -73,11 +73,64 @@ test("/hash e /url: teto diario geral", async (t) => {
   simularRede(t, vt);
   const limitador = bindingLimitador();
   const env = { RATE_LIMITER_DO: limitador };
-  limitador.get("vt-teto-dia");
-  limitador.objetos.get("vt-teto-dia").armazenamento.dados.set("contador", { janela: Math.floor(Date.now() / 86_400_000), contagem: 150 });
+  limitador.get("vt-teto-dia:hash");
+  limitador.objetos.get("vt-teto-dia:hash").armazenamento.dados.set("contador", { janela: Math.floor(Date.now() / 86_400_000), contagem: 100 });
   const r = await chamar("/hash", { hash: HASH }, env);
   assert.equal(r.status, 503);
   assert.equal((await r.json()).error, "teto_diario");
+  const outraRota = await chamar("/url", { url: "https://exemplo.com.br/" }, env);
+  assert.notEqual(outraRota.status, 503, "o teto de /hash nao derruba /url");
+});
+
+function relogio(t) {
+  let agora = Date.parse("2026-11-09T15:00:00Z");
+  const original = Date.now;
+  Date.now = () => agora;
+  t.after(() => { Date.now = original; });
+  return () => { agora += 61_000; };
+}
+
+const contagem = (limitador, chave) => limitador.objetos.get(chave)?.armazenamento.dados.get("contador")?.contagem ?? 0;
+
+test("GET /url/:id: limite diario proprio; um IP sozinho nao esgota a cota combinada do VirusTotal", async (t) => {
+  simularRede(t, (url) => (url.includes("virustotal.com") ? new Response("{}", { status: 404 }) : semRede()));
+  const avancar = relogio(t);
+  const limitador = bindingLimitador();
+  const env = { RATE_LIMITER_DO: limitador };
+  for (let i = 0; i < 10; i++) {
+    assert.equal((await chamar("/url", { url: `https://exemplo.com.br/${i}` }, env)).status, 502, `POST ${i + 1}`);
+    if (i % 5 === 4) avancar();
+  }
+  assert.equal((await chamar("/url", { url: "https://exemplo.com.br/x" }, env)).status, 429, "11o POST do dia");
+  avancar();
+  for (let i = 0; i < 60; i++) {
+    assert.equal((await chamar("/url/abc123", null, env, { metodo: "GET" })).status, 502, `poll ${i + 1}`);
+    if (i % 8 === 7) avancar();
+  }
+  avancar();
+  const r = await chamar("/url/abc123", null, env, { metodo: "GET" });
+  assert.equal(r.status, 429);
+  assert.equal((await r.json()).error, "limite_diario");
+  assert.equal(contagem(limitador, "vt-teto-total-dia"), 70, "POST + poll de um IP so: 70 de 175");
+});
+
+test("GET /url/:id: teto de polls e teto combinado protegem a cota", async (t) => {
+  const rede = simularRede(t, semRede);
+  const limitador = bindingLimitador();
+  const env = { RATE_LIMITER_DO: limitador };
+  const janela = Math.floor(Date.now() / 86_400_000);
+  const encher = (chave, n) => {
+    limitador.get(chave);
+    limitador.objetos.get(chave).armazenamento.dados.set("contador", { janela, contagem: n });
+  };
+  encher("vt-teto-dia:poll", 120);
+  const r = await chamar("/url/abc123", null, env, { metodo: "GET" });
+  assert.equal(r.status, 503);
+  assert.equal((await r.json()).error, "teto_diario");
+  encher("vt-teto-total-dia", 175);
+  const hash = await chamar("/hash", { hash: HASH }, env);
+  assert.equal(hash.status, 503);
+  assert.equal(rede.length, 0, "recusado sem chamar o VirusTotal");
 });
 
 test("/hash: Turnstile no modo exigir recusa sem token e aceita o modo observar", async (t) => {
@@ -136,9 +189,17 @@ test("/sitesecure/analisar recebe o IPv6 agrupado na guarda", async (t) => {
 
 test("scheduled: apaga do historico o que passou de 12 meses", async () => {
   let args;
-  const env = { HISTORICO: { prepare: () => ({ bind: (...a) => { args = a; return { run: async () => ({}) }; } }) } };
-  const ctx = contexto();
-  await worker.scheduled({}, env, ctx);
-  await ctx.esperar();
+  const env = { HISTORICO: { prepare: () => ({ bind: (...a) => { args = a; return { run: async () => ({ meta: { changes: 0 } }) }; } }) } };
+  await worker.scheduled({}, env, contexto());
   assert.match(args[0], /^\d{4}-\d{2}-\d{2}$/);
+});
+
+test("scheduled: falha da limpeza e relancada para o cron constar como falho", async (t) => {
+  const logs = [];
+  const original = console.log;
+  console.log = (l) => logs.push(l);
+  t.after(() => { console.log = original; });
+  const env = { HISTORICO: { prepare: () => { throw new Error("d1 fora"); } } };
+  await assert.rejects(worker.scheduled({}, env, contexto()), /d1 fora/);
+  assert.ok(logs.some((l) => l.includes("limpeza_historico_falhou")));
 });

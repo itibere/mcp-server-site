@@ -6,14 +6,32 @@
 // CISA BOD 18-01 (HTTPS/HSTS/DMARC), OWASP Secure Headers, RFC 9116 (security.txt),
 // RFC 8659 (CAA).
 import { buscar, buscarJson } from "./util.js";
+import { verificarDestinos } from "./guard.js";
 
-// Busca security.txt e status na lista de HSTS preload: 2 subrequests.
-export async function coletarExtras(orcamento, host, raiz) {
+const MAX_SALTOS_SECURITY_TXT = 3;
+
+// Busca security.txt (ate 3 redirecionamentos, cada destino conferido antes de
+// buscar) e status na lista de HSTS preload.
+async function buscarSecurityTxt(orcamento, host, vistos) {
+  let atual = `https://${host}/.well-known/security.txt`;
+  for (let salto = 0; salto <= MAX_SALTOS_SECURITY_TXT; salto++) {
+    const res = await buscar(orcamento, atual, { redirect: "manual" }, 5000);
+    const destino = res.headers.get("location");
+    if (res.status < 300 || res.status >= 400 || !destino) return res;
+    atual = new URL(destino, atual).toString();
+    const ok = await verificarDestinos(orcamento, vistos, [atual]);
+    if (ok.erro) return null;
+  }
+  return null;
+}
+
+export async function coletarExtras(orcamento, host, raiz, vistos = new Set([host])) {
   const [securityTxt, preload] = await Promise.all([
     (async () => {
       if (!orcamento.pode()) return null;
       try {
-        const res = await buscar(orcamento, `https://${host}/.well-known/security.txt`, { redirect: "follow" }, 5000);
+        const res = await buscarSecurityTxt(orcamento, host, vistos);
+        if (!res) return null;
         if (!res.ok || !/text\/plain/i.test(res.headers.get("content-type") || "")) return false;
         const texto = (await res.text()).slice(0, 4000);
         return /^\s*contact\s*:/im.test(texto);

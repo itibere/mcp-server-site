@@ -66,12 +66,61 @@ test("retencao: corte em 12 meses", () => {
   assert.equal(diaLimiteRetencao(Date.parse("2026-03-01T01:00:00Z")), "2025-02-28");
 });
 
-test("limparHistorico: apaga so o que passou do corte e nunca falha", async () => {
-  let sql, args;
-  const env = { HISTORICO: { prepare: (s) => { sql = s; return { bind: (...a) => { args = a; return { run: async () => ({}) }; } }; } } };
-  await limparHistorico(env, Date.parse("2026-11-09T15:00:00Z"));
-  assert.equal(sql, "DELETE FROM consultas WHERE em < ?");
-  assert.deepEqual(args, ["2025-11-09"]);
+test("retencao: 29/fev, virada de ano e meses de 30 e 31 dias", () => {
+  assert.equal(diaLimiteRetencao(Date.parse("2028-02-29T15:00:00Z")), "2027-02-28");
+  assert.equal(diaLimiteRetencao(Date.parse("2024-02-29T15:00:00Z")), "2023-02-28");
+  assert.equal(diaLimiteRetencao(Date.parse("2027-01-01T02:00:00Z")), "2025-12-31", "ainda 31/12 em Brasilia");
+  assert.equal(diaLimiteRetencao(Date.parse("2027-01-01T03:00:00Z")), "2026-01-01");
+  assert.equal(diaLimiteRetencao(Date.parse("2026-03-31T15:00:00Z")), "2025-03-31");
+  assert.equal(diaLimiteRetencao(Date.parse("2026-05-30T15:00:00Z")), "2025-05-30");
+});
+
+function d1(respostas) {
+  const chamadas = [];
+  return {
+    chamadas,
+    prepare: (sql) => ({
+      bind: (...args) => ({
+        run: async () => {
+          chamadas.push({ sql, args });
+          const r = respostas[chamadas.length - 1] ?? respostas.at(-1);
+          if (r instanceof Error) throw r;
+          return { meta: { changes: r } };
+        },
+      }),
+    }),
+  };
+}
+
+function capturarLog(t) {
+  const logs = [];
+  const original = console.log;
+  console.log = (l) => logs.push(l);
+  t.after(() => { console.log = original; });
+  return logs;
+}
+
+test("limparHistorico: apaga em lotes de 5000 com id IN (SELECT ... LIMIT) ate o lote vir incompleto", async () => {
+  const banco = d1([5000, 5000, 120]);
+  await limparHistorico({ HISTORICO: banco }, Date.parse("2026-11-09T15:00:00Z"));
+  assert.equal(banco.chamadas.length, 3);
+  assert.equal(banco.chamadas[0].sql, "DELETE FROM consultas WHERE id IN (SELECT id FROM consultas WHERE em < ? ORDER BY em LIMIT ?)");
+  assert.deepEqual(banco.chamadas[0].args, ["2025-11-09", 5000]);
+});
+
+test("limparHistorico: no maximo 10 lotes por execucao, e avisa no log", async (t) => {
+  const logs = capturarLog(t);
+  const banco = d1([5000]);
+  await limparHistorico({ HISTORICO: banco });
+  assert.equal(banco.chamadas.length, 10);
+  assert.ok(logs.some((l) => l.includes("limpeza_historico_parcial")));
+});
+
+test("limparHistorico: falha e registrada em log estruturado e relancada; sem binding nao faz nada", async (t) => {
+  const logs = capturarLog(t);
   await limparHistorico({});
-  await limparHistorico({ HISTORICO: { prepare: () => { throw new Error("d1 fora"); } } });
+  await assert.rejects(limparHistorico({ HISTORICO: d1([new Error("d1 fora")]) }), /d1 fora/);
+  const reg = JSON.parse(logs.find((l) => l.includes("limpeza_historico_falhou")));
+  assert.equal(reg.evento, "limpeza_historico_falhou");
+  assert.equal(reg.tipo, "Error");
 });

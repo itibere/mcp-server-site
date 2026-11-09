@@ -2,13 +2,17 @@
 // TURNSTILE_MODO (wrangler.toml [vars]):
 //   "observar" -> confere e registra no log, mas nunca bloqueia (fase de teste)
 //   "exigir"   -> sem token valido, a analise e recusada antes de gastar cota
-// Sem TURNSTILE_SECRET, nada e conferido (fail-open, registrado no log).
+// Sem TURNSTILE_SECRET: no modo "exigir" tudo e recusado; no "observar" passa, e
+// os dois casos registram erro no log.
 const SITEVERIFY = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const HOSTS_PERMITIDOS = ["itibere.tec.br", "localhost", "127.0.0.1"];
 
 export async function conferirTurnstile(env, token, ip, modoConfigurado = env.TURNSTILE_MODO) {
   const modo = modoConfigurado === "exigir" ? "exigir" : "observar";
-  if (!env.TURNSTILE_SECRET) return { ok: true, modo, resultado: "sem_segredo" };
+  if (!env.TURNSTILE_SECRET) {
+    console.error(JSON.stringify({ evento: "turnstile_sem_segredo", modo }));
+    return decidir(modo, "sem_segredo");
+  }
   if (!token || typeof token !== "string" || token.length > 2048) return decidir(modo, "sem_token");
 
   try {

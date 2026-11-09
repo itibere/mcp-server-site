@@ -1,11 +1,12 @@
 // Coleta da pagina: navegador headless (Cloudflare Browser Rendering) e, se a
 // cota diaria do navegador acabar, fallback para o HTML estatico.
 import { buscar } from "./util.js";
-import { verificarDestinos } from "./guard.js";
+import { verificarDestinos, validarUrl } from "./guard.js";
 
 const MAX_REQS = 400;
 const MAX_TEXTO = 60_000;
 const MAX_SALTOS = 5;
+const MAX_NAVEGACOES = 6;
 
 // Roda dentro da pagina. Nao pode referenciar nada de fora desta funcao.
 function extrairNaPagina() {
@@ -71,19 +72,53 @@ async function linksDosFrames(page) {
   return saida;
 }
 
-export async function renderizar(env, url) {
-  const { default: puppeteer } = await import("@cloudflare/puppeteer");
+const SEM_REDE = /^(about|data|blob):/i;
+
+// Intercepta as requisicoes do navegador: nenhuma vai a endereco literal, nome
+// interno, porta fora de 80/443 ou protocolo estranho; e toda navegacao do frame
+// principal (inclusive cada redirecionamento) tem o host resolvido e conferido
+// antes de sair. Subrecursos e frames filhos so passam pela checagem de sintaxe:
+// resolver cada host de anuncio gastaria os subrequests da analise.
+async function filtrarRequisicao(req, page, orcamento, vistos, bloqueio) {
+  const alvo = req.url();
+  if (SEM_REDE.test(alvo)) return req.continue();
+  let motivo = validarUrl(alvo).erro;
+  if (!motivo && req.isNavigationRequest() && req.frame() === page.mainFrame()) {
+    if (++bloqueio.navegacoes > MAX_NAVEGACOES) motivo = "redirecionamentos_demais";
+    else motivo = (await verificarDestinos(orcamento, vistos, [alvo], { revalidarUltimo: true }).catch(() => ({ erro: "dns_falhou" }))).erro;
+  }
+  if (!motivo) return req.continue();
+  if (req.isNavigationRequest() && req.frame() === page.mainFrame()) bloqueio.motivo ||= motivo;
+  return req.abort("blockedbyclient");
+}
+
+export async function renderizar(env, url, { orcamento, vistos, puppeteer: injetado, esperaMs = 2500 } = {}) {
+  const puppeteer = injetado || (await import("@cloudflare/puppeteer")).default;
   const browser = await puppeteer.launch(env.BROWSER);
   try {
     const page = await browser.newPage();
     await page.setViewport({ width: 1366, height: 900 });
     const requisicoes = new Set();
+    const bloqueio = { navegacoes: 0 };
+    if (orcamento && vistos) {
+      await page.setRequestInterception(true);
+      page.on("request", (r) => {
+        filtrarRequisicao(r, page, orcamento, vistos, bloqueio).catch(() => r.abort("failed").catch(() => {}));
+      });
+    }
     page.on("request", (r) => {
       if (requisicoes.size < MAX_REQS) requisicoes.add(r.url());
     });
-    const resp = await page.goto(url, { waitUntil: "networkidle2", timeout: 25_000 });
+    let resp;
+    try {
+      resp = await page.goto(url, { waitUntil: "networkidle2", timeout: 25_000 });
+    } catch (err) {
+      if (bloqueio.motivo) throw Object.assign(new Error(bloqueio.motivo), { destinoProibido: true });
+      throw err;
+    }
+    if (bloqueio.motivo) throw Object.assign(new Error(bloqueio.motivo), { destinoProibido: true });
     // Anuncios costumam chegar depois do load.
-    await new Promise((r) => setTimeout(r, 2500));
+    await new Promise((r) => setTimeout(r, esperaMs));
     const dados = await page.evaluate(extrairNaPagina);
     dados.links.push(...(await linksDosFrames(page)));
     const seg = resp?.securityDetails();
@@ -115,7 +150,7 @@ export async function coletarEstatico(orcamento, url, vistos = new Set()) {
     }, 12_000);
     const destino = res.headers.get("location");
     if (res.status < 300 || res.status >= 400 || !destino) break;
-    if (saltos.length >= MAX_SALTOS) throw new Error("redirecionamentos_demais");
+    if (saltos.length >= MAX_SALTOS) throw Object.assign(new Error("redirecionamentos_demais"), { destinoProibido: true });
     saltos.push(atual);
     atual = new URL(destino, atual).toString();
     const ok = await verificarDestinos(orcamento, vistos, [atual]);

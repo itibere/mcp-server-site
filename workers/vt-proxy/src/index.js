@@ -12,8 +12,15 @@ export { SitesecureDO } from "./sitesecure/guarda.js";
 const RATE_LIMIT = 10; // requisicoes
 const RATE_WINDOW_MS = 60_000; // por janela fixa de 60s
 const DIA_MS = 86_400_000;
-const VT_LIMITE_DIA_IP = 20; // /hash e /url: mesmo limite diario por IP do sitesecure
-const VT_TETO_DIA = 150; // e mesmo teto diario geral
+// Cota do VirusTotal (500/dia, 4/min) dividida com o Site Secure (1 consulta por
+// analise, ate 150/dia). /hash gasta 1 chamada; POST /url e o poll gastam ate 2.
+// Por IP: 20 por dia com Turnstile exigido, 10 sem ele (modo observar) e 60 polls.
+const VT_LIMITE_DIA_IP = { exigir: 20, observar: 10 };
+const VT_LIMITE_POLL_DIA_IP = 60;
+// Tetos diarios por rota (um ataque a uma nao derruba as outras) e um teto
+// combinado: no pior caso 175 x 2 = 350 chamadas, sobrando 150 para o Site Secure.
+const VT_TETOS = { hash: 100, url: 100, poll: 120 };
+const VT_TETO_TOTAL = 175;
 
 // Rate limit via Durable Object, por IP (mesmo padrao do worker rag-licitacoes,
 // ver rag-portarias/portarias/worker/src/index.js): instancia unica autoritativa
@@ -167,6 +174,13 @@ function validarUrlVt(corpo) {
   }
 }
 
+async function cobrarVt(env, ip, rota, limiteIp, chaveIp) {
+  if (!(await checarLimite(env, chaveIp, limiteIp, DIA_MS))) return { erro: "limite_diario", status: 429 };
+  if (!(await checarLimite(env, `vt-teto-dia:${rota}`, VT_TETOS[rota], DIA_MS))) return { erro: "teto_diario", status: 503 };
+  if (!(await checarLimite(env, "vt-teto-total-dia", VT_TETO_TOTAL, DIA_MS))) return { erro: "teto_diario", status: 503 };
+  return null;
+}
+
 async function handleHash(request, env, hash) {
   const res = await vtFetch(`/files/${hash}`, env.VT_API_KEY);
   if (res.status === 404) {
@@ -301,12 +315,8 @@ export default {
       if (!ts.ok) return json(request, { error: "verificacao_humana" }, 403);
 
       try {
-        if (!(await checarLimite(env, `vt-dia:${ip}`, VT_LIMITE_DIA_IP, DIA_MS))) {
-          return json(request, { error: "limite_diario" }, 429);
-        }
-        if (!(await checarLimite(env, "vt-teto-dia", VT_TETO_DIA, DIA_MS))) {
-          return json(request, { error: "teto_diario" }, 503);
-        }
+        const recusa = await cobrarVt(env, ip, ehHash ? "hash" : "url", VT_LIMITE_DIA_IP[ts.modo], `vt-dia:${ip}`);
+        if (recusa) return json(request, { error: recusa.erro }, recusa.status);
       } catch {
         return json(request, { error: "servico_indisponivel" }, 503);
       }
@@ -314,6 +324,12 @@ export default {
     }
     const pollMatch = url.pathname.match(/^\/url\/([A-Za-z0-9_=-]{1,200})$/);
     if (request.method === "GET" && pollMatch) {
+      try {
+        const recusa = await cobrarVt(env, ip, "poll", VT_LIMITE_POLL_DIA_IP, `vt-poll-dia:${ip}`);
+        if (recusa) return json(request, { error: recusa.erro }, recusa.status);
+      } catch {
+        return json(request, { error: "servico_indisponivel" }, 503);
+      }
       return handleUrlPoll(request, env, pollMatch[1]);
     }
 
@@ -321,6 +337,6 @@ export default {
   },
 
   async scheduled(event, env, ctx) {
-    ctx.waitUntil(limparHistorico(env));
+    await limparHistorico(env);
   },
 };

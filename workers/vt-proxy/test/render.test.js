@@ -39,3 +39,83 @@ test("coletarEstatico: laco de redirecionamentos para", async (t) => {
   simularRede(t, redirecionador("https://loja.com.br/"));
   await assert.rejects(coletarEstatico(new Orcamento(60), "https://loja.com.br/", new Set(["loja.com.br"])), /redirecionamentos_demais/);
 });
+
+import { renderizar } from "../src/sitesecure/render.js";
+
+function navegadorFalso({ navegacoes = ["https://loja.com.br/"], subrecursos = [] } = {}) {
+  const estado = { fechado: false, continuadas: [], abortadas: [] };
+  const principal = {};
+  const filhos = {};
+  const page = {
+    handlers: [],
+    mainFrame: () => principal,
+    frames: () => [principal],
+    setViewport: async () => {},
+    setRequestInterception: async (v) => { estado.interceptando = v; },
+    on(ev, fn) { if (ev === "request") this.handlers.push(fn); },
+    url: () => navegacoes.at(-1),
+    evaluate: async () => ({ titulo: "Loja", links: [], iframes: [], cartao: false, texto: "oi", headerTexto: "", footerTexto: "", temHeader: false, temFooter: false }),
+    async goto() {
+      const pedidos = [...navegacoes.map((u) => ({ u, nav: true })), ...subrecursos.map((u) => ({ u, nav: false }))];
+      for (const { u, nav } of pedidos) {
+        const req = {
+          url: () => u,
+          isNavigationRequest: () => nav,
+          frame: () => (nav ? principal : filhos),
+          continue: async () => { estado.continuadas.push(u); },
+          abort: async () => { estado.abortadas.push(u); },
+        };
+        this.handlers.forEach((h) => h(req));
+        await new Promise((r) => setTimeout(r, 5));
+      }
+      if (estado.abortadas.some((u) => navegacoes.includes(u))) throw new Error("net::ERR_BLOCKED_BY_CLIENT");
+      return { status: () => 200, headers: () => ({}), securityDetails: () => null, request: () => ({ redirectChain: () => navegacoes.slice(0, -1).map((url) => ({ url: () => url })) }) };
+    },
+  };
+  const puppeteer = { launch: async () => ({ newPage: async () => page, close: async () => { estado.fechado = true; } }) };
+  return { puppeteer, estado };
+}
+
+const opcoes = (puppeteer, extra = {}) => ({ puppeteer, esperaMs: 0, orcamento: new Orcamento(30), vistos: new Set(["loja.com.br"]), ...extra });
+
+test("renderizar: devolve a coleta do navegador, intercepta requisicoes e fecha o navegador", async (t) => {
+  simularRede(t, REDE);
+  const { puppeteer, estado } = navegadorFalso({ subrecursos: ["https://cdn.loja.com.br/app.js"] });
+  const coleta = await renderizar({ BROWSER: {} }, "https://loja.com.br/", opcoes(puppeteer));
+  assert.equal(coleta.modo, "navegador");
+  assert.equal(coleta.urlFinal, "https://loja.com.br/");
+  assert.equal(coleta.titulo, "Loja");
+  assert.equal(estado.interceptando, true);
+  assert.ok(coleta.requisicoes.includes("https://cdn.loja.com.br/app.js"));
+  assert.equal(estado.fechado, true);
+});
+
+test("renderizar: navegacao para host que resolve em IP privado e abortada e vira destinoProibido", async (t) => {
+  simularRede(t, REDE);
+  const { puppeteer, estado } = navegadorFalso({ navegacoes: ["https://loja.com.br/", "https://interno.exemplo.com.br/admin"] });
+  await assert.rejects(
+    renderizar({ BROWSER: {} }, "https://loja.com.br/", opcoes(puppeteer)),
+    (e) => e.destinoProibido === true && e.message === "ip_privado",
+  );
+  assert.deepEqual(estado.abortadas, ["https://interno.exemplo.com.br/admin"]);
+  assert.equal(estado.fechado, true, "o navegador fecha mesmo na falha");
+});
+
+test("renderizar: subrecurso para IP literal, rede interna ou porta fora do padrao e abortado sem DNS", async (t) => {
+  const chamadas = simularRede(t, REDE);
+  const ruins = ["http://169.254.169.254/latest", "http://localhost./x", "https://loja.com.br:8443/api", "ftp://loja.com.br/a"];
+  const { puppeteer, estado } = navegadorFalso({ subrecursos: [...ruins, "data:image/png;base64,AAAA", "https://cdn.loja.com.br/ok.js"] });
+  const coleta = await renderizar({ BROWSER: {} }, "https://loja.com.br/", opcoes(puppeteer));
+  assert.deepEqual(estado.abortadas, ruins);
+  assert.ok(estado.continuadas.includes("https://cdn.loja.com.br/ok.js"));
+  assert.ok(estado.continuadas.includes("data:image/png;base64,AAAA"));
+  assert.equal(coleta.modo, "navegador");
+  assert.ok(!chamadas.some((c) => c.includes("cdn.loja.com.br")), "subrecurso nao gasta DNS");
+});
+
+test("renderizar: cadeia de navegacoes longa demais e abortada", async (t) => {
+  simularRede(t, (url) => REDE(url));
+  const navegacoes = Array.from({ length: 8 }, () => "https://loja.com.br/");
+  const { puppeteer } = navegadorFalso({ navegacoes });
+  await assert.rejects(renderizar({ BROWSER: {} }, "https://loja.com.br/", opcoes(puppeteer)), (e) => e.message === "redirecionamentos_demais");
+});

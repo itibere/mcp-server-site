@@ -150,3 +150,13 @@ test("detectarPagamento: formulario de cartao liga plataforma mesmo sem gateway"
   assert.equal(r.plataforma, true);
   assert.equal(r.formularioCartao, true);
 });
+
+test("detectarPagamento: gateways brasileiros novos e dominio parecido nao casam", async () => {
+  const { detectarPagamento } = await import("../src/sitesecure/pagamento.js");
+  const uso = (...hosts) => detectarPagamento({ requisicoes: hosts.map((h) => `https://${h}/x.js`), texto: "", cartao: false });
+  for (const h of ["checkout.sejaefi.com.br", "www.paghiper.com", "api.ebanx.com", "yapay.com.br", "dashboard.zoop.com.br", "js.sumup.com", "checkout.infinitepay.io", "mpago.la", "http2.mlstatic.com"]) {
+    assert.equal(uso(h).plataforma, true, h);
+  }
+  assert.equal(uso("sumup.com.golpe.xyz").plataforma, false);
+  assert.equal(uso("meuebanx.com").plataforma, false);
+});

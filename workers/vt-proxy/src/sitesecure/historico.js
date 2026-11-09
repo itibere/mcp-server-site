@@ -5,10 +5,12 @@
 // Nenhum IP. A data e so o dia (Brasilia), sem hora. Linhas com mais de 12 meses
 // sao apagadas por limparHistorico (cron diario, ver wrangler.toml).
 // Sem o binding (dev local, testes), nao faz nada.
-import { hostDe } from "./util.js";
+import { hostDe, resumoErro } from "./util.js";
 import { ROTULO_INCOMPLETA } from "./nota.js";
 
 const RETENCAO_MESES = 12;
+const LOTE_LIMPEZA = 5000;
+const MAX_LOTES = 10;
 const HORA = 3600_000;
 
 export function diaBR(agora = Date.now()) {
@@ -17,7 +19,11 @@ export function diaBR(agora = Date.now()) {
 
 export function diaLimiteRetencao(agora = Date.now()) {
   const d = new Date(agora - 3 * HORA);
+  const dia = d.getUTCDate();
+  d.setUTCDate(1);
   d.setUTCMonth(d.getUTCMonth() - RETENCAO_MESES);
+  // 29/fev vira 28/fev do ano sem bissexto, em vez de transbordar para 1/mar.
+  d.setUTCDate(Math.min(dia, new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 0)).getUTCDate()));
   return d.toISOString().slice(0, 10);
 }
 
@@ -60,12 +66,26 @@ export async function registrarConsulta(env, laudo, opcoes) {
   }
 }
 
-// Apaga o que passou da retencao. Chamada pelo cron diario.
+// Apaga o que passou da retencao, em lotes (cada linha apagada conta como
+// varias escritas no D1). Chamada pelo cron diario; o que sobrar do teto de
+// lotes sai na proxima execucao. Em falha, registra e relanca: o cron precisa
+// aparecer como falho no painel.
 export async function limparHistorico(env, agora = Date.now()) {
   if (!env.HISTORICO) return;
+  const corte = diaLimiteRetencao(agora);
+  let apagadas = 0;
   try {
-    await env.HISTORICO.prepare("DELETE FROM consultas WHERE em < ?").bind(diaLimiteRetencao(agora)).run();
+    for (let lote = 0; lote < MAX_LOTES; lote++) {
+      const r = await env.HISTORICO.prepare(
+        "DELETE FROM consultas WHERE id IN (SELECT id FROM consultas WHERE em < ? ORDER BY em LIMIT ?)",
+      ).bind(corte, LOTE_LIMPEZA).run();
+      const n = r?.meta?.changes ?? 0;
+      apagadas += n;
+      if (n < LOTE_LIMPEZA) return;
+    }
+    console.log(JSON.stringify({ evento: "limpeza_historico_parcial", apagadas, corte }));
   } catch (err) {
-    console.log(JSON.stringify({ evento: "limpeza_historico_falhou", erro: String(err?.message || err).slice(0, 120) }));
+    console.log(JSON.stringify({ evento: "limpeza_historico_falhou", apagadas, corte, ...resumoErro(err) }));
+    throw err;
   }
 }
