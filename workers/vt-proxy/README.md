@@ -120,6 +120,9 @@ Sem Chrome (o baixado pelo wrangler pode ser barrado por antivírus), use `SEM_N
 - `POST /url` `{ url }` devolve `{ done, status, message }` ou `{ queued: true, analysis_id }`.
 - `GET /url/:analysis_id` devolve `{ done: false }` ou `{ done: true, status, message }`.
 - `POST /sitesecure/analisar` `{ url?, pix?, turnstile }` devolve NDJSON com um evento por etapa e, no fim, `{etapa:"laudo", laudo}` ou `{etapa:"erro", erro}`.
+  - Recusas de entrada e de acesso vêm com o status HTTP real (400 `corpo_invalido`, `url_invalida`, `pix_invalido`; 403 `verificacao_humana`; 413 `corpo_grande`; 429 `rate_limit_excedido`, `limite_diario`, `bloqueado`; 503 `teto_diario`, `servico_indisponivel`) e corpo `{etapa:"erro", erro, tentarEm}`. O front lê o status e, quando o corpo não é JSON, usa o status para escolher a mensagem.
+  - O laudo traz `notaRotulo` ("Parece segura", "Atenção", "Risco alto", "Análise incompleta"), `analiseIncompleta` e `fontesIndisponiveis`. O cache devolve só laudos, sem eventos de erro.
+- `POST /hash` e `POST /url` aceitam `turnstile` no corpo. O modo é `TURNSTILE_VT_MODO` (hoje `observar`: confere e registra, não bloqueia). Erros em `{ error }` com status HTTP: 400, 403 `verificacao_humana`, 413, 429 `rate_limit_excedido` ou `limite_diario`, 503 `teto_diario`, `servico_indisponivel` ou `quota_excedida`. A consulta de andamento `GET /url/:id` conta no mesmo limite por minuto, e por isso o front consulta a cada 6 s.
 
 ---
 

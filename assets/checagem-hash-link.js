@@ -3,6 +3,67 @@ if (anoEl) anoEl.textContent = new Date().getFullYear();
 
 const API_BASE = "https://api.itibere.tec.br";
 
+const LOCAL = ['localhost', '127.0.0.1'].includes(location.hostname);
+const TURNSTILE_SITEKEY = LOCAL ? '1x00000000000000000000AA' : '0x4AAAAAAFHu40JzGk0ox6vd';
+let turnstileId = null;
+
+(function iniciarTurnstile(tentativas) {
+  const caixa = document.getElementById('caixa-turnstile');
+  if (!caixa) return;
+  if (typeof window.turnstile?.render === 'function') {
+    turnstileId = window.turnstile.render('#caixa-turnstile', { sitekey: TURNSTILE_SITEKEY, theme: 'dark', size: 'flexible', action: 'vt', language: 'pt-br' });
+  } else if ((tentativas || 0) < 40) {
+    setTimeout(() => iniciarTurnstile((tentativas || 0) + 1), 250);
+  } else {
+    caixa.textContent = 'A verificação de segurança não carregou. Desative bloqueadores de anúncio para este site e recarregue a página.';
+    caixa.className = 'text-sm text-amber-300';
+  }
+})();
+
+function tokenTurnstile() {
+  try {
+    return turnstileId != null ? window.turnstile.getResponse(turnstileId) || '' : '';
+  } catch {
+    return '';
+  }
+}
+
+function renovarTurnstile() {
+  try {
+    if (turnstileId != null) window.turnstile.reset(turnstileId);
+  } catch {
+    turnstileId = null;
+  }
+}
+
+const ERROS = {
+  quota_excedida: 'Limite diário de consultas ao VirusTotal atingido. Tente novamente mais tarde.',
+  erro_virustotal: 'O VirusTotal não respondeu agora. Tente novamente em alguns minutos.',
+  verificacao_humana: 'A verificação de segurança (a caixinha abaixo dos campos) não terminou ou falhou. Espere ela ficar marcada e tente de novo. Se ela não aparecer, desative bloqueadores de anúncio para este site.',
+  rate_limit_excedido: 'Muitas consultas em pouco tempo. Aguarde um minuto e tente de novo.',
+  limite_diario: 'Você já usou todas as consultas de hoje. Volte amanhã.',
+  teto_diario: 'A ferramenta atingiu o limite de consultas de hoje. Volte amanhã.',
+  servico_indisponivel: 'O serviço está temporariamente indisponível. Tente de novo em alguns minutos.',
+  corpo_grande: 'O texto enviado é grande demais. Cole só o hash ou o link.',
+  corpo_invalido: 'Não foi possível ler o que foi enviado. Recarregue a página e tente de novo.',
+  hash_invalido: 'Isso não parece um hash MD5, SHA-1, SHA-256 ou SHA-512 válido.',
+  url_invalida: 'Esse link não é válido. Cole o endereço completo, começando com https://',
+};
+const ERRO_PADRAO = 'Não foi possível completar a consulta agora. Tente novamente mais tarde.';
+const ERRO_POR_STATUS = { 400: 'corpo_invalido', 403: 'verificacao_humana', 413: 'corpo_grande', 429: 'rate_limit_excedido', 503: 'servico_indisponivel' };
+
+async function lerResposta(res) {
+  try {
+    return await res.json();
+  } catch {
+    return { error: ERRO_POR_STATUS[res.status] || 'erro_desconhecido' };
+  }
+}
+
+function mensagemErro(codigo) {
+  return ERROS[codigo] || ERRO_PADRAO;
+}
+
 const HASH_RE = /^[a-fA-F0-9]{32}$|^[a-fA-F0-9]{40}$|^[a-fA-F0-9]{64}$|^[a-fA-F0-9]{128}$/;
 
 const viewForm = document.getElementById('view-form');
@@ -103,8 +164,6 @@ document.getElementById('result-reset').addEventListener('click', () => {
   showForm();
 });
 
-// --- Hash ---
-
 function validateHash() {
   const value = hashInput.value.trim();
   if (!value) {
@@ -156,13 +215,11 @@ hashSubmit.addEventListener('click', async () => {
     const res = await fetch(API_BASE + '/hash', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ hash }),
+      body: JSON.stringify({ hash, turnstile: tokenTurnstile() || undefined }),
     });
-    const data = await res.json();
-    if (data.error === 'quota_excedida') {
-      showResult('erro', 'Limite diário de consultas ao VirusTotal atingido. Tente novamente mais tarde.');
-    } else if (data.error) {
-      showResult('erro', 'Não foi possível completar a consulta agora. Tente novamente mais tarde.');
+    const data = await lerResposta(res);
+    if (data.error) {
+      showResult('erro', mensagemErro(data.error));
     } else if (data.found === false) {
       showResult('erro', 'Hash não encontrado na base do VirusTotal — arquivo desconhecido, não foi possível confirmar se é seguro.');
     } else {
@@ -170,10 +227,10 @@ hashSubmit.addEventListener('click', async () => {
     }
   } catch {
     showResult('erro', 'Falha de conexão com o serviço de verificação. Tente novamente mais tarde.');
+  } finally {
+    renovarTurnstile();
   }
 });
-
-// --- URL ---
 
 function validateUrl() {
   const value = urlInput.value.trim();
@@ -201,21 +258,25 @@ urlInput.addEventListener('input', validateUrl);
 
 async function pollUrlAnalysis(analysisId, attempt) {
   attempt = attempt || 0;
-  if (attempt > 40) {
+  if (attempt > 24) {
     showResult('erro', 'A análise demorou mais que o esperado. Tente novamente mais tarde.');
     return;
   }
   try {
     const res = await fetch(API_BASE + '/url/' + encodeURIComponent(analysisId));
-    const data = await res.json();
+    const data = await lerResposta(res);
+    if (data.error === 'rate_limit_excedido') {
+      setTimeout(() => pollUrlAnalysis(analysisId, attempt + 1), 15000);
+      return;
+    }
     if (data.error) {
-      showResult('erro', 'Não foi possível completar a consulta agora. Tente novamente mais tarde.');
+      showResult('erro', mensagemErro(data.error));
       return;
     }
     if (data.done) {
       showResult(data.status, data.message, data.motivos, data.resumo);
     } else {
-      setTimeout(() => pollUrlAnalysis(analysisId, attempt + 1), 3000);
+      setTimeout(() => pollUrlAnalysis(analysisId, attempt + 1), 6000);
     }
   } catch {
     showResult('erro', 'Falha de conexão com o serviço de verificação. Tente novamente mais tarde.');
@@ -231,20 +292,22 @@ urlSubmit.addEventListener('click', async () => {
     const res = await fetch(API_BASE + '/url', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url }),
+      body: JSON.stringify({ url, turnstile: tokenTurnstile() || undefined }),
     });
-    const data = await res.json();
-    if (data.error === 'quota_excedida') {
-      showResult('erro', 'Limite diário de consultas ao VirusTotal atingido. Tente novamente mais tarde.');
-    } else if (data.error) {
-      showResult('erro', 'Não foi possível completar a consulta agora. Tente novamente mais tarde.');
+    const data = await lerResposta(res);
+    if (data.error) {
+      showResult('erro', mensagemErro(data.error));
     } else if (data.queued) {
       loadingDetail.textContent = 'Análise em andamento, isso pode levar até 2 minutos...';
       pollUrlAnalysis(data.analysis_id);
     } else if (data.done) {
       showResult(data.status, data.message, data.motivos, data.resumo);
+    } else {
+      showResult('erro', ERRO_PADRAO);
     }
   } catch {
     showResult('erro', 'Falha de conexão com o serviço de verificação. Tente novamente mais tarde.');
+  } finally {
+    renovarTurnstile();
   }
 });

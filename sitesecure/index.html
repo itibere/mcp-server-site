@@ -46,16 +46,17 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
       <a href="../" class="flex items-center gap-2 text-sm font-mono-code group hover:no-underline">
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#10b981]"></span>
-        <span class="text-emerald-400 font-semibold">itibere</span><span class="text-slate-500">@</span><span class="text-cyan-400">bsb-infra</span><span class="text-slate-500">:~#</span>
+        <span class="text-emerald-400 font-semibold">itibere</span><span class="text-slate-400" aria-hidden="true">@</span><span class="text-cyan-400">bsb-infra</span><span class="text-slate-400" aria-hidden="true">:~#</span>
         <span class="text-slate-300 group-hover:text-emerald-300 transition">sitesecure</span>
-        <span class="inline-block w-2 h-4 bg-emerald-400/80 animate-blink ml-0.5"></span>
+        <span class="inline-block w-2 h-4 bg-emerald-400/80 animate-blink ml-0.5" aria-hidden="true"></span>
       </a>
     </div>
   </header>
 
   <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-10">
 
-    <!-- HERO + FORM -->
+    <div id="anuncio" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+
     <section id="view-form" class="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-[#0a0e1a] via-[#0d1424] to-[#0d1a1a] p-6 sm:p-10 relative overflow-hidden glow-emerald space-y-6">
       <div class="absolute -right-16 -top-16 w-72 h-72 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
       <div class="relative z-10 space-y-3">
@@ -70,24 +71,30 @@
       </div>
 
       <form id="form" class="relative z-10 space-y-4" novalidate>
-        <label for="url-input" class="sr-only">Link do site ou PIX copia-e-cola</label>
+        <label for="url-input" class="block text-sm font-semibold text-slate-100">Cole aqui o link do site ou o PIX copia-e-cola</label>
         <div class="flex flex-col sm:flex-row gap-3">
-          <input id="url-input" type="text" autocomplete="off" spellcheck="false" placeholder="https://loja-exemplo.com.br ou 00020126…"
-            class="flex-1 min-w-0 rounded-lg bg-slate-900/70 border border-slate-700 px-4 py-3 text-sm font-mono-code text-slate-100 placeholder:text-slate-600 focus:outline-none focus:border-emerald-500/60">
-          <button type="submit" id="submit" class="px-6 py-3 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-sm font-semibold font-mono-code hover:bg-emerald-500/25 transition disabled:opacity-40 disabled:cursor-not-allowed">Verificar</button>
+          <input id="url-input" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="https://loja-exemplo.com.br ou 00020126…"
+            class="flex-1 min-w-0 min-h-[44px] rounded-lg bg-slate-900/70 border border-slate-600 px-4 py-3 text-sm font-mono-code text-slate-100 placeholder:text-slate-400 focus:border-emerald-500/60">
+          <button type="submit" id="submit" class="min-h-[44px] px-6 py-3 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-sm font-semibold font-mono-code hover:bg-emerald-500/25 transition disabled:opacity-40 disabled:cursor-not-allowed">Verificar</button>
         </div>
-        <!-- Cloudflare Turnstile (anti-robô), renderizado por sitesecure.js -->
-        <div id="caixa-turnstile" class="min-h-[65px]"></div>
-        <p id="form-erro" class="text-xs text-red-400 hidden" role="alert"></p>
-        <p class="text-[11px] text-slate-500 leading-relaxed">
-          Ao enviar, você concorda com os <a href="../termos.html" class="underline hover:text-slate-300">Termos de Uso</a> e o <a href="../privacidade.html" class="underline hover:text-slate-300">Aviso de Privacidade</a>. O endereço é consultado em bases públicas de reputação (VirusTotal, Google Safe Browsing, URLhaus). Limite de 5 análises a cada 10 minutos e 20 por dia; o mesmo link ou PIX consultado de novo em até 1 hora mostra o resultado guardado.
+        <div class="space-y-1">
+          <p class="text-sm text-slate-300">Sem um link à mão? Teste com um exemplo:</p>
+          <div class="flex flex-wrap gap-x-2 gap-y-1">
+            <button type="button" data-exemplo="https://www.gov.br" class="alvo-toque px-3 rounded-lg border border-slate-600 text-sm font-mono-code text-cyan-300 hover:border-cyan-400/70 transition">www.gov.br</button>
+            <button type="button" data-exemplo="https://pt.wikipedia.org" class="alvo-toque px-3 rounded-lg border border-slate-600 text-sm font-mono-code text-cyan-300 hover:border-cyan-400/70 transition">pt.wikipedia.org</button>
+            <button type="button" data-exemplo="00020126580014br.gov.bcb.pix0136123e4567-e89b-12d3-a456-4266554400005204000053039865802BR5912Loja Exemplo6009Sao Paulo62070503***63042D9A" class="alvo-toque px-3 rounded-lg border border-slate-600 text-sm font-mono-code text-cyan-300 hover:border-cyan-400/70 transition">PIX de exemplo (fictício)</button>
+          </div>
+        </div>
+        <div id="caixa-turnstile" class="min-h-[65px]" role="group" aria-label="Verificação de segurança"></div>
+        <p id="form-erro" class="text-sm text-red-400 hidden" role="alert"></p>
+        <p class="text-[13px] text-slate-400 leading-relaxed">
+          Ao enviar, você concorda com os <a href="../termos.html" class="underline hover:text-slate-200">Termos de Uso</a> e o <a href="../privacidade.html" class="underline hover:text-slate-200">Aviso de Privacidade</a>. O endereço é consultado em bases públicas de reputação (VirusTotal, Google Safe Browsing, URLhaus). Limite de 5 análises a cada 10 minutos e 20 por dia; o mesmo link ou PIX consultado de novo em até 1 hora mostra o resultado guardado.
         </p>
       </form>
     </section>
 
-    <!-- ANALISANDO -->
-    <section id="view-scan" class="hidden rounded-2xl border border-emerald-500/30 bg-[#05070c] p-6 sm:p-10 flex flex-col items-center gap-6" aria-live="polite">
-      <p class="scan-titulo font-mono-code text-emerald-300 font-bold tracking-[0.4em] text-lg sm:text-2xl">ANALISANDO<span class="animate-blink">_</span></p>
+    <section id="view-scan" class="hidden rounded-2xl border border-emerald-500/30 bg-[#05070c] p-6 sm:p-10 flex flex-col items-center gap-6">
+      <p id="scan-titulo" tabindex="-1" class="scan-titulo font-mono-code text-emerald-300 font-bold tracking-[0.4em] text-lg sm:text-2xl">ANALISANDO<span class="animate-blink" aria-hidden="true">_</span></p>
       <div class="scan-gif">
         <img src="../assets/hacker-scan.gif?v=a99b7a77" alt="Animação de análise em andamento" width="300" height="300">
       </div>
@@ -95,18 +102,15 @@
       <ul id="scan-etapas" class="w-full max-w-md font-mono-code text-xs space-y-1.5"></ul>
     </section>
 
-    <!-- LAUDO -->
     <section id="view-laudo" class="hidden space-y-10">
-      <p id="laudo-aviso" class="hidden text-sm text-amber-300 rounded-xl border border-amber-500/40 bg-amber-950/30 p-4" role="alert"></p>
-      <!-- Um laudo por item analisado (site e/ou PIX), montados por sitesecure.js -->
+      <p id="laudo-aviso" class="hidden text-base text-amber-300 rounded-xl border border-amber-500/40 bg-amber-950/30 p-4" role="alert"></p>
       <div id="laudos" class="space-y-12"></div>
 
       <div class="flex flex-wrap gap-3">
-        <button type="button" id="nova" class="px-4 py-2 rounded-lg border border-slate-700 text-xs font-mono-code text-slate-300 hover:border-emerald-500/60 hover:text-emerald-300 transition">Fazer outra consulta</button>
+        <button type="button" id="nova" class="min-h-[44px] px-4 py-2 rounded-lg border border-slate-700 text-sm font-mono-code text-slate-300 hover:border-emerald-500/60 hover:text-emerald-300 transition">Fazer outra consulta</button>
       </div>
     </section>
 
-    <!-- METODOLOGIA -->
     <section class="rounded-2xl border border-slate-800 bg-[#090e17] p-6 sm:p-8 space-y-4 text-sm text-slate-300 leading-relaxed">
       <h2 class="text-lg font-bold text-white font-mono-code">Como a nota é calculada</h2>
       <ul class="space-y-2 list-disc list-inside marker:text-emerald-500">
@@ -115,34 +119,34 @@
         <li><strong class="text-slate-100">Segurança dos anúncios:</strong> redes de anúncio carregadas e para onde os anúncios levam. Anúncio para loja de boa reputação não pesa; para aposta, adulto ou rede de pop-up, pesa.</li>
         <li><strong class="text-slate-100">Identificação do responsável:</strong> quem hospeda o site, CNPJ no rodapé, situação na Receita Federal e se a razão social bate com o site.</li>
         <li><strong class="text-slate-100">Boas práticas oficiais:</strong> itens da Lei do E-commerce, do CDC, da LGPD, do NIST, da CISA e do OWASP que o site cumpre. Contam a favor e aliviam alertas leves, mas nunca anulam sinal de ameaça.</li>
-        <li><strong class="text-slate-100">Governo:</strong> domínios <code class="text-emerald-300">.gov.br</code>, <code class="text-emerald-300">.jus.br</code>, <code class="text-emerald-300">.leg.br</code>, <code class="text-emerald-300">.mp.br</code>, <code class="text-emerald-300">.mil.br</code> e <code class="text-emerald-300">.def.br</code> só podem ser registrados por órgão público. A identidade é confirmada, mas as checagens de ameaça continuam: site de governo invadido recebe nota Baixa. Endereço que imita serviço público sem ser governo também.</li>
+        <li><strong class="text-slate-100">Governo:</strong> domínios <code class="text-emerald-300">.gov.br</code>, <code class="text-emerald-300">.jus.br</code>, <code class="text-emerald-300">.leg.br</code>, <code class="text-emerald-300">.mp.br</code>, <code class="text-emerald-300">.mil.br</code> e <code class="text-emerald-300">.def.br</code> só podem ser registrados por órgão público. A identidade é confirmada, mas as checagens de ameaça continuam: site de governo invadido recebe nota Risco alto. Endereço que imita serviço público sem ser governo também.</li>
         <li><strong class="text-slate-100">PIX copia-e-cola:</strong> dígito de controle do código, titular da chave (CNPJ na Receita Federal; CPF indica pessoa física), endereço do QR dinâmico e instituição de pagamento, conferida na lista oficial de participantes do Pix do Banco Central. Instituição fora da lista pesa na nota. O ranking de reclamações do Banco Central aparece nos detalhes como observação e não altera a nota.</li>
-        <li><strong class="text-slate-100">Nota:</strong> qualquer bloco <span class="text-red-400">Baixo</span> deixa a nota Baixa; dois ou mais <span class="text-amber-300">Médio</span> deixam Média; o resto é <span class="text-emerald-300">Boa</span>.</li>
+        <li><strong class="text-slate-100">Nota:</strong> qualquer bloco <span class="text-red-400">Risco alto</span> deixa a nota <span class="text-red-400">Risco alto</span>; dois ou mais blocos <span class="text-amber-300">Atenção</span> deixam a nota <span class="text-amber-300">Atenção</span>; o resto é <span class="text-emerald-300">Parece segura</span>. Se uma fonte de ameaça essencial (VirusTotal, Google Safe Browsing ou URLhaus) estiver fora do ar, a nota vira <span class="text-violet-300">Análise incompleta</span> e nunca diz que o site parece seguro.</li>
       </ul>
       <h3 class="text-sm font-bold text-white font-mono-code pt-2">Limitações</h3>
-      <ul class="space-y-1 list-disc list-inside marker:text-slate-600 text-slate-400 text-xs">
+      <ul class="space-y-1 list-disc list-inside marker:text-slate-400 text-slate-300 text-sm">
         <li>Palo Alto Networks e Cisco Talos não têm consulta gratuita. Só aparecem quando estão entre os fornecedores do VirusTotal.</li>
         <li>O Reclame Aqui bloqueia leitura automática com frequência. Quando isso acontece, o laudo traz o link para conferir.</li>
         <li>PIX com chave aleatória não revela o titular (a base do Banco Central não é pública). Nesse caso só o nome do recebedor é comparado.</li>
         <li>O navegador usado para ver as propagandas tem cota diária. Sem cota, a análise lê só o HTML e avisa.</li>
-        <li>Nota Boa não é garantia. Ela diz que nenhum sinal de risco foi encontrado nas fontes consultadas.</li>
+        <li>A nota "Parece segura" não é garantia. Ela diz que nenhum sinal de risco foi encontrado nas fontes consultadas.</li>
       </ul>
       <h3 class="text-sm font-bold text-white font-mono-code pt-2">Fontes</h3>
-      <ul class="space-y-1 text-xs text-slate-400">
-        <li><a class="underline hover:text-slate-200" href="https://www.nist.gov/cyberframework" rel="noopener">NIST Cybersecurity Framework 2.0</a></li>
-        <li><a class="underline hover:text-slate-200" href="https://csrc.nist.gov/pubs/sp/800/52/r2/final" rel="noopener">NIST SP 800-52 Rev. 2 (TLS)</a></li>
-        <li><a class="underline hover:text-slate-200" href="https://csrc.nist.gov/pubs/sp/800/177/r1/final" rel="noopener">NIST SP 800-177 Rev. 1 (e-mail confiável: SPF, DMARC, DNSSEC)</a></li>
-        <li><a class="underline hover:text-slate-200" href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final" rel="noopener">NIST SP 800-53 Rev. 5 (SC-8, SC-23)</a></li>
-        <li><a class="underline hover:text-slate-200" href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm" rel="noopener">Decreto 7.962/2013 (comércio eletrônico)</a></li>
-        <li><a class="underline hover:text-slate-200" href="https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm" rel="noopener">Código de Defesa do Consumidor, art. 49</a></li>
-        <li><a class="underline hover:text-slate-200" href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" rel="noopener">LGPD (Lei 13.709/2018), art. 9º</a></li>
-        <li><a class="underline hover:text-slate-200" href="https://www.cisa.gov/news-events/directives/bod-18-01-enhance-email-and-web-security" rel="noopener">CISA BOD 18-01 (HTTPS, HSTS, DMARC)</a></li>
-        <li><a class="underline hover:text-slate-200" href="https://owasp.org/www-project-secure-headers/" rel="noopener">OWASP Secure Headers Project</a></li>
-        <li><a class="underline hover:text-slate-200" href="https://www.rfc-editor.org/rfc/rfc9116" rel="noopener">RFC 9116 (security.txt)</a> e <a class="underline hover:text-slate-200" href="https://www.rfc-editor.org/rfc/rfc8659" rel="noopener">RFC 8659 (CAA)</a></li>
-        <li><a class="underline hover:text-slate-200" href="https://radar.cloudflare.com/domains" rel="noopener">Cloudflare Radar: ranking de domínios</a></li>
-        <li><a class="underline hover:text-slate-200" href="https://www.bcb.gov.br/estabilidadefinanceira/pix" rel="noopener">Banco Central: Manual do BR Code (PIX)</a></li>
-        <li><a class="underline hover:text-slate-200" href="https://dadosabertos.bcb.gov.br/dataset/ranking-de-instituicoes-por-indice-de-reclamacoes" rel="noopener">Banco Central: ranking de instituições por índice de reclamações</a></li>
-        <li><a class="underline hover:text-slate-200" href="https://www.gov.br/fazenda/pt-br/composicao/orgaos/secretaria-de-premios-e-apostas" rel="noopener">Secretaria de Prêmios e Apostas (MF): apostas autorizadas em .bet.br</a></li>
+      <ul class="space-y-1 text-sm text-slate-300">
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://www.nist.gov/cyberframework" rel="noopener">NIST Cybersecurity Framework 2.0</a></li>
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://csrc.nist.gov/pubs/sp/800/52/r2/final" rel="noopener">NIST SP 800-52 Rev. 2 (TLS)</a></li>
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://csrc.nist.gov/pubs/sp/800/177/r1/final" rel="noopener">NIST SP 800-177 Rev. 1 (e-mail confiável: SPF, DMARC, DNSSEC)</a></li>
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final" rel="noopener">NIST SP 800-53 Rev. 5 (SC-8, SC-23)</a></li>
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm" rel="noopener">Decreto 7.962/2013 (comércio eletrônico)</a></li>
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm" rel="noopener">Código de Defesa do Consumidor, art. 49</a></li>
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" rel="noopener">LGPD (Lei 13.709/2018), art. 9º</a></li>
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://www.cisa.gov/news-events/directives/bod-18-01-enhance-email-and-web-security" rel="noopener">CISA BOD 18-01 (HTTPS, HSTS, DMARC)</a></li>
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://owasp.org/www-project-secure-headers/" rel="noopener">OWASP Secure Headers Project</a></li>
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://www.rfc-editor.org/rfc/rfc9116" rel="noopener">RFC 9116 (security.txt)</a> e <a class="underline hover:text-slate-100 inline-block py-2" href="https://www.rfc-editor.org/rfc/rfc8659" rel="noopener">RFC 8659 (CAA)</a></li>
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://radar.cloudflare.com/domains" rel="noopener">Cloudflare Radar: ranking de domínios</a></li>
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://www.bcb.gov.br/estabilidadefinanceira/pix" rel="noopener">Banco Central: Manual do BR Code (PIX)</a></li>
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://dadosabertos.bcb.gov.br/dataset/ranking-de-instituicoes-por-indice-de-reclamacoes" rel="noopener">Banco Central: ranking de instituições por índice de reclamações</a></li>
+        <li><a class="underline hover:text-slate-100 inline-block py-2" href="https://www.gov.br/fazenda/pt-br/composicao/orgaos/secretaria-de-premios-e-apostas" rel="noopener">Secretaria de Prêmios e Apostas (MF): apostas autorizadas em .bet.br</a></li>
       </ul>
     </section>
 
@@ -154,12 +158,12 @@
         <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
         <span>© <span id="ano">2026</span> Itiberê Paquier · itibere.tec.br</span>
       </div>
-      <div class="flex items-center gap-6 text-slate-400">
-        <a href="../" class="hover:text-amber-400 transition">Projetos</a>
-        <a href="../sobre.html" class="hover:text-white transition">Sobre</a>
-        <a href="../termos.html" class="hover:text-white transition">Termos</a>
-        <a href="../privacidade.html" class="hover:text-white transition">Privacidade</a>
-        <a href="mailto:itibere.paquier@gmail.com" class="hover:text-cyan-400 transition">E-mail</a>
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-1 text-slate-400">
+        <a href="../" class="alvo-toque hover:text-amber-400 transition">Projetos</a>
+        <a href="../sobre.html" class="alvo-toque hover:text-white transition">Sobre</a>
+        <a href="../termos.html" class="alvo-toque hover:text-white transition">Termos</a>
+        <a href="../privacidade.html" class="alvo-toque hover:text-white transition">Privacidade</a>
+        <a href="mailto:itibere.paquier@gmail.com" class="alvo-toque hover:text-cyan-400 transition">E-mail</a>
       </div>
     </div>
   </footer>
