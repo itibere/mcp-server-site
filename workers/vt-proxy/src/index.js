@@ -410,7 +410,6 @@ export default {
       return handleUrlSubmit(request, env, entrada.parsed, {
         gastar: () => gastarVt(env, "url"),
         registrarId: async (id) => {
-          if (!env.RATE_LIMITER_DO) return;
           await chamarId(env, id, "/id/registrar", await hashDoIp(ip)).catch(() => {});
         },
       });
@@ -418,15 +417,13 @@ export default {
     const pollMatch = url.pathname.match(/^\/url\/([A-Za-z0-9_=-]{1,200})$/);
     if (request.method === "GET" && pollMatch) {
       try {
-        {
-          const consulta = await chamarId(env, pollMatch[1], "/id/consultar", await hashDoIp(ip));
-          if (!consulta.ok) {
-            return consulta.motivo === "limite"
-              ? json(request, { error: "limite_consultas" }, 429)
-              : json(request, { error: "not_found" }, 404);
-          }
-          if (!consulta.chamarVt) return json(request, { done: false });
+        const consulta = await chamarId(env, pollMatch[1], "/id/consultar", await hashDoIp(ip));
+        if (!consulta.ok) {
+          return consulta.motivo === "limite"
+            ? json(request, { error: "limite_consultas" }, 429)
+            : json(request, { error: "not_found" }, 404);
         }
+        if (!consulta.chamarVt) return json(request, { done: false });
         const recusa = await gastarVt(env, "url");
         if (recusa) return json(request, { error: recusa.erro }, recusa.status);
       } catch {
