@@ -95,7 +95,7 @@ const resposta = (obj) => new Response(JSON.stringify(obj), { headers: { "Conten
 export { RateLimiterDO };
 
 async function checarLimite(env, chave, limite, janelaMs, peso = 1) {
-  if (!env.RATE_LIMITER_DO) return true; // fail-open se o binding faltar
+  if (!env.RATE_LIMITER_DO) throw new Error("limitador_indisponivel");
   const id = env.RATE_LIMITER_DO.idFromName(chave);
   const stub = env.RATE_LIMITER_DO.get(id);
   const params = limite ? `?limite=${limite}&janela=${janelaMs}&peso=${peso}` : "";
@@ -418,7 +418,7 @@ export default {
     const pollMatch = url.pathname.match(/^\/url\/([A-Za-z0-9_=-]{1,200})$/);
     if (request.method === "GET" && pollMatch) {
       try {
-        if (env.RATE_LIMITER_DO) {
+        {
           const consulta = await chamarId(env, pollMatch[1], "/id/consultar", await hashDoIp(ip));
           if (!consulta.ok) {
             return consulta.motivo === "limite"

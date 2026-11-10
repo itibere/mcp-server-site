@@ -323,7 +323,8 @@ export async function handleAnalisar(request, env, ctx, cors, ip, ipBruto = ip) 
   const entrada = validarEntrada(corpo);
   if (entrada.erro) return recusa(entrada.erro, 0, 400);
 
-  const comGuarda = !!env.SITESECURE_DO;
+  if (!env.SITESECURE_DO) return recusa("servico_indisponivel", 60, 503);
+  const comGuarda = true;
   const tentar = async (fn, padrao) => {
     try {
       return await fn();
@@ -334,7 +335,12 @@ export async function handleAnalisar(request, env, ctx, cors, ip, ipBruto = ip) 
 
   let chave = null;
   if (comGuarda) {
-    const estado = await tentar(() => guarda.estadoIp(env, ip), { bloqueado: false });
+    let estado;
+    try {
+      estado = await guarda.estadoIp(env, ip);
+    } catch {
+      return recusa("servico_indisponivel", 60, 503);
+    }
     if (estado.bloqueado) return recusa("bloqueado", estado.tentarEm, 429);
   }
 

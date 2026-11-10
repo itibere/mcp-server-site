@@ -198,8 +198,17 @@ test("falha interna nao expõe a mensagem do erro", async (t) => {
   assert.equal(usoDoGlobal(b), 0, "sem laudo, o teto e devolvido");
 });
 
-test("sem binding da guarda (dev local) a analise segue sem cota", async (t) => {
+test("sem binding da guarda a analise falha fechada com 503", async (t) => {
   simularRede(t, dns({}));
   const r = await chamar({ url: "https://naoexiste.com.br/" }, {});
-  assert.equal(r.evs.at(-1).erro, "dominio_nao_resolve");
+  assert.equal(r.status, 503);
+  assert.equal(r.evs.at(-1).erro, "servico_indisponivel");
+});
+
+test("falha do Durable Object ao ler o estado do IP: 503, sem liberar", async (t) => {
+  simularRede(t, dns({}));
+  const quebrado = { idFromName: (n) => n, get: () => ({ fetch: async () => { throw new Error("boom"); } }) };
+  const r = await chamar({ url: "https://naoexiste.com.br/" }, { SITESECURE_DO: quebrado });
+  assert.equal(r.status, 503);
+  assert.equal(r.evs.at(-1).erro, "servico_indisponivel");
 });

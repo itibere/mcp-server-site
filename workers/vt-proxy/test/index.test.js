@@ -275,3 +275,50 @@ test("scheduled: falha da limpeza e relancada para o cron constar como falho", a
   await assert.rejects(worker.scheduled({}, env, contexto()), /d1 fora/);
   assert.ok(logs.some((l) => l.includes("limpeza_historico_falhou")));
 });
+
+const chamarIp = (ip, env, caminho = "/hash") => chamar(caminho, { hash: HASH }, env, { headers: { "CF-Connecting-IP": ip } });
+
+test("IPv6 abreviado e expandido do mesmo /64 compartilham a cota diaria", async (t) => {
+  simularRede(t, vt);
+  const limitador = bindingLimitador();
+  const env = { RATE_LIMITER_DO: limitador };
+  assert.equal((await chamarIp("2804:14c:1234:5678::1", env)).status, 200);
+  assert.equal((await chamarIp("2804:014C:1234:5678:AAAA:bbbb:0:2", env)).status, 200);
+  assert.equal(limitador.objetos.get("vt-dia:v6:2804:14c:1234:5678")?.armazenamento.dados.get("contador")?.contagem, 2);
+});
+
+test("IPv6 de /64 diferentes tem cotas separadas", async (t) => {
+  simularRede(t, vt);
+  const limitador = bindingLimitador();
+  const env = { RATE_LIMITER_DO: limitador };
+  await chamarIp("2804:14c:1234:5678::1", env);
+  await chamarIp("2804:14c:1234:5679::1", env);
+  assert.equal(limitador.objetos.get("vt-dia:v6:2804:14c:1234:5678").armazenamento.dados.get("contador").contagem, 1);
+  assert.equal(limitador.objetos.get("vt-dia:v6:2804:14c:1234:5679").armazenamento.dados.get("contador").contagem, 1);
+});
+
+test("IPv4 mapeado em IPv6 conta como o proprio IPv4", async (t) => {
+  simularRede(t, vt);
+  const limitador = bindingLimitador();
+  const env = { RATE_LIMITER_DO: limitador };
+  await chamarIp("::ffff:203.0.113.9", env);
+  await chamarIp("203.0.113.9", env);
+  await chamarIp("::FFFF:cb00:7109", env);
+  assert.equal(diaDoIp(limitador), 3);
+});
+
+test("sem binding do limitador: 503 servico_indisponivel em /hash e /url", async (t) => {
+  simularRede(t, vt);
+  const r = await chamar("/hash", { hash: HASH }, {});
+  assert.equal(r.status, 503);
+  assert.deepEqual(await r.json(), { error: "servico_indisponivel" });
+  const u = await chamar("/url", { url: "https://exemplo.com.br/" }, {});
+  assert.equal(u.status, 503);
+  const g = await chamar(POLL("u-abc"), null, {}, { metodo: "GET" });
+  assert.equal(g.status, 503);
+});
+
+test("sem binding do limitador: OPTIONS e rota desconhecida nao dependem dele", async () => {
+  const o = await worker.fetch(new Request("https://api.itibere.tec.br/hash", { method: "OPTIONS" }), {}, contexto());
+  assert.equal(o.status, 204);
+});
